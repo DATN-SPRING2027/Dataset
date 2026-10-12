@@ -1,0 +1,3 @@
+{"domain": "northstar.invalid", "name": "Northstar Commerce Systems", "org_id": "ORG-NSC", "org_type": "software_company", "synthetic": true}
+{"domain": "meridianoutfitters.invalid", "name": "Meridian Outfitters", "org_id": "ORG-MERIDIAN", "org_type": "customer_merchant", "synthetic": true}
+{"domain": "pulsepay.invalid", "name": "PulsePay Network", "org_id": "ORG-PULSEPAY", "org_type": "integration_partner", "synthetic": true}

@@ -1,0 +1,611 @@
+{
+  "dataset_id": "northstar-commerce-demo-v1",
+  "version": "1.0.0",
+  "as_of_date": "2026-10-12",
+  "simulation_window": {
+    "start": "2026-04-16",
+    "end": "2026-10-12",
+    "calendar_days": 180,
+    "weekdays": 128
+  },
+  "reproducibility": {
+    "deterministic": true,
+    "hash_randomness_removed": true,
+    "fixed_seed": 42
+  },
+  "language": "English synthetic project content; Vietnamese operator guide.",
+  "domain": "fictional multi-tenant ecommerce platform",
+  "technology_reference": {
+    "repository": "https://github.com/bagisto/bagisto",
+    "stack": "Laravel and Vue.js",
+    "note": "Domain and stack inspiration only; dataset is entirely synthetic."
+  },
+  "canonical_counts": {
+    "organizations": 3,
+    "departments": 10,
+    "members": 74,
+    "active_members": 71,
+    "inactive_members": 3,
+    "projects": 8,
+    "sprints": 104,
+    "issues": 2500,
+    "comments": 2500,
+    "changelog_entries": 5045,
+    "logical_documents": 1400,
+    "physical_files_in_v1": 107,
+    "physical_files_total_dataset": 147,
+    "physical_breakdown": {
+      "markdown_bundles": 56,
+      "docx_formal": 10,
+      "markdown_formal": 12,
+      "fixtures": 6,
+      "structured_jsonl": 12,
+      "evaluation_jsonl": 6,
+      "documentation_and_catalog": 4,
+      "generator_tool": 1
+    },
+    "evaluation_cases": {
+      "total": 120,
+      "rag_cases": 30,
+      "acl_cases": 25,
+      "analytics_cases": 15,
+      "progress_cases": 15,
+      "ingestion_cases": 15,
+      "edge_scenarios": 20
+    },
+    "file_inventory_entries": 106
+  },
+  "packaging_model": "Bundled Markdown Architecture (< 160 physical files cap strictly satisfied)",
+  "primary_formats": [
+    ".md",
+    ".docx",
+    ".xlsx",
+    ".jsonl",
+    ".csv"
+  ],
+  "structured_format": "JSONL UTF-8, one entity per line",
+  "synthetic_data_only": true,
+  "file_inventory_policy": {
+    "hash_algorithm": "SHA-256",
+    "path_base": "Dataset/v1",
+    "size_unit": "bytes",
+    "manifest_excluded_from_own_inventory": true
+  },
+  "limitations": [
+    "Synthetic data only; email domains use example.invalid.",
+    "Daily updates are packaged into 56 project-month Markdown bundles with explicit section anchors to keep physical file count under 160 while preserving 1,400 logical document identities.",
+    "No proprietary or actual Bagisto source code is copied."
+  ],
+  "file_inventory": [
+    {
+      "path": "00_START_HERE.md",
+      "size_bytes": 6025,
+      "sha256": "baf86892e4e6734b91d958094869db511f2cb12038627d5849de23bcb82182ab"
+    },
+    {
+      "path": "Dataset_Catalog.xlsx",
+      "size_bytes": 3625044,
+      "sha256": "e84b3c3ffc227f7e8e4a1f8bce97d275a7b54b012839196040d9b035fb1f8b57"
+    },
+    {
+      "path": "documents/docx/Cart_Promotion_Rules_and_Coupon_Engine_Spec.docx",
+      "size_bytes": 844302,
+      "sha256": "f972f637777d6347c6dc0aa18eb0268858992f35159d76f982bf46fd1767d5b0"
+    },
+    {
+      "path": "documents/docx/Checkout_API_Contract.docx",
+      "size_bytes": 845673,
+      "sha256": "1d10901c8af10545973133e0ac1f29719d45d2d6bd960645dab53d9d29bf9787"
+    },
+    {
+      "path": "documents/docx/Checkout_Order_Regression_Test_Plan.docx",
+      "size_bytes": 845493,
+      "sha256": "172f0b8a61eee10cfbc2cce754641bf7c64fd6112fbb5cf6ecaaf53e74195af0"
+    },
+    {
+      "path": "documents/docx/Commerce_Release_and_Rollback_Runbook.docx",
+      "size_bytes": 845640,
+      "sha256": "6ed404b27f9fd2465f4ecd9efa3549943782a188e06b2fa531ae25d1783ab968"
+    },
+    {
+      "path": "documents/docx/Customer_Order_Lifecycle_and_Fulfillment_SOP.docx",
+      "size_bytes": 844555,
+      "sha256": "8b878ffe4d9a46ae938542b7e92d260e1113735c97da5eb245136dbb6d10e438"
+    },
+    {
+      "path": "documents/docx/Data_Pipeline_and_Analytics_Data_Dictionary.docx",
+      "size_bytes": 844632,
+      "sha256": "0e2a523732ae028a0e050db8421e28a53eadb7e5e51e74ee526538e0e5ba6901"
+    },
+    {
+      "path": "documents/docx/Inventory_Reservation_and_Safety_Stock_Standard.docx",
+      "size_bytes": 843431,
+      "sha256": "1cdb8ef7083851b71793e093619ff82baac5d13ea0c31e3e3178f05bfeb9b9a6"
+    },
+    {
+      "path": "documents/docx/Payment_Webhook_Duplicate_Incident_RCA.docx",
+      "size_bytes": 844263,
+      "sha256": "97956df75dbf298d50d2d006de79ee44479a12f098643b89dbcf2e29e43b0ab3"
+    },
+    {
+      "path": "documents/docx/Platform_Architecture_Overview.docx",
+      "size_bytes": 846989,
+      "sha256": "3154acd4de40d9444a9a367b2306a6d6ebcb1304ddd09528818e3d9df62b2a15"
+    },
+    {
+      "path": "documents/docx/Security_Data_Classification_and_Access.docx",
+      "size_bytes": 845719,
+      "sha256": "1e77d5b24574a0be4de5ae65dc9e384171567b9b6796cc0be285cc8cadaa5f9a"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CART-2026-04.md",
+      "size_bytes": 21404,
+      "sha256": "02acdfc9f70f5800a6d3ed78333ff93435fc754f3c2bce25ec738c64919a6dce"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CART-2026-05.md",
+      "size_bytes": 41223,
+      "sha256": "9c8acccd19252bd455e625a1baa8524dd6dcc0c397582b41423d34d567bdc651"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CART-2026-06.md",
+      "size_bytes": 39825,
+      "sha256": "8c7871ab0a4e0f584624162d6dfe557bb8af76b56efc886b30cc10af953d3353"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CART-2026-07.md",
+      "size_bytes": 45445,
+      "sha256": "85ee87c4b128ccba89673fc0cfa9be2f5d2022e47f38e65a8c4e968c9d895c19"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CART-2026-08.md",
+      "size_bytes": 39795,
+      "sha256": "16029284e086302361da6f6af3d3fe8b634feb4d62128cc0127692d965a70aa5"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CART-2026-09.md",
+      "size_bytes": 42616,
+      "sha256": "c4870fdbebea4b30c107af6ac7fc703caca70065fe9de7eb3147281cf129bd9a"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CART-2026-10.md",
+      "size_bytes": 14485,
+      "sha256": "5e473459f7796d8df57f64129f1703f1356cc24d1b5c94b8912d92326027f855"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CAT-2026-04.md",
+      "size_bytes": 21945,
+      "sha256": "46f0065cd5d06e9c9af5f43944c391a1796b6c07d48ca7786ee3b488b85202bd"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CAT-2026-05.md",
+      "size_bytes": 39281,
+      "sha256": "39db6221695cc5c96405f9abb3eaee6fe40a8c1bf55d9893b8fcb956a6f7a6cc"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CAT-2026-06.md",
+      "size_bytes": 45038,
+      "sha256": "a0693c32b9f49f04dc19cebd800c6cea3fe840ed73d383913e1c5339130d931b"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CAT-2026-07.md",
+      "size_bytes": 43621,
+      "sha256": "a7eabaf46c858b5519a5f50baad9d5dffbb1aa1f7f20f1e4c084fe5a2ad444d6"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CAT-2026-08.md",
+      "size_bytes": 42142,
+      "sha256": "3f67b574b92672981a16e43df8ba44025e45e3517984ad76725e3b07a72e11d2"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CAT-2026-09.md",
+      "size_bytes": 40753,
+      "sha256": "8ae2d06315b865ed9d50f44daa28aab49c953da2926349561f76d0ca3db425f7"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CAT-2026-10.md",
+      "size_bytes": 16286,
+      "sha256": "1bc092425ddd85adfc5eb060f61d490bb5044e819f28a0b956873bab408c67ed"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CHKO-2026-04.md",
+      "size_bytes": 20373,
+      "sha256": "4549e66076689f619d50a41b5ed714dfc8f000fa016afabd217aa55c30d97e15"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CHKO-2026-05.md",
+      "size_bytes": 41918,
+      "sha256": "3eaf6c957519a72900e29e5580d7bc9ef77da2c868dcac5dd20c538a177de1b8"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CHKO-2026-06.md",
+      "size_bytes": 40503,
+      "sha256": "9b0ce54961523e4b8c53539af80d44ada74a3d7aabd88d31b71a570e0147d073"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CHKO-2026-07.md",
+      "size_bytes": 46219,
+      "sha256": "8ba159e514c2678527a021c432e76934918b7cded54394699364de02e23547e1"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CHKO-2026-08.md",
+      "size_bytes": 40520,
+      "sha256": "958fc3578e72c089ab88129fd2b6c0b127a25471c9ae952d72a714b59c887054"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CHKO-2026-09.md",
+      "size_bytes": 43371,
+      "sha256": "1df999de01fa5594f26e31a3aaaccc4de4499d9fefb6cc27c2a1acfe4df8e16a"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-CHKO-2026-10.md",
+      "size_bytes": 16226,
+      "sha256": "805b2bf6bf2f376039603de1a7f489f20e2158757b8db7a1e4e698d6449f6281"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-INV-2026-04.md",
+      "size_bytes": 21626,
+      "sha256": "909f90e9181eaa741e77ffcb0633ef7782321c4a2e12e2672bf7b4be9dc7831d"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-INV-2026-05.md",
+      "size_bytes": 40100,
+      "sha256": "45c5f9e799f139546e595ebb58f354cefaeda78a88157bcd921ce4c1506cef78"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-INV-2026-06.md",
+      "size_bytes": 42957,
+      "sha256": "6083cad711b5f22b8418d17e1665bb83db053a4c5a4d2578341d58935d6634f0"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-INV-2026-07.md",
+      "size_bytes": 43004,
+      "sha256": "279829ed0f1e07c2dd15892fafa70a9a3ee9cfce705777c8213815bdd29b40b7"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-INV-2026-08.md",
+      "size_bytes": 41576,
+      "sha256": "19ef3764158617ccf76f9462f32e839e42bd28a86f3abb210bd0477ee8c7d31c"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-INV-2026-09.md",
+      "size_bytes": 41525,
+      "sha256": "63e96024778587538a9a0d0e944b4c4232b570f568576dd48a0efff5c199a66f"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-INV-2026-10.md",
+      "size_bytes": 16091,
+      "sha256": "c9940832b2e5a1d4aec2515e9e5c976b4e0cca6bba2690223ce646f2e8b59072"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-ORD-2026-04.md",
+      "size_bytes": 21664,
+      "sha256": "d94aabde4608e8c8d7feca881f3f754571141ac4cd1a6cd7e1bf18956445107f"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-ORD-2026-05.md",
+      "size_bytes": 41657,
+      "sha256": "d86e88cd1023074bd342a864ff33b4aa9aba4c39218f9c3fc8bf75e9b88cb4bb"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-ORD-2026-06.md",
+      "size_bytes": 41699,
+      "sha256": "6623e2e60d2d3622ded91a90f43aa6bbf55407d3103269e112495c7effeee2ad"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-ORD-2026-07.md",
+      "size_bytes": 44511,
+      "sha256": "c5848aa141f9e9e17015de2746463ab26f28e1d76db7e58c61f4487f3ce04c82"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-ORD-2026-08.md",
+      "size_bytes": 38822,
+      "sha256": "d53936a271eff147c8072ae492d1e569d127edb8500e9e741f6c8c23cbb9d6d6"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-ORD-2026-09.md",
+      "size_bytes": 44530,
+      "sha256": "c1c940c696b17c59ea241979d7e7de51853bd64f864a5baeb8f994860a5aac6a"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-ORD-2026-10.md",
+      "size_bytes": 14645,
+      "sha256": "59ca6729586a9aabc3eca7bebe1cbd58e0655687f6b69b94ef0b313a69bbbf27"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-PAY-2026-04.md",
+      "size_bytes": 21707,
+      "sha256": "5dabfdd6c079fb7b63b6ac6125409595421c1774ac1326d0448ea5dcf2563f39"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-PAY-2026-05.md",
+      "size_bytes": 40422,
+      "sha256": "08bc32395cb8d0df68206909cff0a8b909e5228317e15cab4908cfb2772009fb"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-PAY-2026-06.md",
+      "size_bytes": 43298,
+      "sha256": "57d17bc020fac19117ff894856d4f450cdbc6302b00f1f0ae9c9c2eeeb557d09"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-PAY-2026-07.md",
+      "size_bytes": 43303,
+      "sha256": "d564093705ff154a3c9fff690d5f2bef3fc197161ea9e494f9964a01b74cd73d"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-PAY-2026-08.md",
+      "size_bytes": 41836,
+      "sha256": "ce136dbfcd9642fd18e8960c57e7f4b63abdc0d56ccc5720959288a36608c843"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-PAY-2026-09.md",
+      "size_bytes": 41862,
+      "sha256": "39c1a3ac8444ad3c7d16bc5e1813bed21e5235de8d9375681621f3d8e1c1e596"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-PAY-2026-10.md",
+      "size_bytes": 16171,
+      "sha256": "53cf3129a84a41e956d3d3d9cfd5fc0a6f7cbe7fca6ce28736507395652f2556"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-PLAT-2026-04.md",
+      "size_bytes": 20863,
+      "sha256": "8ba6522828ab77f55c29056f9b2af6bd1ff627d0520bbbc447e8ae8eaef4bb72"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-PLAT-2026-05.md",
+      "size_bytes": 42898,
+      "sha256": "3a8c646ec914b567b355965cc4bc07ec0b609c3248a9e592888ecc59827f1568"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-PLAT-2026-06.md",
+      "size_bytes": 42988,
+      "sha256": "dd4705482d3cb05e2b5bb2ec3cb5fc7646a2edcf62bd87e8b46f79eb53b302b8"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-PLAT-2026-07.md",
+      "size_bytes": 45878,
+      "sha256": "18aaddb5732f5d76aac542397bdbdb25ae44659214f9fbf51cea818e99eacdd3"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-PLAT-2026-08.md",
+      "size_bytes": 40039,
+      "sha256": "b3d5d9b07f1e70ba15796ae50688fda24e50000b262b18094b6eb667c839accb"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-PLAT-2026-09.md",
+      "size_bytes": 45900,
+      "sha256": "bfd00abb792470a5eba8193e241a829380b42e5a7b526973f6512fdc824ee9b1"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-PLAT-2026-10.md",
+      "size_bytes": 15162,
+      "sha256": "43c937828f2320f3816c0344907d22c22a24d1c2a2075d9e63bb979a3dc69e0c"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-SRCH-2026-04.md",
+      "size_bytes": 21408,
+      "sha256": "06cb4f98625bf32729e784786d273ab2b50b3d585f5413ce55619591c5c81182"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-SRCH-2026-05.md",
+      "size_bytes": 38385,
+      "sha256": "ad65b1088ebfc331ec2e7ac7b2c1385b7b39b554fd3ae26512f992b9881febb7"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-SRCH-2026-06.md",
+      "size_bytes": 44045,
+      "sha256": "78fb2addaef9add7b4cacef650615c089f5d7a9a844a4e9903ca64921f8d8bd4"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-SRCH-2026-07.md",
+      "size_bytes": 42646,
+      "sha256": "53833083f6856885b0c758732d13b4e7ad21ecfa38dfb2808c4d66a3f6ebda86"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-SRCH-2026-08.md",
+      "size_bytes": 41251,
+      "sha256": "8cc9d26acb155ecf2666f9cd9cb8f6402fecbeff8a8fbd4784d9917b7ddb8df3"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-SRCH-2026-09.md",
+      "size_bytes": 39840,
+      "sha256": "958e3a3dc4a6a69adfedfd15f4d6cf21d766cf1e0280b65ba860d2bb7294f0f5"
+    },
+    {
+      "path": "documents/markdown/bundles/NSC-SRCH-2026-10.md",
+      "size_bytes": 15939,
+      "sha256": "da5ce52bf23399144310084b495c2b595ea6e1e2589a1926cd5051ac633bd784"
+    },
+    {
+      "path": "documents/markdown/formal/Catalog_Merchandising_PRD_v4.md",
+      "size_bytes": 1592,
+      "sha256": "1fe9f42975ddda47851780d8b2ee5ff4c6aa7b38d05750b11e17e227de040087"
+    },
+    {
+      "path": "documents/markdown/formal/Incident_RCA_Checkout_Idempotency_Conflict.md",
+      "size_bytes": 1021,
+      "sha256": "8bc411a27838e3bccc360bbda771cff3c7125d2c40bd10dc052f5a318e716b6f"
+    },
+    {
+      "path": "documents/markdown/formal/Merchant_Integration_Guide_Meridian.md",
+      "size_bytes": 1076,
+      "sha256": "b32275c1827544ce868693fae06fb34927deca31d02ef819dfd733b7c4cd405b"
+    },
+    {
+      "path": "documents/markdown/formal/Multi_Tenant_Database_Migration_Plan.md",
+      "size_bytes": 988,
+      "sha256": "e3be2c7aefe43e3421e6b1503a25f196879d5ebb68ef77184720433f6c2b78fd"
+    },
+    {
+      "path": "documents/markdown/formal/Northstar_Company_and_Product_Charter.md",
+      "size_bytes": 1736,
+      "sha256": "40e340d0a481ad60e701e751d9916a8efd8f21c330a41b66113992db15f0f01a"
+    },
+    {
+      "path": "documents/markdown/formal/Partner_Webhook_Specification_PulsePay.md",
+      "size_bytes": 947,
+      "sha256": "3e602ff718d1d0c24fab4b4c696236ca0936a726f449948ffa59de3e523bbc05"
+    },
+    {
+      "path": "documents/markdown/formal/Payment_Orchestration_ADR_v1_SUPERSEDED.md",
+      "size_bytes": 1187,
+      "sha256": "ca3eb644074937e67b8d44e04a4717d197620f984afd6c885994867500267f60"
+    },
+    {
+      "path": "documents/markdown/formal/Payment_Orchestration_ADR_v3.md",
+      "size_bytes": 1874,
+      "sha256": "eb728f5ce6d27549355d71d2144ef514cb539e5d5a64e57734571f64264589d0"
+    },
+    {
+      "path": "documents/markdown/formal/Pilot_Weekly_Decisions_2026-10-09.md",
+      "size_bytes": 1506,
+      "sha256": "f01db2e331cafbf45273300a1b4413c63cdfe279f3adf69b2085b10e71182616"
+    },
+    {
+      "path": "documents/markdown/formal/Refund_and_Cancellation_Policy_v5.md",
+      "size_bytes": 1468,
+      "sha256": "11099c8610eef5023db4412aab5c4e6ddb8c7c9a044595788723d26f0da233dd"
+    },
+    {
+      "path": "documents/markdown/formal/Search_Relevance_Strategy_v3.md",
+      "size_bytes": 1529,
+      "sha256": "ae1c653294f67bdda05800ad63b2395acab8ca846ec3c53affd834c4018d97b8"
+    },
+    {
+      "path": "documents/markdown/formal/Search_Synonym_Dictionary_Standard_v2.md",
+      "size_bytes": 954,
+      "sha256": "b4f0199d9e6638df87035099739a85c9f36aa60c4f5660156b37a9db0fab82c6"
+    },
+    {
+      "path": "evaluation/acl_cases.jsonl",
+      "size_bytes": 4732,
+      "sha256": "ac02e4babc4980c080bd6ef9a74fbc2dc3233cad981efcfd5b4d4a7d73f4f5a4"
+    },
+    {
+      "path": "evaluation/analytics_cases.jsonl",
+      "size_bytes": 3401,
+      "sha256": "29d712eb5a21827dac9c5cb9c0f9ba5babef0d479e5284c74bb204e872de4ec7"
+    },
+    {
+      "path": "evaluation/edge_case_matrix.jsonl",
+      "size_bytes": 4315,
+      "sha256": "252e99eacbe244847f8d58f8e2cb7ad67944f5f88a99d87d94c2aaa0d36bb6a1"
+    },
+    {
+      "path": "evaluation/ingestion_cases.jsonl",
+      "size_bytes": 4660,
+      "sha256": "cf44e9cc91618e4f240f2a7ffb37e219a06ea40fa69705fa95c891f8fa2348f2"
+    },
+    {
+      "path": "evaluation/progress_cases.jsonl",
+      "size_bytes": 2854,
+      "sha256": "8013162594e7627c51ea3639d83477ef517fdf64070ea9c60211986d72a5286b"
+    },
+    {
+      "path": "evaluation/rag_cases.jsonl",
+      "size_bytes": 9323,
+      "sha256": "130b6a6a278a96d867da6960bd5215da3ad478b477c69e068966eee40fa60b61"
+    },
+    {
+      "path": "fixtures/attachments/payment_webhook_sample.csv",
+      "size_bytes": 274,
+      "sha256": "d0702c8842e2afd5f38ccea38c730800a34ce2510be3060e3d2652737b49ea5d"
+    },
+    {
+      "path": "fixtures/broken_link.md",
+      "size_bytes": 294,
+      "sha256": "0c67504c120dcdcb0d7f71dce43310719ba6c79c90087a6485264dc2bfc9c59e"
+    },
+    {
+      "path": "fixtures/conflicting_timestamp.md",
+      "size_bytes": 433,
+      "sha256": "bedba41f5ff095e2772040b236abc6a2c74e3bb863ec30db74e07b781326a443"
+    },
+    {
+      "path": "fixtures/duplicate_upload.md",
+      "size_bytes": 1874,
+      "sha256": "eb728f5ce6d27549355d71d2144ef514cb539e5d5a64e57734571f64264589d0"
+    },
+    {
+      "path": "fixtures/missing_metadata.md",
+      "size_bytes": 139,
+      "sha256": "a8367da01303779f69c1aadeff3ea803c2529b83ef599c5c24dd6c01c1f0d7ce"
+    },
+    {
+      "path": "fixtures/orphan_issue_reference.md",
+      "size_bytes": 391,
+      "sha256": "1fa3c4cb1e3bc137f61cf237cae5333991c3616f064bb266afb37508c107ca25"
+    },
+    {
+      "path": "INGESTION_CONTRACT.md",
+      "size_bytes": 5355,
+      "sha256": "fa0b453b9b79abe693609a57846a730ecb78064f36c4987a4337b0d92874a405"
+    },
+    {
+      "path": "structured/access_groups.jsonl",
+      "size_bytes": 810,
+      "sha256": "2e036988c6e4f52b29ff9dae1d54180f890fd4746087725b5d145a27457a7705"
+    },
+    {
+      "path": "structured/departments.jsonl",
+      "size_bytes": 1087,
+      "sha256": "cd666ef7c0ba7c516f07aa2462433c6e5abad5ad4f18a5349ee43f9dbd4e60bf"
+    },
+    {
+      "path": "structured/documents.jsonl",
+      "size_bytes": 1118559,
+      "sha256": "a70b72abea6515e5aae57007f372db407ecb4075a53b76be699fb4c8574675d5"
+    },
+    {
+      "path": "structured/group_memberships.jsonl",
+      "size_bytes": 20610,
+      "sha256": "9d56b9baf8b90e7a59d8760abb9162198979265a35958377e9fe41d499735cc1"
+    },
+    {
+      "path": "structured/issue_changelog.jsonl",
+      "size_bytes": 905919,
+      "sha256": "edf1a8309c019fe41456a73ffb688918f03537086618518c2b4c8b1867ec822d"
+    },
+    {
+      "path": "structured/issue_comments.jsonl",
+      "size_bytes": 882056,
+      "sha256": "f772b5a711efb36d1d75697253bc78aca0534c046dc04faecb0e0aeb838dd242"
+    },
+    {
+      "path": "structured/issues.jsonl",
+      "size_bytes": 2417109,
+      "sha256": "1a1d1c08c004f1711c7419ac5248126be13d9463b8d482d172ee9604df38c488"
+    },
+    {
+      "path": "structured/members.jsonl",
+      "size_bytes": 20490,
+      "sha256": "bfb3b651480506eb23567431a3de31a9b4e5249b27b6a87f311e02d316c78b61"
+    },
+    {
+      "path": "structured/organizations.jsonl",
+      "size_bytes": 431,
+      "sha256": "39656dd9b7c61e623472c2f5f549c5128cf2a4592ce29d5c40f4f857c633252d"
+    },
+    {
+      "path": "structured/project_memberships.jsonl",
+      "size_bytes": 8965,
+      "sha256": "ff1366cc6e851f7d8c2b4f1e7a066fc7b5d569994ab7228c48bb15abb19de1e7"
+    },
+    {
+      "path": "structured/projects.jsonl",
+      "size_bytes": 2469,
+      "sha256": "ab2ccb1df785b3cc07a0929f89162a776476a65924da8b406e5fe4fa5f2f12f6"
+    },
+    {
+      "path": "structured/sprints.jsonl",
+      "size_bytes": 31374,
+      "sha256": "034fcb74321032564ad050feb0fc022109d8da35c754bf250e7bdd935243f479"
+    },
+    {
+      "path": "tools/generate_v1.py",
+      "size_bytes": 174606,
+      "sha256": "854869084182cc48b900a5a53e494a64d62a63c0b80e375cdfd1abc535582465"
+    }
+  ]
+}
