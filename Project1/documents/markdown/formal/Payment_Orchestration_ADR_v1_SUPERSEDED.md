@@ -10,8 +10,11 @@ updated_at: "2026-06-02"
 version: "1.0"
 status: "Superseded"
 classification: "Restricted"
-access_groups: ["GRP-CHECKOUT"]
+access_groups: ["GRP-PAYMENT"]
 source_issue_keys: ["PAY-001", "PAY-002"]
+canonical_document_id: "DOC-PAY-ADR-001"
+rendition_paths: []
+requirement_ids: []
 file_path: "documents/markdown/formal/Payment_Orchestration_ADR_v1_SUPERSEDED.md"
 format: "markdown"
 synthetic: true

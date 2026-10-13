@@ -12,6 +12,9 @@ status: "In Review"
 classification: "Internal"
 access_groups: ["GRP-ALL-STAFF"]
 source_issue_keys: ["SRCH-001", "SRCH-002"]
+canonical_document_id: "DOC-SRCH-STRATEGY-003"
+rendition_paths: []
+requirement_ids: []
 file_path: "documents/markdown/formal/Search_Relevance_Strategy_v3.md"
 format: "markdown"
 synthetic: true

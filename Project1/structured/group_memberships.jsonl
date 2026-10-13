@@ -1,0 +1,160 @@
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-001", "membership_id": "MEMB-M-001-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-LEADERS", "member_id": "M-001", "membership_id": "MEMB-M-001-GRP-LEADERS", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-002", "membership_id": "MEMB-M-002-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-LEADERS", "member_id": "M-002", "membership_id": "MEMB-M-002-GRP-LEADERS", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-003", "membership_id": "MEMB-M-003-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CATALOG", "member_id": "M-003", "membership_id": "MEMB-M-003-GRP-CATALOG", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-004", "membership_id": "MEMB-M-004-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-005", "membership_id": "MEMB-M-005-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CHECKOUT", "member_id": "M-005", "membership_id": "MEMB-M-005-GRP-CHECKOUT", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-006", "membership_id": "MEMB-M-006-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CHECKOUT", "member_id": "M-006", "membership_id": "MEMB-M-006-GRP-CHECKOUT", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-007", "membership_id": "MEMB-M-007-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-008", "membership_id": "MEMB-M-008-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-009", "membership_id": "MEMB-M-009-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-PLATFORM", "member_id": "M-009", "membership_id": "MEMB-M-009-GRP-PLATFORM", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-010", "membership_id": "MEMB-M-010-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CHECKOUT", "member_id": "M-010", "membership_id": "MEMB-M-010-GRP-CHECKOUT", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-011", "membership_id": "MEMB-M-011-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-DATA", "member_id": "M-011", "membership_id": "MEMB-M-011-GRP-DATA", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-012", "membership_id": "MEMB-M-012-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-SECURITY", "member_id": "M-012", "membership_id": "MEMB-M-012-GRP-SECURITY", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-013", "membership_id": "MEMB-M-013-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-PLATFORM", "member_id": "M-013", "membership_id": "MEMB-M-013-GRP-PLATFORM", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-014", "membership_id": "MEMB-M-014-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-015", "membership_id": "MEMB-M-015-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-SUPPORT", "member_id": "M-015", "membership_id": "MEMB-M-015-GRP-SUPPORT", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-MERIDIAN", "member_id": "M-016", "membership_id": "MEMB-M-016-GRP-MERIDIAN", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-PULSEPAY", "member_id": "M-017", "membership_id": "MEMB-M-017-GRP-PULSEPAY", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-018", "membership_id": "MEMB-M-018-GRP-ALL-STAFF", "status": "revoked", "synthetic": true, "valid_from": "2025-11-03", "valid_to": "2026-09-15"}
+{"group_id": "GRP-CATALOG", "member_id": "M-018", "membership_id": "MEMB-M-018-GRP-CATALOG", "status": "revoked", "synthetic": true, "valid_from": "2025-11-03", "valid_to": "2026-09-15"}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-019", "membership_id": "MEMB-M-019-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-CATALOG", "member_id": "M-019", "membership_id": "MEMB-M-019-GRP-CATALOG", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-020", "membership_id": "MEMB-M-020-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-CATALOG", "member_id": "M-020", "membership_id": "MEMB-M-020-GRP-CATALOG", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-021", "membership_id": "MEMB-M-021-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-022", "membership_id": "MEMB-M-022-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-023", "membership_id": "MEMB-M-023-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-024", "membership_id": "MEMB-M-024-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-025", "membership_id": "MEMB-M-025-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-CHECKOUT", "member_id": "M-025", "membership_id": "MEMB-M-025-GRP-CHECKOUT", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-026", "membership_id": "MEMB-M-026-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-CHECKOUT", "member_id": "M-026", "membership_id": "MEMB-M-026-GRP-CHECKOUT", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-027", "membership_id": "MEMB-M-027-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-CHECKOUT", "member_id": "M-027", "membership_id": "MEMB-M-027-GRP-CHECKOUT", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-028", "membership_id": "MEMB-M-028-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-CHECKOUT", "member_id": "M-028", "membership_id": "MEMB-M-028-GRP-CHECKOUT", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-029", "membership_id": "MEMB-M-029-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-030", "membership_id": "MEMB-M-030-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-031", "membership_id": "MEMB-M-031-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-032", "membership_id": "MEMB-M-032-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-033", "membership_id": "MEMB-M-033-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-PLATFORM", "member_id": "M-033", "membership_id": "MEMB-M-033-GRP-PLATFORM", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-034", "membership_id": "MEMB-M-034-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-PLATFORM", "member_id": "M-034", "membership_id": "MEMB-M-034-GRP-PLATFORM", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-035", "membership_id": "MEMB-M-035-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-PLATFORM", "member_id": "M-035", "membership_id": "MEMB-M-035-GRP-PLATFORM", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-036", "membership_id": "MEMB-M-036-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-PLATFORM", "member_id": "M-036", "membership_id": "MEMB-M-036-GRP-PLATFORM", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-037", "membership_id": "MEMB-M-037-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-CHECKOUT", "member_id": "M-037", "membership_id": "MEMB-M-037-GRP-CHECKOUT", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-038", "membership_id": "MEMB-M-038-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-CHECKOUT", "member_id": "M-038", "membership_id": "MEMB-M-038-GRP-CHECKOUT", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-039", "membership_id": "MEMB-M-039-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-CHECKOUT", "member_id": "M-039", "membership_id": "MEMB-M-039-GRP-CHECKOUT", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-040", "membership_id": "MEMB-M-040-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-CHECKOUT", "member_id": "M-040", "membership_id": "MEMB-M-040-GRP-CHECKOUT", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-041", "membership_id": "MEMB-M-041-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-DATA", "member_id": "M-041", "membership_id": "MEMB-M-041-GRP-DATA", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-042", "membership_id": "MEMB-M-042-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-DATA", "member_id": "M-042", "membership_id": "MEMB-M-042-GRP-DATA", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-043", "membership_id": "MEMB-M-043-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-DATA", "member_id": "M-043", "membership_id": "MEMB-M-043-GRP-DATA", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-044", "membership_id": "MEMB-M-044-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-DATA", "member_id": "M-044", "membership_id": "MEMB-M-044-GRP-DATA", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-045", "membership_id": "MEMB-M-045-GRP-ALL-STAFF", "status": "revoked", "synthetic": true, "valid_from": "2025-12-01", "valid_to": "2026-08-01"}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-046", "membership_id": "MEMB-M-046-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-SECURITY", "member_id": "M-046", "membership_id": "MEMB-M-046-GRP-SECURITY", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-047", "membership_id": "MEMB-M-047-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-SECURITY", "member_id": "M-047", "membership_id": "MEMB-M-047-GRP-SECURITY", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-048", "membership_id": "MEMB-M-048-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-SECURITY", "member_id": "M-048", "membership_id": "MEMB-M-048-GRP-SECURITY", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-049", "membership_id": "MEMB-M-049-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-LEADERS", "member_id": "M-049", "membership_id": "MEMB-M-049-GRP-LEADERS", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-050", "membership_id": "MEMB-M-050-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-051", "membership_id": "MEMB-M-051-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-052", "membership_id": "MEMB-M-052-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-053", "membership_id": "MEMB-M-053-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-SUPPORT", "member_id": "M-053", "membership_id": "MEMB-M-053-GRP-SUPPORT", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-054", "membership_id": "MEMB-M-054-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-SUPPORT", "member_id": "M-054", "membership_id": "MEMB-M-054-GRP-SUPPORT", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-055", "membership_id": "MEMB-M-055-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-SUPPORT", "member_id": "M-055", "membership_id": "MEMB-M-055-GRP-SUPPORT", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-056", "membership_id": "MEMB-M-056-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-SUPPORT", "member_id": "M-056", "membership_id": "MEMB-M-056-GRP-SUPPORT", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-057", "membership_id": "MEMB-M-057-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-CATALOG", "member_id": "M-057", "membership_id": "MEMB-M-057-GRP-CATALOG", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-058", "membership_id": "MEMB-M-058-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-059", "membership_id": "MEMB-M-059-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-060", "membership_id": "MEMB-M-060-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-PLATFORM", "member_id": "M-060", "membership_id": "MEMB-M-060-GRP-PLATFORM", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-061", "membership_id": "MEMB-M-061-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ALL-STAFF", "member_id": "M-062", "membership_id": "MEMB-M-062-GRP-ALL-STAFF", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-MERIDIAN", "member_id": "M-063", "membership_id": "MEMB-M-063-GRP-MERIDIAN", "status": "active", "synthetic": true, "valid_from": "2026-01-15", "valid_to": null}
+{"group_id": "GRP-MERIDIAN", "member_id": "M-064", "membership_id": "MEMB-M-064-GRP-MERIDIAN", "status": "active", "synthetic": true, "valid_from": "2026-01-15", "valid_to": null}
+{"group_id": "GRP-MERIDIAN", "member_id": "M-065", "membership_id": "MEMB-M-065-GRP-MERIDIAN", "status": "active", "synthetic": true, "valid_from": "2026-01-15", "valid_to": null}
+{"group_id": "GRP-MERIDIAN", "member_id": "M-066", "membership_id": "MEMB-M-066-GRP-MERIDIAN", "status": "active", "synthetic": true, "valid_from": "2026-01-15", "valid_to": null}
+{"group_id": "GRP-MERIDIAN", "member_id": "M-067", "membership_id": "MEMB-M-067-GRP-MERIDIAN", "status": "active", "synthetic": true, "valid_from": "2026-01-15", "valid_to": null}
+{"group_id": "GRP-MERIDIAN", "member_id": "M-068", "membership_id": "MEMB-M-068-GRP-MERIDIAN", "status": "active", "synthetic": true, "valid_from": "2026-01-15", "valid_to": null}
+{"group_id": "GRP-MERIDIAN", "member_id": "M-069", "membership_id": "MEMB-M-069-GRP-MERIDIAN", "status": "active", "synthetic": true, "valid_from": "2026-01-15", "valid_to": null}
+{"group_id": "GRP-PULSEPAY", "member_id": "M-070", "membership_id": "MEMB-M-070-GRP-PULSEPAY", "status": "revoked", "synthetic": true, "valid_from": "2026-02-01", "valid_to": "2026-07-15"}
+{"group_id": "GRP-PULSEPAY", "member_id": "M-071", "membership_id": "MEMB-M-071-GRP-PULSEPAY", "status": "active", "synthetic": true, "valid_from": "2026-02-01", "valid_to": null}
+{"group_id": "GRP-PULSEPAY", "member_id": "M-072", "membership_id": "MEMB-M-072-GRP-PULSEPAY", "status": "active", "synthetic": true, "valid_from": "2026-02-01", "valid_to": null}
+{"group_id": "GRP-PULSEPAY", "member_id": "M-073", "membership_id": "MEMB-M-073-GRP-PULSEPAY", "status": "active", "synthetic": true, "valid_from": "2026-02-01", "valid_to": null}
+{"group_id": "GRP-PULSEPAY", "member_id": "M-074", "membership_id": "MEMB-M-074-GRP-PULSEPAY", "status": "active", "synthetic": true, "valid_from": "2026-02-01", "valid_to": null}
+{"group_id": "GRP-CATALOG", "member_id": "M-002", "membership_id": "MEMB-M-002-GRP-CATALOG", "membership_source": "project_assignment", "project_id": "NSC-CAT", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CATALOG", "member_id": "M-010", "membership_id": "MEMB-M-010-GRP-CATALOG", "membership_source": "project_assignment", "project_id": "NSC-CAT", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CATALOG", "member_id": "M-014", "membership_id": "MEMB-M-014-GRP-CATALOG", "membership_source": "project_assignment", "project_id": "NSC-CAT", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CATALOG", "member_id": "M-016", "membership_id": "MEMB-M-016-GRP-CATALOG", "membership_source": "project_assignment", "project_id": "NSC-CAT", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CATALOG", "member_id": "M-064", "membership_id": "MEMB-M-064-GRP-CATALOG", "membership_source": "project_assignment", "project_id": "NSC-CAT", "status": "active", "synthetic": true, "valid_from": "2026-01-15", "valid_to": null}
+{"group_id": "GRP-SEARCH", "member_id": "M-002", "membership_id": "MEMB-M-002-GRP-SEARCH", "membership_source": "project_assignment", "project_id": "NSC-SRCH", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-SEARCH", "member_id": "M-004", "membership_id": "MEMB-M-004-GRP-SEARCH", "membership_source": "project_assignment", "project_id": "NSC-SRCH", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-SEARCH", "member_id": "M-021", "membership_id": "MEMB-M-021-GRP-SEARCH", "membership_source": "project_assignment", "project_id": "NSC-SRCH", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-SEARCH", "member_id": "M-022", "membership_id": "MEMB-M-022-GRP-SEARCH", "membership_source": "project_assignment", "project_id": "NSC-SRCH", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-SEARCH", "member_id": "M-058", "membership_id": "MEMB-M-058-GRP-SEARCH", "membership_source": "project_assignment", "project_id": "NSC-SRCH", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-SEARCH", "member_id": "M-010", "membership_id": "MEMB-M-010-GRP-SEARCH", "membership_source": "project_assignment", "project_id": "NSC-SRCH", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-SEARCH", "member_id": "M-011", "membership_id": "MEMB-M-011-GRP-SEARCH", "membership_source": "project_assignment", "project_id": "NSC-SRCH", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CART", "member_id": "M-005", "membership_id": "MEMB-M-005-GRP-CART", "membership_source": "project_assignment", "project_id": "NSC-CART", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CART", "member_id": "M-023", "membership_id": "MEMB-M-023-GRP-CART", "membership_source": "project_assignment", "project_id": "NSC-CART", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-CART", "member_id": "M-024", "membership_id": "MEMB-M-024-GRP-CART", "membership_source": "project_assignment", "project_id": "NSC-CART", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-CART", "member_id": "M-059", "membership_id": "MEMB-M-059-GRP-CART", "membership_source": "project_assignment", "project_id": "NSC-CART", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-CART", "member_id": "M-002", "membership_id": "MEMB-M-002-GRP-CART", "membership_source": "project_assignment", "project_id": "NSC-CART", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CART", "member_id": "M-010", "membership_id": "MEMB-M-010-GRP-CART", "membership_source": "project_assignment", "project_id": "NSC-CART", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CART", "member_id": "M-009", "membership_id": "MEMB-M-009-GRP-CART", "membership_source": "project_assignment", "project_id": "NSC-CART", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CHECKOUT", "member_id": "M-009", "membership_id": "MEMB-M-009-GRP-CHECKOUT", "membership_source": "project_assignment", "project_id": "NSC-CHKO", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CHECKOUT", "member_id": "M-014", "membership_id": "MEMB-M-014-GRP-CHECKOUT", "membership_source": "project_assignment", "project_id": "NSC-CHKO", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-CHECKOUT", "member_id": "M-016", "membership_id": "MEMB-M-016-GRP-CHECKOUT", "membership_source": "project_assignment", "project_id": "NSC-CHKO", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-PAYMENT", "member_id": "M-006", "membership_id": "MEMB-M-006-GRP-PAYMENT", "membership_source": "project_assignment", "project_id": "NSC-PAY", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-PAYMENT", "member_id": "M-027", "membership_id": "MEMB-M-027-GRP-PAYMENT", "membership_source": "project_assignment", "project_id": "NSC-PAY", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-PAYMENT", "member_id": "M-028", "membership_id": "MEMB-M-028-GRP-PAYMENT", "membership_source": "project_assignment", "project_id": "NSC-PAY", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-PAYMENT", "member_id": "M-012", "membership_id": "MEMB-M-012-GRP-PAYMENT", "membership_source": "project_assignment", "project_id": "NSC-PAY", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-PAYMENT", "member_id": "M-013", "membership_id": "MEMB-M-013-GRP-PAYMENT", "membership_source": "project_assignment", "project_id": "NSC-PAY", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-PAYMENT", "member_id": "M-017", "membership_id": "MEMB-M-017-GRP-PAYMENT", "membership_source": "project_assignment", "project_id": "NSC-PAY", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-PAYMENT", "member_id": "M-071", "membership_id": "MEMB-M-071-GRP-PAYMENT", "membership_source": "project_assignment", "project_id": "NSC-PAY", "status": "active", "synthetic": true, "valid_from": "2026-02-01", "valid_to": null}
+{"group_id": "GRP-PAYMENT", "member_id": "M-073", "membership_id": "MEMB-M-073-GRP-PAYMENT", "membership_source": "project_assignment", "project_id": "NSC-PAY", "status": "active", "synthetic": true, "valid_from": "2026-02-01", "valid_to": null}
+{"group_id": "GRP-INVENTORY", "member_id": "M-007", "membership_id": "MEMB-M-007-GRP-INVENTORY", "membership_source": "project_assignment", "project_id": "NSC-INV", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-INVENTORY", "member_id": "M-029", "membership_id": "MEMB-M-029-GRP-INVENTORY", "membership_source": "project_assignment", "project_id": "NSC-INV", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-INVENTORY", "member_id": "M-030", "membership_id": "MEMB-M-030-GRP-INVENTORY", "membership_source": "project_assignment", "project_id": "NSC-INV", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-INVENTORY", "member_id": "M-062", "membership_id": "MEMB-M-062-GRP-INVENTORY", "membership_source": "project_assignment", "project_id": "NSC-INV", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-INVENTORY", "member_id": "M-009", "membership_id": "MEMB-M-009-GRP-INVENTORY", "membership_source": "project_assignment", "project_id": "NSC-INV", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-INVENTORY", "member_id": "M-015", "membership_id": "MEMB-M-015-GRP-INVENTORY", "membership_source": "project_assignment", "project_id": "NSC-INV", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-INVENTORY", "member_id": "M-065", "membership_id": "MEMB-M-065-GRP-INVENTORY", "membership_source": "project_assignment", "project_id": "NSC-INV", "status": "active", "synthetic": true, "valid_from": "2026-01-15", "valid_to": null}
+{"group_id": "GRP-ORDERS", "member_id": "M-008", "membership_id": "MEMB-M-008-GRP-ORDERS", "membership_source": "project_assignment", "project_id": "NSC-ORD", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ORDERS", "member_id": "M-031", "membership_id": "MEMB-M-031-GRP-ORDERS", "membership_source": "project_assignment", "project_id": "NSC-ORD", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ORDERS", "member_id": "M-032", "membership_id": "MEMB-M-032-GRP-ORDERS", "membership_source": "project_assignment", "project_id": "NSC-ORD", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ORDERS", "member_id": "M-061", "membership_id": "MEMB-M-061-GRP-ORDERS", "membership_source": "project_assignment", "project_id": "NSC-ORD", "status": "active", "synthetic": true, "valid_from": "2025-12-01", "valid_to": null}
+{"group_id": "GRP-ORDERS", "member_id": "M-009", "membership_id": "MEMB-M-009-GRP-ORDERS", "membership_source": "project_assignment", "project_id": "NSC-ORD", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ORDERS", "member_id": "M-015", "membership_id": "MEMB-M-015-GRP-ORDERS", "membership_source": "project_assignment", "project_id": "NSC-ORD", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}
+{"group_id": "GRP-ORDERS", "member_id": "M-066", "membership_id": "MEMB-M-066-GRP-ORDERS", "membership_source": "project_assignment", "project_id": "NSC-ORD", "status": "active", "synthetic": true, "valid_from": "2026-01-15", "valid_to": null}
+{"group_id": "GRP-ORDERS", "member_id": "M-067", "membership_id": "MEMB-M-067-GRP-ORDERS", "membership_source": "project_assignment", "project_id": "NSC-ORD", "status": "active", "synthetic": true, "valid_from": "2026-01-15", "valid_to": null}
+{"group_id": "GRP-PLATFORM", "member_id": "M-012", "membership_id": "MEMB-M-012-GRP-PLATFORM", "membership_source": "project_assignment", "project_id": "NSC-PLAT", "status": "active", "synthetic": true, "valid_from": "2025-11-03", "valid_to": null}

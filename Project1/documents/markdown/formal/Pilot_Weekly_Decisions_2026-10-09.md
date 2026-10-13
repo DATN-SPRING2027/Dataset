@@ -12,6 +12,9 @@ status: "Approved"
 classification: "Internal"
 access_groups: ["GRP-ALL-STAFF"]
 source_issue_keys: ["PAY-002", "CHKO-005", "CAT-002"]
+canonical_document_id: "DOC-ORG-MEETING-2026-10-09"
+rendition_paths: []
+requirement_ids: []
 file_path: "documents/markdown/formal/Pilot_Weekly_Decisions_2026-10-09.md"
 format: "markdown"
 synthetic: true

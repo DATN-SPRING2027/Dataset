@@ -12,6 +12,9 @@ status: "Approved"
 classification: "Internal"
 access_groups: ["GRP-ALL-STAFF"]
 source_issue_keys: ["CAT-001", "CHKO-002"]
+canonical_document_id: "DOC-ORG-CHARTER-001"
+rendition_paths: []
+requirement_ids: []
 file_path: "documents/markdown/formal/Northstar_Company_and_Product_Charter.md"
 format: "markdown"
 synthetic: true

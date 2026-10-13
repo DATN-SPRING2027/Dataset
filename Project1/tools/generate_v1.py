@@ -9,6 +9,7 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
+sys.dont_write_bytecode = True
 
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
@@ -22,11 +23,12 @@ from docx.enum.table import WD_TABLE_ALIGNMENT, WD_CELL_VERTICAL_ALIGNMENT
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
+import completion_specs as completion
+
 # -------------------------------------------------------------
 # Configuration & Constants (Phase 1: Deterministic & Reproducible)
 # -------------------------------------------------------------
 ROOT = Path(__file__).resolve().parent.parent  # Points to v1
-WORKSPACE_ROOT = ROOT.parent                   # Points to Dataset
 
 TODAY = date(2026, 10, 12)  # As-of date (Monday)
 START = date(2026, 4, 16)   # Start date (Thursday)
@@ -281,13 +283,18 @@ for mid, name, dept, title in pulsepay_additional_names:
 assert len(members) == 74
 
 # -------------------------------------------------------------
-# 4. Access Groups (10) & Memberships (114)
+# 4. Access Groups (15) & Memberships
 # -------------------------------------------------------------
 groups = [
     {"group_id": "GRP-ALL-STAFF", "name": "Northstar Employees", "org_id": "ORG-NSC"},
     {"group_id": "GRP-LEADERS", "name": "Northstar Leadership", "org_id": "ORG-NSC"},
     {"group_id": "GRP-CATALOG", "name": "Catalog Squad", "org_id": "ORG-NSC"},
+    {"group_id": "GRP-SEARCH", "name": "Search & Discovery Squad", "org_id": "ORG-NSC"},
+    {"group_id": "GRP-CART", "name": "Cart & Promotions Squad", "org_id": "ORG-NSC"},
     {"group_id": "GRP-CHECKOUT", "name": "Checkout Squad", "org_id": "ORG-NSC"},
+    {"group_id": "GRP-PAYMENT", "name": "Payment Integration Squad", "org_id": "ORG-NSC"},
+    {"group_id": "GRP-INVENTORY", "name": "Inventory & Fulfillment Squad", "org_id": "ORG-NSC"},
+    {"group_id": "GRP-ORDERS", "name": "Orders & Returns Squad", "org_id": "ORG-NSC"},
     {"group_id": "GRP-SECURITY", "name": "Security Reviewers", "org_id": "ORG-NSC"},
     {"group_id": "GRP-SUPPORT", "name": "Merchant Support", "org_id": "ORG-NSC"},
     {"group_id": "GRP-PLATFORM", "name": "Platform & SRE Squad", "org_id": "ORG-NSC"},
@@ -347,12 +354,12 @@ for m in members:
 # -------------------------------------------------------------
 project_raw = [
     ("NSC-CAT", "Product Catalog & Merchandising", "In Progress", "M-002", "GRP-CATALOG", "Commerce Core", "2026-11-06"),
-    ("NSC-SRCH", "Search & Discovery", "In Progress", "M-002", "GRP-ALL-STAFF", "Commerce Core", "2026-11-20"),
-    ("NSC-CART", "Cart & Promotions", "In Progress", "M-005", "GRP-ALL-STAFF", "Commerce Core", "2026-10-30"),
+    ("NSC-SRCH", "Search & Discovery", "In Progress", "M-002", "GRP-SEARCH", "Commerce Core", "2026-11-20"),
+    ("NSC-CART", "Cart & Promotions", "In Progress", "M-005", "GRP-CART", "Commerce Core", "2026-10-30"),
     ("NSC-CHKO", "Checkout Experience", "At Risk", "M-005", "GRP-CHECKOUT", "Revenue & Retention", "2026-10-23"),
-    ("NSC-PAY", "Payment Orchestration", "At Risk", "M-006", "GRP-CHECKOUT", "Revenue & Retention", "2026-10-23"),
-    ("NSC-INV", "Inventory & Fulfillment", "In Progress", "M-007", "GRP-ALL-STAFF", "Commerce Core", "2026-11-13"),
-    ("NSC-ORD", "Orders, Returns & Refunds", "In Progress", "M-008", "GRP-ALL-STAFF", "Revenue & Retention", "2026-11-06"),
+    ("NSC-PAY", "Payment Orchestration", "At Risk", "M-006", "GRP-PAYMENT", "Revenue & Retention", "2026-10-23"),
+    ("NSC-INV", "Inventory & Fulfillment", "In Progress", "M-007", "GRP-INVENTORY", "Commerce Core", "2026-11-13"),
+    ("NSC-ORD", "Orders, Returns & Refunds", "In Progress", "M-008", "GRP-ORDERS", "Revenue & Retention", "2026-11-06"),
     ("NSC-PLAT", "Platform Reliability & Governance", "In Progress", "M-009", "GRP-PLATFORM", "Foundation", "2026-12-04")
 ]
 
@@ -407,6 +414,32 @@ project_devs = {
     "NSC-ORD": ["M-008", "M-031", "M-032", "M-061", "M-009", "M-015", "M-066", "M-067"],
     "NSC-PLAT": ["M-009", "M-012", "M-013", "M-033", "M-034", "M-035", "M-036", "M-060"]
 }
+
+# Project assignments grant explicit membership in the matching project group.
+# This includes named external collaborators on the payment workstream, while
+# keeping unrelated projects out of their search and document permissions.
+member_by_id = {member["member_id"]: member for member in members}
+existing_group_pairs = {(item["member_id"], item["group_id"]) for item in memberships}
+for project in projects:
+    project_id = project["project_id"]
+    group_id = project["team_group"]
+    for member_id in dict.fromkeys([project["owner_id"]] + project_devs[project_id]):
+        if (member_id, group_id) in existing_group_pairs:
+            continue
+        member = member_by_id[member_id]
+        is_inactive = member["account_status"] == "inactive"
+        memberships.append({
+            "membership_id": f"MEMB-{member_id}-{group_id}",
+            "member_id": member_id,
+            "group_id": group_id,
+            "status": "revoked" if is_inactive else "active",
+            "valid_from": member["joined_at"],
+            "valid_to": member["left_at"] if is_inactive else None,
+            "membership_source": "project_assignment",
+            "project_id": project_id,
+            "synthetic": True
+        })
+        existing_group_pairs.add((member_id, group_id))
 
 project_memberships = []
 for p in projects:
@@ -1210,7 +1243,7 @@ md_specs = [
         "id": "DOC-PAY-ADR-001", "file": "Payment_Orchestration_ADR_v1_SUPERSEDED.md",
         "title": "ADR-001: Initial Payment Orchestration (SUPERSEDED)", "project_id": "NSC-PAY", "org_id": "ORG-NSC", "scope": "project",
         "owner": "M-018", "date": "2026-06-02", "version": "1.0", "status": "Superseded",
-        "class": "Restricted", "groups": ["GRP-CHECKOUT"], "issues": ["PAY-001", "PAY-002"],
+        "class": "Restricted", "groups": ["GRP-PAYMENT"], "issues": ["PAY-001", "PAY-002"],
         "summary": "Historic architectural decision for payment orchestration. Retained to evaluate stale-version search suppression and conflict tests.",
         "sections": [
             ("Decision (Superseded)", "Retain idempotency keys for 12 hours. Retry payment provider timeouts up to 3 times without jitter. Accept refund requests within 14 calendar days of shipment."),
@@ -1222,7 +1255,7 @@ md_specs = [
         "id": "DOC-PAY-ADR-003", "file": "Payment_Orchestration_ADR_v3.md",
         "title": "ADR-003: Payment Orchestration and Idempotency", "project_id": "NSC-PAY", "org_id": "ORG-NSC", "scope": "project",
         "owner": "M-006", "date": "2026-08-19", "version": "3.0", "status": "Approved",
-        "class": "Restricted", "groups": ["GRP-CHECKOUT", "GRP-PULSEPAY"], "issues": ["PAY-001", "PAY-002", "PAY-003"],
+        "class": "Restricted", "groups": ["GRP-PAYMENT", "GRP-PULSEPAY"], "issues": ["PAY-001", "PAY-002", "PAY-003"],
         "summary": "Active architectural decision governing payment idempotency, provider retries, webhook inbox deduplication, and PCI boundaries.",
         "sections": [
             ("Architectural Decision", "Persist merchant-scoped idempotency keys in PostgreSQL for at least 72 hours. An identical key with an identical payload hash returns the original cached response. A matching key with a differing payload returns HTTP 409 Conflict."),
@@ -1305,7 +1338,7 @@ md_specs = [
         "id": "DOC-INT-PULSEPAY-002", "file": "Partner_Webhook_Specification_PulsePay.md",
         "title": "Partner Webhook Specification: PulsePay Network", "project_id": "NSC-PAY", "org_id": "ORG-NSC", "scope": "project",
         "owner": "M-017", "date": "2026-05-22", "version": "2.2", "status": "Approved",
-        "class": "Restricted", "groups": ["GRP-PULSEPAY", "GRP-CHECKOUT"], "issues": ["PAY-008", "PAY-010"],
+        "class": "Restricted", "groups": ["GRP-PULSEPAY", "GRP-PAYMENT"], "issues": ["PAY-008", "PAY-010"],
         "summary": "Technical webhook specifications, payload contracts, signature verification, and replay policies for PulsePay.",
         "sections": [
             ("Webhook Delivery Rules", "PulsePay delivers JSON events via HTTPS POST with header 'X-PulsePay-Signature' containing HMAC-SHA256 signature."),
@@ -1313,6 +1346,141 @@ md_specs = [
         ]
     }
 ]
+
+# Extend the original v1 formal set with the approved completion baseline.
+md_specs.extend(completion.ADDITIONAL_MARKDOWN_SPECS)
+
+requirement_records = []
+for code, project in completion.PROJECTS.items():
+    for index, (statement, acceptance) in enumerate(project["requirements"], 1):
+        requirement_records.append({
+            "requirement_id": f"FR-{code}-{index:03d}",
+            "requirement_type": "functional",
+            "title": statement,
+            "statement": statement,
+            "priority": "High" if index in (1, 2, 6, 7) else "Medium",
+            "status": "Approved",
+            "organization_id": "ORG-NSC",
+            "project_id": project["project_id"],
+            "owner_id": project["owner"],
+            "acceptance_criteria": [acceptance],
+            "source_document_ids": ["DOC-ORG-SRS-001", f"DOC-{code}-ANNEX-001"],
+            "source_issue_keys": project["issues"],
+            "test_case_ids": [],
+            "updated_at": "2026-10-12",
+            "synthetic": True
+        })
+
+nfr_owner = {
+    "NFR-SEC-001": "M-012", "NFR-SEC-002": "M-012", "NFR-SEC-003": "M-012",
+    "NFR-REL-001": "M-009", "NFR-REL-002": "M-013",
+    "NFR-PERF-001": "M-004", "NFR-PERF-002": "M-009",
+    "NFR-DATA-001": "M-012", "NFR-DATA-002": "M-011", "NFR-OPS-001": "M-013"
+}
+for requirement_id, title, statement, priority, acceptance in completion.NON_FUNCTIONAL_REQUIREMENTS:
+    requirement_records.append({
+        "requirement_id": requirement_id,
+        "requirement_type": "non_functional",
+        "title": title,
+        "statement": statement,
+        "priority": priority,
+        "status": "Approved",
+        "organization_id": "ORG-NSC",
+        "project_id": None,
+        "owner_id": nfr_owner[requirement_id],
+        "acceptance_criteria": [acceptance],
+        "source_document_ids": ["DOC-ORG-SRS-001", "DOC-ORG-THREAT-001" if requirement_id.startswith("NFR-SEC") else "DOC-ORG-SDS-001"],
+        "source_issue_keys": ["PLAT-001", "PLAT-004"],
+        "test_case_ids": [],
+        "updated_at": "2026-10-12",
+        "synthetic": True
+    })
+
+functional_test_cases = []
+for code, seeds in completion.FUNCTIONAL_CASE_SEEDS.items():
+    project = completion.PROJECTS[code]
+    for index, (title, actor, preconditions, steps, expected, priority, tags) in enumerate(seeds, 1):
+        requirement_id = f"FR-{code}-{index:03d}"
+        case_id = f"FT-{code}-{index:03d}"
+        functional_test_cases.append({
+            "case_id": case_id,
+            "case_type": "functional",
+            "project_id": project["project_id"],
+            "requirement_ids": [requirement_id],
+            "title": title,
+            "actor": actor,
+            "preconditions": preconditions,
+            "steps": steps,
+            "expected_result": expected,
+            "priority": priority,
+            "tags": tags,
+            "source_issue_keys": project["issues"],
+            "automation_candidate": True,
+            "status": "Approved",
+            "synthetic": True
+        })
+
+for index, seed in enumerate(completion.CROSS_CUTTING_CASES, 1):
+    title, actor, preconditions, steps, expected, priority, tags = seed
+    requirement_id = completion.NON_FUNCTIONAL_REQUIREMENTS[(index - 1) % len(completion.NON_FUNCTIONAL_REQUIREMENTS)][0]
+    functional_test_cases.append({
+        "case_id": f"FT-CROSS-{index:03d}",
+        "case_type": "cross_cutting",
+        "project_id": None,
+        "requirement_ids": [requirement_id],
+        "title": title,
+        "actor": actor,
+        "preconditions": preconditions,
+        "steps": steps,
+        "expected_result": expected,
+        "priority": priority,
+        "tags": tags,
+        "source_issue_keys": ["PLAT-001", "PLAT-004"],
+        "automation_candidate": True,
+        "status": "Approved",
+        "synthetic": True
+    })
+
+requirements_by_id = {r["requirement_id"]: r for r in requirement_records}
+for case in functional_test_cases:
+    for requirement_id in case["requirement_ids"]:
+        requirements_by_id[requirement_id]["test_case_ids"].append(case["case_id"])
+
+failed_case_id = "FT-CHKO-007"
+blocked_case_id = "FT-PAY-008"
+test_execution_results = []
+for index, case in enumerate(functional_test_cases, 1):
+    outcome = "Failed" if case["case_id"] == failed_case_id else "Blocked" if case["case_id"] == blocked_case_id else "Passed"
+    actual = case["expected_result"]
+    defect_issue_key = None
+    if outcome == "Failed":
+        actual = "Two concurrent requests produced separate order identifiers before the idempotency uniqueness guard completed."
+        defect_issue_key = "CHKO-005"
+    elif outcome == "Blocked":
+        actual = "Execution could not start because the PulsePay sandbox certificate rotation was not complete."
+        defect_issue_key = "PAY-002"
+    test_execution_results.append({
+        "execution_id": f"EXEC-RUN-20261012-{index:03d}",
+        "run_id": "RUN-2026-10-12-01",
+        "case_id": case["case_id"],
+        "build_id": "commerce-demo-1.0.0-rc3",
+        "environment": "staging-sim",
+        "executed_by": "M-010",
+        "executed_at": "2026-10-12T16:00:00Z",
+        "outcome": outcome,
+        "actual_result": actual,
+        "defect_issue_key": defect_issue_key,
+        "evidence_ref": f"synthetic-evidence/{case['case_id']}",
+        "synthetic": True
+    })
+
+project_code_by_id = {project["project_id"]: code for code, project in completion.PROJECTS.items()}
+for spec in md_specs:
+    if spec.get("project_id") in project_code_by_id and spec.get("dynamic_project_requirements"):
+        code = project_code_by_id[spec["project_id"]]
+        spec["requirement_ids"] = [r["requirement_id"] for r in requirement_records if r["project_id"] == spec["project_id"]]
+    elif spec["id"] in {"DOC-ORG-SRS-001", "DOC-ORG-RDS-001", "DOC-ORG-RTM-001"}:
+        spec["requirement_ids"] = [r["requirement_id"] for r in requirement_records]
 
 # DOCX writing helpers
 def shade(cell, color):
@@ -1413,17 +1581,42 @@ def write_docx(spec):
     doc.save(target_path)
     canonicalize_zip_file(target_path)
 
+completion_docx_specs = []
+for source_spec in md_specs:
+    rendition_name = source_spec.get("docx_rendition")
+    if not rendition_name:
+        continue
+    rendition = dict(source_spec)
+    rendition["file"] = rendition_name
+    rendition["project"] = source_spec.get("project_id") or "Organization"
+    rendition["sections"] = [(heading, [body]) for heading, body in source_spec["sections"]]
+    rendition["table"] = source_spec.get("docx_table")
+    completion_docx_specs.append(rendition)
+
+all_docx_specs = docx_specs + completion_docx_specs
+
+def markdown_table(headers, rows):
+    def cell(value):
+        return str(value if value is not None else "").replace("|", "\\|").replace("\n", " ")
+    output = ["| " + " | ".join(cell(value) for value in headers) + " |",
+              "| " + " | ".join("---" for _ in headers) + " |"]
+    output.extend("| " + " | ".join(cell(value) for value in row) + " |" for row in rows)
+    return "\n".join(output)
+
 def write_formal_markdown(spec):
     path = ROOT / "documents" / "markdown" / "formal" / spec["file"]
+    path.parent.mkdir(parents=True, exist_ok=True)
     rel_path = f"documents/markdown/formal/{spec['file']}"
     proj_val = f'"{spec["project_id"]}"' if spec.get("project_id") else "null"
+    rendition_paths = [f"documents/docx/{spec['docx_rendition']}"] if spec.get("docx_rendition") else []
+    scope_value = spec.get("scope") or ("project" if spec.get("project_id") else "organization")
     lines = [
         "---",
         f"document_id: \"{spec['id']}\"",
         f"title: \"{spec['title']}\"",
         f"project_id: {proj_val}",
         f"organization_id: \"{spec.get('org_id', 'ORG-NSC')}\"",
-        f"scope: \"{spec.get('scope', 'project')}\"",
+        f"scope: \"{scope_value}\"",
         f"owner_id: \"{spec['owner']}\"",
         f"created_at: \"{spec['date']}\"",
         f"updated_at: \"{spec['date']}\"",
@@ -1432,6 +1625,9 @@ def write_formal_markdown(spec):
         f"classification: \"{spec['class']}\"",
         f"access_groups: {json.dumps(spec['groups'])}",
         f"source_issue_keys: {json.dumps(spec['issues'])}",
+        f"canonical_document_id: \"{spec.get('canonical_document_id', spec['id'])}\"",
+        f"rendition_paths: {json.dumps(rendition_paths)}",
+        f"requirement_ids: {json.dumps(spec.get('requirement_ids', []))}",
         f"file_path: \"{rel_path}\"",
         "format: \"markdown\"",
         "synthetic: true",
@@ -1444,11 +1640,72 @@ def write_formal_markdown(spec):
     ]
     for heading, body in spec["sections"]:
         lines.extend([f"## {heading}", "", body, ""])
+    if spec.get("dynamic_project_requirements"):
+        code = spec["dynamic_project_requirements"]
+        rows = []
+        for requirement in requirement_records:
+            if requirement["project_id"] != f"NSC-{code}":
+                continue
+            rows.append([
+                requirement["requirement_id"], requirement["priority"], requirement["statement"],
+                requirement["acceptance_criteria"][0], ", ".join(requirement["source_issue_keys"]),
+                ", ".join(requirement["test_case_ids"])
+            ])
+        lines.extend(["## Requirement IDs and verification", "",
+                      markdown_table(["Requirement", "Priority", "Statement", "Acceptance criteria", "Jira source", "Test cases"], rows), ""])
+    if spec.get("dynamic_coverage_matrix"):
+        rows = []
+        for doc_spec in md_specs:
+            scope = doc_spec.get("project_id") or "ORG-NSC"
+            fmt = "Markdown + DOCX rendition" if doc_spec.get("docx_rendition") else "Markdown"
+            rows.append([doc_spec["id"], doc_spec["title"], scope, doc_spec["owner"], doc_spec["status"], doc_spec["class"], ", ".join(doc_spec["groups"]), fmt])
+        for doc_spec in docx_specs:
+            rows.append([doc_spec["id"], doc_spec["title"], doc_spec["project"], doc_spec["owner"], doc_spec["status"], doc_spec["class"], ", ".join(doc_spec["groups"]), "DOCX canonical"])
+        lines.extend(["## Formal document inventory", "",
+                      markdown_table(["Canonical ID", "Title", "Scope", "Owner", "Status", "Classification", "Access groups", "Format"], rows), ""])
+        lines.extend(["## Eight project coverage", "",
+                      markdown_table(["Project", "Owner", "Access group", "Annex", "Requirement count"], [
+                          [p["project_id"], p["owner"], p["group"], f"DOC-{code}-ANNEX-001", sum(1 for r in requirement_records if r["project_id"] == p["project_id"])]
+                          for code, p in completion.PROJECTS.items()
+                      ]), ""])
+    if spec.get("dynamic_rtm"):
+        outcome_by_case = {result["case_id"]: result["outcome"] for result in test_execution_results}
+        rows = []
+        for requirement in requirement_records:
+            if requirement["project_id"]:
+                code = project_code_by_id[requirement["project_id"]]
+                design_refs = ["DOC-ORG-SDS-001", f"DOC-{code}-ANNEX-001", "DOC-ORG-API-001", "DOC-ORG-DBD-001"]
+            else:
+                design_refs = ["DOC-ORG-SDS-001", "DOC-ORG-THREAT-001", "DOC-ORG-API-001"]
+            outcomes = [f"{case_id}: {outcome_by_case.get(case_id, 'Missing')}" for case_id in requirement["test_case_ids"]]
+            rows.append([requirement["requirement_id"], requirement["priority"], ", ".join(design_refs), ", ".join(requirement["source_issue_keys"]), ", ".join(requirement["test_case_ids"]), "; ".join(outcomes), "commerce-demo-1.0.0-rc3"])
+        lines.extend(["## Requirement traceability", "",
+                      markdown_table(["Requirement", "Priority", "Design/API/Data", "Jira issue", "Test case", "Latest execution", "Release candidate"], rows), ""])
+    if spec.get("dynamic_adr_index"):
+        adr_rows = []
+        for doc_spec in md_specs + docx_specs:
+            if "ADR" in doc_spec["title"].upper() or "DECISION" in doc_spec["title"].upper():
+                adr_rows.append([doc_spec["id"], doc_spec["title"], doc_spec.get("version", ""), doc_spec["status"], doc_spec["owner"], ", ".join(doc_spec["issues"])])
+        lines.extend(["## Decision record index", "",
+                      markdown_table(["Document ID", "Decision", "Version", "Status", "Owner", "Linked issues"], adr_rows), ""])
+    if spec.get("dynamic_risk_register"):
+        risk_rows = [
+            ["RISK-001", "Concurrent checkout retries may create duplicate orders or captures", "4", "5", "M-005", "Enforce unique durable idempotency and rerun concurrency case FT-CHKO-007", "FT-CHKO-007 fails", "Open"],
+            ["RISK-002", "PulsePay certificate rotation may delay signed webhook verification", "4", "4", "M-006", "Coordinate partner window and execute FT-PAY-008", "Certificate unavailable", "Open"],
+            ["RISK-003", "Tenant context defects could expose another merchant's records", "2", "5", "M-012", "Gateway-derived tenant scope and pre-retrieval ACL tests", "Any cross-tenant signal", "Mitigating"],
+            ["RISK-004", "Catalog sample may not represent the full production SKU distribution", "3", "3", "M-016", "Profile a larger merchant sample before launch", "Sample misses edge formats", "Open"],
+            ["RISK-005", "External tax or carrier sandbox instability may block end-to-end UAT", "3", "3", "M-002", "Use contract stubs only for isolated tests; rerun provider scenarios", "Provider outage", "Mitigating"],
+            ["RISK-006", "Search relevance may miss target for long-tail apparel queries", "3", "3", "M-004", "Expand judged query set and tune versioned synonyms", "nDCG@10 below 0.82", "Open"],
+            ["RISK-007", "Recovery process may exceed pilot RTO if restore is not rehearsed", "2", "4", "M-013", "Run isolated restore drill and record measured RPO/RTO", "Drill misses target", "Mitigating"],
+            ["RISK-008", "Superseded or test-only content may be mistaken for active policy", "3", "4", "M-002", "Canonical IDs, status lineage, and isolated fixture namespace", "Stale answer citation", "Open"],
+        ]
+        lines.extend(["## Risk register", "",
+                      markdown_table(["Risk ID", "Risk", "Likelihood", "Impact", "Owner", "Mitigation", "Trigger", "Status"], risk_rows), ""])
     if spec["id"] == "DOC-PAY-ADR-003":
         lines.extend(["## Version Lineage", "", "Supersedes DOC-PAY-ADR-001. The old decision remains available for historical audit and conflict testing.", ""])
     path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
-for s in docx_specs: write_docx(s)
+for s in all_docx_specs: write_docx(s)
 for s in md_specs: write_formal_markdown(s)
 
 # Fixtures (6 physical files, 5 registered in documents catalog)
@@ -1460,33 +1717,48 @@ for s in md_specs: write_formal_markdown(s)
     encoding="utf-8"
 )
 (ROOT / "fixtures" / "broken_link.md").write_text(
-    "---\ndocument_id: \"FIX-BROKEN-LINK\"\ntitle: \"Broken Link Reference Fixture\"\nproject_id: \"NSC-PLAT\"\norganization_id: \"ORG-NSC\"\nscope: \"project\"\nowner_id: \"M-009\"\nclassification: \"Internal\"\n---\n\nSee [the missing runbook](https://docs.northstar.invalid/missing/nonexistent_runbook_path).\n",
+    "---\ndocument_id: \"FIX-BROKEN-LINK\"\ntitle: \"Broken Link Reference Fixture\"\nproject_id: \"NSC-PLAT\"\norganization_id: \"ORG-NSC\"\nscope: \"fixture\"\nowner_id: \"M-009\"\nclassification: \"Internal\"\n---\n\nSee [the missing runbook](https://docs.northstar.invalid/missing/nonexistent_runbook_path).\n",
     encoding="utf-8"
 )
 (ROOT / "fixtures" / "conflicting_timestamp.md").write_text(
-    "---\ndocument_id: \"FIX-CONFLICT-TIME\"\ntitle: \"Conflicting Timestamp Fixture\"\nproject_id: \"NSC-PAY\"\norganization_id: \"ORG-NSC\"\nscope: \"project\"\nowner_id: \"M-006\"\nversion: \"0.9\"\ncreated_at: \"2026-10-10\"\nupdated_at: \"2026-10-10\"\nstatus: \"Draft\"\nclassification: \"Internal\"\naccess_groups: [\"GRP-CHECKOUT\"]\n---\n\nOlder version v0.9 artificially updated after v3.0 to test version precedence against chronological timestamps.\n",
+    "---\ndocument_id: \"FIX-CONFLICT-TIME\"\ntitle: \"Conflicting Timestamp Fixture\"\nproject_id: \"NSC-PAY\"\norganization_id: \"ORG-NSC\"\nscope: \"fixture\"\nowner_id: \"M-006\"\nversion: \"0.9\"\ncreated_at: \"2026-10-10\"\nupdated_at: \"2026-10-10\"\nstatus: \"Draft\"\nclassification: \"Internal\"\naccess_groups: [\"GRP-PAYMENT\"]\n---\n\nOlder version v0.9 artificially updated after v3.0 to test version precedence against chronological timestamps.\n",
     encoding="utf-8"
 )
 (ROOT / "fixtures" / "orphan_issue_reference.md").write_text(
-    "---\ndocument_id: \"FIX-ORPHAN-ISSUE\"\ntitle: \"Orphan Jira Reference Fixture\"\nproject_id: \"NSC-CAT\"\norganization_id: \"ORG-NSC\"\nscope: \"project\"\nowner_id: \"M-003\"\nversion: \"1.0\"\nstatus: \"Approved\"\nclassification: \"Internal\"\naccess_groups: [\"GRP-CATALOG\"]\nsource_issue_keys: [\"NONEXISTENT-999\"]\n---\n\nCites issue NONEXISTENT-999 which does not exist in the canonical Jira registry.\n",
+    "---\ndocument_id: \"FIX-ORPHAN-ISSUE\"\ntitle: \"Orphan Jira Reference Fixture\"\nproject_id: \"NSC-CAT\"\norganization_id: \"ORG-NSC\"\nscope: \"fixture\"\nowner_id: \"M-003\"\nversion: \"1.0\"\nstatus: \"Approved\"\nclassification: \"Internal\"\naccess_groups: [\"GRP-CATALOG\"]\nsource_issue_keys: [\"NONEXISTENT-999\"]\n---\n\nCites issue NONEXISTENT-999 which does not exist in the canonical Jira registry.\n",
     encoding="utf-8"
 )
 (ROOT / "fixtures" / "attachments" / "payment_webhook_sample.csv").write_text(
     "provider_event_id,event_type,merchant_ref,delivery_attempt,timestamp\nEVT-SYN-1001,payment.succeeded,ORDER-SYN-501,1,2026-09-22T09:14:02Z\nEVT-SYN-1001,payment.succeeded,ORDER-SYN-501,2,2026-09-22T09:15:10Z\nEVT-SYN-1002,payment.failed,ORDER-SYN-502,1,2026-09-23T11:20:00Z\n",
     encoding="utf-8"
 )
+(ROOT / "fixtures" / "conflicting_policy.md").write_text(
+    "---\ndocument_id: \"FIX-CONFLICT-POLICY\"\ntitle: \"Legacy Return Policy Conflict Fixture\"\nproject_id: \"NSC-ORD\"\norganization_id: \"ORG-NSC\"\nscope: \"fixture\"\nowner_id: \"M-008\"\nversion: \"0.9\"\nstatus: \"Superseded\"\nclassification: \"Internal\"\naccess_groups: [\"GRP-ALL-STAFF\"]\ntest_only: true\n---\n\nTEST FIXTURE ONLY. This legacy excerpt incorrectly states a 14-calendar-day return window. It is intentionally inconsistent with approved DOC-ORD-POL-005, which governs the Meridian pilot and allows 30 calendar days after delivery. Do not use this fixture as active policy.\n",
+    encoding="utf-8"
+)
+(ROOT / "fixtures" / "cross_tenant_probe.md").write_text(
+    "---\ndocument_id: \"FIX-CROSS-TENANT\"\ntitle: \"Meridian Tenant Isolation Probe\"\nproject_id: null\norganization_id: \"ORG-MERIDIAN\"\nscope: \"fixture\"\nowner_id: \"M-064\"\nversion: \"1.0\"\nstatus: \"Draft\"\nclassification: \"Customer Restricted\"\naccess_groups: [\"GRP-MERIDIAN\"]\ntest_only: true\n---\n\nTEST FIXTURE ONLY. Synthetic merchant reference MERIDIAN-ISOLATION-CANARY-4821 must be retrievable by an authorized Meridian principal and must produce no title, count, snippet, or existence signal for Northstar-only or PulsePay-only principals.\n",
+    encoding="utf-8"
+)
+(ROOT / "fixtures" / "offboarded_owner.md").write_text(
+    "---\ndocument_id: \"FIX-OFFBOARDING-AUTHOR\"\ntitle: \"Historical Note by Offboarded Engineer\"\nproject_id: \"NSC-CAT\"\norganization_id: \"ORG-NSC\"\nscope: \"fixture\"\nowner_id: \"M-018\"\nversion: \"1.0\"\nstatus: \"Approved\"\nclassification: \"Internal\"\naccess_groups: [\"GRP-CATALOG\"]\ntest_only: true\n---\n\nTEST FIXTURE ONLY. This historical synthetic note was authored before M-018 left the company. Preserve the author attribution for audit history, but deny authentication and active group access after the recorded offboarding date.\n",
+    encoding="utf-8"
+)
 
 registered_fixtures = [
-    {"id": "FIX-DUPLICATE-001", "file": "fixtures/duplicate_upload.md", "title": "Duplicate Upload of ADR-003", "project_id": "NSC-PAY", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-006", "date": "2026-08-19", "version": "3.0", "status": "Approved", "class": "Restricted", "groups": ["GRP-CHECKOUT", "GRP-PULSEPAY"], "issues": ["PAY-001"], "format": "markdown"},
+    {"id": "FIX-DUPLICATE-001", "file": "fixtures/duplicate_upload.md", "title": "Duplicate Upload of ADR-003", "project_id": "NSC-PAY", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-006", "date": "2026-08-19", "version": "3.0", "status": "Approved", "class": "Restricted", "groups": ["GRP-PAYMENT", "GRP-PULSEPAY"], "issues": ["PAY-001"], "format": "markdown"},
     {"id": "FIX-MISSING-META", "file": "fixtures/missing_metadata.md", "title": "Unindexed Sprint Note (Missing Metadata)", "project_id": "NSC-PLAT", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-009", "date": "2026-07-01", "version": "1.0", "status": "Draft", "class": "Internal", "groups": ["GRP-ALL-STAFF"], "issues": [], "format": "markdown"},
     {"id": "FIX-BROKEN-LINK", "file": "fixtures/broken_link.md", "title": "Broken Link Reference Fixture", "project_id": "NSC-PLAT", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-009", "date": "2026-08-01", "version": "1.0", "status": "Approved", "class": "Internal", "groups": ["GRP-ALL-STAFF"], "issues": [], "format": "markdown"},
-    {"id": "FIX-CONFLICT-TIME", "file": "fixtures/conflicting_timestamp.md", "title": "Conflicting Timestamp Fixture", "project_id": "NSC-PAY", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-006", "date": "2026-10-10", "version": "0.9", "status": "Draft", "class": "Internal", "groups": ["GRP-CHECKOUT"], "issues": [], "format": "markdown"},
-    {"id": "FIX-ORPHAN-ISSUE", "file": "fixtures/orphan_issue_reference.md", "title": "Orphan Jira Reference Fixture", "project_id": "NSC-CAT", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-003", "date": "2026-06-15", "version": "1.0", "status": "Approved", "class": "Internal", "groups": ["GRP-CATALOG"], "issues": ["NONEXISTENT-999"], "format": "markdown"}
+    {"id": "FIX-CONFLICT-TIME", "file": "fixtures/conflicting_timestamp.md", "title": "Conflicting Timestamp Fixture", "project_id": "NSC-PAY", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-006", "date": "2026-10-10", "version": "0.9", "status": "Draft", "class": "Internal", "groups": ["GRP-PAYMENT"], "issues": [], "format": "markdown"},
+    {"id": "FIX-ORPHAN-ISSUE", "file": "fixtures/orphan_issue_reference.md", "title": "Orphan Jira Reference Fixture", "project_id": "NSC-CAT", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-003", "date": "2026-06-15", "version": "1.0", "status": "Approved", "class": "Internal", "groups": ["GRP-CATALOG"], "issues": ["NONEXISTENT-999"], "format": "markdown"},
+    {"id": "FIX-CONFLICT-POLICY", "file": "fixtures/conflicting_policy.md", "title": "Legacy Return Policy Conflict Fixture", "project_id": "NSC-ORD", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-008", "date": "2026-05-01", "version": "0.9", "status": "Superseded", "class": "Internal", "groups": ["GRP-ALL-STAFF"], "issues": ["ORD-001"], "format": "markdown"},
+    {"id": "FIX-CROSS-TENANT", "file": "fixtures/cross_tenant_probe.md", "title": "Meridian Tenant Isolation Probe", "project_id": None, "org_id": "ORG-MERIDIAN", "scope": "fixture", "owner": "M-064", "date": "2026-10-12", "version": "1.0", "status": "Draft", "class": "Customer Restricted", "groups": ["GRP-MERIDIAN"], "issues": [], "format": "markdown"},
+    {"id": "FIX-OFFBOARDING-AUTHOR", "file": "fixtures/offboarded_owner.md", "title": "Historical Note by Offboarded Engineer", "project_id": "NSC-CAT", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-018", "date": "2026-07-01", "version": "1.0", "status": "Approved", "class": "Internal", "groups": ["GRP-CATALOG"], "issues": ["CAT-001"], "format": "markdown"}
 ]
 
 # -------------------------------------------------------------
 # 8. Bundled Markdown Documents (56 Bundles, Exactly 1,373 Docs)
-# Total Logical: 10 docx + 12 formal md + 5 fixtures + 1373 bundled = 1400!
+# Logical count is computed from bundles, canonical formal docs, and registered fixtures.
 # Phase 3 & 4: Weekdays only, rich prose, source issue created_at <= doc created_at!
 # -------------------------------------------------------------
 # Group issues by project for fast temporal lookup
@@ -1559,8 +1831,6 @@ for w_idx, w_date in enumerate(WEEKDAYS):
         team = project_devs[pid]
         
         bundle_groups = [sec_group]
-        if "GRP-ALL-STAFF" not in bundle_groups:
-            bundle_groups.append("GRP-ALL-STAFF")
             
         author_id = team[(w_idx + d_in_day) % len(team)]
         author_m = next(m for m in members if m["member_id"] == author_id)
@@ -1591,6 +1861,7 @@ for w_idx, w_date in enumerate(WEEKDAYS):
         
         doc_rec = {
             "document_id": doc_id,
+            "canonical_document_id": doc_id,
             "title": doc_title,
             "project_id": pid,
             "organization_id": "ORG-NSC",
@@ -1603,6 +1874,8 @@ for w_idx, w_date in enumerate(WEEKDAYS):
             "classification": "Internal",
             "access_groups": bundle_groups,
             "source_issue_keys": [issue_key],
+            "requirement_ids": [],
+            "rendition_paths": [],
             "file_path": bundle_rel_path,
             "section_anchor": f"#{anchor_id}",
             "content_sha256": section_sha256,
@@ -1611,6 +1884,8 @@ for w_idx, w_date in enumerate(WEEKDAYS):
             "is_current": True,
             "supersedes": [],
             "superseded_by": None,
+            "document_role": "canonical",
+            "test_only": False,
             "synthetic": True
         }
         
@@ -1625,7 +1900,6 @@ for (pid, ym), sections_data in bundle_docs_map.items():
     p_name = next(p["name"] for p in projects if p["project_id"] == pid)
     sec_group = next(p["team_group"] for p in projects if p["project_id"] == pid)
     bundle_groups = [sec_group]
-    if "GRP-ALL-STAFF" not in bundle_groups: bundle_groups.append("GRP-ALL-STAFF")
     
     bundle_filename = f"{pid}-{ym}.md"
     bundle_abs_path = ROOT / "documents" / "markdown" / "bundles" / bundle_filename
@@ -1655,7 +1929,7 @@ for (pid, ym), sections_data in bundle_docs_map.items():
 assert total_bundles_written == 56
 
 # -------------------------------------------------------------
-# 9. Assemble Canonical Documents Catalog (1,400 Logical Records)
+# 9. Assemble the complete canonical documents catalog
 # -------------------------------------------------------------
 canonical_documents = []
 
@@ -1665,6 +1939,7 @@ for s in docx_specs:
     rel_p = f"documents/docx/{s['file']}"
     canonical_documents.append({
         "document_id": s["id"], "title": s["title"], "project_id": s["project"],
+        "canonical_document_id": s["id"], "rendition_paths": [], "requirement_ids": [],
         "organization_id": "ORG-NSC", "scope": "project",
         "owner_id": s["owner"], "created_at": s["date"], "updated_at": s["date"],
         "version": s["version"], "status": s["status"], "classification": s["class"],
@@ -1672,7 +1947,7 @@ for s in docx_specs:
         "file_path": rel_p, "section_anchor": None, "content_sha256": file_hash(p_path),
         "format": "docx", "canonical_url": f"https://docs.northstar.invalid/{s['project'].lower()}/{s['id'].lower()}",
         "is_current": s["status"] != "Superseded", "supersedes": [], "superseded_by": None,
-        "synthetic": True
+        "document_role": "canonical", "test_only": False, "synthetic": True
     })
 
 # Formal Markdown (12)
@@ -1680,8 +1955,11 @@ for s in md_specs:
     p_path = ROOT / "documents" / "markdown" / "formal" / s["file"]
     rel_p = f"documents/markdown/formal/{s['file']}"
     canonical_documents.append({
-        "document_id": s["id"], "title": s["title"], "project_id": s["project_id"],
-        "organization_id": s.get("org_id", "ORG-NSC"), "scope": s.get("scope", "project"),
+        "document_id": s["id"], "title": s["title"], "project_id": s.get("project_id"),
+        "canonical_document_id": s.get("canonical_document_id", s["id"]),
+        "rendition_paths": [f"documents/docx/{s['docx_rendition']}"] if s.get("docx_rendition") else [],
+        "requirement_ids": s.get("requirement_ids", []),
+        "organization_id": s.get("org_id", "ORG-NSC"), "scope": s.get("scope") or ("project" if s.get("project_id") else "organization"),
         "owner_id": s["owner"], "created_at": s["date"], "updated_at": s["date"],
         "version": s["version"], "status": s["status"], "classification": s["class"],
         "access_groups": s["groups"], "source_issue_keys": s["issues"],
@@ -1690,7 +1968,7 @@ for s in md_specs:
         "is_current": s["status"] != "Superseded",
         "supersedes": ["DOC-PAY-ADR-001"] if s["id"] == "DOC-PAY-ADR-003" else [],
         "superseded_by": "DOC-PAY-ADR-003" if s["id"] == "DOC-PAY-ADR-001" else None,
-        "synthetic": True
+        "document_role": "canonical", "test_only": False, "synthetic": True
     })
 
 # Registered Fixtures (5)
@@ -1698,6 +1976,7 @@ for f in registered_fixtures:
     p_path = ROOT / f["file"]
     canonical_documents.append({
         "document_id": f["id"], "title": f["title"], "project_id": f["project_id"],
+        "canonical_document_id": "DOC-PAY-ADR-003" if f["id"] == "FIX-DUPLICATE-001" else f["id"], "rendition_paths": [], "requirement_ids": [],
         "organization_id": f["org_id"], "scope": f["scope"],
         "owner_id": f["owner"], "created_at": f["date"], "updated_at": f["date"],
         "version": f["version"], "status": f["status"], "classification": f["class"],
@@ -1705,16 +1984,17 @@ for f in registered_fixtures:
         "file_path": f["file"], "section_anchor": None, "content_sha256": file_hash(p_path),
         "format": f["format"], "canonical_url": f"https://docs.northstar.invalid/fixtures/{f['id'].lower()}",
         "is_current": f["status"] != "Superseded", "supersedes": [], "superseded_by": None,
-        "synthetic": True
+        "document_role": "test_fixture", "test_only": True, "synthetic": True
     })
 
 # Bundled (1,373)
 canonical_documents.extend(all_bundled_records)
 
-assert len(canonical_documents) == 1400, f"Expected 1400 documents, got {len(canonical_documents)}"
+expected_logical_documents = 1373 + len(docx_specs) + len(md_specs) + len(registered_fixtures)
+assert len(canonical_documents) == expected_logical_documents, f"Expected {expected_logical_documents} documents, got {len(canonical_documents)}"
 
 # -------------------------------------------------------------
-# 10. Write Structured JSONL Files (12 files)
+# 10. Write structured entities and requirement/test JSONL files
 # -------------------------------------------------------------
 write_jsonl("structured/organizations.jsonl", orgs)
 write_jsonl("structured/departments.jsonl", departments)
@@ -1728,10 +2008,13 @@ write_jsonl("structured/issues.jsonl", issues)
 write_jsonl("structured/issue_comments.jsonl", comments)
 write_jsonl("structured/issue_changelog.jsonl", changelog)
 write_jsonl("structured/documents.jsonl", canonical_documents)
-print("Wrote all 12 structured JSONL files.")
+write_jsonl("structured/requirements.jsonl", requirement_records)
+write_jsonl("structured/functional_test_cases.jsonl", functional_test_cases)
+write_jsonl("structured/test_execution_results.jsonl", test_execution_results)
+print("Wrote all structured entities, requirements, functional tests, and execution results.")
 
 # -------------------------------------------------------------
-# 11. Evaluation Test Suites (120 cases) (Phase 6: Recomputed & Validated)
+# 11. Dataset/RAG Evaluation Test Suites (131 cases)
 # -------------------------------------------------------------
 # Dynamically computed metric values:
 total_done_issues = sum(1 for i in issues if i["status"] == "Done")
@@ -1800,7 +2083,8 @@ acl_cases = [
     {"case_id": "ACL-022", "principal_id": "M-014", "resource_id": "DOC-ORG-CHARTER-001", "expected_decision": "allow", "reason": "Product designer M-014 belongs to GRP-ALL-STAFF."},
     {"case_id": "ACL-023", "principal_id": "M-016", "resource_id": "DOC-ORG-CHARTER-001", "expected_decision": "deny", "reason": "Meridian user M-016 is external and does not belong to GRP-ALL-STAFF."},
     {"case_id": "ACL-024", "principal_id": "M-017", "resource_id": "DOC-ORG-CHARTER-001", "expected_decision": "deny", "reason": "PulsePay partner M-017 does not belong to Northstar internal employee group."},
-    {"case_id": "ACL-025", "principal_id": "M-053", "resource_id": "DOC-ORD-POL-005", "expected_decision": "allow", "reason": "Support engineer M-053 belongs to GRP-ALL-STAFF."}
+    {"case_id": "ACL-025", "principal_id": "M-053", "resource_id": "DOC-ORD-POL-005", "expected_decision": "allow", "reason": "Support engineer M-053 belongs to GRP-ALL-STAFF."},
+    {"case_id": "ACL-026", "principal_id": "M-022", "resource_id": "DOC-SRCH-ANNEX-001", "expected_decision": "allow", "reason": "Search engineer M-022 is assigned to the Search project group GRP-SEARCH and can access its project annex."}
 ]
 
 analytics_cases = [
@@ -1810,7 +2094,7 @@ analytics_cases = [
     {"case_id": "ANA-004", "question": "How many active Northstar employees are in the system?", "metric": "active_member_count_by_org", "filters": {"org_id": "ORG-NSC", "account_status": "active"}, "expected_value": 58, "expected_unit": "members"},
     {"case_id": "ANA-005", "question": "What is the total number of customer and partner profiles?", "metric": "external_member_count", "filters": {"org_types": ["customer_merchant", "integration_partner"]}, "expected_value": 14, "expected_unit": "members"},
     {"case_id": "ANA-006", "question": "How many total Jira issues are registered in project NSC-PAY?", "metric": "project_issue_count", "filters": {"project_id": "NSC-PAY"}, "expected_value": 313, "expected_unit": "issues"},
-    {"case_id": "ANA-007", "question": "How many total logical documents are tracked in the catalog?", "metric": "total_logical_documents", "filters": {}, "expected_value": 1400, "expected_unit": "logical_documents"},
+    {"case_id": "ANA-007", "question": "How many total logical documents are tracked in the catalog?", "metric": "total_logical_documents", "filters": {}, "expected_value": len(canonical_documents), "expected_unit": "logical_documents"},
     {"case_id": "ANA-008", "question": "How many physical Markdown bundle files exist for project updates?", "metric": "bundle_file_count", "filters": {"format": "markdown_bundle"}, "expected_value": unique_bundle_files_count, "expected_unit": "physical_files"},
     {"case_id": "ANA-009", "question": "How many total Jira issues are assigned to former employee M-018?", "metric": "former_member_assigned_issues", "filters": {"assignee_id": "M-018"}, "expected_value": sum(1 for i in issues if i["assignee_id"] == "M-018"), "expected_unit": "issues"},
     {"case_id": "ANA-010", "question": "What is the distribution of issue priorities across the company?", "metric": "issue_count_by_priority", "filters": {}, "expected_value": {p: sum(1 for i in issues if i["priority"] == p) for p in ["Highest", "High", "Medium", "Low"]}, "expected_unit": "issue_priority_map"},
@@ -1818,7 +2102,7 @@ analytics_cases = [
     {"case_id": "ANA-012", "question": "How many issues are in In Review status?", "metric": "issue_count_by_status", "filters": {"status": "In Review"}, "expected_value": sum(1 for i in issues if i["status"] == "In Review"), "expected_unit": "issues"},
     {"case_id": "ANA-013", "question": "How many issues are in To Do status?", "metric": "issue_count_by_status", "filters": {"status": "To Do"}, "expected_value": sum(1 for i in issues if i["status"] == "To Do"), "expected_unit": "issues"},
     {"case_id": "ANA-014", "question": "How many total departments exist across the 3 organizations?", "metric": "department_count", "filters": {}, "expected_value": 10, "expected_unit": "departments"},
-    {"case_id": "ANA-015", "question": "How many formal DOCX architecture and standard documents exist?", "metric": "docx_document_count", "filters": {"format": "docx"}, "expected_value": 10, "expected_unit": "physical_files"}
+    {"case_id": "ANA-015", "question": "How many standalone canonical DOCX source documents are indexed, excluding linked renditions?", "metric": "canonical_docx_document_count", "filters": {"format": "docx", "document_role": "canonical"}, "expected_value": len(docx_specs), "expected_unit": "logical_documents"}
 ]
 
 progress_cases = [
@@ -1877,7 +2161,17 @@ edge_cases = [
     {"scenario_id": "EDGE-PROG-02", "category": "analytics", "case": "Ambiguous completion definition disambiguation", "expected": "Explicitly state completion metric formula (e.g. Done / Total vs Done / (Total - To Do))."},
     {"scenario_id": "EDGE-PROG-03", "category": "analytics", "case": "Stale update detection across workstreams", "expected": "Identify projects without updates within configurable threshold days from snapshot date."},
     {"scenario_id": "EDGE-SRC-01", "category": "source_sync", "case": "Orphan Jira issue reference in document", "expected": "Flag unresolved issue key while preserving raw reference string for developer remediation."},
-    {"scenario_id": "EDGE-SRC-02", "category": "source_sync", "case": "Out-of-order document versioning", "expected": "Rely on explicit version lineage graph (supersedes/superseded_by) rather than lexicographical string comparison."}
+    {"scenario_id": "EDGE-SRC-02", "category": "source_sync", "case": "Out-of-order document versioning", "expected": "Rely on explicit version lineage graph (supersedes/superseded_by) rather than lexicographical string comparison."},
+    {"scenario_id": "EDGE-ACL-06", "category": "permissions", "case": "Revoked group membership with warm retrieval cache", "expected": "Invalidate or re-key authorization-sensitive cache results immediately after membership revocation; return no stale snippet."},
+    {"scenario_id": "EDGE-ACL-07", "category": "permissions", "case": "Historical content authored by offboarded member", "expected": "Keep provenance for authorized auditors while denying the former member authentication and active access."},
+    {"scenario_id": "EDGE-RAG-06", "category": "retrieval", "case": "Canonical Markdown and DOCX rendition deduplication", "expected": "Index one logical canonical document and cite its canonical ID; retain the DOCX path only as a rendition."},
+    {"scenario_id": "EDGE-RAG-07", "category": "retrieval", "case": "Contradictory test-only policy fixture", "expected": "Prefer the approved canonical policy and isolate the contradictory fixture to explicit evaluation queries."},
+    {"scenario_id": "EDGE-ING-06", "category": "ingestion", "case": "Attachment inherits parent tenant and classification", "expected": "Resolve a CSV attachment through its parent record and enforce the parent's tenant and access-group boundary."},
+    {"scenario_id": "EDGE-ING-07", "category": "ingestion", "case": "Missing owner metadata", "expected": "Quarantine the document for owner resolution and do not assign a default principal or permissive access group."},
+    {"scenario_id": "EDGE-TRACE-01", "category": "traceability", "case": "Approved requirement has no functional test", "expected": "Flag the requirement as uncovered and prevent full coverage reporting until a linked test case exists."},
+    {"scenario_id": "EDGE-TRACE-02", "category": "traceability", "case": "Blocked execution is not counted as a pass", "expected": "Keep blocked-only requirements unresolved in RTM and release readiness summaries."},
+    {"scenario_id": "EDGE-DATA-01", "category": "integrity", "case": "Evaluation answer leakage into demo index", "expected": "Keep evaluation cases and gold answers outside the user-facing retrieval namespace."},
+    {"scenario_id": "EDGE-DATA-02", "category": "integrity", "case": "Manifest drift after package edit", "expected": "Identify the exact path, byte count, or SHA-256 mismatch and require inventory regeneration."}
 ]
 
 write_jsonl("evaluation/rag_cases.jsonl", rag_cases)
@@ -1888,11 +2182,12 @@ write_jsonl("evaluation/ingestion_cases.jsonl", ingestion_cases)
 write_jsonl("evaluation/edge_case_matrix.jsonl", edge_cases)
 
 total_eval_cases = len(rag_cases) + len(acl_cases) + len(analytics_cases) + len(progress_cases) + len(ingestion_cases) + len(edge_cases)
-assert total_eval_cases == 120
+assert total_eval_cases == 131
 
 # -------------------------------------------------------------
 # 12. Create Excel Catalog (Dataset_Catalog.xlsx) (Phase 7: Sprints tab added)
 # -------------------------------------------------------------
+physical_package_count = sum(1 for path in ROOT.rglob("*") if path.is_file())
 wb = openpyxl.Workbook()
 
 NAVY = "16324F"; TEAL = "16697A"; LIGHT_BG = "F8FAFC"; ZEBRA = "F1F5F8"; WHITE = "FFFFFF"; DARK_TEXT = "24364B"; GRAY_TEXT = "64748B"; BORDER_COLOR = "CBD5E1"
@@ -1919,11 +2214,11 @@ ws_over = wb.active
 ws_over.title = "Overview"
 ws_over.views.sheetView[0].showGridLines = True
 
-ws_over.cell(2, 2, "Northstar Commerce — Enterprise Synthetic Dataset Catalog (v1.0)").font = font_title
+ws_over.cell(2, 2, "Northstar Commerce — Enterprise Synthetic Dataset Catalog (v1.1)").font = font_title
 ws_over.cell(3, 2, f"Snapshot Date: {TODAY.isoformat()}  •  180-Day Simulation Window ({START.isoformat()} to {TODAY.isoformat()}, 128 Weekdays)  •  Domain: Multi-Tenant E-Commerce").font = font_subtitle
 
 ws_over.merge_cells("B5:K5")
-banner_cell = ws_over.cell(5, 2, "ARCHITECTURE NOTICE: 1,400 Logical Documents are organized into 56 Project-Month Bundles + 22 Standalone Formal Docs + 6 Fixtures = 107 Total Physical Files in v1 (Total Dataset folder files: 147 <= 160 cap).")
+banner_cell = ws_over.cell(5, 2, f"PACKAGE NOTICE: {len(canonical_documents):,} logical documents across 56 monthly bundles, {len(docx_specs)} standalone DOCX sources, {len(completion_docx_specs)} DOCX renditions, {len(md_specs)} formal Markdown sources, and {len(registered_fixtures)} registered fixtures. Package files: {physical_package_count} / 160.")
 banner_cell.font = Font(name="Aptos", size=9.5, bold=True, color="0F5132")
 banner_cell.fill = PatternFill(start_color="D1E7DD", end_color="D1E7DD", fill_type="solid")
 banner_cell.alignment = align_center
@@ -1932,8 +2227,8 @@ ws_over.row_dimensions[5].height = 24
 kpis = [
     ("Organizations", "3", "B7:B8"), ("Departments", "10", "C7:C8"), ("Total Members", "74", "D7:D8"),
     ("Active Staff", "71", "E7:E8"), ("Projects", "8", "F7:F8"), ("Sprints", "104", "G7:G8"),
-    ("Jira Issues", "2,500", "H7:H8"), ("Logical Documents", "1,400", "I7:I8"),
-    ("Physical Files", "107", "J7:J8"), ("Test Cases", "120", "K7:K8")
+    ("Jira Issues", f"{len(issues):,}", "H7:H8"), ("Logical Documents", f"{len(canonical_documents):,}", "I7:I8"),
+    ("Physical Files", str(physical_package_count), "J7:J8"), ("All Test Cases", f"{total_eval_cases + len(functional_test_cases):,}", "K7:K8")
 ]
 for lbl, val, rng in kpis:
     col = rng.split(":")[0][0]
@@ -1953,7 +2248,7 @@ status_counts = {s: sum(1 for i in issues if i["status"] == s) for s in ["Done",
 for row_idx, (s, cnt) in enumerate(status_counts.items(), 12):
     ws_over.cell(row_idx, 2, s).font = font_cell
     ws_over.cell(row_idx, 3, cnt).font = font_cell; ws_over.cell(row_idx, 3).alignment = align_right
-    ws_over.cell(row_idx, 4, f"{cnt/2500:.1%}").font = font_cell; ws_over.cell(row_idx, 4).alignment = align_right
+    ws_over.cell(row_idx, 4, f"{cnt/len(issues):.1%}").font = font_cell; ws_over.cell(row_idx, 4).alignment = align_right
     for c in range(2, 5): ws_over.cell(row_idx, c).border = table_border
 
 chart = BarChart(); chart.type = "col"; chart.style = 10; chart.title = "Jira Issues by Status"
@@ -2014,21 +2309,22 @@ for r_idx, sp in enumerate(sprints, 2):
 ws_sp.freeze_panes = "A2"
 ws_sp.auto_filter.ref = f"A1:{get_column_letter(len(sp_cols))}{len(sprints)+1}"
 
-# Tab 5: Documents (1,400 rows)
+# Tab 5: Canonical logical documents
 ws_docs = wb.create_sheet(title="Documents"); ws_docs.views.sheetView[0].showGridLines = True
-doc_cols = ["document_id", "title", "project_id", "scope", "owner_id", "created_at", "version", "status", "classification", "format", "file_path", "section_anchor", "content_sha256"]
+doc_cols = ["document_id", "canonical_document_id", "title", "project_id", "organization_id", "scope", "owner_id", "created_at", "version", "status", "classification", "access_groups", "format", "document_role", "test_only", "file_path", "rendition_paths", "requirement_ids", "section_anchor", "content_sha256"]
 for c_idx, col in enumerate(doc_cols, 1):
     c = ws_docs.cell(1, c_idx, col); c.font = font_header; c.fill = fill_header; c.alignment = align_center
 for r_idx, d in enumerate(canonical_documents, 2):
     for c_idx, col in enumerate(doc_cols, 1):
         v = d.get(col)
+        if isinstance(v, list): v = ", ".join(str(item) for item in v)
         c = ws_docs.cell(r_idx, c_idx, str(v) if v is not None else "")
         c.font = font_cell
         if r_idx % 2 == 1: c.fill = fill_zebra
 ws_docs.freeze_panes = "A2"
 ws_docs.auto_filter.ref = f"A1:{get_column_letter(len(doc_cols))}{len(canonical_documents)+1}"
 
-# Tab 6: Issues (2,500 rows)
+# Tab 6: Jira-like issues
 ws_iss = wb.create_sheet(title="Issues"); ws_iss.views.sheetView[0].showGridLines = True
 iss_cols = ["issue_key", "project_id", "sprint_id", "issue_type", "summary", "status", "priority", "assignee_id", "reporter_id", "created_at", "due_date", "story_points"]
 for c_idx, col in enumerate(iss_cols, 1):
@@ -2042,7 +2338,7 @@ for r_idx, i in enumerate(issues, 2):
 ws_iss.freeze_panes = "A2"
 ws_iss.auto_filter.ref = f"A1:{get_column_letter(len(iss_cols))}{len(issues)+1}"
 
-# Tab 7: Members (74 rows)
+# Tab 7: Members
 ws_mem = wb.create_sheet(title="Members"); ws_mem.views.sheetView[0].showGridLines = True
 mem_cols = ["member_id", "display_name", "org_id", "department_id", "job_title", "account_status", "joined_at", "left_at", "email"]
 for c_idx, col in enumerate(mem_cols, 1):
@@ -2055,8 +2351,8 @@ for r_idx, m in enumerate(members, 2):
 ws_mem.freeze_panes = "A2"
 ws_mem.auto_filter.ref = f"A1:{get_column_letter(len(mem_cols))}{len(members)+1}"
 
-# Tab 8: Test Cases (120 rows)
-ws_tc = wb.create_sheet(title="Test Cases"); ws_tc.views.sheetView[0].showGridLines = True
+# Tab 8: RAG, ACL, ingestion, progress, and analytics evaluation cases
+ws_tc = wb.create_sheet(title="Evaluation Cases"); ws_tc.views.sheetView[0].showGridLines = True
 tc_cols = ["case_id", "suite", "scenario_or_query", "expected_result", "source_or_reason", "tags"]
 for c_idx, col in enumerate(tc_cols, 1):
     c = ws_tc.cell(1, c_idx, col); c.font = font_header; c.fill = fill_header; c.alignment = align_center
@@ -2083,7 +2379,27 @@ for r_idx, tc in enumerate(all_eval_flat, 2):
 ws_tc.freeze_panes = "A2"
 ws_tc.auto_filter.ref = f"A1:{get_column_letter(len(tc_cols))}{len(all_eval_flat)+1}"
 
-for ws in [ws_over, ws_org, ws_proj, ws_sp, ws_docs, ws_iss, ws_mem, ws_tc]:
+# Tab 9: Requirement-linked product functional test cases
+ws_ft = wb.create_sheet(title="Functional Tests"); ws_ft.views.sheetView[0].showGridLines = True
+ft_cols = ["case_id", "project_id", "requirement_ids", "title", "actor", "preconditions", "steps", "expected_result", "priority", "tags", "source_issue_keys", "automation_candidate"]
+for c_idx, col in enumerate(ft_cols, 1):
+    c = ws_ft.cell(1, c_idx, col); c.font = font_header; c.fill = fill_header; c.alignment = align_center
+for r_idx, case in enumerate(functional_test_cases, 2):
+    row_values = dict(case)
+    row_values["requirement_ids"] = ", ".join(case["requirement_ids"])
+    row_values["steps"] = "\n".join(f"{index}. {step}" for index, step in enumerate(case["steps"], 1))
+    row_values["source_issue_keys"] = ", ".join(case["source_issue_keys"])
+    row_values["tags"] = ", ".join(case["tags"])
+    for c_idx, col in enumerate(ft_cols, 1):
+        v = row_values.get(col, "")
+        c = ws_ft.cell(r_idx, c_idx, str(v) if v is not None else "")
+        c.font = font_cell
+        c.alignment = Alignment(vertical="top", wrap_text=True)
+        if r_idx % 2 == 1: c.fill = fill_zebra
+ws_ft.freeze_panes = "A2"
+ws_ft.auto_filter.ref = f"A1:{get_column_letter(len(ft_cols))}{len(functional_test_cases)+1}"
+
+for ws in [ws_over, ws_org, ws_proj, ws_sp, ws_docs, ws_iss, ws_mem, ws_tc, ws_ft]:
     for col in ws.columns:
         col_letter = get_column_letter(col[0].column)
         if ws == ws_over:
@@ -2102,7 +2418,7 @@ print(f"Created professional filterable workbook at {excel_path}.")
 # -------------------------------------------------------------
 manifest = {
     "dataset_id": "northstar-commerce-demo-v1",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "as_of_date": TODAY.isoformat(),
     "simulation_window": {
         "start": START.isoformat(),
@@ -2128,26 +2444,33 @@ manifest = {
         "members": len(members),
         "active_members": sum(1 for m in members if m["account_status"] == "active"),
         "inactive_members": sum(1 for m in members if m["account_status"] == "inactive"),
+        "access_groups": len(groups),
+        "group_memberships": len(memberships),
         "projects": len(projects),
         "sprints": len(sprints),
         "issues": len(issues),
         "comments": len(comments),
         "changelog_entries": len(changelog),
         "logical_documents": len(canonical_documents),
-        "physical_files_in_v1": 107,
-        "physical_files_total_dataset": 147,
+        "requirements": len(requirement_records),
+        "functional_test_cases": len(functional_test_cases),
+        "test_execution_results": len(test_execution_results),
+        "physical_files_in_v1": physical_package_count,
+        "physical_files_total_dataset": physical_package_count,
         "physical_breakdown": {
-            "markdown_bundles": 56,
-            "docx_formal": 10,
-            "markdown_formal": 12,
-            "fixtures": 6,
-            "structured_jsonl": 12,
-            "evaluation_jsonl": 6,
+            "markdown_bundles": len(list((ROOT / "documents" / "markdown" / "bundles").glob("*.md"))),
+            "docx_canonical_sources": len(docx_specs),
+            "docx_renditions": len(completion_docx_specs),
+            "markdown_formal_sources": len(md_specs),
+            "fixtures_and_attachments": sum(1 for path in (ROOT / "fixtures").rglob("*") if path.is_file()),
+            "structured_jsonl": len(list((ROOT / "structured").glob("*.jsonl"))),
+            "evaluation_jsonl": len(list((ROOT / "evaluation").glob("*.jsonl"))),
             "documentation_and_catalog": 4,
-            "generator_tool": 1
+            "generator_tools": len(list((ROOT / "tools").glob("*.py")))
         },
         "evaluation_cases": {
             "total": total_eval_cases,
+            "functional_cases": len(functional_test_cases),
             "rag_cases": len(rag_cases),
             "acl_cases": len(acl_cases),
             "analytics_cases": len(analytics_cases),
@@ -2156,24 +2479,25 @@ manifest = {
             "edge_scenarios": len(edge_cases)
         }
     },
-    "packaging_model": "Bundled Markdown Architecture (< 160 physical files cap strictly satisfied)",
+    "packaging_model": "Canonical Markdown with linked DOCX renditions and project-month bundles (Project1 package remains below 160 physical files)",
     "primary_formats": [".md", ".docx", ".xlsx", ".jsonl", ".csv"],
     "structured_format": "JSONL UTF-8, one entity per line",
     "synthetic_data_only": True,
     "file_inventory_policy": {
         "hash_algorithm": "SHA-256",
-        "path_base": "Dataset/v1",
+        "path_base": "Project1",
         "size_unit": "bytes",
         "manifest_excluded_from_own_inventory": True
     },
     "limitations": [
         "Synthetic data only; email domains use example.invalid.",
-        "Daily updates are packaged into 56 project-month Markdown bundles with explicit section anchors to keep physical file count under 160 while preserving 1,400 logical document identities.",
+        f"Daily updates are packaged into 56 project-month Markdown bundles; {len(canonical_documents):,} canonical logical documents are registered, with DOCX renditions linked by canonical_document_id.",
+        "Evaluation answer keys are stored separately from functional test cases and must not be indexed in the demo retrieval namespace.",
         "No proprietary or actual Bagisto source code is copied."
     ]
 }
 
-ingestion_contract_text = """# Ingestion Contract — Northstar Commerce Dataset v1.0
+ingestion_contract_text = f"""# Ingestion Contract — Northstar Commerce Dataset v1.1
 
 ## 1. Định dạng nội dung và quy cách đóng gói
 - **Canonical Content Formats**: Markdown (.md) và Word (.docx).
@@ -2181,10 +2505,13 @@ ingestion_contract_text = """# Ingestion Contract — Northstar Commerce Dataset
   - Toàn bộ 1.373 bản ghi cập nhật kỹ thuật hàng ngày được đóng gói thành đúng 56 file Markdown bundle theo từng dự án và từng tháng (`documents/markdown/bundles/<PROJECT>-<YYYY-MM>.md`).
   - Lịch trình cập nhật diễn ra trên đúng **128 ngày làm việc (weekdays)** trong khoảng thời gian từ `2026-04-16` đến `2026-10-12`. Đúng 93 ngày có 11 tài liệu và 35 ngày có 10 tài liệu. Không tạo cập nhật vào cuối tuần.
   - Mỗi bản ghi tài liệu logic trong bundle sở hữu thẻ neo định danh duy nhất (ví dụ `<a id="doc-cat-20260416-01"></a>`) và mã băm `content_sha256` độc lập.
-  - Tài liệu chuẩn mực, kiến trúc trang trọng và quy chuẩn bảo mật được lưu trữ độc lập trong `documents/docx/` (10 files) và `documents/markdown/formal/` (12 files).
+  - Có {len(docx_specs)} tài liệu DOCX canonical, {len(completion_docx_specs)} DOCX rendition được liên kết với Markdown canonical, và {len(md_specs)} tài liệu Markdown formal.
+  - 8 project annexes và đầy đủ hồ sơ PMP, BRD, SRS, RDS, SDS, thiết kế database/ERD, API, coding standards, threat model, test, UAT, triển khai, vận hành và bàn giao.
 
 ## 2. Định danh, Khóa ngoại & Trích dẫn RAG
 - **Khóa chính**: `document_id` (ví dụ `DOC-CAT-20260416-01`) và `issue_id` / `issue_key` (ví dụ `CAT-001`) là định danh bất biến.
+- **Markdown/DOCX rendition**: Bản Word xuất từ Markdown giữ cùng `canonical_document_id`; `rendition_paths` trỏ đến file DOCX và không tạo logical document/chunk trùng lặp.
+- **Requirement/test IDs**: `structured/requirements.jsonl` lưu 64 FR và 10 NFR; `structured/functional_test_cases.jsonl` lưu {len(functional_test_cases)} test chức năng có liên kết requirement; kết quả mô phỏng nằm trong `structured/test_execution_results.jsonl`.
 - **Phạm vi tài liệu cấp công ty (Organization-level Scope)**: Các tài liệu chiến lược chung của công ty (Charter, Meeting Decisions) có `project_id: null`, `organization_id: "ORG-NSC"`, và `scope: "organization"`. Không sử dụng `project_id: "ORG"` giả mạo.
 - **Khớp nối thời gian Issue - Document**: Mọi `source_issue_key` liên kết trong tài liệu đều tồn tại trong `issues.jsonl` và có ngày tạo `issue.created_at <= document.created_at`.
 - **Ánh xạ mã tham chiếu ngoại vi**: Mã tham chiếu đối tác `INT-001` được ánh xạ chuẩn xác vào ticket chính quy `CAT-008`. Mã `NONEXISTENT-999` chỉ xuất hiện duy nhất trong fixture kiểm thử lỗi mồ côi `fixtures/orphan_issue_reference.md`.
@@ -2195,6 +2522,7 @@ ingestion_contract_text = """# Ingestion Contract — Northstar Commerce Dataset
 - Tuyệt đối không để rò rỉ tiêu đề, trích đoạn hoặc tín hiệu tồn tại của tài liệu khi người dùng không thuộc nhóm quyền cho phép.
 - **Cách ly đa tenant**: Người dùng thuộc tenant Meridian Outfitters không được phép truy cập tài liệu nội bộ hoặc tài liệu cấu hình của tenant khác.
 - **Cựu nhân viên (Inactive Staff)**: Nhân viên đã nghỉ việc (`account_status: inactive`) bị thu hồi toàn bộ phiên đăng nhập và nhóm quyền (`status: revoked`). Lịch sử tham gia (tác giả tài liệu, người giải quyết issue đã hoàn thành trong quá khứ) được giữ nguyên vì tính toàn vẹn kiểm toán.
+- **Phân quyền theo project**: Tài liệu bundle và annex chỉ cấp nhóm của project tương ứng; không tự động cộng `GRP-ALL-STAFF`. Thành viên được nhóm project qua project assignment, kể cả cộng tác viên khách mời được liệt kê rõ; quyền truy cập vào project khác vẫn phải được cấp riêng. Tài liệu chia sẻ đối tác dùng thêm nhóm tenant đối tác một cách tường minh.
 - **Không có issue mở nào thuộc cựu nhân viên**: Các issue chưa hoàn thành (`status != "Done"`) bắt buộc phải được chuyển giao sang nhân sự active với bản ghi changelog ghi nhận sự kiện chuyển giao `field: "assignee"`.
 
 ## 4. Mô hình Sprint & Cách tính Story Points
@@ -2209,13 +2537,18 @@ ingestion_contract_text = """# Ingestion Contract — Northstar Commerce Dataset
   - Công cụ nạp và kiểm tra tính toàn vẹn bắt buộc áp dụng hàm chuẩn hóa tương tự.
 
 ## 6. File Inventory trong Manifest
-- `manifest.json` ghi `file_inventory` với đường dẫn tương đối trong `Dataset/v1`, kích thước byte và SHA-256 của từng file vật lý.
-- Inventory được sắp xếp theo đường dẫn và bao gồm toàn bộ file trong `v1`, ngoại trừ chính `manifest.json` để tránh checksum tự tham chiếu. `physical_files_in_v1` vẫn tính cả manifest.
+- `manifest.json` ghi `file_inventory` với đường dẫn tương đối trong `Project1`, kích thước byte và SHA-256 của từng file vật lý.
+- Inventory được sắp xếp theo đường dẫn và bao gồm toàn bộ file trong package `Project1`, ngoại trừ chính `manifest.json` để tránh checksum tự tham chiếu. `physical_files_in_v1` vẫn tính cả manifest.
 - Sau khi sinh dữ liệu, công cụ nạp phải đối chiếu mọi đường dẫn, kích thước và checksum trong inventory với file thực tế.
+
+## 7. Namespace và dữ liệu test
+- Nạp `evaluation/` vào namespace benchmark riêng; không đưa gold answer, expected value hoặc expected ACL decision vào index demo.
+- `fixtures/` chứa test-only duplicate, thiếu metadata, broken link, timestamp/policy conflict, cross-tenant canary, offboarded author và attachment. Fixture được đánh dấu tách biệt với tài liệu chuẩn.
+- Chỉ lập chỉ mục Markdown canonical; DOCX rendition liên kết dùng để kiểm tra trích xuất và hiển thị, trừ khi pipeline đang chạy bài test DOCX.
 """
 (ROOT / "INGESTION_CONTRACT.md").write_text(ingestion_contract_text, encoding="utf-8")
 
-readme_vi = f"""# Bộ Dữ Liệu Northstar Commerce v1.0 — Hướng Dẫn Vận Hành & Khai Thác
+readme_vi = f"""# Bộ Dữ Liệu Northstar Commerce v1.1 — Hướng Dẫn Vận Hành & Khai Thác
 
 ## 1. Bối cảnh kịch bản (Dataset Scenario)
 Bộ dữ liệu mô phỏng công ty công nghệ hư cấu **Northstar Commerce Systems**, đang xây dựng nền tảng thương mại điện tử đa tenant (multi-tenant ecommerce platform) cho khách hàng merchant pilot là **Meridian Outfitters**, tích hợp với đối tác cổng thanh toán **PulsePay Network**.
@@ -2226,38 +2559,39 @@ Bộ dữ liệu mô phỏng công ty công nghệ hư cấu **Northstar Commerc
 - **3 Tổ chức (Organizations)**: `ORG-NSC` (Northstar), `ORG-MERIDIAN` (Meridian), `ORG-PULSEPAY` (PulsePay).
 - **10 Phòng ban (Departments)**: 8 phòng ban Northstar, 1 Merchandising (Meridian), 1 API Ops (PulsePay).
 - **74 Hồ sơ thành viên (Members)**: 60 nhân sự nội bộ Northstar, 8 nhân sự Meridian, 6 nhân sự PulsePay. Trong đó có 71 thành viên active và 3 cựu nhân viên (inactive, quyền hạn đã bị thu hồi).
+- **{len(groups)} Nhóm truy cập**: Nhóm toàn công ty, nhóm phòng ban/workstream, cùng nhóm tenant Meridian và PulsePay; project membership được ánh xạ thành quyền cộng tác có thời hạn.
 - **8 Dự án (Projects)**: `NSC-CAT`, `NSC-SRCH`, `NSC-CART`, `NSC-CHKO`, `NSC-PAY`, `NSC-INV`, `NSC-ORD`, `NSC-PLAT`.
 - **104 Sprints**: 13 sprint liên tiếp, mỗi sprint 14 ngày tính cả ngày đầu/cuối. Sprint 13 chạy từ 2026-09-29 đến hết 2026-10-12 và có issue cùng WIP thực tế.
 - **180 Ngày giả lập (Simulation Window)**: Từ `2026-04-16` đến `2026-10-12` (gồm đúng **128 ngày làm việc - weekdays**).
-- **Đúng 1.400 Bản ghi tài liệu logic (Logical Documents)**: Được đăng ký đầy đủ trong `structured/documents.jsonl`.
+- **{len(canonical_documents):,} Bản ghi tài liệu logic (Logical Documents)**: Được đăng ký đầy đủ trong `structured/documents.jsonl`; DOCX rendition dùng chung canonical ID với Markdown.
 - **Đúng 2.500 Jira-like Issues**: Đầy đủ bình luận (comments), lịch sử trạng thái (changelog), quyền sở hữu, độ ưu tiên, ngày hết hạn, nhãn dán.
 - **Bình luận theo ngữ cảnh**: Comment phù hợp trạng thái và tiêu đề từng issue, với nội dung đa dạng để hỗ trợ tìm kiếm và RAG.
-- **120 Bộ test case chuẩn (Evaluation Cases)**: Bao phủ RAG chất lượng cao, ACL đa tầng, tiến độ dự án, trích xuất bảng DOCX và xử lý tình huống biên.
+- **{total_eval_cases} Evaluation Cases** và **{len(functional_test_cases)} Functional Test Cases**: Benchmark riêng cho RAG/ACL/ingestion/progress/analytics và test nghiệp vụ theo requirement.
 
 ## 3. Kiến trúc đóng gói: File vật lý vs Bản ghi logic
-Để đáp ứng nghiêm ngặt giới hạn hệ thống (**dưới 160 file vật lý tổng cộng trong thư mục Dataset**):
-- **Tổng số file vật lý trong v1**: Đúng **107 files** (gồm 56 bundles + 10 docx + 12 formal md + 6 fixtures + 12 jsonl + 6 eval + 4 docs + 1 tool).
-- **Tổng số file trong toàn bộ Dataset** (bao gồm 39 file seed v0.1 + 1 file snapshot zip + 107 file v1): Đúng **147 files <= 160 files**.
-- `manifest.json` ghi SHA-256 và kích thước byte cho mọi file trong `v1`, ngoại trừ chính manifest để tránh tự tham chiếu.
-- **Cách ánh xạ sang 1.400 tài liệu logic**:
+Package `Project1` giữ dưới giới hạn **160 file vật lý**; các file kế hoạch và presentation ở repo root không thuộc package ingest.
+- **Số file vật lý package**: {physical_package_count} (56 bundles + {len(docx_specs)} DOCX canonical + {len(completion_docx_specs)} DOCX rendition + {len(md_specs)} Markdown formal + {sum(1 for path in (ROOT / "fixtures").rglob("*") if path.is_file())} fixtures/attachments + {len(list((ROOT / "structured").glob("*.jsonl")))} structured JSONL + {len(list((ROOT / "evaluation").glob("*.jsonl")))} evaluation JSONL + 4 hướng dẫn/catalog/manifest + {len(list((ROOT / "tools").glob("*.py")))} generator tools).
+- `manifest.json` ghi SHA-256 và kích thước byte cho mọi file trong `Project1`, ngoại trừ chính manifest để tránh tự tham chiếu.
+- **Cách ánh xạ sang {len(canonical_documents):,} tài liệu logic**:
   - **56 Monthly Markdown Bundles**: 8 dự án × 7 tháng (tháng 4 đến tháng 10/2026) lưu trữ 1.373 bản ghi cập nhật kỹ thuật trên 128 ngày làm việc (93 ngày có 11 docs, 35 ngày có 10 docs). Mỗi bản ghi có tiêu đề cấp 3 và thẻ neo HTML rõ ràng (ví dụ: `<a id="doc-cat-20260416-01"></a>`).
-  - **10 Tài liệu DOCX trang trọng**: Quy chuẩn kiến trúc, API contract, test plan, bảo mật, RCA, runbook...
-  - **12 Tài liệu Markdown trang trọng**: Company charter, PRD, ADR hiện tại và superseded, chính sách đổi trả, biên bản họp...
-  - **5 Fixture files đặc biệt**: File duplicate, thiếu metadata, link hỏng, xung đột mốc thời gian, orphan Jira key.
-  - Tổng cộng: 1.373 + 10 + 12 + 5 = **1.400 Logical Documents**!
+  - **{len(docx_specs)} DOCX canonical sources** và **{len(completion_docx_specs)} DOCX renditions**: rendition được liên kết với Markdown và không cộng thành bản ghi logic mới.
+  - **{len(md_specs)} Tài liệu Markdown formal**, gồm hồ sơ cấp công ty, tiêu chuẩn, báo cáo, và 8 project annexes.
+  - **{len(registered_fixtures)} Fixture records** được đăng ký trong catalog; fixture attachment và file test không đăng ký vẫn nằm trong package vật lý.
+  - Tổng cộng: 1.373 + {len(docx_specs)} + {len(md_specs)} + {len(registered_fixtures)} = **{len(canonical_documents):,} Logical Documents**.
 
 ## 4. Thứ tự nạp dữ liệu khuyến nghị (Ingestion Pipeline)
 1. **Thực thể nền tảng**: `organizations` → `departments` → `members` → `access_groups` → `group_memberships`.
 2. **Dự án & Sprints**: `projects` → `sprints` → `project_memberships`.
 3. **Tiến độ và nhiệm vụ**: `issues` → `issue_comments` → `issue_changelog`.
 4. **Nạp kho tài liệu (Content Ingestion)**:
-   - Nạp các file DOCX trong `documents/docx/` và Markdown trong `documents/markdown/formal/`.
+   - Nạp Markdown canonical trong `documents/markdown/formal/`; DOCX rendition dùng chung `canonical_document_id` nên không tạo chunk trùng.
    - Phân đoạn 56 bundles trong `documents/markdown/bundles/` theo các thẻ neo `<a id="..."></a>` để tạo đúng 1.373 chunks tài liệu tương ứng với `structured/documents.jsonl`.
 5. **Đánh chỉ mục vector & tìm kiếm**:
    - Gắn nhãn `access_groups`, `classification`, và `scope` vào từng chunk.
    - Áp dụng bộ lọc ACL trước khi retrieval (Pre-filtering).
-6. **Bộ dữ liệu kiểm thử (Evaluation)**:
-   - Nạp các file trong `evaluation/` vào namespace riêng biệt, **tuyệt đối không đưa gold answers vào index demo**.
+6. **Test nghiệp vụ và benchmark**:
+   - Test chức năng lấy từ `structured/functional_test_cases.jsonl`; đối chiếu requirement và kết quả trong `structured/test_execution_results.jsonl`.
+   - Bộ dữ liệu kiểm thử retrieval/ACL/ingestion lấy từ `evaluation/` vào namespace riêng biệt, **không đưa gold answers vào index demo**.
 
 ## 5. Hướng dẫn sử dụng Dataset_Catalog.xlsx
 1. Mở file `Dataset_Catalog.xlsx` bằng Microsoft Excel hoặc LibreOffice Calc.
@@ -2265,7 +2599,8 @@ Bộ dữ liệu mô phỏng công ty công nghệ hư cấu **Northstar Commerc
 3. **Tab Sprints**: Tra cứu 104 sprint của 8 dự án, xem mục tiêu sprint và trạng thái active/closed.
 4. **Tab Documents**: Sử dụng bộ lọc (AutoFilter) theo `project_id`, `scope`, `classification`, `status` hoặc `format`.
 5. **Tab Issues**: Tra cứu 2.500 ticket theo `status` (Blocked, Done...), `sprint_id`, `assignee_id`, hoặc `priority`.
-6. **Tab Test Cases**: Xem 120 kịch bản test chuẩn cho RAG, ACL và Analytics.
+6. **Tab Evaluation Cases**: Xem {total_eval_cases} kịch bản RAG, ACL, ingestion, tiến độ và analytics.
+7. **Tab Functional Tests**: Lọc {len(functional_test_cases)} test theo project, requirement, actor, priority và kết quả kỳ chạy.
 """
 (ROOT / "00_START_HERE.md").write_text(readme_vi, encoding="utf-8")
 
@@ -2293,10 +2628,13 @@ validation_errors = []
 # 1. Counts match manifest
 manifest_loaded = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))
 mc = manifest_loaded["canonical_counts"]
-if mc["logical_documents"] != 1400: validation_errors.append("Manifest documents mismatch")
-if mc["issues"] != 2500: validation_errors.append("Manifest issues mismatch")
-if mc["members"] != 74: validation_errors.append("Manifest members mismatch")
-if mc["sprints"] != 104: validation_errors.append("Manifest sprints mismatch")
+if mc["logical_documents"] != len(canonical_documents): validation_errors.append("Manifest documents mismatch")
+if mc["issues"] != len(issues): validation_errors.append("Manifest issues mismatch")
+if mc["members"] != len(members): validation_errors.append("Manifest members mismatch")
+if mc["sprints"] != len(sprints): validation_errors.append("Manifest sprints mismatch")
+if mc.get("requirements") != len(requirement_records): validation_errors.append("Manifest requirement count mismatch")
+if mc.get("functional_test_cases") != len(functional_test_cases): validation_errors.append("Manifest functional test count mismatch")
+if mc.get("test_execution_results") != len(test_execution_results): validation_errors.append("Manifest test execution count mismatch")
 
 # 1a. Manifest inventories every physical v1 file except itself.
 inventory = manifest_loaded.get("file_inventory", [])
@@ -2337,10 +2675,24 @@ for jf in jsonl_files:
 
 # 3. Document files, section anchors, and checksums exist
 doc_ids = set()
+canonical_ids = set()
+member_ids = {m["member_id"] for m in members}
+group_ids = {g["group_id"] for g in groups}
 for d in canonical_documents:
     did = d["document_id"]
     if did in doc_ids: validation_errors.append(f"Duplicate document ID: {did}")
     doc_ids.add(did)
+    canonical_id = d.get("canonical_document_id")
+    if not canonical_id: validation_errors.append(f"Missing canonical document ID: {did}")
+    if did == canonical_id:
+        if canonical_id in canonical_ids: validation_errors.append(f"Duplicate canonical document ID: {canonical_id}")
+        canonical_ids.add(canonical_id)
+    if d.get("owner_id") not in member_ids:
+        validation_errors.append(f"Document owner invalid: {did}")
+    if not set(d.get("access_groups", [])).issubset(group_ids):
+        validation_errors.append(f"Document access group invalid: {did}")
+    if not set(d.get("requirement_ids", [])).issubset(requirements_by_id):
+        validation_errors.append(f"Document requirement reference invalid: {did}")
     
     file_p = ROOT / d["file_path"]
     if not file_p.exists():
@@ -2352,6 +2704,24 @@ for d in canonical_documents:
             anchor_tag = f"id=\"{anchor.lstrip('#')}\""
             if anchor_tag not in raw_text:
                 validation_errors.append(f"Anchor {anchor} missing in {d['file_path']}")
+            if d.get("content_sha256"):
+                section_start = raw_text.find(f"### [{did}]")
+                section_end = raw_text.find("\n---", section_start)
+                if section_start < 0 or section_end < 0:
+                    validation_errors.append(f"Bundle section boundaries invalid: {did}")
+                else:
+                    actual_hash = compute_section_sha256(raw_text[section_start:section_end + len("\n---")])
+                    if actual_hash != d["content_sha256"]:
+                        validation_errors.append(f"Bundle section checksum mismatch: {did}")
+    for rendition_path in d.get("rendition_paths", []):
+        if not (ROOT / rendition_path).is_file():
+            validation_errors.append(f"Document rendition missing: {did} -> {rendition_path}")
+    if d.get("document_role") == "test_fixture" and not d.get("test_only"):
+        validation_errors.append(f"Fixture is not marked test-only: {did}")
+
+for d in canonical_documents:
+    if d.get("canonical_document_id") not in doc_ids:
+        validation_errors.append(f"Canonical document reference missing: {d['document_id']} -> {d.get('canonical_document_id')}")
 
 # 4. Foreign key integrity
 org_ids = {o["org_id"] for o in orgs}
@@ -2361,6 +2731,120 @@ group_ids = {g["group_id"] for g in groups}
 proj_ids = {p["project_id"] for p in projects}
 sprint_ids = {sp["sprint_id"] for sp in sprints}
 iss_keys = {i["issue_key"] for i in issues}
+
+# Group access must resolve to active principals and explicit project assignments.
+group_membership_ids = [item["membership_id"] for item in memberships]
+group_membership_pairs = {(item["member_id"], item["group_id"]) for item in memberships}
+group_memberships_by_member = {}
+if len(group_membership_ids) != len(set(group_membership_ids)):
+    validation_errors.append("Duplicate group membership IDs")
+if len(group_membership_pairs) != len(memberships):
+    validation_errors.append("Duplicate member/group membership pairs")
+for item in memberships:
+    if item["member_id"] not in member_ids or item["group_id"] not in group_ids:
+        validation_errors.append(f"Invalid group membership reference: {item['membership_id']}")
+        continue
+    group_memberships_by_member.setdefault(item["member_id"], []).append(item)
+    member = member_by_id[item["member_id"]]
+    expected_status = "revoked" if member["account_status"] == "inactive" else "active"
+    if item["status"] != expected_status:
+        validation_errors.append(f"Group membership status does not match account status: {item['membership_id']}")
+for project in projects:
+    team_ids = set([project["owner_id"]] + project_devs[project["project_id"]])
+    for member_id in team_ids:
+        if (member_id, project["team_group"]) not in group_membership_pairs:
+            validation_errors.append(f"Project team lacks matching access group: {project['project_id']} / {member_id}")
+for document in canonical_documents:
+    if document.get("format") == "markdown_bundle":
+        project = next((p for p in projects if p["project_id"] == document.get("project_id")), None)
+        if not project or document.get("access_groups") != [project["team_group"]]:
+            validation_errors.append(f"Project bundle ACL is not scoped to its project group: {document['document_id']}")
+for case in acl_cases:
+    resource = next((d for d in canonical_documents if d["document_id"] == case["resource_id"]), None)
+    principal = member_by_id.get(case["principal_id"])
+    principal_groups = {
+        item["group_id"] for item in group_memberships_by_member.get(case["principal_id"], [])
+        if item["status"] == "active"
+    }
+    allowed = bool(
+        principal and principal["account_status"] == "active" and resource
+        and principal_groups.intersection(resource.get("access_groups", []))
+    )
+    actual_decision = "allow" if allowed else "deny"
+    if actual_decision != case["expected_decision"]:
+        validation_errors.append(f"ACL evaluation expectation mismatch: {case['case_id']} expected {case['expected_decision']} got {actual_decision}")
+
+# Group access must resolve to active principals and explicit project assignments.
+group_membership_ids = [item["membership_id"] for item in memberships]
+group_membership_pairs = {(item["member_id"], item["group_id"]) for item in memberships}
+group_memberships_by_member = {}
+if len(group_membership_ids) != len(set(group_membership_ids)):
+    validation_errors.append("Duplicate group membership IDs")
+if len(group_membership_pairs) != len(memberships):
+    validation_errors.append("Duplicate member/group membership pairs")
+for item in memberships:
+    if item["member_id"] not in member_ids or item["group_id"] not in group_ids:
+        validation_errors.append(f"Invalid group membership reference: {item['membership_id']}")
+        continue
+    group_memberships_by_member.setdefault(item["member_id"], []).append(item)
+    member = member_by_id[item["member_id"]]
+    expected_status = "revoked" if member["account_status"] == "inactive" else "active"
+    if item["status"] != expected_status:
+        validation_errors.append(f"Group membership status does not match account status: {item['membership_id']}")
+for project in projects:
+    team_ids = set([project["owner_id"]] + project_devs[project["project_id"]])
+    for member_id in team_ids:
+        if (member_id, project["team_group"]) not in group_membership_pairs:
+            validation_errors.append(f"Project team lacks matching access group: {project['project_id']} / {member_id}")
+for document in canonical_documents:
+    if document.get("format") == "markdown_bundle":
+        project = next((p for p in projects if p["project_id"] == document.get("project_id")), None)
+        if not project or document.get("access_groups") != [project["team_group"]]:
+            validation_errors.append(f"Project bundle ACL is not scoped to its project group: {document['document_id']}")
+for case in acl_cases:
+    resource = next((d for d in canonical_documents if d["document_id"] == case["resource_id"]), None)
+    principal = member_by_id.get(case["principal_id"])
+    principal_groups = {
+        item["group_id"] for item in group_memberships_by_member.get(case["principal_id"], [])
+        if item["status"] == "active"
+    }
+    allowed = bool(
+        principal and principal["account_status"] == "active" and resource
+        and principal_groups.intersection(resource.get("access_groups", []))
+    )
+    actual_decision = "allow" if allowed else "deny"
+    if actual_decision != case["expected_decision"]:
+        validation_errors.append(f"ACL evaluation expectation mismatch: {case['case_id']} expected {case['expected_decision']} got {actual_decision}")
+
+# Requirements and functional tests must form a complete, resolvable baseline.
+requirement_ids = {r["requirement_id"] for r in requirement_records}
+case_ids = {c["case_id"] for c in functional_test_cases}
+result_case_ids = {r["case_id"] for r in test_execution_results}
+if len(requirement_ids) != len(requirement_records): validation_errors.append("Duplicate requirement IDs")
+if len(case_ids) != len(functional_test_cases): validation_errors.append("Duplicate functional test IDs")
+if case_ids != result_case_ids: validation_errors.append("Functional tests and execution results do not align")
+if len(requirement_records) != 74: validation_errors.append(f"Expected 74 requirements, got {len(requirement_records)}")
+if len(functional_test_cases) != 84: validation_errors.append(f"Expected 84 functional cases, got {len(functional_test_cases)}")
+for requirement in requirement_records:
+    if not requirement["test_case_ids"]:
+        validation_errors.append(f"Requirement has no test: {requirement['requirement_id']}")
+    if not set(requirement["test_case_ids"]).issubset(case_ids):
+        validation_errors.append(f"Requirement references missing test: {requirement['requirement_id']}")
+    if requirement["owner_id"] not in member_ids:
+        validation_errors.append(f"Requirement owner invalid: {requirement['requirement_id']}")
+    if not set(requirement["source_issue_keys"]).issubset(iss_keys):
+        validation_errors.append(f"Requirement issue reference invalid: {requirement['requirement_id']}")
+for case in functional_test_cases:
+    if not set(case["requirement_ids"]).issubset(requirement_ids):
+        validation_errors.append(f"Functional test requirement reference invalid: {case['case_id']}")
+    if not set(case["source_issue_keys"]).issubset(iss_keys):
+        validation_errors.append(f"Functional test issue reference invalid: {case['case_id']}")
+outcome_counts = {outcome: sum(1 for result in test_execution_results if result["outcome"] == outcome) for outcome in ["Passed", "Failed", "Blocked"]}
+if outcome_counts != {"Passed": 82, "Failed": 1, "Blocked": 1}:
+    validation_errors.append(f"Unexpected functional execution distribution: {outcome_counts}")
+for result in test_execution_results:
+    if result.get("defect_issue_key") and result["defect_issue_key"] not in iss_keys:
+        validation_errors.append(f"Execution references missing defect issue: {result['execution_id']}")
 
 # Check issues
 inactive_member_ids = {m["member_id"] for m in members if m["account_status"] == "inactive"}
@@ -2438,20 +2922,23 @@ for d in canonical_documents:
 
 # 5. Check physical file counts
 v1_files = [f for f in ROOT.rglob("*") if f.is_file()]
-total_dataset_files = [f for f in WORKSPACE_ROOT.rglob("*") if f.is_file()]
-print(f"Physical Files in v1: {len(v1_files)}")
+total_dataset_files = [f for f in ROOT.rglob("*") if f.is_file()]
+print(f"Physical Files in Project1 package: {len(v1_files)}")
 print(f"Total Physical Files in Dataset: {len(total_dataset_files)} (Hard Cap: 160)")
 
 if len(total_dataset_files) > 160:
     validation_errors.append(f"PHYSICAL FILE COUNT HARD CAP EXCEEDED: {len(total_dataset_files)} > 160!")
 if len(v1_files) != mc.get("physical_files_in_v1"):
     validation_errors.append(f"Manifest v1 physical file count mismatch: {len(v1_files)}")
-
+if len(total_dataset_files) != mc.get("physical_files_total_dataset"):
+    validation_errors.append(f"Manifest dataset physical file count mismatch: {len(total_dataset_files)}")
 # 6. Check Excel open
 try:
     test_wb = openpyxl.load_workbook(ROOT / "Dataset_Catalog.xlsx", read_only=True)
-    if "Overview" not in test_wb.sheetnames or "Sprints" not in test_wb.sheetnames:
-        validation_errors.append("Overview or Sprints sheet missing in Excel")
+    if not {"Overview", "Sprints", "Documents", "Issues", "Evaluation Cases", "Functional Tests"}.issubset(test_wb.sheetnames):
+        validation_errors.append("One or more required catalog sheets are missing")
+    if test_wb["Functional Tests"].max_row != len(functional_test_cases) + 1:
+        validation_errors.append("Functional test catalog row count mismatch")
     test_wb.close()
 except Exception as e:
     validation_errors.append(f"Excel read failed: {e}")
