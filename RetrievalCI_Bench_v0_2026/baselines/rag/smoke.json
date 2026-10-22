@@ -1,0 +1,3018 @@
+{
+  "systems": [
+    "dense_rag",
+    "bm25_lexical",
+    "hybrid_rrf"
+  ],
+  "n_questions": 20,
+  "n_per_tier": {
+    "single_hop": 8,
+    "multi_hop": 8,
+    "contradiction": 4
+  },
+  "rows": [
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q01",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: How long does the Atlas Helpdesk starter plan keep audit log entries?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: How long does the Atlas Helpdesk starter plan keep audit log entries?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.2590930089354515,
+        "tokens_used": 1360,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.5,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.67,
+      "relevance": 5.0,
+      "answer_length_chars": 236,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q01",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: How long does the Atlas Helpdesk starter plan keep audit log entries?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: How long does the Atlas Helpdesk starter plan keep audit log entries?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          }
+        ],
+        "latency_ms": 0.059960875660181046,
+        "tokens_used": 1326,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.5,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.67,
+      "relevance": 5.0,
+      "answer_length_chars": 236,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q01",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: How long does the Atlas Helpdesk starter plan keep audit log entries?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: How long does the Atlas Helpdesk starter plan keep audit log entries?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.14631194062530994,
+        "tokens_used": 1326,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.5,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.67,
+      "relevance": 5.0,
+      "answer_length_chars": 236,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q02",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: What retrieval method does the support retriever use?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: What retrieval method does the support retriever use?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.0928610097616911,
+        "tokens_used": 1348,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 1.57,
+      "relevance": 5.0,
+      "answer_length_chars": 204,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q02",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: What retrieval method does the support retriever use?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: What retrieval method does the support retriever use?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.03975001163780689,
+        "tokens_used": 1310,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 1.57,
+      "relevance": 5.0,
+      "answer_length_chars": 204,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q02",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: What retrieval method does the support retriever use?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: What retrieval method does the support retriever use?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          }
+        ],
+        "latency_ms": 0.12147193774580956,
+        "tokens_used": 1332,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 1.57,
+      "relevance": 5.0,
+      "answer_length_chars": 204,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q03",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: How many invoice retries happen before an account moves to read-only mode?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: How many invoice retries happen before an account moves to read-only mode?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          }
+        ],
+        "latency_ms": 0.10146200656890869,
+        "tokens_used": 1273,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.3333333333333333,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.46,
+      "relevance": 5.0,
+      "answer_length_chars": 246,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q03",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: How many invoice retries happen before an account moves to read-only mode?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: How many invoice retries happen before an account moves to read-only mode?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.04864996299147606,
+        "tokens_used": 1329,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.3333333333333333,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.46,
+      "relevance": 5.0,
+      "answer_length_chars": 246,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q03",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: How many invoice retries happen before an account moves to read-only mode?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: How many invoice retries happen before an account moves to read-only mode?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          }
+        ],
+        "latency_ms": 0.13526203110814095,
+        "tokens_used": 1329,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.3333333333333333,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.46,
+      "relevance": 5.0,
+      "answer_length_chars": 246,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q04",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: How often must customer API tokens be rotated?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: How often must customer API tokens be rotated?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          }
+        ],
+        "latency_ms": 0.08651101961731911,
+        "tokens_used": 1323,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.67,
+      "relevance": 5.0,
+      "answer_length_chars": 190,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q04",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: How often must customer API tokens be rotated?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: How often must customer API tokens be rotated?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          }
+        ],
+        "latency_ms": 0.03411015495657921,
+        "tokens_used": 1197,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.67,
+      "relevance": 5.0,
+      "answer_length_chars": 190,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q04",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: How often must customer API tokens be rotated?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: How often must customer API tokens be rotated?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          }
+        ],
+        "latency_ms": 0.11603208258748055,
+        "tokens_used": 1233,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.67,
+      "relevance": 5.0,
+      "answer_length_chars": 190,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q05",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: What must happen before SCIM provisioning is enabled?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: What must happen before SCIM provisioning is enabled?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          }
+        ],
+        "latency_ms": 0.08541205897927284,
+        "tokens_used": 1328,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.0,
+      "relevance": 5.0,
+      "answer_length_chars": 204,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q05",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: What must happen before SCIM provisioning is enabled?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: What must happen before SCIM provisioning is enabled?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          }
+        ],
+        "latency_ms": 0.03624102100729942,
+        "tokens_used": 1325,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.0,
+      "relevance": 5.0,
+      "answer_length_chars": 204,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q05",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: What must happen before SCIM provisioning is enabled?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: What must happen before SCIM provisioning is enabled?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          }
+        ],
+        "latency_ms": 0.11849100701510906,
+        "tokens_used": 1328,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.0,
+      "relevance": 5.0,
+      "answer_length_chars": 204,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q06",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: Where are failed webhook delivery events parked?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: Where are failed webhook delivery events parked?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          }
+        ],
+        "latency_ms": 0.08673081174492836,
+        "tokens_used": 1308,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.5,
+      "relevance": 5.0,
+      "answer_length_chars": 194,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q06",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: Where are failed webhook delivery events parked?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: Where are failed webhook delivery events parked?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          }
+        ],
+        "latency_ms": 0.032010022550821304,
+        "tokens_used": 1198,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.5,
+      "relevance": 5.0,
+      "answer_length_chars": 194,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q06",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: Where are failed webhook delivery events parked?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: Where are failed webhook delivery events parked?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.10614213533699512,
+        "tokens_used": 1235,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.5,
+      "relevance": 5.0,
+      "answer_length_chars": 194,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q07",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: What dashboard does the on-call engineer open first during a Severity 1 incident?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: What dashboard does the on-call engineer open first during a Severity 1 incident?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          }
+        ],
+        "latency_ms": 0.1010410487651825,
+        "tokens_used": 1367,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.29,
+      "relevance": 5.0,
+      "answer_length_chars": 260,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q07",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: What dashboard does the on-call engineer open first during a Severity 1 incident?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: What dashboard does the on-call engineer open first during a Severity 1 incident?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.05179992876946926,
+        "tokens_used": 1298,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.29,
+      "relevance": 5.0,
+      "answer_length_chars": 260,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q07",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: What dashboard does the on-call engineer open first during a Severity 1 incident?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: What dashboard does the on-call engineer open first during a Severity 1 incident?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          }
+        ],
+        "latency_ms": 0.14178198762238026,
+        "tokens_used": 1353,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.29,
+      "relevance": 5.0,
+      "answer_length_chars": 260,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q08",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: How many active sandboxes can a team customer request?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: How many active sandboxes can a team customer request?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.09551108814775944,
+        "tokens_used": 1292,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.67,
+      "relevance": 5.0,
+      "answer_length_chars": 206,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q08",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: How many active sandboxes can a team customer request?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: How many active sandboxes can a team customer request?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          }
+        ],
+        "latency_ms": 0.03908085636794567,
+        "tokens_used": 1292,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.67,
+      "relevance": 5.0,
+      "answer_length_chars": 206,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q08",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "(mock synthesis for: How many active sandboxes can a team customer request?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: How many active sandboxes can a team customer request?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          }
+        ],
+        "latency_ms": 0.11836201883852482,
+        "tokens_used": 1292,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.67,
+      "relevance": 5.0,
+      "answer_length_chars": 206,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q09",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: When Recall@5 drops below 0.90, which team is paged and what should be rolled back first?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: When Recall@5 drops below 0.90, which team is paged and what should be rolled back first?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          }
+        ],
+        "latency_ms": 0.10882108472287655,
+        "tokens_used": 1299,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.18,
+      "relevance": 5.0,
+      "answer_length_chars": 276,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q09",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: When Recall@5 drops below 0.90, which team is paged and what should be rolled back first?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: When Recall@5 drops below 0.90, which team is paged and what should be rolled back first?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.05204114131629467,
+        "tokens_used": 1352,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.18,
+      "relevance": 5.0,
+      "answer_length_chars": 276,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q09",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: When Recall@5 drops below 0.90, which team is paged and what should be rolled back first?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: When Recall@5 drops below 0.90, which team is paged and what should be rolled back first?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.15181186608970165,
+        "tokens_used": 1299,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.18,
+      "relevance": 5.0,
+      "answer_length_chars": 276,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q10",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: For a Severity 1 incident, what dashboard is opened first and which customers get a named incident channel?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: For a Severity 1 incident, what dashboard is opened first and which customers get a named incident channel?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          }
+        ],
+        "latency_ms": 0.11966214515268803,
+        "tokens_used": 1276,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.3333333333333333,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 0.5,
+      "faithfulness": 2.87,
+      "relevance": 5.0,
+      "answer_length_chars": 312,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q10",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: For a Severity 1 incident, what dashboard is opened first and which customers get a named incident channel?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: For a Severity 1 incident, what dashboard is opened first and which customers get a named incident channel?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          }
+        ],
+        "latency_ms": 0.06122095510363579,
+        "tokens_used": 1316,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.3333333333333333,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.87,
+      "relevance": 5.0,
+      "answer_length_chars": 312,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q10",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: For a Severity 1 incident, what dashboard is opened first and which customers get a named incident channel?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: For a Severity 1 incident, what dashboard is opened first and which customers get a named incident channel?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.16105198301374912,
+        "tokens_used": 1295,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.3333333333333333,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.87,
+      "relevance": 5.0,
+      "answer_length_chars": 312,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q11",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: If an enterprise customer requires SAML SSO and SCIM, what two setup checks must pass before managed-user access is ready?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: If an enterprise customer requires SAML SSO and SCIM, what two setup checks must pass before managed-user access is ready?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          }
+        ],
+        "latency_ms": 0.11795107275247574,
+        "tokens_used": 1342,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.5,
+      "relevance": 5.0,
+      "answer_length_chars": 342,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q11",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: If an enterprise customer requires SAML SSO and SCIM, what two setup checks must pass before managed-user access is ready?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: If an enterprise customer requires SAML SSO and SCIM, what two setup checks must pass before managed-user access is ready?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          }
+        ],
+        "latency_ms": 0.057551078498363495,
+        "tokens_used": 1306,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.5,
+      "relevance": 5.0,
+      "answer_length_chars": 342,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q11",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: If an enterprise customer requires SAML SSO and SCIM, what two setup checks must pass before managed-user access is ready?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: If an enterprise customer requires SAML SSO and SCIM, what two setup checks must pass before managed-user access is ready?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          }
+        ],
+        "latency_ms": 0.16512209549546242,
+        "tokens_used": 1342,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.5,
+      "relevance": 5.0,
+      "answer_length_chars": 342,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q12",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: After all invoice retries fail, what happens to the account and can the customer still see support tickets?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: After all invoice retries fail, what happens to the account and can the customer still see support tickets?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          }
+        ],
+        "latency_ms": 0.11664186604321003,
+        "tokens_used": 1316,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.45,
+      "relevance": 5.0,
+      "answer_length_chars": 312,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q12",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: After all invoice retries fail, what happens to the account and can the customer still see support tickets?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: After all invoice retries fail, what happens to the account and can the customer still see support tickets?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.06245984695851803,
+        "tokens_used": 1298,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.45,
+      "relevance": 5.0,
+      "answer_length_chars": 312,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q12",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: After all invoice retries fail, what happens to the account and can the customer still see support tickets?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: After all invoice retries fail, what happens to the account and can the customer still see support tickets?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          }
+        ],
+        "latency_ms": 0.1588631421327591,
+        "tokens_used": 1316,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.45,
+      "relevance": 5.0,
+      "answer_length_chars": 312,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q13",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: For duplicate ticket-import webhook events, who reviews the manifest and what key should have prevented duplicate processing?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: For duplicate ticket-import webhook events, who reviews the manifest and what key should have prevented duplicate processing?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          }
+        ],
+        "latency_ms": 0.11330191045999527,
+        "tokens_used": 1386,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 0.5,
+      "faithfulness": 2.6,
+      "relevance": 5.0,
+      "answer_length_chars": 348,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q13",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: For duplicate ticket-import webhook events, who reviews the manifest and what key should have prevented duplicate processing?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: For duplicate ticket-import webhook events, who reviews the manifest and what key should have prevented duplicate processing?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          }
+        ],
+        "latency_ms": 0.049730995669960976,
+        "tokens_used": 1308,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.6,
+      "relevance": 5.0,
+      "answer_length_chars": 348,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q13",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: For duplicate ticket-import webhook events, who reviews the manifest and what key should have prevented duplicate processing?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: For duplicate ticket-import webhook events, who reviews the manifest and what key should have prevented duplicate processing?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          }
+        ],
+        "latency_ms": 0.15028216876089573,
+        "tokens_used": 1386,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 0.5,
+      "faithfulness": 2.6,
+      "relevance": 5.0,
+      "answer_length_chars": 348,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q14",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: Before a prompt bundle change deploys, which RetrievalCI metric is compared and what drop blocks the change?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: Before a prompt bundle change deploys, which RetrievalCI metric is compared and what drop blocks the change?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          }
+        ],
+        "latency_ms": 0.11482206173241138,
+        "tokens_used": 1366,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.25,
+      "relevance": 5.0,
+      "answer_length_chars": 314,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q14",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: Before a prompt bundle change deploys, which RetrievalCI metric is compared and what drop blocks the change?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: Before a prompt bundle change deploys, which RetrievalCI metric is compared and what drop blocks the change?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          }
+        ],
+        "latency_ms": 0.05819089710712433,
+        "tokens_used": 1276,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.25,
+      "relevance": 5.0,
+      "answer_length_chars": 314,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q14",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: Before a prompt bundle change deploys, which RetrievalCI metric is compared and what drop blocks the change?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: Before a prompt bundle change deploys, which RetrievalCI metric is compared and what drop blocks the change?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          }
+        ],
+        "latency_ms": 0.15172199346125126,
+        "tokens_used": 1366,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.25,
+      "relevance": 5.0,
+      "answer_length_chars": 314,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q15",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: During a Severity 1 incident with a named channel, how often are updates posted and where are they mirrored?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: During a Severity 1 incident with a named channel, how often are updates posted and where are they mirrored?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          }
+        ],
+        "latency_ms": 0.11188210919499397,
+        "tokens_used": 1366,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.4,
+      "relevance": 5.0,
+      "answer_length_chars": 314,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q15",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: During a Severity 1 incident with a named channel, how often are updates posted and where are they mirrored?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: During a Severity 1 incident with a named channel, how often are updates posted and where are they mirrored?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.059889862313866615,
+        "tokens_used": 1352,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.4,
+      "relevance": 5.0,
+      "answer_length_chars": 314,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q15",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: During a Severity 1 incident with a named channel, how often are updates posted and where are they mirrored?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: During a Severity 1 incident with a named channel, how often are updates posted and where are they mirrored?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.16551301814615726,
+        "tokens_used": 1352,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.4,
+      "relevance": 5.0,
+      "answer_length_chars": 314,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q16",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: For an enterprise customer requesting a dedicated sandbox region, which addendum and approval are required, and which queue does not enable it?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: For an enterprise customer requesting a dedicated sandbox region, which addendum and approval are required, and which queue does not enable it?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.12513110414147377,
+        "tokens_used": 1303,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 0.5,
+      "faithfulness": 2.87,
+      "relevance": 5.0,
+      "answer_length_chars": 384,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q16",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: For an enterprise customer requesting a dedicated sandbox region, which addendum and approval are required, and which queue does not enable it?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: For an enterprise customer requesting a dedicated sandbox region, which addendum and approval are required, and which queue does not enable it?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          }
+        ],
+        "latency_ms": 0.06611109711229801,
+        "tokens_used": 1325,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.87,
+      "relevance": 5.0,
+      "answer_length_chars": 384,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q16",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "(mock synthesis for: For an enterprise customer requesting a dedicated sandbox region, which addendum and approval are required, and which queue does not enable it?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: For an enterprise customer requesting a dedicated sandbox region, which addendum and approval are required, and which queue does not enable it?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          }
+        ],
+        "latency_ms": 0.17595314420759678,
+        "tokens_used": 1303,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 0.5,
+      "faithfulness": 2.87,
+      "relevance": 5.0,
+      "answer_length_chars": 384,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q17",
+      "tier": "contradiction",
+      "answer": {
+        "answer": "(mock synthesis for: Can the refund assistant approve refunds above 100 USD by itself?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: Can the refund assistant approve refunds above 100 USD by itself?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.09331200271844864,
+        "tokens_used": 1357,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.5,
+      "must_not_include_violations": 1,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.82,
+      "relevance": 5.0,
+      "answer_length_chars": 228,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q17",
+      "tier": "contradiction",
+      "answer": {
+        "answer": "(mock synthesis for: Can the refund assistant approve refunds above 100 USD by itself?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: Can the refund assistant approve refunds above 100 USD by itself?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          }
+        ],
+        "latency_ms": 0.038350000977516174,
+        "tokens_used": 1301,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.5,
+      "must_not_include_violations": 1,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.82,
+      "relevance": 5.0,
+      "answer_length_chars": 228,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q17",
+      "tier": "contradiction",
+      "answer": {
+        "answer": "(mock synthesis for: Can the refund assistant approve refunds above 100 USD by itself?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: Can the refund assistant approve refunds above 100 USD by itself?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          }
+        ],
+        "latency_ms": 0.12860214337706566,
+        "tokens_used": 1357,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.5,
+      "must_not_include_violations": 1,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.82,
+      "relevance": 5.0,
+      "answer_length_chars": 228,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q18",
+      "tier": "contradiction",
+      "answer": {
+        "answer": "(mock synthesis for: When retrieval quality drops, should the incident owner change the embedding model before the prompt bundle?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: When retrieval quality drops, should the incident owner change the embedding model before the prompt bundle?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          }
+        ],
+        "latency_ms": 0.10562082752585411,
+        "tokens_used": 1387,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 1,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.45,
+      "relevance": 5.0,
+      "answer_length_chars": 314,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q18",
+      "tier": "contradiction",
+      "answer": {
+        "answer": "(mock synthesis for: When retrieval quality drops, should the incident owner change the embedding model before the prompt bundle?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: When retrieval quality drops, should the incident owner change the embedding model before the prompt bundle?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          }
+        ],
+        "latency_ms": 0.054921023547649384,
+        "tokens_used": 1352,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 1,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.45,
+      "relevance": 5.0,
+      "answer_length_chars": 314,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q18",
+      "tier": "contradiction",
+      "answer": {
+        "answer": "(mock synthesis for: When retrieval quality drops, should the incident owner change the embedding model before the prompt bundle?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: When retrieval quality drops, should the incident owner change the embedding model before the prompt bundle?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/onboarding.md",
+            "span": "# Onboarding Playbook\n\nNew team workspaces receive a guided onboarding session after the first three\nseats are activated. The onboarding owner sends a checklist"
+          }
+        ],
+        "latency_ms": 0.15399185940623283,
+        "tokens_used": 1389,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 1,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.4,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.45,
+      "relevance": 5.0,
+      "answer_length_chars": 314,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q19",
+      "tier": "contradiction",
+      "answer": {
+        "answer": "(mock synthesis for: May support agents invent a policy when the knowledge base does not cover the answer?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: May support agents invent a policy when the knowledge base does not cover the answer?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          }
+        ],
+        "latency_ms": 0.10235118679702282,
+        "tokens_used": 1370,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.67,
+      "relevance": 5.0,
+      "answer_length_chars": 268,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q19",
+      "tier": "contradiction",
+      "answer": {
+        "answer": "(mock synthesis for: May support agents invent a policy when the knowledge base does not cover the answer?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: May support agents invent a policy when the knowledge base does not cover the answer?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          }
+        ],
+        "latency_ms": 0.05396106280386448,
+        "tokens_used": 1336,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.67,
+      "relevance": 5.0,
+      "answer_length_chars": 268,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q19",
+      "tier": "contradiction",
+      "answer": {
+        "answer": "(mock synthesis for: May support agents invent a policy when the knowledge base does not cover the answer?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: May support agents invent a policy when the knowledge base does not cover the answer?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/support.md",
+            "span": "# Support Desk Policy\n\nThe support desk answers questions about Atlas Helpdesk accounts. Support agents\ncan cite billing notes, escalation runbooks, and retriev"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          }
+        ],
+        "latency_ms": 0.1645321026444435,
+        "tokens_used": 1370,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.67,
+      "relevance": 5.0,
+      "answer_length_chars": 268,
+      "refused": false
+    },
+    {
+      "system": "dense_rag",
+      "question_id": "demo-q20",
+      "tier": "contradiction",
+      "answer": {
+        "answer": "(mock synthesis for: Are API tokens allowed to appear in RetrievalCI trace artifacts or RAG evaluation reports?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: Are API tokens allowed to appear in RetrievalCI trace artifacts or RAG evaluation reports?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          }
+        ],
+        "latency_ms": 0.10032113641500473,
+        "tokens_used": 1284,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.6666666666666666,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.8,
+      "relevance": 5.0,
+      "answer_length_chars": 278,
+      "refused": false
+    },
+    {
+      "system": "bm25_lexical",
+      "question_id": "demo-q20",
+      "tier": "contradiction",
+      "answer": {
+        "answer": "(mock synthesis for: Are API tokens allowed to appear in RetrievalCI trace artifacts or RAG evaluation reports?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: Are API tokens allowed to appear in RetrievalCI trace artifacts or RAG evaluation reports?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          }
+        ],
+        "latency_ms": 0.045971013605594635,
+        "tokens_used": 1284,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.6666666666666666,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.8,
+      "relevance": 5.0,
+      "answer_length_chars": 278,
+      "refused": false
+    },
+    {
+      "system": "hybrid_rrf",
+      "question_id": "demo-q20",
+      "tier": "contradiction",
+      "answer": {
+        "answer": "(mock synthesis for: Are API tokens allowed to appear in RetrievalCI trace artifacts or RAG evaluation reports?)\n- inline. If the context doesn't\n- contain the answer, say so.\n- Question: Are API tokens allowed to appear in RetrievalCI trace artifacts or RAG evaluation reports?",
+        "citations": [
+          {
+            "source_path": "examples/rag_eval/corpus/security.md",
+            "span": "# Security Operations Notes\n\nAPI tokens must be stored in the customer's secret manager and rotated every 90\ndays. Tokens must not appear in RetrievalCI trace a"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/retrieval.md",
+            "span": "# Retrieval Quality Notes\n\nThe support retriever uses hybrid search: BM25 candidates are fused with dense\nembedding candidates using reciprocal rank fusion. The"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/integrations.md",
+            "span": "# Integration Support Notes\n\nWebhook delivery retries use exponential backoff for 24 hours. If all webhook\ndelivery retries fail, the integration event is parke"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/billing.md",
+            "span": "# Billing Support Notes\n\nThe Atlas Helpdesk starter plan keeps audit log entries for 30 days. The team\nplan keeps audit log entries for 180 days and exports the"
+          },
+          {
+            "source_path": "examples/rag_eval/corpus/escalation.md",
+            "span": "# Escalation Runbook\n\nSeverity 1 incidents page the on-call engineer immediately. The engineer opens\nthe Retrieval Health dashboard first, then checks the queue"
+          }
+        ],
+        "latency_ms": 0.13701198622584343,
+        "tokens_used": 1284,
+        "refused": false,
+        "refusal_reason": null
+      },
+      "must_include_match": 0.6666666666666666,
+      "must_not_include_violations": 0,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 3.8,
+      "relevance": 5.0,
+      "answer_length_chars": 278,
+      "refused": false
+    }
+  ],
+  "by_system_metric": {
+    "bm25_lexical": {
+      "must_include_match": 0.11666666666666665,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.28,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": 2.8845,
+      "relevance": 5.0,
+      "answer_length_chars": 271.5,
+      "latency_ms_p50": 0.051920535042881966,
+      "tokens_used_total": 26081.0,
+      "refusal_rate": 0.0
+    },
+    "hybrid_rrf": {
+      "must_include_match": 0.11666666666666665,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.26,
+      "retrieval_source_recall": 0.95,
+      "faithfulness": 2.8845,
+      "relevance": 5.0,
+      "answer_length_chars": 271.5,
+      "latency_ms_p50": 0.14829705469310284,
+      "tokens_used_total": 26487.0,
+      "refusal_rate": 0.0
+    },
+    "dense_rag": {
+      "must_include_match": 0.11666666666666665,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.25,
+      "retrieval_source_recall": 0.925,
+      "faithfulness": 2.8845,
+      "relevance": 5.0,
+      "answer_length_chars": 271.5,
+      "latency_ms_p50": 0.10398600716143847,
+      "tokens_used_total": 26651.0,
+      "refusal_rate": 0.0
+    }
+  },
+  "by_system_tier_metric": {
+    "bm25_lexical": {
+      "contradiction": {
+        "must_include_match": 0.29166666666666663,
+        "answer_citation_recall": 0.0,
+        "retrieval_source_precision": 0.25,
+        "retrieval_source_recall": 1.0,
+        "faithfulness": 2.935,
+        "relevance": 5.0,
+        "answer_length_chars": 272.0
+      },
+      "multi_hop": {
+        "must_include_match": 0.041666666666666664,
+        "answer_citation_recall": 0.0,
+        "retrieval_source_precision": 0.375,
+        "retrieval_source_recall": 1.0,
+        "faithfulness": 2.64,
+        "relevance": 5.0,
+        "answer_length_chars": 325.25
+      },
+      "single_hop": {
+        "must_include_match": 0.10416666666666666,
+        "answer_citation_recall": 0.0,
+        "retrieval_source_precision": 0.2,
+        "retrieval_source_recall": 1.0,
+        "faithfulness": 3.10375,
+        "relevance": 5.0,
+        "answer_length_chars": 217.5
+      }
+    },
+    "hybrid_rrf": {
+      "contradiction": {
+        "must_include_match": 0.29166666666666663,
+        "answer_citation_recall": 0.0,
+        "retrieval_source_precision": 0.25,
+        "retrieval_source_recall": 1.0,
+        "faithfulness": 2.935,
+        "relevance": 5.0,
+        "answer_length_chars": 272.0
+      },
+      "multi_hop": {
+        "must_include_match": 0.041666666666666664,
+        "answer_citation_recall": 0.0,
+        "retrieval_source_precision": 0.325,
+        "retrieval_source_recall": 0.875,
+        "faithfulness": 2.64,
+        "relevance": 5.0,
+        "answer_length_chars": 325.25
+      },
+      "single_hop": {
+        "must_include_match": 0.10416666666666666,
+        "answer_citation_recall": 0.0,
+        "retrieval_source_precision": 0.2,
+        "retrieval_source_recall": 1.0,
+        "faithfulness": 3.10375,
+        "relevance": 5.0,
+        "answer_length_chars": 217.5
+      }
+    },
+    "dense_rag": {
+      "contradiction": {
+        "must_include_match": 0.29166666666666663,
+        "answer_citation_recall": 0.0,
+        "retrieval_source_precision": 0.25,
+        "retrieval_source_recall": 1.0,
+        "faithfulness": 2.935,
+        "relevance": 5.0,
+        "answer_length_chars": 272.0
+      },
+      "multi_hop": {
+        "must_include_match": 0.041666666666666664,
+        "answer_citation_recall": 0.0,
+        "retrieval_source_precision": 0.30000000000000004,
+        "retrieval_source_recall": 0.8125,
+        "faithfulness": 2.64,
+        "relevance": 5.0,
+        "answer_length_chars": 325.25
+      },
+      "single_hop": {
+        "must_include_match": 0.10416666666666666,
+        "answer_citation_recall": 0.0,
+        "retrieval_source_precision": 0.2,
+        "retrieval_source_recall": 1.0,
+        "faithfulness": 3.10375,
+        "relevance": 5.0,
+        "answer_length_chars": 217.5
+      }
+    }
+  },
+  "pairwise": [
+    {
+      "metric": "must_include_match",
+      "system_a": "dense_rag",
+      "system_b": "bm25_lexical",
+      "mean_a": 0.11666666666666665,
+      "mean_b": 0.11666666666666665,
+      "mean_diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "must_include_match",
+      "system_a": "dense_rag",
+      "system_b": "hybrid_rrf",
+      "mean_a": 0.11666666666666665,
+      "mean_b": 0.11666666666666665,
+      "mean_diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "must_include_match",
+      "system_a": "bm25_lexical",
+      "system_b": "hybrid_rrf",
+      "mean_a": 0.11666666666666665,
+      "mean_b": 0.11666666666666665,
+      "mean_diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "answer_citation_recall",
+      "system_a": "dense_rag",
+      "system_b": "bm25_lexical",
+      "mean_a": 0.0,
+      "mean_b": 0.0,
+      "mean_diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "answer_citation_recall",
+      "system_a": "dense_rag",
+      "system_b": "hybrid_rrf",
+      "mean_a": 0.0,
+      "mean_b": 0.0,
+      "mean_diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "answer_citation_recall",
+      "system_a": "bm25_lexical",
+      "system_b": "hybrid_rrf",
+      "mean_a": 0.0,
+      "mean_b": 0.0,
+      "mean_diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "retrieval_source_precision",
+      "system_a": "dense_rag",
+      "system_b": "bm25_lexical",
+      "mean_a": 0.25,
+      "mean_b": 0.28,
+      "mean_diff": -0.030000000000000027,
+      "ci_low": -0.06,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "retrieval_source_precision",
+      "system_a": "dense_rag",
+      "system_b": "hybrid_rrf",
+      "mean_a": 0.25,
+      "mean_b": 0.26,
+      "mean_diff": -0.010000000000000009,
+      "ci_low": -0.030000000000000027,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "retrieval_source_precision",
+      "system_a": "bm25_lexical",
+      "system_b": "hybrid_rrf",
+      "mean_a": 0.28,
+      "mean_b": 0.26,
+      "mean_diff": 0.020000000000000018,
+      "ci_low": 0.0,
+      "ci_high": 0.04999999999999999,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "retrieval_source_recall",
+      "system_a": "dense_rag",
+      "system_b": "bm25_lexical",
+      "mean_a": 0.925,
+      "mean_b": 1.0,
+      "mean_diff": -0.07499999999999996,
+      "ci_low": -0.15000000000000002,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "retrieval_source_recall",
+      "system_a": "dense_rag",
+      "system_b": "hybrid_rrf",
+      "mean_a": 0.925,
+      "mean_b": 0.95,
+      "mean_diff": -0.02499999999999991,
+      "ci_low": -0.07500000000000007,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "retrieval_source_recall",
+      "system_a": "bm25_lexical",
+      "system_b": "hybrid_rrf",
+      "mean_a": 1.0,
+      "mean_b": 0.95,
+      "mean_diff": 0.050000000000000044,
+      "ci_low": 0.0,
+      "ci_high": 0.125,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "faithfulness",
+      "system_a": "dense_rag",
+      "system_b": "bm25_lexical",
+      "mean_a": 2.8845,
+      "mean_b": 2.8845,
+      "mean_diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "faithfulness",
+      "system_a": "dense_rag",
+      "system_b": "hybrid_rrf",
+      "mean_a": 2.8845,
+      "mean_b": 2.8845,
+      "mean_diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "faithfulness",
+      "system_a": "bm25_lexical",
+      "system_b": "hybrid_rrf",
+      "mean_a": 2.8845,
+      "mean_b": 2.8845,
+      "mean_diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "relevance",
+      "system_a": "dense_rag",
+      "system_b": "bm25_lexical",
+      "mean_a": 5.0,
+      "mean_b": 5.0,
+      "mean_diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "relevance",
+      "system_a": "dense_rag",
+      "system_b": "hybrid_rrf",
+      "mean_a": 5.0,
+      "mean_b": 5.0,
+      "mean_diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    },
+    {
+      "metric": "relevance",
+      "system_a": "bm25_lexical",
+      "system_b": "hybrid_rrf",
+      "mean_a": 5.0,
+      "mean_b": 5.0,
+      "mean_diff": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "alpha": 0.05,
+      "n": 20,
+      "significant": false
+    }
+  ]
+}

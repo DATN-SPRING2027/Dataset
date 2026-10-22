@@ -1,0 +1,173 @@
+{
+  "resourceSpans": [
+    {
+      "resource": {
+        "attributes": [
+          {"key": "service.name", "value": {"stringValue": "demo-rag-api"}}
+        ]
+      },
+      "scopeSpans": [
+        {
+          "spans": [
+            {
+              "traceId": "demo-widget",
+              "spanId": "root",
+              "name": "agent.run",
+              "attributes": [
+                {"key": "input.value", "value": {"stringValue": "Where are the headquarters of the place where the Widget inventor worked?"}},
+                {"key": "session.id", "value": {"stringValue": "demo-widget"}},
+                {"key": "retrievalci.gold_doc_ids", "value": {"arrayValue": {"values": [{"stringValue": "doc_target"}]}}},
+                {"key": "retrievalci.agent_state.previous_answers", "value": {"arrayValue": {"values": [{"stringValue": "Ada Lab"}]}}},
+                {"key": "retrievalci.agent_state.previous_doc_ids", "value": {"arrayValue": {"values": [{"stringValue": "doc_prev"}]}}},
+                {"key": "retrievalci.agent_state.false_lead_doc_ids", "value": {"arrayValue": {"values": [{"stringValue": "doc_false"}]}}},
+                {"key": "retrievalci.agent_state.public_trace", "value": {"arrayValue": {"values": [{"stringValue": "Asked who employed the Widget inventor. Answer found: Ada Lab."}]}}}
+              ]
+            },
+            {
+              "traceId": "demo-widget",
+              "spanId": "retriever",
+              "parentSpanId": "root",
+              "name": "vector retriever",
+              "attributes": [
+                {"key": "openinference.span.kind", "value": {"stringValue": "RETRIEVER"}},
+                {"key": "turn_id", "value": {"stringValue": "2"}},
+                {"key": "input.value", "value": {"stringValue": "Widget inventor worked headquarters"}},
+                {"key": "retrieval.documents.0.document.id", "value": {"stringValue": "doc_prev"}}
+              ]
+            },
+            {
+              "traceId": "demo-billing",
+              "spanId": "root",
+              "name": "agent.run",
+              "attributes": [
+                {"key": "input.value", "value": {"stringValue": "How long are those audit logs retained?"}},
+                {"key": "session.id", "value": {"stringValue": "demo-billing"}},
+                {"key": "retrievalci.gold_doc_ids", "value": {"arrayValue": {"values": [{"stringValue": "doc_starter_logs"}]}}},
+                {"key": "retrievalci.current_need", "value": {"stringValue": "starter plan audit log retention"}},
+                {"key": "retrievalci.agent_state.previous_answers", "value": {"arrayValue": {"values": [{"stringValue": "starter plan"}]}}},
+                {"key": "retrievalci.agent_state.previous_doc_ids", "value": {"arrayValue": {"values": [{"stringValue": "doc_team_logs"}]}}},
+                {"key": "retrievalci.agent_state.public_trace", "value": {"arrayValue": {"values": [{"stringValue": "Customer asked about the starter plan. Need starter audit retention."}]}}}
+              ]
+            },
+            {
+              "traceId": "demo-billing",
+              "spanId": "retriever",
+              "parentSpanId": "root",
+              "name": "vector retriever",
+              "attributes": [
+                {"key": "openinference.span.kind", "value": {"stringValue": "RETRIEVER"}},
+                {"key": "turn_id", "value": {"stringValue": "3"}},
+                {"key": "input.value", "value": {"stringValue": "team plan audit log export retention"}},
+                {"key": "retrieval.documents.0.document.id", "value": {"stringValue": "doc_team_logs"}}
+              ]
+            },
+            {
+              "traceId": "demo-incident",
+              "spanId": "root",
+              "name": "agent.run",
+              "attributes": [
+                {"key": "input.value", "value": {"stringValue": "Which dashboard do I open first for that incident?"}},
+                {"key": "session.id", "value": {"stringValue": "demo-incident"}},
+                {"key": "retrievalci.gold_doc_ids", "value": {"arrayValue": {"values": [{"stringValue": "doc_retrieval_health"}]}}},
+                {"key": "retrievalci.current_need", "value": {"stringValue": "Severity 1 retrieval incident first dashboard"}},
+                {"key": "retrievalci.agent_state.previous_answers", "value": {"arrayValue": {"values": [{"stringValue": "Severity 1 retrieval incident"}]}}},
+                {"key": "retrievalci.agent_state.previous_doc_ids", "value": {"arrayValue": {"values": [{"stringValue": "doc_queue_depth"}]}}},
+                {"key": "retrievalci.agent_state.public_trace", "value": {"arrayValue": {"values": [{"stringValue": "Incident classified as Severity 1 retrieval incident."}]}}}
+              ]
+            },
+            {
+              "traceId": "demo-incident",
+              "spanId": "retriever",
+              "parentSpanId": "root",
+              "name": "vector retriever",
+              "attributes": [
+                {"key": "openinference.span.kind", "value": {"stringValue": "RETRIEVER"}},
+                {"key": "turn_id", "value": {"stringValue": "4"}},
+                {"key": "input.value", "value": {"stringValue": "queue depth deploy marker incident"}},
+                {"key": "retrieval.documents.0.document.id", "value": {"stringValue": "doc_queue_depth"}}
+              ]
+            },
+            {
+              "traceId": "demo-sso",
+              "spanId": "root",
+              "name": "agent.run",
+              "attributes": [
+                {"key": "input.value", "value": {"stringValue": "Is that login control required for managed enterprise users?"}},
+                {"key": "session.id", "value": {"stringValue": "demo-sso"}},
+                {"key": "retrievalci.gold_doc_ids", "value": {"arrayValue": {"values": [{"stringValue": "doc_sso"}]}}},
+                {"key": "retrievalci.current_need", "value": {"stringValue": "SAML SSO managed enterprise users local password login"}},
+                {"key": "retrievalci.agent_state.previous_answers", "value": {"arrayValue": {"values": [{"stringValue": "SAML SSO"}]}}},
+                {"key": "retrievalci.agent_state.false_lead_doc_ids", "value": {"arrayValue": {"values": [{"stringValue": "doc_api_tokens"}]}}},
+                {"key": "retrievalci.agent_state.public_trace", "value": {"arrayValue": {"values": [{"stringValue": "Customer enabled SAML SSO for managed enterprise users."}]}}}
+              ]
+            },
+            {
+              "traceId": "demo-sso",
+              "spanId": "retriever",
+              "parentSpanId": "root",
+              "name": "vector retriever",
+              "attributes": [
+                {"key": "openinference.span.kind", "value": {"stringValue": "RETRIEVER"}},
+                {"key": "turn_id", "value": {"stringValue": "2"}},
+                {"key": "input.value", "value": {"stringValue": "API token rotation trace artifacts secret manager"}},
+                {"key": "retrieval.documents.0.document.id", "value": {"stringValue": "doc_api_tokens"}}
+              ]
+            },
+            {
+              "traceId": "demo-refund",
+              "spanId": "root",
+              "name": "agent.run",
+              "attributes": [
+                {"key": "input.value", "value": {"stringValue": "Can it approve the exception alone?"}},
+                {"key": "session.id", "value": {"stringValue": "demo-refund"}},
+                {"key": "retrievalci.gold_doc_ids", "value": {"arrayValue": {"values": [{"stringValue": "doc_refund_human"}]}}},
+                {"key": "retrievalci.current_need", "value": {"stringValue": "refund above 100 USD approval authority"}},
+                {"key": "retrievalci.agent_state.previous_answers", "value": {"arrayValue": {"values": [{"stringValue": "refund assistant over 100 USD"}]}}},
+                {"key": "retrievalci.agent_state.previous_doc_ids", "value": {"arrayValue": {"values": [{"stringValue": "doc_refund_draft"}]}}},
+                {"key": "retrievalci.agent_state.public_trace", "value": {"arrayValue": {"values": [{"stringValue": "Customer asked about a refund above 100 USD."}]}}}
+              ]
+            },
+            {
+              "traceId": "demo-refund",
+              "spanId": "retriever",
+              "parentSpanId": "root",
+              "name": "vector retriever",
+              "attributes": [
+                {"key": "openinference.span.kind", "value": {"stringValue": "RETRIEVER"}},
+                {"key": "turn_id", "value": {"stringValue": "5"}},
+                {"key": "input.value", "value": {"stringValue": "refund assistant draft response invoice context"}},
+                {"key": "retrieval.documents.0.document.id", "value": {"stringValue": "doc_refund_draft"}}
+              ]
+            },
+            {
+              "traceId": "demo-scim",
+              "spanId": "root",
+              "name": "agent.run",
+              "attributes": [
+                {"key": "input.value", "value": {"stringValue": "What has to be ready before invites sync?"}},
+                {"key": "session.id", "value": {"stringValue": "demo-scim"}},
+                {"key": "retrievalci.gold_doc_ids", "value": {"arrayValue": {"values": [{"stringValue": "doc_scim"}]}}},
+                {"key": "retrievalci.current_need", "value": {"stringValue": "SCIM provisioning domain verification test user sync"}},
+                {"key": "retrievalci.agent_state.previous_answers", "value": {"arrayValue": {"values": [{"stringValue": "SCIM provisioning"}]}}},
+                {"key": "retrievalci.agent_state.previous_doc_ids", "value": {"arrayValue": {"values": [{"stringValue": "doc_training"}]}}},
+                {"key": "retrievalci.agent_state.public_trace", "value": {"arrayValue": {"values": [{"stringValue": "Admin is setting up SCIM provisioning."}]}}}
+              ]
+            },
+            {
+              "traceId": "demo-scim",
+              "spanId": "retriever",
+              "parentSpanId": "root",
+              "name": "vector retriever",
+              "attributes": [
+                {"key": "openinference.span.kind", "value": {"stringValue": "RETRIEVER"}},
+                {"key": "turn_id", "value": {"stringValue": "3"}},
+                {"key": "input.value", "value": {"stringValue": "onboarding training plan support channels"}},
+                {"key": "retrieval.documents.0.document.id", "value": {"stringValue": "doc_training"}}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

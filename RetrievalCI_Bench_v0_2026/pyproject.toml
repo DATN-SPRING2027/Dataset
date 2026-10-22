@@ -1,0 +1,63 @@
+[project]
+name = "retrievalci"
+version = "0.1.0"
+description = "Diagnose retrieval failures and RAG architecture regressions before they ship"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+  "pydantic>=2.7",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+providers = [
+  "anthropic>=0.39,<1.0",
+  "google-genai>=2.0,<3.0",
+  "groq>=0.13,<1.0",
+  "openai>=1.54,<2.0",
+  "sentence-transformers>=3.0,<4.0",
+]
+# Bedrock hosted adapter (AWS SDK + AOSS data-plane signing).
+hosted-aws = [
+  "boto3>=1.34,<2.0",
+  "opensearch-py>=2.4,<3.0",
+  "requests-aws4auth>=1.2,<2.0",
+]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6",
+]
+
+[project.scripts]
+retrievalci = "retrievalci.cli:main"
+rci-rag-eval = "retrievalci.cli:rag_eval"
+rci-rag-compare = "retrievalci.cli:rag_compare"
+rci-report-build = "retrievalci.cli:report_build"
+rci-runs-create = "retrievalci.cli:runs_create"
+rci-runs-list = "retrievalci.cli:runs_list"
+rci-project-run = "retrievalci.cli:project_run"
+rci-eval-traces = "retrievalci.cli:eval_traces"
+rci-normalize-traces = "retrievalci.cli:normalize_traces"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["retrievalci"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -q --strict-markers"
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+src = ["retrievalci", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "RUF", "PTH", "SIM", "PT"]

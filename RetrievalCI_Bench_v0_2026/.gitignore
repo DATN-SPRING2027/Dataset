@@ -1,0 +1,57 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+.env
+.env.local
+
+# Hosted-adapter manifests contain provider resource names (e.g.
+# projects/<NUM>/locations/.../ragFiles/<id>) — gitignore by default so
+# project identifiers don't get accidentally published. Add specific
+# manifests explicitly when you've reviewed them for sensitive content.
+examples/rag_eval/manifests/
+
+data/rag_eval/cache/
+data/rag_eval/datasets/
+data/rag_eval/studies/
+data/third_party/
+.retrievalci/
+
+# Personal planning notes, kept local only.
+goal.md
+roadmap.md
+ROADMAP.md
+docs/ROADMAP.md
+
+# Local research archive, kept out of the public repo. Specific docs (e.g.,
+# `hosted-rag-benchmark-plan.md`) are intentionally NOT in this list so the
+# project rationale ships publicly; only the per-run EVAL_RESULTS_* notes
+# stay local.
+docs/rag_eval/GOAL.md
+docs/rag_eval/pre_registrations/
+docs/rag_eval/results/EVAL_RESULTS_*.md
+results/rag_eval/
+
+# Operator-generated baseline outputs. The merged/hosted-only/smoke baselines
+# tracked under baselines/rag/ are the canonical references (see
+# baselines/rag/README.md); per-vendor + per-judge artifacts stay local.
+baselines/rag/bench_v0.json
+baselines/rag/bench_v0.md
+baselines/rag/bench_v0_vertex.json
+baselines/rag/bench_v0_bedrock.json
+baselines/rag/bench_v0_openai.json
+baselines/rag/bench_v0_azure.json
+baselines/rag/bench_v0_local.json
+baselines/rag/bench_v0_local.md
+baselines/rag/bench_v0_local_gpu.json
+baselines/rag/bench_v0_local_gpu.md
+baselines/rag/bench_v0_gemini.json
+baselines/rag/bench_v0_gemini.md
+baselines/rag/bench_v0_gemini_claude.json
+baselines/rag/bench_v0_gemini_claude.md
+baselines/rag/ablation_*.json
+baselines/rag/ablation_*.md
