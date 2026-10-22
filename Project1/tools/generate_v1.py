@@ -3,7 +3,7 @@ import sys
 import json
 import hashlib
 from pathlib import Path
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
@@ -157,12 +157,27 @@ def make_human_timestamp(d, seed_val, is_ot=False, slot_index=0):
         sc = (seed_val * 9 + slot_index * 19 + 7) % 60
     return f"{d.isoformat()}T{hr:02d}:{mn:02d}:{sc:02d}{VN_TZ}"
 
-def calc_business_hours_between(start_date, end_date, ot_hours=0.0):
-    """Calculate elapsed business hours (8h per working day + logged overtime_hours), excluding nights/weekends/holidays."""
-    if end_date <= start_date:
-        return round(max(1.5, 2.5 + ot_hours), 1)
-    work_days_count = sum(1 for d in WORKING_DAYS if start_date <= d < end_date)
-    return round(work_days_count * 8.0 + 4.0 + ot_hours, 1)
+def calc_business_hours_between(start_ts, end_ts, ot_hours=0.0):
+    """Calculate exact elapsed business hours by intersecting [start_ts, end_ts] with (08:00-12:00, 13:00-17:00) on working days + logged overtime_hours."""
+    start_dt = datetime.fromisoformat(start_ts)
+    end_dt = datetime.fromisoformat(end_ts)
+    if end_dt <= start_dt:
+        return round(ot_hours, 1)
+    tz = start_dt.tzinfo
+    total_reg_seconds = 0.0
+    cur_d = start_dt.date()
+    end_d = end_dt.date()
+    while cur_d <= end_d:
+        if cur_d in WORKING_DAYS_SET:
+            for sh_start_hr, sh_end_hr in ((8, 12), (13, 17)):
+                sh_start = datetime(cur_d.year, cur_d.month, cur_d.day, sh_start_hr, 0, 0, tzinfo=tz)
+                sh_end = datetime(cur_d.year, cur_d.month, cur_d.day, sh_end_hr, 0, 0, tzinfo=tz)
+                ov_start = max(start_dt, sh_start)
+                ov_end = min(end_dt, sh_end)
+                if ov_end > ov_start:
+                    total_reg_seconds += (ov_end - ov_start).total_seconds()
+        cur_d += timedelta(days=1)
+    return round((total_reg_seconds / 3600.0) + ot_hours, 1)
 
 DIRECTORIES = [
     ROOT / "documents" / "markdown" / "bundles",
@@ -1073,7 +1088,7 @@ for pid, total_count in issue_counts_per_project.items():
         if updated_date == created_date:
             updated_ts = f"{updated_date.isoformat()}T{20 if is_overtime else 16}:45:{c_sc:02d}{VN_TZ}"
 
-        biz_hours = calc_business_hours_between(created_date, updated_date, overtime_hours)
+        biz_hours = calc_business_hours_between(created_ts, updated_ts, overtime_hours)
 
         reporter = owner if (i % 2 == 0) else team[(i + 3) % len(team)]
         labels = ["synthetic", "commerce", f"sprint-{sprint_num}"]
@@ -3088,6 +3103,7 @@ ingestion_contract_text = f"""# Ingestion Contract — Northstar Commerce Datase
   - **Nghỉ Thứ Bảy, Chủ Nhật & 5 Ngày Lễ Việt Nam**: Nhân sự nghỉ vào Thứ Bảy, Chủ Nhật và 5 ngày lễ quốc gia trong kỳ (`2026-04-27` nghỉ bù Giỗ Tổ Hùng Vương, `2026-04-30`, `2026-05-01`, `2026-09-01`, `2026-09-02`), tổng cộng đúng **123 ngày làm việc chính thức (official working days)** trên 128 ngày trong tuần.
   - **Ngoại lệ OT Cuối tuần (Weekend Incident War-Room)**: Chỉ phát sinh vào 3 ngày Thứ Bảy (`2026-08-29`, `2026-09-26`, `2026-10-10`) trong khung `17:00–22:00+07:00` (`work_mode: "weekend_incident_ot"`) cho 6 ticket sự cố P0/P1 & Canary (`CHKO-012`, `CHKO-015`, `PAY-002`, `PAY-003`, `CHKO-005`, `PLAT-005`).
   - **Hệ thống tự động / Bot 24/7**: 4 bot hệ thống (`BOT-SFTP-SYNC` lúc `02:00:00+07:00`, `BOT-INV-EXPIRY` lúc `03:30:00+07:00`, `BOT-CI-RUNNER`, `BOT-ALERT-MANAGER`) hoạt động 24/7 kể cả ban đêm, cuối tuần và ngày lễ (`actor_type: "system_bot"`).
+  - **Cách tính `business_hours_elapsed`**: Tổng thời gian giao nhau (intersection) của khoảng `[created_at, updated_at]` với hai ca hành chính `08:00–12:00` và `13:00–17:00` trên các ngày làm việc chính thức (loại trừ cuối tuần và 5 ngày lễ Việt Nam), cộng với `overtime_hours`, làm tròn 1 chữ số thập phân.
 - **Physical Packaging**:
   - Toàn bộ 1.373 bản ghi cập nhật kỹ thuật hàng ngày được đóng gói thành đúng 56 file Markdown bundle theo từng dự án và từng tháng (`documents/markdown/bundles/<PROJECT>-<YYYY-MM>.md`).
   - Lịch trình cập nhật diễn ra trên đúng **123 ngày làm việc chính thức (official working days)** trong khoảng từ `2026-04-16` đến `2026-10-12` (20 ngày đầu có 12 tài liệu/ngày và 103 ngày tiếp theo có 11 tài liệu/ngày = 1.373 tài liệu). Không tạo cập nhật của con người vào cuối tuần hoặc ngày lễ Việt Nam.
@@ -3572,6 +3588,11 @@ valid_actor_types = {"human", "system_bot"}
 for i in issues:
     if i.get("work_mode") not in valid_work_modes:
         validation_errors.append(f"Invalid work_mode on issue {i['issue_key']}: {i.get('work_mode')}")
+    expected_biz_hrs = calc_business_hours_between(i["created_at"], i["updated_at"], i.get("overtime_hours", 0.0))
+    if i.get("business_hours_elapsed") != expected_biz_hrs:
+        validation_errors.append(
+            f"business_hours_elapsed mismatch on {i['issue_key']}: got {i.get('business_hours_elapsed')}, expected {expected_biz_hrs}"
+        )
 for c in comments:
     if c.get("work_mode") not in valid_work_modes:
         validation_errors.append(f"Invalid work_mode on comment {c['comment_id']}: {c.get('work_mode')}")
