@@ -24,7 +24,7 @@ This Markdown bundle organizes 13 verified logical project records, decisions, m
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-003`](https://jira.northstar.invalid/browse/CART-003) (`Done`)
+- **Linked Issue**: [`CART-003`](https://jira.northstar.invalid/browse/CART-003) (`To Do`)
 - **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
@@ -49,7 +49,7 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-001`](https://jira.northstar.invalid/browse/CART-001) (`Done`)
+- **Linked Issue**: [`CART-001`](https://jira.northstar.invalid/browse/CART-001) (`To Do`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
@@ -74,7 +74,7 @@ Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-003`](https://jira.northstar.invalid/browse/CART-003) (`Done`)
+- **Linked Issue**: [`CART-003`](https://jira.northstar.invalid/browse/CART-003) (`To Do`)
 - **Record Type**: Incident Post-Mortem Action
 
 #### Context & Technical Objective
@@ -99,11 +99,11 @@ Crash-replay simulation added to continuous integration to prevent regression.
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-004`](https://jira.northstar.invalid/browse/CART-004) (`In Progress`)
+- **Linked Issue**: [`CART-005`](https://jira.northstar.invalid/browse/CART-005) (`To Do`)
 - **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
-Reviewed Meridian Outfitters pilot integration requirements for [CART-004] (Order line total recalculation after real-time inventory adjustments) with Cart & Promotions engineering and merchant support.
+Reviewed Meridian Outfitters pilot integration requirements for [CART-005] (Idempotent cart item updates during concurrent requests) with Cart & Promotions engineering and merchant support.
 
 #### Technical Decision & Invariants
 Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
@@ -124,7 +124,7 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-001`](https://jira.northstar.invalid/browse/CART-001) (`Done`)
+- **Linked Issue**: [`CART-001`](https://jira.northstar.invalid/browse/CART-001) (`In Review`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
@@ -149,11 +149,11 @@ Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-004`](https://jira.northstar.invalid/browse/CART-004) (`In Progress`)
+- **Linked Issue**: [`CART-005`](https://jira.northstar.invalid/browse/CART-005) (`In Progress`)
 - **Record Type**: Incident Post-Mortem Action
 
 #### Context & Technical Objective
-Follow-up remediation tracking for [CART-004] (Order line total recalculation after real-time inventory adjustments) in Cart & Promotions after staging fault-injection and replay testing.
+Follow-up remediation tracking for [CART-005] (Idempotent cart item updates during concurrent requests) in Cart & Promotions after staging fault-injection and replay testing.
 
 #### Technical Decision & Invariants
 Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
@@ -174,11 +174,11 @@ Crash-replay simulation added to continuous integration to prevent regression.
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-014`](https://jira.northstar.invalid/browse/CART-014) (`Done`)
+- **Linked Issue**: [`CART-013`](https://jira.northstar.invalid/browse/CART-013) (`To Do`)
 - **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
-Reviewed Meridian Outfitters pilot integration requirements for [CART-014] (Promotion stacking hierarchy and discount evaluation engine — Cache invalidation & version lineage check) with Cart & Promotions engineering and merchant support.
+Reviewed Meridian Outfitters pilot integration requirements for [CART-013] (Guest cart merging into customer account upon login — Multi-tenant isolation & negative permission checks) with Cart & Promotions engineering and merchant support.
 
 #### Technical Decision & Invariants
 Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
@@ -199,7 +199,7 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-003`](https://jira.northstar.invalid/browse/CART-003) (`Done`)
+- **Linked Issue**: [`CART-003`](https://jira.northstar.invalid/browse/CART-003) (`In Review`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
@@ -224,11 +224,11 @@ Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-015`](https://jira.northstar.invalid/browse/CART-015) (`Done`)
+- **Linked Issue**: [`CART-014`](https://jira.northstar.invalid/browse/CART-014) (`In Progress`)
 - **Record Type**: Incident Post-Mortem Action
 
 #### Context & Technical Objective
-Follow-up remediation tracking for [CART-015] (Abandoned cart expiration workflow with automated stock release — Partner sandbox contract reconciliation) in Cart & Promotions after staging fault-injection and replay testing.
+Follow-up remediation tracking for [CART-014] (Promotion stacking hierarchy and discount evaluation engine — Cache invalidation & version lineage check) in Cart & Promotions after staging fault-injection and replay testing.
 
 #### Technical Decision & Invariants
 Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
@@ -249,11 +249,11 @@ Crash-replay simulation added to continuous integration to prevent regression.
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-012`](https://jira.northstar.invalid/browse/CART-012) (`Done`)
+- **Linked Issue**: [`CART-011`](https://jira.northstar.invalid/browse/CART-011) (`In Progress`)
 - **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
-Reviewed Meridian Outfitters pilot integration requirements for [CART-012] (Bundle product component price breakdown in cart session) with Cart & Promotions engineering and merchant support.
+Reviewed Meridian Outfitters pilot integration requirements for [CART-011] (Cart session TTL extension on user checkout interaction) with Cart & Promotions engineering and merchant support.
 
 #### Technical Decision & Invariants
 Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
@@ -274,11 +274,11 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-005`](https://jira.northstar.invalid/browse/CART-005) (`Done`)
+- **Linked Issue**: [`CART-006`](https://jira.northstar.invalid/browse/CART-006) (`In Progress`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
-Evaluated HTTP request/response payload schemas for [CART-005] (Idempotent cart item updates during concurrent requests) in Cart & Promotions to ensure backward compatibility and deterministic error codes.
+Evaluated HTTP request/response payload schemas for [CART-006] (Immutable cart audit transition event logging) in Cart & Promotions to ensure backward compatibility and deterministic error codes.
 
 #### Technical Decision & Invariants
 Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
@@ -324,11 +324,11 @@ Forward/down recovery notes and row-count reconciliation verified against isolat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-019`](https://jira.northstar.invalid/browse/CART-019) (`Blocked`)
+- **Linked Issue**: [`CART-021`](https://jira.northstar.invalid/browse/CART-021) (`To Do`)
 - **Record Type**: Daily Standup & Blocker Log
 
 #### Context & Technical Objective
-Daily engineering standup checkpoint for Cart & Promotions covering active work on [CART-019] (Fixed-amount and percentage tier coupon discounts — API contract & schema validation) (current ticket status: `Blocked`).
+Daily engineering standup checkpoint for Cart & Promotions covering active work on [CART-021] (Cart currency conversion with cached FX exchange rates — Rate limiting & audit trail emission) (current ticket status: `To Do`).
 
 #### Technical Decision & Invariants
 Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.

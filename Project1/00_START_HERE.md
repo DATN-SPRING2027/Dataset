@@ -18,7 +18,7 @@ Bộ dữ liệu mô phỏng công ty công nghệ hư cấu **Northstar Commerc
 - **104 Sprints**: 13 sprint liên tiếp × 8 dự án. Sprints 1..12 đã đóng (0 issue mở bị bỏ quên; toàn bộ việc dở dang được spillover sang Sprint 13 kèm lịch sử chuyển Sprint).
 - **180 Ngày giả lập (Simulation Window)**: Từ `2026-04-16` đến `2026-10-12` (128 weekdays = **123 ngày làm việc chính thức** + 5 ngày lễ Việt Nam).
 - **1,434 Bản ghi tài liệu logic (Logical Documents)**: Được đăng ký đầy đủ trong `structured/documents.jsonl`; DOCX rendition dùng chung canonical ID với Markdown.
-- **Đúng 2.500 Jira-like Issues**: Có cấu trúc phân cấp `parent_key` (Epic -> Story/Task/Bug), vòng lặp review/rework/unblock phi tuyến tính, `2,814` bình luận đa lượt (gồm cả nhân sự, đối tác và 4 bot hệ thống) và `7,616` bản ghi lịch sử chuyển đổi trạng thái/sprint/assignee.
+- **Đúng 2.500 Jira-like Issues**: Có cấu trúc phân cấp `parent_key` (Epic -> Story/Task/Bug), vòng lặp review/rework/unblock phi tuyến tính, `2,814` bình luận đa lượt (gồm cả nhân sự, đối tác và 4 bot hệ thống) và `8,377` bản ghi lịch sử chuyển đổi trạng thái/sprint/assignee.
 - **158 Evaluation Cases** và **84 Functional Test Cases**: Đầy đủ các kịch bản RAG, ACL đa tenant, Analytics OT/Spillover, Ingestion và Edge Cases.
 
 ## 3. Kiến trúc đóng gói: File vật lý vs Bản ghi logic

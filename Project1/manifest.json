@@ -37,7 +37,7 @@
     "sprints": 104,
     "issues": 2500,
     "comments": 2814,
-    "changelog_entries": 7616,
+    "changelog_entries": 8377,
     "logical_documents": 1434,
     "requirements": 74,
     "functional_test_cases": 84,
@@ -93,12 +93,12 @@
     {
       "path": "00_START_HERE.md",
       "size_bytes": 6922,
-      "sha256": "c3000a5951468af0a8fb60e3b9afd9861e57438bac5a0b89181cdaa4d3ec5349"
+      "sha256": "729549db86002a4d89dae21668dffc10cf99dc4570d58f139a8a4f8a66706071"
     },
     {
       "path": "Dataset_Catalog.xlsx",
-      "size_bytes": 5701710,
-      "sha256": "7fa8abdfca0f78c68d5fc904e0fc8b46aa1d6d2bba43702eb029dfe9033dab32"
+      "size_bytes": 5701907,
+      "sha256": "6198ff2052ebbad47e8356d5feea9d7213200a3f4c196d2269d0dc9de593c831"
     },
     {
       "path": "documents/docx/API_Specification.docx",
@@ -192,283 +192,283 @@
     },
     {
       "path": "documents/markdown/bundles/NSC-CART-2026-04.md",
-      "size_bytes": 15111,
-      "sha256": "ee2c393f9bdc0b6ff4dbc373b82a9ad26fd99d925515e9e2e08aebbc4f8cbc03"
+      "size_bytes": 15108,
+      "sha256": "f5200cc225340717a22e229b9568c473e0fb378e15b8ca62e32b150bccb78a73"
     },
     {
       "path": "documents/markdown/bundles/NSC-CART-2026-05.md",
-      "size_bytes": 31219,
-      "sha256": "51e44f857d79d864109d3fe4566523620190668462c96cac70c382130f95038e"
+      "size_bytes": 31196,
+      "sha256": "a7319986811088ee4f088d3cf026a3c0d59bf02cef861a9341de25ebb46bf82b"
     },
     {
       "path": "documents/markdown/bundles/NSC-CART-2026-06.md",
-      "size_bytes": 35056,
-      "sha256": "3d9dbcb9431bc756aa52e0ee0bc7ac7b2ea2bc79f2331912a2ffaa137c5d3289"
+      "size_bytes": 34976,
+      "sha256": "126254d85fddc4d3b0e5ac7a3406f9fb64c5ebe7e60827e57b19844ccfe31fd2"
     },
     {
       "path": "documents/markdown/bundles/NSC-CART-2026-07.md",
-      "size_bytes": 38529,
-      "sha256": "017d94942cd82fd74c42053628e98df9397d59d9a6de62ddb572db35f0eae402"
+      "size_bytes": 38493,
+      "sha256": "f90ed8145452e95d904c1c660fcac716e4b61ab255d878da50f96fa05a999bfe"
     },
     {
       "path": "documents/markdown/bundles/NSC-CART-2026-08.md",
-      "size_bytes": 33904,
-      "sha256": "6ad5574e120501612d157dc3387c5f94ac8c0bc7c38af912a1b4b04c8585a084"
+      "size_bytes": 33926,
+      "sha256": "b05b785bcfe875fba6cca5e9a6dd85608382d7b0e3b5b0bb953ef3e00a43196f"
     },
     {
       "path": "documents/markdown/bundles/NSC-CART-2026-09.md",
-      "size_bytes": 31672,
-      "sha256": "de0eb9db5fe396df47e8c0f75940da980396b0fba9f5b79421cb370068b95a13"
+      "size_bytes": 31701,
+      "sha256": "6a5224ae573770f23699b56fe45c00176c86e451b5d5a18366ec49bb74db61ec"
     },
     {
       "path": "documents/markdown/bundles/NSC-CART-2026-10.md",
-      "size_bytes": 13264,
-      "sha256": "84b9fc93a303a97ae9cb2137f150a2295a80625901aceb61510a05d4f9f6c5b5"
+      "size_bytes": 13209,
+      "sha256": "3875f9d8428c833cfb01b2e1abbd184de8cf7ebcea996480244819bd22629d9b"
     },
     {
       "path": "documents/markdown/bundles/NSC-CAT-2026-04.md",
-      "size_bytes": 15425,
-      "sha256": "84e345cbd8b88b281fa84fc2126f76131baef171fb08e554e87c97fa80972196"
+      "size_bytes": 15423,
+      "sha256": "40e1f568aa8b87f838444ff9a6ae828c0dc4e13d5bae9cdaac1ee598f1563eef"
     },
     {
       "path": "documents/markdown/bundles/NSC-CAT-2026-05.md",
-      "size_bytes": 31790,
-      "sha256": "9afadd1c3079fa66585fc62094a3f7fa31a561d2763c394fc4e35bc61bc5fcf8"
+      "size_bytes": 31727,
+      "sha256": "a722f0c1e2e7b54a10941222e2ba0aac86430fd65b075ddf5ccc4a783fc79c1d"
     },
     {
       "path": "documents/markdown/bundles/NSC-CAT-2026-06.md",
-      "size_bytes": 36841,
-      "sha256": "b2b2bea3b76abd09aeac5892921bfa2d21a11c33236ad775c51d332a612ec6a1"
+      "size_bytes": 36815,
+      "sha256": "acf23aebc07ebefad4c9829e27c8533bd474768a404b8385206e9da8b1d12a26"
     },
     {
       "path": "documents/markdown/bundles/NSC-CAT-2026-07.md",
-      "size_bytes": 38051,
-      "sha256": "1c6d6c5d94a15da3f4deb016e75bd97b25dee423dfd964051c65ee4383a0bcf0"
+      "size_bytes": 38044,
+      "sha256": "7aad9b992a1e0c87fcefddd0a45985fa6ccc9992bac2d92485e906f5501bfe7c"
     },
     {
       "path": "documents/markdown/bundles/NSC-CAT-2026-08.md",
-      "size_bytes": 35724,
-      "sha256": "21f261bde2a2312158f1933674ff7aa1482c260eff1f3eea13644663c0f8a2e4"
+      "size_bytes": 35716,
+      "sha256": "18ea49a320d6e337b9923fa4f357861b83bad8fc2a22ead045ec9412069a658d"
     },
     {
       "path": "documents/markdown/bundles/NSC-CAT-2026-09.md",
-      "size_bytes": 33396,
-      "sha256": "83adca4bd414c4acec76cc491529c229d830ead69be9d5ca85fbc0f03238fd96"
+      "size_bytes": 33401,
+      "sha256": "1fec5feeba95c9f2afda51ac3caac82e17c81094d06c94557448073add115051"
     },
     {
       "path": "documents/markdown/bundles/NSC-CAT-2026-10.md",
-      "size_bytes": 13513,
-      "sha256": "fc982e1658adcffeca6cf840cce429ff0081c7dfa95bcb71a4606ed159586393"
+      "size_bytes": 13512,
+      "sha256": "537ee19f69c0f88feeaee18313bea10b5a0eca17f6ff9539a9a11ec843e643e0"
     },
     {
       "path": "documents/markdown/bundles/NSC-CHKO-2026-04.md",
-      "size_bytes": 13912,
-      "sha256": "b8f78cf70275c6796b32ae5bd8b55a03f5edaf542032b23369f9c0a53c342708"
+      "size_bytes": 13923,
+      "sha256": "a4385eaa2c0a894a310b6ec89820fbd90b1606f640d8617eb6410b592e2a47d2"
     },
     {
       "path": "documents/markdown/bundles/NSC-CHKO-2026-05.md",
-      "size_bytes": 34017,
-      "sha256": "4fe8f1acc9deade1a0a960fc084cce3d3cbd8256bc2fab5942375c5cdfbc1731"
+      "size_bytes": 33933,
+      "sha256": "81a31798dec6c9c9fdbd6e2b39833f71214f528291d5d8de61c9cb486c33f733"
     },
     {
       "path": "documents/markdown/bundles/NSC-CHKO-2026-06.md",
-      "size_bytes": 35550,
-      "sha256": "0ae72122b5aa7f32ae7a63d66e959954515068decd79ddd845cef20336a4ed6e"
+      "size_bytes": 35500,
+      "sha256": "aad72bd9cdb639ebadd8925dcfd8d22e2b29e681a56a939a5a30392d70261ab3"
     },
     {
       "path": "documents/markdown/bundles/NSC-CHKO-2026-07.md",
-      "size_bytes": 37868,
-      "sha256": "ea910b0884de3936da9d0ce614ca681dbe2eb1ca59720a6c69b3df67b407251c"
+      "size_bytes": 37851,
+      "sha256": "801cfaf26018be47bb31e5c49df207876ca3be81e4ef1f56b33113f4a8bd5e71"
     },
     {
       "path": "documents/markdown/bundles/NSC-CHKO-2026-08.md",
-      "size_bytes": 34423,
-      "sha256": "c9edbd5f1a7486ec29589a822515140129b231ce47290a35ad01939f79102c1e"
+      "size_bytes": 34359,
+      "sha256": "926eb843e904eb92429111e506e13101db5fa9edcf6bc57be9d57dbd9b0bde77"
     },
     {
       "path": "documents/markdown/bundles/NSC-CHKO-2026-09.md",
-      "size_bytes": 33161,
-      "sha256": "395181b455463abca2e69fa6b8075d64fa1fb6bd4692d8f84891bf01c65188eb"
+      "size_bytes": 33149,
+      "sha256": "3f3000b1b403957b39c982fcd9d3a5600b42ffe2bf20f1085402ed077cdedbc3"
     },
     {
       "path": "documents/markdown/bundles/NSC-CHKO-2026-10.md",
-      "size_bytes": 13434,
-      "sha256": "59f3966dd5a7145879f3d3497f7c0feea1248487baec5a9d396a5891744dcb7a"
+      "size_bytes": 13445,
+      "sha256": "4854811c90ceda1892ba077c71144b0c842fe233fbccf9cf8f8387547d1184c5"
     },
     {
       "path": "documents/markdown/bundles/NSC-INV-2026-04.md",
-      "size_bytes": 14992,
-      "sha256": "0058d2915f8d3cbe4d8d857067d3206884f90fad7889e3142e3fcb335fce8b25"
+      "size_bytes": 14983,
+      "sha256": "52a5877a7883427ba0ab4a421acf57f8f0e8c5d2cd79bd7025512a8850793e3e"
     },
     {
       "path": "documents/markdown/bundles/NSC-INV-2026-05.md",
-      "size_bytes": 33006,
-      "sha256": "4fc639a66af552c9caa78a71873ce9e6677af45a2df1b1070d82f67720746ae6"
+      "size_bytes": 33010,
+      "sha256": "8da9793f6bda78108f6b0bdd73022e98ead733042766528189a040c45e6a9439"
     },
     {
       "path": "documents/markdown/bundles/NSC-INV-2026-06.md",
-      "size_bytes": 37049,
-      "sha256": "c3acc907282b4d89e2f82881636090551d5b8eeecfe8442f78ecbeea1437e9a7"
+      "size_bytes": 36967,
+      "sha256": "c1dc221e8db1d000f5fce52afb7543bd0b7dbed6fc7f343fedc873a7297eb7e5"
     },
     {
       "path": "documents/markdown/bundles/NSC-INV-2026-07.md",
-      "size_bytes": 38144,
-      "sha256": "fa21b2956510fee767db1126926a943a2fd5767b27230c8d45ae1c358915bd38"
+      "size_bytes": 38100,
+      "sha256": "a5d4005cb2097dedf0d67873c466234fe835cecc92c1218e9311a8c4cce7c99c"
     },
     {
       "path": "documents/markdown/bundles/NSC-INV-2026-08.md",
-      "size_bytes": 34453,
-      "sha256": "fc06994f7eb247bcb65f418ccd3d8a8969a7b8d106295bf298ffbcc96205d0d6"
+      "size_bytes": 34423,
+      "sha256": "46e56bdab93d2c72b568afe9e3c5ab5a9aa6e939422024d9e6c18aaf23a03e64"
     },
     {
       "path": "documents/markdown/bundles/NSC-INV-2026-09.md",
-      "size_bytes": 34517,
-      "sha256": "54b47978f28e2cf278d60a9f10dedfe49f85b9d8b7bb15d4476eca6bb9325e43"
+      "size_bytes": 34470,
+      "sha256": "82dbb35fb778d71badc5a9598f6c816e96e0868b3b1788c0b3bbbdafc2a9c647"
     },
     {
       "path": "documents/markdown/bundles/NSC-INV-2026-10.md",
-      "size_bytes": 13476,
-      "sha256": "1ca6908ab15f1c99811bbac293f89d4012f7292781948ce1eb9f60869d60ad44"
+      "size_bytes": 13448,
+      "sha256": "1611155effcf8ad996c392d6b9c979a3745b05be1538a5ed86098663e2417bd6"
     },
     {
       "path": "documents/markdown/bundles/NSC-ORD-2026-04.md",
-      "size_bytes": 14084,
-      "sha256": "b5630c1a5ee6052c4fc8d28277af7d78c6e87b42d176eb08361a495c252d3861"
+      "size_bytes": 14120,
+      "sha256": "41fdeef75eebca701f5a4deca5da986d1587d3da7c707c8c75c6c90454311a9e"
     },
     {
       "path": "documents/markdown/bundles/NSC-ORD-2026-05.md",
-      "size_bytes": 32769,
-      "sha256": "6e693b2bdc30ae2ae0aac69a50b4ae71062dca34d725ddfec8ab07cfc9c90da4"
+      "size_bytes": 32740,
+      "sha256": "7fd398dd9ffa41d2a30930b634ee2ad245df52199b5bc761b1f5cc32bae13b47"
     },
     {
       "path": "documents/markdown/bundles/NSC-ORD-2026-06.md",
-      "size_bytes": 36805,
-      "sha256": "26bec21450376f298ad6e6db8bfeb233f13f90d2aa76d47aec9d1a1bea5895bb"
+      "size_bytes": 36749,
+      "sha256": "9fb5a11a6702138b378c8683402b50494b52005d8df07bc638551d2f67b4657a"
     },
     {
       "path": "documents/markdown/bundles/NSC-ORD-2026-07.md",
-      "size_bytes": 37943,
-      "sha256": "9bda01db676905009e7e30a8e062de710c4d6509772fd054a6a12f993b11c2fd"
+      "size_bytes": 37937,
+      "sha256": "d97e32baba642abd09bac5d60952c0c05cd23b7817ce1de18972d96600c786f7"
     },
     {
       "path": "documents/markdown/bundles/NSC-ORD-2026-08.md",
-      "size_bytes": 34255,
-      "sha256": "0e8e17df7a2f5f1e17a203691e2e9a3a86a2a40d7f6598a5b1b5d829817b6921"
+      "size_bytes": 34268,
+      "sha256": "4cc503fca8c324fb460d22280af93c0fd4d3f453f39e93d5851a5657efb8464e"
     },
     {
       "path": "documents/markdown/bundles/NSC-ORD-2026-09.md",
-      "size_bytes": 33329,
-      "sha256": "20ba99c75dc3dbe7657a037f1076654050d2fc1955bddefb1d15f198d91b29aa"
+      "size_bytes": 33302,
+      "sha256": "3f90cbee517f04d23b5fa30b476980a17f78239d1b45645acd12d3586b4ed3c6"
     },
     {
       "path": "documents/markdown/bundles/NSC-ORD-2026-10.md",
-      "size_bytes": 13413,
-      "sha256": "f031f8e1d81aa5ca179eb729a0a218562142946e8204658128c689ff283b63d4"
+      "size_bytes": 13457,
+      "sha256": "081edfbbd1185f063f87e03494379dba2bdc32f6fdfbd082dd109f874b66fad4"
     },
     {
       "path": "documents/markdown/bundles/NSC-PAY-2026-04.md",
-      "size_bytes": 14015,
-      "sha256": "5a13468cdb5ecfdbc85f6d99e103d3b9832d66d058907fa4abf11a514124919b"
+      "size_bytes": 14012,
+      "sha256": "f15c6aa17107844edefca26f2facf291f691b6e8d6cbc5d43cac9b3099bb7d55"
     },
     {
       "path": "documents/markdown/bundles/NSC-PAY-2026-05.md",
-      "size_bytes": 32804,
-      "sha256": "56ae0358bfc8e5a99d8365cb4169c8d6c1d93c253bf5aee39d1a9892eac9aba6"
+      "size_bytes": 32791,
+      "sha256": "2787c914b297036b2c04964e92471eb01f25fa65315eaea076c5bcb4b98e275f"
     },
     {
       "path": "documents/markdown/bundles/NSC-PAY-2026-06.md",
-      "size_bytes": 36540,
-      "sha256": "08af2d8722d3308384ce6e4498f2d681badd37c8e84dffb206f062b1fb4158e3"
+      "size_bytes": 36453,
+      "sha256": "3ad919e59ab4b85e4edf8f3ba0461fb5a572c779b3f116e45e9ab92495da1f09"
     },
     {
       "path": "documents/markdown/bundles/NSC-PAY-2026-07.md",
-      "size_bytes": 38931,
-      "sha256": "bee15bf992443277a85c621a3e0aa97f09dc11926cc3509a83e30970c2252045"
+      "size_bytes": 38968,
+      "sha256": "e522cb2ddfd82a8e09f632d64d6e60186c5c034aabcd296784cad2110432e36b"
     },
     {
       "path": "documents/markdown/bundles/NSC-PAY-2026-08.md",
-      "size_bytes": 34287,
-      "sha256": "1e58c781b5c52fa6d7f2d248748cb96c4855b35a6ea1321cc84647ea72ba114a"
+      "size_bytes": 34254,
+      "sha256": "c6d44c022bd33dba06b67ab95d3a5b87f98ffe112b472a43efebeea6075c85a2"
     },
     {
       "path": "documents/markdown/bundles/NSC-PAY-2026-09.md",
-      "size_bytes": 32125,
-      "sha256": "90c896cb98efd55e636346832c1223edf591e90cdbe98a44f0f868d2687d2574"
+      "size_bytes": 32106,
+      "sha256": "c551034c53522cb186340256e0b3b180258a57a4a120b112063da1940b91abe6"
     },
     {
       "path": "documents/markdown/bundles/NSC-PAY-2026-10.md",
-      "size_bytes": 13268,
-      "sha256": "0220284772aafc4457316fcbd9a0543ec7d4b1464b13c2de9965e5c80f7e0992"
+      "size_bytes": 13297,
+      "sha256": "2ef71facc6555fbf4470c90132858d5758ad8ee195eb8c446df1becb410fef45"
     },
     {
       "path": "documents/markdown/bundles/NSC-PLAT-2026-04.md",
-      "size_bytes": 14302,
-      "sha256": "d0d1da3e153eac852e3b25af5625bb30a2ea32fa9e3027d03f7a14fe3145ba27"
+      "size_bytes": 14323,
+      "sha256": "7a98ab58a838a657ea8651ec5e6775fc7aed781dd5cf32b636845b080ac7ca73"
     },
     {
       "path": "documents/markdown/bundles/NSC-PLAT-2026-05.md",
-      "size_bytes": 33709,
-      "sha256": "40cb1198929344a39b5b9447362dc6de9f5dedd3ea77a9bf508e0a9748ae0802"
+      "size_bytes": 33686,
+      "sha256": "5c07ef1119130cb293ac7d9b7325935d3d31093804477294d0993a99ea9a2638"
     },
     {
       "path": "documents/markdown/bundles/NSC-PLAT-2026-06.md",
-      "size_bytes": 39022,
-      "sha256": "a2c8f7c2b00fdabbcdc852808fc84ac6afa0c815bbcde6e5efcc28f62e8c5189"
+      "size_bytes": 38945,
+      "sha256": "428b2ae8ad3c852a224f29227ccd50536d4f10ff854b6816645b1537d161fa48"
     },
     {
       "path": "documents/markdown/bundles/NSC-PLAT-2026-07.md",
-      "size_bytes": 37806,
-      "sha256": "fce44d34c42e665a29c274a40944d4e03e395705c0cbbe7be8f7c37281dd83e2"
+      "size_bytes": 37771,
+      "sha256": "22f4b10dd3ea6f6b6e2949117551d531a4f2d0873dc25eeae271ec582f254537"
     },
     {
       "path": "documents/markdown/bundles/NSC-PLAT-2026-08.md",
-      "size_bytes": 36412,
-      "sha256": "76b61a62efa3425919e2c3aaab14a1090459a1782a29cb03bfadb72d99d2b713"
+      "size_bytes": 36427,
+      "sha256": "7b2d2911a97e80618466aa7a2f7b08741fad1389c887d08c81bea4a4b3bfaadb"
     },
     {
       "path": "documents/markdown/bundles/NSC-PLAT-2026-09.md",
-      "size_bytes": 33999,
-      "sha256": "8414942cd42dc8aa9c90ce7efddab29b3a3a8a62a877a79e414fb1a1a2f0156f"
+      "size_bytes": 34017,
+      "sha256": "1f0acb9fe1bf2ba48ca833f9ff7bb3d4ea424e3826fe85a5d93560faa8924dd0"
     },
     {
       "path": "documents/markdown/bundles/NSC-PLAT-2026-10.md",
-      "size_bytes": 15049,
-      "sha256": "5404cdafc2d90e646f3be5efccb759ba1cd247a12e834d4718ad7ef5eb3cd99d"
+      "size_bytes": 15064,
+      "sha256": "bd5b2203a5e41f1ed8f97a422dd1a309b59430d45e2f1b40dfb56b368a4dd3d1"
     },
     {
       "path": "documents/markdown/bundles/NSC-SRCH-2026-04.md",
-      "size_bytes": 14748,
-      "sha256": "3433712825be812801f49a4c9fceb8249950328c2e86e2a786075e55b406a43e"
+      "size_bytes": 14749,
+      "sha256": "df48e22e03e8bfda2ea64b9f04fc6e84548f2507a88e9678f2790708fb6dd36a"
     },
     {
       "path": "documents/markdown/bundles/NSC-SRCH-2026-05.md",
-      "size_bytes": 32431,
-      "sha256": "57c10b7752c4c35192d5b620f75ee83db79e4021e390bc23356c48ef3c36d876"
+      "size_bytes": 32448,
+      "sha256": "232de0cdd337ba661633621064909d402d80e8a54958d1aa015f822d727f88ba"
     },
     {
       "path": "documents/markdown/bundles/NSC-SRCH-2026-06.md",
-      "size_bytes": 35468,
-      "sha256": "262c8a9f693d097f3e5876259ba5ea6e750b268045842b1d7bcb5e5845344f19"
+      "size_bytes": 35372,
+      "sha256": "9c9234ab09ebfc23479bea167c8216a1dd36ac2da1c830ace0bd3f02d7bd1a2e"
     },
     {
       "path": "documents/markdown/bundles/NSC-SRCH-2026-07.md",
-      "size_bytes": 37570,
-      "sha256": "ec67a57f7af8b933a7598486f8db69a7cfff1eaf1387aa027cb84b251d83e52d"
+      "size_bytes": 37524,
+      "sha256": "a994346425a1c70c6741314d4ec256cf1aff38310f63b3f2fb6183beb9b72ad4"
     },
     {
       "path": "documents/markdown/bundles/NSC-SRCH-2026-08.md",
-      "size_bytes": 33988,
-      "sha256": "65bf57bd1e72d9d13411529679006172172f7bc2f5643b0c792ca82618a6f80d"
+      "size_bytes": 34014,
+      "sha256": "f041f44fa573a8eb29fcb8e313c119f0ae2c837ecc6bef628b91b6216b929e83"
     },
     {
       "path": "documents/markdown/bundles/NSC-SRCH-2026-09.md",
-      "size_bytes": 32886,
-      "sha256": "a76ff2b25ffb718813545c9b013bb0dbf68117efaec1d47964c70e21161c8806"
+      "size_bytes": 32862,
+      "sha256": "cf7f0910292f901a78b08960a77fc06337da58c12cdb8aab2f005822170d3877"
     },
     {
       "path": "documents/markdown/bundles/NSC-SRCH-2026-10.md",
-      "size_bytes": 14454,
-      "sha256": "9ff1786cb1931025495940ecc6ea1efceda207b40eb59701d0ab1fd6b1e48b56"
+      "size_bytes": 14485,
+      "sha256": "499bb5af07ec472b9495f0e34cbd352f36c284d50d27f1a525770377a06427c3"
     },
     {
       "path": "documents/markdown/formal/API_Specification.md",
@@ -692,8 +692,8 @@
     },
     {
       "path": "evaluation/analytics_cases.jsonl",
-      "size_bytes": 4769,
-      "sha256": "466fbc958ec25b3d7954c8db8280cd47abede31efa849067ba5fa8a9475458d1"
+      "size_bytes": 4813,
+      "sha256": "a360af52a9a377aa5a219e63513027dc681d05a000eefc7c9e9e9cf432203176"
     },
     {
       "path": "evaluation/edge_case_matrix.jsonl",
@@ -707,8 +707,8 @@
     },
     {
       "path": "evaluation/progress_cases.jsonl",
-      "size_bytes": 3737,
-      "sha256": "627d62a2fff81310ef82e5967b919f3e865dfd2304cb750bb5cb8c03be1b426c"
+      "size_bytes": 3742,
+      "sha256": "5a877265c9b67e6e35c6529acc80e4df88d9586a32a2262963d061deae62906e"
     },
     {
       "path": "evaluation/rag_cases.jsonl",
@@ -778,7 +778,7 @@
     {
       "path": "structured/documents.jsonl",
       "size_bytes": 1480713,
-      "sha256": "81d96b861eab2a22d9e703d4c0c25cbde6735f905ae2a37eb4c55354cac49856"
+      "sha256": "6452e3588c4551f4a8d39bbd24ecbdd13f4e094ff01593fca0d26da252fbf3db"
     },
     {
       "path": "structured/functional_test_cases.jsonl",
@@ -792,18 +792,18 @@
     },
     {
       "path": "structured/issue_changelog.jsonl",
-      "size_bytes": 1892596,
-      "sha256": "cc192a7ef3f4b24f1049b8b0cfb78642fda66821f72f61c8db2c46423341d893"
+      "size_bytes": 2088143,
+      "sha256": "2e0e2e20f9e3fcf0db4344aeea71b6a865a94954254219acb397c1de61cf23e1"
     },
     {
       "path": "structured/issue_comments.jsonl",
-      "size_bytes": 1421097,
-      "sha256": "3f455fd9f3565596629bee787d3ae7f18d287be646a0fe0cfe8312f9d336cb62"
+      "size_bytes": 1421593,
+      "sha256": "8d296a13fb3b95d213c353c093b16d78412f443df43a0c88ba4d221b2d70c2bf"
     },
     {
       "path": "structured/issues.jsonl",
-      "size_bytes": 3171667,
-      "sha256": "fd5240e04cb6e5a9a701da652c9c8dea25a99ca366ec034316ac9a4dc9f18a64"
+      "size_bytes": 3181821,
+      "sha256": "59bb58007fd263a38cc7373019ec82ac62a04d2dbe675b6f8a0f0af2c753b964"
     },
     {
       "path": "structured/members.jsonl",
@@ -847,8 +847,8 @@
     },
     {
       "path": "tools/generate_v1.py",
-      "size_bytes": 254751,
-      "sha256": "76e6f8bbe86255ed4b651615c35c8b53052f17fb5c603f085898f043a3f24c2e"
+      "size_bytes": 260200,
+      "sha256": "09b4920837e9b5f65c5f1376ece9fb5372ca87cdbb62a2ba9177d479435f5f1b"
     }
   ]
 }

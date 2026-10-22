@@ -24,11 +24,11 @@ This Markdown bundle organizes 12 verified logical project records, decisions, m
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-002`](https://jira.northstar.invalid/browse/CHKO-002) (`Done`)
+- **Linked Issue**: [`CHKO-001`](https://jira.northstar.invalid/browse/CHKO-001) (`To Do`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
-Application security and access-control assessment for [CHKO-002] (Idempotent checkout session endpoint with durable replay keys) in Checkout Experience.
+Application security and access-control assessment for [CHKO-001] (Customer shipping address validation before tax quotation) in Checkout Experience.
 
 #### Technical Decision & Invariants
 Validated deny-by-default authorization, pre-retrieval ACL filtering, secret externalization, and zero persistence of PAN/CVV or raw credentials.
@@ -49,11 +49,11 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-001`](https://jira.northstar.invalid/browse/CHKO-001) (`To Do`)
+- **Linked Issue**: [`CHKO-003`](https://jira.northstar.invalid/browse/CHKO-003) (`To Do`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
-Executed automated regression and negative boundary suite for [CHKO-001] (Customer shipping address validation before tax quotation) across Checkout Experience staging fixtures.
+Executed automated regression and negative boundary suite for [CHKO-003] (External tax service timeout handling with graceful fallback mode) across Checkout Experience staging fixtures.
 
 #### Technical Decision & Invariants
 Verified idempotent replay, duplicate event suppression, and cross-tenant HTTP 403 rejection before snippet or count generation.
@@ -74,11 +74,11 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-006`](https://jira.northstar.invalid/browse/CHKO-006) (`In Progress`)
+- **Linked Issue**: [`CHKO-005`](https://jira.northstar.invalid/browse/CHKO-005) (`To Do`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
-Cross-service and partner integration sync for [CHKO-006] (Keyboard accessibility and screen reader flow in checkout UI) in Checkout Experience.
+Cross-service and partner integration sync for [CHKO-005] (Prevent duplicate order creation under concurrent checkout submissions) in Checkout Experience.
 
 #### Technical Decision & Invariants
 Verified HMAC-SHA256 webhook signature validation, bounded exponential backoff with jitter, and correlation ID propagation across service hops.
@@ -99,7 +99,7 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-007`](https://jira.northstar.invalid/browse/CHKO-007) (`Blocked`)
+- **Linked Issue**: [`CHKO-007`](https://jira.northstar.invalid/browse/CHKO-007) (`To Do`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
@@ -124,11 +124,11 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-003`](https://jira.northstar.invalid/browse/CHKO-003) (`In Progress`)
+- **Linked Issue**: [`CHKO-002`](https://jira.northstar.invalid/browse/CHKO-002) (`In Review`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
-Executed automated regression and negative boundary suite for [CHKO-003] (External tax service timeout handling with graceful fallback mode) across Checkout Experience staging fixtures.
+Executed automated regression and negative boundary suite for [CHKO-002] (Idempotent checkout session endpoint with durable replay keys) across Checkout Experience staging fixtures.
 
 #### Technical Decision & Invariants
 Verified idempotent replay, duplicate event suppression, and cross-tenant HTTP 403 rejection before snippet or count generation.
@@ -149,7 +149,7 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-007`](https://jira.northstar.invalid/browse/CHKO-007) (`Blocked`)
+- **Linked Issue**: [`CHKO-007`](https://jira.northstar.invalid/browse/CHKO-007) (`To Do`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
@@ -174,7 +174,7 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-015`](https://jira.northstar.invalid/browse/CHKO-015) (`In Review`)
+- **Linked Issue**: [`CHKO-015`](https://jira.northstar.invalid/browse/CHKO-015) (`To Do`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
@@ -199,11 +199,11 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-006`](https://jira.northstar.invalid/browse/CHKO-006) (`In Progress`)
+- **Linked Issue**: [`CHKO-005`](https://jira.northstar.invalid/browse/CHKO-005) (`To Do`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
-Executed automated regression and negative boundary suite for [CHKO-006] (Keyboard accessibility and screen reader flow in checkout UI) across Checkout Experience staging fixtures.
+Executed automated regression and negative boundary suite for [CHKO-005] (Prevent duplicate order creation under concurrent checkout submissions) across Checkout Experience staging fixtures.
 
 #### Technical Decision & Invariants
 Verified idempotent replay, duplicate event suppression, and cross-tenant HTTP 403 rejection before snippet or count generation.
@@ -224,7 +224,7 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-016`](https://jira.northstar.invalid/browse/CHKO-016) (`Done`)
+- **Linked Issue**: [`CHKO-016`](https://jira.northstar.invalid/browse/CHKO-016) (`To Do`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
@@ -249,7 +249,7 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-014`](https://jira.northstar.invalid/browse/CHKO-014) (`Done`)
+- **Linked Issue**: [`CHKO-014`](https://jira.northstar.invalid/browse/CHKO-014) (`In Progress`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
@@ -299,11 +299,11 @@ Measured p95 response times, connection pool saturation, and queue lag metrics o
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-006`](https://jira.northstar.invalid/browse/CHKO-006) (`In Progress`)
+- **Linked Issue**: [`CHKO-005`](https://jira.northstar.invalid/browse/CHKO-005) (`To Do`)
 - **Record Type**: Sprint Planning Update
 
 #### Context & Technical Objective
-During sprint backlog commitment on [CHKO-006] (Keyboard accessibility and screen reader flow in checkout UI), the Checkout Experience squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
+During sprint backlog commitment on [CHKO-005] (Prevent duplicate order creation under concurrent checkout submissions), the Checkout Experience squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
 
 #### Technical Decision & Invariants
 Confirmed sprint scope and velocity guardrails. Unfinished items from prior closed iterations are formally tracked via sprint spillover transitions into the active sprint.

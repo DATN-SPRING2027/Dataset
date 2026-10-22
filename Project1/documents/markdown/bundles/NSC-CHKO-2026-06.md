@@ -24,11 +24,11 @@ This Markdown bundle organizes 30 verified logical project records, decisions, m
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-020`](https://jira.northstar.invalid/browse/CHKO-020) (`In Progress`)
+- **Linked Issue**: [`CHKO-019`](https://jira.northstar.invalid/browse/CHKO-019) (`Done`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
-Application security and access-control assessment for [CHKO-020] (Merchant checkout configuration overrides on tenant boot — Webhook signature & payload verification) in Checkout Experience.
+Application security and access-control assessment for [CHKO-019] (Split-step checkout state machine with transactional checkpoints — Merchant admin UI state & error boundary) in Checkout Experience.
 
 #### Technical Decision & Invariants
 Validated deny-by-default authorization, pre-retrieval ACL filtering, secret externalization, and zero persistence of PAN/CVV or raw credentials.
@@ -74,11 +74,11 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-034`](https://jira.northstar.invalid/browse/CHKO-034) (`Done`)
+- **Linked Issue**: [`CHKO-032`](https://jira.northstar.invalid/browse/CHKO-032) (`To Do`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
-Cross-service and partner integration sync for [CHKO-034] (Fifteen-minute checkout reservation timeout on inventory holds — Edge-case race condition remediation) in Checkout Experience.
+Cross-service and partner integration sync for [CHKO-032] (Merchant checkout configuration overrides on tenant boot — Timeout fallback & circuit breaker logic) in Checkout Experience.
 
 #### Technical Decision & Invariants
 Verified HMAC-SHA256 webhook signature validation, bounded exponential backoff with jitter, and correlation ID propagation across service hops.
@@ -124,11 +124,11 @@ On-call SRE and workstream owner verified rollback runbook steps and alert routi
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-025`](https://jira.northstar.invalid/browse/CHKO-025) (`Done`)
+- **Linked Issue**: [`CHKO-026`](https://jira.northstar.invalid/browse/CHKO-026) (`To Do`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
-Conducted load and latency profiling for [CHKO-025] (Customer shipping address validation before tax quotation — Partner sandbox contract reconciliation) in Checkout Experience under the pilot reference workload.
+Conducted load and latency profiling for [CHKO-026] (Idempotent checkout session endpoint with durable replay keys — Boundary value & currency minor-unit validation) in Checkout Experience under the pilot reference workload.
 
 #### Technical Decision & Invariants
 Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.
@@ -174,11 +174,11 @@ Backlog readiness verified with product owner and QA lead; test fixtures and cor
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-034`](https://jira.northstar.invalid/browse/CHKO-034) (`Done`)
+- **Linked Issue**: [`CHKO-032`](https://jira.northstar.invalid/browse/CHKO-032) (`To Do`)
 - **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
-Staged canary rollout readiness check for [CHKO-034] (Fifteen-minute checkout reservation timeout on inventory holds — Edge-case race condition remediation) in Checkout Experience.
+Staged canary rollout readiness check for [CHKO-032] (Merchant checkout configuration overrides on tenant boot — Timeout fallback & circuit breaker logic) in Checkout Experience.
 
 #### Technical Decision & Invariants
 Configured feature flag toggle and progressive traffic gates (0% synthetic -> 5% -> 25% -> 50% -> 100%) with automated rollback triggers.
@@ -199,7 +199,7 @@ On-call SRE and workstream owner verified rollback runbook steps and alert routi
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-027`](https://jira.northstar.invalid/browse/CHKO-027) (`Blocked`)
+- **Linked Issue**: [`CHKO-027`](https://jira.northstar.invalid/browse/CHKO-027) (`To Do`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
@@ -224,11 +224,11 @@ Measured p95 response times, connection pool saturation, and queue lag metrics o
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-024`](https://jira.northstar.invalid/browse/CHKO-024) (`Blocked`)
+- **Linked Issue**: [`CHKO-025`](https://jira.northstar.invalid/browse/CHKO-025) (`Done`)
 - **Record Type**: Sprint Planning Update
 
 #### Context & Technical Objective
-During sprint backlog commitment on [CHKO-024] (Tax exemption certificate verification for commercial accounts — Event outbox deduplication & ordering), the Checkout Experience squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
+During sprint backlog commitment on [CHKO-025] (Customer shipping address validation before tax quotation — Partner sandbox contract reconciliation), the Checkout Experience squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
 
 #### Technical Decision & Invariants
 Confirmed sprint scope and velocity guardrails. Unfinished items from prior closed iterations are formally tracked via sprint spillover transitions into the active sprint.
@@ -249,7 +249,7 @@ Backlog readiness verified with product owner and QA lead; test fixtures and cor
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-040`](https://jira.northstar.invalid/browse/CHKO-040) (`In Progress`)
+- **Linked Issue**: [`CHKO-040`](https://jira.northstar.invalid/browse/CHKO-040) (`To Do`)
 - **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
@@ -274,11 +274,11 @@ On-call SRE and workstream owner verified rollback runbook steps and alert routi
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-033`](https://jira.northstar.invalid/browse/CHKO-033) (`Done`)
+- **Linked Issue**: [`CHKO-034`](https://jira.northstar.invalid/browse/CHKO-034) (`Done`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
-Conducted load and latency profiling for [CHKO-033] (Telemetry for checkout step drop-off rates across platforms — Database expand-contract migration script) in Checkout Experience under the pilot reference workload.
+Conducted load and latency profiling for [CHKO-034] (Fifteen-minute checkout reservation timeout on inventory holds — Edge-case race condition remediation) in Checkout Experience under the pilot reference workload.
 
 #### Technical Decision & Invariants
 Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.
@@ -299,7 +299,7 @@ Measured p95 response times, connection pool saturation, and queue lag metrics o
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-031`](https://jira.northstar.invalid/browse/CHKO-031) (`In Progress`)
+- **Linked Issue**: [`CHKO-031`](https://jira.northstar.invalid/browse/CHKO-031) (`To Do`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
@@ -324,11 +324,11 @@ Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-024`](https://jira.northstar.invalid/browse/CHKO-024) (`Blocked`)
+- **Linked Issue**: [`CHKO-025`](https://jira.northstar.invalid/browse/CHKO-025) (`Done`)
 - **Record Type**: Incident Post-Mortem Action
 
 #### Context & Technical Objective
-Follow-up remediation tracking for [CHKO-024] (Tax exemption certificate verification for commercial accounts — Event outbox deduplication & ordering) in Checkout Experience after staging fault-injection and replay testing.
+Follow-up remediation tracking for [CHKO-025] (Customer shipping address validation before tax quotation — Partner sandbox contract reconciliation) in Checkout Experience after staging fault-injection and replay testing.
 
 #### Technical Decision & Invariants
 Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
@@ -349,7 +349,7 @@ Crash-replay simulation added to continuous integration to prevent regression.
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-040`](https://jira.northstar.invalid/browse/CHKO-040) (`In Progress`)
+- **Linked Issue**: [`CHKO-040`](https://jira.northstar.invalid/browse/CHKO-040) (`To Do`)
 - **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
@@ -374,11 +374,11 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-033`](https://jira.northstar.invalid/browse/CHKO-033) (`Done`)
+- **Linked Issue**: [`CHKO-034`](https://jira.northstar.invalid/browse/CHKO-034) (`Done`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
-Architectural review for [CHKO-033] (Telemetry for checkout step drop-off rates across platforms — Database expand-contract migration script) within Checkout Experience, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
+Architectural review for [CHKO-034] (Fifteen-minute checkout reservation timeout on inventory holds — Edge-case race condition remediation) within Checkout Experience, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
 
 #### Technical Decision & Invariants
 Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
@@ -399,7 +399,7 @@ Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-030`](https://jira.northstar.invalid/browse/CHKO-030) (`Blocked`)
+- **Linked Issue**: [`CHKO-030`](https://jira.northstar.invalid/browse/CHKO-030) (`To Do`)
 - **Record Type**: Incident Post-Mortem Action
 
 #### Context & Technical Objective
@@ -424,7 +424,7 @@ Crash-replay simulation added to continuous integration to prevent regression.
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-023`](https://jira.northstar.invalid/browse/CHKO-023) (`In Progress`)
+- **Linked Issue**: [`CHKO-023`](https://jira.northstar.invalid/browse/CHKO-023) (`To Do`)
 - **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
@@ -449,11 +449,11 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-039`](https://jira.northstar.invalid/browse/CHKO-039) (`Done`)
+- **Linked Issue**: [`CHKO-037`](https://jira.northstar.invalid/browse/CHKO-037) (`To Do`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
-Architectural review for [CHKO-039] (External tax service timeout handling with graceful fallback mode — Zero-downtime deployment readiness gate) within Checkout Experience, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
+Architectural review for [CHKO-037] (Customer shipping address validation before tax quotation — Role-based access control policy enforcement) within Checkout Experience, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
 
 #### Technical Decision & Invariants
 Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
@@ -499,7 +499,7 @@ Crash-replay simulation added to continuous integration to prevent regression.
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-029`](https://jira.northstar.invalid/browse/CHKO-029) (`In Progress`)
+- **Linked Issue**: [`CHKO-029`](https://jira.northstar.invalid/browse/CHKO-029) (`To Do`)
 - **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
@@ -524,11 +524,11 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-045`](https://jira.northstar.invalid/browse/CHKO-045) (`Blocked`)
+- **Linked Issue**: [`CHKO-047`](https://jira.northstar.invalid/browse/CHKO-047) (`To Do`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
-Architectural review for [CHKO-045] (Telemetry for checkout step drop-off rates across platforms — Cache invalidation & version lineage check) within Checkout Experience, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
+Architectural review for [CHKO-047] (Merchant custom checkout field sanitization and persistence — Boundary value & currency minor-unit validation) within Checkout Experience, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
 
 #### Technical Decision & Invariants
 Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
@@ -549,11 +549,11 @@ Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-039`](https://jira.northstar.invalid/browse/CHKO-039) (`Done`)
+- **Linked Issue**: [`CHKO-037`](https://jira.northstar.invalid/browse/CHKO-037) (`To Do`)
 - **Record Type**: Database Migration Checklist
 
 #### Context & Technical Objective
-Database schema change verification for [CHKO-039] (External tax service timeout handling with graceful fallback mode — Zero-downtime deployment readiness gate) managed by Checkout Experience.
+Database schema change verification for [CHKO-037] (Customer shipping address validation before tax quotation — Role-based access control policy enforcement) managed by Checkout Experience.
 
 #### Technical Decision & Invariants
 Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
@@ -599,7 +599,7 @@ Updated Jira status transitions, blocker owners, and same-day escalation checkpo
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-029`](https://jira.northstar.invalid/browse/CHKO-029) (`In Progress`)
+- **Linked Issue**: [`CHKO-029`](https://jira.northstar.invalid/browse/CHKO-029) (`To Do`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
@@ -624,11 +624,11 @@ API schema snapshot tested against staging-sim consumer stubs with zero breaking
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-045`](https://jira.northstar.invalid/browse/CHKO-045) (`Blocked`)
+- **Linked Issue**: [`CHKO-047`](https://jira.northstar.invalid/browse/CHKO-047) (`To Do`)
 - **Record Type**: Database Migration Checklist
 
 #### Context & Technical Objective
-Database schema change verification for [CHKO-045] (Telemetry for checkout step drop-off rates across platforms — Cache invalidation & version lineage check) managed by Checkout Experience.
+Database schema change verification for [CHKO-047] (Merchant custom checkout field sanitization and persistence — Boundary value & currency minor-unit validation) managed by Checkout Experience.
 
 #### Technical Decision & Invariants
 Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
@@ -674,7 +674,7 @@ Updated Jira status transitions, blocker owners, and same-day escalation checkpo
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-035`](https://jira.northstar.invalid/browse/CHKO-035) (`In Review`)
+- **Linked Issue**: [`CHKO-035`](https://jira.northstar.invalid/browse/CHKO-035) (`To Do`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
@@ -724,11 +724,11 @@ Forward/down recovery notes and row-count reconciliation verified against isolat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-044`](https://jira.northstar.invalid/browse/CHKO-044) (`Blocked`)
+- **Linked Issue**: [`CHKO-044`](https://jira.northstar.invalid/browse/CHKO-044) (`To Do`)
 - **Record Type**: Daily Standup & Blocker Log
 
 #### Context & Technical Objective
-Daily engineering standup checkpoint for Checkout Experience covering active work on [CHKO-044] (Merchant checkout configuration overrides on tenant boot — Multi-tenant isolation & negative permission checks) (current ticket status: `Blocked`).
+Daily engineering standup checkpoint for Checkout Experience covering active work on [CHKO-044] (Merchant checkout configuration overrides on tenant boot — Multi-tenant isolation & negative permission checks) (current ticket status: `To Do`).
 
 #### Technical Decision & Invariants
 Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.

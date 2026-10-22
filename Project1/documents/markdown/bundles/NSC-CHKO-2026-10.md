@@ -24,11 +24,11 @@ This Markdown bundle organizes 11 verified logical project records, decisions, m
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-084`](https://jira.northstar.invalid/browse/CHKO-084) (`Blocked`)
+- **Linked Issue**: [`CHKO-085`](https://jira.northstar.invalid/browse/CHKO-085) (`Done`)
 - **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
-Reviewed Meridian Outfitters pilot integration requirements for [CHKO-084] (Tax exemption certificate verification for commercial accounts — Operational runbook & support diagnostics) with Checkout Experience engineering and merchant support.
+Reviewed Meridian Outfitters pilot integration requirements for [CHKO-085] (Customer shipping address validation before tax quotation — Quarantine workflow for malformed inputs) with Checkout Experience engineering and merchant support.
 
 #### Technical Decision & Invariants
 Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
@@ -49,11 +49,11 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-100`](https://jira.northstar.invalid/browse/CHKO-100) (`In Progress`)
+- **Linked Issue**: [`CHKO-101`](https://jira.northstar.invalid/browse/CHKO-101) (`To Do`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
-Architectural review for [CHKO-100] (Fallback shipping rate computation during carrier API outages — Idempotent retry & dead-letter telemetry) within Checkout Experience, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
+Architectural review for [CHKO-101] (Prevention of duplicate order submission on multi-click submission — Rate limiting & audit trail emission) within Checkout Experience, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
 
 #### Technical Decision & Invariants
 Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
@@ -99,11 +99,11 @@ Crash-replay simulation added to continuous integration to prevent regression.
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-093`](https://jira.northstar.invalid/browse/CHKO-093) (`Done`)
+- **Linked Issue**: [`CHKO-092`](https://jira.northstar.invalid/browse/CHKO-092) (`In Progress`)
 - **Record Type**: Daily Standup & Blocker Log
 
 #### Context & Technical Objective
-Daily engineering standup checkpoint for Checkout Experience covering active work on [CHKO-093] (Telemetry for checkout step drop-off rates across platforms — Role-based access control policy enforcement) (current ticket status: `Done`).
+Daily engineering standup checkpoint for Checkout Experience covering active work on [CHKO-092] (Merchant checkout configuration overrides on tenant boot — Load test benchmark & p95 latency profiling) (current ticket status: `In Progress`).
 
 #### Technical Decision & Invariants
 Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
@@ -124,11 +124,11 @@ Updated Jira status transitions, blocker owners, and same-day escalation checkpo
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-089`](https://jira.northstar.invalid/browse/CHKO-089) (`In Progress`)
+- **Linked Issue**: [`CHKO-090`](https://jira.northstar.invalid/browse/CHKO-090) (`In Progress`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
-Evaluated HTTP request/response payload schemas for [CHKO-089] (Prevention of duplicate order submission on multi-click submission — Merchant admin UI state & error boundary) in Checkout Experience to ensure backward compatibility and deterministic error codes.
+Evaluated HTTP request/response payload schemas for [CHKO-090] (Keyboard accessibility and screen reader flow in checkout UI — Webhook signature & payload verification) in Checkout Experience to ensure backward compatibility and deterministic error codes.
 
 #### Technical Decision & Invariants
 Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
@@ -199,11 +199,11 @@ Updated Jira status transitions, blocker owners, and same-day escalation checkpo
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-095`](https://jira.northstar.invalid/browse/CHKO-095) (`In Review`)
+- **Linked Issue**: [`CHKO-096`](https://jira.northstar.invalid/browse/CHKO-096) (`Done`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
-Evaluated HTTP request/response payload schemas for [CHKO-095] (Merchant custom checkout field sanitization and persistence — Zero-downtime deployment readiness gate) in Checkout Experience to ensure backward compatibility and deterministic error codes.
+Evaluated HTTP request/response payload schemas for [CHKO-096] (Tax exemption certificate verification for commercial accounts — Data retention & privacy masking compliance) in Checkout Experience to ensure backward compatibility and deterministic error codes.
 
 #### Technical Decision & Invariants
 Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
@@ -224,11 +224,11 @@ API schema snapshot tested against staging-sim consumer stubs with zero breaking
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-099`](https://jira.northstar.invalid/browse/CHKO-099) (`Done`)
+- **Linked Issue**: [`CHKO-100`](https://jira.northstar.invalid/browse/CHKO-100) (`In Progress`)
 - **Record Type**: Database Migration Checklist
 
 #### Context & Technical Objective
-Database schema change verification for [CHKO-099] (External tax service timeout handling with graceful fallback mode — API contract & schema validation) managed by Checkout Experience.
+Database schema change verification for [CHKO-100] (Fallback shipping rate computation during carrier API outages — Idempotent retry & dead-letter telemetry) managed by Checkout Experience.
 
 #### Technical Decision & Invariants
 Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
@@ -249,11 +249,11 @@ Forward/down recovery notes and row-count reconciliation verified against isolat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-115`](https://jira.northstar.invalid/browse/CHKO-115) (`In Review`)
+- **Linked Issue**: [`CHKO-117`](https://jira.northstar.invalid/browse/CHKO-117) (`In Progress`)
 - **Record Type**: Daily Standup & Blocker Log
 
 #### Context & Technical Objective
-Daily engineering standup checkpoint for Checkout Experience covering active work on [CHKO-115] (Split-step checkout state machine with transactional checkpoints — Cache invalidation & version lineage check) (current ticket status: `In Review`).
+Daily engineering standup checkpoint for Checkout Experience covering active work on [CHKO-117] (Telemetry for checkout step drop-off rates across platforms — Boundary value & currency minor-unit validation) (current ticket status: `In Progress`).
 
 #### Technical Decision & Invariants
 Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
@@ -274,11 +274,11 @@ Updated Jira status transitions, blocker owners, and same-day escalation checkpo
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-121`](https://jira.northstar.invalid/browse/CHKO-121) (`To Do`)
+- **Linked Issue**: [`CHKO-122`](https://jira.northstar.invalid/browse/CHKO-122) (`Done`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
-Evaluated HTTP request/response payload schemas for [CHKO-121] (Customer shipping address validation before tax quotation — Security header & token scope hardening) in Checkout Experience to ensure backward compatibility and deterministic error codes.
+Evaluated HTTP request/response payload schemas for [CHKO-122] (Idempotent checkout session endpoint with durable replay keys — Cross-service correlation ID propagation) in Checkout Experience to ensure backward compatibility and deterministic error codes.
 
 #### Technical Decision & Invariants
 Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.

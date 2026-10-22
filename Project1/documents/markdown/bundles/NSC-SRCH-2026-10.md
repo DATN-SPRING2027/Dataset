@@ -24,11 +24,11 @@ This Markdown bundle organizes 12 verified logical project records, decisions, m
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-081`](https://jira.northstar.invalid/browse/SRCH-081) (`Done`)
+- **Linked Issue**: [`SRCH-083`](https://jira.northstar.invalid/browse/SRCH-083) (`Done`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
-Architectural review for [SRCH-081] (Telemetry for zero-click and low-confidence search queries — Rate limiting & audit trail emission) within Search & Discovery, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
+Architectural review for [SRCH-083] (Product search indexing throughput during bulk imports — Database expand-contract migration script) within Search & Discovery, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
 
 #### Technical Decision & Invariants
 Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
@@ -74,11 +74,11 @@ Crash-replay simulation added to continuous integration to prevent regression.
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-095`](https://jira.northstar.invalid/browse/SRCH-095) (`Done`)
+- **Linked Issue**: [`SRCH-096`](https://jira.northstar.invalid/browse/SRCH-096) (`In Progress`)
 - **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
-Reviewed Meridian Outfitters pilot integration requirements for [SRCH-095] (Product search indexing throughput during bulk imports — Cache invalidation & version lineage check) with Search & Discovery engineering and merchant support.
+Reviewed Meridian Outfitters pilot integration requirements for [SRCH-096] (Query syntax sanitization to prevent index injection — Partner sandbox contract reconciliation) with Search & Discovery engineering and merchant support.
 
 #### Technical Decision & Invariants
 Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
@@ -124,11 +124,11 @@ API schema snapshot tested against staging-sim consumer stubs with zero breaking
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-102`](https://jira.northstar.invalid/browse/SRCH-102) (`In Review`)
+- **Linked Issue**: [`SRCH-104`](https://jira.northstar.invalid/browse/SRCH-104) (`Done`)
 - **Record Type**: Database Migration Checklist
 
 #### Context & Technical Objective
-Database schema change verification for [SRCH-102] (Locale-aware tokenization and character folding rules — Cross-service correlation ID propagation) managed by Search & Discovery.
+Database schema change verification for [SRCH-104] (Phrase matching boosts for high-converting product categories — Merchant admin UI state & error boundary) managed by Search & Discovery.
 
 #### Technical Decision & Invariants
 Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
@@ -149,11 +149,11 @@ Forward/down recovery notes and row-count reconciliation verified against isolat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-101`](https://jira.northstar.invalid/browse/SRCH-101) (`Done`)
+- **Linked Issue**: [`SRCH-099`](https://jira.northstar.invalid/browse/SRCH-099) (`In Review`)
 - **Record Type**: Daily Standup & Blocker Log
 
 #### Context & Technical Objective
-Daily engineering standup checkpoint for Search & Discovery covering active work on [SRCH-101] (Zero-result fallback recommendations for misspelled queries — Security header & token scope hardening) (current ticket status: `Done`).
+Daily engineering standup checkpoint for Search & Discovery covering active work on [SRCH-099] (Facet aggregation counts after multi-select filtering — Automated recovery & rollback verification) (current ticket status: `In Review`).
 
 #### Technical Decision & Invariants
 Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
@@ -174,11 +174,11 @@ Updated Jira status transitions, blocker owners, and same-day escalation checkpo
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-095`](https://jira.northstar.invalid/browse/SRCH-095) (`Done`)
+- **Linked Issue**: [`SRCH-096`](https://jira.northstar.invalid/browse/SRCH-096) (`In Progress`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
-Evaluated HTTP request/response payload schemas for [SRCH-095] (Product search indexing throughput during bulk imports — Cache invalidation & version lineage check) in Search & Discovery to ensure backward compatibility and deterministic error codes.
+Evaluated HTTP request/response payload schemas for [SRCH-096] (Query syntax sanitization to prevent index injection — Partner sandbox contract reconciliation) in Search & Discovery to ensure backward compatibility and deterministic error codes.
 
 #### Technical Decision & Invariants
 Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
@@ -199,11 +199,11 @@ API schema snapshot tested against staging-sim consumer stubs with zero breaking
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-091`](https://jira.northstar.invalid/browse/SRCH-091) (`Done`)
+- **Linked Issue**: [`SRCH-090`](https://jira.northstar.invalid/browse/SRCH-090) (`In Progress`)
 - **Record Type**: Database Migration Checklist
 
 #### Context & Technical Objective
-Database schema change verification for [SRCH-091] (Tenant-isolated Elasticsearch index aliases configuration — PostgreSQL indexing & tenant query guard) managed by Search & Discovery.
+Database schema change verification for [SRCH-090] (Locale-aware tokenization and character folding rules — Data retention & privacy masking compliance) managed by Search & Discovery.
 
 #### Technical Decision & Invariants
 Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
@@ -224,11 +224,11 @@ Forward/down recovery notes and row-count reconciliation verified against isolat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-107`](https://jira.northstar.invalid/browse/SRCH-107) (`Done`)
+- **Linked Issue**: [`SRCH-109`](https://jira.northstar.invalid/browse/SRCH-109) (`Done`)
 - **Record Type**: Daily Standup & Blocker Log
 
 #### Context & Technical Objective
-Daily engineering standup checkpoint for Search & Discovery covering active work on [SRCH-107] (Product search indexing throughput during bulk imports — Load test benchmark & p95 latency profiling) (current ticket status: `Done`).
+Daily engineering standup checkpoint for Search & Discovery covering active work on [SRCH-109] (Relevance ranking model for exact merchant SKU queries — Cache invalidation & version lineage check) (current ticket status: `Done`).
 
 #### Technical Decision & Invariants
 Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
@@ -249,11 +249,11 @@ Updated Jira status transitions, blocker owners, and same-day escalation checkpo
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-112`](https://jira.northstar.invalid/browse/SRCH-112) (`Done`)
+- **Linked Issue**: [`SRCH-113`](https://jira.northstar.invalid/browse/SRCH-113) (`In Progress`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
-Evaluated HTTP request/response payload schemas for [SRCH-112] (P95 search latency telemetry and load optimization — Storefront response serialization & pagination) in Search & Discovery to ensure backward compatibility and deterministic error codes.
+Evaluated HTTP request/response payload schemas for [SRCH-113] (Zero-result fallback recommendations for misspelled queries — Operational runbook & support diagnostics) in Search & Discovery to ensure backward compatibility and deterministic error codes.
 
 #### Technical Decision & Invariants
 Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.

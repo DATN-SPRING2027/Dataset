@@ -816,7 +816,7 @@ def generate_issue_comment(status, issue_key, summary, author_m, is_blocked, is_
     variant = (int(num) + sum(ord(char) for char in prefix + author_m)) % 5
     subject = summary.rstrip(".")
     ot_prefix = ""
-    if work_mode == "overtime_weekend_incident":
+    if work_mode == "weekend_incident_ot":
         ot_prefix = "[Weekend Incident War-Room OT 17:00-22:00+07:00] "
     elif is_ot:
         ot_prefix = "[Evening Sprint Crunch OT 17:00-22:00+07:00] "
@@ -940,23 +940,6 @@ for pid, total_count in issue_counts_per_project.items():
         initial_sprint_num = min(13, max(1, ((created_date - SPRINT_BASE).days // 14) + 1))
         initial_sprint_id = f"SPRINT-{prefix}-{initial_sprint_num:02d}"
 
-        # Realistic Scrum Sprint Lifecycle:
-        # Closed sprints (1..12) cannot hold unresolved open issues!
-        # Any open issue (status != "Done") created before Sprint 13 is carried over into active Sprint 13 (SPRINT-<PREFIX>-13).
-        if status != "Done":
-            sprint_num = 13
-            sprint_id = f"SPRINT-{prefix}-13"
-            spillover_count = 0 if initial_sprint_num == 13 else min(2, 13 - initial_sprint_num)
-        else:
-            # Done issues finish in their initial sprint, or occasionally spill over +1 sprint
-            if (i % 9 == 0) and initial_sprint_num < 13:
-                sprint_num = initial_sprint_num + 1
-                spillover_count = 1
-            else:
-                sprint_num = initial_sprint_num
-                spillover_count = 0
-            sprint_id = f"SPRINT-{prefix}-{sprint_num:02d}"
-
         # Parent Epic linkage for Stories/Tasks/Bugs
         if itype == "Epic":
             parent_key = None
@@ -1047,7 +1030,7 @@ for pid, total_count in issue_counts_per_project.items():
             if inc_sat >= created_date:
                 updated_date = inc_sat
             is_overtime = True
-            work_mode = "overtime_weekend_incident"
+            work_mode = "weekend_incident_ot"
             overtime_hours = round(3.5 + (i % 3) * 1.0, 1)
         else:
             # Contextual weekday overtime (17:00-22:00+07:00):
@@ -1056,12 +1039,24 @@ for pid, total_count in issue_counts_per_project.items():
             is_sprint_end = days_into_sprint >= 10
             if (i % 20) in ot_slots or (is_sprint_end and priority in ("Highest", "High") and (i % 4 == 0)):
                 is_overtime = True
-                work_mode = "overtime_weekday"
+                work_mode = "evening_overtime"
                 overtime_hours = round(1.5 + ((i + pid_idx) % 4) * 1.0, 1)
             else:
                 is_overtime = False
                 work_mode = "regular_hours"
                 overtime_hours = 0.0
+
+        # Realistic Scrum Sprint Lifecycle (computed AFTER updated_date is finalized!):
+        # - Closed sprints (1..12) cannot hold unresolved open issues: any status != "Done" is in active Sprint 13.
+        # - Done issues belong strictly to the sprint covering their actual completion date (updated_date).
+        if status != "Done":
+            sprint_num = 13
+            sprint_id = f"SPRINT-{prefix}-13"
+            spillover_count = max(0, 13 - initial_sprint_num)
+        else:
+            sprint_num = min(13, max(1, ((updated_date - SPRINT_BASE).days // 14) + 1))
+            sprint_id = f"SPRINT-{prefix}-{sprint_num:02d}"
+            spillover_count = max(0, sprint_num - initial_sprint_num)
 
         if was_reassigned and reassign_date and reassign_date > updated_date:
             reassign_date = snap_to_working_day(created_date + timedelta(days=1), prefer_forward=True)
@@ -1070,13 +1065,13 @@ for pid, total_count in issue_counts_per_project.items():
 
         assert created_date <= updated_date <= TODAY, f"Timeline inverted for {key}: {created_date} vs {updated_date}"
 
-        # Build +07:00 timestamps ensuring created_ts <= all transitions <= updated_ts
-        created_ts = make_human_timestamp(created_date, i + pid_idx, is_ot=False, slot_index=0)
+        # Build +07:00 timestamps ensuring created_ts < all intermediate transitions < updated_ts
+        c_mn = 5 + ((i * 11 + pid_idx * 7) % 48)
+        c_sc = 5 + ((i * 17 + pid_idx * 3) % 50)
+        created_ts = f"{created_date.isoformat()}T08:{c_mn:02d}:{c_sc:02d}{VN_TZ}"
         updated_ts = make_human_timestamp(updated_date, i * 3 + pid_idx, is_ot=is_overtime, slot_index=5)
-        if updated_date == created_date and updated_ts <= created_ts:
-            # Force updated_ts later on the same day
-            created_ts = f"{created_date.isoformat()}T08:30:00{VN_TZ}"
-            updated_ts = f"{updated_date.isoformat()}T{18 if is_overtime else 15}:45:00{VN_TZ}"
+        if updated_date == created_date:
+            updated_ts = f"{updated_date.isoformat()}T{20 if is_overtime else 16}:45:{c_sc:02d}{VN_TZ}"
 
         biz_hours = calc_business_hours_between(created_date, updated_date, overtime_hours)
 
@@ -1128,27 +1123,23 @@ for pid, total_count in issue_counts_per_project.items():
         raw_events = []
 
         def Intermediate_ts(step_num, total_steps, use_ot=False):
-            """Generate a monotonically increasing timestamp between created_ts and updated_ts."""
+            """Generate a strictly increasing timestamp between created_ts and updated_ts."""
+            step_hours_reg = [9, 11, 13, 15, 16]
+            step_hours_ot = [17, 18, 19, 20, 20]
+            hr = (step_hours_ot if use_ot else step_hours_reg)[min(max(0, step_num - 1), 4)]
+            mn = 10 + ((i * 3 + step_num * 11) % 45)
+            sc = 5 + ((i * 7 + step_num * 13) % 50)
             if updated_date == created_date:
-                base_hr = 9 + min(6, step_num)
-                if base_hr == 12:
-                    base_hr = 13
-                if use_ot:
-                    base_hr = max(17, min(20, 16 + step_num))
-                return f"{created_date.isoformat()}T{base_hr:02d}:{(10 + step_num * 7) % 55:02d}:00{VN_TZ}"
+                return f"{created_date.isoformat()}T{hr:02d}:{mn:02d}:{sc:02d}{VN_TZ}"
             span_days = max(1, (updated_date - created_date).days)
             d_Cand = created_date + timedelta(days=max(1, (span_days * step_num) // (total_steps + 1)))
             d_work = snap_to_working_day(d_Cand, prefer_forward=True)
+            max_inter_date = max(created_date, snap_to_working_day(updated_date - timedelta(days=1), prefer_forward=False))
             if d_work < created_date:
                 d_work = created_date
-            if d_work > updated_date:
-                d_work = snap_to_working_day(updated_date, prefer_forward=False)
-            ts = make_human_timestamp(d_work, i + step_num * 7, is_ot=use_ot, slot_index=step_num)
-            if ts <= created_ts:
-                ts = created_ts[:11] + "10:15:00" + VN_TZ if created_ts[11:13] == "08" else updated_ts
-            if ts >= updated_ts:
-                ts = updated_ts
-            return ts
+            if d_work > max_inter_date:
+                d_work = max_inter_date
+            return f"{d_work.isoformat()}T{hr:02d}:{mn:02d}:{sc:02d}{VN_TZ}"
 
         if was_reassigned and former_or_prev_id:
             r_ts = make_human_timestamp(reassign_date, i + 19, is_ot=False, slot_index=2)
@@ -1159,11 +1150,15 @@ for pid, total_count in issue_counts_per_project.items():
             raw_events.append((r_ts, "assignee", former_or_prev_id, assignee, owner))
 
         if spillover_count > 0:
-            # Record Sprint carry-over into active Sprint 13 at Sprint 13 kickoff (2026-09-29 morning)
-            sp_date = max(created_date, date(2026, 9, 29))
+            # Record Sprint carry-over into target sprint at target sprint kickoff morning
+            target_sp_start = SPRINT_BASE + timedelta(days=(sprint_num - 1) * 14)
+            sp_date = snap_to_working_day(max(created_date, target_sp_start), prefer_forward=True)
             if sp_date > updated_date:
                 sp_date = updated_date
-            sp_ts = f"{sp_date.isoformat()}T09:05:{(i % 50):02d}{VN_TZ}"
+            if sp_date.weekday() >= 5:
+                sp_ts = f"{sp_date.isoformat()}T17:05:{(i % 50):02d}{VN_TZ}"
+            else:
+                sp_ts = f"{sp_date.isoformat()}T08:00:{(i % 50):02d}{VN_TZ}"
             if sp_ts < created_ts:
                 sp_ts = created_ts
             if sp_ts > updated_ts:
@@ -1325,7 +1320,7 @@ for pid, total_count in issue_counts_per_project.items():
                 "comment_id": f"COMMENT-{key}-02",
                 "issue_key": key,
                 "author_id": owner,
-                "actor_type": "bot",
+                "actor_type": "system_bot",
                 "bot_id": bot["bot_id"],
                 "created_at": bot_ts,
                 "is_overtime": False,
@@ -2205,6 +2200,29 @@ for iss in issues:
 for pid in PID_LIST:
     issues_by_project[pid].sort(key=lambda x: x["created_at"])
 
+# Build historical status lookup from issue_changelog so bundle documents record
+# the exact status of the linked issue at doc_ts (recorded_at), never a future status.
+status_transitions_by_issue = {}
+for ch in changelog:
+    if ch.get("field") == "status":
+        status_transitions_by_issue.setdefault(ch["issue_key"], []).append((ch["changed_at"], ch["to_value"]))
+for ikey in status_transitions_by_issue:
+    status_transitions_by_issue[ikey].sort(key=lambda x: x[0])
+
+def get_issue_status_at(issue_obj, at_ts):
+    """Return the exact status of issue_obj at ISO timestamp at_ts (+07:00) using changelog history."""
+    ikey = issue_obj["issue_key"]
+    transitions = status_transitions_by_issue.get(ikey, [])
+    if not transitions:
+        return "To Do"
+    curr = "To Do"
+    for ch_ts, to_val in transitions:
+        if ch_ts <= at_ts:
+            curr = to_val
+        else:
+            break
+    return curr
+
 months = ["2026-04", "2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10"]
 
 bundle_docs_map = {(pid, ym): [] for pid in PID_LIST for ym in months}
@@ -2333,19 +2351,19 @@ for w_idx, w_date in enumerate(WORKING_DAYS):
         author_id = team[(w_idx + d_in_day) % len(team)]
         author_m = next(m for m in members if m["member_id"] == author_id)
 
-        # Select an issue created ON OR BEFORE this document date!
+        # Determine if this engineering log was recorded during evening OT (17:00-22:00+07:00)
+        doc_is_ot = ((doc_counter % 20) in PROJECT_OT_SLOTS[pid]) or (d_in_day >= 10)
+        doc_work_mode = "evening_overtime" if doc_is_ot else "regular_hours"
+        doc_ts = make_human_timestamp(w_date, doc_counter + pid_idx, is_ot=doc_is_ot, slot_index=d_in_day)
+
+        # Select an issue created ON OR BEFORE this document date and reconstruct its status at doc_ts
         eligible_issues = [iss for iss in issues_by_project[pid] if iss["created_at"][:10] <= date_str]
         if not eligible_issues:
             eligible_issues = [issues_by_project[pid][0]]
         linked_iss = eligible_issues[(doc_counter + d_in_day) % len(eligible_issues)]
         issue_key = linked_iss["issue_key"]
         issue_summary = linked_iss["summary"]
-        issue_status = linked_iss["status"]
-
-        # Determine if this engineering log was recorded during evening OT (17:00-22:00+07:00)
-        doc_is_ot = ((doc_counter % 20) in PROJECT_OT_SLOTS[pid]) or (d_in_day >= 10)
-        doc_work_mode = "overtime_weekday" if doc_is_ot else "regular_hours"
-        doc_ts = make_human_timestamp(w_date, doc_counter + pid_idx, is_ot=doc_is_ot, slot_index=d_in_day)
+        issue_status = get_issue_status_at(linked_iss, doc_ts)
 
         prefix = pid.replace("NSC-", "")
         doc_seq = len(bundle_docs_map[(pid, ym)]) + 1
@@ -2548,9 +2566,12 @@ pay_active_wip_pts = sum(i["story_points"] for i in issues if i["project_id"] ==
 chko_active_wip_pts = sum(i["story_points"] for i in issues if i["project_id"] == "NSC-CHKO" and i["sprint_id"] == "SPRINT-CHKO-13" and i["status"] in ["In Progress", "In Review"])
 unique_bundle_files_count = len(set(d["file_path"] for d in canonical_documents if d["format"] == "markdown_bundle"))
 total_overtime_issues = sum(1 for i in issues if i.get("is_overtime"))
-total_spillover_issues = sum(1 for i in issues if i.get("spillover_count", 0) > 0)
-total_bot_comments = sum(1 for c in comments if c.get("actor_type") == "bot")
-total_weekend_ot_changelog = sum(1 for ch in changelog if ch.get("work_mode") == "overtime_weekend_incident")
+total_spillover_issues = sum(
+    1 for i in issues
+    if i["status"] != "Done" and i["sprint_id"].endswith("-13") and i.get("spillover_count", 0) > 0
+)
+total_bot_comments = sum(1 for c in comments if c.get("actor_type") == "system_bot")
+total_weekend_ot_changelog = sum(1 for ch in changelog if ch.get("work_mode") == "weekend_incident_ot")
 
 rag_cases = [
     {"case_id": "RAG-001", "query": "How long must checkout idempotency keys be retained?", "expected": "At least 72 hours; the same key and request hash returns the original cached result.", "gold_document_ids": ["DOC-PAY-ADR-003", "DOC-ARCH-PLAT-001"], "must_not_cite": ["DOC-PAY-ADR-001"], "tags": ["latest_version", "conflict", "citation"]},
@@ -2640,9 +2661,9 @@ analytics_cases = [
     {"case_id": "ANA-015", "question": "How many standalone canonical DOCX source documents are indexed, excluding linked renditions?", "metric": "canonical_docx_document_count", "filters": {"format": "docx", "document_role": "canonical"}, "expected_value": len(docx_specs), "expected_unit": "logical_documents"},
     {"case_id": "ANA-016", "question": "How many Jira issues involved evening or weekend overtime (is_overtime = true)?", "metric": "overtime_issue_count", "filters": {"is_overtime": True}, "expected_value": total_overtime_issues, "expected_unit": "issues"},
     {"case_id": "ANA-017", "question": "How many official working days (excluding weekends and 5 Vietnam public holidays) occur in the 180-day window?", "metric": "official_working_days_count", "filters": {"timezone": "+07:00"}, "expected_value": TOTAL_WORKING_DAYS, "expected_unit": "working_days"},
-    {"case_id": "ANA-018", "question": "How many automated system bot comments were recorded across all issues?", "metric": "system_bot_comment_count", "filters": {"actor_type": "bot"}, "expected_value": total_bot_comments, "expected_unit": "comments"},
-    {"case_id": "ANA-019", "question": "How many open issues spilled over from earlier closed sprints into active Sprint 13?", "metric": "sprint_spillover_issue_count", "filters": {"spillover_count_gt": 0}, "expected_value": total_spillover_issues, "expected_unit": "issues"},
-    {"case_id": "ANA-020", "question": "How many weekend emergency war-room changelog events occurred across the entire timeline?", "metric": "weekend_incident_ot_changelog_count", "filters": {"work_mode": "overtime_weekend_incident"}, "expected_value": total_weekend_ot_changelog, "expected_unit": "changelog_entries"}
+    {"case_id": "ANA-018", "question": "How many automated system bot comments were recorded across all issues?", "metric": "system_bot_comment_count", "filters": {"actor_type": "system_bot"}, "expected_value": total_bot_comments, "expected_unit": "comments"},
+    {"case_id": "ANA-019", "question": "How many open issues spilled over from earlier closed sprints into active Sprint 13?", "metric": "sprint_spillover_issue_count", "filters": {"status_ne": "Done", "sprint_number": 13, "spillover_count_gt": 0}, "expected_value": total_spillover_issues, "expected_unit": "issues"},
+    {"case_id": "ANA-020", "question": "How many weekend emergency war-room changelog events occurred across the entire timeline?", "metric": "weekend_incident_ot_changelog_count", "filters": {"work_mode": "weekend_incident_ot"}, "expected_value": total_weekend_ot_changelog, "expected_unit": "changelog_entries"}
 ]
 
 progress_cases = [
@@ -2663,7 +2684,7 @@ progress_cases = [
     {"case_id": "PRG-015", "project_id": "NSC-PLAT", "metric": "target_launch_date", "expected_value": "2026-12-04", "expected_unit": "date", "note": "Platform foundation target date."},
     {"case_id": "PRG-016", "project_id": "NSC-CHKO", "metric": "overtime_hours_sum", "expected_value": round(sum(i.get("overtime_hours", 0.0) for i in issues if i["project_id"] == "NSC-CHKO"), 1), "expected_unit": "hours", "note": "Total logged overtime hours in At-Risk Checkout project (17:00-22:00 ICT)."},
     {"case_id": "PRG-017", "project_id": "NSC-PAY", "metric": "overtime_hours_sum", "expected_value": round(sum(i.get("overtime_hours", 0.0) for i in issues if i["project_id"] == "NSC-PAY"), 1), "expected_unit": "hours", "note": "Total logged overtime hours in At-Risk Payment project (17:00-22:00 ICT)."},
-    {"case_id": "PRG-018", "project_id": "NSC-PAY", "metric": "spillover_issue_count", "expected_value": sum(1 for i in issues if i["project_id"] == "NSC-PAY" and i.get("spillover_count", 0) > 0), "expected_unit": "issues", "note": "Issues carried over from closed Sprints 1..12 into active Sprint 13 in NSC-PAY."},
+    {"case_id": "PRG-018", "project_id": "NSC-PAY", "metric": "spillover_issue_count", "expected_value": sum(1 for i in issues if i["project_id"] == "NSC-PAY" and i["status"] != "Done" and i["sprint_id"].endswith("-13") and i.get("spillover_count", 0) > 0), "expected_unit": "issues", "note": "Open issues carried over from closed Sprints 1..12 into active Sprint 13 in NSC-PAY."},
     {"case_id": "PRG-019", "project_id": "ALL", "metric": "open_issues_in_closed_sprints", "expected_value": sum(1 for i in issues if i["status"] != "Done" and not i["sprint_id"].endswith("-13")), "expected_unit": "issues", "note": "Zero open issues remain in closed Sprints 1..12 after Agile sprint rollover."}
 ]
 
@@ -3475,6 +3496,9 @@ for ikey, ch_list in changelog_by_issue.items():
     ts_seq = [c["changed_at"] for c in ch_list]
     if ts_seq != sorted(ts_seq):
         validation_errors.append(f"Non-monotonic changelog timestamps for {ikey}: {ts_seq}")
+    status_ts_seq = [c["changed_at"] for c in ch_list if c.get("field") == "status"]
+    if len(status_ts_seq) != len(set(status_ts_seq)):
+        validation_errors.append(f"Duplicate status transition timestamps for {ikey}: {status_ts_seq}")
 
 for i in issues:
     ikey = i["issue_key"]
@@ -3488,6 +3512,7 @@ for i in issues:
 
 # Check document source issue dates: issue created_at[:10] <= doc created_at[:10]
 issue_created_lookup = {i["issue_key"]: i["created_at"][:10] for i in issues}
+issue_by_key = {i["issue_key"]: i for i in issues}
 for d in canonical_documents:
     doc_created = d["created_at"][:10]
     for s_key in d.get("source_issue_keys", []):
@@ -3499,6 +3524,69 @@ for d in canonical_documents:
             iss_created = issue_created_lookup[s_key]
             if iss_created > doc_created:
                 validation_errors.append(f"Document {d['document_id']} created at {doc_created} cites future issue {s_key} created at {iss_created}")
+
+# Check PR #2 Finding 1: ANA-019 counts strictly open issues in Sprint 13 with spillover_count > 0
+ana_019 = next((c for c in analytics_cases if c["case_id"] == "ANA-019"), None)
+expected_open_s13_spillover = sum(
+    1 for i in issues
+    if i["status"] != "Done" and i["sprint_id"].endswith("-13") and i.get("spillover_count", 0) > 0
+)
+if not ana_019 or ana_019["expected_value"] != expected_open_s13_spillover:
+    validation_errors.append(
+        f"ANA-019 expected_value mismatch: got {ana_019['expected_value'] if ana_019 else None}, expected {expected_open_s13_spillover}"
+    )
+if not ana_019 or ana_019.get("filters") != {"status_ne": "Done", "sprint_number": 13, "spillover_count_gt": 0}:
+    validation_errors.append(f"ANA-019 filters mismatch: {ana_019.get('filters') if ana_019 else None}")
+
+# Check PR #2 Finding 2: Every bundle document records the exact changelog status of its linked issue at recorded_at
+for (pid, ym), sections_data in bundle_docs_map.items():
+    for section_text, doc_rec in sections_data:
+        linked_key = doc_rec["source_issue_keys"][0]
+        expected_hist_status = get_issue_status_at(issue_by_key[linked_key], doc_rec["recorded_at"])
+        expected_link_line = f"- **Linked Issue**: [`{linked_key}`](https://jira.northstar.invalid/browse/{linked_key}) (`{expected_hist_status}`)"
+        if expected_link_line not in section_text:
+            validation_errors.append(
+                f"Bundle {doc_rec['document_id']} at {doc_rec['recorded_at']} has wrong historical status for {linked_key} (expected {expected_hist_status})"
+            )
+
+# Check PR #2 Finding 3: Every Done issue's completion date and Done changelog transition fall within its assigned sprint window
+for i in issues:
+    if i["status"] == "Done":
+        sp = sprint_by_id.get(i["sprint_id"])
+        done_date_str = i["updated_at"][:10]
+        if not sp or not (sp["start_date"] <= done_date_str <= sp["end_date"]):
+            validation_errors.append(
+                f"Done issue {i['issue_key']} completed at {done_date_str} outside assigned sprint {i['sprint_id']} ({sp['start_date'] if sp else None}..{sp['end_date'] if sp else None})"
+            )
+    if i.get("spillover_count", 0) > 0:
+        has_sprint_ch = any(
+            ch.get("field") == "sprint" and ch.get("from_value") == i["initial_sprint_id"] and ch.get("to_value") == i["sprint_id"]
+            for ch in changelog_by_issue.get(i["issue_key"], [])
+        )
+        if not has_sprint_ch:
+            validation_errors.append(f"Spillover issue {i['issue_key']} missing sprint changelog from {i['initial_sprint_id']} to {i['sprint_id']}")
+
+# Check PR #2 Finding 4: Enum alignment between INGESTION_CONTRACT.md, structured JSONL, and evaluation cases
+valid_work_modes = {"regular_hours", "evening_overtime", "weekend_incident_ot", "automated_bot"}
+valid_actor_types = {"human", "system_bot"}
+for i in issues:
+    if i.get("work_mode") not in valid_work_modes:
+        validation_errors.append(f"Invalid work_mode on issue {i['issue_key']}: {i.get('work_mode')}")
+for c in comments:
+    if c.get("work_mode") not in valid_work_modes:
+        validation_errors.append(f"Invalid work_mode on comment {c['comment_id']}: {c.get('work_mode')}")
+    if c.get("actor_type") not in valid_actor_types:
+        validation_errors.append(f"Invalid actor_type on comment {c['comment_id']}: {c.get('actor_type')}")
+for ch in changelog:
+    if ch.get("work_mode") not in valid_work_modes:
+        validation_errors.append(f"Invalid work_mode on changelog {ch['changelog_id']}: {ch.get('work_mode')}")
+for d in canonical_documents:
+    if d.get("work_mode") not in valid_work_modes:
+        validation_errors.append(f"Invalid work_mode on document {d['document_id']}: {d.get('work_mode')}")
+if total_bot_comments != 76:
+    validation_errors.append(f"Expected 76 system_bot comments, got {total_bot_comments}")
+if total_weekend_ot_changelog <= 0:
+    validation_errors.append(f"Expected positive weekend_incident_ot changelog count, got {total_weekend_ot_changelog}")
 
 # 5. Check physical file counts
 v1_files = [f for f in ROOT.rglob("*") if f.is_file()]

@@ -24,7 +24,7 @@ This Markdown bundle organizes 11 verified logical project records, decisions, m
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-087`](https://jira.northstar.invalid/browse/CART-087) (`In Progress`)
+- **Linked Issue**: [`CART-087`](https://jira.northstar.invalid/browse/CART-087) (`To Do`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
@@ -74,11 +74,11 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-100`](https://jira.northstar.invalid/browse/CART-100) (`Done`)
+- **Linked Issue**: [`CART-101`](https://jira.northstar.invalid/browse/CART-101) (`Done`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
-Application security and access-control assessment for [CART-100] (Order line total recalculation after real-time inventory adjustments — Data retention & privacy masking compliance) in Cart & Promotions.
+Application security and access-control assessment for [CART-101] (Idempotent cart item updates during concurrent requests — PostgreSQL indexing & tenant query guard) in Cart & Promotions.
 
 #### Technical Decision & Invariants
 Validated deny-by-default authorization, pre-retrieval ACL filtering, secret externalization, and zero persistence of PAN/CVV or raw credentials.
@@ -99,11 +99,11 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-094`](https://jira.northstar.invalid/browse/CART-094) (`Done`)
+- **Linked Issue**: [`CART-095`](https://jira.northstar.invalid/browse/CART-095) (`Done`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
-Conducted load and latency profiling for [CART-094] (Cart coupon eligibility against customer group rules — Edge-case race condition remediation) in Cart & Promotions under the pilot reference workload.
+Conducted load and latency profiling for [CART-095] (Cart session TTL extension on user checkout interaction — Automated recovery & rollback verification) in Cart & Promotions under the pilot reference workload.
 
 #### Technical Decision & Invariants
 Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.
@@ -149,11 +149,11 @@ Backlog readiness verified with product owner and QA lead; test fixtures and cor
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-107`](https://jira.northstar.invalid/browse/CART-107) (`In Progress`)
+- **Linked Issue**: [`CART-108`](https://jira.northstar.invalid/browse/CART-108) (`Done`)
 - **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
-Staged canary rollout readiness check for [CART-107] (Cart session TTL extension on user checkout interaction — Boundary value & currency minor-unit validation) in Cart & Promotions.
+Staged canary rollout readiness check for [CART-108] (Bundle product component price breakdown in cart session — Storefront response serialization & pagination) in Cart & Promotions.
 
 #### Technical Decision & Invariants
 Configured feature flag toggle and progressive traffic gates (0% synthetic -> 5% -> 25% -> 50% -> 100%) with automated rollback triggers.
@@ -174,11 +174,11 @@ On-call SRE and workstream owner verified rollback runbook steps and alert routi
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-100`](https://jira.northstar.invalid/browse/CART-100) (`Done`)
+- **Linked Issue**: [`CART-101`](https://jira.northstar.invalid/browse/CART-101) (`Done`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
-Conducted load and latency profiling for [CART-100] (Order line total recalculation after real-time inventory adjustments — Data retention & privacy masking compliance) in Cart & Promotions under the pilot reference workload.
+Conducted load and latency profiling for [CART-101] (Idempotent cart item updates during concurrent requests — PostgreSQL indexing & tenant query guard) in Cart & Promotions under the pilot reference workload.
 
 #### Technical Decision & Invariants
 Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.
@@ -224,11 +224,11 @@ Backlog readiness verified with product owner and QA lead; test fixtures and cor
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-113`](https://jira.northstar.invalid/browse/CART-113) (`In Review`)
+- **Linked Issue**: [`CART-114`](https://jira.northstar.invalid/browse/CART-114) (`Done`)
 - **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
-Staged canary rollout readiness check for [CART-113] (Idempotent cart item updates during concurrent requests — Redis distributed lock & concurrency handling) in Cart & Promotions.
+Staged canary rollout readiness check for [CART-114] (Immutable cart audit transition event logging — Merchant admin UI state & error boundary) in Cart & Promotions.
 
 #### Technical Decision & Invariants
 Configured feature flag toggle and progressive traffic gates (0% synthetic -> 5% -> 25% -> 50% -> 100%) with automated rollback triggers.
@@ -249,11 +249,11 @@ On-call SRE and workstream owner verified rollback runbook steps and alert routi
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-119`](https://jira.northstar.invalid/browse/CART-119) (`Blocked`)
+- **Linked Issue**: [`CART-118`](https://jira.northstar.invalid/browse/CART-118) (`Done`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
-Conducted load and latency profiling for [CART-119] (Cart session TTL extension on user checkout interaction — Event outbox deduplication & ordering) in Cart & Promotions under the pilot reference workload.
+Conducted load and latency profiling for [CART-118] (Cart coupon eligibility against customer group rules — Role-based access control policy enforcement) in Cart & Promotions under the pilot reference workload.
 
 #### Technical Decision & Invariants
 Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.

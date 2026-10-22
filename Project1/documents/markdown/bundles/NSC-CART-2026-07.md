@@ -49,11 +49,11 @@ Crash-replay simulation added to continuous integration to prevent regression.
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-054`](https://jira.northstar.invalid/browse/CART-054) (`Done`)
+- **Linked Issue**: [`CART-053`](https://jira.northstar.invalid/browse/CART-053) (`To Do`)
 - **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
-Reviewed Meridian Outfitters pilot integration requirements for [CART-054] (Immutable cart audit transition event logging — API contract & schema validation) with Cart & Promotions engineering and merchant support.
+Reviewed Meridian Outfitters pilot integration requirements for [CART-053] (Idempotent cart item updates during concurrent requests — Operational runbook & support diagnostics) with Cart & Promotions engineering and merchant support.
 
 #### Technical Decision & Invariants
 Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
@@ -74,11 +74,11 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-045`](https://jira.northstar.invalid/browse/CART-045) (`Done`)
+- **Linked Issue**: [`CART-046`](https://jira.northstar.invalid/browse/CART-046) (`Done`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
-Architectural review for [CART-045] (Cart currency conversion with cached FX exchange rates — Webhook signature & payload verification) within Cart & Promotions, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
+Architectural review for [CART-046] (Cart coupon eligibility against customer group rules — Observability spans & SLO alert thresholds) within Cart & Promotions, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
 
 #### Technical Decision & Invariants
 Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
@@ -99,11 +99,11 @@ Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-043`](https://jira.northstar.invalid/browse/CART-043) (`Done`)
+- **Linked Issue**: [`CART-044`](https://jira.northstar.invalid/browse/CART-044) (`To Do`)
 - **Record Type**: Incident Post-Mortem Action
 
 #### Context & Technical Objective
-Follow-up remediation tracking for [CART-043] (Fixed-amount and percentage tier coupon discounts — Redis distributed lock & concurrency handling) in Cart & Promotions after staging fault-injection and replay testing.
+Follow-up remediation tracking for [CART-044] (Merchant cart item maximum quantity limit constraints — Merchant admin UI state & error boundary) in Cart & Promotions after staging fault-injection and replay testing.
 
 #### Technical Decision & Invariants
 Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
@@ -149,11 +149,11 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-052`](https://jira.northstar.invalid/browse/CART-052) (`Done`)
+- **Linked Issue**: [`CART-051`](https://jira.northstar.invalid/browse/CART-051) (`Done`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
-Architectural review for [CART-052] (Order line total recalculation after real-time inventory adjustments — Storefront response serialization & pagination) within Cart & Promotions, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
+Architectural review for [CART-051] (Abandoned cart expiration workflow with automated stock release — Boundary value & currency minor-unit validation) within Cart & Promotions, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
 
 #### Technical Decision & Invariants
 Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
@@ -174,11 +174,11 @@ Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-046`](https://jira.northstar.invalid/browse/CART-046) (`Done`)
+- **Linked Issue**: [`CART-045`](https://jira.northstar.invalid/browse/CART-045) (`Done`)
 - **Record Type**: Incident Post-Mortem Action
 
 #### Context & Technical Objective
-Follow-up remediation tracking for [CART-046] (Cart coupon eligibility against customer group rules — Observability spans & SLO alert thresholds) in Cart & Promotions after staging fault-injection and replay testing.
+Follow-up remediation tracking for [CART-045] (Cart currency conversion with cached FX exchange rates — Webhook signature & payload verification) in Cart & Promotions after staging fault-injection and replay testing.
 
 #### Technical Decision & Invariants
 Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
@@ -199,11 +199,11 @@ Crash-replay simulation added to continuous integration to prevent regression.
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-043`](https://jira.northstar.invalid/browse/CART-043) (`Done`)
+- **Linked Issue**: [`CART-044`](https://jira.northstar.invalid/browse/CART-044) (`To Do`)
 - **Record Type**: Daily Standup & Blocker Log
 
 #### Context & Technical Objective
-Daily engineering standup checkpoint for Cart & Promotions covering active work on [CART-043] (Fixed-amount and percentage tier coupon discounts — Redis distributed lock & concurrency handling) (current ticket status: `Done`).
+Daily engineering standup checkpoint for Cart & Promotions covering active work on [CART-044] (Merchant cart item maximum quantity limit constraints — Merchant admin UI state & error boundary) (current ticket status: `To Do`).
 
 #### Technical Decision & Invariants
 Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
@@ -224,7 +224,7 @@ Updated Jira status transitions, blocker owners, and same-day escalation checkpo
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-059`](https://jira.northstar.invalid/browse/CART-059) (`Blocked`)
+- **Linked Issue**: [`CART-059`](https://jira.northstar.invalid/browse/CART-059) (`In Progress`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
@@ -249,11 +249,11 @@ API schema snapshot tested against staging-sim consumer stubs with zero breaking
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-052`](https://jira.northstar.invalid/browse/CART-052) (`Done`)
+- **Linked Issue**: [`CART-051`](https://jira.northstar.invalid/browse/CART-051) (`Done`)
 - **Record Type**: Database Migration Checklist
 
 #### Context & Technical Objective
-Database schema change verification for [CART-052] (Order line total recalculation after real-time inventory adjustments — Storefront response serialization & pagination) managed by Cart & Promotions.
+Database schema change verification for [CART-051] (Abandoned cart expiration workflow with automated stock release — Boundary value & currency minor-unit validation) managed by Cart & Promotions.
 
 #### Technical Decision & Invariants
 Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
@@ -299,11 +299,11 @@ Updated Jira status transitions, blocker owners, and same-day escalation checkpo
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-042`](https://jira.northstar.invalid/browse/CART-042) (`Done`)
+- **Linked Issue**: [`CART-043`](https://jira.northstar.invalid/browse/CART-043) (`Done`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
-Evaluated HTTP request/response payload schemas for [CART-042] (Immutable cart audit transition event logging — Cross-service correlation ID propagation) in Cart & Promotions to ensure backward compatibility and deterministic error codes.
+Evaluated HTTP request/response payload schemas for [CART-043] (Fixed-amount and percentage tier coupon discounts — Redis distributed lock & concurrency handling) in Cart & Promotions to ensure backward compatibility and deterministic error codes.
 
 #### Technical Decision & Invariants
 Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
@@ -349,11 +349,11 @@ Forward/down recovery notes and row-count reconciliation verified against isolat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-051`](https://jira.northstar.invalid/browse/CART-051) (`Done`)
+- **Linked Issue**: [`CART-050`](https://jira.northstar.invalid/browse/CART-050) (`In Progress`)
 - **Record Type**: Daily Standup & Blocker Log
 
 #### Context & Technical Objective
-Daily engineering standup checkpoint for Cart & Promotions covering active work on [CART-051] (Abandoned cart expiration workflow with automated stock release — Boundary value & currency minor-unit validation) (current ticket status: `Done`).
+Daily engineering standup checkpoint for Cart & Promotions covering active work on [CART-050] (Promotion stacking hierarchy and discount evaluation engine — Partner sandbox contract reconciliation) (current ticket status: `In Progress`).
 
 #### Technical Decision & Invariants
 Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
@@ -399,11 +399,11 @@ API schema snapshot tested against staging-sim consumer stubs with zero breaking
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-064`](https://jira.northstar.invalid/browse/CART-064) (`In Progress`)
+- **Linked Issue**: [`CART-063`](https://jira.northstar.invalid/browse/CART-063) (`Done`)
 - **Record Type**: Database Migration Checklist
 
 #### Context & Technical Objective
-Database schema change verification for [CART-064] (Order line total recalculation after real-time inventory adjustments — Zero-downtime deployment readiness gate) managed by Cart & Promotions.
+Database schema change verification for [CART-063] (Abandoned cart expiration workflow with automated stock release — Event outbox deduplication & ordering) managed by Cart & Promotions.
 
 #### Technical Decision & Invariants
 Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
@@ -424,11 +424,11 @@ Forward/down recovery notes and row-count reconciliation verified against isolat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-042`](https://jira.northstar.invalid/browse/CART-042) (`Done`)
+- **Linked Issue**: [`CART-043`](https://jira.northstar.invalid/browse/CART-043) (`Done`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
-Cross-service and partner integration sync for [CART-042] (Immutable cart audit transition event logging — Cross-service correlation ID propagation) in Cart & Promotions.
+Cross-service and partner integration sync for [CART-043] (Fixed-amount and percentage tier coupon discounts — Redis distributed lock & concurrency handling) in Cart & Promotions.
 
 #### Technical Decision & Invariants
 Verified HMAC-SHA256 webhook signature validation, bounded exponential backoff with jitter, and correlation ID propagation across service hops.
@@ -474,11 +474,11 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-055`](https://jira.northstar.invalid/browse/CART-055) (`Blocked`)
+- **Linked Issue**: [`CART-056`](https://jira.northstar.invalid/browse/CART-056) (`To Do`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
-Executed automated regression and negative boundary suite for [CART-055] (Fixed-amount and percentage tier coupon discounts — Idempotent retry & dead-letter telemetry) across Cart & Promotions staging fixtures.
+Executed automated regression and negative boundary suite for [CART-056] (Merchant cart item maximum quantity limit constraints — Rate limiting & audit trail emission) across Cart & Promotions staging fixtures.
 
 #### Technical Decision & Invariants
 Verified idempotent replay, duplicate event suppression, and cross-tenant HTTP 403 rejection before snippet or count generation.
@@ -524,11 +524,11 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-064`](https://jira.northstar.invalid/browse/CART-064) (`In Progress`)
+- **Linked Issue**: [`CART-063`](https://jira.northstar.invalid/browse/CART-063) (`Done`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
-Application security and access-control assessment for [CART-064] (Order line total recalculation after real-time inventory adjustments — Zero-downtime deployment readiness gate) in Cart & Promotions.
+Application security and access-control assessment for [CART-063] (Abandoned cart expiration workflow with automated stock release — Event outbox deduplication & ordering) in Cart & Promotions.
 
 #### Technical Decision & Invariants
 Validated deny-by-default authorization, pre-retrieval ACL filtering, secret externalization, and zero persistence of PAN/CVV or raw credentials.
@@ -549,11 +549,11 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-060`](https://jira.northstar.invalid/browse/CART-060) (`Done`)
+- **Linked Issue**: [`CART-061`](https://jira.northstar.invalid/browse/CART-061) (`Done`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
-Executed automated regression and negative boundary suite for [CART-060] (Bundle product component price breakdown in cart session — Automated recovery & rollback verification) across Cart & Promotions staging fixtures.
+Executed automated regression and negative boundary suite for [CART-061] (Guest cart merging into customer account upon login — Load test benchmark & p95 latency profiling) across Cart & Promotions staging fixtures.
 
 #### Technical Decision & Invariants
 Verified idempotent replay, duplicate event suppression, and cross-tenant HTTP 403 rejection before snippet or count generation.
@@ -574,11 +574,11 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-053`](https://jira.northstar.invalid/browse/CART-053) (`In Review`)
+- **Linked Issue**: [`CART-054`](https://jira.northstar.invalid/browse/CART-054) (`Done`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
-Cross-service and partner integration sync for [CART-053] (Idempotent cart item updates during concurrent requests — Operational runbook & support diagnostics) in Cart & Promotions.
+Cross-service and partner integration sync for [CART-054] (Immutable cart audit transition event logging — API contract & schema validation) in Cart & Promotions.
 
 #### Technical Decision & Invariants
 Verified HMAC-SHA256 webhook signature validation, bounded exponential backoff with jitter, and correlation ID propagation across service hops.
@@ -599,7 +599,7 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-047`](https://jira.northstar.invalid/browse/CART-047) (`In Progress`)
+- **Linked Issue**: [`CART-047`](https://jira.northstar.invalid/browse/CART-047) (`To Do`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
@@ -624,11 +624,11 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-063`](https://jira.northstar.invalid/browse/CART-063) (`Done`)
+- **Linked Issue**: [`CART-065`](https://jira.northstar.invalid/browse/CART-065) (`Done`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
-Executed automated regression and negative boundary suite for [CART-063] (Abandoned cart expiration workflow with automated stock release — Event outbox deduplication & ordering) across Cart & Promotions staging fixtures.
+Executed automated regression and negative boundary suite for [CART-065] (Idempotent cart item updates during concurrent requests — Data retention & privacy masking compliance) across Cart & Promotions staging fixtures.
 
 #### Technical Decision & Invariants
 Verified idempotent replay, duplicate event suppression, and cross-tenant HTTP 403 rejection before snippet or count generation.
@@ -649,11 +649,11 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-060`](https://jira.northstar.invalid/browse/CART-060) (`Done`)
+- **Linked Issue**: [`CART-061`](https://jira.northstar.invalid/browse/CART-061) (`Done`)
 - **Record Type**: Sprint Planning Update
 
 #### Context & Technical Objective
-During sprint backlog commitment on [CART-060] (Bundle product component price breakdown in cart session — Automated recovery & rollback verification), the Cart & Promotions squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
+During sprint backlog commitment on [CART-061] (Guest cart merging into customer account upon login — Load test benchmark & p95 latency profiling), the Cart & Promotions squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
 
 #### Technical Decision & Invariants
 Confirmed sprint scope and velocity guardrails. Unfinished items from prior closed iterations are formally tracked via sprint spillover transitions into the active sprint.
@@ -674,11 +674,11 @@ Backlog readiness verified with product owner and QA lead; test fixtures and cor
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-053`](https://jira.northstar.invalid/browse/CART-053) (`In Review`)
+- **Linked Issue**: [`CART-054`](https://jira.northstar.invalid/browse/CART-054) (`Done`)
 - **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
-Staged canary rollout readiness check for [CART-053] (Idempotent cart item updates during concurrent requests — Operational runbook & support diagnostics) in Cart & Promotions.
+Staged canary rollout readiness check for [CART-054] (Immutable cart audit transition event logging — API contract & schema validation) in Cart & Promotions.
 
 #### Technical Decision & Invariants
 Configured feature flag toggle and progressive traffic gates (0% synthetic -> 5% -> 25% -> 50% -> 100%) with automated rollback triggers.
@@ -699,11 +699,11 @@ On-call SRE and workstream owner verified rollback runbook steps and alert routi
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-051`](https://jira.northstar.invalid/browse/CART-051) (`Done`)
+- **Linked Issue**: [`CART-050`](https://jira.northstar.invalid/browse/CART-050) (`In Progress`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
-Conducted load and latency profiling for [CART-051] (Abandoned cart expiration workflow with automated stock release — Boundary value & currency minor-unit validation) in Cart & Promotions under the pilot reference workload.
+Conducted load and latency profiling for [CART-050] (Promotion stacking hierarchy and discount evaluation engine — Partner sandbox contract reconciliation) in Cart & Promotions under the pilot reference workload.
 
 #### Technical Decision & Invariants
 Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.
@@ -724,7 +724,7 @@ Measured p95 response times, connection pool saturation, and queue lag metrics o
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-067`](https://jira.northstar.invalid/browse/CART-067) (`In Progress`)
+- **Linked Issue**: [`CART-067`](https://jira.northstar.invalid/browse/CART-067) (`To Do`)
 - **Record Type**: Sprint Planning Update
 
 #### Context & Technical Objective
@@ -749,11 +749,11 @@ Backlog readiness verified with product owner and QA lead; test fixtures and cor
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-062`](https://jira.northstar.invalid/browse/CART-062) (`Done`)
+- **Linked Issue**: [`CART-060`](https://jira.northstar.invalid/browse/CART-060) (`Done`)
 - **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
-Staged canary rollout readiness check for [CART-062] (Promotion stacking hierarchy and discount evaluation engine — Role-based access control policy enforcement) in Cart & Promotions.
+Staged canary rollout readiness check for [CART-060] (Bundle product component price breakdown in cart session — Automated recovery & rollback verification) in Cart & Promotions.
 
 #### Technical Decision & Invariants
 Configured feature flag toggle and progressive traffic gates (0% synthetic -> 5% -> 25% -> 50% -> 100%) with automated rollback triggers.
@@ -774,11 +774,11 @@ On-call SRE and workstream owner verified rollback runbook steps and alert routi
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-054`](https://jira.northstar.invalid/browse/CART-054) (`Done`)
+- **Linked Issue**: [`CART-053`](https://jira.northstar.invalid/browse/CART-053) (`In Progress`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
-Conducted load and latency profiling for [CART-054] (Immutable cart audit transition event logging — API contract & schema validation) in Cart & Promotions under the pilot reference workload.
+Conducted load and latency profiling for [CART-053] (Idempotent cart item updates during concurrent requests — Operational runbook & support diagnostics) in Cart & Promotions under the pilot reference workload.
 
 #### Technical Decision & Invariants
 Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.
@@ -799,11 +799,11 @@ Measured p95 response times, connection pool saturation, and queue lag metrics o
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CART`
-- **Linked Issue**: [`CART-068`](https://jira.northstar.invalid/browse/CART-068) (`Done`)
+- **Linked Issue**: [`CART-070`](https://jira.northstar.invalid/browse/CART-070) (`In Progress`)
 - **Record Type**: Sprint Planning Update
 
 #### Context & Technical Objective
-During sprint backlog commitment on [CART-068] (Merchant cart item maximum quantity limit constraints — Backfill worker & batch memory tuning), the Cart & Promotions squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
+During sprint backlog commitment on [CART-070] (Cart coupon eligibility against customer group rules — Cache invalidation & version lineage check), the Cart & Promotions squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
 
 #### Technical Decision & Invariants
 Confirmed sprint scope and velocity guardrails. Unfinished items from prior closed iterations are formally tracked via sprint spillover transitions into the active sprint.

@@ -24,7 +24,7 @@ This Markdown bundle organizes 12 verified logical project records, decisions, m
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-001`](https://jira.northstar.invalid/browse/PLAT-001) (`Done`)
+- **Linked Issue**: [`PLAT-001`](https://jira.northstar.invalid/browse/PLAT-001) (`To Do`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
@@ -49,7 +49,7 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-003`](https://jira.northstar.invalid/browse/PLAT-003) (`Done`)
+- **Linked Issue**: [`PLAT-003`](https://jira.northstar.invalid/browse/PLAT-003) (`To Do`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
@@ -74,7 +74,7 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-007`](https://jira.northstar.invalid/browse/PLAT-007) (`Done`)
+- **Linked Issue**: [`PLAT-007`](https://jira.northstar.invalid/browse/PLAT-007) (`To Do`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
@@ -99,11 +99,11 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-006`](https://jira.northstar.invalid/browse/PLAT-006) (`Done`)
+- **Linked Issue**: [`PLAT-004`](https://jira.northstar.invalid/browse/PLAT-004) (`To Do`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
-Executed automated regression and negative boundary suite for [PLAT-006] (Privacy-safe merchant data export complying with GDPR/CCPA) across Platform Reliability & Governance staging fixtures.
+Executed automated regression and negative boundary suite for [PLAT-004] (Outbox event publishing with transactional exactly-once guarantees) across Platform Reliability & Governance staging fixtures.
 
 #### Technical Decision & Invariants
 Verified idempotent replay, duplicate event suppression, and cross-tenant HTTP 403 rejection before snippet or count generation.
@@ -124,7 +124,7 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-011`](https://jira.northstar.invalid/browse/PLAT-011) (`Done`)
+- **Linked Issue**: [`PLAT-011`](https://jira.northstar.invalid/browse/PLAT-011) (`To Do`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
@@ -149,7 +149,7 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-009`](https://jira.northstar.invalid/browse/PLAT-009) (`Done`)
+- **Linked Issue**: [`PLAT-009`](https://jira.northstar.invalid/browse/PLAT-009) (`In Progress`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
@@ -174,7 +174,7 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-012`](https://jira.northstar.invalid/browse/PLAT-012) (`Done`)
+- **Linked Issue**: [`PLAT-012`](https://jira.northstar.invalid/browse/PLAT-012) (`To Do`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
@@ -199,7 +199,7 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-013`](https://jira.northstar.invalid/browse/PLAT-013) (`In Progress`)
+- **Linked Issue**: [`PLAT-013`](https://jira.northstar.invalid/browse/PLAT-013) (`To Do`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
@@ -224,11 +224,11 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-006`](https://jira.northstar.invalid/browse/PLAT-006) (`Done`)
+- **Linked Issue**: [`PLAT-004`](https://jira.northstar.invalid/browse/PLAT-004) (`In Review`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
-Application security and access-control assessment for [PLAT-006] (Privacy-safe merchant data export complying with GDPR/CCPA) in Platform Reliability & Governance.
+Application security and access-control assessment for [PLAT-004] (Outbox event publishing with transactional exactly-once guarantees) in Platform Reliability & Governance.
 
 #### Technical Decision & Invariants
 Validated deny-by-default authorization, pre-retrieval ACL filtering, secret externalization, and zero persistence of PAN/CVV or raw credentials.
@@ -249,7 +249,7 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-021`](https://jira.northstar.invalid/browse/PLAT-021) (`Done`)
+- **Linked Issue**: [`PLAT-021`](https://jira.northstar.invalid/browse/PLAT-021) (`To Do`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
@@ -274,11 +274,11 @@ Measured p95 response times, connection pool saturation, and queue lag metrics o
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-017`](https://jira.northstar.invalid/browse/PLAT-017) (`Done`)
+- **Linked Issue**: [`PLAT-018`](https://jira.northstar.invalid/browse/PLAT-018) (`In Progress`)
 - **Record Type**: Sprint Planning Update
 
 #### Context & Technical Objective
-During sprint backlog commitment on [PLAT-017] (Checkout and payment service SLO dashboard with automated alerting — Boundary value & currency minor-unit validation), the Platform Reliability & Governance squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
+During sprint backlog commitment on [PLAT-018] (Privacy-safe merchant data export complying with GDPR/CCPA — Storefront response serialization & pagination), the Platform Reliability & Governance squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
 
 #### Technical Decision & Invariants
 Confirmed sprint scope and velocity guardrails. Unfinished items from prior closed iterations are formally tracked via sprint spillover transitions into the active sprint.
@@ -299,7 +299,7 @@ Backlog readiness verified with product owner and QA lead; test fixtures and cor
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-013`](https://jira.northstar.invalid/browse/PLAT-013) (`In Progress`)
+- **Linked Issue**: [`PLAT-013`](https://jira.northstar.invalid/browse/PLAT-013) (`To Do`)
 - **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective

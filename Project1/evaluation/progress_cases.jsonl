@@ -15,5 +15,5 @@
 {"case_id": "PRG-015", "expected_unit": "date", "expected_value": "2026-12-04", "metric": "target_launch_date", "note": "Platform foundation target date.", "project_id": "NSC-PLAT"}
 {"case_id": "PRG-016", "expected_unit": "hours", "expected_value": 295.5, "metric": "overtime_hours_sum", "note": "Total logged overtime hours in At-Risk Checkout project (17:00-22:00 ICT).", "project_id": "NSC-CHKO"}
 {"case_id": "PRG-017", "expected_unit": "hours", "expected_value": 371.0, "metric": "overtime_hours_sum", "note": "Total logged overtime hours in At-Risk Payment project (17:00-22:00 ICT).", "project_id": "NSC-PAY"}
-{"case_id": "PRG-018", "expected_unit": "issues", "expected_value": 200, "metric": "spillover_issue_count", "note": "Issues carried over from closed Sprints 1..12 into active Sprint 13 in NSC-PAY.", "project_id": "NSC-PAY"}
+{"case_id": "PRG-018", "expected_unit": "issues", "expected_value": 189, "metric": "spillover_issue_count", "note": "Open issues carried over from closed Sprints 1..12 into active Sprint 13 in NSC-PAY.", "project_id": "NSC-PAY"}
 {"case_id": "PRG-019", "expected_unit": "issues", "expected_value": 0, "metric": "open_issues_in_closed_sprints", "note": "Zero open issues remain in closed Sprints 1..12 after Agile sprint rollover.", "project_id": "ALL"}

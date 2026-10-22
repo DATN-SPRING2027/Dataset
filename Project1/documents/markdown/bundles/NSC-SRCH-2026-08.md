@@ -49,11 +49,11 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-051`](https://jira.northstar.invalid/browse/SRCH-051) (`Done`)
+- **Linked Issue**: [`SRCH-050`](https://jira.northstar.invalid/browse/SRCH-050) (`To Do`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
-Cross-service and partner integration sync for [SRCH-051] (Facet aggregation counts after multi-select filtering — Load test benchmark & p95 latency profiling) in Search & Discovery.
+Cross-service and partner integration sync for [SRCH-050] (Merchant-scoped synonym dictionary management API — Observability spans & SLO alert thresholds) in Search & Discovery.
 
 #### Technical Decision & Invariants
 Verified HMAC-SHA256 webhook signature validation, bounded exponential backoff with jitter, and correlation ID propagation across service hops.
@@ -99,11 +99,11 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-064`](https://jira.northstar.invalid/browse/SRCH-064) (`Done`)
+- **Linked Issue**: [`SRCH-063`](https://jira.northstar.invalid/browse/SRCH-063) (`Done`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
-Executed automated regression and negative boundary suite for [SRCH-064] (P95 search latency telemetry and load optimization — Automated recovery & rollback verification) across Search & Discovery staging fixtures.
+Executed automated regression and negative boundary suite for [SRCH-063] (Facet aggregation counts after multi-select filtering — Edge-case race condition remediation) across Search & Discovery staging fixtures.
 
 #### Technical Decision & Invariants
 Verified idempotent replay, duplicate event suppression, and cross-tenant HTTP 403 rejection before snippet or count generation.
@@ -124,11 +124,11 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-057`](https://jira.northstar.invalid/browse/SRCH-057) (`Done`)
+- **Linked Issue**: [`SRCH-056`](https://jira.northstar.invalid/browse/SRCH-056) (`To Do`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
-Cross-service and partner integration sync for [SRCH-057] (Telemetry for zero-click and low-confidence search queries — Integration test suite & staging replay) in Search & Discovery.
+Cross-service and partner integration sync for [SRCH-056] (Phrase matching boosts for high-converting product categories — PostgreSQL indexing & tenant query guard) in Search & Discovery.
 
 #### Technical Decision & Invariants
 Verified HMAC-SHA256 webhook signature validation, bounded exponential backoff with jitter, and correlation ID propagation across service hops.
@@ -149,7 +149,7 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-073`](https://jira.northstar.invalid/browse/SRCH-073) (`In Progress`)
+- **Linked Issue**: [`SRCH-073`](https://jira.northstar.invalid/browse/SRCH-073) (`To Do`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
@@ -199,11 +199,11 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-063`](https://jira.northstar.invalid/browse/SRCH-063) (`Done`)
+- **Linked Issue**: [`SRCH-065`](https://jira.northstar.invalid/browse/SRCH-065) (`To Do`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
-Cross-service and partner integration sync for [SRCH-063] (Facet aggregation counts after multi-select filtering — Edge-case race condition remediation) in Search & Discovery.
+Cross-service and partner integration sync for [SRCH-065] (Zero-result fallback recommendations for misspelled queries — Quarantine workflow for malformed inputs) in Search & Discovery.
 
 #### Technical Decision & Invariants
 Verified HMAC-SHA256 webhook signature validation, bounded exponential backoff with jitter, and correlation ID propagation across service hops.
@@ -224,11 +224,11 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-057`](https://jira.northstar.invalid/browse/SRCH-057) (`Done`)
+- **Linked Issue**: [`SRCH-056`](https://jira.northstar.invalid/browse/SRCH-056) (`To Do`)
 - **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
-Staged canary rollout readiness check for [SRCH-057] (Telemetry for zero-click and low-confidence search queries — Integration test suite & staging replay) in Search & Discovery.
+Staged canary rollout readiness check for [SRCH-056] (Phrase matching boosts for high-converting product categories — PostgreSQL indexing & tenant query guard) in Search & Discovery.
 
 #### Technical Decision & Invariants
 Configured feature flag toggle and progressive traffic gates (0% synthetic -> 5% -> 25% -> 50% -> 100%) with automated rollback triggers.
@@ -249,7 +249,7 @@ On-call SRE and workstream owner verified rollback runbook steps and alert routi
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-073`](https://jira.northstar.invalid/browse/SRCH-073) (`In Progress`)
+- **Linked Issue**: [`SRCH-073`](https://jira.northstar.invalid/browse/SRCH-073) (`To Do`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
@@ -274,11 +274,11 @@ Measured p95 response times, connection pool saturation, and queue lag metrics o
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-070`](https://jira.northstar.invalid/browse/SRCH-070) (`In Progress`)
+- **Linked Issue**: [`SRCH-069`](https://jira.northstar.invalid/browse/SRCH-069) (`Done`)
 - **Record Type**: Sprint Planning Update
 
 #### Context & Technical Objective
-During sprint backlog commitment on [SRCH-070] (Synonym deletion and rebuild cache invalidation workflow — Webhook signature & payload verification), the Search & Discovery squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
+During sprint backlog commitment on [SRCH-069] (Telemetry for zero-click and low-confidence search queries — Merchant admin UI state & error boundary), the Search & Discovery squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
 
 #### Technical Decision & Invariants
 Confirmed sprint scope and velocity guardrails. Unfinished items from prior closed iterations are formally tracked via sprint spillover transitions into the active sprint.
@@ -299,11 +299,11 @@ Backlog readiness verified with product owner and QA lead; test fixtures and cor
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-063`](https://jira.northstar.invalid/browse/SRCH-063) (`Done`)
+- **Linked Issue**: [`SRCH-065`](https://jira.northstar.invalid/browse/SRCH-065) (`To Do`)
 - **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
-Staged canary rollout readiness check for [SRCH-063] (Facet aggregation counts after multi-select filtering — Edge-case race condition remediation) in Search & Discovery.
+Staged canary rollout readiness check for [SRCH-065] (Zero-result fallback recommendations for misspelled queries — Quarantine workflow for malformed inputs) in Search & Discovery.
 
 #### Technical Decision & Invariants
 Configured feature flag toggle and progressive traffic gates (0% synthetic -> 5% -> 25% -> 50% -> 100%) with automated rollback triggers.
@@ -324,11 +324,11 @@ On-call SRE and workstream owner verified rollback runbook steps and alert routi
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-056`](https://jira.northstar.invalid/browse/SRCH-056) (`In Progress`)
+- **Linked Issue**: [`SRCH-055`](https://jira.northstar.invalid/browse/SRCH-055) (`Done`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
-Conducted load and latency profiling for [SRCH-056] (Phrase matching boosts for high-converting product categories — PostgreSQL indexing & tenant query guard) in Search & Discovery under the pilot reference workload.
+Conducted load and latency profiling for [SRCH-055] (Tenant-isolated Elasticsearch index aliases configuration — Data retention & privacy masking compliance) in Search & Discovery under the pilot reference workload.
 
 #### Technical Decision & Invariants
 Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.
@@ -374,11 +374,11 @@ Backlog readiness verified with product owner and QA lead; test fixtures and cor
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-069`](https://jira.northstar.invalid/browse/SRCH-069) (`Done`)
+- **Linked Issue**: [`SRCH-068`](https://jira.northstar.invalid/browse/SRCH-068) (`In Progress`)
 - **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
-Staged canary rollout readiness check for [SRCH-069] (Telemetry for zero-click and low-confidence search queries — Merchant admin UI state & error boundary) in Search & Discovery.
+Staged canary rollout readiness check for [SRCH-068] (Phrase matching boosts for high-converting product categories — Redis distributed lock & concurrency handling) in Search & Discovery.
 
 #### Technical Decision & Invariants
 Configured feature flag toggle and progressive traffic gates (0% synthetic -> 5% -> 25% -> 50% -> 100%) with automated rollback triggers.
@@ -399,7 +399,7 @@ On-call SRE and workstream owner verified rollback runbook steps and alert routi
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-062`](https://jira.northstar.invalid/browse/SRCH-062) (`In Review`)
+- **Linked Issue**: [`SRCH-062`](https://jira.northstar.invalid/browse/SRCH-062) (`In Progress`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
@@ -424,11 +424,11 @@ Measured p95 response times, connection pool saturation, and queue lag metrics o
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-078`](https://jira.northstar.invalid/browse/SRCH-078) (`Done`)
+- **Linked Issue**: [`SRCH-077`](https://jira.northstar.invalid/browse/SRCH-077) (`Done`)
 - **Record Type**: Sprint Planning Update
 
 #### Context & Technical Objective
-During sprint backlog commitment on [SRCH-078] (Locale-aware tokenization and character folding rules — Operational runbook & support diagnostics), the Search & Discovery squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
+During sprint backlog commitment on [SRCH-077] (Zero-result fallback recommendations for misspelled queries — Storefront response serialization & pagination), the Search & Discovery squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
 
 #### Technical Decision & Invariants
 Confirmed sprint scope and velocity guardrails. Unfinished items from prior closed iterations are formally tracked via sprint spillover transitions into the active sprint.
@@ -474,11 +474,11 @@ On-call SRE and workstream owner verified rollback runbook steps and alert routi
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-069`](https://jira.northstar.invalid/browse/SRCH-069) (`Done`)
+- **Linked Issue**: [`SRCH-068`](https://jira.northstar.invalid/browse/SRCH-068) (`In Progress`)
 - **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
-Reviewed Meridian Outfitters pilot integration requirements for [SRCH-069] (Telemetry for zero-click and low-confidence search queries — Merchant admin UI state & error boundary) with Search & Discovery engineering and merchant support.
+Reviewed Meridian Outfitters pilot integration requirements for [SRCH-068] (Phrase matching boosts for high-converting product categories — Redis distributed lock & concurrency handling) with Search & Discovery engineering and merchant support.
 
 #### Technical Decision & Invariants
 Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
@@ -499,7 +499,7 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-062`](https://jira.northstar.invalid/browse/SRCH-062) (`In Review`)
+- **Linked Issue**: [`SRCH-062`](https://jira.northstar.invalid/browse/SRCH-062) (`In Progress`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
@@ -524,11 +524,11 @@ Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-078`](https://jira.northstar.invalid/browse/SRCH-078) (`Done`)
+- **Linked Issue**: [`SRCH-077`](https://jira.northstar.invalid/browse/SRCH-077) (`Done`)
 - **Record Type**: Incident Post-Mortem Action
 
 #### Context & Technical Objective
-Follow-up remediation tracking for [SRCH-078] (Locale-aware tokenization and character folding rules — Operational runbook & support diagnostics) in Search & Discovery after staging fault-injection and replay testing.
+Follow-up remediation tracking for [SRCH-077] (Zero-result fallback recommendations for misspelled queries — Storefront response serialization & pagination) in Search & Discovery after staging fault-injection and replay testing.
 
 #### Technical Decision & Invariants
 Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
@@ -574,11 +574,11 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-068`](https://jira.northstar.invalid/browse/SRCH-068) (`Blocked`)
+- **Linked Issue**: [`SRCH-070`](https://jira.northstar.invalid/browse/SRCH-070) (`To Do`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
-Architectural review for [SRCH-068] (Phrase matching boosts for high-converting product categories — Redis distributed lock & concurrency handling) within Search & Discovery, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
+Architectural review for [SRCH-070] (Synonym deletion and rebuild cache invalidation workflow — Webhook signature & payload verification) within Search & Discovery, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
 
 #### Technical Decision & Invariants
 Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
@@ -599,11 +599,11 @@ Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-065`](https://jira.northstar.invalid/browse/SRCH-065) (`To Do`)
+- **Linked Issue**: [`SRCH-064`](https://jira.northstar.invalid/browse/SRCH-064) (`Done`)
 - **Record Type**: Incident Post-Mortem Action
 
 #### Context & Technical Objective
-Follow-up remediation tracking for [SRCH-065] (Zero-result fallback recommendations for misspelled queries — Quarantine workflow for malformed inputs) in Search & Discovery after staging fault-injection and replay testing.
+Follow-up remediation tracking for [SRCH-064] (P95 search latency telemetry and load optimization — Automated recovery & rollback verification) in Search & Discovery after staging fault-injection and replay testing.
 
 #### Technical Decision & Invariants
 Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
@@ -624,11 +624,11 @@ Crash-replay simulation added to continuous integration to prevent regression.
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-081`](https://jira.northstar.invalid/browse/SRCH-081) (`Done`)
+- **Linked Issue**: [`SRCH-083`](https://jira.northstar.invalid/browse/SRCH-083) (`Done`)
 - **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
-Reviewed Meridian Outfitters pilot integration requirements for [SRCH-081] (Telemetry for zero-click and low-confidence search queries — Rate limiting & audit trail emission) with Search & Discovery engineering and merchant support.
+Reviewed Meridian Outfitters pilot integration requirements for [SRCH-083] (Product search indexing throughput during bulk imports — Database expand-contract migration script) with Search & Discovery engineering and merchant support.
 
 #### Technical Decision & Invariants
 Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
@@ -674,11 +674,11 @@ Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-068`](https://jira.northstar.invalid/browse/SRCH-068) (`Blocked`)
+- **Linked Issue**: [`SRCH-070`](https://jira.northstar.invalid/browse/SRCH-070) (`To Do`)
 - **Record Type**: Database Migration Checklist
 
 #### Context & Technical Objective
-Database schema change verification for [SRCH-068] (Phrase matching boosts for high-converting product categories — Redis distributed lock & concurrency handling) managed by Search & Discovery.
+Database schema change verification for [SRCH-070] (Synonym deletion and rebuild cache invalidation workflow — Webhook signature & payload verification) managed by Search & Discovery.
 
 #### Technical Decision & Invariants
 Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
@@ -724,11 +724,11 @@ Updated Jira status transitions, blocker owners, and same-day escalation checkpo
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-081`](https://jira.northstar.invalid/browse/SRCH-081) (`Done`)
+- **Linked Issue**: [`SRCH-083`](https://jira.northstar.invalid/browse/SRCH-083) (`Done`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
-Evaluated HTTP request/response payload schemas for [SRCH-081] (Telemetry for zero-click and low-confidence search queries — Rate limiting & audit trail emission) in Search & Discovery to ensure backward compatibility and deterministic error codes.
+Evaluated HTTP request/response payload schemas for [SRCH-083] (Product search indexing throughput during bulk imports — Database expand-contract migration script) in Search & Discovery to ensure backward compatibility and deterministic error codes.
 
 #### Technical Decision & Invariants
 Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.

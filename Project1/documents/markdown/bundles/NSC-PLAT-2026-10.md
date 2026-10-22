@@ -49,11 +49,11 @@ Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-094`](https://jira.northstar.invalid/browse/PLAT-094) (`Blocked`)
+- **Linked Issue**: [`PLAT-096`](https://jira.northstar.invalid/browse/PLAT-096) (`In Progress`)
 - **Record Type**: Incident Post-Mortem Action
 
 #### Context & Technical Objective
-Follow-up remediation tracking for [PLAT-094] (Cross-tenant data leak prevention test suite on staging deployment — Database expand-contract migration script) in Platform Reliability & Governance after staging fault-injection and replay testing.
+Follow-up remediation tracking for [PLAT-096] (Secret rotation policies for third-party payment partner API keys — Automated recovery & rollback verification) in Platform Reliability & Governance after staging fault-injection and replay testing.
 
 #### Technical Decision & Invariants
 Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
@@ -99,11 +99,11 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-088`](https://jira.northstar.invalid/browse/PLAT-088) (`To Do`)
+- **Linked Issue**: [`PLAT-087`](https://jira.northstar.invalid/browse/PLAT-087) (`Done`)
 - **Record Type**: Daily Standup & Blocker Log
 
 #### Context & Technical Objective
-Daily engineering standup checkpoint for Platform Reliability & Governance covering active work on [PLAT-088] (Outbox event publishing with transactional exactly-once guarantees — Storefront response serialization & pagination) (current ticket status: `To Do`).
+Daily engineering standup checkpoint for Platform Reliability & Governance covering active work on [PLAT-087] (Document and resource group ACL filtering prior to vector retrieval — Boundary value & currency minor-unit validation) (current ticket status: `Done`).
 
 #### Technical Decision & Invariants
 Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
@@ -124,7 +124,7 @@ Updated Jira status transitions, blocker owners, and same-day escalation checkpo
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-105`](https://jira.northstar.invalid/browse/PLAT-105) (`In Review`)
+- **Linked Issue**: [`PLAT-105`](https://jira.northstar.invalid/browse/PLAT-105) (`In Progress`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
@@ -149,11 +149,11 @@ API schema snapshot tested against staging-sim consumer stubs with zero breaking
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-101`](https://jira.northstar.invalid/browse/PLAT-101) (`Done`)
+- **Linked Issue**: [`PLAT-100`](https://jira.northstar.invalid/browse/PLAT-100) (`Done`)
 - **Record Type**: Database Migration Checklist
 
 #### Context & Technical Objective
-Database schema change verification for [PLAT-101] (Checkout and payment service SLO dashboard with automated alerting — Data retention & privacy masking compliance) managed by Platform Reliability & Governance.
+Database schema change verification for [PLAT-100] (Outbox event publishing with transactional exactly-once guarantees — Zero-downtime deployment readiness gate) managed by Platform Reliability & Governance.
 
 #### Technical Decision & Invariants
 Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
@@ -174,11 +174,11 @@ Forward/down recovery notes and row-count reconciliation verified against isolat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-094`](https://jira.northstar.invalid/browse/PLAT-094) (`Blocked`)
+- **Linked Issue**: [`PLAT-096`](https://jira.northstar.invalid/browse/PLAT-096) (`In Progress`)
 - **Record Type**: Daily Standup & Blocker Log
 
 #### Context & Technical Objective
-Daily engineering standup checkpoint for Platform Reliability & Governance covering active work on [PLAT-094] (Cross-tenant data leak prevention test suite on staging deployment — Database expand-contract migration script) (current ticket status: `Blocked`).
+Daily engineering standup checkpoint for Platform Reliability & Governance covering active work on [PLAT-096] (Secret rotation policies for third-party payment partner API keys — Automated recovery & rollback verification) (current ticket status: `In Progress`).
 
 #### Technical Decision & Invariants
 Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
@@ -249,11 +249,11 @@ Forward/down recovery notes and row-count reconciliation verified against isolat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-113`](https://jira.northstar.invalid/browse/PLAT-113) (`In Progress`)
+- **Linked Issue**: [`PLAT-114`](https://jira.northstar.invalid/browse/PLAT-114) (`In Progress`)
 - **Record Type**: Daily Standup & Blocker Log
 
 #### Context & Technical Objective
-Daily engineering standup checkpoint for Platform Reliability & Governance covering active work on [PLAT-113] (Checkout and payment service SLO dashboard with automated alerting — Cross-service correlation ID propagation) (current ticket status: `In Progress`).
+Daily engineering standup checkpoint for Platform Reliability & Governance covering active work on [PLAT-114] (Privacy-safe merchant data export complying with GDPR/CCPA — Redis distributed lock & concurrency handling) (current ticket status: `In Progress`).
 
 #### Technical Decision & Invariants
 Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
@@ -274,11 +274,11 @@ Updated Jira status transitions, blocker owners, and same-day escalation checkpo
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-117`](https://jira.northstar.invalid/browse/PLAT-117) (`Done`)
+- **Linked Issue**: [`PLAT-118`](https://jira.northstar.invalid/browse/PLAT-118) (`Done`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
-Evaluated HTTP request/response payload schemas for [PLAT-117] (Automated database index maintenance and vacuuming schedule — Observability spans & SLO alert thresholds) in Platform Reliability & Governance to ensure backward compatibility and deterministic error codes.
+Evaluated HTTP request/response payload schemas for [PLAT-118] (Cross-tenant data leak prevention test suite on staging deployment — Load test benchmark & p95 latency profiling) in Platform Reliability & Governance to ensure backward compatibility and deterministic error codes.
 
 #### Technical Decision & Invariants
 Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.

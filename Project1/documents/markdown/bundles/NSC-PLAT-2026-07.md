@@ -24,11 +24,11 @@ This Markdown bundle organizes 31 verified logical project records, decisions, m
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-049`](https://jira.northstar.invalid/browse/PLAT-049) (`Done`)
+- **Linked Issue**: [`PLAT-048`](https://jira.northstar.invalid/browse/PLAT-048) (`To Do`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
-Application security and access-control assessment for [PLAT-049] (Tenant-scoped API authentication permissions across gateway routes — Multi-tenant isolation & negative permission checks) in Platform Reliability & Governance.
+Application security and access-control assessment for [PLAT-048] (Secret rotation policies for third-party payment partner API keys — Load test benchmark & p95 latency profiling) in Platform Reliability & Governance.
 
 #### Technical Decision & Invariants
 Validated deny-by-default authorization, pre-retrieval ACL filtering, secret externalization, and zero persistence of PAN/CVV or raw credentials.
@@ -49,11 +49,11 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-041`](https://jira.northstar.invalid/browse/PLAT-041) (`In Progress`)
+- **Linked Issue**: [`PLAT-040`](https://jira.northstar.invalid/browse/PLAT-040) (`Done`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
-Executed automated regression and negative boundary suite for [PLAT-041] (Checkout and payment service SLO dashboard with automated alerting — Quarantine workflow for malformed inputs) across Platform Reliability & Governance staging fixtures.
+Executed automated regression and negative boundary suite for [PLAT-040] (Outbox event publishing with transactional exactly-once guarantees — Automated recovery & rollback verification) across Platform Reliability & Governance staging fixtures.
 
 #### Technical Decision & Invariants
 Verified idempotent replay, duplicate event suppression, and cross-tenant HTTP 403 rejection before snippet or count generation.
@@ -99,7 +99,7 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-053`](https://jira.northstar.invalid/browse/PLAT-053) (`In Progress`)
+- **Linked Issue**: [`PLAT-053`](https://jira.northstar.invalid/browse/PLAT-053) (`To Do`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
@@ -149,7 +149,7 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-039`](https://jira.northstar.invalid/browse/PLAT-039) (`In Progress`)
+- **Linked Issue**: [`PLAT-039`](https://jira.northstar.invalid/browse/PLAT-039) (`To Do`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
@@ -199,7 +199,7 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-053`](https://jira.northstar.invalid/browse/PLAT-053) (`In Progress`)
+- **Linked Issue**: [`PLAT-053`](https://jira.northstar.invalid/browse/PLAT-053) (`To Do`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
@@ -249,11 +249,11 @@ Backlog readiness verified with product owner and QA lead; test fixtures and cor
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-043`](https://jira.northstar.invalid/browse/PLAT-043) (`Done`)
+- **Linked Issue**: [`PLAT-042`](https://jira.northstar.invalid/browse/PLAT-042) (`In Progress`)
 - **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
-Staged canary rollout readiness check for [PLAT-043] (Tenant database connection pool isolation and query rate limits — Cross-service correlation ID propagation) in Platform Reliability & Governance.
+Staged canary rollout readiness check for [PLAT-042] (Privacy-safe merchant data export complying with GDPR/CCPA — Security header & token scope hardening) in Platform Reliability & Governance.
 
 #### Technical Decision & Invariants
 Configured feature flag toggle and progressive traffic gates (0% synthetic -> 5% -> 25% -> 50% -> 100%) with automated rollback triggers.
@@ -274,7 +274,7 @@ On-call SRE and workstream owner verified rollback runbook steps and alert routi
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-059`](https://jira.northstar.invalid/browse/PLAT-059) (`In Progress`)
+- **Linked Issue**: [`PLAT-059`](https://jira.northstar.invalid/browse/PLAT-059) (`To Do`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
@@ -324,7 +324,7 @@ Backlog readiness verified with product owner and QA lead; test fixtures and cor
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-045`](https://jira.northstar.invalid/browse/PLAT-045) (`In Review`)
+- **Linked Issue**: [`PLAT-045`](https://jira.northstar.invalid/browse/PLAT-045) (`In Progress`)
 - **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
@@ -349,11 +349,11 @@ On-call SRE and workstream owner verified rollback runbook steps and alert routi
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-042`](https://jira.northstar.invalid/browse/PLAT-042) (`In Review`)
+- **Linked Issue**: [`PLAT-044`](https://jira.northstar.invalid/browse/PLAT-044) (`Done`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
-Conducted load and latency profiling for [PLAT-042] (Privacy-safe merchant data export complying with GDPR/CCPA — Security header & token scope hardening) in Platform Reliability & Governance under the pilot reference workload.
+Conducted load and latency profiling for [PLAT-044] (Distributed tracing correlation IDs across all microservice requests — Redis distributed lock & concurrency handling) in Platform Reliability & Governance under the pilot reference workload.
 
 #### Technical Decision & Invariants
 Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.
@@ -424,11 +424,11 @@ Crash-replay simulation added to continuous integration to prevent regression.
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-048`](https://jira.northstar.invalid/browse/PLAT-048) (`To Do`)
+- **Linked Issue**: [`PLAT-047`](https://jira.northstar.invalid/browse/PLAT-047) (`Done`)
 - **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
-Reviewed Meridian Outfitters pilot integration requirements for [PLAT-048] (Secret rotation policies for third-party payment partner API keys — Load test benchmark & p95 latency profiling) with Platform Reliability & Governance engineering and merchant support.
+Reviewed Meridian Outfitters pilot integration requirements for [PLAT-047] (Canary deployment rollout configuration with health error gates — Observability spans & SLO alert thresholds) with Platform Reliability & Governance engineering and merchant support.
 
 #### Technical Decision & Invariants
 Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
@@ -449,11 +449,11 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-064`](https://jira.northstar.invalid/browse/PLAT-064) (`Done`)
+- **Linked Issue**: [`PLAT-065`](https://jira.northstar.invalid/browse/PLAT-065) (`In Progress`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
-Architectural review for [PLAT-064] (Outbox event publishing with transactional exactly-once guarantees — Event outbox deduplication & ordering) within Platform Reliability & Governance, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
+Architectural review for [PLAT-065] (Checkout and payment service SLO dashboard with automated alerting — Zero-downtime deployment readiness gate) within Platform Reliability & Governance, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
 
 #### Technical Decision & Invariants
 Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
@@ -524,11 +524,11 @@ Action items logged with merchant onboarding specialists and verified against te
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-047`](https://jira.northstar.invalid/browse/PLAT-047) (`Done`)
+- **Linked Issue**: [`PLAT-049`](https://jira.northstar.invalid/browse/PLAT-049) (`Done`)
 - **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
-Architectural review for [PLAT-047] (Canary deployment rollout configuration with health error gates — Observability spans & SLO alert thresholds) within Platform Reliability & Governance, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
+Architectural review for [PLAT-049] (Tenant-scoped API authentication permissions across gateway routes — Multi-tenant isolation & negative permission checks) within Platform Reliability & Governance, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
 
 #### Technical Decision & Invariants
 Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
@@ -549,11 +549,11 @@ Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-063`](https://jira.northstar.invalid/browse/PLAT-063) (`Done`)
+- **Linked Issue**: [`PLAT-064`](https://jira.northstar.invalid/browse/PLAT-064) (`Done`)
 - **Record Type**: Incident Post-Mortem Action
 
 #### Context & Technical Objective
-Follow-up remediation tracking for [PLAT-063] (Document and resource group ACL filtering prior to vector retrieval — Role-based access control policy enforcement) in Platform Reliability & Governance after staging fault-injection and replay testing.
+Follow-up remediation tracking for [PLAT-064] (Outbox event publishing with transactional exactly-once guarantees — Event outbox deduplication & ordering) in Platform Reliability & Governance after staging fault-injection and replay testing.
 
 #### Technical Decision & Invariants
 Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
@@ -574,7 +574,7 @@ Crash-replay simulation added to continuous integration to prevent regression.
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-056`](https://jira.northstar.invalid/browse/PLAT-056) (`In Progress`)
+- **Linked Issue**: [`PLAT-056`](https://jira.northstar.invalid/browse/PLAT-056) (`To Do`)
 - **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
@@ -624,11 +624,11 @@ API schema snapshot tested against staging-sim consumer stubs with zero breaking
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-047`](https://jira.northstar.invalid/browse/PLAT-047) (`Done`)
+- **Linked Issue**: [`PLAT-049`](https://jira.northstar.invalid/browse/PLAT-049) (`Done`)
 - **Record Type**: Database Migration Checklist
 
 #### Context & Technical Objective
-Database schema change verification for [PLAT-047] (Canary deployment rollout configuration with health error gates — Observability spans & SLO alert thresholds) managed by Platform Reliability & Governance.
+Database schema change verification for [PLAT-049] (Tenant-scoped API authentication permissions across gateway routes — Multi-tenant isolation & negative permission checks) managed by Platform Reliability & Governance.
 
 #### Technical Decision & Invariants
 Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
@@ -649,11 +649,11 @@ Forward/down recovery notes and row-count reconciliation verified against isolat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-063`](https://jira.northstar.invalid/browse/PLAT-063) (`Done`)
+- **Linked Issue**: [`PLAT-064`](https://jira.northstar.invalid/browse/PLAT-064) (`Done`)
 - **Record Type**: Daily Standup & Blocker Log
 
 #### Context & Technical Objective
-Daily engineering standup checkpoint for Platform Reliability & Governance covering active work on [PLAT-063] (Document and resource group ACL filtering prior to vector retrieval — Role-based access control policy enforcement) (current ticket status: `Done`).
+Daily engineering standup checkpoint for Platform Reliability & Governance covering active work on [PLAT-064] (Outbox event publishing with transactional exactly-once guarantees — Event outbox deduplication & ordering) (current ticket status: `Done`).
 
 #### Technical Decision & Invariants
 Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
@@ -674,11 +674,11 @@ Updated Jira status transitions, blocker owners, and same-day escalation checkpo
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-061`](https://jira.northstar.invalid/browse/PLAT-061) (`Done`)
+- **Linked Issue**: [`PLAT-062`](https://jira.northstar.invalid/browse/PLAT-062) (`In Progress`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
-Evaluated HTTP request/response payload schemas for [PLAT-061] (Tenant-scoped API authentication permissions across gateway routes — Observability spans & SLO alert thresholds) in Platform Reliability & Governance to ensure backward compatibility and deterministic error codes.
+Evaluated HTTP request/response payload schemas for [PLAT-062] (Immutable administrative audit trail events in append-only log — Load test benchmark & p95 latency profiling) in Platform Reliability & Governance to ensure backward compatibility and deterministic error codes.
 
 #### Technical Decision & Invariants
 Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
@@ -699,7 +699,7 @@ API schema snapshot tested against staging-sim consumer stubs with zero breaking
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-054`](https://jira.northstar.invalid/browse/PLAT-054) (`Blocked`)
+- **Linked Issue**: [`PLAT-054`](https://jira.northstar.invalid/browse/PLAT-054) (`In Progress`)
 - **Record Type**: Database Migration Checklist
 
 #### Context & Technical Objective
@@ -724,11 +724,11 @@ Forward/down recovery notes and row-count reconciliation verified against isolat
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-070`](https://jira.northstar.invalid/browse/PLAT-070) (`In Progress`)
+- **Linked Issue**: [`PLAT-069`](https://jira.northstar.invalid/browse/PLAT-069) (`Done`)
 - **Record Type**: Daily Standup & Blocker Log
 
 #### Context & Technical Objective
-Daily engineering standup checkpoint for Platform Reliability & Governance covering active work on [PLAT-070] (Cross-tenant data leak prevention test suite on staging deployment — Multi-tenant isolation & negative permission checks) (current ticket status: `In Progress`).
+Daily engineering standup checkpoint for Platform Reliability & Governance covering active work on [PLAT-069] (Automated database index maintenance and vacuuming schedule — Backfill worker & batch memory tuning) (current ticket status: `Done`).
 
 #### Technical Decision & Invariants
 Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
@@ -749,11 +749,11 @@ Updated Jira status transitions, blocker owners, and same-day escalation checkpo
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-065`](https://jira.northstar.invalid/browse/PLAT-065) (`In Review`)
+- **Linked Issue**: [`PLAT-063`](https://jira.northstar.invalid/browse/PLAT-063) (`Done`)
 - **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
-Evaluated HTTP request/response payload schemas for [PLAT-065] (Checkout and payment service SLO dashboard with automated alerting — Zero-downtime deployment readiness gate) in Platform Reliability & Governance to ensure backward compatibility and deterministic error codes.
+Evaluated HTTP request/response payload schemas for [PLAT-063] (Document and resource group ACL filtering prior to vector retrieval — Role-based access control policy enforcement) in Platform Reliability & Governance to ensure backward compatibility and deterministic error codes.
 
 #### Technical Decision & Invariants
 Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
@@ -774,11 +774,11 @@ API schema snapshot tested against staging-sim consumer stubs with zero breaking
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-060`](https://jira.northstar.invalid/browse/PLAT-060) (`Done`)
+- **Linked Issue**: [`PLAT-061`](https://jira.northstar.invalid/browse/PLAT-061) (`Done`)
 - **Record Type**: Database Migration Checklist
 
 #### Context & Technical Objective
-Database schema change verification for [PLAT-060] (Secret rotation policies for third-party payment partner API keys — Edge-case race condition remediation) managed by Platform Reliability & Governance.
+Database schema change verification for [PLAT-061] (Tenant-scoped API authentication permissions across gateway routes — Observability spans & SLO alert thresholds) managed by Platform Reliability & Governance.
 
 #### Technical Decision & Invariants
 Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.

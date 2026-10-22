@@ -24,7 +24,7 @@ This Markdown bundle organizes 13 verified logical project records, decisions, m
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-001`](https://jira.northstar.invalid/browse/SRCH-001) (`Done`)
+- **Linked Issue**: [`SRCH-001`](https://jira.northstar.invalid/browse/SRCH-001) (`To Do`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
@@ -49,7 +49,7 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-002`](https://jira.northstar.invalid/browse/SRCH-002) (`In Review`)
+- **Linked Issue**: [`SRCH-002`](https://jira.northstar.invalid/browse/SRCH-002) (`To Do`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
@@ -74,7 +74,7 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-001`](https://jira.northstar.invalid/browse/SRCH-001) (`Done`)
+- **Linked Issue**: [`SRCH-001`](https://jira.northstar.invalid/browse/SRCH-001) (`In Progress`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
@@ -99,7 +99,7 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-003`](https://jira.northstar.invalid/browse/SRCH-003) (`Done`)
+- **Linked Issue**: [`SRCH-003`](https://jira.northstar.invalid/browse/SRCH-003) (`To Do`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
@@ -124,7 +124,7 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-011`](https://jira.northstar.invalid/browse/SRCH-011) (`Done`)
+- **Linked Issue**: [`SRCH-011`](https://jira.northstar.invalid/browse/SRCH-011) (`To Do`)
 - **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
@@ -149,7 +149,7 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-003`](https://jira.northstar.invalid/browse/SRCH-003) (`Done`)
+- **Linked Issue**: [`SRCH-003`](https://jira.northstar.invalid/browse/SRCH-003) (`In Review`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
@@ -174,7 +174,7 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-011`](https://jira.northstar.invalid/browse/SRCH-011) (`Done`)
+- **Linked Issue**: [`SRCH-011`](https://jira.northstar.invalid/browse/SRCH-011) (`To Do`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
@@ -224,7 +224,7 @@ Sandbox integration trace captured and linked to the requirement traceability ma
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-002`](https://jira.northstar.invalid/browse/SRCH-002) (`In Review`)
+- **Linked Issue**: [`SRCH-002`](https://jira.northstar.invalid/browse/SRCH-002) (`To Do`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
@@ -249,7 +249,7 @@ AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed i
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-010`](https://jira.northstar.invalid/browse/SRCH-010) (`In Progress`)
+- **Linked Issue**: [`SRCH-010`](https://jira.northstar.invalid/browse/SRCH-010) (`To Do`)
 - **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
@@ -274,7 +274,7 @@ All regression assertions recorded with deterministic seed=42 and correlation tr
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-004`](https://jira.northstar.invalid/browse/SRCH-004) (`Done`)
+- **Linked Issue**: [`SRCH-004`](https://jira.northstar.invalid/browse/SRCH-004) (`In Review`)
 - **Record Type**: Sprint Planning Update
 
 #### Context & Technical Objective
@@ -324,11 +324,11 @@ On-call SRE and workstream owner verified rollback runbook steps and alert routi
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-017`](https://jira.northstar.invalid/browse/SRCH-017) (`Done`)
+- **Linked Issue**: [`SRCH-018`](https://jira.northstar.invalid/browse/SRCH-018) (`In Progress`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
-Conducted load and latency profiling for [SRCH-017] (Zero-result fallback recommendations for misspelled queries — Role-based access control policy enforcement) in Search & Discovery under the pilot reference workload.
+Conducted load and latency profiling for [SRCH-018] (Locale-aware tokenization and character folding rules — Event outbox deduplication & ordering) in Search & Discovery under the pilot reference workload.
 
 #### Technical Decision & Invariants
 Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.
