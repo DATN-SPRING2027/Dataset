@@ -26,7 +26,7 @@ Synthetic staging-sim execution snapshot with explicit pass, fail, and blocked o
 
 ## Run identity
 
-Run RUN-2026-10-12-01 uses build commerce-demo-1.0.0-rc3, schema baseline 2026.10, deterministic seed 42, and environment staging-sim. QA lead M-010 executed the suite on 12 October 2026. This is a synthetic dataset record, not evidence from a live production system.
+Run RUN-2026-10-12-01 uses build commerce-demo-1.0.0-rc3, schema baseline 2026.10, deterministic seed 42, and environment staging-sim. QA lead M-010 and the QA engineering team (M-037, M-038, M-039, M-040) executed the suite across regular hours and evening overtime (08:30 to 20:45 +07:00) on 12 October 2026. This is a synthetic dataset record, not evidence from a live production system.
 
 ## Results
 

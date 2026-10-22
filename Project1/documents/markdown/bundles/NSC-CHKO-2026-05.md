@@ -13,698 +13,727 @@ synthetic: true
 
 This Markdown bundle organizes 29 verified logical project records, decisions, meeting outcomes, and technical milestone updates for NSC-CHKO during 2026-05.
 
-### [DOC-CHKO-20260501-01] Checkout Experience: Performance Benchmark Report #1 (2026-05-01)
-<a id="doc-chko-20260501-01"></a>
+### [DOC-CHKO-20260504-01] Checkout Experience: Feature Rollout Milestone #1 (2026-05-04)
+<a id="doc-chko-20260504-01"></a>
 
-- **Document ID**: `DOC-CHKO-20260501-01`
-- **Date**: 2026-05-01
-- **Author**: Morgan Ellis (`M-016`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-020`](https://jira.northstar.invalid/browse/CHKO-020)
-- **Record Type**: Performance Benchmark Report
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-020] (Merchant checkout configuration overrides on tenant boot - Phase 2), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260501-02] Checkout Experience: Sprint Planning Update #2 (2026-05-01)
-<a id="doc-chko-20260501-02"></a>
-
-- **Document ID**: `DOC-CHKO-20260501-02`
-- **Date**: 2026-05-01
+- **Document ID**: `DOC-CHKO-20260504-01`
+- **Date**: 2026-05-04 (`2026-05-04T21:05:07+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
 - **Author**: Sofia Nguyen (`M-005`)
 - **Project**: `NSC-CHKO`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-010`](https://jira.northstar.invalid/browse/CHKO-010)
-- **Record Type**: Sprint Planning Update
+- **Linked Issue**: [`CHKO-025`](https://jira.northstar.invalid/browse/CHKO-025) (`To Do`)
+- **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
-During iteration delivery on [CHKO-010] (Fifteen-minute checkout reservation timeout on inventory holds), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Staged canary rollout readiness check for [CHKO-025] (Customer shipping address validation before tax quotation — Partner sandbox contract reconciliation) in Checkout Experience.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Configured feature flag toggle and progressive traffic gates (0% synthetic -> 5% -> 25% -> 50% -> 100%) with automated rollback triggers.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+On-call SRE and workstream owner verified rollback runbook steps and alert routing.
 
 ---
 
-### [DOC-CHKO-20260504-03] Checkout Experience: Feature Rollout Milestone #3 (2026-05-04)
-<a id="doc-chko-20260504-03"></a>
+### [DOC-CHKO-20260504-02] Checkout Experience: Performance Benchmark Report #2 (2026-05-04)
+<a id="doc-chko-20260504-02"></a>
 
-- **Document ID**: `DOC-CHKO-20260504-03`
-- **Date**: 2026-05-04
+- **Document ID**: `DOC-CHKO-20260504-02`
+- **Date**: 2026-05-04 (`2026-05-04T08:36:27+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Chloe Lopez (`M-049`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-014`](https://jira.northstar.invalid/browse/CHKO-014) (`In Review`)
+- **Record Type**: Performance Benchmark Report
+
+#### Context & Technical Objective
+Conducted load and latency profiling for [CHKO-014] (Idempotent checkout session endpoint with durable replay keys — Automated recovery & rollback verification) in Checkout Experience under the pilot reference workload.
+
+#### Technical Decision & Invariants
+Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.
+
+#### Verification & Evidence
+Measured p95 response times, connection pool saturation, and queue lag metrics on the staging telemetry dashboard.
+
+---
+
+### [DOC-CHKO-20260505-03] Checkout Experience: Sprint Planning Update #3 (2026-05-05)
+<a id="doc-chko-20260505-03"></a>
+
+- **Document ID**: `DOC-CHKO-20260505-03`
+- **Date**: 2026-05-05 (`2026-05-05T10:43:42+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Daniel Lewis (`M-039`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-010`](https://jira.northstar.invalid/browse/CHKO-010) (`To Do`)
+- **Record Type**: Sprint Planning Update
+
+#### Context & Technical Objective
+During sprint backlog commitment on [CHKO-010] (Fifteen-minute checkout reservation timeout on inventory holds), the Checkout Experience squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
+
+#### Technical Decision & Invariants
+Confirmed sprint scope and velocity guardrails. Unfinished items from prior closed iterations are formally tracked via sprint spillover transitions into the active sprint.
+
+#### Verification & Evidence
+Backlog readiness verified with product owner and QA lead; test fixtures and correlation IDs linked in Jira.
+
+---
+
+### [DOC-CHKO-20260506-04] Checkout Experience: Feature Rollout Milestone #4 (2026-05-06)
+<a id="doc-chko-20260506-04"></a>
+
+- **Document ID**: `DOC-CHKO-20260506-04`
+- **Date**: 2026-05-06 (`2026-05-06T13:50:57+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
 - **Author**: Isla Thompson (`M-014`)
 - **Project**: `NSC-CHKO`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-021`](https://jira.northstar.invalid/browse/CHKO-021)
+- **Linked Issue**: [`CHKO-004`](https://jira.northstar.invalid/browse/CHKO-004) (`To Do`)
 - **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
-During iteration delivery on [CHKO-021] (Telemetry for checkout step drop-off rates across platforms - Phase 2), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Staged canary rollout readiness check for [CHKO-004] (Fallback shipping rate computation during carrier API outages) in Checkout Experience.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Configured feature flag toggle and progressive traffic gates (0% synthetic -> 5% -> 25% -> 50% -> 100%) with automated rollback triggers.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+On-call SRE and workstream owner verified rollback runbook steps and alert routing.
 
 ---
 
-### [DOC-CHKO-20260505-04] Checkout Experience: Performance Benchmark Report #4 (2026-05-05)
-<a id="doc-chko-20260505-04"></a>
-
-- **Document ID**: `DOC-CHKO-20260505-04`
-- **Date**: 2026-05-05
-- **Author**: Grace Wilson (`M-009`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-018`](https://jira.northstar.invalid/browse/CHKO-018)
-- **Record Type**: Performance Benchmark Report
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-018] (Keyboard accessibility and screen reader flow in checkout UI - Phase 2), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260506-05] Checkout Experience: Sprint Planning Update #5 (2026-05-06)
+### [DOC-CHKO-20260506-05] Checkout Experience: Performance Benchmark Report #5 (2026-05-06)
 <a id="doc-chko-20260506-05"></a>
 
 - **Document ID**: `DOC-CHKO-20260506-05`
-- **Date**: 2026-05-06
-- **Author**: James Moore (`M-025`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-015`](https://jira.northstar.invalid/browse/CHKO-015)
-- **Record Type**: Sprint Planning Update
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-015] (External tax service timeout handling with graceful fallback mode - Phase 2), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260506-06] Checkout Experience: Feature Rollout Milestone #6 (2026-05-06)
-<a id="doc-chko-20260506-06"></a>
-
-- **Document ID**: `DOC-CHKO-20260506-06`
-- **Date**: 2026-05-06
-- **Author**: Isabella Taylor (`M-026`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-031`](https://jira.northstar.invalid/browse/CHKO-031)
-- **Record Type**: Feature Rollout Milestone
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-031] (Split-step checkout state machine with transactional checkpoints - Phase 3), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260507-07] Checkout Experience: Regression Test Summary #7 (2026-05-07)
-<a id="doc-chko-20260507-07"></a>
-
-- **Document ID**: `DOC-CHKO-20260507-07`
-- **Date**: 2026-05-07
-- **Author**: Sofia Nguyen (`M-005`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-027`](https://jira.northstar.invalid/browse/CHKO-027)
-- **Record Type**: Regression Test Summary
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-027] (External tax service timeout handling with graceful fallback mode - Phase 3), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260508-08] Checkout Experience: Integration Review Notes #8 (2026-05-08)
-<a id="doc-chko-20260508-08"></a>
-
-- **Document ID**: `DOC-CHKO-20260508-08`
-- **Date**: 2026-05-08
-- **Author**: Isla Thompson (`M-014`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-024`](https://jira.northstar.invalid/browse/CHKO-024)
-- **Record Type**: Integration Review Notes
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-024] (Tax exemption certificate verification for commercial accounts - Phase 2), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260511-09] Checkout Experience: Security Review Note #9 (2026-05-11)
-<a id="doc-chko-20260511-09"></a>
-
-- **Document ID**: `DOC-CHKO-20260511-09`
-- **Date**: 2026-05-11
-- **Author**: Grace Wilson (`M-009`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-009`](https://jira.northstar.invalid/browse/CHKO-009)
-- **Record Type**: Security Review Note
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-009] (Telemetry for checkout step drop-off rates across platforms), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260511-10] Checkout Experience: Regression Test Summary #10 (2026-05-11)
-<a id="doc-chko-20260511-10"></a>
-
-- **Document ID**: `DOC-CHKO-20260511-10`
-- **Date**: 2026-05-11
+- **Date**: 2026-05-06 (`2026-05-06T18:23:49+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
 - **Author**: Owen Garcia (`M-010`)
 - **Project**: `NSC-CHKO`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-025`](https://jira.northstar.invalid/browse/CHKO-025)
-- **Record Type**: Regression Test Summary
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-025] (Customer shipping address validation before tax quotation - Phase 3), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260512-11] Checkout Experience: Integration Review Notes #11 (2026-05-12)
-<a id="doc-chko-20260512-11"></a>
-
-- **Document ID**: `DOC-CHKO-20260512-11`
-- **Date**: 2026-05-12
-- **Author**: Isabella Taylor (`M-026`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-022`](https://jira.northstar.invalid/browse/CHKO-022)
-- **Record Type**: Integration Review Notes
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-022] (Fifteen-minute checkout reservation timeout on inventory holds - Phase 2), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260513-12] Checkout Experience: Daily Standup & Blocker Log #12 (2026-05-13)
-<a id="doc-chko-20260513-12"></a>
-
-- **Document ID**: `DOC-CHKO-20260513-12`
-- **Date**: 2026-05-13
-- **Author**: Sofia Nguyen (`M-005`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-022`](https://jira.northstar.invalid/browse/CHKO-022)
-- **Record Type**: Daily Standup & Blocker Log
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-022] (Fifteen-minute checkout reservation timeout on inventory holds - Phase 2), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260513-13] Checkout Experience: API Contract Revision #13 (2026-05-13)
-<a id="doc-chko-20260513-13"></a>
-
-- **Document ID**: `DOC-CHKO-20260513-13`
-- **Date**: 2026-05-13
-- **Author**: James Moore (`M-025`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-038`](https://jira.northstar.invalid/browse/CHKO-038)
-- **Record Type**: API Contract Revision
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-038] (Idempotent checkout session endpoint with durable replay keys - Phase 4), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260514-14] Checkout Experience: Database Migration Checklist #14 (2026-05-14)
-<a id="doc-chko-20260514-14"></a>
-
-- **Document ID**: `DOC-CHKO-20260514-14`
-- **Date**: 2026-05-14
-- **Author**: Morgan Ellis (`M-016`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-035`](https://jira.northstar.invalid/browse/CHKO-035)
-- **Record Type**: Database Migration Checklist
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-035] (Merchant custom checkout field sanitization and persistence - Phase 3), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260515-15] Checkout Experience: Daily Standup & Blocker Log #15 (2026-05-15)
-<a id="doc-chko-20260515-15"></a>
-
-- **Document ID**: `DOC-CHKO-20260515-15`
-- **Date**: 2026-05-15
-- **Author**: Owen Garcia (`M-010`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-032`](https://jira.northstar.invalid/browse/CHKO-032)
-- **Record Type**: Daily Standup & Blocker Log
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-032] (Merchant checkout configuration overrides on tenant boot - Phase 3), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260518-16] Checkout Experience: Architecture Decision Note #16 (2026-05-18)
-<a id="doc-chko-20260518-16"></a>
-
-- **Document ID**: `DOC-CHKO-20260518-16`
-- **Date**: 2026-05-18
-- **Author**: Isabella Taylor (`M-026`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-016`](https://jira.northstar.invalid/browse/CHKO-016)
-- **Record Type**: Architecture Decision Note
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-016] (Fallback shipping rate computation during carrier API outages - Phase 2), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260518-17] Checkout Experience: Incident Post-Mortem Action #17 (2026-05-18)
-<a id="doc-chko-20260518-17"></a>
-
-- **Document ID**: `DOC-CHKO-20260518-17`
-- **Date**: 2026-05-18
-- **Author**: Grace Wilson (`M-009`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-032`](https://jira.northstar.invalid/browse/CHKO-032)
-- **Record Type**: Incident Post-Mortem Action
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-032] (Merchant checkout configuration overrides on tenant boot - Phase 3), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260519-18] Checkout Experience: Merchant Sync Decision #18 (2026-05-19)
-<a id="doc-chko-20260519-18"></a>
-
-- **Document ID**: `DOC-CHKO-20260519-18`
-- **Date**: 2026-05-19
-- **Author**: James Moore (`M-025`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-029`](https://jira.northstar.invalid/browse/CHKO-029)
-- **Record Type**: Merchant Sync Decision
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-029] (Prevention of duplicate order submission on multi-click submission - Phase 3), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260520-19] Checkout Experience: Architecture Decision Note #19 (2026-05-20)
-<a id="doc-chko-20260520-19"></a>
-
-- **Document ID**: `DOC-CHKO-20260520-19`
-- **Date**: 2026-05-20
-- **Author**: Morgan Ellis (`M-016`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-026`](https://jira.northstar.invalid/browse/CHKO-026)
-- **Record Type**: Architecture Decision Note
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-026] (Idempotent checkout session endpoint with durable replay keys - Phase 3), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260521-20] Checkout Experience: Incident Post-Mortem Action #20 (2026-05-21)
-<a id="doc-chko-20260521-20"></a>
-
-- **Document ID**: `DOC-CHKO-20260521-20`
-- **Date**: 2026-05-21
-- **Author**: Owen Garcia (`M-010`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-023`](https://jira.northstar.invalid/browse/CHKO-023)
-- **Record Type**: Incident Post-Mortem Action
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-023] (Merchant custom checkout field sanitization and persistence - Phase 2), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260521-21] Checkout Experience: Merchant Sync Decision #21 (2026-05-21)
-<a id="doc-chko-20260521-21"></a>
-
-- **Document ID**: `DOC-CHKO-20260521-21`
-- **Date**: 2026-05-21
-- **Author**: Isla Thompson (`M-014`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-039`](https://jira.northstar.invalid/browse/CHKO-039)
-- **Record Type**: Merchant Sync Decision
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-039] (External tax service timeout handling with graceful fallback mode - Phase 4), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260522-22] Checkout Experience: Sprint Planning Update #22 (2026-05-22)
-<a id="doc-chko-20260522-22"></a>
-
-- **Document ID**: `DOC-CHKO-20260522-22`
-- **Date**: 2026-05-22
-- **Author**: Grace Wilson (`M-009`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-039`](https://jira.northstar.invalid/browse/CHKO-039)
-- **Record Type**: Sprint Planning Update
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-039] (External tax service timeout handling with graceful fallback mode - Phase 4), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260525-23] Checkout Experience: Feature Rollout Milestone #23 (2026-05-25)
-<a id="doc-chko-20260525-23"></a>
-
-- **Document ID**: `DOC-CHKO-20260525-23`
-- **Date**: 2026-05-25
-- **Author**: James Moore (`M-025`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-020`](https://jira.northstar.invalid/browse/CHKO-020)
-- **Record Type**: Feature Rollout Milestone
-
-#### Context & Technical Objective
-During iteration delivery on [CHKO-020] (Merchant checkout configuration overrides on tenant boot - Phase 2), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-CHKO-20260525-24] Checkout Experience: Performance Benchmark Report #24 (2026-05-25)
-<a id="doc-chko-20260525-24"></a>
-
-- **Document ID**: `DOC-CHKO-20260525-24`
-- **Date**: 2026-05-25
-- **Author**: Isabella Taylor (`M-026`)
-- **Project**: `NSC-CHKO`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-036`](https://jira.northstar.invalid/browse/CHKO-036)
+- **Linked Issue**: [`CHKO-021`](https://jira.northstar.invalid/browse/CHKO-021) (`In Progress`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
-During iteration delivery on [CHKO-036] (Tax exemption certificate verification for commercial accounts - Phase 3), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Conducted load and latency profiling for [CHKO-021] (Telemetry for checkout step drop-off rates across platforms — Observability spans & SLO alert thresholds) in Checkout Experience under the pilot reference workload.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Measured p95 response times, connection pool saturation, and queue lag metrics on the staging telemetry dashboard.
 
 ---
 
-### [DOC-CHKO-20260526-25] Checkout Experience: Sprint Planning Update #25 (2026-05-26)
-<a id="doc-chko-20260526-25"></a>
+### [DOC-CHKO-20260507-06] Checkout Experience: Sprint Planning Update #6 (2026-05-07)
+<a id="doc-chko-20260507-06"></a>
 
-- **Document ID**: `DOC-CHKO-20260526-25`
-- **Date**: 2026-05-26
-- **Author**: Sofia Nguyen (`M-005`)
+- **Document ID**: `DOC-CHKO-20260507-06`
+- **Date**: 2026-05-07 (`2026-05-07T18:40:26+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: James Moore (`M-025`)
 - **Project**: `NSC-CHKO`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-037`](https://jira.northstar.invalid/browse/CHKO-037)
+- **Linked Issue**: [`CHKO-013`](https://jira.northstar.invalid/browse/CHKO-013) (`Done`)
 - **Record Type**: Sprint Planning Update
 
 #### Context & Technical Objective
-During iteration delivery on [CHKO-037] (Customer shipping address validation before tax quotation - Phase 4), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+During sprint backlog commitment on [CHKO-013] (Customer shipping address validation before tax quotation — Edge-case race condition remediation), the Checkout Experience squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Confirmed sprint scope and velocity guardrails. Unfinished items from prior closed iterations are formally tracked via sprint spillover transitions into the active sprint.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Backlog readiness verified with product owner and QA lead; test fixtures and correlation IDs linked in Jira.
 
 ---
 
-### [DOC-CHKO-20260527-26] Checkout Experience: Feature Rollout Milestone #26 (2026-05-27)
-<a id="doc-chko-20260527-26"></a>
+### [DOC-CHKO-20260508-07] Checkout Experience: Incident Post-Mortem Action #7 (2026-05-08)
+<a id="doc-chko-20260508-07"></a>
 
-- **Document ID**: `DOC-CHKO-20260527-26`
-- **Date**: 2026-05-27
-- **Author**: Isla Thompson (`M-014`)
+- **Document ID**: `DOC-CHKO-20260508-07`
+- **Date**: 2026-05-08 (`2026-05-08T09:29:20+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Chloe Lopez (`M-049`)
 - **Project**: `NSC-CHKO`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-034`](https://jira.northstar.invalid/browse/CHKO-034)
-- **Record Type**: Feature Rollout Milestone
+- **Linked Issue**: [`CHKO-010`](https://jira.northstar.invalid/browse/CHKO-010) (`To Do`)
+- **Record Type**: Incident Post-Mortem Action
 
 #### Context & Technical Objective
-During iteration delivery on [CHKO-034] (Fifteen-minute checkout reservation timeout on inventory holds - Phase 3), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Follow-up remediation tracking for [CHKO-010] (Fifteen-minute checkout reservation timeout on inventory holds) in Checkout Experience after staging fault-injection and replay testing.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Crash-replay simulation added to continuous integration to prevent regression.
 
 ---
 
-### [DOC-CHKO-20260528-27] Checkout Experience: Regression Test Summary #27 (2026-05-28)
-<a id="doc-chko-20260528-27"></a>
+### [DOC-CHKO-20260511-08] Checkout Experience: Merchant Sync Decision #8 (2026-05-11)
+<a id="doc-chko-20260511-08"></a>
 
-- **Document ID**: `DOC-CHKO-20260528-27`
-- **Date**: 2026-05-28
-- **Author**: Grace Wilson (`M-009`)
+- **Document ID**: `DOC-CHKO-20260511-08`
+- **Date**: 2026-05-11 (`2026-05-11T19:25:51+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: Daniel Lewis (`M-039`)
 - **Project**: `NSC-CHKO`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-030`](https://jira.northstar.invalid/browse/CHKO-030)
-- **Record Type**: Regression Test Summary
+- **Linked Issue**: [`CHKO-004`](https://jira.northstar.invalid/browse/CHKO-004) (`To Do`)
+- **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
-During iteration delivery on [CHKO-030] (Keyboard accessibility and screen reader flow in checkout UI - Phase 3), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Reviewed Meridian Outfitters pilot integration requirements for [CHKO-004] (Fallback shipping rate computation during carrier API outages) with Checkout Experience engineering and merchant support.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Action items logged with merchant onboarding specialists and verified against tenant boundary checks.
 
 ---
 
-### [DOC-CHKO-20260528-28] Checkout Experience: Integration Review Notes #28 (2026-05-28)
-<a id="doc-chko-20260528-28"></a>
+### [DOC-CHKO-20260511-09] Checkout Experience: Architecture Decision Note #9 (2026-05-11)
+<a id="doc-chko-20260511-09"></a>
 
-- **Document ID**: `DOC-CHKO-20260528-28`
-- **Date**: 2026-05-28
+- **Document ID**: `DOC-CHKO-20260511-09`
+- **Date**: 2026-05-11 (`2026-05-11T11:52:19+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Jack Clark (`M-037`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-021`](https://jira.northstar.invalid/browse/CHKO-021) (`In Review`)
+- **Record Type**: Architecture Decision Note
+
+#### Context & Technical Objective
+Architectural review for [CHKO-021] (Telemetry for checkout step drop-off rates across platforms — Observability spans & SLO alert thresholds) within Checkout Experience, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
+
+#### Technical Decision & Invariants
+Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
+
+#### Verification & Evidence
+Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validated by the tech lead.
+
+---
+
+### [DOC-CHKO-20260512-10] Checkout Experience: Incident Post-Mortem Action #10 (2026-05-12)
+<a id="doc-chko-20260512-10"></a>
+
+- **Document ID**: `DOC-CHKO-20260512-10`
+- **Date**: 2026-05-12 (`2026-05-12T20:34:12+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
 - **Author**: Owen Garcia (`M-010`)
 - **Project**: `NSC-CHKO`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-046`](https://jira.northstar.invalid/browse/CHKO-046)
-- **Record Type**: Integration Review Notes
+- **Linked Issue**: [`CHKO-017`](https://jira.northstar.invalid/browse/CHKO-017) (`To Do`)
+- **Record Type**: Incident Post-Mortem Action
 
 #### Context & Technical Objective
-During iteration delivery on [CHKO-046] (Fifteen-minute checkout reservation timeout on inventory holds - Phase 4), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Follow-up remediation tracking for [CHKO-017] (Prevention of duplicate order submission on multi-click submission — Cross-service correlation ID propagation) in Checkout Experience after staging fault-injection and replay testing.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Crash-replay simulation added to continuous integration to prevent regression.
 
 ---
 
-### [DOC-CHKO-20260529-29] Checkout Experience: Security Review Note #29 (2026-05-29)
-<a id="doc-chko-20260529-29"></a>
+### [DOC-CHKO-20260513-11] Checkout Experience: Merchant Sync Decision #11 (2026-05-13)
+<a id="doc-chko-20260513-11"></a>
 
-- **Document ID**: `DOC-CHKO-20260529-29`
-- **Date**: 2026-05-29
+- **Document ID**: `DOC-CHKO-20260513-11`
+- **Date**: 2026-05-13 (`2026-05-13T16:10:49+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: James Moore (`M-025`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-012`](https://jira.northstar.invalid/browse/CHKO-012) (`To Do`)
+- **Record Type**: Merchant Sync Decision
+
+#### Context & Technical Objective
+Reviewed Meridian Outfitters pilot integration requirements for [CHKO-012] (Tax exemption certificate verification for commercial accounts) with Checkout Experience engineering and merchant support.
+
+#### Technical Decision & Invariants
+Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
+
+#### Verification & Evidence
+Action items logged with merchant onboarding specialists and verified against tenant boundary checks.
+
+---
+
+### [DOC-CHKO-20260514-12] Checkout Experience: Architecture Decision Note #12 (2026-05-14)
+<a id="doc-chko-20260514-12"></a>
+
+- **Document ID**: `DOC-CHKO-20260514-12`
+- **Date**: 2026-05-14 (`2026-05-14T09:17:04+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Chloe Lopez (`M-049`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-002`](https://jira.northstar.invalid/browse/CHKO-002) (`Done`)
+- **Record Type**: Architecture Decision Note
+
+#### Context & Technical Objective
+Architectural review for [CHKO-002] (Idempotent checkout session endpoint with durable replay keys) within Checkout Experience, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
+
+#### Technical Decision & Invariants
+Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
+
+#### Verification & Evidence
+Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validated by the tech lead.
+
+---
+
+### [DOC-CHKO-20260514-13] Checkout Experience: Incident Post-Mortem Action #13 (2026-05-14)
+<a id="doc-chko-20260514-13"></a>
+
+- **Document ID**: `DOC-CHKO-20260514-13`
+- **Date**: 2026-05-14 (`2026-05-14T21:04:10+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: David Hernandez (`M-046`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-020`](https://jira.northstar.invalid/browse/CHKO-020) (`To Do`)
+- **Record Type**: Incident Post-Mortem Action
+
+#### Context & Technical Objective
+Follow-up remediation tracking for [CHKO-020] (Merchant checkout configuration overrides on tenant boot — Webhook signature & payload verification) in Checkout Experience after staging fault-injection and replay testing.
+
+#### Technical Decision & Invariants
+Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
+
+#### Verification & Evidence
+Crash-replay simulation added to continuous integration to prevent regression.
+
+---
+
+### [DOC-CHKO-20260515-14] Checkout Experience: Merchant Sync Decision #14 (2026-05-15)
+<a id="doc-chko-20260515-14"></a>
+
+- **Document ID**: `DOC-CHKO-20260515-14`
+- **Date**: 2026-05-15 (`2026-05-15T11:40:03+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Jack Clark (`M-037`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-016`](https://jira.northstar.invalid/browse/CHKO-016) (`Done`)
+- **Record Type**: Merchant Sync Decision
+
+#### Context & Technical Objective
+Reviewed Meridian Outfitters pilot integration requirements for [CHKO-016] (Fallback shipping rate computation during carrier API outages — Security header & token scope hardening) with Checkout Experience engineering and merchant support.
+
+#### Technical Decision & Invariants
+Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
+
+#### Verification & Evidence
+Action items logged with merchant onboarding specialists and verified against tenant boundary checks.
+
+---
+
+### [DOC-CHKO-20260518-15] Checkout Experience: API Contract Revision #15 (2026-05-18)
+<a id="doc-chko-20260518-15"></a>
+
+- **Document ID**: `DOC-CHKO-20260518-15`
+- **Date**: 2026-05-18 (`2026-05-18T15:52:27+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Owen Garcia (`M-010`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-012`](https://jira.northstar.invalid/browse/CHKO-012) (`To Do`)
+- **Record Type**: API Contract Revision
+
+#### Context & Technical Objective
+Evaluated HTTP request/response payload schemas for [CHKO-012] (Tax exemption certificate verification for commercial accounts) in Checkout Experience to ensure backward compatibility and deterministic error codes.
+
+#### Technical Decision & Invariants
+Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
+
+#### Verification & Evidence
+API schema snapshot tested against staging-sim consumer stubs with zero breaking changes.
+
+---
+
+### [DOC-CHKO-20260518-16] Checkout Experience: Database Migration Checklist #16 (2026-05-18)
+<a id="doc-chko-20260518-16"></a>
+
+- **Document ID**: `DOC-CHKO-20260518-16`
+- **Date**: 2026-05-18 (`2026-05-18T18:37:19+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
 - **Author**: Isabella Taylor (`M-026`)
 - **Project**: `NSC-CHKO`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-CHECKOUT`
-- **Linked Issue**: [`CHKO-043`](https://jira.northstar.invalid/browse/CHKO-043)
+- **Linked Issue**: [`CHKO-024`](https://jira.northstar.invalid/browse/CHKO-024) (`To Do`)
+- **Record Type**: Database Migration Checklist
+
+#### Context & Technical Objective
+Database schema change verification for [CHKO-024] (Tax exemption certificate verification for commercial accounts — Event outbox deduplication & ordering) managed by Checkout Experience.
+
+#### Technical Decision & Invariants
+Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
+
+#### Verification & Evidence
+Forward/down recovery notes and row-count reconciliation verified against isolated backup snapshot.
+
+---
+
+### [DOC-CHKO-20260519-17] Checkout Experience: Daily Standup & Blocker Log #17 (2026-05-19)
+<a id="doc-chko-20260519-17"></a>
+
+- **Document ID**: `DOC-CHKO-20260519-17`
+- **Date**: 2026-05-19 (`2026-05-19T18:54:56+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: Sofia Nguyen (`M-005`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-023`](https://jira.northstar.invalid/browse/CHKO-023) (`To Do`)
+- **Record Type**: Daily Standup & Blocker Log
+
+#### Context & Technical Objective
+Daily engineering standup checkpoint for Checkout Experience covering active work on [CHKO-023] (Merchant custom checkout field sanitization and persistence — Role-based access control policy enforcement) (current ticket status: `To Do`).
+
+#### Technical Decision & Invariants
+Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
+
+#### Verification & Evidence
+Updated Jira status transitions, blocker owners, and same-day escalation checkpoints.
+
+---
+
+### [DOC-CHKO-20260520-18] Checkout Experience: API Contract Revision #18 (2026-05-20)
+<a id="doc-chko-20260520-18"></a>
+
+- **Document ID**: `DOC-CHKO-20260520-18`
+- **Date**: 2026-05-20 (`2026-05-20T10:26:41+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: David Hernandez (`M-046`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-016`](https://jira.northstar.invalid/browse/CHKO-016) (`Done`)
+- **Record Type**: API Contract Revision
+
+#### Context & Technical Objective
+Evaluated HTTP request/response payload schemas for [CHKO-016] (Fallback shipping rate computation during carrier API outages — Security header & token scope hardening) in Checkout Experience to ensure backward compatibility and deterministic error codes.
+
+#### Technical Decision & Invariants
+Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
+
+#### Verification & Evidence
+API schema snapshot tested against staging-sim consumer stubs with zero breaking changes.
+
+---
+
+### [DOC-CHKO-20260521-19] Checkout Experience: Database Migration Checklist #19 (2026-05-21)
+<a id="doc-chko-20260521-19"></a>
+
+- **Document ID**: `DOC-CHKO-20260521-19`
+- **Date**: 2026-05-21 (`2026-05-21T18:32:10+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: Jack Clark (`M-037`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-009`](https://jira.northstar.invalid/browse/CHKO-009) (`To Do`)
+- **Record Type**: Database Migration Checklist
+
+#### Context & Technical Objective
+Database schema change verification for [CHKO-009] (Telemetry for checkout step drop-off rates across platforms) managed by Checkout Experience.
+
+#### Technical Decision & Invariants
+Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
+
+#### Verification & Evidence
+Forward/down recovery notes and row-count reconciliation verified against isolated backup snapshot.
+
+---
+
+### [DOC-CHKO-20260521-20] Checkout Experience: Daily Standup & Blocker Log #20 (2026-05-21)
+<a id="doc-chko-20260521-20"></a>
+
+- **Document ID**: `DOC-CHKO-20260521-20`
+- **Date**: 2026-05-21 (`2026-05-21T13:49:40+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Isla Thompson (`M-014`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-026`](https://jira.northstar.invalid/browse/CHKO-026) (`To Do`)
+- **Record Type**: Daily Standup & Blocker Log
+
+#### Context & Technical Objective
+Daily engineering standup checkpoint for Checkout Experience covering active work on [CHKO-026] (Idempotent checkout session endpoint with durable replay keys — Boundary value & currency minor-unit validation) (current ticket status: `To Do`).
+
+#### Technical Decision & Invariants
+Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
+
+#### Verification & Evidence
+Updated Jira status transitions, blocker owners, and same-day escalation checkpoints.
+
+---
+
+### [DOC-CHKO-20260522-21] Checkout Experience: API Contract Revision #21 (2026-05-22)
+<a id="doc-chko-20260522-21"></a>
+
+- **Document ID**: `DOC-CHKO-20260522-21`
+- **Date**: 2026-05-22 (`2026-05-22T15:00:55+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Isabella Taylor (`M-026`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-022`](https://jira.northstar.invalid/browse/CHKO-022) (`Done`)
+- **Record Type**: API Contract Revision
+
+#### Context & Technical Objective
+Evaluated HTTP request/response payload schemas for [CHKO-022] (Fifteen-minute checkout reservation timeout on inventory holds — Load test benchmark & p95 latency profiling) in Checkout Experience to ensure backward compatibility and deterministic error codes.
+
+#### Technical Decision & Invariants
+Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
+
+#### Verification & Evidence
+API schema snapshot tested against staging-sim consumer stubs with zero breaking changes.
+
+---
+
+### [DOC-CHKO-20260525-22] Checkout Experience: Database Migration Checklist #22 (2026-05-25)
+<a id="doc-chko-20260525-22"></a>
+
+- **Document ID**: `DOC-CHKO-20260525-22`
+- **Date**: 2026-05-25 (`2026-05-25T19:02:08+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: Sofia Nguyen (`M-005`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-015`](https://jira.northstar.invalid/browse/CHKO-015) (`To Do`)
+- **Record Type**: Database Migration Checklist
+
+#### Context & Technical Objective
+Database schema change verification for [CHKO-015] (External tax service timeout handling with graceful fallback mode — Quarantine workflow for malformed inputs) managed by Checkout Experience.
+
+#### Technical Decision & Invariants
+Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
+
+#### Verification & Evidence
+Forward/down recovery notes and row-count reconciliation verified against isolated backup snapshot.
+
+---
+
+### [DOC-CHKO-20260525-23] Checkout Experience: Daily Standup & Blocker Log #23 (2026-05-25)
+<a id="doc-chko-20260525-23"></a>
+
+- **Document ID**: `DOC-CHKO-20260525-23`
+- **Date**: 2026-05-25 (`2026-05-25T20:50:52+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: Chloe Lopez (`M-049`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-031`](https://jira.northstar.invalid/browse/CHKO-031) (`To Do`)
+- **Record Type**: Daily Standup & Blocker Log
+
+#### Context & Technical Objective
+Daily engineering standup checkpoint for Checkout Experience covering active work on [CHKO-031] (Split-step checkout state machine with transactional checkpoints — Rate limiting & audit trail emission) (current ticket status: `To Do`).
+
+#### Technical Decision & Invariants
+Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
+
+#### Verification & Evidence
+Updated Jira status transitions, blocker owners, and same-day escalation checkpoints.
+
+---
+
+### [DOC-CHKO-20260526-24] Checkout Experience: Security Review Note #24 (2026-05-26)
+<a id="doc-chko-20260526-24"></a>
+
+- **Document ID**: `DOC-CHKO-20260526-24`
+- **Date**: 2026-05-26 (`2026-05-26T11:19:34+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: David Hernandez (`M-046`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-013`](https://jira.northstar.invalid/browse/CHKO-013) (`Done`)
 - **Record Type**: Security Review Note
 
 #### Context & Technical Objective
-During iteration delivery on [CHKO-043] (Split-step checkout state machine with transactional checkpoints - Phase 4), the Checkout Experience engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Application security and access-control assessment for [CHKO-013] (Customer shipping address validation before tax quotation — Edge-case race condition remediation) in Checkout Experience.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Validated deny-by-default authorization, pre-retrieval ACL filtering, secret externalization, and zero persistence of PAN/CVV or raw credentials.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed in CI.
+
+---
+
+### [DOC-CHKO-20260526-25] Checkout Experience: Regression Test Summary #25 (2026-05-26)
+<a id="doc-chko-20260526-25"></a>
+
+- **Document ID**: `DOC-CHKO-20260526-25`
+- **Date**: 2026-05-26 (`2026-05-26T11:35:18+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Daniel Lewis (`M-039`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-029`](https://jira.northstar.invalid/browse/CHKO-029) (`To Do`)
+- **Record Type**: Regression Test Summary
+
+#### Context & Technical Objective
+Executed automated regression and negative boundary suite for [CHKO-029] (Prevention of duplicate order submission on multi-click submission — API contract & schema validation) across Checkout Experience staging fixtures.
+
+#### Technical Decision & Invariants
+Verified idempotent replay, duplicate event suppression, and cross-tenant HTTP 403 rejection before snippet or count generation.
+
+#### Verification & Evidence
+All regression assertions recorded with deterministic seed=42 and correlation trace evidence attached.
+
+---
+
+### [DOC-CHKO-20260527-26] Checkout Experience: Integration Review Notes #26 (2026-05-27)
+<a id="doc-chko-20260527-26"></a>
+
+- **Document ID**: `DOC-CHKO-20260527-26`
+- **Date**: 2026-05-27 (`2026-05-27T14:42:33+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Isla Thompson (`M-014`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-022`](https://jira.northstar.invalid/browse/CHKO-022) (`Done`)
+- **Record Type**: Integration Review Notes
+
+#### Context & Technical Objective
+Cross-service and partner integration sync for [CHKO-022] (Fifteen-minute checkout reservation timeout on inventory holds — Load test benchmark & p95 latency profiling) in Checkout Experience.
+
+#### Technical Decision & Invariants
+Verified HMAC-SHA256 webhook signature validation, bounded exponential backoff with jitter, and correlation ID propagation across service hops.
+
+#### Verification & Evidence
+Sandbox integration trace captured and linked to the requirement traceability matrix.
+
+---
+
+### [DOC-CHKO-20260528-27] Checkout Experience: Security Review Note #27 (2026-05-28)
+<a id="doc-chko-20260528-27"></a>
+
+- **Document ID**: `DOC-CHKO-20260528-27`
+- **Date**: 2026-05-28 (`2026-05-28T21:52:54+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: Isabella Taylor (`M-026`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-015`](https://jira.northstar.invalid/browse/CHKO-015) (`To Do`)
+- **Record Type**: Security Review Note
+
+#### Context & Technical Objective
+Application security and access-control assessment for [CHKO-015] (External tax service timeout handling with graceful fallback mode — Quarantine workflow for malformed inputs) in Checkout Experience.
+
+#### Technical Decision & Invariants
+Validated deny-by-default authorization, pre-retrieval ACL filtering, secret externalization, and zero persistence of PAN/CVV or raw credentials.
+
+#### Verification & Evidence
+AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed in CI.
+
+---
+
+### [DOC-CHKO-20260528-28] Checkout Experience: Regression Test Summary #28 (2026-05-28)
+<a id="doc-chko-20260528-28"></a>
+
+- **Document ID**: `DOC-CHKO-20260528-28`
+- **Date**: 2026-05-28 (`2026-05-28T17:44:38+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: James Moore (`M-025`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-031`](https://jira.northstar.invalid/browse/CHKO-031) (`To Do`)
+- **Record Type**: Regression Test Summary
+
+#### Context & Technical Objective
+Executed automated regression and negative boundary suite for [CHKO-031] (Split-step checkout state machine with transactional checkpoints — Rate limiting & audit trail emission) across Checkout Experience staging fixtures.
+
+#### Technical Decision & Invariants
+Verified idempotent replay, duplicate event suppression, and cross-tenant HTTP 403 rejection before snippet or count generation.
+
+#### Verification & Evidence
+All regression assertions recorded with deterministic seed=42 and correlation trace evidence attached.
+
+---
+
+### [DOC-CHKO-20260529-29] Checkout Experience: Integration Review Notes #29 (2026-05-29)
+<a id="doc-chko-20260529-29"></a>
+
+- **Document ID**: `DOC-CHKO-20260529-29`
+- **Date**: 2026-05-29 (`2026-05-29T09:16:47+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Chloe Lopez (`M-049`)
+- **Project**: `NSC-CHKO`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-CHECKOUT`
+- **Linked Issue**: [`CHKO-028`](https://jira.northstar.invalid/browse/CHKO-028) (`Done`)
+- **Record Type**: Integration Review Notes
+
+#### Context & Technical Objective
+Cross-service and partner integration sync for [CHKO-028] (Fallback shipping rate computation during carrier API outages — Operational runbook & support diagnostics) in Checkout Experience.
+
+#### Technical Decision & Invariants
+Verified HMAC-SHA256 webhook signature validation, bounded exponential backoff with jitter, and correlation ID propagation across service hops.
+
+#### Verification & Evidence
+Sandbox integration trace captured and linked to the requirement traceability matrix.
 
 ---

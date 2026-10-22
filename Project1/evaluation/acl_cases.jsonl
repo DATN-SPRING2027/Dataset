@@ -24,3 +24,7 @@
 {"case_id": "ACL-024", "expected_decision": "deny", "principal_id": "M-017", "reason": "PulsePay partner M-017 does not belong to Northstar internal employee group.", "resource_id": "DOC-ORG-CHARTER-001"}
 {"case_id": "ACL-025", "expected_decision": "allow", "principal_id": "M-053", "reason": "Support engineer M-053 belongs to GRP-ALL-STAFF.", "resource_id": "DOC-ORD-POL-005"}
 {"case_id": "ACL-026", "expected_decision": "allow", "principal_id": "M-022", "reason": "Search engineer M-022 is assigned to the Search project group GRP-SEARCH and can access its project annex.", "resource_id": "DOC-SRCH-ANNEX-001"}
+{"case_id": "ACL-027", "expected_decision": "deny", "principal_id": "M-016", "reason": "External Meridian user M-016 is an external collaborator and never inherits internal GRP-CHECKOUT access to internal RCAs.", "resource_id": "DOC-CHKO-RCA-008"}
+{"case_id": "ACL-028", "expected_decision": "deny", "principal_id": "M-017", "reason": "External PulsePay partner M-017 does not inherit internal GRP-CHECKOUT access to Payment internal annexes.", "resource_id": "DOC-PAY-ANNEX-001"}
+{"case_id": "ACL-029", "expected_decision": "deny", "principal_id": "M-064", "reason": "Meridian merchandiser M-064 is scoped to GRP-MERIDIAN and cannot read internal GRP-CATALOG project annexes.", "resource_id": "DOC-CAT-ANNEX-001"}
+{"case_id": "ACL-030", "expected_decision": "allow", "principal_id": "M-042", "reason": "Senior Analytics Developer M-042 is an active member of GRP-DATA and GRP-PLATFORM.", "resource_id": "DOC-DATA-DICT-008"}

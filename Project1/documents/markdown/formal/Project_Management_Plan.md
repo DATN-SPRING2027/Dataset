@@ -34,7 +34,7 @@ The release scope covers catalog, search, cart/promotions, checkout, payment, in
 
 ## Work breakdown and schedule
 
-The eight workstreams use 13 consecutive two-week sprints ending 12 October 2026 in the dataset snapshot. Release readiness is planned for 16 October 2026 and the pilot launch target is 23 October 2026, subject to the checkout/payment gate. Platform foundation continues through 4 December 2026.
+The eight workstreams use 13 consecutive two-week sprints ending 12 October 2026 in the dataset snapshot. Engineering operates on Vietnam time (UTC+07:00) with regular hours 08:00–17:00 (12:00–13:00 lunch break), evening overtime 17:00–22:00 during sprint-end and pre-release crunch, and weekends plus Vietnam public holidays (2026-04-27, 2026-04-30, 2026-05-01, 2026-09-01, 2026-09-02) off for human staff except P0/P1 incident response, while automated CI/SFTP/alert bots run 24/7. Release readiness is planned for 16 October 2026 and the pilot launch target is 23 October 2026, subject to the checkout/payment gate. Platform foundation continues through 4 December 2026.
 
 ## Roles and capacity
 
