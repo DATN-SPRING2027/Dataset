@@ -5,274 +5,310 @@ project_name: "Search & Discovery"
 period: "2026-10"
 classification: "Internal"
 access_groups: ["GRP-SEARCH"]
-logical_document_count: 11
+logical_document_count: 12
 synthetic: true
 ---
 
 # Search & Discovery — Monthly Engineering Records (2026-10)
 
-This Markdown bundle organizes 11 verified logical project records, decisions, meeting outcomes, and technical milestone updates for NSC-SRCH during 2026-10.
+This Markdown bundle organizes 12 verified logical project records, decisions, meeting outcomes, and technical milestone updates for NSC-SRCH during 2026-10.
 
-### [DOC-SRCH-20261001-01] Search & Discovery: Security Review Note #1 (2026-10-01)
+### [DOC-SRCH-20261001-01] Search & Discovery: Architecture Decision Note #1 (2026-10-01)
 <a id="doc-srch-20261001-01"></a>
 
 - **Document ID**: `DOC-SRCH-20261001-01`
-- **Date**: 2026-10-01
-- **Author**: Ava Davis (`M-022`)
+- **Date**: 2026-10-01 (`2026-10-01T17:40:38+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: Elizabeth Hall (`M-042`)
 - **Project**: `NSC-SRCH`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-100`](https://jira.northstar.invalid/browse/SRCH-100)
-- **Record Type**: Security Review Note
+- **Linked Issue**: [`SRCH-081`](https://jira.northstar.invalid/browse/SRCH-081) (`Done`)
+- **Record Type**: Architecture Decision Note
 
 #### Context & Technical Objective
-During iteration delivery on [SRCH-100] (P95 search latency telemetry and load optimization - Phase 9), the Search & Discovery engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Architectural review for [SRCH-081] (Telemetry for zero-click and low-confidence search queries — Rate limiting & audit trail emission) within Search & Discovery, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validated by the tech lead.
 
 ---
 
-### [DOC-SRCH-20261001-02] Search & Discovery: Regression Test Summary #2 (2026-10-01)
+### [DOC-SRCH-20261001-02] Search & Discovery: Incident Post-Mortem Action #2 (2026-10-01)
 <a id="doc-srch-20261001-02"></a>
 
 - **Document ID**: `DOC-SRCH-20261001-02`
-- **Date**: 2026-10-01
-- **Author**: Andrew Mitchell (`M-058`)
+- **Date**: 2026-10-01 (`2026-10-01T14:05:36+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Abigail Rodriguez (`M-038`)
 - **Project**: `NSC-SRCH`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-116`](https://jira.northstar.invalid/browse/SRCH-116)
-- **Record Type**: Regression Test Summary
+- **Linked Issue**: [`SRCH-097`](https://jira.northstar.invalid/browse/SRCH-097) (`Done`)
+- **Record Type**: Incident Post-Mortem Action
 
 #### Context & Technical Objective
-During iteration delivery on [SRCH-116] (Phrase matching boosts for high-converting product categories - Phase 10), the Search & Discovery engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Follow-up remediation tracking for [SRCH-097] (Relevance ranking model for exact merchant SKU queries — Database expand-contract migration script) in Search & Discovery after staging fault-injection and replay testing.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Crash-replay simulation added to continuous integration to prevent regression.
 
 ---
 
-### [DOC-SRCH-20261002-03] Search & Discovery: Database Migration Checklist #3 (2026-10-02)
+### [DOC-SRCH-20261002-03] Search & Discovery: Merchant Sync Decision #3 (2026-10-02)
 <a id="doc-srch-20261002-03"></a>
 
 - **Document ID**: `DOC-SRCH-20261002-03`
-- **Date**: 2026-10-02
-- **Author**: Oliver Brown (`M-021`)
-- **Project**: `NSC-SRCH`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-116`](https://jira.northstar.invalid/browse/SRCH-116)
-- **Record Type**: Database Migration Checklist
-
-#### Context & Technical Objective
-During iteration delivery on [SRCH-116] (Phrase matching boosts for high-converting product categories - Phase 10), the Search & Discovery engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-SRCH-20261005-04] Search & Discovery: Daily Standup & Blocker Log #4 (2026-10-05)
-<a id="doc-srch-20261005-04"></a>
-
-- **Document ID**: `DOC-SRCH-20261005-04`
-- **Date**: 2026-10-05
-- **Author**: Zoe Park (`M-011`)
-- **Project**: `NSC-SRCH`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-097`](https://jira.northstar.invalid/browse/SRCH-097)
-- **Record Type**: Daily Standup & Blocker Log
-
-#### Context & Technical Objective
-During iteration delivery on [SRCH-097] (Relevance ranking model for exact merchant SKU queries - Phase 9), the Search & Discovery engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-SRCH-20261006-05] Search & Discovery: API Contract Revision #5 (2026-10-06)
-<a id="doc-srch-20261006-05"></a>
-
-- **Document ID**: `DOC-SRCH-20261006-05`
-- **Date**: 2026-10-06
+- **Date**: 2026-10-02 (`2026-10-02T16:12:51+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
 - **Author**: Jordan Lee (`M-002`)
 - **Project**: `NSC-SRCH`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-098`](https://jira.northstar.invalid/browse/SRCH-098)
-- **Record Type**: API Contract Revision
+- **Linked Issue**: [`SRCH-095`](https://jira.northstar.invalid/browse/SRCH-095) (`Done`)
+- **Record Type**: Merchant Sync Decision
 
 #### Context & Technical Objective
-During iteration delivery on [SRCH-098] (Merchant-scoped synonym dictionary management API - Phase 9), the Search & Discovery engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Reviewed Meridian Outfitters pilot integration requirements for [SRCH-095] (Product search indexing throughput during bulk imports — Cache invalidation & version lineage check) with Search & Discovery engineering and merchant support.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Action items logged with merchant onboarding specialists and verified against tenant boundary checks.
 
 ---
 
-### [DOC-SRCH-20261006-06] Search & Discovery: Database Migration Checklist #6 (2026-10-06)
-<a id="doc-srch-20261006-06"></a>
+### [DOC-SRCH-20261005-04] Search & Discovery: API Contract Revision #4 (2026-10-05)
+<a id="doc-srch-20261005-04"></a>
 
-- **Document ID**: `DOC-SRCH-20261006-06`
-- **Date**: 2026-10-06
-- **Author**: Owen Garcia (`M-010`)
-- **Project**: `NSC-SRCH`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-114`](https://jira.northstar.invalid/browse/SRCH-114)
-- **Record Type**: Database Migration Checklist
-
-#### Context & Technical Objective
-During iteration delivery on [SRCH-114] (Locale-aware tokenization and character folding rules - Phase 10), the Search & Discovery engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-SRCH-20261007-07] Search & Discovery: Daily Standup & Blocker Log #7 (2026-10-07)
-<a id="doc-srch-20261007-07"></a>
-
-- **Document ID**: `DOC-SRCH-20261007-07`
-- **Date**: 2026-10-07
-- **Author**: Andrew Mitchell (`M-058`)
-- **Project**: `NSC-SRCH`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-111`](https://jira.northstar.invalid/browse/SRCH-111)
-- **Record Type**: Daily Standup & Blocker Log
-
-#### Context & Technical Objective
-During iteration delivery on [SRCH-111] (Facet aggregation counts after multi-select filtering - Phase 10), the Search & Discovery engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-SRCH-20261008-08] Search & Discovery: Architecture Decision Note #8 (2026-10-08)
-<a id="doc-srch-20261008-08"></a>
-
-- **Document ID**: `DOC-SRCH-20261008-08`
-- **Date**: 2026-10-08
-- **Author**: Oliver Brown (`M-021`)
-- **Project**: `NSC-SRCH`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-107`](https://jira.northstar.invalid/browse/SRCH-107)
-- **Record Type**: Architecture Decision Note
-
-#### Context & Technical Objective
-During iteration delivery on [SRCH-107] (Product search indexing throughput during bulk imports - Phase 9), the Search & Discovery engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-SRCH-20261008-09] Search & Discovery: Incident Post-Mortem Action #9 (2026-10-08)
-<a id="doc-srch-20261008-09"></a>
-
-- **Document ID**: `DOC-SRCH-20261008-09`
-- **Date**: 2026-10-08
+- **Document ID**: `DOC-SRCH-20261005-04`
+- **Date**: 2026-10-05 (`2026-10-05T10:24:15+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
 - **Author**: Ava Davis (`M-022`)
 - **Project**: `NSC-SRCH`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-123`](https://jira.northstar.invalid/browse/SRCH-123)
-- **Record Type**: Incident Post-Mortem Action
+- **Linked Issue**: [`SRCH-086`](https://jira.northstar.invalid/browse/SRCH-086) (`Done`)
+- **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
-During iteration delivery on [SRCH-123] (Facet aggregation counts after multi-select filtering - Phase 11), the Search & Discovery engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Evaluated HTTP request/response payload schemas for [SRCH-086] (Merchant-scoped synonym dictionary management API — Load test benchmark & p95 latency profiling) in Search & Discovery to ensure backward compatibility and deterministic error codes.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+API schema snapshot tested against staging-sim consumer stubs with zero breaking changes.
 
 ---
 
-### [DOC-SRCH-20261009-10] Search & Discovery: Merchant Sync Decision #10 (2026-10-09)
+### [DOC-SRCH-20261005-05] Search & Discovery: Database Migration Checklist #5 (2026-10-05)
+<a id="doc-srch-20261005-05"></a>
+
+- **Document ID**: `DOC-SRCH-20261005-05`
+- **Date**: 2026-10-05 (`2026-10-05T20:09:31+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: Oliver Brown (`M-021`)
+- **Project**: `NSC-SRCH`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-SEARCH`
+- **Linked Issue**: [`SRCH-102`](https://jira.northstar.invalid/browse/SRCH-102) (`In Review`)
+- **Record Type**: Database Migration Checklist
+
+#### Context & Technical Objective
+Database schema change verification for [SRCH-102] (Locale-aware tokenization and character folding rules — Cross-service correlation ID propagation) managed by Search & Discovery.
+
+#### Technical Decision & Invariants
+Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
+
+#### Verification & Evidence
+Forward/down recovery notes and row-count reconciliation verified against isolated backup snapshot.
+
+---
+
+### [DOC-SRCH-20261006-06] Search & Discovery: Daily Standup & Blocker Log #6 (2026-10-06)
+<a id="doc-srch-20261006-06"></a>
+
+- **Document ID**: `DOC-SRCH-20261006-06`
+- **Date**: 2026-10-06 (`2026-10-06T13:47:14+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Penelope Scott (`M-051`)
+- **Project**: `NSC-SRCH`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-SEARCH`
+- **Linked Issue**: [`SRCH-101`](https://jira.northstar.invalid/browse/SRCH-101) (`Done`)
+- **Record Type**: Daily Standup & Blocker Log
+
+#### Context & Technical Objective
+Daily engineering standup checkpoint for Search & Discovery covering active work on [SRCH-101] (Zero-result fallback recommendations for misspelled queries — Security header & token scope hardening) (current ticket status: `Done`).
+
+#### Technical Decision & Invariants
+Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
+
+#### Verification & Evidence
+Updated Jira status transitions, blocker owners, and same-day escalation checkpoints.
+
+---
+
+### [DOC-SRCH-20261007-07] Search & Discovery: API Contract Revision #7 (2026-10-07)
+<a id="doc-srch-20261007-07"></a>
+
+- **Document ID**: `DOC-SRCH-20261007-07`
+- **Date**: 2026-10-07 (`2026-10-07T15:54:29+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Abigail Rodriguez (`M-038`)
+- **Project**: `NSC-SRCH`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-SEARCH`
+- **Linked Issue**: [`SRCH-095`](https://jira.northstar.invalid/browse/SRCH-095) (`Done`)
+- **Record Type**: API Contract Revision
+
+#### Context & Technical Objective
+Evaluated HTTP request/response payload schemas for [SRCH-095] (Product search indexing throughput during bulk imports — Cache invalidation & version lineage check) in Search & Discovery to ensure backward compatibility and deterministic error codes.
+
+#### Technical Decision & Invariants
+Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
+
+#### Verification & Evidence
+API schema snapshot tested against staging-sim consumer stubs with zero breaking changes.
+
+---
+
+### [DOC-SRCH-20261008-08] Search & Discovery: Database Migration Checklist #8 (2026-10-08)
+<a id="doc-srch-20261008-08"></a>
+
+- **Document ID**: `DOC-SRCH-20261008-08`
+- **Date**: 2026-10-08 (`2026-10-08T08:05:44+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Jordan Lee (`M-002`)
+- **Project**: `NSC-SRCH`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-SEARCH`
+- **Linked Issue**: [`SRCH-091`](https://jira.northstar.invalid/browse/SRCH-091) (`Done`)
+- **Record Type**: Database Migration Checklist
+
+#### Context & Technical Objective
+Database schema change verification for [SRCH-091] (Tenant-isolated Elasticsearch index aliases configuration — PostgreSQL indexing & tenant query guard) managed by Search & Discovery.
+
+#### Technical Decision & Invariants
+Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
+
+#### Verification & Evidence
+Forward/down recovery notes and row-count reconciliation verified against isolated backup snapshot.
+
+---
+
+### [DOC-SRCH-20261008-09] Search & Discovery: Daily Standup & Blocker Log #9 (2026-10-08)
+<a id="doc-srch-20261008-09"></a>
+
+- **Document ID**: `DOC-SRCH-20261008-09`
+- **Date**: 2026-10-08 (`2026-10-08T08:21:28+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Andrew Mitchell (`M-058`)
+- **Project**: `NSC-SRCH`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-SEARCH`
+- **Linked Issue**: [`SRCH-107`](https://jira.northstar.invalid/browse/SRCH-107) (`Done`)
+- **Record Type**: Daily Standup & Blocker Log
+
+#### Context & Technical Objective
+Daily engineering standup checkpoint for Search & Discovery covering active work on [SRCH-107] (Product search indexing throughput during bulk imports — Load test benchmark & p95 latency profiling) (current ticket status: `Done`).
+
+#### Technical Decision & Invariants
+Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
+
+#### Verification & Evidence
+Updated Jira status transitions, blocker owners, and same-day escalation checkpoints.
+
+---
+
+### [DOC-SRCH-20261009-10] Search & Discovery: API Contract Revision #10 (2026-10-09)
 <a id="doc-srch-20261009-10"></a>
 
 - **Document ID**: `DOC-SRCH-20261009-10`
-- **Date**: 2026-10-09
-- **Author**: Ethan Brooks (`M-004`)
+- **Date**: 2026-10-09 (`2026-10-09T10:28:43+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Oliver Brown (`M-021`)
 - **Project**: `NSC-SRCH`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-120`](https://jira.northstar.invalid/browse/SRCH-120)
-- **Record Type**: Merchant Sync Decision
+- **Linked Issue**: [`SRCH-112`](https://jira.northstar.invalid/browse/SRCH-112) (`Done`)
+- **Record Type**: API Contract Revision
 
 #### Context & Technical Objective
-During iteration delivery on [SRCH-120] (Query syntax sanitization to prevent index injection - Phase 10), the Search & Discovery engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Evaluated HTTP request/response payload schemas for [SRCH-112] (P95 search latency telemetry and load optimization — Storefront response serialization & pagination) in Search & Discovery to ensure backward compatibility and deterministic error codes.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+API schema snapshot tested against staging-sim consumer stubs with zero breaking changes.
 
 ---
 
-### [DOC-SRCH-20261012-11] Search & Discovery: Architecture Decision Note #11 (2026-10-12)
+### [DOC-SRCH-20261012-11] Search & Discovery: Database Migration Checklist #11 (2026-10-12)
 <a id="doc-srch-20261012-11"></a>
 
 - **Document ID**: `DOC-SRCH-20261012-11`
-- **Date**: 2026-10-12
-- **Author**: Owen Garcia (`M-010`)
+- **Date**: 2026-10-12 (`2026-10-12T13:35:58+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Penelope Scott (`M-051`)
 - **Project**: `NSC-SRCH`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-SEARCH`
-- **Linked Issue**: [`SRCH-121`](https://jira.northstar.invalid/browse/SRCH-121)
-- **Record Type**: Architecture Decision Note
+- **Linked Issue**: [`SRCH-117`](https://jira.northstar.invalid/browse/SRCH-117) (`Done`)
+- **Record Type**: Database Migration Checklist
 
 #### Context & Technical Objective
-During iteration delivery on [SRCH-121] (Relevance ranking model for exact merchant SKU queries - Phase 11), the Search & Discovery engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Database schema change verification for [SRCH-117] (Telemetry for zero-click and low-confidence search queries — Timeout fallback & circuit breaker logic) managed by Search & Discovery.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Forward/down recovery notes and row-count reconciliation verified against isolated backup snapshot.
+
+---
+
+### [DOC-SRCH-20261012-12] Search & Discovery: Daily Standup & Blocker Log #12 (2026-10-12)
+<a id="doc-srch-20261012-12"></a>
+
+- **Document ID**: `DOC-SRCH-20261012-12`
+- **Date**: 2026-10-12 (`2026-10-12T17:22:04+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: Elizabeth Hall (`M-042`)
+- **Project**: `NSC-SRCH`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-SEARCH`
+- **Linked Issue**: [`SRCH-135`](https://jira.northstar.invalid/browse/SRCH-135) (`Done`)
+- **Record Type**: Daily Standup & Blocker Log
+
+#### Context & Technical Objective
+Daily engineering standup checkpoint for Search & Discovery covering active work on [SRCH-135] (Facet aggregation counts after multi-select filtering — Quarantine workflow for malformed inputs) (current ticket status: `Done`).
+
+#### Technical Decision & Invariants
+Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
+
+#### Verification & Evidence
+Updated Jira status transitions, blocker owners, and same-day escalation checkpoints.
 
 ---

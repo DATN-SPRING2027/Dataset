@@ -38,7 +38,7 @@ Principals are authenticated through the configured identity provider. Authoriza
 
 ## Data and interoperability
 
-Identifiers are stable; timestamps are UTC ISO 8601; currency amounts are integer minor units; API errors use a consistent code, message, correlation ID, and field details. JSONL records are UTF-8, one JSON object per line, and preserve explicit nulls for organization-scoped resources.
+Identifiers are stable; timestamps are ISO 8601 with explicit timezone offsets (+07:00 Vietnam time for engineering and project records); currency amounts are integer minor units; API errors use a consistent code, message, correlation ID, and field details. JSONL records are UTF-8, one JSON object per line, and preserve explicit nulls for organization-scoped resources.
 
 ## Quality attributes
 

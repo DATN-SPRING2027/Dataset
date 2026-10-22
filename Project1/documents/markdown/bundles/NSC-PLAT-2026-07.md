@@ -13,746 +13,777 @@ synthetic: true
 
 This Markdown bundle organizes 31 verified logical project records, decisions, meeting outcomes, and technical milestone updates for NSC-PLAT during 2026-07.
 
-### [DOC-PLAT-20260701-01] Platform Reliability & Governance: Merchant Sync Decision #1 (2026-07-01)
+### [DOC-PLAT-20260701-01] Platform Reliability & Governance: Security Review Note #1 (2026-07-01)
 <a id="doc-plat-20260701-01"></a>
 
 - **Document ID**: `DOC-PLAT-20260701-01`
-- **Date**: 2026-07-01
-- **Author**: Alexander Thompson (`M-033`)
+- **Date**: 2026-07-01 (`2026-07-01T11:17:28+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Evelyn Robinson (`M-036`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-056`](https://jira.northstar.invalid/browse/PLAT-056)
-- **Record Type**: Merchant Sync Decision
+- **Linked Issue**: [`PLAT-049`](https://jira.northstar.invalid/browse/PLAT-049) (`Done`)
+- **Record Type**: Security Review Note
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-056] (Distributed tracing correlation IDs across all microservice requests - Phase 5), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Application security and access-control assessment for [PLAT-049] (Tenant-scoped API authentication permissions across gateway routes — Multi-tenant isolation & negative permission checks) in Platform Reliability & Governance.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Validated deny-by-default authorization, pre-retrieval ACL filtering, secret externalization, and zero persistence of PAN/CVV or raw credentials.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed in CI.
 
 ---
 
-### [DOC-PLAT-20260702-02] Platform Reliability & Governance: Sprint Planning Update #2 (2026-07-02)
+### [DOC-PLAT-20260702-02] Platform Reliability & Governance: Regression Test Summary #2 (2026-07-02)
 <a id="doc-plat-20260702-02"></a>
 
 - **Document ID**: `DOC-PLAT-20260702-02`
-- **Date**: 2026-07-02
-- **Author**: Daniel Foster (`M-012`)
+- **Date**: 2026-07-02 (`2026-07-02T14:24:43+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Harper Garcia (`M-034`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-052`](https://jira.northstar.invalid/browse/PLAT-052)
-- **Record Type**: Sprint Planning Update
+- **Linked Issue**: [`PLAT-041`](https://jira.northstar.invalid/browse/PLAT-041) (`In Progress`)
+- **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-052] (Outbox event publishing with transactional exactly-once guarantees - Phase 5), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Executed automated regression and negative boundary suite for [PLAT-041] (Checkout and payment service SLO dashboard with automated alerting — Quarantine workflow for malformed inputs) across Platform Reliability & Governance staging fixtures.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Verified idempotent replay, duplicate event suppression, and cross-tenant HTTP 403 rejection before snippet or count generation.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+All regression assertions recorded with deterministic seed=42 and correlation trace evidence attached.
 
 ---
 
-### [DOC-PLAT-20260702-03] Platform Reliability & Governance: Feature Rollout Milestone #3 (2026-07-02)
-<a id="doc-plat-20260702-03"></a>
+### [DOC-PLAT-20260703-03] Platform Reliability & Governance: Integration Review Notes #3 (2026-07-03)
+<a id="doc-plat-20260703-03"></a>
 
-- **Document ID**: `DOC-PLAT-20260702-03`
-- **Date**: 2026-07-02
-- **Author**: Daniel Foster (`M-012`)
+- **Document ID**: `DOC-PLAT-20260703-03`
+- **Date**: 2026-07-03 (`2026-07-03T16:31:58+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Amara Okafor (`M-013`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-068`](https://jira.northstar.invalid/browse/PLAT-068)
-- **Record Type**: Feature Rollout Milestone
+- **Linked Issue**: [`PLAT-037`](https://jira.northstar.invalid/browse/PLAT-037) (`Done`)
+- **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-068] (Distributed tracing correlation IDs across all microservice requests - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Cross-service and partner integration sync for [PLAT-037] (Tenant-scoped API authentication permissions across gateway routes — Timeout fallback & circuit breaker logic) in Platform Reliability & Governance.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Verified HMAC-SHA256 webhook signature validation, bounded exponential backoff with jitter, and correlation ID propagation across service hops.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Sandbox integration trace captured and linked to the requirement traceability matrix.
 
 ---
 
-### [DOC-PLAT-20260703-04] Platform Reliability & Governance: Performance Benchmark Report #4 (2026-07-03)
+### [DOC-PLAT-20260703-04] Platform Reliability & Governance: Security Review Note #4 (2026-07-03)
 <a id="doc-plat-20260703-04"></a>
 
 - **Document ID**: `DOC-PLAT-20260703-04`
-- **Date**: 2026-07-03
-- **Author**: Ryan Roberts (`M-060`)
+- **Date**: 2026-07-03 (`2026-07-03T16:47:42+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Avery Chen (`M-001`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-069`](https://jira.northstar.invalid/browse/PLAT-069)
-- **Record Type**: Performance Benchmark Report
+- **Linked Issue**: [`PLAT-053`](https://jira.northstar.invalid/browse/PLAT-053) (`In Progress`)
+- **Record Type**: Security Review Note
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-069] (Automated database index maintenance and vacuuming schedule - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Application security and access-control assessment for [PLAT-053] (Checkout and payment service SLO dashboard with automated alerting — Storefront response serialization & pagination) in Platform Reliability & Governance.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Validated deny-by-default authorization, pre-retrieval ACL filtering, secret externalization, and zero persistence of PAN/CVV or raw credentials.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed in CI.
 
 ---
 
-### [DOC-PLAT-20260706-05] Platform Reliability & Governance: Sprint Planning Update #5 (2026-07-06)
+### [DOC-PLAT-20260706-05] Platform Reliability & Governance: Regression Test Summary #5 (2026-07-06)
 <a id="doc-plat-20260706-05"></a>
 
 - **Document ID**: `DOC-PLAT-20260706-05`
-- **Date**: 2026-07-06
-- **Author**: Sebastian Martinez (`M-035`)
+- **Date**: 2026-07-06 (`2026-07-06T09:54:57+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Ryan Roberts (`M-060`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-050`](https://jira.northstar.invalid/browse/PLAT-050)
-- **Record Type**: Sprint Planning Update
+- **Linked Issue**: [`PLAT-046`](https://jira.northstar.invalid/browse/PLAT-046) (`Done`)
+- **Record Type**: Regression Test Summary
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-050] (Immutable administrative audit trail events in append-only log - Phase 5), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Executed automated regression and negative boundary suite for [PLAT-046] (Cross-tenant data leak prevention test suite on staging deployment — Webhook signature & payload verification) across Platform Reliability & Governance staging fixtures.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Verified idempotent replay, duplicate event suppression, and cross-tenant HTTP 403 rejection before snippet or count generation.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+All regression assertions recorded with deterministic seed=42 and correlation trace evidence attached.
 
 ---
 
-### [DOC-PLAT-20260707-06] Platform Reliability & Governance: Feature Rollout Milestone #6 (2026-07-07)
+### [DOC-PLAT-20260707-06] Platform Reliability & Governance: Integration Review Notes #6 (2026-07-07)
 <a id="doc-plat-20260707-06"></a>
 
 - **Document ID**: `DOC-PLAT-20260707-06`
-- **Date**: 2026-07-07
-- **Author**: Alexander Thompson (`M-033`)
+- **Date**: 2026-07-07 (`2026-07-07T11:05:12+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Evelyn Robinson (`M-036`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-047`](https://jira.northstar.invalid/browse/PLAT-047)
-- **Record Type**: Feature Rollout Milestone
+- **Linked Issue**: [`PLAT-039`](https://jira.northstar.invalid/browse/PLAT-039) (`In Progress`)
+- **Record Type**: Integration Review Notes
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-047] (Canary deployment rollout configuration with health error gates - Phase 4), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Cross-service and partner integration sync for [PLAT-039] (Document and resource group ACL filtering prior to vector retrieval — Edge-case race condition remediation) in Platform Reliability & Governance.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Verified HMAC-SHA256 webhook signature validation, bounded exponential backoff with jitter, and correlation ID propagation across service hops.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Sandbox integration trace captured and linked to the requirement traceability matrix.
 
 ---
 
-### [DOC-PLAT-20260707-07] Platform Reliability & Governance: Performance Benchmark Report #7 (2026-07-07)
+### [DOC-PLAT-20260707-07] Platform Reliability & Governance: Security Review Note #7 (2026-07-07)
 <a id="doc-plat-20260707-07"></a>
 
 - **Document ID**: `DOC-PLAT-20260707-07`
-- **Date**: 2026-07-07
-- **Author**: Alexander Thompson (`M-033`)
+- **Date**: 2026-07-07 (`2026-07-07T18:16:34+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: Harper Garcia (`M-034`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-063`](https://jira.northstar.invalid/browse/PLAT-063)
-- **Record Type**: Performance Benchmark Report
+- **Linked Issue**: [`PLAT-057`](https://jira.northstar.invalid/browse/PLAT-057) (`Done`)
+- **Record Type**: Security Review Note
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-063] (Document and resource group ACL filtering prior to vector retrieval - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Application security and access-control assessment for [PLAT-057] (Automated database index maintenance and vacuuming schedule — Rate limiting & audit trail emission) in Platform Reliability & Governance.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Validated deny-by-default authorization, pre-retrieval ACL filtering, secret externalization, and zero persistence of PAN/CVV or raw credentials.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+AppSec sign-off recorded; negative cross-tenant and revoked-user probes passed in CI.
 
 ---
 
-### [DOC-PLAT-20260708-08] Platform Reliability & Governance: Integration Review Notes #8 (2026-07-08)
+### [DOC-PLAT-20260708-08] Platform Reliability & Governance: Performance Benchmark Report #8 (2026-07-08)
 <a id="doc-plat-20260708-08"></a>
 
 - **Document ID**: `DOC-PLAT-20260708-08`
-- **Date**: 2026-07-08
-- **Author**: Daniel Foster (`M-012`)
+- **Date**: 2026-07-08 (`2026-07-08T15:33:20+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Amara Okafor (`M-013`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-063`](https://jira.northstar.invalid/browse/PLAT-063)
-- **Record Type**: Integration Review Notes
+- **Linked Issue**: [`PLAT-053`](https://jira.northstar.invalid/browse/PLAT-053) (`In Progress`)
+- **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-063] (Document and resource group ACL filtering prior to vector retrieval - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Conducted load and latency profiling for [PLAT-053] (Checkout and payment service SLO dashboard with automated alerting — Storefront response serialization & pagination) in Platform Reliability & Governance under the pilot reference workload.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Measured p95 response times, connection pool saturation, and queue lag metrics on the staging telemetry dashboard.
 
 ---
 
-### [DOC-PLAT-20260709-09] Platform Reliability & Governance: Security Review Note #9 (2026-07-09)
+### [DOC-PLAT-20260709-09] Platform Reliability & Governance: Sprint Planning Update #9 (2026-07-09)
 <a id="doc-plat-20260709-09"></a>
 
 - **Document ID**: `DOC-PLAT-20260709-09`
-- **Date**: 2026-07-09
-- **Author**: Ryan Roberts (`M-060`)
+- **Date**: 2026-07-09 (`2026-07-09T08:40:35+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Avery Chen (`M-001`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-060`](https://jira.northstar.invalid/browse/PLAT-060)
-- **Record Type**: Security Review Note
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-060] (Secret rotation policies for third-party payment partner API keys - Phase 5), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260710-10] Platform Reliability & Governance: Regression Test Summary #10 (2026-07-10)
-<a id="doc-plat-20260710-10"></a>
-
-- **Document ID**: `DOC-PLAT-20260710-10`
-- **Date**: 2026-07-10
-- **Author**: Sebastian Martinez (`M-035`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-057`](https://jira.northstar.invalid/browse/PLAT-057)
-- **Record Type**: Regression Test Summary
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-057] (Automated database index maintenance and vacuuming schedule - Phase 5), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260710-11] Platform Reliability & Governance: Integration Review Notes #11 (2026-07-10)
-<a id="doc-plat-20260710-11"></a>
-
-- **Document ID**: `DOC-PLAT-20260710-11`
-- **Date**: 2026-07-10
-- **Author**: Sebastian Martinez (`M-035`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-073`](https://jira.northstar.invalid/browse/PLAT-073)
-- **Record Type**: Integration Review Notes
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-073] (Tenant-scoped API authentication permissions across gateway routes - Phase 7), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260713-12] Platform Reliability & Governance: Security Review Note #12 (2026-07-13)
-<a id="doc-plat-20260713-12"></a>
-
-- **Document ID**: `DOC-PLAT-20260713-12`
-- **Date**: 2026-07-13
-- **Author**: Alexander Thompson (`M-033`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-058`](https://jira.northstar.invalid/browse/PLAT-058)
-- **Record Type**: Security Review Note
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-058] (Cross-tenant data leak prevention test suite on staging deployment - Phase 5), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260714-13] Platform Reliability & Governance: API Contract Revision #13 (2026-07-14)
-<a id="doc-plat-20260714-13"></a>
-
-- **Document ID**: `DOC-PLAT-20260714-13`
-- **Date**: 2026-07-14
-- **Author**: Daniel Foster (`M-012`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-054`](https://jira.northstar.invalid/browse/PLAT-054)
-- **Record Type**: API Contract Revision
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-054] (Privacy-safe merchant data export complying with GDPR/CCPA - Phase 5), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260714-14] Platform Reliability & Governance: Database Migration Checklist #14 (2026-07-14)
-<a id="doc-plat-20260714-14"></a>
-
-- **Document ID**: `DOC-PLAT-20260714-14`
-- **Date**: 2026-07-14
-- **Author**: Daniel Foster (`M-012`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-070`](https://jira.northstar.invalid/browse/PLAT-070)
-- **Record Type**: Database Migration Checklist
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-070] (Cross-tenant data leak prevention test suite on staging deployment - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260715-15] Platform Reliability & Governance: Daily Standup & Blocker Log #15 (2026-07-15)
-<a id="doc-plat-20260715-15"></a>
-
-- **Document ID**: `DOC-PLAT-20260715-15`
-- **Date**: 2026-07-15
-- **Author**: Ryan Roberts (`M-060`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-067`](https://jira.northstar.invalid/browse/PLAT-067)
-- **Record Type**: Daily Standup & Blocker Log
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-067] (Tenant database connection pool isolation and query rate limits - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260716-16] Platform Reliability & Governance: API Contract Revision #16 (2026-07-16)
-<a id="doc-plat-20260716-16"></a>
-
-- **Document ID**: `DOC-PLAT-20260716-16`
-- **Date**: 2026-07-16
-- **Author**: Sebastian Martinez (`M-035`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-068`](https://jira.northstar.invalid/browse/PLAT-068)
-- **Record Type**: API Contract Revision
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-068] (Distributed tracing correlation IDs across all microservice requests - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260717-17] Platform Reliability & Governance: Incident Post-Mortem Action #17 (2026-07-17)
-<a id="doc-plat-20260717-17"></a>
-
-- **Document ID**: `DOC-PLAT-20260717-17`
-- **Date**: 2026-07-17
-- **Author**: Alexander Thompson (`M-033`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-064`](https://jira.northstar.invalid/browse/PLAT-064)
-- **Record Type**: Incident Post-Mortem Action
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-064] (Outbox event publishing with transactional exactly-once guarantees - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260717-18] Platform Reliability & Governance: Merchant Sync Decision #18 (2026-07-17)
-<a id="doc-plat-20260717-18"></a>
-
-- **Document ID**: `DOC-PLAT-20260717-18`
-- **Date**: 2026-07-17
-- **Author**: Alexander Thompson (`M-033`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-080`](https://jira.northstar.invalid/browse/PLAT-080)
-- **Record Type**: Merchant Sync Decision
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-080] (Distributed tracing correlation IDs across all microservice requests - Phase 7), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260720-19] Platform Reliability & Governance: Architecture Decision Note #19 (2026-07-20)
-<a id="doc-plat-20260720-19"></a>
-
-- **Document ID**: `DOC-PLAT-20260720-19`
-- **Date**: 2026-07-20
-- **Author**: Daniel Foster (`M-012`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-061`](https://jira.northstar.invalid/browse/PLAT-061)
-- **Record Type**: Architecture Decision Note
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-061] (Tenant-scoped API authentication permissions across gateway routes - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260721-20] Platform Reliability & Governance: Incident Post-Mortem Action #20 (2026-07-21)
-<a id="doc-plat-20260721-20"></a>
-
-- **Document ID**: `DOC-PLAT-20260721-20`
-- **Date**: 2026-07-21
-- **Author**: Ryan Roberts (`M-060`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-062`](https://jira.northstar.invalid/browse/PLAT-062)
-- **Record Type**: Incident Post-Mortem Action
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-062] (Immutable administrative audit trail events in append-only log - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260722-21] Platform Reliability & Governance: Merchant Sync Decision #21 (2026-07-22)
-<a id="doc-plat-20260722-21"></a>
-
-- **Document ID**: `DOC-PLAT-20260722-21`
-- **Date**: 2026-07-22
-- **Author**: Sebastian Martinez (`M-035`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-059`](https://jira.northstar.invalid/browse/PLAT-059)
-- **Record Type**: Merchant Sync Decision
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-059] (Canary deployment rollout configuration with health error gates - Phase 5), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260722-22] Platform Reliability & Governance: Architecture Decision Note #22 (2026-07-22)
-<a id="doc-plat-20260722-22"></a>
-
-- **Document ID**: `DOC-PLAT-20260722-22`
-- **Date**: 2026-07-22
-- **Author**: Sebastian Martinez (`M-035`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-075`](https://jira.northstar.invalid/browse/PLAT-075)
-- **Record Type**: Architecture Decision Note
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-075] (Document and resource group ACL filtering prior to vector retrieval - Phase 7), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260723-23] Platform Reliability & Governance: Feature Rollout Milestone #23 (2026-07-23)
-<a id="doc-plat-20260723-23"></a>
-
-- **Document ID**: `DOC-PLAT-20260723-23`
-- **Date**: 2026-07-23
-- **Author**: Alexander Thompson (`M-033`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-071`](https://jira.northstar.invalid/browse/PLAT-071)
-- **Record Type**: Feature Rollout Milestone
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-071] (Canary deployment rollout configuration with health error gates - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260724-24] Platform Reliability & Governance: Performance Benchmark Report #24 (2026-07-24)
-<a id="doc-plat-20260724-24"></a>
-
-- **Document ID**: `DOC-PLAT-20260724-24`
-- **Date**: 2026-07-24
-- **Author**: Daniel Foster (`M-012`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-068`](https://jira.northstar.invalid/browse/PLAT-068)
-- **Record Type**: Performance Benchmark Report
-
-#### Context & Technical Objective
-During iteration delivery on [PLAT-068] (Distributed tracing correlation IDs across all microservice requests - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
-
-#### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
-
-#### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
-
----
-
-### [DOC-PLAT-20260724-25] Platform Reliability & Governance: Sprint Planning Update #25 (2026-07-24)
-<a id="doc-plat-20260724-25"></a>
-
-- **Document ID**: `DOC-PLAT-20260724-25`
-- **Date**: 2026-07-24
-- **Author**: Daniel Foster (`M-012`)
-- **Project**: `NSC-PLAT`
-- **Scope**: `project`
-- **Classification**: `Internal`
-- **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-084`](https://jira.northstar.invalid/browse/PLAT-084)
+- **Linked Issue**: [`PLAT-046`](https://jira.northstar.invalid/browse/PLAT-046) (`Done`)
 - **Record Type**: Sprint Planning Update
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-084] (Secret rotation policies for third-party payment partner API keys - Phase 7), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+During sprint backlog commitment on [PLAT-046] (Cross-tenant data leak prevention test suite on staging deployment — Webhook signature & payload verification), the Platform Reliability & Governance squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Confirmed sprint scope and velocity guardrails. Unfinished items from prior closed iterations are formally tracked via sprint spillover transitions into the active sprint.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Backlog readiness verified with product owner and QA lead; test fixtures and correlation IDs linked in Jira.
 
 ---
 
-### [DOC-PLAT-20260727-26] Platform Reliability & Governance: Feature Rollout Milestone #26 (2026-07-27)
-<a id="doc-plat-20260727-26"></a>
+### [DOC-PLAT-20260710-10] Platform Reliability & Governance: Feature Rollout Milestone #10 (2026-07-10)
+<a id="doc-plat-20260710-10"></a>
 
-- **Document ID**: `DOC-PLAT-20260727-26`
-- **Date**: 2026-07-27
+- **Document ID**: `DOC-PLAT-20260710-10`
+- **Date**: 2026-07-10 (`2026-07-10T19:18:36+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
 - **Author**: Ryan Roberts (`M-060`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-069`](https://jira.northstar.invalid/browse/PLAT-069)
+- **Linked Issue**: [`PLAT-043`](https://jira.northstar.invalid/browse/PLAT-043) (`Done`)
 - **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-069] (Automated database index maintenance and vacuuming schedule - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Staged canary rollout readiness check for [PLAT-043] (Tenant database connection pool isolation and query rate limits — Cross-service correlation ID propagation) in Platform Reliability & Governance.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Configured feature flag toggle and progressive traffic gates (0% synthetic -> 5% -> 25% -> 50% -> 100%) with automated rollback triggers.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+On-call SRE and workstream owner verified rollback runbook steps and alert routing.
 
 ---
 
-### [DOC-PLAT-20260728-27] Platform Reliability & Governance: Performance Benchmark Report #27 (2026-07-28)
-<a id="doc-plat-20260728-27"></a>
+### [DOC-PLAT-20260710-11] Platform Reliability & Governance: Performance Benchmark Report #11 (2026-07-10)
+<a id="doc-plat-20260710-11"></a>
 
-- **Document ID**: `DOC-PLAT-20260728-27`
-- **Date**: 2026-07-28
-- **Author**: Sebastian Martinez (`M-035`)
+- **Document ID**: `DOC-PLAT-20260710-11`
+- **Date**: 2026-07-10 (`2026-07-10T20:10:20+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: Evelyn Robinson (`M-036`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-066`](https://jira.northstar.invalid/browse/PLAT-066)
+- **Linked Issue**: [`PLAT-059`](https://jira.northstar.invalid/browse/PLAT-059) (`In Progress`)
 - **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-066] (Privacy-safe merchant data export complying with GDPR/CCPA - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Conducted load and latency profiling for [PLAT-059] (Canary deployment rollout configuration with health error gates — Database expand-contract migration script) in Platform Reliability & Governance under the pilot reference workload.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Measured p95 response times, connection pool saturation, and queue lag metrics on the staging telemetry dashboard.
 
 ---
 
-### [DOC-PLAT-20260729-28] Platform Reliability & Governance: Integration Review Notes #28 (2026-07-29)
-<a id="doc-plat-20260729-28"></a>
+### [DOC-PLAT-20260713-12] Platform Reliability & Governance: Sprint Planning Update #12 (2026-07-13)
+<a id="doc-plat-20260713-12"></a>
 
-- **Document ID**: `DOC-PLAT-20260729-28`
-- **Date**: 2026-07-29
-- **Author**: Alexander Thompson (`M-033`)
+- **Document ID**: `DOC-PLAT-20260713-12`
+- **Date**: 2026-07-13 (`2026-07-13T13:14:49+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Harper Garcia (`M-034`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-066`](https://jira.northstar.invalid/browse/PLAT-066)
-- **Record Type**: Integration Review Notes
+- **Linked Issue**: [`PLAT-052`](https://jira.northstar.invalid/browse/PLAT-052) (`Done`)
+- **Record Type**: Sprint Planning Update
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-066] (Privacy-safe merchant data export complying with GDPR/CCPA - Phase 6), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+During sprint backlog commitment on [PLAT-052] (Outbox event publishing with transactional exactly-once guarantees — Boundary value & currency minor-unit validation), the Platform Reliability & Governance squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Confirmed sprint scope and velocity guardrails. Unfinished items from prior closed iterations are formally tracked via sprint spillover transitions into the active sprint.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Backlog readiness verified with product owner and QA lead; test fixtures and correlation IDs linked in Jira.
 
 ---
 
-### [DOC-PLAT-20260729-29] Platform Reliability & Governance: Security Review Note #29 (2026-07-29)
-<a id="doc-plat-20260729-29"></a>
+### [DOC-PLAT-20260714-13] Platform Reliability & Governance: Feature Rollout Milestone #13 (2026-07-14)
+<a id="doc-plat-20260714-13"></a>
 
-- **Document ID**: `DOC-PLAT-20260729-29`
-- **Date**: 2026-07-29
-- **Author**: Alexander Thompson (`M-033`)
+- **Document ID**: `DOC-PLAT-20260714-13`
+- **Date**: 2026-07-14 (`2026-07-14T15:21:04+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Amara Okafor (`M-013`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-082`](https://jira.northstar.invalid/browse/PLAT-082)
-- **Record Type**: Security Review Note
+- **Linked Issue**: [`PLAT-045`](https://jira.northstar.invalid/browse/PLAT-045) (`In Review`)
+- **Record Type**: Feature Rollout Milestone
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-082] (Cross-tenant data leak prevention test suite on staging deployment - Phase 7), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Staged canary rollout readiness check for [PLAT-045] (Automated database index maintenance and vacuuming schedule — Merchant admin UI state & error boundary) in Platform Reliability & Governance.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Configured feature flag toggle and progressive traffic gates (0% synthetic -> 5% -> 25% -> 50% -> 100%) with automated rollback triggers.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+On-call SRE and workstream owner verified rollback runbook steps and alert routing.
 
 ---
 
-### [DOC-PLAT-20260730-30] Platform Reliability & Governance: Regression Test Summary #30 (2026-07-30)
-<a id="doc-plat-20260730-30"></a>
+### [DOC-PLAT-20260715-14] Platform Reliability & Governance: Performance Benchmark Report #14 (2026-07-15)
+<a id="doc-plat-20260715-14"></a>
 
-- **Document ID**: `DOC-PLAT-20260730-30`
-- **Date**: 2026-07-30
-- **Author**: Daniel Foster (`M-012`)
+- **Document ID**: `DOC-PLAT-20260715-14`
+- **Date**: 2026-07-15 (`2026-07-15T08:28:19+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Avery Chen (`M-001`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-079`](https://jira.northstar.invalid/browse/PLAT-079)
-- **Record Type**: Regression Test Summary
+- **Linked Issue**: [`PLAT-042`](https://jira.northstar.invalid/browse/PLAT-042) (`In Review`)
+- **Record Type**: Performance Benchmark Report
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-079] (Tenant database connection pool isolation and query rate limits - Phase 7), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+Conducted load and latency profiling for [PLAT-042] (Privacy-safe merchant data export complying with GDPR/CCPA — Security header & token scope hardening) in Platform Reliability & Governance under the pilot reference workload.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Tuned PostgreSQL composite indexes and Redis lock TTLs to keep p95 latency within the approved service-level objective.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Measured p95 response times, connection pool saturation, and queue lag metrics on the staging telemetry dashboard.
 
 ---
 
-### [DOC-PLAT-20260731-31] Platform Reliability & Governance: Integration Review Notes #31 (2026-07-31)
-<a id="doc-plat-20260731-31"></a>
+### [DOC-PLAT-20260715-15] Platform Reliability & Governance: Sprint Planning Update #15 (2026-07-15)
+<a id="doc-plat-20260715-15"></a>
 
-- **Document ID**: `DOC-PLAT-20260731-31`
-- **Date**: 2026-07-31
+- **Document ID**: `DOC-PLAT-20260715-15`
+- **Date**: 2026-07-15 (`2026-07-15T21:53:55+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
 - **Author**: Ryan Roberts (`M-060`)
 - **Project**: `NSC-PLAT`
 - **Scope**: `project`
 - **Classification**: `Internal`
 - **Access Groups**: `GRP-PLATFORM`
-- **Linked Issue**: [`PLAT-076`](https://jira.northstar.invalid/browse/PLAT-076)
-- **Record Type**: Integration Review Notes
+- **Linked Issue**: [`PLAT-058`](https://jira.northstar.invalid/browse/PLAT-058) (`Done`)
+- **Record Type**: Sprint Planning Update
 
 #### Context & Technical Objective
-During iteration delivery on [PLAT-076] (Outbox event publishing with transactional exactly-once guarantees - Phase 7), the Platform Reliability & Governance engineering team evaluated operational telemetry, merchant workflow constraints, and data integrity guarantees. Work focused on preventing regressions under multi-tenant isolation.
+During sprint backlog commitment on [PLAT-058] (Cross-tenant data leak prevention test suite on staging deployment — Timeout fallback & circuit breaker logic), the Platform Reliability & Governance squad decomposed acceptance criteria, story point capacity, and cross-service dependencies.
 
 #### Technical Decision & Invariants
-The team approved architecture changes aligning with platform standards. All data mutations enforce row-level tenant filters, and asynchronous event workers maintain exactly-once idempotency semantics. Storage interactions preserve backward compatibility with active database partitions.
+Confirmed sprint scope and velocity guardrails. Unfinished items from prior closed iterations are formally tracked via sprint spillover transitions into the active sprint.
 
 #### Verification & Evidence
-Automated test suites passed in CI against synthetic test fixtures. Metric spans and correlation headers are emitted for all endpoints, confirming zero tenant leakage and stable p95 response latencies.
+Backlog readiness verified with product owner and QA lead; test fixtures and correlation IDs linked in Jira.
+
+---
+
+### [DOC-PLAT-20260716-16] Platform Reliability & Governance: Incident Post-Mortem Action #16 (2026-07-16)
+<a id="doc-plat-20260716-16"></a>
+
+- **Document ID**: `DOC-PLAT-20260716-16`
+- **Date**: 2026-07-16 (`2026-07-16T11:00:27+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Evelyn Robinson (`M-036`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-052`](https://jira.northstar.invalid/browse/PLAT-052) (`Done`)
+- **Record Type**: Incident Post-Mortem Action
+
+#### Context & Technical Objective
+Follow-up remediation tracking for [PLAT-052] (Outbox event publishing with transactional exactly-once guarantees — Boundary value & currency minor-unit validation) in Platform Reliability & Governance after staging fault-injection and replay testing.
+
+#### Technical Decision & Invariants
+Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
+
+#### Verification & Evidence
+Crash-replay simulation added to continuous integration to prevent regression.
+
+---
+
+### [DOC-PLAT-20260717-17] Platform Reliability & Governance: Merchant Sync Decision #17 (2026-07-17)
+<a id="doc-plat-20260717-17"></a>
+
+- **Document ID**: `DOC-PLAT-20260717-17`
+- **Date**: 2026-07-17 (`2026-07-17T14:07:42+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Harper Garcia (`M-034`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-048`](https://jira.northstar.invalid/browse/PLAT-048) (`To Do`)
+- **Record Type**: Merchant Sync Decision
+
+#### Context & Technical Objective
+Reviewed Meridian Outfitters pilot integration requirements for [PLAT-048] (Secret rotation policies for third-party payment partner API keys — Load test benchmark & p95 latency profiling) with Platform Reliability & Governance engineering and merchant support.
+
+#### Technical Decision & Invariants
+Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
+
+#### Verification & Evidence
+Action items logged with merchant onboarding specialists and verified against tenant boundary checks.
+
+---
+
+### [DOC-PLAT-20260717-18] Platform Reliability & Governance: Architecture Decision Note #18 (2026-07-17)
+<a id="doc-plat-20260717-18"></a>
+
+- **Document ID**: `DOC-PLAT-20260717-18`
+- **Date**: 2026-07-17 (`2026-07-17T18:30:04+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: Amara Okafor (`M-013`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-064`](https://jira.northstar.invalid/browse/PLAT-064) (`Done`)
+- **Record Type**: Architecture Decision Note
+
+#### Context & Technical Objective
+Architectural review for [PLAT-064] (Outbox event publishing with transactional exactly-once guarantees — Event outbox deduplication & ordering) within Platform Reliability & Governance, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
+
+#### Technical Decision & Invariants
+Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
+
+#### Verification & Evidence
+Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validated by the tech lead.
+
+---
+
+### [DOC-PLAT-20260720-19] Platform Reliability & Governance: Incident Post-Mortem Action #19 (2026-07-20)
+<a id="doc-plat-20260720-19"></a>
+
+- **Document ID**: `DOC-PLAT-20260720-19`
+- **Date**: 2026-07-20 (`2026-07-20T18:47:41+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: Avery Chen (`M-001`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-058`](https://jira.northstar.invalid/browse/PLAT-058) (`Done`)
+- **Record Type**: Incident Post-Mortem Action
+
+#### Context & Technical Objective
+Follow-up remediation tracking for [PLAT-058] (Cross-tenant data leak prevention test suite on staging deployment — Timeout fallback & circuit breaker logic) in Platform Reliability & Governance after staging fault-injection and replay testing.
+
+#### Technical Decision & Invariants
+Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
+
+#### Verification & Evidence
+Crash-replay simulation added to continuous integration to prevent regression.
+
+---
+
+### [DOC-PLAT-20260721-20] Platform Reliability & Governance: Merchant Sync Decision #20 (2026-07-21)
+<a id="doc-plat-20260721-20"></a>
+
+- **Document ID**: `DOC-PLAT-20260721-20`
+- **Date**: 2026-07-21 (`2026-07-21T09:37:56+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Ryan Roberts (`M-060`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-057`](https://jira.northstar.invalid/browse/PLAT-057) (`Done`)
+- **Record Type**: Merchant Sync Decision
+
+#### Context & Technical Objective
+Reviewed Meridian Outfitters pilot integration requirements for [PLAT-057] (Automated database index maintenance and vacuuming schedule — Rate limiting & audit trail emission) with Platform Reliability & Governance engineering and merchant support.
+
+#### Technical Decision & Invariants
+Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
+
+#### Verification & Evidence
+Action items logged with merchant onboarding specialists and verified against tenant boundary checks.
+
+---
+
+### [DOC-PLAT-20260722-21] Platform Reliability & Governance: Architecture Decision Note #21 (2026-07-22)
+<a id="doc-plat-20260722-21"></a>
+
+- **Document ID**: `DOC-PLAT-20260722-21`
+- **Date**: 2026-07-22 (`2026-07-22T11:44:11+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Evelyn Robinson (`M-036`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-047`](https://jira.northstar.invalid/browse/PLAT-047) (`Done`)
+- **Record Type**: Architecture Decision Note
+
+#### Context & Technical Objective
+Architectural review for [PLAT-047] (Canary deployment rollout configuration with health error gates — Observability spans & SLO alert thresholds) within Platform Reliability & Governance, focusing on service ownership boundaries, failure compensation, and multi-tenant isolation.
+
+#### Technical Decision & Invariants
+Enforced strict tenant_id scoping at the repository layer and durable 72-hour idempotency keys for mutating operations.
+
+#### Verification & Evidence
+Design aligns with DOC-ORG-SDS-001; contract tests and sequence diagrams validated by the tech lead.
+
+---
+
+### [DOC-PLAT-20260722-22] Platform Reliability & Governance: Incident Post-Mortem Action #22 (2026-07-22)
+<a id="doc-plat-20260722-22"></a>
+
+- **Document ID**: `DOC-PLAT-20260722-22`
+- **Date**: 2026-07-22 (`2026-07-22T11:04:55+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Harper Garcia (`M-034`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-063`](https://jira.northstar.invalid/browse/PLAT-063) (`Done`)
+- **Record Type**: Incident Post-Mortem Action
+
+#### Context & Technical Objective
+Follow-up remediation tracking for [PLAT-063] (Document and resource group ACL filtering prior to vector retrieval — Role-based access control policy enforcement) in Platform Reliability & Governance after staging fault-injection and replay testing.
+
+#### Technical Decision & Invariants
+Added transactional outbox and unique inbox constraints so worker restarts or network retries cannot duplicate side effects.
+
+#### Verification & Evidence
+Crash-replay simulation added to continuous integration to prevent regression.
+
+---
+
+### [DOC-PLAT-20260723-23] Platform Reliability & Governance: Merchant Sync Decision #23 (2026-07-23)
+<a id="doc-plat-20260723-23"></a>
+
+- **Document ID**: `DOC-PLAT-20260723-23`
+- **Date**: 2026-07-23 (`2026-07-23T14:11:10+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Amara Okafor (`M-013`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-056`](https://jira.northstar.invalid/browse/PLAT-056) (`In Progress`)
+- **Record Type**: Merchant Sync Decision
+
+#### Context & Technical Objective
+Reviewed Meridian Outfitters pilot integration requirements for [PLAT-056] (Distributed tracing correlation IDs across all microservice requests — Idempotent retry & dead-letter telemetry) with Platform Reliability & Governance engineering and merchant support.
+
+#### Technical Decision & Invariants
+Confirmed tenant-isolated configuration rules, CSV batch error reporting, and SFTP nightly sync schedule at 02:00+07:00.
+
+#### Verification & Evidence
+Action items logged with merchant onboarding specialists and verified against tenant boundary checks.
+
+---
+
+### [DOC-PLAT-20260724-24] Platform Reliability & Governance: API Contract Revision #24 (2026-07-24)
+<a id="doc-plat-20260724-24"></a>
+
+- **Document ID**: `DOC-PLAT-20260724-24`
+- **Date**: 2026-07-24 (`2026-07-24T08:23:34+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Avery Chen (`M-001`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-057`](https://jira.northstar.invalid/browse/PLAT-057) (`Done`)
+- **Record Type**: API Contract Revision
+
+#### Context & Technical Objective
+Evaluated HTTP request/response payload schemas for [PLAT-057] (Automated database index maintenance and vacuuming schedule — Rate limiting & audit trail emission) in Platform Reliability & Governance to ensure backward compatibility and deterministic error codes.
+
+#### Technical Decision & Invariants
+Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
+
+#### Verification & Evidence
+API schema snapshot tested against staging-sim consumer stubs with zero breaking changes.
+
+---
+
+### [DOC-PLAT-20260727-25] Platform Reliability & Governance: Database Migration Checklist #25 (2026-07-27)
+<a id="doc-plat-20260727-25"></a>
+
+- **Document ID**: `DOC-PLAT-20260727-25`
+- **Date**: 2026-07-27 (`2026-07-27T10:30:49+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Ryan Roberts (`M-060`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-047`](https://jira.northstar.invalid/browse/PLAT-047) (`Done`)
+- **Record Type**: Database Migration Checklist
+
+#### Context & Technical Objective
+Database schema change verification for [PLAT-047] (Canary deployment rollout configuration with health error gates — Observability spans & SLO alert thresholds) managed by Platform Reliability & Governance.
+
+#### Technical Decision & Invariants
+Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
+
+#### Verification & Evidence
+Forward/down recovery notes and row-count reconciliation verified against isolated backup snapshot.
+
+---
+
+### [DOC-PLAT-20260727-26] Platform Reliability & Governance: Daily Standup & Blocker Log #26 (2026-07-27)
+<a id="doc-plat-20260727-26"></a>
+
+- **Document ID**: `DOC-PLAT-20260727-26`
+- **Date**: 2026-07-27 (`2026-07-27T10:46:33+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Evelyn Robinson (`M-036`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-063`](https://jira.northstar.invalid/browse/PLAT-063) (`Done`)
+- **Record Type**: Daily Standup & Blocker Log
+
+#### Context & Technical Objective
+Daily engineering standup checkpoint for Platform Reliability & Governance covering active work on [PLAT-063] (Document and resource group ACL filtering prior to vector retrieval — Role-based access control policy enforcement) (current ticket status: `Done`).
+
+#### Technical Decision & Invariants
+Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
+
+#### Verification & Evidence
+Updated Jira status transitions, blocker owners, and same-day escalation checkpoints.
+
+---
+
+### [DOC-PLAT-20260728-27] Platform Reliability & Governance: API Contract Revision #27 (2026-07-28)
+<a id="doc-plat-20260728-27"></a>
+
+- **Document ID**: `DOC-PLAT-20260728-27`
+- **Date**: 2026-07-28 (`2026-07-28T13:53:48+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Harper Garcia (`M-034`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-061`](https://jira.northstar.invalid/browse/PLAT-061) (`Done`)
+- **Record Type**: API Contract Revision
+
+#### Context & Technical Objective
+Evaluated HTTP request/response payload schemas for [PLAT-061] (Tenant-scoped API authentication permissions across gateway routes — Observability spans & SLO alert thresholds) in Platform Reliability & Governance to ensure backward compatibility and deterministic error codes.
+
+#### Technical Decision & Invariants
+Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
+
+#### Verification & Evidence
+API schema snapshot tested against staging-sim consumer stubs with zero breaking changes.
+
+---
+
+### [DOC-PLAT-20260729-28] Platform Reliability & Governance: Database Migration Checklist #28 (2026-07-29)
+<a id="doc-plat-20260729-28"></a>
+
+- **Document ID**: `DOC-PLAT-20260729-28`
+- **Date**: 2026-07-29 (`2026-07-29T15:04:03+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Amara Okafor (`M-013`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-054`](https://jira.northstar.invalid/browse/PLAT-054) (`Blocked`)
+- **Record Type**: Database Migration Checklist
+
+#### Context & Technical Objective
+Database schema change verification for [PLAT-054] (Privacy-safe merchant data export complying with GDPR/CCPA — Operational runbook & support diagnostics) managed by Platform Reliability & Governance.
+
+#### Technical Decision & Invariants
+Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
+
+#### Verification & Evidence
+Forward/down recovery notes and row-count reconciliation verified against isolated backup snapshot.
+
+---
+
+### [DOC-PLAT-20260729-29] Platform Reliability & Governance: Daily Standup & Blocker Log #29 (2026-07-29)
+<a id="doc-plat-20260729-29"></a>
+
+- **Document ID**: `DOC-PLAT-20260729-29`
+- **Date**: 2026-07-29 (`2026-07-29T17:37:23+07:00`)
+- **Work Shift**: Evening Overtime (17:00–22:00+07:00)
+- **Author**: Avery Chen (`M-001`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-070`](https://jira.northstar.invalid/browse/PLAT-070) (`In Progress`)
+- **Record Type**: Daily Standup & Blocker Log
+
+#### Context & Technical Objective
+Daily engineering standup checkpoint for Platform Reliability & Governance covering active work on [PLAT-070] (Cross-tenant data leak prevention test suite on staging deployment — Multi-tenant isolation & negative permission checks) (current ticket status: `In Progress`).
+
+#### Technical Decision & Invariants
+Reviewed upstream sandbox dependencies, PR review queue, and evening overtime (17:00–22:00+07:00) handoffs during sprint crunch.
+
+#### Verification & Evidence
+Updated Jira status transitions, blocker owners, and same-day escalation checkpoints.
+
+---
+
+### [DOC-PLAT-20260730-30] Platform Reliability & Governance: API Contract Revision #30 (2026-07-30)
+<a id="doc-plat-20260730-30"></a>
+
+- **Document ID**: `DOC-PLAT-20260730-30`
+- **Date**: 2026-07-30 (`2026-07-30T08:27:02+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Ryan Roberts (`M-060`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-065`](https://jira.northstar.invalid/browse/PLAT-065) (`In Review`)
+- **Record Type**: API Contract Revision
+
+#### Context & Technical Objective
+Evaluated HTTP request/response payload schemas for [PLAT-065] (Checkout and payment service SLO dashboard with automated alerting — Zero-downtime deployment readiness gate) in Platform Reliability & Governance to ensure backward compatibility and deterministic error codes.
+
+#### Technical Decision & Invariants
+Standardized monetary fields to integer minor currency units alongside ISO 4217 currency codes; added explicit HTTP 409 conflict and HTTP 422 field validation responses.
+
+#### Verification & Evidence
+API schema snapshot tested against staging-sim consumer stubs with zero breaking changes.
+
+---
+
+### [DOC-PLAT-20260731-31] Platform Reliability & Governance: Database Migration Checklist #31 (2026-07-31)
+<a id="doc-plat-20260731-31"></a>
+
+- **Document ID**: `DOC-PLAT-20260731-31`
+- **Date**: 2026-07-31 (`2026-07-31T10:34:17+07:00`)
+- **Work Shift**: Regular Business Hours (08:00–17:00+07:00)
+- **Author**: Evelyn Robinson (`M-036`)
+- **Project**: `NSC-PLAT`
+- **Scope**: `project`
+- **Classification**: `Internal`
+- **Access Groups**: `GRP-PLATFORM`
+- **Linked Issue**: [`PLAT-060`](https://jira.northstar.invalid/browse/PLAT-060) (`Done`)
+- **Record Type**: Database Migration Checklist
+
+#### Context & Technical Objective
+Database schema change verification for [PLAT-060] (Secret rotation policies for third-party payment partner API keys — Edge-case race condition remediation) managed by Platform Reliability & Governance.
+
+#### Technical Decision & Invariants
+Applied expand/contract migration sequencing: nullable/default columns and concurrent indexes deployed ahead of application readers/writers.
+
+#### Verification & Evidence
+Forward/down recovery notes and row-count reconciliation verified against isolated backup snapshot.
 
 ---
