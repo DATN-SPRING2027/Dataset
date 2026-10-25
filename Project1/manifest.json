@@ -1,6 +1,6 @@
 {
   "dataset_id": "northstar-commerce-demo-v1",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "as_of_date": "2026-10-12",
   "simulation_window": {
     "start": "2026-04-16",
@@ -42,30 +42,35 @@
     "requirements": 74,
     "functional_test_cases": 84,
     "test_execution_results": 84,
-    "physical_files_in_v1": 153,
-    "physical_files_total_dataset": 153,
+    "work_tasks": 48,
+    "task_notes": 48,
+    "document_review_events": 58,
+    "work_reports": 8,
+    "physical_files_in_v1": 159,
+    "physical_files_total_dataset": 159,
     "physical_breakdown": {
       "markdown_bundles": 56,
       "docx_canonical_sources": 10,
       "docx_renditions": 8,
       "markdown_formal_sources": 43,
       "fixtures_and_attachments": 9,
-      "structured_jsonl": 15,
-      "evaluation_jsonl": 6,
+      "structured_jsonl": 19,
+      "evaluation_jsonl": 7,
       "documentation_and_catalog": 4,
-      "generator_tools": 2
+      "generator_tools": 3
     },
     "evaluation_cases": {
-      "total": 158,
+      "total": 179,
       "functional_cases": 84,
       "rag_cases": 34,
       "acl_cases": 30,
       "analytics_cases": 20,
       "progress_cases": 19,
       "ingestion_cases": 19,
-      "edge_scenarios": 36
+      "edge_scenarios": 36,
+      "workflow_cases": 21
     },
-    "file_inventory_entries": 152
+    "file_inventory_entries": 158
   },
   "packaging_model": "Canonical Markdown with linked DOCX renditions and project-month bundles (Project1 package remains below 160 physical files)",
   "primary_formats": [
@@ -87,18 +92,19 @@
     "Synthetic data only; email domains use example.invalid.",
     "Daily updates are packaged into 56 project-month Markdown bundles; 1,434 canonical logical documents are registered, with DOCX renditions linked by canonical_document_id.",
     "Evaluation answer keys are stored separately from functional test cases and must not be indexed in the demo retrieval namespace.",
+    "Task Notes are confirmed work records, not official knowledge; Document and Work Report eligibility requires approval and an ingestion consumer not present in this repository.",
     "No proprietary or actual Bagisto source code is copied."
   ],
   "file_inventory": [
     {
       "path": "00_START_HERE.md",
-      "size_bytes": 6922,
-      "sha256": "729549db86002a4d89dae21668dffc10cf99dc4570d58f139a8a4f8a66706071"
+      "size_bytes": 7537,
+      "sha256": "5c882e1ddf50bdb1a2a413024c9562354b21f4db9fbada3faa80140fd04ea6aa"
     },
     {
       "path": "Dataset_Catalog.xlsx",
-      "size_bytes": 5701907,
-      "sha256": "6198ff2052ebbad47e8356d5feea9d7213200a3f4c196d2269d0dc9de593c831"
+      "size_bytes": 5839278,
+      "sha256": "d82878007f557f62f39bab0636a28972cac598f5ffd877cbbf4f69dd461e3aea"
     },
     {
       "path": "documents/docx/API_Specification.docx",
@@ -716,6 +722,11 @@
       "sha256": "68507bcd8658ee802e6962f5b4886790fca00bdcff239fa50cee7850e6315442"
     },
     {
+      "path": "evaluation/workflow_cases.jsonl",
+      "size_bytes": 9464,
+      "sha256": "72c6e5be83740008773ba45c417aab23508eddb036c44612a9557f4995e0f0f3"
+    },
+    {
       "path": "fixtures/attachments/payment_webhook_sample.csv",
       "size_bytes": 274,
       "sha256": "d0702c8842e2afd5f38ccea38c730800a34ce2510be3060e3d2652737b49ea5d"
@@ -762,8 +773,8 @@
     },
     {
       "path": "INGESTION_CONTRACT.md",
-      "size_bytes": 8349,
-      "sha256": "6d5a7f2be1a2fa2954cb71e94d699d7efaa50651e4d7ebc305dc2b3b12adf1e2"
+      "size_bytes": 10097,
+      "sha256": "95ad6d8fc4975b685a059dbdf942c29e1523d6ed84c5857fb178f66879dc1515"
     },
     {
       "path": "structured/access_groups.jsonl",
@@ -774,6 +785,11 @@
       "path": "structured/departments.jsonl",
       "size_bytes": 1087,
       "sha256": "cd666ef7c0ba7c516f07aa2462433c6e5abad5ad4f18a5349ee43f9dbd4e60bf"
+    },
+    {
+      "path": "structured/document_reviews.jsonl",
+      "size_bytes": 15995,
+      "sha256": "1ce5eb8416593cca7b088dbd42b6d0830c2eae3d23443ed450e2101b7f0ba3d3"
     },
     {
       "path": "structured/documents.jsonl",
@@ -836,9 +852,24 @@
       "sha256": "034fcb74321032564ad050feb0fc022109d8da35c754bf250e7bdd935243f479"
     },
     {
+      "path": "structured/task_notes.jsonl",
+      "size_bytes": 42350,
+      "sha256": "9c6f1bf976fa243326138251b9f6fffda89562c6f0f4136071a382b55baebf45"
+    },
+    {
       "path": "structured/test_execution_results.jsonl",
       "size_bytes": 43204,
       "sha256": "52f5fdcf0d79a2b924f9d2da6d56878d3a141acf200a8b7b2cfb3dbc38082d9e"
+    },
+    {
+      "path": "structured/work_reports.jsonl",
+      "size_bytes": 9825,
+      "sha256": "c96c0cd2194b589155b04b79399eadcfb57ac65b108210f5928c8ecb6920952a"
+    },
+    {
+      "path": "structured/work_tasks.jsonl",
+      "size_bytes": 40367,
+      "sha256": "85e4a30ba6475b855b98b195eff777e92c24e8bd5d3e37dcc93ffe403563873e"
     },
     {
       "path": "tools/completion_specs.py",
@@ -847,8 +878,13 @@
     },
     {
       "path": "tools/generate_v1.py",
-      "size_bytes": 261624,
-      "sha256": "ada128aff535b66ef861a5be6b8e50c7b7bbe798ca524df73b1e71018f1828cb"
+      "size_bytes": 270718,
+      "sha256": "1ea0088991c8abd27ca837b0f9215d87b190731657ae0eaea445b95a1e149b68"
+    },
+    {
+      "path": "tools/workflows_v13.py",
+      "size_bytes": 26402,
+      "sha256": "37dc2fd0819147d6bf73f36896376e8cff6fd9714ca632c9023b7e06820242d3"
     }
   ]
 }

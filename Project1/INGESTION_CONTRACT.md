@@ -1,4 +1,4 @@
-# Ingestion Contract — Northstar Commerce Dataset v1.2
+# Ingestion Contract — Northstar Commerce Dataset v1.3
 
 ## 1. Định dạng nội dung, Lịch làm việc & Quy cách đóng gói
 - **Canonical Content Formats**: Markdown (.md) và Word (.docx).
@@ -46,5 +46,14 @@
 - Inventory được sắp xếp theo đường dẫn và bao gồm toàn bộ file trong package `Project1`, ngoại trừ chính `manifest.json` để tránh checksum tự tham chiếu. `physical_files_in_v1` vẫn tính cả manifest.
 
 ## 7. Namespace và dữ liệu test
-- Nạp `evaluation/` (158 test cases) vào namespace benchmark riêng; không đưa gold answer, expected value hoặc expected ACL decision vào index demo.
+- Nạp `evaluation/` (179 test cases) vào namespace benchmark riêng; không đưa gold answer, expected value hoặc expected ACL decision vào index demo.
 - `fixtures/` chứa test-only duplicate, thiếu metadata, broken link, timestamp/policy conflict, cross-tenant canary, offboarded author và attachment.
+
+## 8. Work Task, Task Note và vòng đời review (v1.3)
+- `structured/work_tasks.jsonl` có 48 Work Task synthetic; `task_id` là định danh 24 hex ổn định cho benchmark, **không phải ID MongoDB đang tồn tại**. `source_issue_key` ánh xạ về Jira-like issue; không nạp đè `issues.jsonl`.
+- `structured/task_notes.jsonl` có 48 ghi nhận công việc trỏ đến `task_id` cùng project. `TASK_NOTE` luôn `CONFIRMED` nhưng `knowledge_eligible=false`: không đưa note vào index tri thức chính thức.
+- `structured/document_reviews.jsonl` có 58 event review. Chỉ phiên bản `APPROVED` mới đủ điều kiện làm nguồn; bản `DRAFT_SAVED` tiếp theo không thay thế phiên bản đã duyệt. Đây là dữ liệu mô phỏng, không phải event outbox runtime.
+- Fixture `FIX-CONFLICT-POLICY` là test-only và có event `ARCHIVED`; nó không trở thành nguồn chính thức. ADR cũ `DOC-PAY-ADR-001` vẫn mang trạng thái legacy `Superseded`, không bị giả lập thành một sự kiện review hợp lệ vì tác giả không có Project Membership trong NSC-PAY.
+- `structured/work_reports.jsonl` có 8 báo cáo kỳ với `document_ids` và `source_task_ids` làm provenance. `source_task_ids` là metadata dataset, không nằm trong DTO Work Report của ứng dụng.
+- `evaluation/workflow_cases.jsonl` có 21 ca gold theo kênh `workspace`, `access` và `knowledge`; chỉ dùng trong namespace evaluation. Không khẳng định AI ingestion runtime hiện đã tiêu thụ Work Note events.
+- Kiểm tra project/tenant membership trước khi trả tiêu đề, snippet hoặc tín hiệu tồn tại; thành viên đã offboard không có quyền hiện tại.

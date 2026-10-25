@@ -1,6 +1,6 @@
 # Kế hoạch đề xuất: Dataset Project1 cho Work Task và Work Note (v1.3)
 
-**Trạng thái:** Chờ Thang duyệt. Tài liệu này là kế hoạch, chưa cho phép chạy generator hay thay dữ liệu.
+**Trạng thái:** Thang đã duyệt và đã triển khai trên nhánh `feat/Thang-dataset-work-task-note-db`.
 
 ## 1. Mục tiêu và phạm vi
 
@@ -88,3 +88,14 @@ Chỉ sau khi xử lý 10 tệp phát sinh ở T0, năm tệp mới mới đưa 
 ## 7. Điểm duyệt của Thang
 
 Phê duyệt kế hoạch này đồng nghĩa cho phép bắt đầu triển khai **trong repo Dataset trên nhánh task riêng** theo phạm vi ở §1–5, gồm việc di chuyển 10 artifact parse **chỉ khi** xác minh được không làm gãy tham chiếu. Mọi nhu cầu seed DB, sửa API/UI hoặc mở rộng sang repo khác sẽ có kế hoạch và nhánh/PR riêng.
+
+## 8. Kết quả triển khai
+
+- Chuyển nguyên nội dung 10 Markdown parse DOCX sang `RetrievalCI_Bench_v0_2026/examples/project1_parsed_docx/` sau khi xác minh không có tham chiếu trong source Dataset. `Project1` hiện có 159 file, manifest kiểm kê đủ 158 file còn lại.
+- Sinh 48 Work Task, 48 Task Note, 58 document review events, 8 Work Report và 21 workflow evaluation cases. Tổng evaluation tăng từ 158 lên 179; 2.500 issue và 1.434 logical document giữ nguyên.
+- Có hai LEADER report; APPROVED, CHANGES_REQUESTED và REJECTED đều được phủ. Task Note và report chưa duyệt không đủ điều kiện làm nguồn tri thức.
+- Generator tự kiểm định đạt; 8 unit tests cho liên kết, ACL, reviewer, eligibility và tính tái lập đạt. Excel có bốn tab workflow mới, số dòng khớp JSONL.
+- Chạy generator thêm một lần và so SHA-256 của 5 JSONL mới, Excel và manifest: cả 7 output giống hệt từng byte. Không có thay đổi nội dung ở các JSONL v1.2 hiện hữu.
+- Giới hạn đã xác nhận: dữ liệu cũ gán `DOC-PAY-ADR-001` cho M-018 dù M-018 không có Project Membership tại NSC-PAY. Không thêm review event giả cho tài liệu này; ca evaluation chỉ kiểm tra trạng thái legacy `Superseded`. Fixture test-only `FIX-CONFLICT-POLICY` dùng để kiểm tra event `ARCHIVED`.
+- RetrievalCI Bench `tests/test_project.py` chạy trên Windows còn lỗi đường dẫn dấu gạch chéo (`str(tmp_path.resolve())` khác `repo_root`), không liên quan tới việc chuyển artifact và không sửa test để che lỗi.
+- Không có `ruff` trong môi trường Python hiện tại; không cài thêm package chỉ để kiểm tra thay đổi nhỏ này.
