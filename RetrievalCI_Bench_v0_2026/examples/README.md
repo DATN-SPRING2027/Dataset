@@ -12,6 +12,9 @@ more informative than a one-row smoke test.
 - `third_party/wixqa/`: bundled WixQA fixture in RetrievalCI format.
 - `third_party/enterprise_rag_bench_github/`: bundled EnterpriseRAG-Bench
   GitHub-source fixture in RetrievalCI format.
+- `project1_parsed_docx/`: derived Markdown parses of ten synthetic Project1
+  DOCX documents. These are benchmark examples, not canonical Project1 package
+  files; ingest the canonical DOCX once when evaluating Project1.
 
 Run it with:
 

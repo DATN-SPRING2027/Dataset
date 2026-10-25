@@ -24,6 +24,7 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
 import completion_specs as completion
+from workflows_v13 import build_workflows, reconcile_document_snapshots, validate_workflows
 
 # -------------------------------------------------------------
 # Configuration & Constants (Phase 1: Deterministic & Reproducible)
@@ -2180,7 +2181,7 @@ for s in md_specs: write_formal_markdown(s)
     encoding="utf-8"
 )
 (ROOT / "fixtures" / "conflicting_policy.md").write_text(
-    "---\ndocument_id: \"FIX-CONFLICT-POLICY\"\ntitle: \"Legacy Return Policy Conflict Fixture\"\nproject_id: \"NSC-ORD\"\norganization_id: \"ORG-NSC\"\nscope: \"fixture\"\nowner_id: \"M-008\"\nversion: \"0.9\"\nstatus: \"Superseded\"\nclassification: \"Internal\"\naccess_groups: [\"GRP-ALL-STAFF\"]\ntest_only: true\n---\n\nTEST FIXTURE ONLY. This legacy excerpt incorrectly states a 14-calendar-day return window. It is intentionally inconsistent with approved DOC-ORD-POL-005, which governs the Meridian pilot and allows 30 calendar days after delivery. Do not use this fixture as active policy.\n",
+    "---\ndocument_id: \"FIX-CONFLICT-POLICY\"\ntitle: \"Legacy Return Policy Conflict Fixture\"\nproject_id: \"NSC-ORD\"\norganization_id: \"ORG-NSC\"\nscope: \"fixture\"\nowner_id: \"M-008\"\nversion: \"0.9\"\nstatus: \"Archived\"\nclassification: \"Internal\"\naccess_groups: [\"GRP-ALL-STAFF\"]\ntest_only: true\n---\n\nTEST FIXTURE ONLY. This legacy excerpt incorrectly states a 14-calendar-day return window. It is intentionally inconsistent with approved DOC-ORD-POL-005, which governs the Meridian pilot and allows 30 calendar days after delivery. Do not use this fixture as active policy.\n",
     encoding="utf-8"
 )
 (ROOT / "fixtures" / "cross_tenant_probe.md").write_text(
@@ -2198,7 +2199,7 @@ registered_fixtures = [
     {"id": "FIX-BROKEN-LINK", "file": "fixtures/broken_link.md", "title": "Broken Link Reference Fixture", "project_id": "NSC-PLAT", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-009", "date": "2026-07-31", "version": "1.0", "status": "Approved", "class": "Internal", "groups": ["GRP-ALL-STAFF"], "issues": [], "format": "markdown"},
     {"id": "FIX-CONFLICT-TIME", "file": "fixtures/conflicting_timestamp.md", "title": "Conflicting Timestamp Fixture", "project_id": "NSC-PAY", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-006", "date": "2026-10-09", "version": "0.9", "status": "Draft", "class": "Internal", "groups": ["GRP-PAYMENT"], "issues": [], "format": "markdown"},
     {"id": "FIX-ORPHAN-ISSUE", "file": "fixtures/orphan_issue_reference.md", "title": "Orphan Jira Reference Fixture", "project_id": "NSC-CAT", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-003", "date": "2026-06-15", "version": "1.0", "status": "Approved", "class": "Internal", "groups": ["GRP-CATALOG"], "issues": ["NONEXISTENT-999"], "format": "markdown"},
-    {"id": "FIX-CONFLICT-POLICY", "file": "fixtures/conflicting_policy.md", "title": "Legacy Return Policy Conflict Fixture", "project_id": "NSC-ORD", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-008", "date": "2026-05-04", "version": "0.9", "status": "Superseded", "class": "Internal", "groups": ["GRP-ALL-STAFF"], "issues": ["ORD-001"], "format": "markdown"},
+    {"id": "FIX-CONFLICT-POLICY", "file": "fixtures/conflicting_policy.md", "title": "Legacy Return Policy Conflict Fixture", "project_id": "NSC-ORD", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-008", "date": "2026-05-04", "version": "0.9", "status": "Archived", "class": "Internal", "groups": ["GRP-ALL-STAFF"], "issues": ["ORD-001"], "format": "markdown"},
     {"id": "FIX-CROSS-TENANT", "file": "fixtures/cross_tenant_probe.md", "title": "Meridian Tenant Isolation Probe", "project_id": None, "org_id": "ORG-MERIDIAN", "scope": "fixture", "owner": "M-064", "date": "2026-10-12", "version": "1.0", "status": "Draft", "class": "Customer Restricted", "groups": ["GRP-MERIDIAN"], "issues": [], "format": "markdown"},
     {"id": "FIX-OFFBOARDING-AUTHOR", "file": "fixtures/offboarded_owner.md", "title": "Historical Note by Offboarded Engineer", "project_id": "NSC-CAT", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-018", "date": "2026-07-01", "version": "1.0", "status": "Approved", "class": "Internal", "groups": ["GRP-CATALOG"], "issues": ["CAT-001"], "format": "markdown"}
 ]
@@ -2539,7 +2540,7 @@ for f_idx, f in enumerate(registered_fixtures):
         "access_groups": f["groups"], "source_issue_keys": f["issues"],
         "file_path": f["file"], "section_anchor": None, "content_sha256": file_hash(p_path),
         "format": f["format"], "canonical_url": f"https://docs.northstar.invalid/fixtures/{f['id'].lower()}",
-        "is_current": f["status"] != "Superseded", "supersedes": [], "superseded_by": None,
+        "is_current": f["status"] not in ("Superseded", "Archived"), "supersedes": [], "superseded_by": None,
         "document_role": "test_fixture", "test_only": True, "synthetic": True
     })
 
@@ -2563,10 +2564,22 @@ write_jsonl("structured/sprints.jsonl", sprints)  # Phase 5: Sprints
 write_jsonl("structured/issues.jsonl", issues)
 write_jsonl("structured/issue_comments.jsonl", comments)
 write_jsonl("structured/issue_changelog.jsonl", changelog)
-write_jsonl("structured/documents.jsonl", canonical_documents)
 write_jsonl("structured/requirements.jsonl", requirement_records)
 write_jsonl("structured/functional_test_cases.jsonl", functional_test_cases)
 write_jsonl("structured/test_execution_results.jsonl", test_execution_results)
+work_tasks, task_notes, document_reviews, work_reports, workflow_cases = build_workflows(
+    issues, canonical_documents, members, project_memberships, projects, VN_HOLIDAYS, TODAY.isoformat()
+)
+canonical_documents = reconcile_document_snapshots(canonical_documents, document_reviews)
+validate_workflows(
+    work_tasks, task_notes, document_reviews, work_reports, workflow_cases,
+    issues, canonical_documents, members, project_memberships, TODAY.isoformat()
+)
+write_jsonl("structured/documents.jsonl", canonical_documents)
+write_jsonl("structured/work_tasks.jsonl", work_tasks)
+write_jsonl("structured/task_notes.jsonl", task_notes)
+write_jsonl("structured/document_reviews.jsonl", document_reviews)
+write_jsonl("structured/work_reports.jsonl", work_reports)
 print("Wrote all structured entities, requirements, functional tests, and execution results.")
 
 # -------------------------------------------------------------
@@ -2770,9 +2783,10 @@ write_jsonl("evaluation/analytics_cases.jsonl", analytics_cases)
 write_jsonl("evaluation/progress_cases.jsonl", progress_cases)
 write_jsonl("evaluation/ingestion_cases.jsonl", ingestion_cases)
 write_jsonl("evaluation/edge_case_matrix.jsonl", edge_cases)
+write_jsonl("evaluation/workflow_cases.jsonl", workflow_cases)
 
-total_eval_cases = len(rag_cases) + len(acl_cases) + len(analytics_cases) + len(progress_cases) + len(ingestion_cases) + len(edge_cases)
-assert total_eval_cases == 158, f"Expected 158 eval cases, got {total_eval_cases}"
+total_eval_cases = len(rag_cases) + len(acl_cases) + len(analytics_cases) + len(progress_cases) + len(ingestion_cases) + len(edge_cases) + len(workflow_cases)
+assert total_eval_cases == 179, f"Expected 179 eval cases, got {total_eval_cases}"
 
 # -------------------------------------------------------------
 # 12. Create Excel Catalog (Dataset_Catalog.xlsx) (Phase 7: Sprints tab added)
@@ -2804,7 +2818,7 @@ ws_over = wb.active
 ws_over.title = "Overview"
 ws_over.views.sheetView[0].showGridLines = True
 
-ws_over.cell(2, 2, "Northstar Commerce — Enterprise Synthetic Dataset Catalog (v1.2)").font = font_title
+ws_over.cell(2, 2, "Northstar Commerce — Enterprise Synthetic Dataset Catalog (v1.3)").font = font_title
 ws_over.cell(3, 2, f"Snapshot Date: {TODAY.isoformat()}  •  180-Day Window ({START.isoformat()} to {TODAY.isoformat()}, {TOTAL_WORKING_DAYS} Working Days + 5 VN Holidays, UTC+07:00 & Overtime 17:00-22:00)").font = font_subtitle
 
 ws_over.merge_cells("B5:K5")
@@ -2943,7 +2957,7 @@ ws_mem.auto_filter.ref = f"A1:{get_column_letter(len(mem_cols))}{len(members)+1}
 
 # Tab 8: RAG, ACL, ingestion, progress, and analytics evaluation cases
 ws_tc = wb.create_sheet(title="Evaluation Cases"); ws_tc.views.sheetView[0].showGridLines = True
-tc_cols = ["case_id", "suite", "scenario_or_query", "expected_result", "source_or_reason", "tags"]
+tc_cols = ["case_id", "suite", "scenario_or_query", "expected_result", "source_or_reason", "target_resource_ids", "must_not_cite", "tags"]
 for c_idx, col in enumerate(tc_cols, 1):
     c = ws_tc.cell(1, c_idx, col); c.font = font_header; c.fill = fill_header; c.alignment = align_center
 
@@ -2960,6 +2974,8 @@ for c in ingestion_cases:
     all_eval_flat.append({"case_id": c["case_id"], "suite": "Ingestion", "scenario_or_query": c["scenario"], "expected_result": c["expected"], "source_or_reason": c["fixture"], "tags": ", ".join(c["tags"])})
 for c in edge_cases:
     all_eval_flat.append({"case_id": c["scenario_id"], "suite": "EdgeCase", "scenario_or_query": c["case"], "expected_result": c["expected"], "source_or_reason": c["category"], "tags": f"edge_case, {c['category']}"})
+for c in workflow_cases:
+    all_eval_flat.append({"case_id": c["case_id"], "suite": c["suite"], "scenario_or_query": c["query"], "expected_result": c["expected"], "source_or_reason": ", ".join(c["source_ids"]), "target_resource_ids": ", ".join(c["target_resource_ids"]), "must_not_cite": ", ".join(c["must_not_cite"]), "tags": ", ".join(c["tags"])})
 
 for r_idx, tc in enumerate(all_eval_flat, 2):
     for c_idx, col in enumerate(tc_cols, 1):
@@ -2989,7 +3005,29 @@ for r_idx, case in enumerate(functional_test_cases, 2):
 ws_ft.freeze_panes = "A2"
 ws_ft.auto_filter.ref = f"A1:{get_column_letter(len(ft_cols))}{len(functional_test_cases)+1}"
 
-for ws in [ws_over, ws_org, ws_proj, ws_sp, ws_docs, ws_iss, ws_mem, ws_tc, ws_ft]:
+workflow_sheets = []
+for sheet_name, rows, columns in [
+    ("Work Tasks", work_tasks, ["task_id", "key", "project_id", "source_issue_key", "type", "status", "priority", "assignee_id", "sprint_id", "title"]),
+    ("Task Notes", task_notes, ["note_id", "task_id", "project_id", "author_id", "title", "accomplishments", "approach", "reason", "created_at"]),
+    ("Document Reviews", document_reviews, ["event_id", "document_id", "version", "project_id", "action", "actor_id", "at"]),
+    ("Work Reports", work_reports, ["report_id", "project_id", "member_id", "period_start", "period_end", "status", "document_ids", "source_task_ids", "reviewed_by"]),
+]:
+    sheet = wb.create_sheet(title=sheet_name)
+    workflow_sheets.append(sheet)
+    sheet.views.sheetView[0].showGridLines = True
+    for col_idx, column in enumerate(columns, 1):
+        cell = sheet.cell(1, col_idx, column); cell.font = font_header; cell.fill = fill_header
+    for row_idx, record in enumerate(rows, 2):
+        for col_idx, column in enumerate(columns, 1):
+            value = record.get(column)
+            if isinstance(value, list): value = ", ".join(str(item) for item in value)
+            cell = sheet.cell(row_idx, col_idx, str(value) if value is not None else "")
+            cell.font = font_cell
+            if row_idx % 2 == 1: cell.fill = fill_zebra
+    sheet.freeze_panes = "A2"
+    sheet.auto_filter.ref = f"A1:{get_column_letter(len(columns))}{len(rows)+1}"
+
+for ws in [ws_over, ws_org, ws_proj, ws_sp, ws_docs, ws_iss, ws_mem, ws_tc, ws_ft, *workflow_sheets]:
     for col in ws.columns:
         col_letter = get_column_letter(col[0].column)
         if ws == ws_over:
@@ -3008,7 +3046,7 @@ print(f"Created professional filterable workbook at {excel_path}.")
 # -------------------------------------------------------------
 manifest = {
     "dataset_id": "northstar-commerce-demo-v1",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "as_of_date": TODAY.isoformat(),
     "simulation_window": {
         "start": START.isoformat(),
@@ -3050,6 +3088,10 @@ manifest = {
         "requirements": len(requirement_records),
         "functional_test_cases": len(functional_test_cases),
         "test_execution_results": len(test_execution_results),
+        "work_tasks": len(work_tasks),
+        "task_notes": len(task_notes),
+        "document_review_events": len(document_reviews),
+        "work_reports": len(work_reports),
         "physical_files_in_v1": physical_package_count,
         "physical_files_total_dataset": physical_package_count,
         "physical_breakdown": {
@@ -3071,7 +3113,8 @@ manifest = {
             "analytics_cases": len(analytics_cases),
             "progress_cases": len(progress_cases),
             "ingestion_cases": len(ingestion_cases),
-            "edge_scenarios": len(edge_cases)
+            "edge_scenarios": len(edge_cases),
+            "workflow_cases": len(workflow_cases)
         }
     },
     "packaging_model": "Canonical Markdown with linked DOCX renditions and project-month bundles (Project1 package remains below 160 physical files)",
@@ -3088,11 +3131,12 @@ manifest = {
         "Synthetic data only; email domains use example.invalid.",
         f"Daily updates are packaged into 56 project-month Markdown bundles; {len(canonical_documents):,} canonical logical documents are registered, with DOCX renditions linked by canonical_document_id.",
         "Evaluation answer keys are stored separately from functional test cases and must not be indexed in the demo retrieval namespace.",
+        "Task Notes are confirmed work records, not official knowledge; Document and Work Report eligibility requires approval and an ingestion consumer not present in this repository.",
         "No proprietary or actual Bagisto source code is copied."
     ]
 }
 
-ingestion_contract_text = f"""# Ingestion Contract — Northstar Commerce Dataset v1.2
+ingestion_contract_text = f"""# Ingestion Contract — Northstar Commerce Dataset v1.3
 
 ## 1. Định dạng nội dung, Lịch làm việc & Quy cách đóng gói
 - **Canonical Content Formats**: Markdown (.md) và Word (.docx).
@@ -3142,10 +3186,21 @@ ingestion_contract_text = f"""# Ingestion Contract — Northstar Commerce Datase
 ## 7. Namespace và dữ liệu test
 - Nạp `evaluation/` ({total_eval_cases} test cases) vào namespace benchmark riêng; không đưa gold answer, expected value hoặc expected ACL decision vào index demo.
 - `fixtures/` chứa test-only duplicate, thiếu metadata, broken link, timestamp/policy conflict, cross-tenant canary, offboarded author và attachment.
+
+## 8. Work Task, Task Note và vòng đời review (v1.3)
+- `structured/work_tasks.jsonl` có {len(work_tasks)} Work Task synthetic; `task_id` là định danh 24 hex ổn định cho benchmark, **không phải ID MongoDB đang tồn tại**. `source_issue_key` ánh xạ về Jira-like issue; không nạp đè `issues.jsonl`.
+- `structured/task_notes.jsonl` có {len(task_notes)} ghi nhận công việc trỏ đến `task_id` cùng project. `TASK_NOTE` luôn `CONFIRMED` nhưng `knowledge_eligible=false`: không đưa note vào index tri thức chính thức.
+- `structured/document_reviews.jsonl` có {len(document_reviews)} event review. Chỉ phiên bản `APPROVED` mới đủ điều kiện làm nguồn; bản `DRAFT_SAVED` tiếp theo không thay thế phiên bản đã duyệt. Đây là dữ liệu mô phỏng, không phải event outbox runtime.
+- `structured/documents.jsonl` là snapshot tại `as_of_date`: `recorded_at` giữ mốc ghi nội dung; `updated_at` không sớm hơn event review cuối cùng và `status` phản ánh sự kiện duyệt/lưu trữ cuối cùng của tài liệu.
+- Fixture `FIX-CONFLICT-POLICY` là test-only và có event `ARCHIVED`; nó không trở thành nguồn chính thức. ADR cũ `DOC-PAY-ADR-001` vẫn mang trạng thái legacy `Superseded`, không bị giả lập thành một sự kiện review hợp lệ vì tác giả không có Project Membership trong NSC-PAY.
+- `structured/work_reports.jsonl` có {len(work_reports)} báo cáo kỳ với `document_ids` và `source_task_ids` làm provenance. `source_task_ids` là metadata dataset, không nằm trong DTO Work Report của ứng dụng.
+- `evaluation/workflow_cases.jsonl` có {len(workflow_cases)} ca gold theo kênh `workspace`, `access` và `knowledge`; chỉ dùng trong namespace evaluation. Không khẳng định AI ingestion runtime hiện đã tiêu thụ Work Note events.
+- Trong workflow cases, `target_resource_ids` là tài nguyên đang kiểm tra, `source_ids` chỉ chứa nguồn được phép dùng làm đáp án, `must_not_cite` là nguồn bị cấm trích dẫn. Ba trường không được đánh đồng; ca `DENY` luôn có `source_ids: []`.
+- Kiểm tra project/tenant membership trước khi trả tiêu đề, snippet hoặc tín hiệu tồn tại; thành viên đã offboard không có quyền hiện tại.
 """
 (ROOT / "INGESTION_CONTRACT.md").write_text(ingestion_contract_text, encoding="utf-8")
 
-readme_vi = f"""# Bộ Dữ Liệu Northstar Commerce v1.2 — Hướng Dẫn Vận Hành & Khai Thác
+readme_vi = f"""# Bộ Dữ Liệu Northstar Commerce v1.3 — Hướng Dẫn Vận Hành & Khai Thác
 
 ## 1. Bối cảnh kịch bản (Dataset Scenario)
 Bộ dữ liệu mô phỏng công ty công nghệ hư cấu **Northstar Commerce Systems**, đang xây dựng nền tảng thương mại điện tử đa tenant (multi-tenant ecommerce platform) cho khách hàng merchant pilot là **Meridian Outfitters**, tích hợp với đối tác cổng thanh toán **PulsePay Network**.
@@ -3166,6 +3221,7 @@ Bộ dữ liệu mô phỏng công ty công nghệ hư cấu **Northstar Commerc
 - **180 Ngày giả lập (Simulation Window)**: Từ `2026-04-16` đến `2026-10-12` (128 weekdays = **123 ngày làm việc chính thức** + 5 ngày lễ Việt Nam).
 - **{len(canonical_documents):,} Bản ghi tài liệu logic (Logical Documents)**: Được đăng ký đầy đủ trong `structured/documents.jsonl`; DOCX rendition dùng chung canonical ID với Markdown.
 - **Đúng 2.500 Jira-like Issues**: Có cấu trúc phân cấp `parent_key` (Epic -> Story/Task/Bug), vòng lặp review/rework/unblock phi tuyến tính, `{len(comments):,}` bình luận đa lượt (gồm cả nhân sự, đối tác và 4 bot hệ thống) và `{len(changelog):,}` bản ghi lịch sử chuyển đổi trạng thái/sprint/assignee.
+- **Work Task/Note v1.3**: {len(work_tasks)} task bản địa ánh xạ từ issue, {len(task_notes)} Task Note, {len(document_reviews)} event review tài liệu và {len(work_reports)} Work Report; tất cả là synthetic, không phải seed MongoDB.
 - **{total_eval_cases} Evaluation Cases** và **{len(functional_test_cases)} Functional Test Cases**: Đầy đủ các kịch bản RAG, ACL đa tenant, Analytics OT/Spillover, Ingestion và Edge Cases.
 
 ## 3. Kiến trúc đóng gói: File vật lý vs Bản ghi logic
@@ -3178,7 +3234,7 @@ Package `Project1` giữ dưới giới hạn **160 file vật lý** ({physical_
 ## 4. Thứ tự nạp dữ liệu khuyến nghị (Ingestion Pipeline)
 1. **Thực thể nền tảng**: `organizations` → `departments` → `members` → `access_groups` → `group_memberships`.
 2. **Dự án & Sprints**: `projects` → `sprints` → `project_memberships`.
-3. **Tiến độ và nhiệm vụ**: `issues` → `issue_comments` → `issue_changelog`.
+3. **Tiến độ và nhiệm vụ**: `issues` → `issue_comments` → `issue_changelog`; tiếp theo `work_tasks` → `task_notes` và `work_reports` theo `source_issue_key`/`task_id`.
 4. **Nạp kho tài liệu (Content Ingestion)**:
    - Nạp Markdown canonical trong `documents/markdown/formal/`; DOCX rendition dùng chung `canonical_document_id` nên không tạo chunk trùng.
    - Phân đoạn 56 bundles trong `documents/markdown/bundles/` theo các thẻ neo `<a id="..."></a>` để tạo đúng 1.373 chunks tài liệu tương ứng với `structured/documents.jsonl`.
@@ -3187,7 +3243,7 @@ Package `Project1` giữ dưới giới hạn **160 file vật lý** ({physical_
    - Áp dụng bộ lọc ACL trước khi retrieval (Pre-filtering).
 6. **Test nghiệp vụ và benchmark**:
    - Test chức năng lấy từ `structured/functional_test_cases.jsonl`; đối chiếu requirement và kết quả trong `structured/test_execution_results.jsonl`.
-   - Bộ dữ liệu kiểm thử retrieval/ACL/ingestion lấy từ `evaluation/` vào namespace riêng biệt, **không đưa gold answers vào index demo**.
+   - Bộ dữ liệu kiểm thử retrieval/ACL/ingestion/workflow lấy từ `evaluation/` vào namespace riêng biệt, **không đưa gold answers vào index demo**. Task Note không là nguồn tri thức chính thức; Document/Report được duyệt chỉ đủ điều kiện làm nguồn khi có consumer runtime.
 
 ## 5. Hướng dẫn sử dụng Dataset_Catalog.xlsx
 1. Mở file `Dataset_Catalog.xlsx` bằng Microsoft Excel hoặc LibreOffice Calc.
@@ -3195,8 +3251,9 @@ Package `Project1` giữ dưới giới hạn **160 file vật lý** ({physical_
 3. **Tab Sprints**: Tra cứu 104 sprint của 8 dự án, xem mục tiêu sprint và trạng thái active/closed.
 4. **Tab Documents**: Sử dụng bộ lọc (AutoFilter) theo `project_id`, `scope`, `is_overtime`, `work_mode`, `classification`, `status` hoặc `format`.
 5. **Tab Issues**: Tra cứu 2.500 ticket theo `status`, `sprint_id`, `parent_key`, `is_overtime`, `overtime_hours`, `spillover_count`, `assignee_id`, hoặc `priority`.
-6. **Tab Evaluation Cases**: Xem {total_eval_cases} kịch bản RAG, ACL, ingestion, tiến độ và analytics.
+6. **Tab Evaluation Cases**: Xem {total_eval_cases} kịch bản RAG, ACL, ingestion, tiến độ, analytics và workflow.
 7. **Tab Functional Tests**: Lọc {len(functional_test_cases)} test theo project, requirement, actor, priority và kết quả kỳ chạy.
+8. **Tab Work Tasks / Task Notes / Document Reviews / Work Reports**: Tra chuỗi nguồn việc làm, ghi nhận, phê duyệt và báo cáo theo ID/project.
 """
 (ROOT / "00_START_HERE.md").write_text(readme_vi, encoding="utf-8")
 
