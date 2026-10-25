@@ -24,7 +24,7 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
 import completion_specs as completion
-from workflows_v13 import build_workflows, validate_workflows
+from workflows_v13 import build_workflows, reconcile_document_snapshots, validate_workflows
 
 # -------------------------------------------------------------
 # Configuration & Constants (Phase 1: Deterministic & Reproducible)
@@ -2181,7 +2181,7 @@ for s in md_specs: write_formal_markdown(s)
     encoding="utf-8"
 )
 (ROOT / "fixtures" / "conflicting_policy.md").write_text(
-    "---\ndocument_id: \"FIX-CONFLICT-POLICY\"\ntitle: \"Legacy Return Policy Conflict Fixture\"\nproject_id: \"NSC-ORD\"\norganization_id: \"ORG-NSC\"\nscope: \"fixture\"\nowner_id: \"M-008\"\nversion: \"0.9\"\nstatus: \"Superseded\"\nclassification: \"Internal\"\naccess_groups: [\"GRP-ALL-STAFF\"]\ntest_only: true\n---\n\nTEST FIXTURE ONLY. This legacy excerpt incorrectly states a 14-calendar-day return window. It is intentionally inconsistent with approved DOC-ORD-POL-005, which governs the Meridian pilot and allows 30 calendar days after delivery. Do not use this fixture as active policy.\n",
+    "---\ndocument_id: \"FIX-CONFLICT-POLICY\"\ntitle: \"Legacy Return Policy Conflict Fixture\"\nproject_id: \"NSC-ORD\"\norganization_id: \"ORG-NSC\"\nscope: \"fixture\"\nowner_id: \"M-008\"\nversion: \"0.9\"\nstatus: \"Archived\"\nclassification: \"Internal\"\naccess_groups: [\"GRP-ALL-STAFF\"]\ntest_only: true\n---\n\nTEST FIXTURE ONLY. This legacy excerpt incorrectly states a 14-calendar-day return window. It is intentionally inconsistent with approved DOC-ORD-POL-005, which governs the Meridian pilot and allows 30 calendar days after delivery. Do not use this fixture as active policy.\n",
     encoding="utf-8"
 )
 (ROOT / "fixtures" / "cross_tenant_probe.md").write_text(
@@ -2199,7 +2199,7 @@ registered_fixtures = [
     {"id": "FIX-BROKEN-LINK", "file": "fixtures/broken_link.md", "title": "Broken Link Reference Fixture", "project_id": "NSC-PLAT", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-009", "date": "2026-07-31", "version": "1.0", "status": "Approved", "class": "Internal", "groups": ["GRP-ALL-STAFF"], "issues": [], "format": "markdown"},
     {"id": "FIX-CONFLICT-TIME", "file": "fixtures/conflicting_timestamp.md", "title": "Conflicting Timestamp Fixture", "project_id": "NSC-PAY", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-006", "date": "2026-10-09", "version": "0.9", "status": "Draft", "class": "Internal", "groups": ["GRP-PAYMENT"], "issues": [], "format": "markdown"},
     {"id": "FIX-ORPHAN-ISSUE", "file": "fixtures/orphan_issue_reference.md", "title": "Orphan Jira Reference Fixture", "project_id": "NSC-CAT", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-003", "date": "2026-06-15", "version": "1.0", "status": "Approved", "class": "Internal", "groups": ["GRP-CATALOG"], "issues": ["NONEXISTENT-999"], "format": "markdown"},
-    {"id": "FIX-CONFLICT-POLICY", "file": "fixtures/conflicting_policy.md", "title": "Legacy Return Policy Conflict Fixture", "project_id": "NSC-ORD", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-008", "date": "2026-05-04", "version": "0.9", "status": "Superseded", "class": "Internal", "groups": ["GRP-ALL-STAFF"], "issues": ["ORD-001"], "format": "markdown"},
+    {"id": "FIX-CONFLICT-POLICY", "file": "fixtures/conflicting_policy.md", "title": "Legacy Return Policy Conflict Fixture", "project_id": "NSC-ORD", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-008", "date": "2026-05-04", "version": "0.9", "status": "Archived", "class": "Internal", "groups": ["GRP-ALL-STAFF"], "issues": ["ORD-001"], "format": "markdown"},
     {"id": "FIX-CROSS-TENANT", "file": "fixtures/cross_tenant_probe.md", "title": "Meridian Tenant Isolation Probe", "project_id": None, "org_id": "ORG-MERIDIAN", "scope": "fixture", "owner": "M-064", "date": "2026-10-12", "version": "1.0", "status": "Draft", "class": "Customer Restricted", "groups": ["GRP-MERIDIAN"], "issues": [], "format": "markdown"},
     {"id": "FIX-OFFBOARDING-AUTHOR", "file": "fixtures/offboarded_owner.md", "title": "Historical Note by Offboarded Engineer", "project_id": "NSC-CAT", "org_id": "ORG-NSC", "scope": "fixture", "owner": "M-018", "date": "2026-07-01", "version": "1.0", "status": "Approved", "class": "Internal", "groups": ["GRP-CATALOG"], "issues": ["CAT-001"], "format": "markdown"}
 ]
@@ -2540,7 +2540,7 @@ for f_idx, f in enumerate(registered_fixtures):
         "access_groups": f["groups"], "source_issue_keys": f["issues"],
         "file_path": f["file"], "section_anchor": None, "content_sha256": file_hash(p_path),
         "format": f["format"], "canonical_url": f"https://docs.northstar.invalid/fixtures/{f['id'].lower()}",
-        "is_current": f["status"] != "Superseded", "supersedes": [], "superseded_by": None,
+        "is_current": f["status"] not in ("Superseded", "Archived"), "supersedes": [], "superseded_by": None,
         "document_role": "test_fixture", "test_only": True, "synthetic": True
     })
 
@@ -2564,17 +2564,18 @@ write_jsonl("structured/sprints.jsonl", sprints)  # Phase 5: Sprints
 write_jsonl("structured/issues.jsonl", issues)
 write_jsonl("structured/issue_comments.jsonl", comments)
 write_jsonl("structured/issue_changelog.jsonl", changelog)
-write_jsonl("structured/documents.jsonl", canonical_documents)
 write_jsonl("structured/requirements.jsonl", requirement_records)
 write_jsonl("structured/functional_test_cases.jsonl", functional_test_cases)
 write_jsonl("structured/test_execution_results.jsonl", test_execution_results)
 work_tasks, task_notes, document_reviews, work_reports, workflow_cases = build_workflows(
     issues, canonical_documents, members, project_memberships, projects, VN_HOLIDAYS, TODAY.isoformat()
 )
+canonical_documents = reconcile_document_snapshots(canonical_documents, document_reviews)
 validate_workflows(
     work_tasks, task_notes, document_reviews, work_reports, workflow_cases,
     issues, canonical_documents, members, project_memberships, TODAY.isoformat()
 )
+write_jsonl("structured/documents.jsonl", canonical_documents)
 write_jsonl("structured/work_tasks.jsonl", work_tasks)
 write_jsonl("structured/task_notes.jsonl", task_notes)
 write_jsonl("structured/document_reviews.jsonl", document_reviews)
@@ -2956,7 +2957,7 @@ ws_mem.auto_filter.ref = f"A1:{get_column_letter(len(mem_cols))}{len(members)+1}
 
 # Tab 8: RAG, ACL, ingestion, progress, and analytics evaluation cases
 ws_tc = wb.create_sheet(title="Evaluation Cases"); ws_tc.views.sheetView[0].showGridLines = True
-tc_cols = ["case_id", "suite", "scenario_or_query", "expected_result", "source_or_reason", "tags"]
+tc_cols = ["case_id", "suite", "scenario_or_query", "expected_result", "source_or_reason", "target_resource_ids", "must_not_cite", "tags"]
 for c_idx, col in enumerate(tc_cols, 1):
     c = ws_tc.cell(1, c_idx, col); c.font = font_header; c.fill = fill_header; c.alignment = align_center
 
@@ -2974,7 +2975,7 @@ for c in ingestion_cases:
 for c in edge_cases:
     all_eval_flat.append({"case_id": c["scenario_id"], "suite": "EdgeCase", "scenario_or_query": c["case"], "expected_result": c["expected"], "source_or_reason": c["category"], "tags": f"edge_case, {c['category']}"})
 for c in workflow_cases:
-    all_eval_flat.append({"case_id": c["case_id"], "suite": c["suite"], "scenario_or_query": c["query"], "expected_result": c["expected"], "source_or_reason": ", ".join(c["source_ids"]), "tags": ", ".join(c["tags"])})
+    all_eval_flat.append({"case_id": c["case_id"], "suite": c["suite"], "scenario_or_query": c["query"], "expected_result": c["expected"], "source_or_reason": ", ".join(c["source_ids"]), "target_resource_ids": ", ".join(c["target_resource_ids"]), "must_not_cite": ", ".join(c["must_not_cite"]), "tags": ", ".join(c["tags"])})
 
 for r_idx, tc in enumerate(all_eval_flat, 2):
     for c_idx, col in enumerate(tc_cols, 1):
@@ -3190,9 +3191,11 @@ ingestion_contract_text = f"""# Ingestion Contract — Northstar Commerce Datase
 - `structured/work_tasks.jsonl` có {len(work_tasks)} Work Task synthetic; `task_id` là định danh 24 hex ổn định cho benchmark, **không phải ID MongoDB đang tồn tại**. `source_issue_key` ánh xạ về Jira-like issue; không nạp đè `issues.jsonl`.
 - `structured/task_notes.jsonl` có {len(task_notes)} ghi nhận công việc trỏ đến `task_id` cùng project. `TASK_NOTE` luôn `CONFIRMED` nhưng `knowledge_eligible=false`: không đưa note vào index tri thức chính thức.
 - `structured/document_reviews.jsonl` có {len(document_reviews)} event review. Chỉ phiên bản `APPROVED` mới đủ điều kiện làm nguồn; bản `DRAFT_SAVED` tiếp theo không thay thế phiên bản đã duyệt. Đây là dữ liệu mô phỏng, không phải event outbox runtime.
+- `structured/documents.jsonl` là snapshot tại `as_of_date`: `recorded_at` giữ mốc ghi nội dung; `updated_at` không sớm hơn event review cuối cùng và `status` phản ánh sự kiện duyệt/lưu trữ cuối cùng của tài liệu.
 - Fixture `FIX-CONFLICT-POLICY` là test-only và có event `ARCHIVED`; nó không trở thành nguồn chính thức. ADR cũ `DOC-PAY-ADR-001` vẫn mang trạng thái legacy `Superseded`, không bị giả lập thành một sự kiện review hợp lệ vì tác giả không có Project Membership trong NSC-PAY.
 - `structured/work_reports.jsonl` có {len(work_reports)} báo cáo kỳ với `document_ids` và `source_task_ids` làm provenance. `source_task_ids` là metadata dataset, không nằm trong DTO Work Report của ứng dụng.
 - `evaluation/workflow_cases.jsonl` có {len(workflow_cases)} ca gold theo kênh `workspace`, `access` và `knowledge`; chỉ dùng trong namespace evaluation. Không khẳng định AI ingestion runtime hiện đã tiêu thụ Work Note events.
+- Trong workflow cases, `target_resource_ids` là tài nguyên đang kiểm tra, `source_ids` chỉ chứa nguồn được phép dùng làm đáp án, `must_not_cite` là nguồn bị cấm trích dẫn. Ba trường không được đánh đồng; ca `DENY` luôn có `source_ids: []`.
 - Kiểm tra project/tenant membership trước khi trả tiêu đề, snippet hoặc tín hiệu tồn tại; thành viên đã offboard không có quyền hiện tại.
 """
 (ROOT / "INGESTION_CONTRACT.md").write_text(ingestion_contract_text, encoding="utf-8")

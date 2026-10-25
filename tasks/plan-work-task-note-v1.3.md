@@ -94,8 +94,13 @@ Phê duyệt kế hoạch này đồng nghĩa cho phép bắt đầu triển kha
 - Chuyển nguyên nội dung 10 Markdown parse DOCX sang `RetrievalCI_Bench_v0_2026/examples/project1_parsed_docx/` sau khi xác minh không có tham chiếu trong source Dataset. `Project1` hiện có 159 file, manifest kiểm kê đủ 158 file còn lại.
 - Sinh 48 Work Task, 48 Task Note, 58 document review events, 8 Work Report và 21 workflow evaluation cases. Tổng evaluation tăng từ 158 lên 179; 2.500 issue và 1.434 logical document giữ nguyên.
 - Có hai LEADER report; APPROVED, CHANGES_REQUESTED và REJECTED đều được phủ. Task Note và report chưa duyệt không đủ điều kiện làm nguồn tri thức.
-- Generator tự kiểm định đạt; 8 unit tests cho liên kết, ACL, reviewer, eligibility và tính tái lập đạt. Excel có bốn tab workflow mới, số dòng khớp JSONL.
-- Chạy generator thêm một lần và so SHA-256 của 5 JSONL mới, Excel và manifest: cả 7 output giống hệt từng byte. Không có thay đổi nội dung ở các JSONL v1.2 hiện hữu.
+- Generator tự kiểm định đạt; 12 unit tests cho liên kết, ACL, reviewer, eligibility, snapshot review và tính tái lập đạt. Excel có bốn tab workflow mới, số dòng khớp JSONL.
+- Chạy generator thêm một lần và so SHA-256 của 5 JSONL mới, Excel và manifest: cả 7 output giống hệt từng byte. Các JSONL v1.2 hiện hữu được giữ nguyên, ngoại trừ metadata của các tài liệu tham gia review được đồng bộ với thời điểm duyệt.
 - Giới hạn đã xác nhận: dữ liệu cũ gán `DOC-PAY-ADR-001` cho M-018 dù M-018 không có Project Membership tại NSC-PAY. Không thêm review event giả cho tài liệu này; ca evaluation chỉ kiểm tra trạng thái legacy `Superseded`. Fixture test-only `FIX-CONFLICT-POLICY` dùng để kiểm tra event `ARCHIVED`.
 - RetrievalCI Bench `tests/test_project.py` chạy trên Windows còn lỗi đường dẫn dấu gạch chéo (`str(tmp_path.resolve())` khác `repo_root`), không liên quan tới việc chuyển artifact và không sửa test để che lỗi.
 - Không có `ruff` trong môi trường Python hiện tại; không cài thêm package chỉ để kiểm tra thay đổi nhỏ này.
+
+### Sửa review PR #4
+
+- Finding về gold sources là đúng: 11/21 workflow cases từng đặt cùng ID vào `source_ids` và `must_not_cite`. Đã thêm `target_resource_ids` cho tài nguyên cần kiểm tra, chỉ giữ nguồn được phép trích dẫn trong `source_ids`, và để `source_ids=[]` cho mọi ca `DENY`. Validator và test hồi quy chặn mọi giao nhau.
+- Finding về chronology là đúng: 16 tài liệu từng có `updated_at` trước event `APPROVED`. Generator hiện tổng hợp event review thành snapshot `documents.jsonl`; `updated_at` không sớm hơn review cuối và trạng thái cuối khớp `APPROVED`/`ARCHIVED`. Fixture test-only `FIX-CONFLICT-POLICY` được đồng bộ trạng thái `Archived` trong cả file nguồn và metadata.

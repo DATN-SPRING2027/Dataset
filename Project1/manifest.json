@@ -103,8 +103,8 @@
     },
     {
       "path": "Dataset_Catalog.xlsx",
-      "size_bytes": 5839278,
-      "sha256": "d82878007f557f62f39bab0636a28972cac598f5ffd877cbbf4f69dd461e3aea"
+      "size_bytes": 5853858,
+      "sha256": "0d2778791512cb85ceee75091d159c5a319dd97fbcebc25f6acb2c87e65517a9"
     },
     {
       "path": "documents/docx/API_Specification.docx",
@@ -723,8 +723,8 @@
     },
     {
       "path": "evaluation/workflow_cases.jsonl",
-      "size_bytes": 9464,
-      "sha256": "72c6e5be83740008773ba45c417aab23508eddb036c44612a9557f4995e0f0f3"
+      "size_bytes": 10288,
+      "sha256": "93e6f0b815504624a06bfcdc8d364d4ec6403bb992eb4b3451ccda10b7eceb9b"
     },
     {
       "path": "fixtures/attachments/payment_webhook_sample.csv",
@@ -738,8 +738,8 @@
     },
     {
       "path": "fixtures/conflicting_policy.md",
-      "size_bytes": 576,
-      "sha256": "db67b03b6de595f0ddfeb886125f5b10217f8b39a76fddec66c95f79d77bdf8c"
+      "size_bytes": 574,
+      "sha256": "8d459d51c3cd2aee6a39368b7dc0a8395b60bc6fd9c1bf1261e399df46155f37"
     },
     {
       "path": "fixtures/conflicting_timestamp.md",
@@ -773,8 +773,8 @@
     },
     {
       "path": "INGESTION_CONTRACT.md",
-      "size_bytes": 10097,
-      "sha256": "95ad6d8fc4975b685a059dbdf942c29e1523d6ed84c5857fb178f66879dc1515"
+      "size_bytes": 10638,
+      "sha256": "1211985fb781a4edebc987eb5f02a22d50f8d40f2e99f7ef28d5a39b5af52234"
     },
     {
       "path": "structured/access_groups.jsonl",
@@ -793,8 +793,8 @@
     },
     {
       "path": "structured/documents.jsonl",
-      "size_bytes": 1480713,
-      "sha256": "6452e3588c4551f4a8d39bbd24ecbdd13f4e094ff01593fca0d26da252fbf3db"
+      "size_bytes": 1480711,
+      "sha256": "b6d60ccd306b76a9fce31bf2241c06f19ec68dbd21b889fa1924a7a301f665d5"
     },
     {
       "path": "structured/functional_test_cases.jsonl",
@@ -878,13 +878,13 @@
     },
     {
       "path": "tools/generate_v1.py",
-      "size_bytes": 270718,
-      "sha256": "1ea0088991c8abd27ca837b0f9215d87b190731657ae0eaea445b95a1e149b68"
+      "size_bytes": 271542,
+      "sha256": "848aeaa1b3bf937df54892688aa333090a52e2ca8e202a2fc00ea8b8c801b918"
     },
     {
       "path": "tools/workflows_v13.py",
-      "size_bytes": 26402,
-      "sha256": "37dc2fd0819147d6bf73f36896376e8cff6fd9714ca632c9023b7e06820242d3"
+      "size_bytes": 29347,
+      "sha256": "4e4b85606cad2c9b0dab393bf3ad93e7715cdeedec273a7411705013f711f050"
     }
   ]
 }

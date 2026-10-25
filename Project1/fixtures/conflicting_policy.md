@@ -6,7 +6,7 @@ organization_id: "ORG-NSC"
 scope: "fixture"
 owner_id: "M-008"
 version: "0.9"
-status: "Superseded"
+status: "Archived"
 classification: "Internal"
 access_groups: ["GRP-ALL-STAFF"]
 test_only: true

@@ -269,6 +269,7 @@ def build_workflows(issues, documents, members, project_memberships, projects, h
             "answer_channel": "workspace",
             "query": f"For {anchor_key}, which task note and approved document explain the work?",
             "expected": f"Task {anchor_task} has note {stable_id('note', anchor_key)} and approved document {docs[0]['document_id']}.",
+            "target_resource_ids": [anchor_task],
             "source_ids": [anchor_task, stable_id("note", anchor_key), docs[0]["document_id"]] + ([report_id] if reports[-1]["status"] == "APPROVED" else []),
             "must_not_cite": [f"{docs[0]['document_id']}@{int(float(docs[0]['version'])) + 1}.0-draft"] + ([report_id] if reports[-1]["status"] != "APPROVED" else []),
             "principal_id": report_member,
@@ -286,7 +287,8 @@ def build_workflows(issues, documents, members, project_memberships, projects, h
             "answer_channel": "access",
             "query": f"Can {outsider} read the task note for {anchor_key}?",
             "expected": "DENY; do not reveal the note title, excerpt or existence.",
-            "source_ids": [stable_id("note", anchor_key)],
+            "target_resource_ids": [stable_id("note", anchor_key)],
+            "source_ids": [],
             "must_not_cite": [stable_id("note", anchor_key)],
             "principal_id": outsider,
             "tags": ["cross_tenant", "project_membership", "pre_filter"],
@@ -323,6 +325,7 @@ def build_workflows(issues, documents, members, project_memberships, projects, h
         "answer_channel": "knowledge",
         "query": f"Is the unapproved follow-up to {first_doc['title']} an authoritative source?",
         "expected": "No. The latest approved version remains authoritative until a new version is approved.",
+        "target_resource_ids": [f"{first_doc['document_id']}@{int(float(first_doc['version'])) + 1}.0-draft"],
         "source_ids": [first_doc["document_id"]],
         "must_not_cite": [f"{first_doc['document_id']}@{int(float(first_doc['version'])) + 1}.0-draft"],
         "principal_id": reports[0]["member_id"],
@@ -343,7 +346,8 @@ def build_workflows(issues, documents, members, project_memberships, projects, h
         "answer_channel": "access",
         "query": f"Can offboarded member {former['member_id']} read {former_doc['document_id']} now?",
         "expected": "DENY; historical authorship does not restore current access.",
-        "source_ids": [former_doc["document_id"]],
+        "target_resource_ids": [former_doc["document_id"]],
+        "source_ids": [],
         "must_not_cite": [former_doc["document_id"]],
         "principal_id": former["member_id"],
         "tags": ["offboarding", "revoked_access"],
@@ -354,6 +358,7 @@ def build_workflows(issues, documents, members, project_memberships, projects, h
         "answer_channel": "knowledge",
         "query": "Which payment ADR remains authoritative after the older ADR is superseded?",
         "expected": f"{replacement['document_id']} is current; {superseded['document_id']} is superseded and excluded from active citations.",
+        "target_resource_ids": [superseded["document_id"]],
         "source_ids": [replacement["document_id"]],
         "must_not_cite": [superseded["document_id"]],
         "principal_id": pay_owner,
@@ -365,7 +370,8 @@ def build_workflows(issues, documents, members, project_memberships, projects, h
         "answer_channel": "knowledge",
         "query": "May the archived conflicting policy fixture be cited as current policy?",
         "expected": "No. The test-only fixture is archived and excluded from official knowledge.",
-        "source_ids": [archived_fixture["document_id"]],
+        "target_resource_ids": [archived_fixture["document_id"]],
+        "source_ids": [],
         "must_not_cite": [archived_fixture["document_id"]],
         "principal_id": archived_fixture["owner_id"],
         "tags": ["archive", "test_fixture", "source_exclusion"],
@@ -377,12 +383,35 @@ def build_workflows(issues, documents, members, project_memberships, projects, h
         "answer_channel": "knowledge",
         "query": "Can the rejected payment work report be cited as approved knowledge?",
         "expected": "No. Rejected Work Reports are not knowledge eligible.",
-        "source_ids": [rejected_report["report_id"]],
+        "target_resource_ids": [rejected_report["report_id"]],
+        "source_ids": [],
         "must_not_cite": [rejected_report["report_id"]],
         "principal_id": pay_owner,
         "tags": ["rejected_report", "source_exclusion"],
     })
     return tasks, notes, reviews, reports, cases
+
+
+def reconcile_document_snapshots(documents, reviews):
+    """Apply synthetic review history to the as-of document metadata."""
+    events_by_document = {}
+    for event in reviews:
+        events_by_document.setdefault(event["document_id"], []).append(event)
+    reconciled = []
+    for document in documents:
+        events = sorted(events_by_document.get(document["document_id"], []), key=lambda row: row["at"])
+        if not events:
+            reconciled.append(document)
+            continue
+        current = dict(document)
+        current["updated_at"] = max(current["updated_at"], events[-1]["at"][:10])
+        terminal = next((event for event in reversed(events) if event["action"] in ("APPROVED", "ARCHIVED")), None)
+        if terminal:
+            current["status"] = "Approved" if terminal["action"] == "APPROVED" else "Archived"
+            if terminal["action"] == "ARCHIVED":
+                current["is_current"] = False
+        reconciled.append(current)
+    return reconciled
 
 
 def validate_workflows(tasks, notes, reviews, reports, cases, issues, documents, members, memberships, as_of):
@@ -438,12 +467,21 @@ def validate_workflows(tasks, notes, reviews, reports, cases, issues, documents,
         if event["action"] == "DRAFT_SAVED" and event["knowledge_eligible"]:
             raise ValueError(f"Unapproved draft is knowledge eligible: {event['event_id']}")
     review_groups = {}
+    review_events_by_document = {}
     for event in reviews:
         review_groups.setdefault((event["document_id"], event["version"]), []).append(event)
+        review_events_by_document.setdefault(event["document_id"], []).append(event)
     for source, events in review_groups.items():
         actions = [row["action"] for row in sorted(events, key=lambda row: row["at"])]
         if actions not in (["SUBMITTED", "APPROVED"], ["SUBMITTED", "CHANGES_REQUESTED", "RESUBMITTED", "APPROVED"], ["DRAFT_SAVED", "ARCHIVED"], ["DRAFT_SAVED"]):
             raise ValueError(f"Invalid review lifecycle: {source}")
+    for document_id, document_events in review_events_by_document.items():
+        doc = document_by_id[document_id]
+        events = sorted(document_events, key=lambda row: row["at"])
+        terminal = next((event for event in reversed(events) if event["action"] in ("APPROVED", "ARCHIVED")), None)
+        expected_status = "Approved" if terminal and terminal["action"] == "APPROVED" else "Archived" if terminal else doc["status"]
+        if doc["updated_at"] < events[-1]["at"][:10] or doc["status"] != expected_status:
+            raise ValueError(f"Document snapshot predates review or has wrong status: {document_id}")
     for report in reports:
         if report["member_id"] == report["reviewed_by"] or report["period_end"] < report["period_start"]:
             raise ValueError(f"Invalid Work Report review: {report['report_id']}")
@@ -468,5 +506,14 @@ def validate_workflows(tasks, notes, reviews, reports, cases, issues, documents,
     if len(cases) != 21 or len({row["case_id"] for row in cases}) != len(cases):
         raise ValueError("Expected twenty-one unique workflow evaluation cases")
     all_sources = set(task_by_id) | {row["note_id"] for row in notes} | set(document_by_id) | {row["report_id"] for row in reports}
+    all_targets = all_sources | {f"{row['document_id']}@{row['version']}" for row in reviews}
     if any(source_id not in all_sources for case in cases for source_id in case["source_ids"]):
         raise ValueError("Workflow evaluation references a missing source")
+    if any(not case.get("target_resource_ids") or any(target not in all_targets for target in case["target_resource_ids"]) for case in cases):
+        raise ValueError("Workflow evaluation references a missing target resource")
+    if any(source_id not in all_targets for case in cases for source_id in case["must_not_cite"]):
+        raise ValueError("Workflow evaluation forbids an unknown source")
+    if any(set(case["source_ids"]) & set(case["must_not_cite"]) for case in cases):
+        raise ValueError("Workflow evaluation marks a source both allowed and forbidden")
+    if any(case["expected"].startswith("DENY") and case["source_ids"] for case in cases):
+        raise ValueError("Denied workflow evaluation has citeable sources")

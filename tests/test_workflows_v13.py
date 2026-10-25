@@ -60,6 +60,48 @@ class WorkflowDatasetTest(unittest.TestCase):
         )
         self.assertEqual(rebuilt, self.generated)
 
+    def test_gold_sources_never_overlap_forbidden_citations(self):
+        cases = self.generated[4]
+        for case in cases:
+            with self.subTest(case_id=case["case_id"]):
+                self.assertFalse(set(case["source_ids"]) & set(case["must_not_cite"]))
+                self.assertTrue(case["target_resource_ids"])
+                if case["expected"].startswith("DENY"):
+                    self.assertEqual(case["source_ids"], [])
+
+    def test_validator_rejects_conflicting_gold_source(self):
+        generated = copy.deepcopy(self.generated)
+        case = generated[4][0]
+        case["must_not_cite"].append(case["source_ids"][0])
+        with self.assertRaisesRegex(ValueError, "both allowed and forbidden"):
+            self.validate(generated)
+
+    def test_review_snapshot_follows_terminal_event(self):
+        documents = {doc["document_id"]: doc for doc in self.documents}
+        terminal_by_document = {}
+        for event in self.generated[2]:
+            with self.subTest(document_id=event["document_id"], action=event["action"]):
+                doc = documents[event["document_id"]]
+                self.assertGreaterEqual(doc["updated_at"], event["at"][:10])
+            if event["action"] in ("APPROVED", "ARCHIVED"):
+                previous = terminal_by_document.get(event["document_id"])
+                if previous is None or previous["at"] < event["at"]:
+                    terminal_by_document[event["document_id"]] = event
+        for document_id, event in terminal_by_document.items():
+            expected_status = "Approved" if event["action"] == "APPROVED" else "Archived"
+            self.assertEqual(documents[document_id]["status"], expected_status)
+
+    def test_validator_rejects_stale_review_snapshot(self):
+        documents = copy.deepcopy(self.documents)
+        event = next(row for row in self.generated[2] if row["action"] == "APPROVED")
+        document = next(row for row in documents if row["document_id"] == event["document_id"])
+        document["updated_at"] = document["created_at"]
+        with self.assertRaisesRegex(ValueError, "Document snapshot predates review"):
+            validate_workflows(
+                *self.generated, self.issues, documents, self.members,
+                self.memberships, "2026-10-12"
+            )
+
     def test_cross_project_note_is_rejected(self):
         generated = copy.deepcopy(self.generated)
         generated[1][0]["project_id"] = "NSC-PAY"
