@@ -25,7 +25,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1692.13799998397,
+        "latency_ms": 1617.4131000298075,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -52,17 +52,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 26.82,
-            "tree_route": 0.38,
-            "candidate_retrieval": 1287.49,
-            "evidence_hydration": 31.84,
-            "rank_fusion": 64.69,
+            "auth_scope": 25.32,
+            "tree_route": 0.51,
+            "candidate_retrieval": 1132.94,
+            "evidence_hydration": 55.96,
+            "rank_fusion": 86.76,
             "graph_expansion": 0.0,
-            "diversity_selection": 271.26,
-            "total_retrieval": 1690.77
+            "diversity_selection": 298.22,
+            "total_retrieval": 1615.71
           }
         },
-        "retrieval_latency_ms": 1692.13799998397
+        "retrieval_latency_ms": 1617.4131000298075
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -83,7 +83,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1332.4840000132099,
+        "latency_ms": 1652.9503000201657,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -118,17 +118,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 36.57,
-            "tree_route": 0.93,
-            "candidate_retrieval": 1073.47,
-            "evidence_hydration": 25.82,
-            "rank_fusion": 62.13,
+            "auth_scope": 25.38,
+            "tree_route": 0.45,
+            "candidate_retrieval": 1319.34,
+            "evidence_hydration": 36.33,
+            "rank_fusion": 84.99,
             "graph_expansion": 0.0,
-            "diversity_selection": 127.65,
-            "total_retrieval": 1331.21
+            "diversity_selection": 172.34,
+            "total_retrieval": 1651.34
           }
         },
-        "retrieval_latency_ms": 1332.4840000132099
+        "retrieval_latency_ms": 1652.9503000201657
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -149,7 +149,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1366.5099000209011,
+        "latency_ms": 1500.7525000255555,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -172,17 +172,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 19.36,
-            "tree_route": 0.34,
-            "candidate_retrieval": 1092.43,
-            "evidence_hydration": 32.94,
-            "rank_fusion": 57.28,
+            "auth_scope": 21.28,
+            "tree_route": 0.43,
+            "candidate_retrieval": 1120.63,
+            "evidence_hydration": 39.86,
+            "rank_fusion": 83.56,
             "graph_expansion": 0.0,
-            "diversity_selection": 149.28,
-            "total_retrieval": 1365.78
+            "diversity_selection": 224.05,
+            "total_retrieval": 1498.96
           }
         },
-        "retrieval_latency_ms": 1366.5099000209011
+        "retrieval_latency_ms": 1500.7525000255555
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -203,7 +203,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 2189.6871000062674,
+        "latency_ms": 1764.326100004837,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -238,17 +238,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 16.18,
-            "tree_route": 0.27,
-            "candidate_retrieval": 1892.6,
-            "evidence_hydration": 24.57,
-            "rank_fusion": 62.87,
+            "auth_scope": 25.74,
+            "tree_route": 0.62,
+            "candidate_retrieval": 1293.02,
+            "evidence_hydration": 36.55,
+            "rank_fusion": 100.76,
             "graph_expansion": 0.0,
-            "diversity_selection": 187.49,
-            "total_retrieval": 2188.45
+            "diversity_selection": 294.61,
+            "total_retrieval": 1762.48
           }
         },
-        "retrieval_latency_ms": 2189.6871000062674
+        "retrieval_latency_ms": 1764.326100004837
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -269,7 +269,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1606.3913000398315,
+        "latency_ms": 1839.120600023307,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -304,17 +304,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 15.27,
-            "tree_route": 0.36,
-            "candidate_retrieval": 1344.8,
-            "evidence_hydration": 22.99,
-            "rank_fusion": 54.28,
+            "auth_scope": 25.21,
+            "tree_route": 0.46,
+            "candidate_retrieval": 1299.18,
+            "evidence_hydration": 43.28,
+            "rank_fusion": 123.5,
             "graph_expansion": 0.0,
-            "diversity_selection": 164.0,
-            "total_retrieval": 1605.47
+            "diversity_selection": 325.94,
+            "total_retrieval": 1836.83
           }
         },
-        "retrieval_latency_ms": 1606.3913000398315
+        "retrieval_latency_ms": 1839.120600023307
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -335,7 +335,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1867.1370000229217,
+        "latency_ms": 1616.0571000073105,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -366,17 +366,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 14.22,
-            "tree_route": 0.2,
-            "candidate_retrieval": 1547.0,
-            "evidence_hydration": 32.47,
-            "rank_fusion": 54.77,
+            "auth_scope": 28.0,
+            "tree_route": 0.5,
+            "candidate_retrieval": 1227.49,
+            "evidence_hydration": 34.83,
+            "rank_fusion": 81.94,
             "graph_expansion": 0.0,
-            "diversity_selection": 210.31,
-            "total_retrieval": 1865.74
+            "diversity_selection": 229.78,
+            "total_retrieval": 1614.07
           }
         },
-        "retrieval_latency_ms": 1867.1370000229217
+        "retrieval_latency_ms": 1616.0571000073105
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -397,7 +397,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1565.4325999785215,
+        "latency_ms": 1543.552900024224,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -432,17 +432,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 26.02,
-            "tree_route": 0.55,
-            "candidate_retrieval": 1294.96,
-            "evidence_hydration": 29.38,
-            "rank_fusion": 74.59,
+            "auth_scope": 25.19,
+            "tree_route": 0.47,
+            "candidate_retrieval": 1179.44,
+            "evidence_hydration": 30.85,
+            "rank_fusion": 95.35,
             "graph_expansion": 0.0,
-            "diversity_selection": 128.19,
-            "total_retrieval": 1563.82
+            "diversity_selection": 198.18,
+            "total_retrieval": 1541.48
           }
         },
-        "retrieval_latency_ms": 1565.4325999785215
+        "retrieval_latency_ms": 1543.552900024224
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -463,7 +463,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1500.5247000372037,
+        "latency_ms": 1812.7360000507906,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -486,17 +486,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 18.28,
-            "tree_route": 0.47,
-            "candidate_retrieval": 1272.38,
-            "evidence_hydration": 27.31,
-            "rank_fusion": 38.38,
+            "auth_scope": 27.3,
+            "tree_route": 0.62,
+            "candidate_retrieval": 1513.38,
+            "evidence_hydration": 33.98,
+            "rank_fusion": 73.01,
             "graph_expansion": 0.0,
-            "diversity_selection": 132.93,
-            "total_retrieval": 1499.24
+            "diversity_selection": 150.68,
+            "total_retrieval": 1811.08
           }
         },
-        "retrieval_latency_ms": 1500.5247000372037
+        "retrieval_latency_ms": 1812.7360000507906
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -517,7 +517,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1756.007599993609,
+        "latency_ms": 1472.6325000519864,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -544,17 +544,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 16.64,
-            "tree_route": 0.32,
-            "candidate_retrieval": 1363.74,
-            "evidence_hydration": 42.28,
-            "rank_fusion": 91.11,
+            "auth_scope": 21.84,
+            "tree_route": 0.44,
+            "candidate_retrieval": 987.31,
+            "evidence_hydration": 41.93,
+            "rank_fusion": 103.79,
             "graph_expansion": 0.0,
-            "diversity_selection": 230.96,
-            "total_retrieval": 1755.16
+            "diversity_selection": 303.77,
+            "total_retrieval": 1470.8
           }
         },
-        "retrieval_latency_ms": 1756.007599993609
+        "retrieval_latency_ms": 1472.6325000519864
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -575,7 +575,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1573.0977000202984,
+        "latency_ms": 1454.557900025975,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -610,17 +610,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 11.01,
-            "tree_route": 0.26,
-            "candidate_retrieval": 1370.72,
-            "evidence_hydration": 24.68,
-            "rank_fusion": 57.0,
+            "auth_scope": 23.46,
+            "tree_route": 0.45,
+            "candidate_retrieval": 1133.52,
+            "evidence_hydration": 34.69,
+            "rank_fusion": 82.35,
             "graph_expansion": 0.0,
-            "diversity_selection": 104.25,
-            "total_retrieval": 1572.29
+            "diversity_selection": 168.18,
+            "total_retrieval": 1452.94
           }
         },
-        "retrieval_latency_ms": 1573.0977000202984
+        "retrieval_latency_ms": 1454.557900025975
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -641,7 +641,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1538.7911000289023,
+        "latency_ms": 1437.0863999938592,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -668,17 +668,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 14.95,
-            "tree_route": 0.21,
-            "candidate_retrieval": 1318.96,
-            "evidence_hydration": 21.04,
-            "rank_fusion": 38.05,
+            "auth_scope": 21.69,
+            "tree_route": 0.39,
+            "candidate_retrieval": 1108.75,
+            "evidence_hydration": 30.26,
+            "rank_fusion": 57.38,
             "graph_expansion": 0.0,
-            "diversity_selection": 139.04,
-            "total_retrieval": 1538.06
+            "diversity_selection": 206.47,
+            "total_retrieval": 1435.32
           }
         },
-        "retrieval_latency_ms": 1538.7911000289023
+        "retrieval_latency_ms": 1437.0863999938592
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -699,7 +699,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1513.4866000153124,
+        "latency_ms": 1584.2902999720536,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -734,17 +734,17 @@
           "sag_top_k": 5,
           "coverage_status": "structurally_sufficient",
           "stage_latencies_ms": {
-            "auth_scope": 17.95,
-            "tree_route": 0.5,
-            "candidate_retrieval": 1274.66,
-            "evidence_hydration": 27.89,
-            "rank_fusion": 51.41,
+            "auth_scope": 28.12,
+            "tree_route": 0.76,
+            "candidate_retrieval": 1200.8,
+            "evidence_hydration": 35.31,
+            "rank_fusion": 87.01,
             "graph_expansion": 0.0,
-            "diversity_selection": 133.74,
-            "total_retrieval": 1512.13
+            "diversity_selection": 219.86,
+            "total_retrieval": 1582.12
           }
         },
-        "retrieval_latency_ms": 1513.4866000153124
+        "retrieval_latency_ms": 1584.2902999720536
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -765,7 +765,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1565.026400028728,
+        "latency_ms": 1614.8215000284836,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -796,17 +796,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 15.73,
-            "tree_route": 0.22,
-            "candidate_retrieval": 1315.05,
-            "evidence_hydration": 23.14,
-            "rank_fusion": 61.71,
+            "auth_scope": 26.21,
+            "tree_route": 0.51,
+            "candidate_retrieval": 1126.0,
+            "evidence_hydration": 34.95,
+            "rank_fusion": 111.46,
             "graph_expansion": 0.0,
-            "diversity_selection": 138.01,
-            "total_retrieval": 1563.78
+            "diversity_selection": 302.57,
+            "total_retrieval": 1612.67
           }
         },
-        "retrieval_latency_ms": 1565.026400028728
+        "retrieval_latency_ms": 1614.8215000284836
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -827,7 +827,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1773.6366000026464,
+        "latency_ms": 1584.4996999949217,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -862,17 +862,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 19.58,
-            "tree_route": 0.22,
-            "candidate_retrieval": 1287.23,
-            "evidence_hydration": 23.0,
-            "rank_fusion": 63.34,
+            "auth_scope": 22.96,
+            "tree_route": 0.49,
+            "candidate_retrieval": 1114.0,
+            "evidence_hydration": 27.37,
+            "rank_fusion": 80.52,
             "graph_expansion": 0.0,
-            "diversity_selection": 366.84,
-            "total_retrieval": 1770.22
+            "diversity_selection": 327.08,
+            "total_retrieval": 1582.55
           }
         },
-        "retrieval_latency_ms": 1773.6366000026464
+        "retrieval_latency_ms": 1584.4996999949217
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -893,7 +893,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 2044.8963000089861,
+        "latency_ms": 1855.4390000062995,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -912,17 +912,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 187.44,
-            "tree_route": 0.95,
-            "candidate_retrieval": 1506.72,
-            "evidence_hydration": 24.13,
-            "rank_fusion": 93.72,
+            "auth_scope": 26.0,
+            "tree_route": 0.5,
+            "candidate_retrieval": 1305.96,
+            "evidence_hydration": 36.29,
+            "rank_fusion": 111.69,
             "graph_expansion": 0.0,
-            "diversity_selection": 220.37,
-            "total_retrieval": 2042.86
+            "diversity_selection": 358.88,
+            "total_retrieval": 1852.66
           }
         },
-        "retrieval_latency_ms": 2044.8963000089861
+        "retrieval_latency_ms": 1855.4390000062995
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -943,7 +943,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1916.9078000122681,
+        "latency_ms": 1536.2919000326656,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -978,17 +978,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 23.31,
-            "tree_route": 0.37,
-            "candidate_retrieval": 1569.03,
-            "evidence_hydration": 43.67,
-            "rank_fusion": 79.1,
+            "auth_scope": 20.96,
+            "tree_route": 0.44,
+            "candidate_retrieval": 1111.88,
+            "evidence_hydration": 34.56,
+            "rank_fusion": 89.17,
             "graph_expansion": 0.0,
-            "diversity_selection": 191.92,
-            "total_retrieval": 1915.53
+            "diversity_selection": 266.45,
+            "total_retrieval": 1534.47
           }
         },
-        "retrieval_latency_ms": 1916.9078000122681
+        "retrieval_latency_ms": 1536.2919000326656
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -1009,7 +1009,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1631.0776000027545,
+        "latency_ms": 1428.583000029903,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1036,17 +1036,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 19.44,
-            "tree_route": 0.3,
-            "candidate_retrieval": 1271.32,
-            "evidence_hydration": 47.1,
-            "rank_fusion": 90.01,
+            "auth_scope": 27.54,
+            "tree_route": 0.43,
+            "candidate_retrieval": 1104.02,
+            "evidence_hydration": 38.74,
+            "rank_fusion": 78.67,
             "graph_expansion": 0.0,
-            "diversity_selection": 189.37,
-            "total_retrieval": 1629.9
+            "diversity_selection": 168.19,
+            "total_retrieval": 1426.47
           }
         },
-        "retrieval_latency_ms": 1631.0776000027545
+        "retrieval_latency_ms": 1428.583000029903
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -1067,7 +1067,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1679.1936000226997,
+        "latency_ms": 1492.4118000199087,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1094,17 +1094,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 20.73,
-            "tree_route": 0.58,
-            "candidate_retrieval": 1286.33,
-            "evidence_hydration": 37.8,
-            "rank_fusion": 81.46,
+            "auth_scope": 24.0,
+            "tree_route": 0.44,
+            "candidate_retrieval": 1156.93,
+            "evidence_hydration": 30.02,
+            "rank_fusion": 85.56,
             "graph_expansion": 0.0,
-            "diversity_selection": 243.12,
-            "total_retrieval": 1677.55
+            "diversity_selection": 182.44,
+            "total_retrieval": 1490.24
           }
         },
-        "retrieval_latency_ms": 1679.1936000226997
+        "retrieval_latency_ms": 1492.4118000199087
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -1125,7 +1125,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1657.3958999942988,
+        "latency_ms": 1532.9388999962248,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1148,17 +1148,17 @@
           "sag_top_k": 5,
           "coverage_status": "structurally_sufficient",
           "stage_latencies_ms": {
-            "auth_scope": 20.34,
-            "tree_route": 0.34,
-            "candidate_retrieval": 1295.91,
-            "evidence_hydration": 33.9,
-            "rank_fusion": 119.63,
+            "auth_scope": 23.7,
+            "tree_route": 0.47,
+            "candidate_retrieval": 1119.39,
+            "evidence_hydration": 40.1,
+            "rank_fusion": 132.81,
             "graph_expansion": 0.0,
-            "diversity_selection": 177.57,
-            "total_retrieval": 1655.6
+            "diversity_selection": 203.23,
+            "total_retrieval": 1530.42
           }
         },
-        "retrieval_latency_ms": 1657.3958999942988
+        "retrieval_latency_ms": 1532.9388999962248
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -1179,7 +1179,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1579.1146999690682,
+        "latency_ms": 1538.283700007014,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1206,17 +1206,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 17.43,
-            "tree_route": 0.35,
-            "candidate_retrieval": 1277.36,
-            "evidence_hydration": 41.34,
-            "rank_fusion": 72.37,
+            "auth_scope": 26.79,
+            "tree_route": 0.58,
+            "candidate_retrieval": 1148.23,
+            "evidence_hydration": 34.14,
+            "rank_fusion": 89.55,
             "graph_expansion": 0.0,
-            "diversity_selection": 164.22,
-            "total_retrieval": 1577.8
+            "diversity_selection": 226.1,
+            "total_retrieval": 1536.27
           }
         },
-        "retrieval_latency_ms": 1579.1146999690682
+        "retrieval_latency_ms": 1538.283700007014
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -1237,7 +1237,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1539.6552999736741,
+        "latency_ms": 1472.6958999526687,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1272,17 +1272,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 15.74,
-            "tree_route": 0.28,
-            "candidate_retrieval": 1281.07,
-            "evidence_hydration": 33.46,
-            "rank_fusion": 61.77,
+            "auth_scope": 28.66,
+            "tree_route": 0.5,
+            "candidate_retrieval": 1107.98,
+            "evidence_hydration": 31.86,
+            "rank_fusion": 77.9,
             "graph_expansion": 0.0,
-            "diversity_selection": 135.76,
-            "total_retrieval": 1538.34
+            "diversity_selection": 211.2,
+            "total_retrieval": 1470.98
           }
         },
-        "retrieval_latency_ms": 1539.6552999736741
+        "retrieval_latency_ms": 1472.6958999526687
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -1303,7 +1303,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1718.064900022,
+        "latency_ms": 1489.040600019507,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1330,17 +1330,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 21.61,
-            "tree_route": 0.19,
-            "candidate_retrieval": 1404.59,
-            "evidence_hydration": 31.36,
-            "rank_fusion": 56.3,
+            "auth_scope": 18.37,
+            "tree_route": 0.32,
+            "candidate_retrieval": 1131.99,
+            "evidence_hydration": 37.14,
+            "rank_fusion": 68.86,
             "graph_expansion": 0.0,
-            "diversity_selection": 194.88,
-            "total_retrieval": 1715.93
+            "diversity_selection": 218.01,
+            "total_retrieval": 1487.08
           }
         },
-        "retrieval_latency_ms": 1718.064900022
+        "retrieval_latency_ms": 1489.040600019507
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -1361,7 +1361,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1610.820799949579,
+        "latency_ms": 1664.6492999861948,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1396,17 +1396,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 21.23,
-            "tree_route": 0.26,
-            "candidate_retrieval": 1297.21,
-            "evidence_hydration": 36.97,
-            "rank_fusion": 47.98,
+            "auth_scope": 20.96,
+            "tree_route": 0.46,
+            "candidate_retrieval": 1357.2,
+            "evidence_hydration": 34.8,
+            "rank_fusion": 73.07,
             "graph_expansion": 0.0,
-            "diversity_selection": 195.11,
-            "total_retrieval": 1609.22
+            "diversity_selection": 163.93,
+            "total_retrieval": 1662.96
           }
         },
-        "retrieval_latency_ms": 1610.820799949579
+        "retrieval_latency_ms": 1664.6492999861948
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -1427,7 +1427,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1698.357200017199,
+        "latency_ms": 1638.568900001701,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1446,17 +1446,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 20.98,
-            "tree_route": 0.62,
-            "candidate_retrieval": 1271.3,
-            "evidence_hydration": 33.12,
-            "rank_fusion": 82.96,
+            "auth_scope": 21.96,
+            "tree_route": 0.47,
+            "candidate_retrieval": 1186.01,
+            "evidence_hydration": 30.56,
+            "rank_fusion": 94.13,
             "graph_expansion": 0.0,
-            "diversity_selection": 277.37,
-            "total_retrieval": 1696.75
+            "diversity_selection": 293.55,
+            "total_retrieval": 1636.59
           }
         },
-        "retrieval_latency_ms": 1698.357200017199
+        "retrieval_latency_ms": 1638.568900001701
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -1477,7 +1477,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1752.161199983675,
+        "latency_ms": 1689.435100008268,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1512,17 +1512,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 26.06,
-            "tree_route": 0.49,
-            "candidate_retrieval": 1484.89,
-            "evidence_hydration": 27.7,
-            "rank_fusion": 67.01,
+            "auth_scope": 22.55,
+            "tree_route": 0.39,
+            "candidate_retrieval": 1146.67,
+            "evidence_hydration": 31.91,
+            "rank_fusion": 261.46,
             "graph_expansion": 0.0,
-            "diversity_selection": 139.74,
-            "total_retrieval": 1750.94
+            "diversity_selection": 212.47,
+            "total_retrieval": 1687.77
           }
         },
-        "retrieval_latency_ms": 1752.161199983675
+        "retrieval_latency_ms": 1689.435100008268
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -1543,7 +1543,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1785.142199951224,
+        "latency_ms": 1867.733200022485,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1553,20 +1553,20 @@
             "span": "Sup 18421 Enterprise 429 Spike After Priority Routing Rollout\n\nSource type: jira\nDocument ID: dsid_1980f45c3fb4455f943a2b030892ae90\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench s"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_dab17ee5c3924a9998b17b3591bbae28.md",
-            "span": "Notes: If the cluster has partially-applied CRs, delete the failed CRs before re-run to avoid immutable field conflicts.\n2025-02-19 13:44 PT — Customer (MedData Ops): Workaround su"
-          },
-          {
             "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_49fa5cfd95624dbeb6eaa535f9959470.md",
             "span": "Error budget policy (what we do when we burn)\n\n**Enterprise (Protected) routes**\n\n- If burn is elevated, the default stance is **protect SLOs over throughput**.\n- Allowed mitigatio"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_150b485e7fd54251b937ab3d08a850dc.md",
-            "span": "Component-specific escalation\n\n- **Smart Routing / Data plane split enforcement:** Mina Haddad / Ravi Menon (routing oncall)\n- **Telemetry / cohort tagging & aggregation:** Logan W"
+            "source_path": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_184be937d34a412ab5e61366d54d8ed6.md",
+            "span": "Policy Engine Failover Extensions Draft\n\nSource type: google_drive\nDocument ID: dsid_184be937d34a412ab5e61366d54d8ed6\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstr"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_1980f45c3fb4455f943a2b030892ae90.md",
-            "span": "2026-01-20 09:26 PT - Owen Phillips (Support): Customer reports 10x increase in 429s since this morning. Asking if we changed rate limiting / routing. Provided immediate guidance: "
+            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_dab17ee5c3924a9998b17b3591bbae28.md",
+            "span": "Notes: If the cluster has partially-applied CRs, delete the failed CRs before re-run to avoid immutable field conflicts.\n2025-02-19 13:44 PT — Customer (MedData Ops): Workaround su"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/github__dsid_b8691ba2e29542838afae93928ad816a.md",
+            "span": "Pr 489 Add Restore Apply Workflow And Validation\n\nSource type: github\nDocument ID: dsid_b8691ba2e29542838afae93928ad816a\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic up"
           }
         ],
         "answer_citations": [],
@@ -1578,23 +1578,23 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 20.36,
-            "tree_route": 0.33,
-            "candidate_retrieval": 1274.31,
-            "evidence_hydration": 25.34,
-            "rank_fusion": 61.31,
-            "graph_expansion": 121.73,
-            "diversity_selection": 273.56,
-            "total_retrieval": 1784.1
+            "auth_scope": 22.62,
+            "tree_route": 0.36,
+            "candidate_retrieval": 1153.36,
+            "evidence_hydration": 32.85,
+            "rank_fusion": 96.27,
+            "graph_expansion": 132.86,
+            "diversity_selection": 412.94,
+            "total_retrieval": 1866.05
           }
         },
-        "retrieval_latency_ms": 1785.142199951224
+        "retrieval_latency_ms": 1867.733200022485
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
       "answer_citation_precision": null,
       "answer_citation_recall": 0.0,
-      "retrieval_source_precision": 0.5,
+      "retrieval_source_precision": 0.4,
       "retrieval_source_recall": 1.0,
       "faithfulness": null,
       "relevance": null,
@@ -1609,7 +1609,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1698.4035999630578,
+        "latency_ms": 1705.61699999962,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1620,7 +1620,7 @@
           },
           {
             "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_610d2c74a60441e886fcc39e351a4176.md",
-            "span": "2) Dual-read/dual-decrypt window behavior\n\nDuring rotation, services will operate with:\n\n- **Write path:** encrypt using *primary* KeyRef only.\n- **Read path:** attempt decrypt usi"
+            "span": "Proposed operational sequence (standard rotation)\n\nPreconditions (all modes)\n\n- KMS integration uses the standardized wrapper and telemetry (ADR-007).\n- Least-privilege IAM roles a"
           },
           {
             "source_path": "examples/rag_eval/bench_v0/corpus/gmail__dsid_86b915e7a2a3492c82224174383cd9f9.md",
@@ -1631,8 +1631,8 @@
             "span": "Caching\n\n- MAY cache KMS key metadata for short durations if it does not create rotation hazards.\n- MUST NOT cache plaintext DEKs.\n- MUST ensure caching does not cause stale key ve"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_d64b62cc422c45108871fb097066e6f8.md",
-            "span": "Disallowed caches\n\n- Persisting plaintext DEKs (disk, database, distributed cache).\n- Long-lived plaintext caches (> 15 minutes) without a security exception.\n- Caching ciphertext "
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_150b485e7fd54251b937ab3d08a850dc.md",
+            "span": "Quick triage checklist (5 minutes)\n\nInputs to collect\n\n- Tenant ID / org slug\n- Hosted route (route_id) and region(s)\n- rollout_id\n- Baseline model version/config and canary model "
           }
         ],
         "answer_citations": [],
@@ -1644,17 +1644,83 @@
           "sag_top_k": 5,
           "coverage_status": "structurally_sufficient",
           "stage_latencies_ms": {
-            "auth_scope": 19.7,
-            "tree_route": 0.29,
-            "candidate_retrieval": 1319.14,
-            "evidence_hydration": 29.49,
-            "rank_fusion": 58.41,
-            "graph_expansion": 95.23,
-            "diversity_selection": 168.65,
-            "total_retrieval": 1697.22
+            "auth_scope": 22.03,
+            "tree_route": 0.49,
+            "candidate_retrieval": 1117.07,
+            "evidence_hydration": 36.04,
+            "rank_fusion": 87.89,
+            "graph_expansion": 194.34,
+            "diversity_selection": 236.3,
+            "total_retrieval": 1704.11
           }
         },
-        "retrieval_latency_ms": 1698.4035999630578
+        "retrieval_latency_ms": 1705.61699999962
+      },
+      "must_include_match": 0.0,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.8,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 0,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "qst_0343",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "",
+        "citations": [],
+        "latency_ms": 1915.3574999654666,
+        "tokens_used": 0,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_85ee9562e05d457b9e32785343777359.md",
+            "span": "Sup 48271 Suggestions Savings Estimate Does Not Match Billing\n\nSource type: jira\nDocument ID: dsid_85ee9562e05d457b9e32785343777359\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench s"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/slack__dsid_ae2e969d0b924ebbb19ab2f5d1b95125.md",
+            "span": "1771741044 Beta Customer Feedback Estimates Seem Off\n\nSource type: slack\nDocument ID: dsid_ae2e969d0b924ebbb19ab2f5d1b95125\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/github__dsid_fee94d81c032494cbfce8094468f0973.md",
+            "span": "Rollout: No runtime impact on request path. Used by the suggestions compute job only. Observability and UI wiring are in separate PRs.\nJonas Weber (review): The batching latency mo"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_85ee9562e05d457b9e32785343777359.md",
+            "span": "2026-02-21 10:14 (Dev Patel): Created ticket from CS escalation. Tagging Miguel for customer comms and Nadia Rahman for cost attribution sanity check. Customer is specifically comp"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/slack__dsid_ae2e969d0b924ebbb19ab2f5d1b95125.md",
+            "span": "Aditya Rao: action items:\n1) confirm whether estimator used fallback price vs effective dedicated price.\n2) confirm token basis used (input/output, before/after cache, etc.)\n3) con"
+          }
+        ],
+        "answer_citations": [],
+        "cost_usd": 0.0001,
+        "corpus_version_hash": "026f126517b84ceb786129c1b7e1864304a0de6fbc25a961802fa8af25672962",
+        "index_build_id": "sag://sag_retrievalci_bench_v0/670000000000000000000201",
+        "generator_model_id": "sag-engine-retrieve-only",
+        "meta": {
+          "sag_top_k": 5,
+          "coverage_status": "unknown",
+          "stage_latencies_ms": {
+            "auth_scope": 21.34,
+            "tree_route": 0.45,
+            "candidate_retrieval": 1110.55,
+            "evidence_hydration": 28.84,
+            "rank_fusion": 119.61,
+            "graph_expansion": 127.89,
+            "diversity_selection": 492.79,
+            "total_retrieval": 1913.72
+          }
+        },
+        "retrieval_latency_ms": 1915.3574999654666
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -1670,78 +1736,12 @@
     },
     {
       "system": "sag_engine",
-      "question_id": "qst_0343",
-      "tier": "multi_hop",
-      "answer": {
-        "answer": "",
-        "citations": [],
-        "latency_ms": 1661.6712999530137,
-        "tokens_used": 0,
-        "refused": false,
-        "refusal_reason": null,
-        "retrieved_sources": [
-          {
-            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_85ee9562e05d457b9e32785343777359.md",
-            "span": "Sup 48271 Suggestions Savings Estimate Does Not Match Billing\n\nSource type: jira\nDocument ID: dsid_85ee9562e05d457b9e32785343777359\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench s"
-          },
-          {
-            "source_path": "examples/rag_eval/bench_v0/corpus/slack__dsid_ae2e969d0b924ebbb19ab2f5d1b95125.md",
-            "span": "1771741044 Beta Customer Feedback Estimates Seem Off\n\nSource type: slack\nDocument ID: dsid_ae2e969d0b924ebbb19ab2f5d1b95125\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic"
-          },
-          {
-            "source_path": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_dc8da53aae4c4a81be13ae8e519cd42d.md",
-            "span": "D-01 | Acme AI | Hosted API (streaming) | 2026-01-28 to 2026-02-02 | Invoice tokens > usage API tokens by ~3–6% on high-streaming days | double-count on server retry/fallback for s"
-          },
-          {
-            "source_path": "examples/rag_eval/bench_v0/corpus/github__dsid_fee94d81c032494cbfce8094468f0973.md",
-            "span": "Rollout: No runtime impact on request path. Used by the suggestions compute job only. Observability and UI wiring are in separate PRs.\nJonas Weber (review): The batching latency mo"
-          },
-          {
-            "source_path": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_dc8da53aae4c4a81be13ae8e519cd42d.md",
-            "span": "- Largest deltas concentrated in streaming + retry-heavy workloads.\n- Embeddings batched fix creates visible downshift in billed units for affected endpoints (expected).\n- Some “un"
-          }
-        ],
-        "answer_citations": [],
-        "cost_usd": 0.0001,
-        "corpus_version_hash": "026f126517b84ceb786129c1b7e1864304a0de6fbc25a961802fa8af25672962",
-        "index_build_id": "sag://sag_retrievalci_bench_v0/670000000000000000000201",
-        "generator_model_id": "sag-engine-retrieve-only",
-        "meta": {
-          "sag_top_k": 5,
-          "coverage_status": "unknown",
-          "stage_latencies_ms": {
-            "auth_scope": 20.8,
-            "tree_route": 0.29,
-            "candidate_retrieval": 1270.36,
-            "evidence_hydration": 18.25,
-            "rank_fusion": 46.39,
-            "graph_expansion": 51.1,
-            "diversity_selection": 249.66,
-            "total_retrieval": 1660.73
-          }
-        },
-        "retrieval_latency_ms": 1661.6712999530137
-      },
-      "must_include_match": 0.0,
-      "must_not_include_violations": null,
-      "answer_citation_precision": null,
-      "answer_citation_recall": 0.0,
-      "retrieval_source_precision": 0.75,
-      "retrieval_source_recall": 1.0,
-      "faithfulness": null,
-      "relevance": null,
-      "abstention_correctness": null,
-      "answer_length_chars": 0,
-      "refused": false
-    },
-    {
-      "system": "sag_engine",
       "question_id": "qst_0344",
       "tier": "multi_hop",
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1717.9881999618374,
+        "latency_ms": 1759.8087000078522,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1759,12 +1759,12 @@
             "span": "- Engineering to patch streaming accounting to ensure final usage does not also increment the streaming delta counter (or to separate metrics cleanly).\n- Backfill: no backfill plan"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/github__dsid_38e7aac0d2ed4545b7a92c2c441825a1.md",
-            "span": "Pr 27463 Fix Double Counting On Stream Retry\n\nSource type: github\nDocument ID: dsid_38e7aac0d2ed4545b7a92c2c441825a1\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstre"
+            "source_path": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_dc8da53aae4c4a81be13ae8e519cd42d.md",
+            "span": "- Largest deltas concentrated in streaming + retry-heavy workloads.\n- Embeddings batched fix creates visible downshift in billed units for affected endpoints (expected).\n- Some “un"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/github__dsid_4b2ac6984bdf4737a18520e158b04453.md",
-            "span": "Validation: - Replayed a production trace set in staging (mixed streaming/non-streaming) and confirmed `deployment_tokens_generated_total` matches sum(usage.completion_tokens) with"
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_409618a3958944f9b78362ed7e01bb33.md",
+            "span": "7) Mitigation options you can offer immediately (tier-dependent)\n\nThese are customer-facing actions CS/Support may propose, with SRE confirmation where possible:\n\n- Temporarily red"
           }
         ],
         "answer_citations": [],
@@ -1776,24 +1776,24 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 11.94,
-            "tree_route": 0.3,
-            "candidate_retrieval": 1316.47,
-            "evidence_hydration": 24.74,
-            "rank_fusion": 71.31,
-            "graph_expansion": 21.72,
-            "diversity_selection": 266.04,
-            "total_retrieval": 1717.03
+            "auth_scope": 22.55,
+            "tree_route": 0.31,
+            "candidate_retrieval": 1135.29,
+            "evidence_hydration": 33.62,
+            "rank_fusion": 115.67,
+            "graph_expansion": 75.22,
+            "diversity_selection": 363.61,
+            "total_retrieval": 1758.33
           }
         },
-        "retrieval_latency_ms": 1717.9881999618374
+        "retrieval_latency_ms": 1759.8087000078522
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
       "answer_citation_precision": null,
       "answer_citation_recall": 0.0,
-      "retrieval_source_precision": 0.75,
-      "retrieval_source_recall": 0.75,
+      "retrieval_source_precision": 0.8,
+      "retrieval_source_recall": 1.0,
       "faithfulness": null,
       "relevance": null,
       "abstention_correctness": null,
@@ -1807,7 +1807,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1931.8746000062674,
+        "latency_ms": 2319.339200039394,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1817,20 +1817,20 @@
             "span": "20250520 Trident Financial Dpa And Sla Redlines\n\nSource type: gmail\nDocument ID: dsid_98d7acbda29a4260a413c8d6da7207a3\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upst"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/gmail__dsid_86b915e7a2a3492c82224174383cd9f9.md",
-            "span": "If you want, I can also add a short note about separation of duties (runtime principal vs rotation principal) but that may be more detail than they need for the first pass.\n\nAisha\n"
-          },
-          {
             "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_a9a67d815b07451e90ed8c3d1734d007.md",
             "span": "Purpose\n\nThis page is the single index for Redwood Inference’s prospect-facing **Security Evidence Pack** used during the Vertical ABM pilot (and reusable beyond) for regulated wor"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/fireflies__dsid_6c4c1c875e704f09b4d791d64d7bc7e5.md",
-            "span": "[13:22] Chris Osei: Yeah. Proposed test checklist:\n1) Subscribe to plan in GCP Marketplace using test buyer\n2) Verify entitlement exists (via API/console)\n3) In Redwood console, ru"
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_08585f025bd74d50bafd23843caae7bb.md",
+            "span": "C) Data residency (where data is processed/stored)\n\n**Do say:**\n\n- “Data residency depends on the selected deployment mode and region. We support region selection for applicable wo"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_a9a67d815b07451e90ed8c3d1734d007.md",
-            "span": "Retention / data boundaries\n\n“We can share our customer-facing retention statement covering what data is stored for operational purposes and what retention controls apply by deploy"
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_602422b841b94f5c8089555015df0ed8.md",
+            "span": "Step 9 — Produce an audit-ready evidence package\n\nAttach to the reconciliation ticket:\n\n- Drift report (by account/day/model/region/route)\n- Freshness and completeness charts for t"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/slack__dsid_b8f2f50607a0406f9733f2e9ba4281c8.md",
+            "span": "1769014420 Eu Data Residency Objection Handling\n\nSource type: slack\nDocument ID: dsid_b8f2f50607a0406f9733f2e9ba4281c8\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upst"
           }
         ],
         "answer_citations": [],
@@ -1842,23 +1842,23 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 15.63,
-            "tree_route": 0.25,
-            "candidate_retrieval": 1275.38,
-            "evidence_hydration": 28.49,
-            "rank_fusion": 71.64,
-            "graph_expansion": 115.23,
-            "diversity_selection": 418.98,
-            "total_retrieval": 1930.84
+            "auth_scope": 19.84,
+            "tree_route": 0.43,
+            "candidate_retrieval": 1298.81,
+            "evidence_hydration": 35.68,
+            "rank_fusion": 148.73,
+            "graph_expansion": 252.47,
+            "diversity_selection": 550.67,
+            "total_retrieval": 2317.88
           }
         },
-        "retrieval_latency_ms": 1931.8746000062674
+        "retrieval_latency_ms": 2319.339200039394
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
       "answer_citation_precision": null,
       "answer_citation_recall": 0.0,
-      "retrieval_source_precision": 0.5,
+      "retrieval_source_precision": 0.4,
       "retrieval_source_recall": 1.0,
       "faithfulness": null,
       "relevance": null,
@@ -1873,7 +1873,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 2174.236099992413,
+        "latency_ms": 1971.827600034885,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1883,20 +1883,20 @@
             "span": "Docs: Added first public case study (Northwind Commerce) to /case-studies, including an approved quote block, architecture diagram, and a standardized metrics disclaimer component "
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_0c504258cd0c432d898e6711fb90eaf6.md",
-            "span": "Sup 3812 Northwind Dedicated Latency Spike During Interview Window\n\nSource type: jira\nDocument ID: dsid_0c504258cd0c432d898e6711fb90eaf6\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Be"
-          },
-          {
             "source_path": "examples/rag_eval/bench_v0/corpus/gmail__dsid_6a29c54058c041cf8db781f195e6b1cc.md",
             "span": "Two quick questions:\n1) For quotes: do you prefer name + title, or title-only attribution (“VP Engineering, Northwind Commerce”)?\n2) For logo usage: is it limited to the case study"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/gmail__dsid_98d7acbda29a4260a413c8d6da7207a3.md",
-            "span": "20250520 Trident Financial Dpa And Sla Redlines\n\nSource type: gmail\nDocument ID: dsid_98d7acbda29a4260a413c8d6da7207a3\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upst"
+            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_0c504258cd0c432d898e6711fb90eaf6.md",
+            "span": "Sup 3812 Northwind Dedicated Latency Spike During Interview Window\n\nSource type: jira\nDocument ID: dsid_0c504258cd0c432d898e6711fb90eaf6\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Be"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_0c504258cd0c432d898e6711fb90eaf6.md",
-            "span": "- We informed Northwind that we identified a transient capacity event (node drain) and applied safeguards to reduce the chance of recurrence. No action required on their side.\n\nRes"
+            "source_path": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_184be937d34a412ab5e61366d54d8ed6.md",
+            "span": "Policy Engine Failover Extensions Draft\n\nSource type: google_drive\nDocument ID: dsid_184be937d34a412ab5e61366d54d8ed6\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstr"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_c52c609c0cdf4211a7e8c57bb1da72e4.md",
+            "span": "Customer communications\n\nIf contract or procurement asks for a customer-facing explanation:\n\n- Sales should use the approved FAQ language (see Sales Enablement page) and avoid prom"
           }
         ],
         "answer_citations": [],
@@ -1908,23 +1908,23 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 14.48,
-            "tree_route": 0.23,
-            "candidate_retrieval": 1697.2,
-            "evidence_hydration": 21.82,
-            "rank_fusion": 67.13,
-            "graph_expansion": 99.76,
-            "diversity_selection": 266.54,
-            "total_retrieval": 2172.0
+            "auth_scope": 21.12,
+            "tree_route": 0.49,
+            "candidate_retrieval": 1126.07,
+            "evidence_hydration": 26.62,
+            "rank_fusion": 123.12,
+            "graph_expansion": 232.76,
+            "diversity_selection": 427.85,
+            "total_retrieval": 1970.09
           }
         },
-        "retrieval_latency_ms": 2174.236099992413
+        "retrieval_latency_ms": 1971.827600034885
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
       "answer_citation_precision": null,
       "answer_citation_recall": 0.0,
-      "retrieval_source_precision": 0.75,
+      "retrieval_source_precision": 0.6,
       "retrieval_source_recall": 1.0,
       "faithfulness": null,
       "relevance": null,
@@ -1939,7 +1939,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1880.9603999834508,
+        "latency_ms": 2225.92799999984,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -1953,16 +1953,16 @@
             "span": "Ethan Park: The ordering looks good, but we need a hard stop if CRDs aren’t present. We cannot attempt to apply the control-plane chart before CRDs exist (this is what bit us on-pr"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_1980f45c3fb4455f943a2b030892ae90.md",
-            "span": "Actual behavior\n\n- Customer sees throttling during burst windows and requests clarification on:\n  1) Why enterprise traffic is being rejected\n  2) Whether the 429s are overload she"
-          },
-          {
             "source_path": "examples/rag_eval/bench_v0/corpus/fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md",
             "span": "[01:30] Fatima Noor: Sure. So the direction is: the installer generates an upgrade plan first, it’s a versioned artifact that lists stages and steps. Before doing anything, we run "
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_dab17ee5c3924a9998b17b3591bbae28.md",
-            "span": "Sup 18477 Restore Fails Onprem Missing Crds\n\nSource type: jira\nDocument ID: dsid_dab17ee5c3924a9998b17b3591bbae28\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstream "
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_08585f025bd74d50bafd23843caae7bb.md",
+            "span": "J) “Air-gapped” / on-prem claims\n\n**Do say:**\n\n- “Redwood Private includes private deployment options; some customers deploy in isolated environments depending on architecture and "
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_1980f45c3fb4455f943a2b030892ae90.md",
+            "span": "Actual behavior\n\n- Customer sees throttling during burst windows and requests clarification on:\n  1) Why enterprise traffic is being rejected\n  2) Whether the 429s are overload she"
           }
         ],
         "answer_citations": [],
@@ -1974,23 +1974,23 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 23.26,
-            "tree_route": 0.34,
-            "candidate_retrieval": 1287.62,
-            "evidence_hydration": 23.89,
-            "rank_fusion": 80.28,
-            "graph_expansion": 80.85,
-            "diversity_selection": 379.45,
-            "total_retrieval": 1880.06
+            "auth_scope": 26.73,
+            "tree_route": 0.57,
+            "candidate_retrieval": 1307.31,
+            "evidence_hydration": 28.81,
+            "rank_fusion": 103.34,
+            "graph_expansion": 120.85,
+            "diversity_selection": 626.77,
+            "total_retrieval": 2224.25
           }
         },
-        "retrieval_latency_ms": 1880.9603999834508
+        "retrieval_latency_ms": 2225.92799999984
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
       "answer_citation_precision": null,
       "answer_citation_recall": 0.0,
-      "retrieval_source_precision": 0.5,
+      "retrieval_source_precision": 0.4,
       "retrieval_source_recall": 1.0,
       "faithfulness": null,
       "relevance": null,
@@ -2005,7 +2005,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1626.4795000315644,
+        "latency_ms": 1801.9701999728568,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2013,10 +2013,6 @@
           {
             "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_6e528fa402c34043897649be6aa6df3d.md",
             "span": "2025-12-09 09:12 PT — Owen Phillips (Support): Customer (Banyan Search) reports fallback not triggering. They configured fallback from 70B -> 8B for overload, but still getting 503"
-          },
-          {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_49fa5cfd95624dbeb6eaa535f9959470.md",
-            "span": "Ownership\n\n- SLO definitions and alert policy: **SRE (Rafael Mendes / Aisha Bello)**\n- Metric correctness and tagging: **Telemetry (Logan Wright)**\n- Enforcement behavior (429 reas"
           },
           {
             "source_path": "examples/rag_eval/bench_v0/corpus/github__dsid_960a2981de674ebf844f7dc19d2e3cc0.md",
@@ -2027,8 +2023,12 @@
             "span": "Known issues (Support-facing)\n\n1) **Retry-After header missing on some overload responses**\n\n- Symptom: Customer receives 429/503 overload payload but no Retry-After.\n- Workaround:"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_ca42a8f18d784c879c5a6fcfe3a484c0.md",
-            "span": "“Should I fail over to another model/region?”\n\nGuidance:\n\n- If they have **fallback routing configured** (Dedicated/enterprise Hosted tiers or configured routing policies), yes—rec"
+            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_1980f45c3fb4455f943a2b030892ae90.md",
+            "span": "Initial support response (guidance provided)\n\n- Confirmed that the new system returns distinct reason codes and customers should key their retry/backoff behavior on:\n  - \"quota_exc"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_d32eb5051b554e038222c3bf399acef8.md",
+            "span": "1) Gateway admission control (primary front-door protection)\n\n**Gateway owns “who gets in”** based on:\n\n- Tenant/tier policy (Hosted self-serve vs enterprise Hosted vs Dedicated ro"
           }
         ],
         "answer_citations": [],
@@ -2040,24 +2040,24 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 12.32,
-            "tree_route": 0.19,
-            "candidate_retrieval": 1301.17,
-            "evidence_hydration": 21.71,
-            "rank_fusion": 36.39,
-            "graph_expansion": 39.5,
-            "diversity_selection": 209.88,
-            "total_retrieval": 1625.57
+            "auth_scope": 21.19,
+            "tree_route": 0.5,
+            "candidate_retrieval": 1115.73,
+            "evidence_hydration": 28.67,
+            "rank_fusion": 86.39,
+            "graph_expansion": 97.92,
+            "diversity_selection": 438.48,
+            "total_retrieval": 1800.32
           }
         },
-        "retrieval_latency_ms": 1626.4795000315644
+        "retrieval_latency_ms": 1801.9701999728568
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
       "answer_citation_precision": null,
       "answer_citation_recall": 0.0,
-      "retrieval_source_precision": 0.75,
-      "retrieval_source_recall": 0.75,
+      "retrieval_source_precision": 0.8,
+      "retrieval_source_recall": 1.0,
       "faithfulness": null,
       "relevance": null,
       "abstention_correctness": null,
@@ -2071,7 +2071,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1647.6676000165753,
+        "latency_ms": 2081.4136999542825,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2079,6 +2079,10 @@
           {
             "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_fe7a496e795b4baca997e655f9316fc5.md",
             "span": "Int 3310 Event Tracking Discrepancy Activation Funnel\n\nSource type: jira\nDocument ID: dsid_fe7a496e795b4baca997e655f9316fc5\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_21d6b99dc771418287d61444f373852e.md",
+            "span": "Sup 24871 Not Receiving Onboarding Emails\n\nSource type: jira\nDocument ID: dsid_21d6b99dc771418287d61444f373852e\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstream da"
           },
           {
             "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_150b485e7fd54251b937ab3d08a850dc.md",
@@ -2089,12 +2093,8 @@
             "span": "Pr 28521 Fix Duplicate Signup Event Emission\n\nSource type: github\nDocument ID: dsid_44cf2d75d70d4365914aa46947a94b1d\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstre"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_21d6b99dc771418287d61444f373852e.md",
-            "span": "Sup 24871 Not Receiving Onboarding Emails\n\nSource type: jira\nDocument ID: dsid_21d6b99dc771418287d61444f373852e\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstream da"
-          },
-          {
-            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_21d6b99dc771418287d61444f373852e.md",
-            "span": "Notably: activation events were recently deduped (PR-28521), but that shouldn’t eliminate sends entirely in one region.\n2026-01-31 11:05 UTC — Ethan Park\nRoot cause found: lifecycl"
+            "source_path": "examples/rag_eval/bench_v0/corpus/slack__dsid_8ae540be8e4c458ca15e122040ea2418.md",
+            "span": "1740726110 Rollout Split Mismatch Us East\n\nSource type: slack\nDocument ID: dsid_8ae540be8e4c458ca15e122040ea2418\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstream d"
           }
         ],
         "answer_citations": [],
@@ -2106,23 +2106,23 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 17.59,
-            "tree_route": 0.3,
-            "candidate_retrieval": 1289.09,
-            "evidence_hydration": 24.21,
-            "rank_fusion": 38.38,
-            "graph_expansion": 46.79,
-            "diversity_selection": 225.86,
-            "total_retrieval": 1646.47
+            "auth_scope": 26.62,
+            "tree_route": 0.39,
+            "candidate_retrieval": 1298.13,
+            "evidence_hydration": 29.41,
+            "rank_fusion": 110.06,
+            "graph_expansion": 89.8,
+            "diversity_selection": 514.72,
+            "total_retrieval": 2079.91
           }
         },
-        "retrieval_latency_ms": 1647.6676000165753
+        "retrieval_latency_ms": 2081.4136999542825
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
       "answer_citation_precision": null,
       "answer_citation_recall": 0.0,
-      "retrieval_source_precision": 0.75,
+      "retrieval_source_precision": 0.6,
       "retrieval_source_recall": 1.0,
       "faithfulness": null,
       "relevance": null,
@@ -2137,7 +2137,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1837.3358999961056,
+        "latency_ms": 2425.62320001889,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2152,15 +2152,15 @@
           },
           {
             "source_path": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_95c7aa5238f94570a8e0a8684736b666.md",
-            "span": "- Symptom: customer asked why burst line item didn’t match dashboard usage; we found ~1.8–2.3% overcount in a specific retry pattern.\n- Root cause: metering event emitted pre-idemp"
+            "span": "- Total burst attempts: dominated by 2 tenants with scheduled batch jobs.\n- Denial rate: ranged 0–18% by tenant depending on time-of-day; spikes correlated with telemetry lag and c"
           },
           {
             "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_409618a3958944f9b78362ed7e01bb33.md",
             "span": "Template D — Resolution note + next steps\n\nSubject: Resolved: Dedicated throughput issue (Deployment {{deployment_id}})\n\nHi {{customer_name}},\n\nThe throughput issue affecting your "
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_f3e6edec6f4947a5bd5aa7fd557d7d2b.md",
-            "span": "2025-06-19 (Miguel Santos): Customer flagged burst usage line item as higher than expected. They requested reconciliation before approving invoice. Looping in Cole (billing hooks) "
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_c52c609c0cdf4211a7e8c57bb1da72e4.md",
+            "span": "Escalate to CFO (Laura Bennett)\n\n- Material concessions affecting revenue recognition or collection\n- Any exception involving significant credits/refunds or contractual refund obli"
           }
         ],
         "answer_citations": [],
@@ -2172,23 +2172,23 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 16.37,
-            "tree_route": 0.24,
-            "candidate_retrieval": 1267.27,
-            "evidence_hydration": 22.43,
-            "rank_fusion": 91.42,
-            "graph_expansion": 50.71,
-            "diversity_selection": 381.13,
-            "total_retrieval": 1836.2
+            "auth_scope": 22.45,
+            "tree_route": 0.47,
+            "candidate_retrieval": 1372.72,
+            "evidence_hydration": 27.83,
+            "rank_fusion": 140.56,
+            "graph_expansion": 104.44,
+            "diversity_selection": 742.12,
+            "total_retrieval": 2423.99
           }
         },
-        "retrieval_latency_ms": 1837.3358999961056
+        "retrieval_latency_ms": 2425.62320001889
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
       "answer_citation_precision": null,
       "answer_citation_recall": 0.0,
-      "retrieval_source_precision": 0.75,
+      "retrieval_source_precision": 0.6,
       "retrieval_source_recall": 1.0,
       "faithfulness": null,
       "relevance": null,
@@ -2203,7 +2203,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1644.9964999919757,
+        "latency_ms": 1904.9814999452792,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2221,12 +2221,12 @@
             "span": "Sean Gallagher: root cause candidate: us-east routers running old version, using IP fallback and route-only seed => canary assignment biased.\n\nAisha Bello: config patch has landed."
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_49fa5cfd95624dbeb6eaa535f9959470.md",
-            "span": "Ownership\n\n- SLO definitions and alert policy: **SRE (Rafael Mendes / Aisha Bello)**\n- Metric correctness and tagging: **Telemetry (Logan Wright)**\n- Enforcement behavior (429 reas"
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_8c24fd15fe5b473eb71341751d292b6e.md",
+            "span": "6) Fallback behavior and “effective cohort” telemetry\n\nIf the intended cohort target cannot be served (e.g., canary model unavailable in a region, or hard failure triggers fallback"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_150b485e7fd54251b937ab3d08a850dc.md",
-            "span": "B) Traffic split mismatch\n\n**Common symptoms:**\n\n- Observed canary traffic differs significantly from configured percent.\n- Split matches overall, but **per-region** mismatch (e.g."
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_58bdb9f3bb4241e089f4f2b102765db4.md",
+            "span": "RC4: Incident-bot dedupe gaps (contributing)\n\nincident-bot dedupe was based on (alert_name, model) only.\n\n- As a result, changes in alert labels and repeated firing produced new th"
           }
         ],
         "answer_citations": [],
@@ -2238,24 +2238,24 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 18.01,
-            "tree_route": 0.22,
-            "candidate_retrieval": 1277.89,
-            "evidence_hydration": 20.86,
-            "rank_fusion": 56.23,
-            "graph_expansion": 35.62,
-            "diversity_selection": 231.09,
-            "total_retrieval": 1643.94
+            "auth_scope": 22.8,
+            "tree_route": 0.53,
+            "candidate_retrieval": 1181.48,
+            "evidence_hydration": 35.39,
+            "rank_fusion": 136.35,
+            "graph_expansion": 71.06,
+            "diversity_selection": 444.45,
+            "total_retrieval": 1903.51
           }
         },
-        "retrieval_latency_ms": 1644.9964999919757
+        "retrieval_latency_ms": 1904.9814999452792
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
       "answer_citation_precision": null,
       "answer_citation_recall": 0.0,
-      "retrieval_source_precision": 0.75,
-      "retrieval_source_recall": 0.75,
+      "retrieval_source_precision": 0.8,
+      "retrieval_source_recall": 1.0,
       "faithfulness": null,
       "relevance": null,
       "abstention_correctness": null,
@@ -2269,7 +2269,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1889.3839999800548,
+        "latency_ms": 2270.433099998627,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2283,12 +2283,12 @@
             "span": "1771741044 Beta Customer Feedback Estimates Seem Off\n\nSource type: slack\nDocument ID: dsid_ae2e969d0b924ebbb19ab2f5d1b95125\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_dc8da53aae4c4a81be13ae8e519cd42d.md",
-            "span": "- Largest deltas concentrated in streaming + retry-heavy workloads.\n- Embeddings batched fix creates visible downshift in billed units for affected endpoints (expected).\n- Some “un"
+            "source_path": "examples/rag_eval/bench_v0/corpus/github__dsid_fee94d81c032494cbfce8094468f0973.md",
+            "span": "Pr 22044 Savings Estimator V0 For Batching And Caching\n\nSource type: github\nDocument ID: dsid_fee94d81c032494cbfce8094468f0973\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthe"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/github__dsid_fee94d81c032494cbfce8094468f0973.md",
-            "span": "Rollout: No runtime impact on request path. Used by the suggestions compute job only. Observability and UI wiring are in separate PRs.\nJonas Weber (review): The batching latency mo"
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_37befab212ae4ed9be7ebe612d942658.md",
+            "span": "13.2 Invoice display conventions\n\nInvoice line items should display:\n\n- Product name (Hosted API)\n- Meter name (Billed tokens or Requests)\n- Unit price\n- Quantity\n- Total\n\nIf custo"
           },
           {
             "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_85ee9562e05d457b9e32785343777359.md",
@@ -2304,17 +2304,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 15.72,
-            "tree_route": 0.44,
-            "candidate_retrieval": 1272.49,
-            "evidence_hydration": 37.82,
-            "rank_fusion": 97.84,
-            "graph_expansion": 95.94,
-            "diversity_selection": 361.08,
-            "total_retrieval": 1888.34
+            "auth_scope": 20.15,
+            "tree_route": 0.45,
+            "candidate_retrieval": 1319.5,
+            "evidence_hydration": 40.64,
+            "rank_fusion": 132.01,
+            "graph_expansion": 170.63,
+            "diversity_selection": 571.03,
+            "total_retrieval": 2268.55
           }
         },
-        "retrieval_latency_ms": 1889.3839999800548
+        "retrieval_latency_ms": 2270.433099998627
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -2335,7 +2335,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1754.1554999770597,
+        "latency_ms": 1558.168699964881,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2370,17 +2370,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 19.07,
-            "tree_route": 0.26,
-            "candidate_retrieval": 1544.89,
-            "evidence_hydration": 18.56,
-            "rank_fusion": 29.48,
-            "graph_expansion": 3.31,
-            "diversity_selection": 134.49,
-            "total_retrieval": 1753.25
+            "auth_scope": 30.07,
+            "tree_route": 0.57,
+            "candidate_retrieval": 1132.06,
+            "evidence_hydration": 31.41,
+            "rank_fusion": 74.31,
+            "graph_expansion": 21.71,
+            "diversity_selection": 255.34,
+            "total_retrieval": 1556.32
           }
         },
-        "retrieval_latency_ms": 1754.1554999770597
+        "retrieval_latency_ms": 1558.168699964881
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -2401,7 +2401,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1700.9900999837555,
+        "latency_ms": 2089.6470000152476,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2411,20 +2411,20 @@
             "span": "Sup 28451 Invoice Tokens Do Not Match Usage Api\n\nSource type: jira\nDocument ID: dsid_d04dea2d736445c3af6934b900a12ef9\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstr"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_602422b841b94f5c8089555015df0ed8.md",
-            "span": "C) Retry/fallback double-count (Hosted API)\n\nSignals:\n\n- Drift spikes on streaming/chat\n- Higher variance in routes using fallback routing\n\nActions:\n\n- Validate whether both attemp"
-          },
-          {
-            "source_path": "examples/rag_eval/bench_v0/corpus/github__dsid_38e7aac0d2ed4545b7a92c2c441825a1.md",
-            "span": "Pr 27463 Fix Double Counting On Stream Retry\n\nSource type: github\nDocument ID: dsid_38e7aac0d2ed4545b7a92c2c441825a1\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstre"
-          },
-          {
             "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_2f1f0358b85148f19d38f619891bfb15.md",
             "span": "Sup 28463 Double Charged For Retries\n\nSource type: jira\nDocument ID: dsid_2f1f0358b85148f19d38f619891bfb15\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstream data\nAc"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_602422b841b94f5c8089555015df0ed8.md",
-            "span": "Step 6 — Cross-check against customer usage API/export\n\nFor customer disputes and customer-visible consistency, compare ledger totals to the customer usage export/API.\n\nProcedure:\n"
+            "source_path": "examples/rag_eval/bench_v0/corpus/github__dsid_38e7aac0d2ed4545b7a92c2c441825a1.md",
+            "span": "- This change is behind feature flag billing.metering_stream_retry_dedupe_v1 (default off). Plan: enable in staging for 48h, then canary 5% of hosted traffic (US-East + two high-vo"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_37befab212ae4ed9be7ebe612d942658.md",
+            "span": "3. Principles (must-haves)\n\n1. **Single source of truth for invoicing:** The billing ledger is the authoritative source for invoice totals. Telemetry events are authoritative for d"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_dc8da53aae4c4a81be13ae8e519cd42d.md",
+            "span": "D-01 | Acme AI | Hosted API (streaming) | 2026-01-28 to 2026-02-02 | Invoice tokens > usage API tokens by ~3–6% on high-streaming days | double-count on server retry/fallback for s"
           }
         ],
         "answer_citations": [],
@@ -2436,24 +2436,24 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 16.29,
-            "tree_route": 0.28,
-            "candidate_retrieval": 1273.63,
-            "evidence_hydration": 17.08,
-            "rank_fusion": 51.35,
-            "graph_expansion": 37.39,
-            "diversity_selection": 300.33,
-            "total_retrieval": 1699.98
+            "auth_scope": 19.89,
+            "tree_route": 0.48,
+            "candidate_retrieval": 1298.54,
+            "evidence_hydration": 29.45,
+            "rank_fusion": 137.61,
+            "graph_expansion": 65.2,
+            "diversity_selection": 526.4,
+            "total_retrieval": 2088.34
           }
         },
-        "retrieval_latency_ms": 1700.9900999837555
+        "retrieval_latency_ms": 2089.6470000152476
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
       "answer_citation_precision": null,
       "answer_citation_recall": 0.0,
       "retrieval_source_precision": 1.0,
-      "retrieval_source_recall": 0.5,
+      "retrieval_source_recall": 0.625,
       "faithfulness": null,
       "relevance": null,
       "abstention_correctness": null,
@@ -2467,7 +2467,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1917.1502999961376,
+        "latency_ms": 1707.388999988325,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2475,10 +2475,6 @@
           {
             "source_path": "examples/rag_eval/bench_v0/corpus/slack__dsid_b8f2f50607a0406f9733f2e9ba4281c8.md",
             "span": "1769014420 Eu Data Residency Objection Handling\n\nSource type: slack\nDocument ID: dsid_b8f2f50607a0406f9733f2e9ba4281c8\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upst"
-          },
-          {
-            "source_path": "examples/rag_eval/bench_v0/corpus/gmail__dsid_98d7acbda29a4260a413c8d6da7207a3.md",
-            "span": "20250520 Trident Financial Dpa And Sla Redlines\n\nSource type: gmail\nDocument ID: dsid_98d7acbda29a4260a413c8d6da7207a3\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upst"
           },
           {
             "source_path": "examples/rag_eval/bench_v0/corpus/gmail__dsid_6fc6a90cd2d044e5add05493803e64d1.md",
@@ -2489,8 +2485,12 @@
             "span": "C) Data residency (where data is processed/stored)\n\n**Do say:**\n\n- “Data residency depends on the selected deployment mode and region. We support region selection for applicable wo"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/gmail__dsid_98d7acbda29a4260a413c8d6da7207a3.md",
-            "span": "- Our default is typically “without undue delay” / 72 hours for certain events; 24 hours is aggressive. We may be able to do 24 hours for confirmed material incidents impacting the"
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_a9a67d815b07451e90ed8c3d1734d007.md",
+            "span": "D) Data retention, residency, and data handling statements\n\n10) **Data retention policy statement (customer-facing)**\n\n- Clarifies retention and deletion behavior for different dat"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/fireflies__dsid_6c4c1c875e704f09b4d791d64d7bc7e5.md",
+            "span": "[17:07] Miguel Alvarez: That’s okay. The marketplace doesn’t care if you batch, as long as it’s accurate and you can explain your aggregation. Many partners aggregate per hour to r"
           }
         ],
         "answer_citations": [],
@@ -2502,23 +2502,23 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 14.61,
-            "tree_route": 0.26,
-            "candidate_retrieval": 1293.53,
-            "evidence_hydration": 17.24,
-            "rank_fusion": 76.68,
-            "graph_expansion": 130.96,
-            "diversity_selection": 377.94,
-            "total_retrieval": 1915.59
+            "auth_scope": 17.06,
+            "tree_route": 0.35,
+            "candidate_retrieval": 1148.34,
+            "evidence_hydration": 22.14,
+            "rank_fusion": 68.6,
+            "graph_expansion": 102.93,
+            "diversity_selection": 342.24,
+            "total_retrieval": 1706.47
           }
         },
-        "retrieval_latency_ms": 1917.1502999961376
+        "retrieval_latency_ms": 1707.388999988325
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
       "answer_citation_precision": null,
       "answer_citation_recall": 0.0,
-      "retrieval_source_precision": 0.75,
+      "retrieval_source_precision": 0.6,
       "retrieval_source_recall": 1.0,
       "faithfulness": null,
       "relevance": null,
@@ -2533,7 +2533,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1486.2433999660425,
+        "latency_ms": 1264.0933999791741,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2568,17 +2568,17 @@
           "sag_top_k": 5,
           "coverage_status": "structurally_sufficient",
           "stage_latencies_ms": {
-            "auth_scope": 17.0,
-            "tree_route": 0.59,
-            "candidate_retrieval": 1320.75,
-            "evidence_hydration": 28.02,
-            "rank_fusion": 50.17,
+            "auth_scope": 18.02,
+            "tree_route": 0.33,
+            "candidate_retrieval": 1113.89,
+            "evidence_hydration": 22.29,
+            "rank_fusion": 40.02,
             "graph_expansion": 0.0,
-            "diversity_selection": 62.38,
-            "total_retrieval": 1484.33
+            "diversity_selection": 63.01,
+            "total_retrieval": 1263.23
           }
         },
-        "retrieval_latency_ms": 1486.2433999660425
+        "retrieval_latency_ms": 1264.0933999791741
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -2599,7 +2599,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1555.2875999710523,
+        "latency_ms": 1497.1128000179306,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2613,16 +2613,16 @@
             "span": "EXAMPLE\n\nInput: \"Average experience, shipping slow but product ok.\"\nLabel: NEGATIVE\nNow classify:\nInput: \"<INPUT>\"\nLabel:\n\"\"\"\n\nTemplate C — rewrite to tone (zero-shot with instruct"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_05841423a55e4c35abd276d9899b7134.md",
-            "span": "RNG handling (current standard)\n\nRoot seed and per-example seeds\n\n- The runner accepts a `--seed` root seed.\n- For each example, derive a stable per-example seed:\n  - `example_seed"
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_c52c609c0cdf4211a7e8c57bb1da72e4.md",
+            "span": "D. Tool/function calling and structured output\n\n**Approved clause (standard):**\n“Where the service supports tool/function calling or structured output, tokens attributable to tool "
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_37befab212ae4ed9be7ebe612d942658.md",
-            "span": "14. Examples (normative)\n\nExample A — Standard non-streaming chat completion\n\nInput: 120 prompt tokens; output: 80 completion tokens.\n\n- request_count = 1\n- prompt_tokens = 120\n- c"
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_409618a3958944f9b78362ed7e01bb33.md",
+            "span": "Template C — Request customer confirmation on throttling / load\n\nSubject: Quick check: request load/concurrency for Dedicated deployment {{deployment_id}}\n\nHi {{customer_name}},\n\nT"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_a2bf755670ad44e09b42c11e9d73e5d3.md",
-            "span": "Prompt Heuristics Templates And Failure Cases 2026\n\nSource type: confluence\nDocument ID: dsid_a2bf755670ad44e09b42c11e9d73e5d3\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthe"
+            "source_path": "examples/rag_eval/bench_v0/corpus/github__dsid_1c53affffb4f477ca476bec3138b60eb.md",
+            "span": "Motivation: Close a set of subtle incompatibilities between our /v1/chat.completions adapter and OpenAI's behavior that have been causing developer friction in streaming function-c"
           }
         ],
         "answer_citations": [],
@@ -2634,23 +2634,23 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 15.36,
-            "tree_route": 0.25,
-            "candidate_retrieval": 1247.35,
-            "evidence_hydration": 20.59,
-            "rank_fusion": 40.07,
-            "graph_expansion": 43.13,
-            "diversity_selection": 183.95,
-            "total_retrieval": 1554.49
+            "auth_scope": 13.57,
+            "tree_route": 0.19,
+            "candidate_retrieval": 1129.42,
+            "evidence_hydration": 21.55,
+            "rank_fusion": 34.53,
+            "graph_expansion": 53.91,
+            "diversity_selection": 239.34,
+            "total_retrieval": 1496.01
           }
         },
-        "retrieval_latency_ms": 1555.2875999710523
+        "retrieval_latency_ms": 1497.1128000179306
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
       "answer_citation_precision": null,
       "answer_citation_recall": 0.0,
-      "retrieval_source_precision": 0.5,
+      "retrieval_source_precision": 0.4,
       "retrieval_source_recall": 1.0,
       "faithfulness": null,
       "relevance": null,
@@ -2665,7 +2665,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1683.9253999642096,
+        "latency_ms": 1472.4736000061966,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2688,17 +2688,17 @@
           "sag_top_k": 5,
           "coverage_status": "structurally_sufficient",
           "stage_latencies_ms": {
-            "auth_scope": 14.77,
-            "tree_route": 0.27,
-            "candidate_retrieval": 1506.83,
-            "evidence_hydration": 25.26,
-            "rank_fusion": 44.9,
+            "auth_scope": 21.78,
+            "tree_route": 0.41,
+            "candidate_retrieval": 1280.05,
+            "evidence_hydration": 22.63,
+            "rank_fusion": 52.87,
             "graph_expansion": 0.0,
-            "diversity_selection": 85.93,
-            "total_retrieval": 1682.93
+            "diversity_selection": 90.07,
+            "total_retrieval": 1471.56
           }
         },
-        "retrieval_latency_ms": 1683.9253999642096
+        "retrieval_latency_ms": 1472.4736000061966
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -2719,7 +2719,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1588.7822999502532,
+        "latency_ms": 1507.8704999759793,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2733,16 +2733,16 @@
             "span": "Attachment: scaling_action_plan.md (ops stub)\n— Marcus Lin\nPrincipal Engineer, Serving Runtime\nmarcus_lin@redwood.com\n\n> On Aug 28, 2026, at 08:25, Stephanie Nguyen <stephanie_nguy"
           },
           {
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_409618a3958944f9b78362ed7e01bb33.md",
+            "span": "Page Infra/Fleet On-Call when any of the following is true (often in parallel)\n\n- GPU/node health signals indicate failures, evictions, ECC errors, or repeated container restarts.\n"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_05841423a55e4c35abd276d9899b7134.md",
+            "span": "Summary\n\nOur evaluation harness previously produced intermittent metric drops (e.g., ~0.04 BLEU on a single run) for the quantized-v2 onboarding suite that disappeared on rerun. Th"
+          },
+          {
             "source_path": "examples/rag_eval/bench_v0/corpus/slack__dsid_b8f2f50607a0406f9733f2e9ba4281c8.md",
             "span": "Marcus Lin: approved approach: “We route based on the region selected; cross-region routing of customer content is not the standard behavior for region-pinned setups.” Don’t use “n"
-          },
-          {
-            "source_path": "examples/rag_eval/bench_v0/corpus/gmail__dsid_6fc6a90cd2d044e5add05493803e64d1.md",
-            "span": "- For Hosted/Dedicated in an EU region: inference request handling + runtime execution occurs in-region.\n- We do not enable cross-region replication of customer content by default."
-          },
-          {
-            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_0c1f1c83e8d44d2fa3a9f6c7b2d7b9f1.md",
-            "span": "Impact (finalized): peak 5xx rate revised to ~6–8% (varied by minute) with ~10–12 minute period of elevated errors; throughput dipped to ~60% of baseline at trough. No evidence of "
           }
         ],
         "answer_citations": [],
@@ -2754,23 +2754,23 @@
           "sag_top_k": 5,
           "coverage_status": "structurally_sufficient",
           "stage_latencies_ms": {
-            "auth_scope": 15.95,
-            "tree_route": 0.23,
-            "candidate_retrieval": 1290.42,
-            "evidence_hydration": 19.78,
-            "rank_fusion": 40.54,
-            "graph_expansion": 26.39,
-            "diversity_selection": 190.77,
-            "total_retrieval": 1587.9
+            "auth_scope": 15.0,
+            "tree_route": 0.24,
+            "candidate_retrieval": 1094.69,
+            "evidence_hydration": 21.38,
+            "rank_fusion": 47.7,
+            "graph_expansion": 44.21,
+            "diversity_selection": 278.88,
+            "total_retrieval": 1507.03
           }
         },
-        "retrieval_latency_ms": 1588.7822999502532
+        "retrieval_latency_ms": 1507.8704999759793
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
       "answer_citation_precision": null,
       "answer_citation_recall": 0.0,
-      "retrieval_source_precision": 0.5,
+      "retrieval_source_precision": 0.4,
       "retrieval_source_recall": 1.0,
       "faithfulness": null,
       "relevance": null,
@@ -2785,7 +2785,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1434.1103000333533,
+        "latency_ms": 1343.226999975741,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2820,17 +2820,17 @@
           "sag_top_k": 5,
           "coverage_status": "structurally_sufficient",
           "stage_latencies_ms": {
-            "auth_scope": 15.05,
-            "tree_route": 0.35,
-            "candidate_retrieval": 1259.68,
-            "evidence_hydration": 24.98,
-            "rank_fusion": 35.75,
+            "auth_scope": 14.82,
+            "tree_route": 0.48,
+            "candidate_retrieval": 1139.2,
+            "evidence_hydration": 19.99,
+            "rank_fusion": 35.27,
             "graph_expansion": 0.0,
-            "diversity_selection": 91.4,
-            "total_retrieval": 1433.28
+            "diversity_selection": 127.08,
+            "total_retrieval": 1341.17
           }
         },
-        "retrieval_latency_ms": 1434.1103000333533
+        "retrieval_latency_ms": 1343.226999975741
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -2851,7 +2851,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1633.8208999950439,
+        "latency_ms": 1659.5015000202693,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2869,12 +2869,12 @@
             "span": "Notes: If the cluster has partially-applied CRs, delete the failed CRs before re-run to avoid immutable field conflicts.\n2025-02-19 13:44 PT — Customer (MedData Ops): Workaround su"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_150b485e7fd54251b937ab3d08a850dc.md",
-            "span": "Component-specific escalation\n\n- **Smart Routing / Data plane split enforcement:** Mina Haddad / Ravi Menon (routing oncall)\n- **Telemetry / cohort tagging & aggregation:** Logan W"
+            "source_path": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_184be937d34a412ab5e61366d54d8ed6.md",
+            "span": "Policy Engine Failover Extensions Draft\n\nSource type: google_drive\nDocument ID: dsid_184be937d34a412ab5e61366d54d8ed6\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstr"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_1980f45c3fb4455f943a2b030892ae90.md",
-            "span": "2026-01-20 09:26 PT - Owen Phillips (Support): Customer reports 10x increase in 429s since this morning. Asking if we changed rate limiting / routing. Provided immediate guidance: "
+            "source_path": "examples/rag_eval/bench_v0/corpus/github__dsid_b8691ba2e29542838afae93928ad816a.md",
+            "span": "Pr 489 Add Restore Apply Workflow And Validation\n\nSource type: github\nDocument ID: dsid_b8691ba2e29542838afae93928ad816a\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic up"
           }
         ],
         "answer_citations": [],
@@ -2886,17 +2886,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 16.07,
-            "tree_route": 0.26,
-            "candidate_retrieval": 1308.3,
-            "evidence_hydration": 19.28,
-            "rank_fusion": 39.09,
-            "graph_expansion": 39.18,
-            "diversity_selection": 206.17,
-            "total_retrieval": 1632.82
+            "auth_scope": 39.3,
+            "tree_route": 0.49,
+            "candidate_retrieval": 1117.61,
+            "evidence_hydration": 33.14,
+            "rank_fusion": 94.33,
+            "graph_expansion": 53.37,
+            "diversity_selection": 310.1,
+            "total_retrieval": 1657.83
           }
         },
-        "retrieval_latency_ms": 1633.8208999950439
+        "retrieval_latency_ms": 1659.5015000202693
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -2917,7 +2917,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1406.9502000347711,
+        "latency_ms": 1317.4020999576896,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2952,17 +2952,17 @@
           "sag_top_k": 5,
           "coverage_status": "structurally_sufficient",
           "stage_latencies_ms": {
-            "auth_scope": 15.67,
-            "tree_route": 0.24,
-            "candidate_retrieval": 1270.16,
-            "evidence_hydration": 19.42,
-            "rank_fusion": 57.86,
+            "auth_scope": 19.8,
+            "tree_route": 0.34,
+            "candidate_retrieval": 1119.79,
+            "evidence_hydration": 34.86,
+            "rank_fusion": 70.57,
             "graph_expansion": 0.0,
-            "diversity_selection": 37.47,
-            "total_retrieval": 1405.35
+            "diversity_selection": 64.36,
+            "total_retrieval": 1315.89
           }
         },
-        "retrieval_latency_ms": 1406.9502000347711
+        "retrieval_latency_ms": 1317.4020999576896
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -2983,7 +2983,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1831.1885999864899,
+        "latency_ms": 1437.3794999555685,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -2991,6 +2991,10 @@
           {
             "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_602422b841b94f5c8089555015df0ed8.md",
             "span": "Step 1 — Verify freshness & completeness gates\n\nBefore comparing numbers, confirm we are not comparing incomplete data.\n\nChecklist:\n\n- Usage events ingestion is current (meets fres"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_37befab212ae4ed9be7ebe612d942658.md",
+            "span": "15. Operational checks (required)\n\nEngineering and Finance must continuously monitor:\n\n- Duplicate billing_dedupe_key rate\n- Null/unknown dimensions (model, region, endpoint)\n- Dri"
           },
           {
             "source_path": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_dc8da53aae4c4a81be13ae8e519cd42d.md",
@@ -3001,12 +3005,8 @@
             "span": "Internal operational guardrails (contracting)\n\nMonth-end close and late-arriving events\n\nFinance operates a month-end close process with a usage data freeze window and controlled b"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_37befab212ae4ed9be7ebe612d942658.md",
-            "span": "15. Operational checks (required)\n\nEngineering and Finance must continuously monitor:\n\n- Duplicate billing_dedupe_key rate\n- Null/unknown dimensions (model, region, endpoint)\n- Dri"
-          },
-          {
-            "source_path": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_dc8da53aae4c4a81be13ae8e519cd42d.md",
-            "span": "Usage Meter Audit 2026 02 Working Notes\n\nSource type: google_drive\nDocument ID: dsid_dc8da53aae4c4a81be13ae8e519cd42d\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstr"
+            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_d04dea2d736445c3af6934b900a12ef9.md",
+            "span": "- Eng (Nadia / Logan): validate fix in staging + shadow-billing compare; confirm no new drift.\n- Finance/RevRec (Emily): approve credit amount + audit trail notes.\n- Support: send "
           }
         ],
         "answer_citations": [],
@@ -3018,17 +3018,17 @@
           "sag_top_k": 5,
           "coverage_status": "unknown",
           "stage_latencies_ms": {
-            "auth_scope": 15.51,
-            "tree_route": 0.28,
-            "candidate_retrieval": 1528.86,
-            "evidence_hydration": 19.76,
-            "rank_fusion": 47.42,
-            "graph_expansion": 17.2,
-            "diversity_selection": 196.71,
-            "total_retrieval": 1829.83
+            "auth_scope": 14.77,
+            "tree_route": 0.24,
+            "candidate_retrieval": 1122.7,
+            "evidence_hydration": 22.02,
+            "rank_fusion": 70.07,
+            "graph_expansion": 24.79,
+            "diversity_selection": 177.15,
+            "total_retrieval": 1436.53
           }
         },
-        "retrieval_latency_ms": 1831.1885999864899
+        "retrieval_latency_ms": 1437.3794999555685
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -3049,7 +3049,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1817.9423999972641,
+        "latency_ms": 1561.774100002367,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -3059,20 +3059,20 @@
             "span": "13. Mapping to invoices and billing ledger\n\n13.1 Billing ledger aggregation\n\nInvoices are produced from the billing ledger aggregated by:\n\n- account_id\n- billing period\n- pricing p"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_d04dea2d736445c3af6934b900a12ef9.md",
-            "span": "- Eng (Nadia / Logan): validate fix in staging + shadow-billing compare; confirm no new drift.\n- Finance/RevRec (Emily): approve credit amount + audit trail notes.\n- Support: send "
-          },
-          {
             "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_602422b841b94f5c8089555015df0ed8.md",
             "span": "Definitions (canonical)\n\n**Billing Ledger:** The internal finance-grade table used to generate invoice line items. This is the **source of truth for invoicing** once the billing fr"
+          },
+          {
+            "source_path": "examples/rag_eval/bench_v0/corpus/jira__dsid_d04dea2d736445c3af6934b900a12ef9.md",
+            "span": "- Eng (Nadia / Logan): validate fix in staging + shadow-billing compare; confirm no new drift.\n- Finance/RevRec (Emily): approve credit amount + audit trail notes.\n- Support: send "
           },
           {
             "source_path": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_dc8da53aae4c4a81be13ae8e519cd42d.md",
             "span": "Usage Meter Audit 2026 02 Working Notes\n\nSource type: google_drive\nDocument ID: dsid_dc8da53aae4c4a81be13ae8e519cd42d\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstr"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_dc8da53aae4c4a81be13ae8e519cd42d.md",
-            "span": "D-01 | Acme AI | Hosted API (streaming) | 2026-01-28 to 2026-02-02 | Invoice tokens > usage API tokens by ~3–6% on high-streaming days | double-count on server retry/fallback for s"
+            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_c52c609c0cdf4211a7e8c57bb1da72e4.md",
+            "span": "3) “Usage Report” / “Usage API”\n\n**Usage Report** means Redwood’s reported usage as displayed in the Console, invoice detail, or usage export/API. Contract language should clarify "
           }
         ],
         "answer_citations": [],
@@ -3084,17 +3084,17 @@
           "sag_top_k": 5,
           "coverage_status": "weak",
           "stage_latencies_ms": {
-            "auth_scope": 17.03,
-            "tree_route": 0.29,
-            "candidate_retrieval": 1269.78,
-            "evidence_hydration": 22.02,
-            "rank_fusion": 56.59,
-            "graph_expansion": 47.9,
-            "diversity_selection": 398.32,
-            "total_retrieval": 1816.49
+            "auth_scope": 22.11,
+            "tree_route": 0.37,
+            "candidate_retrieval": 1152.48,
+            "evidence_hydration": 27.9,
+            "rank_fusion": 64.51,
+            "graph_expansion": 40.16,
+            "diversity_selection": 248.96,
+            "total_retrieval": 1560.91
           }
         },
-        "retrieval_latency_ms": 1817.9423999972641
+        "retrieval_latency_ms": 1561.774100002367
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -3115,7 +3115,7 @@
       "answer": {
         "answer": "",
         "citations": [],
-        "latency_ms": 1571.948800003156,
+        "latency_ms": 1741.395500022918,
         "tokens_used": 0,
         "refused": false,
         "refusal_reason": null,
@@ -3137,8 +3137,8 @@
             "span": "Canonical SLI and SLO\n\nCanonical throughput metric (SLI)\n\n**SLI name:** Dedicated Throughput Floor Attainment\n**SLI definition (per deployment):**\nFor each `deployment_id`, compute"
           },
           {
-            "source_path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_d32eb5051b554e038222c3bf399acef8.md",
-            "span": "3) Runtime admission/backpressure (last-line protection)\n\n**Runtime owns “what can actually execute”** on a given GPU pool/node.\n\nRuntime responsibilities:\n\n- Enforce hard safety l"
+            "source_path": "examples/rag_eval/bench_v0/corpus/github__dsid_960a2981de674ebf844f7dc19d2e3cc0.md",
+            "span": "Pr 18458 Smart Routing Fallback When Breaker Open\n\nSource type: github\nDocument ID: dsid_960a2981de674ebf844f7dc19d2e3cc0\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic u"
           }
         ],
         "answer_citations": [],
@@ -3150,17 +3150,17 @@
           "sag_top_k": 5,
           "coverage_status": "weak",
           "stage_latencies_ms": {
-            "auth_scope": 21.2,
-            "tree_route": 0.28,
-            "candidate_retrieval": 1272.9,
-            "evidence_hydration": 32.09,
-            "rank_fusion": 61.33,
-            "graph_expansion": 13.05,
-            "diversity_selection": 166.47,
-            "total_retrieval": 1571.01
+            "auth_scope": 13.45,
+            "tree_route": 0.24,
+            "candidate_retrieval": 1354.66,
+            "evidence_hydration": 22.2,
+            "rank_fusion": 70.38,
+            "graph_expansion": 21.6,
+            "diversity_selection": 250.24,
+            "total_retrieval": 1740.2
           }
         },
-        "retrieval_latency_ms": 1571.948800003156
+        "retrieval_latency_ms": 1741.395500022918
       },
       "must_include_match": 0.0,
       "must_not_include_violations": null,
@@ -27492,12 +27492,12 @@
     "sag_engine": {
       "must_include_match": 0.0,
       "answer_citation_recall": 0.0,
-      "retrieval_source_precision": 0.71,
-      "retrieval_source_recall": 0.9722222222222222,
+      "retrieval_source_precision": 0.6920000000000001,
+      "retrieval_source_recall": 0.9916666666666667,
       "abstention_correctness": 0.0,
       "answer_length_chars": 0.0,
-      "latency_ms_p50": 1670.4324499878567,
-      "retrieval_latency_ms_p50": 1670.4324499878567,
+      "latency_ms_p50": 1616.735100018559,
+      "retrieval_latency_ms_p50": 1616.735100018559,
       "tokens_used_total": 0.0,
       "refusal_rate": 0.0
     },
@@ -27755,15 +27755,15 @@
       "contradiction": {
         "must_include_match": 0.0,
         "answer_citation_recall": 0.0,
-        "retrieval_source_precision": 0.8,
+        "retrieval_source_precision": 0.76,
         "retrieval_source_recall": 1.0,
         "answer_length_chars": 0.0
       },
       "multi_hop": {
         "must_include_match": 0.0,
         "answer_citation_recall": 0.0,
-        "retrieval_source_precision": 0.711111111111111,
-        "retrieval_source_recall": 0.9166666666666666,
+        "retrieval_source_precision": 0.6644444444444445,
+        "retrieval_source_recall": 0.975,
         "answer_length_chars": 0.0
       },
       "single_hop": {
@@ -27805,11 +27805,11 @@
       "metric": "retrieval_source_precision",
       "system_a": "sag_engine",
       "system_b": "bm25_lexical",
-      "mean_a": 0.71,
+      "mean_a": 0.6920000000000001,
       "mean_b": 0.41,
-      "mean_diff": 0.3,
-      "ci_low": 0.18166666666666664,
-      "ci_high": 0.425,
+      "mean_diff": 0.2820000000000001,
+      "ci_low": 0.15799999999999997,
+      "ci_high": 0.4106666666666667,
       "alpha": 0.05,
       "n": 50,
       "significant": true
@@ -27818,11 +27818,11 @@
       "metric": "retrieval_source_precision",
       "system_a": "sag_engine",
       "system_b": "dense_rag",
-      "mean_a": 0.71,
+      "mean_a": 0.6920000000000001,
       "mean_b": 0.38833333333333336,
-      "mean_diff": 0.3216666666666666,
-      "ci_low": 0.19999999999999996,
-      "ci_high": 0.44666666666666666,
+      "mean_diff": 0.3036666666666667,
+      "ci_low": 0.1793333333333333,
+      "ci_high": 0.4313333333333334,
       "alpha": 0.05,
       "n": 50,
       "significant": true
@@ -27831,11 +27831,11 @@
       "metric": "retrieval_source_precision",
       "system_a": "sag_engine",
       "system_b": "hybrid_rrf",
-      "mean_a": 0.71,
+      "mean_a": 0.6920000000000001,
       "mean_b": 0.429,
-      "mean_diff": 0.28099999999999997,
-      "ci_low": 0.16033333333333333,
-      "ci_high": 0.406,
+      "mean_diff": 0.26300000000000007,
+      "ci_low": 0.1393333333333333,
+      "ci_high": 0.39033333333333325,
       "alpha": 0.05,
       "n": 50,
       "significant": true
@@ -27844,11 +27844,11 @@
       "metric": "retrieval_source_precision",
       "system_a": "sag_engine",
       "system_b": "dense_rerank",
-      "mean_a": 0.71,
+      "mean_a": 0.6920000000000001,
       "mean_b": 0.41666666666666663,
-      "mean_diff": 0.29333333333333333,
-      "ci_low": 0.17166666666666675,
-      "ci_high": 0.42000000000000004,
+      "mean_diff": 0.27533333333333343,
+      "ci_low": 0.15166666666666673,
+      "ci_high": 0.40233333333333343,
       "alpha": 0.05,
       "n": 50,
       "significant": true
@@ -27857,11 +27857,11 @@
       "metric": "retrieval_source_precision",
       "system_a": "sag_engine",
       "system_b": "chunk_summary_rag",
-      "mean_a": 0.71,
+      "mean_a": 0.6920000000000001,
       "mean_b": 0.37066666666666664,
-      "mean_diff": 0.3393333333333333,
-      "ci_low": 0.22666666666666674,
-      "ci_high": 0.45766666666666667,
+      "mean_diff": 0.3213333333333334,
+      "ci_low": 0.20400000000000001,
+      "ci_high": 0.4433333333333333,
       "alpha": 0.05,
       "n": 50,
       "significant": true
@@ -27870,11 +27870,11 @@
       "metric": "retrieval_source_precision",
       "system_a": "sag_engine",
       "system_b": "vertex_ai_rag",
-      "mean_a": 0.71,
+      "mean_a": 0.6920000000000001,
       "mean_b": 0.5466666666666666,
-      "mean_diff": 0.16333333333333333,
-      "ci_low": 0.05633333333333346,
-      "ci_high": 0.2736666666666666,
+      "mean_diff": 0.14533333333333343,
+      "ci_low": 0.031000000000000028,
+      "ci_high": 0.2626666666666667,
       "alpha": 0.05,
       "n": 50,
       "significant": true
@@ -27883,11 +27883,11 @@
       "metric": "retrieval_source_precision",
       "system_a": "sag_engine",
       "system_b": "bedrock_kb",
-      "mean_a": 0.71,
+      "mean_a": 0.6920000000000001,
       "mean_b": 0.7013333333333334,
-      "mean_diff": 0.0086666666666666,
-      "ci_low": -0.07833333333333325,
-      "ci_high": 0.09900000000000009,
+      "mean_diff": -0.009333333333333305,
+      "ci_low": -0.1036666666666668,
+      "ci_high": 0.08800000000000008,
       "alpha": 0.05,
       "n": 50,
       "significant": false
@@ -27896,11 +27896,11 @@
       "metric": "retrieval_source_precision",
       "system_a": "sag_engine",
       "system_b": "openai_file_search",
-      "mean_a": 0.71,
+      "mean_a": 0.6920000000000001,
       "mean_b": 0.534,
-      "mean_diff": 0.17599999999999993,
-      "ci_low": 0.06499999999999995,
-      "ci_high": 0.28933333333333344,
+      "mean_diff": 0.15800000000000003,
+      "ci_low": 0.03833333333333333,
+      "ci_high": 0.27799999999999997,
       "alpha": 0.05,
       "n": 50,
       "significant": true
@@ -27909,11 +27909,11 @@
       "metric": "retrieval_source_precision",
       "system_a": "sag_engine",
       "system_b": "azure_ai_search",
-      "mean_a": 0.71,
+      "mean_a": 0.6920000000000001,
       "mean_b": 0.6783333333333332,
-      "mean_diff": 0.03166666666666673,
-      "ci_low": -0.05833333333333346,
-      "ci_high": 0.1283333333333334,
+      "mean_diff": 0.013666666666666827,
+      "ci_low": -0.08333333333333337,
+      "ci_high": 0.11599999999999999,
       "alpha": 0.05,
       "n": 50,
       "significant": false

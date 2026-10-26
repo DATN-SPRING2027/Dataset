@@ -1,0 +1,3 @@
+# Phương ngữ Scanian
+
+Scanian ( ) là một nhóm phương ngữ gần gũi của tiếng Thụy Điển phía Nam được nói ở tỉnh Scania ở miền nam Thụy Điển. Scanian tạo thành một phần của các phương ngữ Scandinavia cổ và hầu hết các nhà ngôn ngữ học lịch sử đều coi đó là một nhóm phương ngữ Đan Mạch phía Đông, nhưng do ảnh hưởng hiện đại từ tiếng Thụy Điển chuẩn trong khu vực và bởi vì nghiên cứu về phương ngữ truyền thống trong các quốc gia Bắc Âu thường không xem xét những điểm khác biệt xuyên qua biên giới quốc gia, các phương ngữ Scanian thường được đối xử như một nhóm phương ngữ Thụy Điển phía Nam trong nghiên cứu về phương ngữ tiếng Thụy Điển. Tuy nhiên, nhiều nhà ngôn

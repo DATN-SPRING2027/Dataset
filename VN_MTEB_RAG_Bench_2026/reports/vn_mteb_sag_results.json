@@ -1,0 +1,4513 @@
+{
+  "ai_pipeline_audit": {
+    "total_docs": 130,
+    "total_knowledge_units": 368,
+    "dense_embedded_knowledge_units": 368,
+    "e2_flagged_units": 24,
+    "e2_llm_succeeded_units": 55,
+    "e2_entities_extracted": 109,
+    "e2_claims_extracted": 49,
+    "e2_relations_extracted": 58,
+    "graph_edges_total": 3892,
+    "graph_edges_with_semantic_signal": 3892,
+    "universe_tree_published": true,
+    "answer_synthesis": {
+      "enabled": true,
+      "model": "Qwen/Qwen3-8B",
+      "queries_synthesized": 50,
+      "non_empty_answers": 50,
+      "citation_grounded_answers": 50,
+      "citation_grounded_rate_pct": 100.0,
+      "p50_synthesis_ms": 5128.4
+    }
+  },
+  "zalo_legal": {
+    "sag_full": {
+      "map@5": 97.78,
+      "mrr@5": 97.78,
+      "ndcg@5": 98.33,
+      "recall@5": 100.0,
+      "mean@5": 98.47,
+      "ndcg@10": 98.33,
+      "recall@10": 100.0
+    },
+    "pure_dense_same_corpus": {
+      "map@5": 94.0,
+      "mrr@5": 94.0,
+      "ndcg@5": 95.5,
+      "recall@5": 100.0,
+      "mean@5": 95.88
+    },
+    "pure_sparse_same_corpus": {
+      "map@5": 72.89,
+      "mrr@5": 72.89,
+      "ndcg@5": 78.88,
+      "recall@5": 96.67,
+      "mean@5": 80.33
+    }
+  },
+  "hotpotqa_vn": {
+    "sag_full": {
+      "map@5": 97.67,
+      "mrr@5": 100.0,
+      "ndcg@5": 98.85,
+      "recall@5": 100.0,
+      "ndcg@10": 98.85,
+      "recall@10": 100.0
+    },
+    "pure_dense_same_corpus": {
+      "mrr@5": 100.0,
+      "recall@5": 97.5,
+      "ndcg@10": 99.09,
+      "recall@10": 100.0
+    },
+    "pure_sparse_same_corpus": {
+      "mrr@5": 94.17,
+      "recall@5": 95.0,
+      "ndcg@10": 89.49,
+      "recall@10": 97.5
+    }
+  },
+  "overall": {
+    "ndcg@5": 98.54,
+    "recall@5": 100.0,
+    "ndcg@10": 98.54,
+    "recall@10": 100.0,
+    "p50_latency_ms": 1702.4
+  },
+  "questions": [
+    {
+      "question_id": "vn_zalo_001",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Việc sử dụng tài sản công của cơ quan để quyên góp từ thiện có trái quy định của pháp luật không?",
+      "relevant_doc_ids": [
+        "zalo_legal__59_2019_n_-cp_24__02f91c96.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__59_2019_n_-cp_24__02f91c96.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__03_2013_tt-ttcp_11__27a962a7.md",
+        "zalo_legal__04_2021_n_-cp_31__f2427db8.md",
+        "zalo_legal__03_2013_tt-ttcp_13__7b7fb328.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__03_2013_tt-ttcp_10__2e7e07cf.md",
+        "zalo_legal__17_2019_tt-btc_3__108d1439.md",
+        "zalo_legal__03_2013_tt-ttcp_1__e808b6fb.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__59_2019_n_-cp_24__02f91c96.md",
+        "zalo_legal__03_2013_tt-ttcp_13__7b7fb328.md",
+        "zalo_legal__04_2021_n_-cp_31__f2427db8.md",
+        "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md",
+        "zalo_legal__04_2021_n_-cp_30__99140757.md",
+        "zalo_legal__03_2013_tt-ttcp_1__e808b6fb.md",
+        "zalo_legal__17_2019_tt-btc_3__108d1439.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__95_2018_n_-cp_4__8f07481a.md",
+        "zalo_legal__03_2013_tt-ttcp_2__753170d6.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__59_2019_n_-cp_24__02f91c96.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "hotpot_vn__38420__65f84ed6.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md",
+        "zalo_legal__03_2013_tt-ttcp_11__27a962a7.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.25,
+        "map": 0.25,
+        "ndcg": 0.43067655807339306
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.25,
+        "map": 0.25,
+        "ndcg": 0.43067655807339306
+      },
+      "latency_ms": 2063.23,
+      "synthesized_answer": "Based on directly relevant evidence:\n- Cơ quan, tổ chức, đơn vị, người có chức vụ, quyền hạn chỉ được sử dụng tài chính công, tài sản công để làm quà tặng vì mục đích từ thiện, đối ngoại và thực hiện chế độ, chính sách theo quy định của pháp luật. [1]\n- Cơ quan nhà nước có thẩm quyền cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu nhà ở và tài sản khác gắn liền với đất (sau đây gọi là Giấy chứng nhận) cho Nhà đầu tư theo quy định của pháp luật về đất đai đối với phần diện tích của quỹ đất thanh toán tương… [2]\n- Việc quản lý và sử dụng báo cáo công tác thanh tra, giải quyết khiếu nại, tố cáo và phòng, chống tham nhũng theo quy định pháp luật về bảo vệ tài liệu lưu trữ nhà nước. [3]\n- Vi phạm quy định về vận động tài trợ trong cơ sở giáo dục **Mã văn bản pháp quy:** `04/2021/NĐ-CP` **Điều khoản:** `Điều 31. [4]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 4,
+      "synthesis_latency_ms": 15384.7
+    },
+    {
+      "question_id": "vn_zalo_002",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Chủ thể tổ chức phát hành công cụ nợ của Chính phủ được quy định như thế nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__95_2018_n_-cp_4__8f07481a.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__95_2018_n_-cp_4__8f07481a.md",
+        "zalo_legal__03_2013_tt-ttcp_10__2e7e07cf.md",
+        "zalo_legal__03_2013_tt-ttcp_1__e808b6fb.md",
+        "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__03_2013_tt-ttcp_4__64155cf7.md",
+        "zalo_legal__03_2013_tt-ttcp_8__75359acc.md",
+        "zalo_legal__09_2019_n_-cp_19__90cfd5f6.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__59_2019_n_-cp_24__02f91c96.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__95_2018_n_-cp_4__8f07481a.md",
+        "zalo_legal__59_2019_n_-cp_24__02f91c96.md",
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "zalo_legal__03_2013_tt-ttcp_4__64155cf7.md",
+        "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md",
+        "zalo_legal__09_2014_tt-bvhttdl_12__8f58afbc.md",
+        "zalo_legal__03_2013_tt-ttcp_11__27a962a7.md",
+        "zalo_legal__09_2019_n_-cp_19__90cfd5f6.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__54_2019_qh14_114__a89a0f47.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__95_2018_n_-cp_4__8f07481a.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__03_2013_tt-ttcp_10__2e7e07cf.md",
+        "zalo_legal__03_2013_tt-ttcp_8__75359acc.md",
+        "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 2083.7,
+      "synthesized_answer": "Chủ thể tổ chức phát hành công cụ nợ của Chính phủ được quy định là **Bộ Tài chính** theo Điều 4 của Nghị định số 95/2018/NĐ-CP. Đối với công cụ nợ phát hành tại thị trường trong nước, Bộ Tài chính có thể tổ chức phát hành trực tiếp hoặc ủy quyền cho **Kho bạc Nhà nước** thực hiện, đồng thời chịu trách nhiệm về các nghĩa vụ của chủ thể tổ chức phát hành theo quy định tại Nghị định này [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 6112.8
+    },
+    {
+      "question_id": "vn_zalo_003",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Viên chức chuyển công tác có giao hồ sơ gốc cho đơn vị mới không?",
+      "relevant_doc_ids": [
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "zalo_legal__03_2013_tt-ttcp_11__27a962a7.md",
+        "zalo_legal__03_2013_tt-ttcp_10__2e7e07cf.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__03_2013_tt-ttcp_9__776460d8.md",
+        "zalo_legal__03_2013_tt-ttcp_8__75359acc.md",
+        "zalo_legal__04_2021_n_-cp_27__f4bddd04.md",
+        "zalo_legal__06_2015_ttlt-bgd_t-bnv_6__0eb2203e.md",
+        "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__08_2019_tt-bgd_t_6__28941d90.md",
+        "zalo_legal__03_2013_tt-ttcp_10__2e7e07cf.md",
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md",
+        "zalo_legal__04_2021_n_-cp_27__f4bddd04.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__03_2013_tt-ttcp_1__e808b6fb.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 1.0,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 1.0,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "latency_ms": 1416.83,
+      "synthesized_answer": "Theo Điều 13, Thông tư 07/2019/TT-BNV, viên chức chuyển công tác đến cơ quan, tổ chức, đơn vị mới được nhận 1 bản sao \"Sơ yếu lý lịch viên chức\". Hồ sơ gốc vẫn do cơ quan quản lý hồ sơ viên chức cũ lưu giữ, bảo quản và chỉ được chuyển giao khi có yêu cầu bằng văn bản của cơ quan có thẩm quyền quản lý viên chức mới [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 7476.5
+    },
+    {
+      "question_id": "vn_zalo_004",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Các loại báo cáo về công tác thanh tra, giải quyết khiếu nại, tố cáo và phòng, chống tham nhũng được quy định như thế nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__03_2013_tt-ttcp_5__0ac5afc1.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__03_2013_tt-ttcp_2__753170d6.md",
+        "zalo_legal__03_2013_tt-ttcp_6__25fbaec6.md",
+        "zalo_legal__03_2013_tt-ttcp_5__0ac5afc1.md",
+        "zalo_legal__03_2013_tt-ttcp_1__e808b6fb.md",
+        "zalo_legal__03_2013_tt-ttcp_10__2e7e07cf.md",
+        "zalo_legal__03_2013_tt-ttcp_13__7b7fb328.md",
+        "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md",
+        "zalo_legal__03_2013_tt-ttcp_8__75359acc.md",
+        "zalo_legal__03_2013_tt-ttcp_4__64155cf7.md",
+        "zalo_legal__03_2013_tt-ttcp_11__27a962a7.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__03_2013_tt-ttcp_6__25fbaec6.md",
+        "zalo_legal__03_2013_tt-ttcp_2__753170d6.md",
+        "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md",
+        "zalo_legal__03_2013_tt-ttcp_10__2e7e07cf.md",
+        "zalo_legal__03_2013_tt-ttcp_5__0ac5afc1.md",
+        "zalo_legal__03_2013_tt-ttcp_8__75359acc.md",
+        "zalo_legal__03_2013_tt-ttcp_13__7b7fb328.md",
+        "zalo_legal__03_2013_tt-ttcp_1__e808b6fb.md",
+        "zalo_legal__03_2013_tt-ttcp_11__27a962a7.md",
+        "zalo_legal__03_2013_tt-ttcp_4__64155cf7.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__03_2013_tt-ttcp_2__753170d6.md",
+        "zalo_legal__03_2013_tt-ttcp_6__25fbaec6.md",
+        "zalo_legal__03_2013_tt-ttcp_13__7b7fb328.md",
+        "zalo_legal__03_2013_tt-ttcp_1__e808b6fb.md",
+        "zalo_legal__03_2013_tt-ttcp_10__2e7e07cf.md",
+        "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md",
+        "zalo_legal__03_2013_tt-ttcp_9__776460d8.md",
+        "zalo_legal__03_2013_tt-ttcp_5__0ac5afc1.md",
+        "zalo_legal__03_2013_tt-ttcp_11__27a962a7.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.3333333333333333,
+        "map": 0.3333333333333333,
+        "ndcg": 0.5
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.3333333333333333,
+        "map": 0.3333333333333333,
+        "ndcg": 0.5
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.2,
+        "map": 0.2,
+        "ndcg": 0.38685280723454163
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.2,
+        "map": 0.2,
+        "ndcg": 0.38685280723454163
+      },
+      "pure_sparse_at_5": {
+        "recall": 0.0,
+        "precision": 0.0,
+        "mrr": 0.0,
+        "map": 0.0,
+        "ndcg": 0.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.125,
+        "map": 0.125,
+        "ndcg": 0.31546487678572877
+      },
+      "latency_ms": 1655.41,
+      "synthesized_answer": "Các loại báo cáo về công tác thanh tra, giải quyết khiếu nại, tố cáo và phòng, chống tham nhũng được quy định như sau:\n\n1. **Báo cáo định kỳ**: Bao gồm báo cáo hàng quý, 6 tháng, 9 tháng và hàng năm về công tác thanh tra, giải quyết khiếu nại, tố cáo, phòng, chống tham nhũng [3].\n\n2. **Báo cáo chuyên đề và báo cáo đột xuất**: Được thực hiện theo yêu cầu của các cơ quan có thẩm quyền như Bộ Chính trị, Ban Bí thư, Quốc hội, Chính phủ, Thủ tướng Chính phủ, Thanh tra Chính phủ [3].\n\nNội dung của các báo cáo được quy định cụ thể theo các mẫu báo cáo và biểu mẫu thống kê kèm theo Thông tư, bao gồm:\n\n- Báo cáo công tác thanh tra theo mẫu số 01 và các biểu mẫu thống kê số 1a, 1b, 1c, 1d, 1đ, 1e, 1f, 1g, 1h [2].\n- Báo cáo công tác giải quyết khiếu nại, tố cáo theo mẫu số 02 và các biểu mẫu thống kê số 2a, 2b, 2c, 2d, 2đ [2].\n- Báo cáo công tác phòng, chống tham nhũng theo mẫu số 03 và các biểu mẫu thống kê số 3a, 3b [2].\n\nHình thức báo cáo phải thể hiện bằng văn bản, có chữ ký của Thủ trưởng cơ quan, đóng dấu theo quy định và gửi kèm file điện tử. Trường hợp Thủ trưởng cơ quan quản lý nhà nước ủy quyền cho Thủ trưởng cơ quan thanh tra ký báo cáo thì phải ký thừa ủy quyền và đóng dấu cơ quan quản lý cùng cấp [5].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 3,
+      "synthesis_latency_ms": 17814.6
+    },
+    {
+      "question_id": "vn_zalo_005",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Tòa gia đình có thẩm quyền xét xử các vụ án hình sự nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__02_2018_tt-tandtc_3__626c515d.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__02_2018_tt-tandtc_3__626c515d.md",
+        "zalo_legal__02_2018_tt-tandtc_5__2070a6f9.md",
+        "zalo_legal__02_2018_tt-tandtc_4__3f1bbbdc.md",
+        "zalo_legal__02_2018_tt-tandtc_1__76261799.md",
+        "zalo_legal__02_2018_tt-tandtc_7__e2fea6a4.md",
+        "zalo_legal__02_2018_tt-tandtc_6__8932ede4.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__02_2018_tt-tandtc_10__1761ad95.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md",
+        "zalo_legal__57_2014_qh13_37__aaaae816.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__02_2018_tt-tandtc_3__626c515d.md",
+        "zalo_legal__02_2018_tt-tandtc_5__2070a6f9.md",
+        "zalo_legal__02_2018_tt-tandtc_4__3f1bbbdc.md",
+        "zalo_legal__02_2018_tt-tandtc_1__76261799.md",
+        "zalo_legal__02_2018_tt-tandtc_7__e2fea6a4.md",
+        "zalo_legal__02_2018_tt-tandtc_6__8932ede4.md",
+        "zalo_legal__02_2018_tt-tandtc_10__1761ad95.md",
+        "zalo_legal__02_2018_tt-tandtc_8__32d6a3ff.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__02_2018_tt-tandtc_5__2070a6f9.md",
+        "zalo_legal__02_2018_tt-tandtc_3__626c515d.md",
+        "zalo_legal__02_2018_tt-tandtc_4__3f1bbbdc.md",
+        "zalo_legal__02_2018_tt-tandtc_7__e2fea6a4.md",
+        "zalo_legal__02_2018_tt-tandtc_1__76261799.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__02_2018_tt-tandtc_10__1761ad95.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__02_2018_tt-tandtc_6__8932ede4.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "latency_ms": 1668.5,
+      "synthesized_answer": "Tòa gia đình và người chưa thành niên có thẩm quyền xét xử các vụ án hình sự sau:\n\n1. Vụ án hình sự có bị cáo là người dưới 18 tuổi [1].\n2. Vụ án hình sự có người bị hại là người dưới 18 tuổi bị tổn thương nghiêm trọng về tâm lý hoặc cần sự hỗ trợ về điều kiện sống, học tập do không có môi trường gia đình lành mạnh như những người dưới 18 tuổi khác [1].\n3. Vụ án hình sự có bị cáo là người từ đủ 16 tuổi đến dưới 18 tuổi phạm tội rất nghiêm trọng do cố ý và tội đặc biệt nghiêm trọng [3].\n4. Vụ án hình sự có bị cáo là người từ đủ 14 tuổi đến dưới 16 tuổi phạm một trong các tội đặc biệt nghiêm trọng quy định tại các điều 123, 134, 141, 142, 144, 151, 168, 169, 170, 171, 248, 249, 250, 251, 252 và 299 của Bộ luật Hình sự [3].\n5. Vụ án hình sự vừa có bị cáo là người dưới 18 tuổi vừa có bị cáo là người từ đủ 18 tuổi trở lên [3].\n6. Vụ án hình sự mà bị cáo là người từ đủ 18 tuổi trở lên nhưng người bị hại là người dưới 18 tuổi bị tổn thương nghiêm trọng về tâm lý hoặc cần sự hỗ trợ về điều kiện sống, học tập do không có môi trường gia đình lành mạnh như những người dưới 18 tuổi khác [3].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 2,
+      "synthesis_latency_ms": 22978.1
+    },
+    {
+      "question_id": "vn_zalo_006",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Chạy xe máy mà trong hơi thở hoặc máu có nồng độ cồn thì mức phạt thấp nhất là bao nhiêu?",
+      "relevant_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_3__ccb3106d.md",
+        "zalo_legal__04_2021_n_-cp_15__9268b1b3.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "hotpot_vn__48965__1dfb15a8.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 1.0,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 1.0,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1739.43,
+      "synthesized_answer": "Based on directly relevant evidence:\n- a) Điều khiển xe chạy quá tốc độ quy định trên 20 km/h; b) Không chú ý quan sát, điều khiển xe chạy quá tốc độ quy định gây tai nạn giao thông; đi vào đường cao tốc, dừng xe, đỗ xe, quay đầu xe, lùi xe, tránh xe, vượt xe, chuyển hướng, chuyển làn đường không đ… [1]\n- 000 đồng đối với người điều khiển xe thực hiện một trong các hành vi vi phạm sau đây: a) Sử dụng chân chống hoặc vật khác quệt xuống đường khi xe đang chạy; b) Điều khiển xe đi vào đường cao tốc, trừ xe phục vụ việc quản lý, bảo trì đường cao tốc; c) Điều khiể… [2]\n- 000 đồng đối với người điều khiển xe thực hiện một trong các hành vi vi phạm sau đây: a) Dừng xe, đỗ xe trên phần đường xe chạy ở đoạn đường ngoài đô thị nơi có lề đường; b) Không giảm tốc độ và nhường đường khi điều khiển xe chạy từ trong ngõ, đường nhánh ra … [3]\n- a) Chuyển hướng không giảm tốc độ hoặc không có tín hiệu báo hướng rẽ (trừ trường hợp điều khiển xe đi theo hướng cong của đoạn đường bộ ở nơi đường không giao nhau cùng mức); b) Chở theo từ 03 người trở lên trên xe; c) Bấm còi, rú ga (nẹt pô) liên tục trong đ… [4]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 4,
+      "synthesis_latency_ms": 6650.2
+    },
+    {
+      "question_id": "vn_zalo_007",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Mức điều chỉnh giá dịch vụ cất cánh, hạ cánh tàu bay đối với hãng hàng không Việt Nam lần đầu tiên tham gia khai thác là bao nhiêu?",
+      "relevant_doc_ids": [
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md",
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "hotpot_vn__1000354__560f9ecb.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__04_2021_n_-cp_18__1602e33f.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md",
+        "hotpot_vn__1000354__560f9ecb.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__04_2021_n_-cp_14__cdd01488.md",
+        "zalo_legal__04_2021_n_-cp_12__377d4725.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md",
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "hotpot_vn__1000354__560f9ecb.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1720.25,
+      "synthesized_answer": "Mức điều chỉnh giá dịch vụ cất cánh, hạ cánh tàu bay đối với hãng hàng không Việt Nam lần đầu tiên tham gia khai thác thị trường vận chuyển hàng không là **50% mức giá quy định**, thời hạn áp dụng **36 tháng kể từ ngày bắt đầu khai thác** [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 5601.7
+    },
+    {
+      "question_id": "vn_zalo_008",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Tài xế xe khách đe dọa, xúc phạm, tranh giành, lôi kéo hành khách bị phạt bao nhiêu tiền?",
+      "relevant_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_14__cdd01488.md",
+        "zalo_legal__04_2021_n_-cp_3__ccb3106d.md",
+        "zalo_legal__04_2021_n_-cp_28__449fae16.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__04_2021_n_-cp_14__cdd01488.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_28__449fae16.md",
+        "zalo_legal__04_2021_n_-cp_26__c1a038ba.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__04_2021_n_-cp_30__99140757.md",
+        "zalo_legal__04_2021_n_-cp_31__f2427db8.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 1.0,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 1.0,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.16666666666666666,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1706.83,
+      "synthesized_answer": "Tài xế xe khách đe dọa, xúc phạm, tranh giành, lôi kéo hành khách bị phạt tiền từ 3.000.000 đồng đến 5.000.000 đồng theo điểm b khoản 6 Điều 23 Nghị định 100/2019/NĐ-CP [2].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 6470.4
+    },
+    {
+      "question_id": "vn_zalo_009",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Mức phạt đối với hành vi điều khiển xe máy có sử dụng ô (dù)",
+      "relevant_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_1__715681d0.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__04_2021_n_-cp_24__fe187044.md",
+        "zalo_legal__04_2021_n_-cp_3__ccb3106d.md",
+        "zalo_legal__04_2021_n_-cp_14__cdd01488.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1719.49,
+      "synthesized_answer": "Mức phạt đối với hành vi điều khiển xe máy có sử dụng ô (dù) được quy định tại **điểm h khoản 4 Điều 6** của Nghị định 100/2019/NĐ-CP, cụ thể là **phạt tiền từ 200.000 đồng đến 300.000 đồng**. [4]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 5323.5
+    },
+    {
+      "question_id": "vn_zalo_010",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Đi xe máy chuyển hướng không nhường quyền đi trước cho người đi bộ bị phạt bao nhiêu?",
+      "relevant_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_29__7c0de0a9.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__08_2019_tt-bgd_t_6__28941d90.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__28_2020_n_-cp_47__493fbe5d.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 1.0,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 1.0,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.25,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.25,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1694.16,
+      "synthesized_answer": "Việc đi xe máy chuyển hướng không nhường quyền đi trước cho người đi bộ bị phạt tiền từ 200.000 đồng đến 300.000 đồng, theo điểm đ) khoản 2 Điều 6 của Nghị định 100/2019/NĐ-CP [2].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 4987.4
+    },
+    {
+      "question_id": "vn_zalo_011",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Bắt giam đại biểu quốc hội có phải có sự đồng ý của Quốc hội không?",
+      "relevant_doc_ids": [
+        "zalo_legal__57_2014_qh13_37__aaaae816.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__57_2014_qh13_37__aaaae816.md",
+        "zalo_legal__02_2018_tt-tandtc_10__1761ad95.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md",
+        "zalo_legal__03_2013_tt-ttcp_8__75359acc.md",
+        "zalo_legal__02_2018_tt-tandtc_6__8932ede4.md",
+        "zalo_legal__04_2021_n_-cp_30__99140757.md",
+        "zalo_legal__09_2019_n_-cp_19__90cfd5f6.md",
+        "zalo_legal__02_2018_tt-tandtc_8__32d6a3ff.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__57_2014_qh13_37__aaaae816.md",
+        "zalo_legal__02_2018_tt-tandtc_8__32d6a3ff.md",
+        "zalo_legal__02_2018_tt-tandtc_6__8932ede4.md",
+        "hotpot_vn__20387292__c306dfd3.md",
+        "zalo_legal__02_2018_tt-tandtc_10__1761ad95.md",
+        "zalo_legal__91_2015_qh13_571__c6977ecd.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md",
+        "zalo_legal__02_2018_tt-tandtc_1__76261799.md",
+        "zalo_legal__02_2018_tt-tandtc_7__e2fea6a4.md",
+        "hotpot_vn__46194566__ab88b74b.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__57_2014_qh13_37__aaaae816.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__04_2021_n_-cp_30__99140757.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "hotpot_vn__100096__e50168cc.md",
+        "zalo_legal__03_2013_tt-ttcp_8__75359acc.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "latency_ms": 1529.47,
+      "synthesized_answer": "Theo Điều 37 của Văn bản 57/2014/QH13, **không được bắt, giam, giữ, khởi tố đại biểu Quốc hội, khám xét nơi ở và nơi làm việc của đại biểu Quốc hội nếu không có sự đồng ý của Quốc hội hoặc trong thời gian Quốc hội không họp, không có sự đồng ý của Ủy ban thường vụ Quốc hội**. Do đó, **bắt giam đại biểu Quốc hội phải có sự đồng ý của Quốc hội hoặc Ủy ban thường vụ Quốc hội**. [1]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 7645.7
+    },
+    {
+      "question_id": "vn_zalo_012",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Cơ sở kinh doanh dịch vụ viễn thông bao gồm những cơ sở nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md",
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__09_2019_n_-cp_19__90cfd5f6.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__09_2014_tt-bvhttdl_12__8f58afbc.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "hotpot_vn__1000067__4245c61f.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "hotpot_vn__10000773__2f8b28de.md",
+        "hotpot_vn__100034__fc991ffe.md",
+        "hotpot_vn__10006__19b1b73d.md",
+        "zalo_legal__09_2019_n_-cp_19__90cfd5f6.md",
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md",
+        "hotpot_vn__174216__9df1dc0e.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md",
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__04_2021_n_-cp_18__1602e33f.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "latency_ms": 2200.44,
+      "synthesized_answer": "Cơ sở kinh doanh dịch vụ viễn thông bao gồm các doanh nghiệp được thành lập theo pháp luật Việt Nam, được cấp giấy phép kinh doanh dịch vụ viễn thông theo quy định của Luật Viễn thông và các đơn vị trực thuộc doanh nghiệp kinh doanh dịch vụ viễn thông [1]. Cơ sở này có thể là cơ sở cung cấp dịch vụ có hạ tầng mạng hoặc không có hạ tầng mạng [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 5142.6
+    },
+    {
+      "question_id": "vn_zalo_013",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Tài xế xe khách không đóng cửa lên xuống khi xe đang chạy bị phạt bao nhiêu tiền?",
+      "relevant_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md",
+        "zalo_legal__04_2021_n_-cp_29__7c0de0a9.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__04_2021_n_-cp_14__cdd01488.md",
+        "zalo_legal__04_2021_n_-cp_31__f2427db8.md",
+        "zalo_legal__04_2021_n_-cp_30__99140757.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 1.0,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 1.0,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1531.61,
+      "synthesized_answer": "Tài xế xe khách không đóng cửa lên xuống khi xe đang chạy bị phạt tiền từ **1.000.000 đồng đến 2.000.000 đồng** theo quy định tại **điểm a khoản 5 Điều 23** của Nghị định 100/2019/NĐ-CP [4].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 4559.3
+    },
+    {
+      "question_id": "vn_zalo_014",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Quy định về trách nhiệm của Ngân hàng Nhà nước trong việc thu phí điện tử không dừng được quy định như thế nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__04_2021_n_-cp_23__6f81e313.md",
+        "zalo_legal__04_2021_n_-cp_30__99140757.md",
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "zalo_legal__95_2018_n_-cp_4__8f07481a.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__91_2015_qh13_571__c6977ecd.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__09_2014_tt-bvhttdl_12__8f58afbc.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__04_2021_n_-cp_20__55e7d87a.md",
+        "zalo_legal__04_2021_n_-cp_23__6f81e313.md",
+        "zalo_legal__03_2013_tt-ttcp_10__2e7e07cf.md",
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.25,
+        "map": 0.25,
+        "ndcg": 0.43067655807339306
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.25,
+        "map": 0.25,
+        "ndcg": 0.43067655807339306
+      },
+      "latency_ms": 1543.74,
+      "synthesized_answer": "Based on directly relevant evidence:\n- Phối hợp, hướng dẫn nhà cung cấp dịch vụ thu phí thực hiện các quy định của pháp luật trong lĩnh vực ngân hàng liên quan đến hoạt động thanh toán dịch vụ thu phí điện tử không dừng. [1]\n- 000 đồng đối với tổ chức quản lý, vận hành trạm thu phí đường bộ thực hiện một trong các hành vi vi phạm sau đây: a) Vi phạm khoản 6, khoản 7, khoản 8 Điều này mà không chấp hành yêu cầu của cơ quan quản lý nhà nước có thẩm quyền về việc triển khai các giải ph… [2]\n- 000 đồng đối với hành vi ký hợp đồng liên kết đào tạo không đầy đủ nội dung thỏa thuận về mức thu lệ phí tuyển sinh, học phí, trách nhiệm của các bên tham gia liên kết đào tạo theo quy định của pháp luật hiện hành; b) Phạt tiền từ 20. [3]\n- n) Điều khiển xe vận chuyển khách du lịch, xe vận chuyển hành khách theo hợp đồng gom khách, bán vé, thu tiền hoặc thực hiện việc xác nhận đặt chỗ cho từng hành khách đi xe; điều khiển xe vận chuyển hành khách theo hợp đồng ấn định hành trình, lịch trình cố đị… [4]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 4,
+      "synthesis_latency_ms": 8575.7
+    },
+    {
+      "question_id": "vn_zalo_015",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Đình chỉ hoạt động KCB do sai sót chuyên môn kỹ thuật trong quân đội được quy định như thế nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__50_2019_n_-cp_28__8fd50e76.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__50_2019_n_-cp_28__8fd50e76.md",
+        "hotpot_vn__100034__fc991ffe.md",
+        "zalo_legal__04_2021_n_-cp_12__377d4725.md",
+        "zalo_legal__09_2019_n_-cp_19__90cfd5f6.md",
+        "zalo_legal__04_2021_n_-cp_19__7ff66165.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md",
+        "zalo_legal__03_2013_tt-ttcp_7__bf5cad63.md",
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__100034__fc991ffe.md",
+        "zalo_legal__50_2019_n_-cp_28__8fd50e76.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__04_2021_n_-cp_12__377d4725.md",
+        "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__50_2019_n_-cp_28__8fd50e76.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md",
+        "hotpot_vn__100034__fc991ffe.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__04_2021_n_-cp_12__377d4725.md",
+        "zalo_legal__09_2019_n_-cp_19__90cfd5f6.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "latency_ms": 1473.21,
+      "synthesized_answer": "Đình chỉ hoạt động KCB do sai sót chuyên môn kỹ thuật trong quân đội được quy định theo Điều 28 của Nghị định số 50/2019/NĐ-CP. Cụ thể:\n\n1. Người hành nghề khám bệnh, chữa bệnh thuộc một trong các trường hợp quy định tại khoản 1 Điều 73 Luật khám bệnh, chữa bệnh; hoặc không thực hiện đúng trách nhiệm được quy định tại khoản 2 Điều 5 Nghị định này nhưng chưa gây hậu quả nghiêm trọng đến mức phải bị thu hồi chứng chỉ hành nghề theo quy định tại điểm d khoản 1 Điều 29 của Luật khám bệnh, chữa bệnh thì bị đình chỉ hoạt động chuyên môn. [1]\n\n2. Mức độ sai sót chuyên môn kỹ thuật được hội đồng chuyên môn quy định tại Điều 74, Điều 75 của Luật khám bệnh, chữa bệnh xác định là căn cứ để cơ quan có thẩm quyền quyết định đình chỉ một phần hoặc toàn bộ phạm vi hoạt động chuyên môn trong chứng chỉ của người hành nghề. [1]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 11103.7
+    },
+    {
+      "question_id": "vn_zalo_016",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Bảo vệ bí mật nhà nước ngành văn hóa, thể thao, du lịch trong thông tin liên lạc và thông tin đại chúng được quy định như thế nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__09_2014_tt-bvhttdl_12__8f58afbc.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__09_2014_tt-bvhttdl_12__8f58afbc.md",
+        "zalo_legal__04_2021_n_-cp_23__6f81e313.md",
+        "zalo_legal__48_2020_tt-bgd_t_4__a6573583.md",
+        "zalo_legal__09_2019_n_-cp_19__90cfd5f6.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__02_2018_tt-tandtc_7__e2fea6a4.md",
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__04_2021_n_-cp_22__6f46c2f2.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__09_2014_tt-bvhttdl_12__8f58afbc.md",
+        "zalo_legal__09_2019_n_-cp_19__90cfd5f6.md",
+        "zalo_legal__48_2020_tt-bgd_t_4__a6573583.md",
+        "zalo_legal__03_2013_tt-ttcp_11__27a962a7.md",
+        "zalo_legal__04_2021_n_-cp_23__6f81e313.md",
+        "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md",
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "zalo_legal__03_2013_tt-ttcp_1__e808b6fb.md",
+        "zalo_legal__03_2013_tt-ttcp_8__75359acc.md",
+        "zalo_legal__02_2018_tt-tandtc_10__1761ad95.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__09_2014_tt-bvhttdl_12__8f58afbc.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__02_2018_tt-tandtc_7__e2fea6a4.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "zalo_legal__04_2021_n_-cp_22__6f46c2f2.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1724.56,
+      "synthesized_answer": "Bảo vệ bí mật nhà nước trong thông tin liên lạc và thông tin đại chúng thuộc ngành văn hóa, thể thao, du lịch được quy định tại **Điều 12 của Văn bản 09/2014/TT-BVHTTDL**. Cụ thể:\n\n1. Mọi nội dung thuộc phạm vi bí mật nhà nước trong ngành văn hóa, thể thao và du lịch chuyển nhận bằng các phương tiện thông tin vô tuyến, điện báo, fax đều phải **mã hóa theo quy định của Luật cơ yếu**. Không được trao đổi nội dung tài liệu mật qua **micro vô tuyến, máy bộ đàm, điện thoại di động, điện thoại cố định, điện thoại kéo dài, máy fax**. [1]\n\n2. Cơ quan, đơn vị và cá nhân chỉ được cung cấp thông tin liên quan đến bí mật nhà nước theo nội dung đã được **duyệt**. Bên nhận thông tin **không được làm lộ thông tin** và **không được cung cấp thông tin đã nhận cho bên khác**. Nội dung thông tin cung cấp phải **ghi biên bản** và **báo cáo lại với cá nhân có thẩm quyền duyệt cung cấp thông tin**. Biên bản và tài liệu mật sau khi cung cấp thông tin phải **nộp lại bộ phận bảo mật** của cơ quan, đơn vị. [1]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 12023.0
+    },
+    {
+      "question_id": "vn_zalo_017",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Người hứa thưởng có quyền rút lại tuyên bố hứa thưởng của mình trước đó không?",
+      "relevant_doc_ids": [
+        "zalo_legal__91_2015_qh13_571__c6977ecd.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__91_2015_qh13_571__c6977ecd.md",
+        "zalo_legal__59_2019_n_-cp_24__02f91c96.md",
+        "zalo_legal__03_2013_tt-ttcp_13__7b7fb328.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__17_2019_tt-btc_3__108d1439.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__57_2014_qh13_37__aaaae816.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__91_2015_qh13_571__c6977ecd.md",
+        "zalo_legal__57_2014_qh13_37__aaaae816.md",
+        "zalo_legal__59_2019_n_-cp_24__02f91c96.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__17_2019_tt-btc_3__108d1439.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__03_2013_tt-ttcp_13__7b7fb328.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__91_2015_qh13_571__c6977ecd.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md",
+        "zalo_legal__02_2018_tt-tandtc_7__e2fea6a4.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "zalo_legal__03_2013_tt-ttcp_13__7b7fb328.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1111111111111111,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1743.1,
+      "synthesized_answer": "Người hứa thưởng có quyền rút lại tuyên bố hứa thưởng của mình trước khi đến hạn bắt đầu thực hiện công việc, theo Điều 571 của Văn bản 91/2015/QH13. Việc rút lại phải được thực hiện theo cách thức và trên phương tiện mà việc hứa thưởng đã được công bố. [1]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 5045.9
+    },
+    {
+      "question_id": "vn_zalo_018",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Mức phạt đối với hành vi xây dựng chương trình đào tạo các trình độ của giáo dục đại học không đúng quy định là bao nhiêu?",
+      "relevant_doc_ids": [
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md",
+        "zalo_legal__04_2021_n_-cp_24__fe187044.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__04_2021_n_-cp_12__377d4725.md",
+        "zalo_legal__04_2021_n_-cp_21__463ebaef.md",
+        "zalo_legal__04_2021_n_-cp_19__7ff66165.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md",
+        "zalo_legal__04_2021_n_-cp_24__fe187044.md",
+        "zalo_legal__04_2021_n_-cp_12__377d4725.md",
+        "zalo_legal__04_2021_n_-cp_3__ccb3106d.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__04_2021_n_-cp_15__9268b1b3.md",
+        "zalo_legal__04_2021_n_-cp_28__449fae16.md",
+        "zalo_legal__04_2021_n_-cp_19__7ff66165.md",
+        "zalo_legal__04_2021_n_-cp_29__7c0de0a9.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__04_2021_n_-cp_24__fe187044.md",
+        "zalo_legal__04_2021_n_-cp_21__463ebaef.md",
+        "zalo_legal__04_2021_n_-cp_19__7ff66165.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__04_2021_n_-cp_25__54589e5b.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.16666666666666666,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "latency_ms": 1796.86,
+      "synthesized_answer": "Mức phạt đối với hành vi xây dựng chương trình đào tạo các trình độ của giáo dục đại học không đúng quy định là phạt tiền từ 15.000.000 đồng đến 20.000.000 đồng [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 4005.4
+    },
+    {
+      "question_id": "vn_zalo_019",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Hạ tầng kỹ thuật, công nghệ của cơ quan hành chính nhà nước phải đảm bảo các yêu cầu nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__09_2019_n_-cp_19__90cfd5f6.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__09_2019_n_-cp_19__90cfd5f6.md",
+        "hotpot_vn__100034__fc991ffe.md",
+        "zalo_legal__03_2013_tt-ttcp_11__27a962a7.md",
+        "zalo_legal__03_2013_tt-ttcp_10__2e7e07cf.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "zalo_legal__03_2013_tt-ttcp_8__75359acc.md",
+        "zalo_legal__09_2014_tt-bvhttdl_12__8f58afbc.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__09_2019_n_-cp_19__90cfd5f6.md",
+        "hotpot_vn__100034__fc991ffe.md",
+        "zalo_legal__09_2014_tt-bvhttdl_12__8f58afbc.md",
+        "zalo_legal__95_2018_n_-cp_4__8f07481a.md",
+        "zalo_legal__03_2013_tt-ttcp_4__64155cf7.md",
+        "zalo_legal__03_2013_tt-ttcp_11__27a962a7.md",
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__03_2013_tt-ttcp_10__2e7e07cf.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__09_2019_n_-cp_19__90cfd5f6.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "hotpot_vn__100034__fc991ffe.md",
+        "zalo_legal__03_2013_tt-ttcp_10__2e7e07cf.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.3333333333333333,
+        "map": 0.3333333333333333,
+        "ndcg": 0.5
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.3333333333333333,
+        "map": 0.3333333333333333,
+        "ndcg": 0.5
+      },
+      "latency_ms": 1635.6,
+      "synthesized_answer": "Hạ tầng kỹ thuật, công nghệ của cơ quan hành chính nhà nước phải đảm bảo các yêu cầu sau:\n\n1. Duy trì ổn định, bảo đảm an toàn, an ninh thông tin phục vụ sự chỉ đạo, điều hành của Chính phủ, Thủ tướng Chính phủ, bộ, cơ quan, địa phương [1].\n2. Bảo đảm an toàn, an ninh thông tin phục vụ xây dựng, vận hành Hệ thống thông tin báo cáo Chính phủ và kết nối, chia sẻ dữ liệu với hệ thống này [1].\n3. Thể hiện bằng văn bản, có chữ ký của Thủ trưởng cơ quan, tổ chức, đơn vị, đóng dấu theo quy định và file điện tử gửi kèm [4].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 2,
+      "synthesis_latency_ms": 13772.0
+    },
+    {
+      "question_id": "vn_zalo_020",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Tập luyện và thi đấu thể thao trong nhà trường được quy định như thế nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__48_2020_tt-bgd_t_4__a6573583.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__48_2020_tt-bgd_t_4__a6573583.md",
+        "zalo_legal__02_2018_tt-tandtc_8__32d6a3ff.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__04_2021_n_-cp_24__fe187044.md",
+        "zalo_legal__04_2021_n_-cp_26__c1a038ba.md",
+        "zalo_legal__04_2021_n_-cp_28__449fae16.md",
+        "zalo_legal__04_2021_n_-cp_14__cdd01488.md",
+        "zalo_legal__06_2015_ttlt-bgd_t-bnv_6__0eb2203e.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__04_2021_n_-cp_20__55e7d87a.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__48_2020_tt-bgd_t_4__a6573583.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__06_2015_ttlt-bgd_t-bnv_6__0eb2203e.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__04_2021_n_-cp_31__f2427db8.md",
+        "zalo_legal__04_2021_n_-cp_29__7c0de0a9.md",
+        "zalo_legal__04_2021_n_-cp_24__fe187044.md",
+        "zalo_legal__02_2018_tt-tandtc_8__32d6a3ff.md",
+        "zalo_legal__04_2021_n_-cp_14__cdd01488.md",
+        "zalo_legal__04_2021_n_-cp_1__715681d0.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__48_2020_tt-bgd_t_4__a6573583.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__04_2021_n_-cp_20__55e7d87a.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md",
+        "zalo_legal__02_2018_tt-tandtc_8__32d6a3ff.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1648.34,
+      "synthesized_answer": "Based on directly relevant evidence:\n- Tập luyện và thi đấu thể thao **Mã văn bản pháp quy:** `48/2020/TT-BGDĐT` **Điều khoản:** `Điều 4. [1]\n- Những người sau đây phải có mặt tại phiên tòa theo quyết định của Tòa án: a) Người đại diện của người dưới 18 tuổi; b) Đại diện nhà trường nơi người dưới 18 tuổi học tập; c) Đại diện của cơ quan, tổ chức nơi người dưới 18 tuổi lao động, sinh hoạt. [2]\n- Trường hợp cán bộ, công chức, viên chức thực hiện hành vi vi phạm hành chính trong lĩnh vực giáo dục khi đang thi hành công vụ, nhiệm vụ và hành vi vi phạm đó thuộc công vụ, nhiệm vụ được giao theo văn bản quy phạm pháp luật hoặc văn bản hành chính do cơ quan,… [3]\n- 000 đồng đối với hành vi sử dụng nhà giáo không đúng quy định về trình độ chuyên môn hoặc trình độ ngoại ngữ trong giảng dạy chương trình giáo dục, chương trình đào tạo liên kết với nước ngoài hoặc giảng dạy chương trình tại cơ sở giáo dục có vốn đầu tư nước n… [4]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 4,
+      "synthesis_latency_ms": 11710.2
+    },
+    {
+      "question_id": "vn_zalo_021",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Năm 2020, mức phạt cho hành vi quẹt chân chống xuống đường được quy định như thế nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__04_2021_n_-cp_29__7c0de0a9.md",
+        "zalo_legal__04_2021_n_-cp_1__715681d0.md",
+        "zalo_legal__04_2021_n_-cp_3__ccb3106d.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md",
+        "zalo_legal__28_2020_n_-cp_47__493fbe5d.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__48_2020_tt-bgd_t_4__a6573583.md",
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__04_2021_n_-cp_14__cdd01488.md",
+        "zalo_legal__04_2021_n_-cp_3__ccb3106d.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.14285714285714285,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1522.74,
+      "synthesized_answer": "Năm 2020, mức phạt cho hành vi quẹt chân chống xuống đường được quy định trong **Nghị định số 100/2019/NĐ-CP**. Cụ thể, theo **Điều 6** của văn bản này, hành vi **\"sử dụng chân chống hoặc vật khác quệt xuống đường khi xe đang chạy\"** bị phạt tiền từ **2.000.000 đồng đến 3.000.000 đồng** [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 6051.5
+    },
+    {
+      "question_id": "vn_zalo_022",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Trường mầm non công lập có được ký HĐLĐ với 2 người bảo vệ không?",
+      "relevant_doc_ids": [
+        "zalo_legal__06_2015_ttlt-bgd_t-bnv_6__0eb2203e.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__06_2015_ttlt-bgd_t-bnv_6__0eb2203e.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md",
+        "zalo_legal__04_2021_n_-cp_23__6f81e313.md",
+        "zalo_legal__04_2021_n_-cp_18__1602e33f.md",
+        "zalo_legal__04_2021_n_-cp_1__715681d0.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__04_2021_n_-cp_25__54589e5b.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "hotpot_vn__13441785__0cf23ab0.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__06_2015_ttlt-bgd_t-bnv_6__0eb2203e.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md",
+        "zalo_legal__02_2018_tt-tandtc_8__32d6a3ff.md",
+        "zalo_legal__48_2020_tt-bgd_t_4__a6573583.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__02_2018_tt-tandtc_6__8932ede4.md",
+        "zalo_legal__02_2018_tt-tandtc_10__1761ad95.md",
+        "zalo_legal__02_2018_tt-tandtc_1__76261799.md",
+        "zalo_legal__04_2021_n_-cp_18__1602e33f.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__06_2015_ttlt-bgd_t-bnv_6__0eb2203e.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__04_2021_n_-cp_18__1602e33f.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.3333333333333333,
+        "map": 0.3333333333333333,
+        "ndcg": 0.5
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.3333333333333333,
+        "map": 0.3333333333333333,
+        "ndcg": 0.5
+      },
+      "latency_ms": 1691.06,
+      "synthesized_answer": "Trường mầm non công lập có được ký HĐLĐ với 2 người bảo vệ. Theo Điều 6, khoản 2 của Văn bản 06/2015/TTLT-BGDĐT-BNV, nhà trẻ, trường mẫu giáo, trường mầm non được ký hợp đồng lao động để thực hiện nhiệm vụ bảo vệ, nhưng không vượt quá 02 người. [1]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 5810.9
+    },
+    {
+      "question_id": "vn_zalo_023",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Cá nhân có hành vi không đăng ký hợp đồng cá nhân tại cơ quan nhà nước có thẩm quyền về làm việc ở nước ngoài được quy định như thế nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__28_2020_n_-cp_47__493fbe5d.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__28_2020_n_-cp_47__493fbe5d.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__04_2021_n_-cp_17__08d02526.md",
+        "zalo_legal__04_2021_n_-cp_20__55e7d87a.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__04_2021_n_-cp_19__7ff66165.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__28_2020_n_-cp_47__493fbe5d.md",
+        "zalo_legal__04_2021_n_-cp_17__08d02526.md",
+        "zalo_legal__04_2021_n_-cp_20__55e7d87a.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__04_2021_n_-cp_19__7ff66165.md",
+        "zalo_legal__06_2015_ttlt-bgd_t-bnv_6__0eb2203e.md",
+        "zalo_legal__04_2021_n_-cp_18__1602e33f.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__28_2020_n_-cp_47__493fbe5d.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__04_2021_n_-cp_17__08d02526.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.2,
+        "map": 0.2,
+        "ndcg": 0.38685280723454163
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.2,
+        "map": 0.2,
+        "ndcg": 0.38685280723454163
+      },
+      "latency_ms": 1902.8,
+      "synthesized_answer": "Cá nhân có hành vi không đăng ký hợp đồng cá nhân tại cơ quan nhà nước có thẩm quyền về làm việc ở nước ngoài sẽ bị phạt tiền từ 2.000.000 đồng đến 5.000.000 đồng theo quy định tại Điều 47, Nghị định 28/2020/NĐ-CP [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 4655.1
+    },
+    {
+      "question_id": "vn_zalo_024",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Nhân viên thiết bị được xếp lương thế nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__08_2019_tt-bgd_t_6__28941d90.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__08_2019_tt-bgd_t_6__28941d90.md",
+        "hotpot_vn__10006__19b1b73d.md",
+        "zalo_legal__04_2021_n_-cp_28__449fae16.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__02_2018_tt-tandtc_6__8932ede4.md",
+        "zalo_legal__04_2021_n_-cp_3__ccb3106d.md",
+        "zalo_legal__04_2021_n_-cp_25__54589e5b.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__04_2021_n_-cp_26__c1a038ba.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__08_2019_tt-bgd_t_6__28941d90.md",
+        "hotpot_vn__10006__19b1b73d.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "hotpot_vn__10006884__472166ce.md",
+        "hotpot_vn__100034__fc991ffe.md",
+        "zalo_legal__06_2015_ttlt-bgd_t-bnv_6__0eb2203e.md",
+        "zalo_legal__04_2021_n_-cp_25__54589e5b.md",
+        "zalo_legal__28_2020_n_-cp_47__493fbe5d.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md",
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__08_2019_tt-bgd_t_6__28941d90.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md",
+        "hotpot_vn__10006__19b1b73d.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__04_2021_n_-cp_30__99140757.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1596.12,
+      "synthesized_answer": "Nhân viên thiết bị được xếp lương theo viên chức loại A0, áp dụng bảng lương chuyên môn, nghiệp vụ đối với cán bộ, viên chức trong các đơn vị sự nghiệp của nhà nước, ban hành kèm theo Nghị định số 204/2004/NĐ-CP. Điều này được quy định tại Điều 6, Thông tư số 08/2019/TT-BGDĐT [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 5523.7
+    },
+    {
+      "question_id": "vn_zalo_025",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Công ty đầu tư chứng khoán được hiểu thế nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__54_2019_qh14_114__a89a0f47.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__54_2019_qh14_114__a89a0f47.md",
+        "hotpot_vn__10000773__2f8b28de.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "hotpot_vn__38420__65f84ed6.md",
+        "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__54_2019_qh14_114__a89a0f47.md",
+        "hotpot_vn__100034__fc991ffe.md",
+        "hotpot_vn__1000067__4245c61f.md",
+        "zalo_legal__95_2018_n_-cp_4__8f07481a.md",
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "hotpot_vn__10000773__2f8b28de.md",
+        "hotpot_vn__14927640__11e2e062.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "hotpot_vn__38420__65f84ed6.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__54_2019_qh14_114__a89a0f47.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "hotpot_vn__10000773__2f8b28de.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "zalo_legal__04_2021_n_-cp_23__6f81e313.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1111111111111111,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1620.73,
+      "synthesized_answer": "Công ty đầu tư chứng khoán là một quỹ đầu tư chứng khoán được tổ chức theo loại hình công ty cổ phần để thực hiện hoạt động đầu tư chứng khoán, có hai hình thức là công ty đầu tư chứng khoán riêng lẻ và công ty đầu tư chứng khoán đại chúng. Việc thành lập và hoạt động của công ty này được cấp phép bởi Ủy ban Chứng khoán Nhà nước, sau đó thực hiện đăng ký doanh nghiệp theo quy định của Luật Doanh nghiệp [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 5114.2
+    },
+    {
+      "question_id": "vn_zalo_026",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Kỷ niệm chương Vì sự nghiệp Tài chính Việt Nam là gì?",
+      "relevant_doc_ids": [
+        "zalo_legal__17_2019_tt-btc_3__108d1439.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__17_2019_tt-btc_3__108d1439.md",
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "zalo_legal__04_2021_n_-cp_18__1602e33f.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__04_2021_n_-cp_30__99140757.md",
+        "zalo_legal__04_2021_n_-cp_17__08d02526.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__59_2019_n_-cp_24__02f91c96.md",
+        "zalo_legal__04_2021_n_-cp_31__f2427db8.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__17_2019_tt-btc_3__108d1439.md",
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "zalo_legal__59_2019_n_-cp_24__02f91c96.md",
+        "zalo_legal__03_2013_tt-ttcp_13__7b7fb328.md",
+        "zalo_legal__03_2013_tt-ttcp_7__bf5cad63.md",
+        "zalo_legal__03_2013_tt-ttcp_2__753170d6.md",
+        "zalo_legal__91_2015_qh13_571__c6977ecd.md",
+        "hotpot_vn__10000773__2f8b28de.md",
+        "zalo_legal__95_2018_n_-cp_4__8f07481a.md",
+        "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__17_2019_tt-btc_3__108d1439.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__04_2021_n_-cp_30__99140757.md",
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "zalo_legal__04_2021_n_-cp_18__1602e33f.md",
+        "zalo_legal__04_2021_n_-cp_17__08d02526.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "latency_ms": 1855.44,
+      "synthesized_answer": "Kỷ niệm chương “Vì sự nghiệp Tài chính Việt Nam” là hình thức tặng thưởng của Bộ Tài chính nhằm ghi nhận thành tích, sự cống hiến của các cá nhân đã có nhiều đóng góp cho sự nghiệp xây dựng, phát triển ngành Tài chính Việt Nam [1]. Kỷ niệm chương có biểu tượng, hình dáng, kích cỡ, màu sắc thể hiện đặc trưng của ngành Tài chính Việt Nam và đi kèm với Giấy chứng nhận tặng Kỷ niệm chương [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 5477.0
+    },
+    {
+      "question_id": "vn_zalo_027",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Cấp giấy chứng nhận quyền sử dụng đất đối với quỹ đất đã giải phóng mặt bằng thanh toán cho dự án BT được quy định như thế nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__04_2021_n_-cp_23__6f81e313.md",
+        "zalo_legal__91_2015_qh13_571__c6977ecd.md",
+        "zalo_legal__59_2019_n_-cp_24__02f91c96.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__17_2019_tt-btc_3__108d1439.md",
+        "zalo_legal__04_2021_n_-cp_21__463ebaef.md",
+        "zalo_legal__04_2021_n_-cp_22__6f46c2f2.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "zalo_legal__03_2013_tt-ttcp_11__27a962a7.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "zalo_legal__04_2021_n_-cp_21__463ebaef.md",
+        "zalo_legal__04_2021_n_-cp_23__6f81e313.md",
+        "zalo_legal__04_2021_n_-cp_22__6f46c2f2.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 1.0,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 1.0,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1717.94,
+      "synthesized_answer": "Cấp giấy chứng nhận quyền sử dụng đất đối với quỹ đất đã giải phóng mặt bằng để thanh toán cho dự án BT được quy định như sau: Cơ quan nhà nước có thẩm quyền cấp Giấy chứng nhận quyền sử dụng đất, quyền sở hữu nhà ở và tài sản khác gắn liền với đất cho Nhà đầu tư theo quy định của pháp luật về đất đai, đối với phần diện tích của quỹ đất thanh toán tương ứng với phần giá trị Dự án BT hoàn thành theo tiến độ được cơ quan nhà nước có thẩm quyền xác định [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 5927.0
+    },
+    {
+      "question_id": "vn_zalo_028",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Tránh xe máy không đúng quy định gây tai nạn giao thông sẽ bị xử phạt thế nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_14__cdd01488.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__02_2018_tt-tandtc_7__e2fea6a4.md",
+        "zalo_legal__04_2021_n_-cp_14__cdd01488.md",
+        "zalo_legal__04_2021_n_-cp_21__463ebaef.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.25,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.25,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1558.92,
+      "synthesized_answer": "Việc tránh xe máy không đúng quy định gây tai nạn giao thông sẽ bị xử phạt theo quy định tại **điểm m khoản 4 Điều 6** của Nghị định 100/2019/NĐ-CP, cụ thể là **phạt tiền từ 600.000 đồng đến 1.000.000 đồng**. [4]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 4910.0
+    },
+    {
+      "question_id": "vn_zalo_029",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Mức phạt khi không thực hiện đúng quy trình để số lượng xe ô tô xếp hàng chờ lớn hơn 150 xe đến 200 xe",
+      "relevant_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.5,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.25,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.25,
+        "mrr": 0.5,
+        "map": 0.5,
+        "ndcg": 0.6309297535714575
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.14285714285714285,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1480.81,
+      "synthesized_answer": "Mức phạt khi không thực hiện đúng quy trình để số lượng xe ô tô xếp hàng chờ trước trạm thu phí trên một làn xe chờ dài nhất lớn hơn 150 xe đến 200 xe là **phạt tiền từ 10.000.000 đồng đến 20.000.000 đồng** theo Điều 15, khoản 7 của Nghị định 100/2019/NĐ-CP [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 5392.2
+    },
+    {
+      "question_id": "vn_zalo_030",
+      "subset": "ZacLegalTextRetrieval",
+      "question": "Tranh chấp giữa cơ quan ký kết hợp đồng dự án PPP với nhà đầu tư trong nước thuộc thẩm quyền giải quyết của cơ quan nào?",
+      "relevant_doc_ids": [
+        "zalo_legal__64_2020_qh14_97__e52508ca.md"
+      ],
+      "retrieved_doc_ids": [
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_17__08d02526.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__03_2013_tt-ttcp_2__753170d6.md",
+        "zalo_legal__03_2013_tt-ttcp_8__75359acc.md",
+        "zalo_legal__04_2021_n_-cp_20__55e7d87a.md",
+        "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md",
+        "zalo_legal__04_2021_n_-cp_19__7ff66165.md"
+      ],
+      "pure_dense_doc_ids": [
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__54_2019_qh14_114__a89a0f47.md",
+        "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md",
+        "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+        "zalo_legal__95_2018_n_-cp_4__8f07481a.md",
+        "zalo_legal__03_2013_tt-ttcp_2__753170d6.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__03_2013_tt-ttcp_7__bf5cad63.md",
+        "zalo_legal__03_2013_tt-ttcp_4__64155cf7.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__03_2013_tt-ttcp_10__2e7e07cf.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1677.98,
+      "synthesized_answer": "Tranh chấp giữa cơ quan ký kết hợp đồng dự án PPP với nhà đầu tư trong nước thuộc thẩm quyền giải quyết của **Tòa án Việt Nam** hoặc **Trọng tài Việt Nam**, theo quy định tại **Điều 97, Văn bản 64/2020/QH14** [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 6274.4
+    },
+    {
+      "question_id": "vn_hotpot_001",
+      "subset": "HotpotQA-VN",
+      "question": "Nhóm người nào ở Tây Phi với dân số đáng kể tại Ghana, Bờ Biển Ngà, Liberia và Sierra Leone sử dụng ngôn ngữ Ida?",
+      "relevant_doc_ids": [
+        "hotpot_vn__6637850__eb632363.md",
+        "hotpot_vn__19996678__e4159d0d.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__19996678__e4159d0d.md",
+        "hotpot_vn__6637850__eb632363.md",
+        "hotpot_vn__754563__77adddd4.md",
+        "hotpot_vn__14927640__11e2e062.md",
+        "hotpot_vn__10000591__67d697ab.md",
+        "hotpot_vn__100012__21bf043d.md",
+        "hotpot_vn__100031__c7a8558c.md",
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "zalo_legal__04_2021_n_-cp_20__55e7d87a.md",
+        "hotpot_vn__1773391__67ad47b5.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__19996678__e4159d0d.md",
+        "hotpot_vn__6637850__eb632363.md",
+        "hotpot_vn__754563__77adddd4.md",
+        "hotpot_vn__100031__c7a8558c.md",
+        "hotpot_vn__38179119__1ad519a9.md",
+        "hotpot_vn__14927640__11e2e062.md",
+        "hotpot_vn__10000591__67d697ab.md",
+        "hotpot_vn__100012__21bf043d.md",
+        "hotpot_vn__19682758__b559dbb3.md",
+        "hotpot_vn__100097__8f1be10f.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__19996678__e4159d0d.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "hotpot_vn__6637850__eb632363.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "hotpot_vn__10005644__835db573.md",
+        "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md",
+        "hotpot_vn__14927640__11e2e062.md",
+        "hotpot_vn__754563__77adddd4.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 0.75,
+        "ndcg": 0.8772153153380493
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 0.75,
+        "ndcg": 0.8772153153380493
+      },
+      "latency_ms": 1617.28,
+      "synthesized_answer": "Nhóm người sử dụng ngôn ngữ Ida là người Yoruba. [1]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 2031.8
+    },
+    {
+      "question_id": "vn_hotpot_002",
+      "subset": "HotpotQA-VN",
+      "question": "Phương ngữ nào được nói ở tỉnh Scania gọi Spettekaka là \"spiddekaga\"?",
+      "relevant_doc_ids": [
+        "hotpot_vn__3337257__54d01ea0.md",
+        "hotpot_vn__754563__77adddd4.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__3337257__54d01ea0.md",
+        "hotpot_vn__754563__77adddd4.md",
+        "hotpot_vn__14927640__11e2e062.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+        "hotpot_vn__100012__21bf043d.md",
+        "hotpot_vn__19996678__e4159d0d.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "zalo_legal__03_2013_tt-ttcp_4__64155cf7.md",
+        "hotpot_vn__6637850__eb632363.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__3337257__54d01ea0.md",
+        "hotpot_vn__754563__77adddd4.md",
+        "hotpot_vn__19682758__b559dbb3.md",
+        "hotpot_vn__14927640__11e2e062.md",
+        "hotpot_vn__6637850__eb632363.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "hotpot_vn__100012__21bf043d.md",
+        "hotpot_vn__10000591__67d697ab.md",
+        "hotpot_vn__13441785__0cf23ab0.md",
+        "zalo_legal__03_2013_tt-ttcp_7__bf5cad63.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__3337257__54d01ea0.md",
+        "hotpot_vn__754563__77adddd4.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "hotpot_vn__14927640__11e2e062.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "zalo_legal__04_2021_n_-cp_24__fe187044.md",
+        "hotpot_vn__19996678__e4159d0d.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1442.59,
+      "synthesized_answer": "Phương ngữ ở tỉnh Scania gọi Spettekaka là \"spiddekaga\" [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 3673.9
+    },
+    {
+      "question_id": "vn_hotpot_003",
+      "subset": "HotpotQA-VN",
+      "question": "Trong hai trường đại học này, Northwestern University hay Johns Hopkins University có khuôn viên nằm ngoài lãnh thổ Hoa Kỳ?",
+      "relevant_doc_ids": [
+        "hotpot_vn__38420__65f84ed6.md",
+        "hotpot_vn__174216__9df1dc0e.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__38420__65f84ed6.md",
+        "hotpot_vn__174216__9df1dc0e.md",
+        "hotpot_vn__10005801__0505b825.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "hotpot_vn__20387292__c306dfd3.md",
+        "hotpot_vn__54492__26e4ff63.md",
+        "hotpot_vn__4403170__30e7df51.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "hotpot_vn__13599028__95965f1b.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__174216__9df1dc0e.md",
+        "hotpot_vn__38420__65f84ed6.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "hotpot_vn__10005801__0505b825.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "hotpot_vn__4403170__30e7df51.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "zalo_legal__04_2021_n_-cp_19__7ff66165.md",
+        "zalo_legal__04_2021_n_-cp_17__08d02526.md",
+        "hotpot_vn__54492__26e4ff63.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__38420__65f84ed6.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "hotpot_vn__10005801__0505b825.md",
+        "hotpot_vn__174216__9df1dc0e.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "hotpot_vn__54492__26e4ff63.md",
+        "hotpot_vn__20387292__c306dfd3.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 0.7,
+        "ndcg": 0.8503449055347546
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 0.7,
+        "ndcg": 0.8503449055347546
+      },
+      "latency_ms": 1810.29,
+      "synthesized_answer": "Johns Hopkins University có khuôn viên nằm ngoài lãnh thổ Hoa Kỳ. Cụ thể, trường có khuôn viên tại Doha, Qatar. [2]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 2923.5
+    },
+    {
+      "question_id": "vn_hotpot_004",
+      "subset": "HotpotQA-VN",
+      "question": "Chó Schapendoes hay chó Bull Terrier có nguồn gốc từ nhiều giống chó khác nhau hơn?",
+      "relevant_doc_ids": [
+        "hotpot_vn__19682758__b559dbb3.md",
+        "hotpot_vn__1617708__289ef7d9.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__19682758__b559dbb3.md",
+        "hotpot_vn__1617708__289ef7d9.md",
+        "hotpot_vn__54492__26e4ff63.md",
+        "hotpot_vn__2458960__ed30d6bc.md",
+        "hotpot_vn__1233146__4f0d3568.md",
+        "hotpot_vn__14927640__11e2e062.md",
+        "hotpot_vn__19996678__e4159d0d.md",
+        "hotpot_vn__754563__77adddd4.md",
+        "hotpot_vn__1489331__cf282673.md",
+        "hotpot_vn__1773391__67ad47b5.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__19682758__b559dbb3.md",
+        "hotpot_vn__1617708__289ef7d9.md",
+        "hotpot_vn__1000067__4245c61f.md",
+        "hotpot_vn__3337257__54d01ea0.md",
+        "hotpot_vn__14927640__11e2e062.md",
+        "hotpot_vn__754563__77adddd4.md",
+        "hotpot_vn__6637850__eb632363.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "hotpot_vn__1000681__0dfd61db.md",
+        "hotpot_vn__1000381__76709703.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__1617708__289ef7d9.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "hotpot_vn__19682758__b559dbb3.md",
+        "hotpot_vn__54492__26e4ff63.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "hotpot_vn__2458960__ed30d6bc.md",
+        "hotpot_vn__1489331__cf282673.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 0.8333333333333333,
+        "ndcg": 0.9197207891481876
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 0.8333333333333333,
+        "ndcg": 0.9197207891481876
+      },
+      "latency_ms": 1776.06,
+      "synthesized_answer": "Chó Bull Terrier (miniature) có nguồn gốc từ nhiều giống chó khác nhau hơn, bao gồm giống chó White Terrier đã tuyệt chủng, giống Dalmatian và Bulldog [2]. Trong khi đó, chó Schapendoes có nguồn gốc từ một giống chó duy nhất là chó chăn cừu Hà Lan [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 2,
+      "synthesis_latency_ms": 4259.9
+    },
+    {
+      "question_id": "vn_hotpot_005",
+      "subset": "HotpotQA-VN",
+      "question": "Tác phẩm nào được Ludwig van Beethoven xuất bản năm 1801 và dành tặng cho Bá tước Moritz von Fries?",
+      "relevant_doc_ids": [
+        "hotpot_vn__3441__b2004314.md",
+        "hotpot_vn__225230__bc380f82.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__3441__b2004314.md",
+        "hotpot_vn__225230__bc380f82.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__10010424__af35c6dc.md",
+        "hotpot_vn__2037468__c2f090fe.md",
+        "zalo_legal__59_2019_n_-cp_24__02f91c96.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "hotpot_vn__49446160__50f9205f.md",
+        "hotpot_vn__581185__67e5ae8f.md",
+        "zalo_legal__04_2021_n_-cp_30__99140757.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__3441__b2004314.md",
+        "hotpot_vn__225230__bc380f82.md",
+        "hotpot_vn__49446160__50f9205f.md",
+        "hotpot_vn__2037468__c2f090fe.md",
+        "hotpot_vn__100031__c7a8558c.md",
+        "hotpot_vn__13599028__95965f1b.md",
+        "hotpot_vn__10005399__34d54e8f.md",
+        "zalo_legal__59_2019_n_-cp_24__02f91c96.md",
+        "hotpot_vn__1000354__560f9ecb.md",
+        "hotpot_vn__10010424__af35c6dc.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__3441__b2004314.md",
+        "hotpot_vn__225230__bc380f82.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "zalo_legal__04_2021_n_-cp_30__99140757.md",
+        "hotpot_vn__10010424__af35c6dc.md",
+        "zalo_legal__59_2019_n_-cp_24__02f91c96.md",
+        "zalo_legal__03_2013_tt-ttcp_9__776460d8.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1588.34,
+      "synthesized_answer": "Tác phẩm được Ludwig van Beethoven xuất bản năm 1801 và dành tặng cho Bá tước Moritz von Fries là Sonata Violin số 5 (Beethoven) [1].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 3231.7
+    },
+    {
+      "question_id": "vn_hotpot_006",
+      "subset": "HotpotQA-VN",
+      "question": "Tên của ứng cử viên độc lập trong cuộc đua thống đốc bang Maine năm 2010, người đã đi trước Libby Mitchell là gì?",
+      "relevant_doc_ids": [
+        "hotpot_vn__20387292__c306dfd3.md",
+        "hotpot_vn__25060122__add0d109.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__20387292__c306dfd3.md",
+        "hotpot_vn__25060122__add0d109.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "hotpot_vn__4403170__30e7df51.md",
+        "hotpot_vn__2458960__ed30d6bc.md",
+        "hotpot_vn__38420__65f84ed6.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "hotpot_vn__2037468__c2f090fe.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__20387292__c306dfd3.md",
+        "hotpot_vn__25060122__add0d109.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "hotpot_vn__10005399__34d54e8f.md",
+        "hotpot_vn__39784569__9577ac43.md",
+        "hotpot_vn__54492__26e4ff63.md",
+        "hotpot_vn__40695760__57cbbd89.md",
+        "hotpot_vn__38420__65f84ed6.md",
+        "hotpot_vn__4403170__30e7df51.md",
+        "hotpot_vn__100012__21bf043d.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__20387292__c306dfd3.md",
+        "hotpot_vn__25060122__add0d109.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "hotpot_vn__4403170__30e7df51.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "hotpot_vn__2458960__ed30d6bc.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.25,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1671.16,
+      "synthesized_answer": "Tên của ứng cử viên độc lập trong cuộc đua thống đốc bang Maine năm 2010 là Eliot Cutler [2].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 2136.9
+    },
+    {
+      "question_id": "vn_hotpot_007",
+      "subset": "HotpotQA-VN",
+      "question": "Ai là nhà soạn nhạc và biên kịch người Mỹ gốc Ý viết vở opera tiếng Anh, Maria Golovin?",
+      "relevant_doc_ids": [
+        "hotpot_vn__2037468__c2f090fe.md",
+        "hotpot_vn__49446160__50f9205f.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__2037468__c2f090fe.md",
+        "hotpot_vn__49446160__50f9205f.md",
+        "hotpot_vn__10007089__1bd20832.md",
+        "hotpot_vn__100097__8f1be10f.md",
+        "hotpot_vn__10010424__af35c6dc.md",
+        "hotpot_vn__32252__2bae3b53.md",
+        "hotpot_vn__581185__67e5ae8f.md",
+        "hotpot_vn__46194566__ab88b74b.md",
+        "hotpot_vn__100031__c7a8558c.md",
+        "hotpot_vn__13599028__95965f1b.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__2037468__c2f090fe.md",
+        "hotpot_vn__49446160__50f9205f.md",
+        "hotpot_vn__100031__c7a8558c.md",
+        "hotpot_vn__100012__21bf043d.md",
+        "hotpot_vn__3441__b2004314.md",
+        "hotpot_vn__225230__bc380f82.md",
+        "hotpot_vn__10007089__1bd20832.md",
+        "hotpot_vn__100097__8f1be10f.md",
+        "hotpot_vn__40695760__57cbbd89.md",
+        "hotpot_vn__38179119__1ad519a9.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__2037468__c2f090fe.md",
+        "hotpot_vn__49446160__50f9205f.md",
+        "hotpot_vn__581185__67e5ae8f.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "hotpot_vn__10010424__af35c6dc.md",
+        "hotpot_vn__32252__2bae3b53.md",
+        "hotpot_vn__1773391__67ad47b5.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1489.12,
+      "synthesized_answer": "Maria Golovin là một vở opera tiếng Anh trong ba chương được viết bởi Gian Carlo Menotti, một nhà soạn nhạc và biên kịch người Mỹ gốc Ý [2].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 3066.5
+    },
+    {
+      "question_id": "vn_hotpot_008",
+      "subset": "HotpotQA-VN",
+      "question": "Tên gọi đã được đổi tên vào năm 2014, chiếc xe nào là giải thưởng dành cho người chiến thắng trong mùa đầu tiên của cuộc thi The Amazing Race Canada?",
+      "relevant_doc_ids": [
+        "hotpot_vn__39784569__9577ac43.md",
+        "hotpot_vn__37393650__97c3bd17.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__39784569__9577ac43.md",
+        "hotpot_vn__37393650__97c3bd17.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "hotpot_vn__1000354__560f9ecb.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__54492__26e4ff63.md",
+        "hotpot_vn__1489331__cf282673.md",
+        "hotpot_vn__38420__65f84ed6.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__39784569__9577ac43.md",
+        "hotpot_vn__37393650__97c3bd17.md",
+        "zalo_legal__17_2019_tt-btc_3__108d1439.md",
+        "hotpot_vn__1000354__560f9ecb.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "hotpot_vn__19682758__b559dbb3.md",
+        "hotpot_vn__10005399__34d54e8f.md",
+        "hotpot_vn__54492__26e4ff63.md",
+        "hotpot_vn__100096__e50168cc.md",
+        "zalo_legal__91_2015_qh13_571__c6977ecd.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__39784569__9577ac43.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "hotpot_vn__37393650__97c3bd17.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__1000354__560f9ecb.md",
+        "hotpot_vn__3441__b2004314.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "zalo_legal__09_2014_tt-bvhttdl_12__8f58afbc.md",
+        "hotpot_vn__38420__65f84ed6.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 0.75,
+        "ndcg": 0.8772153153380493
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 0.75,
+        "ndcg": 0.8772153153380493
+      },
+      "latency_ms": 1798.1,
+      "synthesized_answer": "Based on directly relevant evidence:\n- Cuộc đua kỳ thú Canada 1 Mùa đầu tiên của The Amazing Race Canada là một chương trình truyền hình thực tế dựa trên loạt phim Mỹ \"The Amazing Race\". [1]\n- Thế hệ thứ bảy của Corvette đã ra mắt tại triển lãm ô tô Los Angeles Auto Show 2013 và bắt đầu bán ra thị trường năm 2014 với tên gọi Stingray, lần đầu tiên kể từ sau C3 năm 1968. [2]\n- 000 đồng đối với người điều khiển xe thực hiện một trong các hành vi vi phạm sau đây: a) Buông cả hai tay khi đang điều khiển xe; dùng chân điều khiển xe; ngồi về một bên điều khiển xe; nằm trên yên xe điều khiển xe; thay người điều khiển khi xe đang chạy; qua… [3]\n- Aero Ae 01 Máy bay huấn luyện hai tầng cánh Aero Ae 01 là một máy bay huấn luyện quân sự của Tiệp Khắc được chế tạo vào năm 1919 và đây cũng là lần đầu tiên hãng Aero thử nghiệm cải tiến thiết kế máy bay mà họ đã sản xuất theo giấy phép trong Thế chiến I, đó c… [4]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 4,
+      "synthesis_latency_ms": 5526.4
+    },
+    {
+      "question_id": "vn_hotpot_009",
+      "subset": "HotpotQA-VN",
+      "question": "Tạp chí nào được xuất bản nhiều hơn trong một năm, Essence hay Alt for Damerne?",
+      "relevant_doc_ids": [
+        "hotpot_vn__1773391__67ad47b5.md",
+        "hotpot_vn__46321311__ce52c1ca.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__1773391__67ad47b5.md",
+        "hotpot_vn__46321311__ce52c1ca.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__2458960__ed30d6bc.md",
+        "hotpot_vn__754563__77adddd4.md",
+        "hotpot_vn__49446160__50f9205f.md",
+        "zalo_legal__03_2013_tt-ttcp_5__0ac5afc1.md",
+        "zalo_legal__03_2013_tt-ttcp_9__776460d8.md",
+        "hotpot_vn__32252__2bae3b53.md",
+        "hotpot_vn__54492__26e4ff63.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__46321311__ce52c1ca.md",
+        "hotpot_vn__1773391__67ad47b5.md",
+        "hotpot_vn__100097__8f1be10f.md",
+        "hotpot_vn__9295829__dbedd439.md",
+        "hotpot_vn__2458960__ed30d6bc.md",
+        "hotpot_vn__1001027__980eb1dd.md",
+        "hotpot_vn__754563__77adddd4.md",
+        "hotpot_vn__6637850__eb632363.md",
+        "zalo_legal__03_2013_tt-ttcp_5__0ac5afc1.md",
+        "hotpot_vn__100096__e50168cc.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__46321311__ce52c1ca.md",
+        "hotpot_vn__1773391__67ad47b5.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "zalo_legal__03_2013_tt-ttcp_8__75359acc.md",
+        "hotpot_vn__2458960__ed30d6bc.md",
+        "hotpot_vn__54492__26e4ff63.md",
+        "hotpot_vn__14723194__c07c29b1.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1697.42,
+      "synthesized_answer": "Based on directly relevant evidence:\n- Essence (tạp chí) Essence là một tạp chí hàng tháng dành cho phụ nữ Mỹ gốc Phi từ 18 đến 49 tuổi. [1]\n- Alt dành cho phụ nữ ALT for Damerne (có nghĩa là \"Tất cả vì phụ nữ\" trong tiếng Anh) là một tạp chí hàng tuần bằng tiếng Đan Mạch dành cho phụ nữ được xuất bản tại Copenhagen, Đan Mạch. [2]\n- Được sản xuất bởi Lucasfilm Ltd cùng công ty Bad Robot Productions thuộc quyền sở hữu của Abrams và phân phối toàn cầu bởi Walt Disney Studios Motion Pictures; đây cũng là lần đầu tiên George Lucas không còn đảm nhiệm vai trò nhà sản xuất cho một tác phẩm Star… [3]\n- Tình trạng của cô trở nên tồi tệ hơn với việc thể hiện nhiều triệu chứng khác nhau mà cô cũng dùng thuốc để chữa trị. [4]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 4,
+      "synthesis_latency_ms": 8549.5
+    },
+    {
+      "question_id": "vn_hotpot_010",
+      "subset": "HotpotQA-VN",
+      "question": "Nữ diễn viên Ấn Độ nào giành được giải thưởng Filmfare cho Nữ diễn viên mới xuất sắc nhất trong phim \"Refugee\" đã đóng vai trong bộ phim K3G?",
+      "relevant_doc_ids": [
+        "hotpot_vn__36390615__81c44b28.md",
+        "hotpot_vn__581185__67e5ae8f.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__36390615__81c44b28.md",
+        "hotpot_vn__581185__67e5ae8f.md",
+        "hotpot_vn__13441785__0cf23ab0.md",
+        "hotpot_vn__13599028__95965f1b.md",
+        "hotpot_vn__38179119__1ad519a9.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__1773391__67ad47b5.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "hotpot_vn__2458960__ed30d6bc.md",
+        "hotpot_vn__10006884__472166ce.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__36390615__81c44b28.md",
+        "hotpot_vn__581185__67e5ae8f.md",
+        "hotpot_vn__38179119__1ad519a9.md",
+        "hotpot_vn__10010424__af35c6dc.md",
+        "hotpot_vn__13441785__0cf23ab0.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__32252__2bae3b53.md",
+        "hotpot_vn__46194566__ab88b74b.md",
+        "hotpot_vn__10006884__472166ce.md",
+        "hotpot_vn__10007089__1bd20832.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__36390615__81c44b28.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "hotpot_vn__581185__67e5ae8f.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "hotpot_vn__1773391__67ad47b5.md",
+        "hotpot_vn__10006884__472166ce.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "zalo_legal__03_2013_tt-ttcp_13__7b7fb328.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 0.8333333333333333,
+        "ndcg": 0.9197207891481876
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 0.8333333333333333,
+        "ndcg": 0.9197207891481876
+      },
+      "latency_ms": 1931.42,
+      "synthesized_answer": "Nữ diễn viên Ấn Độ giành giải thưởng Filmfare cho Nữ diễn viên mới xuất sắc nhất trong phim \"Refugee\" là Kareena Kapoor. [1]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 3629.8
+    },
+    {
+      "question_id": "vn_hotpot_011",
+      "subset": "HotpotQA-VN",
+      "question": "Finding Kraftland và Shikashika có phải cả hai đều là đồ uống đông lạnh?",
+      "relevant_doc_ids": [
+        "hotpot_vn__13441785__0cf23ab0.md",
+        "hotpot_vn__14927640__11e2e062.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__14927640__11e2e062.md",
+        "hotpot_vn__13441785__0cf23ab0.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "hotpot_vn__754563__77adddd4.md",
+        "hotpot_vn__3247089__8d6debd0.md",
+        "hotpot_vn__362229__b90b1a29.md",
+        "hotpot_vn__100031__c7a8558c.md",
+        "hotpot_vn__10007089__1bd20832.md",
+        "hotpot_vn__39784569__9577ac43.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__14927640__11e2e062.md",
+        "hotpot_vn__13441785__0cf23ab0.md",
+        "hotpot_vn__581185__67e5ae8f.md",
+        "hotpot_vn__100012__21bf043d.md",
+        "hotpot_vn__3337257__54d01ea0.md",
+        "hotpot_vn__3247089__8d6debd0.md",
+        "hotpot_vn__9295829__dbedd439.md",
+        "hotpot_vn__48965__1dfb15a8.md",
+        "hotpot_vn__362229__b90b1a29.md",
+        "hotpot_vn__19682758__b559dbb3.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__14927640__11e2e062.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "hotpot_vn__13441785__0cf23ab0.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md",
+        "hotpot_vn__10005644__835db573.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "hotpot_vn__19996678__e4159d0d.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 0.8333333333333333,
+        "ndcg": 0.9197207891481876
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 0.8333333333333333,
+        "ndcg": 0.9197207891481876
+      },
+      "latency_ms": 1685.53,
+      "synthesized_answer": "Dựa trên các bằng chứng cung cấp:\n\n- Shikashika là một thức uống đá bào, được làm từ băng núi ở Peru và Bolivia [1].\n- Kraftland không phải là một đồ uống đông lạnh, mà là tên của một bộ phim tài liệu [2].\n\nDo đó, câu trả lời là: Không, Kraftland không phải là đồ uống đông lạnh, trong khi Shikashika là một thức uống đông lạnh.",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 2,
+      "synthesis_latency_ms": 4294.1
+    },
+    {
+      "question_id": "vn_hotpot_012",
+      "subset": "HotpotQA-VN",
+      "question": "Núi nào cao hơn, Masherbrum hay là Khunyang Chhish?",
+      "relevant_doc_ids": [
+        "hotpot_vn__362229__b90b1a29.md",
+        "hotpot_vn__3247089__8d6debd0.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__3247089__8d6debd0.md",
+        "hotpot_vn__362229__b90b1a29.md",
+        "hotpot_vn__14927640__11e2e062.md",
+        "hotpot_vn__10000591__67d697ab.md",
+        "hotpot_vn__6637850__eb632363.md",
+        "hotpot_vn__581185__67e5ae8f.md",
+        "zalo_legal__04_2021_n_-cp_18__1602e33f.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__04_2021_n_-cp_10__06178516.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__3247089__8d6debd0.md",
+        "hotpot_vn__362229__b90b1a29.md",
+        "hotpot_vn__14927640__11e2e062.md",
+        "hotpot_vn__10000591__67d697ab.md",
+        "hotpot_vn__581185__67e5ae8f.md",
+        "hotpot_vn__32252__2bae3b53.md",
+        "hotpot_vn__6637850__eb632363.md",
+        "hotpot_vn__1000381__76709703.md",
+        "hotpot_vn__52958268__2eff1d91.md",
+        "hotpot_vn__19682758__b559dbb3.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__3247089__8d6debd0.md",
+        "hotpot_vn__362229__b90b1a29.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "hotpot_vn__14927640__11e2e062.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "hotpot_vn__10000591__67d697ab.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "zalo_legal__04_2021_n_-cp_18__1602e33f.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1697.93,
+      "synthesized_answer": "Khunyang Chhish cao hơn Masherbrum. Khunyang Chhish có độ cao 7823 m, xếp hạng thứ 21 trên thế giới, trong khi Masherbrum cao 7821 m, xếp hạng thứ 22 trên thế giới [1], [2].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 2,
+      "synthesis_latency_ms": 3419.9
+    },
+    {
+      "question_id": "vn_hotpot_013",
+      "subset": "HotpotQA-VN",
+      "question": "Trận chiến nào được đánh trước, trận Cold Harbor hay trận Bull Run lần thứ hai?",
+      "relevant_doc_ids": [
+        "hotpot_vn__48965__1dfb15a8.md",
+        "hotpot_vn__54492__26e4ff63.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__48965__1dfb15a8.md",
+        "hotpot_vn__54492__26e4ff63.md",
+        "hotpot_vn__1617708__289ef7d9.md",
+        "hotpot_vn__100096__e50168cc.md",
+        "hotpot_vn__10005801__0505b825.md",
+        "hotpot_vn__38420__65f84ed6.md",
+        "hotpot_vn__4403170__30e7df51.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "hotpot_vn__20387292__c306dfd3.md",
+        "hotpot_vn__10005644__835db573.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__54492__26e4ff63.md",
+        "hotpot_vn__48965__1dfb15a8.md",
+        "hotpot_vn__39784569__9577ac43.md",
+        "hotpot_vn__1617708__289ef7d9.md",
+        "hotpot_vn__38420__65f84ed6.md",
+        "hotpot_vn__37393650__97c3bd17.md",
+        "hotpot_vn__225230__bc380f82.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "hotpot_vn__4403170__30e7df51.md",
+        "hotpot_vn__14723194__c07c29b1.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__54492__26e4ff63.md",
+        "hotpot_vn__48965__1dfb15a8.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "hotpot_vn__1617708__289ef7d9.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "hotpot_vn__100096__e50168cc.md",
+        "zalo_legal__02_2018_tt-tandtc_8__32d6a3ff.md",
+        "hotpot_vn__10005644__835db573.md",
+        "zalo_legal__04_2021_n_-cp_11__07d68ca5.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 2079.35,
+      "synthesized_answer": "Trận Bull Run lần thứ hai được đánh trước. [2]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 2126.8
+    },
+    {
+      "question_id": "vn_hotpot_014",
+      "subset": "HotpotQA-VN",
+      "question": "Tên nhân vật của Bruce Willis trong phim Unbreakable là gì?",
+      "relevant_doc_ids": [
+        "hotpot_vn__32252__2bae3b53.md",
+        "hotpot_vn__52958268__2eff1d91.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__32252__2bae3b53.md",
+        "hotpot_vn__52958268__2eff1d91.md",
+        "hotpot_vn__46194566__ab88b74b.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "hotpot_vn__10007089__1bd20832.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__581185__67e5ae8f.md",
+        "hotpot_vn__38420__65f84ed6.md",
+        "zalo_legal__02_2018_tt-tandtc_3__626c515d.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__52958268__2eff1d91.md",
+        "hotpot_vn__32252__2bae3b53.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__46194566__ab88b74b.md",
+        "hotpot_vn__10007089__1bd20832.md",
+        "hotpot_vn__40695760__57cbbd89.md",
+        "hotpot_vn__100097__8f1be10f.md",
+        "hotpot_vn__13599028__95965f1b.md",
+        "hotpot_vn__100012__21bf043d.md",
+        "hotpot_vn__10010424__af35c6dc.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__32252__2bae3b53.md",
+        "hotpot_vn__52958268__2eff1d91.md",
+        "hotpot_vn__46194566__ab88b74b.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "hotpot_vn__581185__67e5ae8f.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "hotpot_vn__14723194__c07c29b1.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1754.84,
+      "synthesized_answer": "Tên nhân vật của Bruce Willis trong phim *Unbreakable* là David Dunn. [2]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 2380.3
+    },
+    {
+      "question_id": "vn_hotpot_015",
+      "subset": "HotpotQA-VN",
+      "question": "Thành phố nào Sean Robert Francis từng chơi trong đội bóng thành công nhất Cộng hòa Ireland?",
+      "relevant_doc_ids": [
+        "hotpot_vn__14486320__f265ed9f.md",
+        "hotpot_vn__1233146__4f0d3568.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__14486320__f265ed9f.md",
+        "hotpot_vn__1233146__4f0d3568.md",
+        "hotpot_vn__54492__26e4ff63.md",
+        "hotpot_vn__10010424__af35c6dc.md",
+        "hotpot_vn__52958268__2eff1d91.md",
+        "hotpot_vn__10005644__835db573.md",
+        "hotpot_vn__39784569__9577ac43.md",
+        "hotpot_vn__100096__e50168cc.md",
+        "hotpot_vn__100012__21bf043d.md",
+        "zalo_legal__48_2020_tt-bgd_t_4__a6573583.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__14486320__f265ed9f.md",
+        "hotpot_vn__1233146__4f0d3568.md",
+        "hotpot_vn__39784569__9577ac43.md",
+        "hotpot_vn__754563__77adddd4.md",
+        "hotpot_vn__54492__26e4ff63.md",
+        "hotpot_vn__1489331__cf282673.md",
+        "hotpot_vn__52958268__2eff1d91.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__19682758__b559dbb3.md",
+        "hotpot_vn__100097__8f1be10f.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__14486320__f265ed9f.md",
+        "hotpot_vn__1233146__4f0d3568.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "zalo_legal__64_2020_qh14_97__e52508ca.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "hotpot_vn__48965__1dfb15a8.md",
+        "hotpot_vn__20387292__c306dfd3.md",
+        "hotpot_vn__54492__26e4ff63.md",
+        "zalo_legal__04_2021_n_-cp_30__99140757.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "latency_ms": 1816.48,
+      "synthesized_answer": "Sean Robert Francis từng chơi cho Shamrock Rovers, và đây là đội bóng thành công nhất Cộng hòa Ireland [2].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 2337.1
+    },
+    {
+      "question_id": "vn_hotpot_016",
+      "subset": "HotpotQA-VN",
+      "question": "Trong hai người đàn ông này, Scott Treleaven và Edmund Mortimer, ai được ghi nhận là đã làm việc trong cả phim ảnh lẫn nhiếp ảnh?",
+      "relevant_doc_ids": [
+        "hotpot_vn__1489331__cf282673.md",
+        "hotpot_vn__13599028__95965f1b.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__1489331__cf282673.md",
+        "hotpot_vn__39784569__9577ac43.md",
+        "hotpot_vn__13599028__95965f1b.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "hotpot_vn__100012__21bf043d.md",
+        "hotpot_vn__100096__e50168cc.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "hotpot_vn__49446160__50f9205f.md",
+        "hotpot_vn__10010424__af35c6dc.md",
+        "hotpot_vn__581185__67e5ae8f.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__1489331__cf282673.md",
+        "hotpot_vn__13599028__95965f1b.md",
+        "hotpot_vn__46194566__ab88b74b.md",
+        "hotpot_vn__32252__2bae3b53.md",
+        "hotpot_vn__10010424__af35c6dc.md",
+        "hotpot_vn__52958268__2eff1d91.md",
+        "hotpot_vn__100012__21bf043d.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__13441785__0cf23ab0.md",
+        "hotpot_vn__10000773__2f8b28de.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "hotpot_vn__13599028__95965f1b.md",
+        "hotpot_vn__1489331__cf282673.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "hotpot_vn__49446160__50f9205f.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 0.8333333333333333,
+        "ndcg": 0.9197207891481876
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 0.8333333333333333,
+        "ndcg": 0.9197207891481876
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 0.5,
+        "map": 0.5833333333333333,
+        "ndcg": 0.6934264036172708
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.5,
+        "map": 0.5833333333333333,
+        "ndcg": 0.6934264036172708
+      },
+      "latency_ms": 1833.12,
+      "synthesized_answer": "Scott Treleaven được ghi nhận là đã làm việc trong cả phim ảnh lẫn nhiếp ảnh, như được nêu trong tài liệu [1]. Edmund Mortimer không được đề cập đến việc làm việc trong lĩnh vực nhiếp ảnh. Do đó, Scott Treleaven là người được làm việc trong cả hai lĩnh vực.",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 3611.7
+    },
+    {
+      "question_id": "vn_hotpot_017",
+      "subset": "HotpotQA-VN",
+      "question": "Ai là cầu thủ poker chuyên nghiệp người Mỹ cũng đóng vai trong bộ phim năm 2015 \"Extraction\"?",
+      "relevant_doc_ids": [
+        "hotpot_vn__46194566__ab88b74b.md",
+        "hotpot_vn__40695760__57cbbd89.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__46194566__ab88b74b.md",
+        "hotpot_vn__40695760__57cbbd89.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__52958268__2eff1d91.md",
+        "hotpot_vn__13599028__95965f1b.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "hotpot_vn__32252__2bae3b53.md",
+        "hotpot_vn__10010424__af35c6dc.md",
+        "hotpot_vn__38179119__1ad519a9.md",
+        "hotpot_vn__100012__21bf043d.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__46194566__ab88b74b.md",
+        "hotpot_vn__40695760__57cbbd89.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__13599028__95965f1b.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "hotpot_vn__52958268__2eff1d91.md",
+        "hotpot_vn__32252__2bae3b53.md",
+        "hotpot_vn__13441785__0cf23ab0.md",
+        "hotpot_vn__25060122__add0d109.md",
+        "hotpot_vn__100012__21bf043d.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__46194566__ab88b74b.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "hotpot_vn__52958268__2eff1d91.md",
+        "hotpot_vn__10005644__835db573.md",
+        "zalo_legal__06_2015_ttlt-bgd_t-bnv_6__0eb2203e.md",
+        "hotpot_vn__100012__21bf043d.md",
+        "hotpot_vn__13599028__95965f1b.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 0.5,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 0.5,
+        "ndcg": 0.6131471927654584
+      },
+      "pure_sparse_at_10": {
+        "recall": 0.5,
+        "precision": 0.1,
+        "mrr": 1.0,
+        "map": 0.5,
+        "ndcg": 0.6131471927654584
+      },
+      "latency_ms": 1958.35,
+      "synthesized_answer": "Cầu thủ poker chuyên nghiệp người Mỹ cũng đóng vai trong bộ phim năm 2015 \"Extraction\" là Dan Bilzerian. [2]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 2558.9
+    },
+    {
+      "question_id": "vn_hotpot_018",
+      "subset": "HotpotQA-VN",
+      "question": "Ai là luật sư bào chữa cho một người phụ nữ Đức đã thực hiện nghi lễ trừ tà của Công giáo trong năm trước khi bà qua đời?",
+      "relevant_doc_ids": [
+        "hotpot_vn__9295829__dbedd439.md",
+        "hotpot_vn__2458960__ed30d6bc.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__2458960__ed30d6bc.md",
+        "hotpot_vn__9295829__dbedd439.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "hotpot_vn__1773391__67ad47b5.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "hotpot_vn__25060122__add0d109.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "zalo_legal__02_2018_tt-tandtc_10__1761ad95.md",
+        "hotpot_vn__46321311__ce52c1ca.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__2458960__ed30d6bc.md",
+        "hotpot_vn__9295829__dbedd439.md",
+        "hotpot_vn__46321311__ce52c1ca.md",
+        "hotpot_vn__25060122__add0d109.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md",
+        "hotpot_vn__100031__c7a8558c.md",
+        "zalo_legal__02_2018_tt-tandtc_8__32d6a3ff.md",
+        "hotpot_vn__49446160__50f9205f.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__02_2018_tt-tandtc_10__1761ad95.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__2458960__ed30d6bc.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+        "hotpot_vn__9295829__dbedd439.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 0.7,
+        "ndcg": 0.8503449055347546
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 0.7,
+        "ndcg": 0.8503449055347546
+      },
+      "latency_ms": 3645.49,
+      "synthesized_answer": "Luật sư bào chữa cho Anneliese Michel, người phụ nữ Đức đã thực hiện nghi lễ trừ tà Công giáo trong năm trước khi bà qua đời, là Erich Schmidt-Leichner. [2]",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 3861.3
+    },
+    {
+      "question_id": "vn_hotpot_019",
+      "subset": "HotpotQA-VN",
+      "question": "Dân số của thành phố nơi Bảo tàng Hàng hải Penobscot tọa lạc là bao nhiêu?",
+      "relevant_doc_ids": [
+        "hotpot_vn__4403170__30e7df51.md",
+        "hotpot_vn__46954744__d72a9575.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__4403170__30e7df51.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "hotpot_vn__10005644__835db573.md",
+        "hotpot_vn__10005801__0505b825.md",
+        "hotpot_vn__20387292__c306dfd3.md",
+        "hotpot_vn__38420__65f84ed6.md",
+        "hotpot_vn__54492__26e4ff63.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__4403170__30e7df51.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "hotpot_vn__10005644__835db573.md",
+        "hotpot_vn__174216__9df1dc0e.md",
+        "hotpot_vn__38420__65f84ed6.md",
+        "hotpot_vn__10005801__0505b825.md",
+        "hotpot_vn__1233146__4f0d3568.md",
+        "hotpot_vn__20387292__c306dfd3.md",
+        "hotpot_vn__754563__77adddd4.md",
+        "hotpot_vn__1000681__0dfd61db.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "hotpot_vn__4403170__30e7df51.md",
+        "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+        "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+        "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+        "hotpot_vn__10005644__835db573.md",
+        "hotpot_vn__46954744__d72a9575.md",
+        "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+        "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 1.0,
+        "ndcg": 1.0
+      },
+      "pure_sparse_at_5": {
+        "recall": 0.5,
+        "precision": 0.2,
+        "mrr": 0.3333333333333333,
+        "map": 0.16666666666666666,
+        "ndcg": 0.3065735963827292
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 0.3333333333333333,
+        "map": 0.29166666666666663,
+        "ndcg": 0.5
+      },
+      "latency_ms": 2495.97,
+      "synthesized_answer": "Dân số của thành phố Searsport, nơi Bảo tàng Hàng hải Penobscot tọa lạc, là 2615 người theo thống kê năm 2010 [2].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 3568.1
+    },
+    {
+      "question_id": "vn_hotpot_020",
+      "subset": "HotpotQA-VN",
+      "question": "Nữ diễn viên người Kenya-Mexico, tốt nghiệp từ trường Hampshire College đóng vai chính trong phim nào năm 2015?",
+      "relevant_doc_ids": [
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__38179119__1ad519a9.md"
+      ],
+      "retrieved_doc_ids": [
+        "hotpot_vn__38179119__1ad519a9.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "hotpot_vn__46194566__ab88b74b.md",
+        "hotpot_vn__581185__67e5ae8f.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__13599028__95965f1b.md",
+        "hotpot_vn__13441785__0cf23ab0.md",
+        "hotpot_vn__10010424__af35c6dc.md",
+        "hotpot_vn__52958268__2eff1d91.md",
+        "hotpot_vn__2458960__ed30d6bc.md"
+      ],
+      "pure_dense_doc_ids": [
+        "hotpot_vn__38179119__1ad519a9.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "hotpot_vn__46194566__ab88b74b.md",
+        "hotpot_vn__581185__67e5ae8f.md",
+        "hotpot_vn__13441785__0cf23ab0.md",
+        "hotpot_vn__10000166__ff42e276.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__13599028__95965f1b.md",
+        "hotpot_vn__10010424__af35c6dc.md",
+        "hotpot_vn__32252__2bae3b53.md"
+      ],
+      "pure_sparse_doc_ids": [
+        "hotpot_vn__38179119__1ad519a9.md",
+        "hotpot_vn__36390615__81c44b28.md",
+        "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+        "hotpot_vn__14723194__c07c29b1.md",
+        "hotpot_vn__46194566__ab88b74b.md",
+        "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+        "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+        "zalo_legal__06_2015_ttlt-bgd_t-bnv_6__0eb2203e.md",
+        "hotpot_vn__10007089__1bd20832.md",
+        "hotpot_vn__581185__67e5ae8f.md"
+      ],
+      "metrics_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 0.7,
+        "ndcg": 0.8503449055347546
+      },
+      "metrics_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 0.7,
+        "ndcg": 0.8503449055347546
+      },
+      "pure_dense_at_5": {
+        "recall": 0.5,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 0.5,
+        "ndcg": 0.6131471927654584
+      },
+      "pure_dense_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 0.6428571428571428,
+        "ndcg": 0.8175295903539445
+      },
+      "pure_sparse_at_5": {
+        "recall": 1.0,
+        "precision": 0.4,
+        "mrr": 1.0,
+        "map": 0.75,
+        "ndcg": 0.8772153153380493
+      },
+      "pure_sparse_at_10": {
+        "recall": 1.0,
+        "precision": 0.2,
+        "mrr": 1.0,
+        "map": 0.75,
+        "ndcg": 0.8772153153380493
+      },
+      "latency_ms": 2739.02,
+      "synthesized_answer": "Nữ diễn viên người Kenya-Mexico, Lupita Nyong'o, đóng vai chính trong phim \"Chiến Tranh Các Vì Sao: Thần Lực Thức Tỉnh\" năm 2015 [5].",
+      "synthesis_status": "answered",
+      "synthesis_citations_count": 1,
+      "synthesis_latency_ms": 2626.0
+    }
+  ]
+}
