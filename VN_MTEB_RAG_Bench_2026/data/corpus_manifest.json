@@ -1,0 +1,782 @@
+[
+  {
+    "doc_id": "zalo_legal__02_2018_tt-tandtc_1__76261799.md",
+    "original_corpus_id": "02/2018/tt-tandtc+1",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "02/2018/TT-TANDTC - Điều 1. Phạm vi điều chỉnh"
+  },
+  {
+    "doc_id": "zalo_legal__02_2018_tt-tandtc_10__1761ad95.md",
+    "original_corpus_id": "02/2018/tt-tandtc+10",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "02/2018/TT-TANDTC - Điều 10. Việc tiếp xúc giữa người bị hại là người dưới 18 tuổi với bị cáo"
+  },
+  {
+    "doc_id": "zalo_legal__02_2018_tt-tandtc_2__4ce3dff6.md",
+    "original_corpus_id": "02/2018/tt-tandtc+2",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "02/2018/TT-TANDTC - Điều 2. Giải thích từ ngữ"
+  },
+  {
+    "doc_id": "zalo_legal__02_2018_tt-tandtc_3__626c515d.md",
+    "original_corpus_id": "02/2018/tt-tandtc+3",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "02/2018/TT-TANDTC - Điều 3. Thẩm quyền xét xử các vụ án hình sự của Tòa gia đình và người chưa thành niên"
+  },
+  {
+    "doc_id": "zalo_legal__02_2018_tt-tandtc_4__3f1bbbdc.md",
+    "original_corpus_id": "02/2018/tt-tandtc+4",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "02/2018/TT-TANDTC - Điều 4. Những vụ án hình sự thuộc thẩm quyền của Tòa gia đình và người chưa thành niên xét xử tại Phòng xử án hình sự"
+  },
+  {
+    "doc_id": "zalo_legal__02_2018_tt-tandtc_5__2070a6f9.md",
+    "original_corpus_id": "02/2018/tt-tandtc+5",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "02/2018/TT-TANDTC - Điều 5. Những vụ án hình sự thuộc thẩm quyền của Tòa gia đình và người chưa thành niên xét xử tại Phòng xét xử thân thiện"
+  },
+  {
+    "doc_id": "zalo_legal__02_2018_tt-tandtc_6__8932ede4.md",
+    "original_corpus_id": "02/2018/tt-tandtc+6",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "02/2018/TT-TANDTC - Điều 6. Phân công Thẩm phán, Hội thẩm"
+  },
+  {
+    "doc_id": "zalo_legal__02_2018_tt-tandtc_7__e2fea6a4.md",
+    "original_corpus_id": "02/2018/tt-tandtc+7",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "02/2018/TT-TANDTC - Điều 7. Xét xử vụ án hình sự có bị cáo, người bị hại là người dưới 18 tuổi"
+  },
+  {
+    "doc_id": "zalo_legal__02_2018_tt-tandtc_8__32d6a3ff.md",
+    "original_corpus_id": "02/2018/tt-tandtc+8",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "02/2018/TT-TANDTC - Điều 8. Việc tham gia phiên tòa của người đại diện, nhà trường, cơ quan, tổ chức"
+  },
+  {
+    "doc_id": "zalo_legal__02_2018_tt-tandtc_9__7ee5b399.md",
+    "original_corpus_id": "02/2018/tt-tandtc+9",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "02/2018/TT-TANDTC - Điều 9. Việc tham gia của người bảo vệ quyền và lợi ích hợp pháp của người bị hại là người dưới 18 tuổi"
+  },
+  {
+    "doc_id": "zalo_legal__03_2013_tt-ttcp_1__e808b6fb.md",
+    "original_corpus_id": "03/2013/tt-ttcp+1",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "03/2013/TT-TTCP - Điều 1. Phạm vi điều chỉnh, đối tượng áp dụng"
+  },
+  {
+    "doc_id": "zalo_legal__03_2013_tt-ttcp_10__2e7e07cf.md",
+    "original_corpus_id": "03/2013/tt-ttcp+10",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "03/2013/TT-TTCP - Điều 10. Hình thức báo cáo, phương thức gửi báo cáo"
+  },
+  {
+    "doc_id": "zalo_legal__03_2013_tt-ttcp_11__27a962a7.md",
+    "original_corpus_id": "03/2013/tt-ttcp+11",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "03/2013/TT-TTCP - Điều 11. Chế độ quản lý, sao chụp báo cáo"
+  },
+  {
+    "doc_id": "zalo_legal__03_2013_tt-ttcp_12__4084a9da.md",
+    "original_corpus_id": "03/2013/tt-ttcp+12",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "03/2013/TT-TTCP - Điều 12. Tổ chức thực hiện"
+  },
+  {
+    "doc_id": "zalo_legal__03_2013_tt-ttcp_13__7b7fb328.md",
+    "original_corpus_id": "03/2013/tt-ttcp+13",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "03/2013/TT-TTCP - Điều 13. Khen thưởng, xử lý vi phạm"
+  },
+  {
+    "doc_id": "zalo_legal__03_2013_tt-ttcp_2__753170d6.md",
+    "original_corpus_id": "03/2013/tt-ttcp+2",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "03/2013/TT-TTCP - Điều 2. Báo cáo công tác thanh tra, giải quyết khiếu nại, tố cáo và phòng, chống tham nhũng"
+  },
+  {
+    "doc_id": "zalo_legal__03_2013_tt-ttcp_3__a99b47e4.md",
+    "original_corpus_id": "03/2013/tt-ttcp+3",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "03/2013/TT-TTCP - Điều 3. Nguyên tắc báo cáo"
+  },
+  {
+    "doc_id": "zalo_legal__03_2013_tt-ttcp_4__64155cf7.md",
+    "original_corpus_id": "03/2013/tt-ttcp+4",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "03/2013/TT-TTCP - Điều 4. Trách nhiệm báo cáo về Thanh tra Chính phủ"
+  },
+  {
+    "doc_id": "zalo_legal__03_2013_tt-ttcp_5__0ac5afc1.md",
+    "original_corpus_id": "03/2013/tt-ttcp+5",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "03/2013/TT-TTCP - Điều 5. Các loại báo cáo"
+  },
+  {
+    "doc_id": "zalo_legal__03_2013_tt-ttcp_6__25fbaec6.md",
+    "original_corpus_id": "03/2013/tt-ttcp+6",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "03/2013/TT-TTCP - Điều 6. Nội dung của báo cáo công tác thanh tra, giải quyết khiếu nại, tố cáo và phòng, chống tham nhũng"
+  },
+  {
+    "doc_id": "zalo_legal__03_2013_tt-ttcp_7__bf5cad63.md",
+    "original_corpus_id": "03/2013/tt-ttcp+7",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "03/2013/TT-TTCP - Điều 7. Báo cáo chuyên đề"
+  },
+  {
+    "doc_id": "zalo_legal__03_2013_tt-ttcp_8__75359acc.md",
+    "original_corpus_id": "03/2013/tt-ttcp+8",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "03/2013/TT-TTCP - Điều 8. Báo cáo đột xuất"
+  },
+  {
+    "doc_id": "zalo_legal__03_2013_tt-ttcp_9__776460d8.md",
+    "original_corpus_id": "03/2013/tt-ttcp+9",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "03/2013/TT-TTCP - Điều 9. Thời kỳ lấy số liệu, thời hạn gửi báo cáo"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_1__715681d0.md",
+    "original_corpus_id": "04/2021/nđ-cp+1",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 1. Phạm vi điều chỉnh"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_10__06178516.md",
+    "original_corpus_id": "04/2021/nđ-cp+10",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 10. Vi phạm quy định về chỉ tiêu tuyển sinh"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_11__07d68ca5.md",
+    "original_corpus_id": "04/2021/nđ-cp+11",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 11. Vi phạm quy định về thời lượng, nội dung, chương trình giáo dục"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_12__377d4725.md",
+    "original_corpus_id": "04/2021/nđ-cp+12",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 12. Vi phạm quy định về mở ngành, chuyên ngành đào tạo"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_13__b35c21c4.md",
+    "original_corpus_id": "04/2021/nđ-cp+13",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 13. Vi phạm quy định về đào tạo liên thông, liên kết"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_14__cdd01488.md",
+    "original_corpus_id": "04/2021/nđ-cp+14",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 14. Vi phạm quy định về thi"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_15__9268b1b3.md",
+    "original_corpus_id": "04/2021/nđ-cp+15",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 15. Vi phạm quy định về tổ chức kiểm tra, đánh giá kết quả học tập của người học"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_16__ea733bfc.md",
+    "original_corpus_id": "04/2021/nđ-cp+16",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 16. Vi phạm quy định hoạt động tư vấn du học"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_17__08d02526.md",
+    "original_corpus_id": "04/2021/nđ-cp+17",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 17. Vi phạm quy định về hoạt động của văn phòng đại diện tổ chức giáo dục nước ngoài tại Việt Nam"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_18__1602e33f.md",
+    "original_corpus_id": "04/2021/nđ-cp+18",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 18. Vi phạm quy định về tiếp nhận học sinh Việt Nam học chương trình giáo dục của nước ngoài tại cơ sở giáo dục mầm non, giáo dục phổ thông có vốn đầu tư nước ngoài"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_19__7ff66165.md",
+    "original_corpus_id": "04/2021/nđ-cp+19",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 19. Vi phạm quy định về thực hiện liên kết giáo dục, liên kết đào tạo với nước ngoài"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_2__4d072c39.md",
+    "original_corpus_id": "04/2021/nđ-cp+2",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 2. Đối tượng áp dụng"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_20__55e7d87a.md",
+    "original_corpus_id": "04/2021/nđ-cp+20",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 20. Vi phạm quy định về liên kết tổ chức thi cấp chứng chỉ năng lực ngoại ngữ của nước ngoài"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_21__463ebaef.md",
+    "original_corpus_id": "04/2021/nđ-cp+21",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 21. Vi phạm quy định về cấp và quản lý văn bằng, chứng chỉ thuộc phạm vi quản lý nhà nước của Bộ Giáo dục và Đào tạo"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_22__6f46c2f2.md",
+    "original_corpus_id": "04/2021/nđ-cp+22",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 22. Vi phạm quy định về in phôi và quản lý phôi văn bằng, chứng chỉ thuộc phạm vi quản lý nhà nước của Bộ Giáo dục và Đào tạo"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_23__6f81e313.md",
+    "original_corpus_id": "04/2021/nđ-cp+23",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 23. Vi phạm quy định về sử dụng và công khai thông tin cấp văn bằng, chứng chỉ thuộc phạm vi quản lý nhà nước của Bộ Giáo dục và Đào tạo"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_24__fe187044.md",
+    "original_corpus_id": "04/2021/nđ-cp+24",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 24. Vi phạm quy định về sử dụng nhà giáo"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_25__54589e5b.md",
+    "original_corpus_id": "04/2021/nđ-cp+25",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 25. Vi phạm quy định về bảo đảm tỷ lệ giáo viên, giảng viên cơ hữu trong các cơ sở giáo dục"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_26__c1a038ba.md",
+    "original_corpus_id": "04/2021/nđ-cp+26",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 26. Xúc phạm danh dự, nhân phẩm, xâm phạm thân thể nhà giáo, cán bộ quản lý giáo dục trong cơ sở giáo dục; vi phạm quy định về chính sách đối với nhà giáo"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_27__f4bddd04.md",
+    "original_corpus_id": "04/2021/nđ-cp+27",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 27. Vi phạm quy định về quản lý hồ sơ người học"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_28__449fae16.md",
+    "original_corpus_id": "04/2021/nđ-cp+28",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 28. Vi phạm quy định về kỷ luật người học; xúc phạm danh dự, nhân phẩm, xâm phạm thân thể người học; vi phạm quy định về chính sách đối với người học"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_29__7c0de0a9.md",
+    "original_corpus_id": "04/2021/nđ-cp+29",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 29. Vi phạm quy định về phổ cập giáo dục"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_3__ccb3106d.md",
+    "original_corpus_id": "04/2021/nđ-cp+3",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 3. Hình thức xử phạt và mức tiền phạt trong lĩnh vực giáo dục"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_30__99140757.md",
+    "original_corpus_id": "04/2021/nđ-cp+30",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 30. Vi phạm quy định về mua sắm, tiếp nhận, sử dụng sách, giáo trình, bài giảng, tài liệu, thiết bị dạy học"
+  },
+  {
+    "doc_id": "zalo_legal__04_2021_n_-cp_31__f2427db8.md",
+    "original_corpus_id": "04/2021/nđ-cp+31",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "04/2021/NĐ-CP - Điều 31. Vi phạm quy định về vận động tài trợ trong cơ sở giáo dục"
+  },
+  {
+    "doc_id": "zalo_legal__06_2015_ttlt-bgd_t-bnv_6__0eb2203e.md",
+    "original_corpus_id": "06/2015/ttlt-bgdđt-bnv+6",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "06/2015/TTLT-BGDĐT-BNV - Điều 6. Lao động hợp đồng"
+  },
+  {
+    "doc_id": "zalo_legal__07_2019_tt-bnv_13__8270afd5.md",
+    "original_corpus_id": "07/2019/tt-bnv+13",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "07/2019/TT-BNV - Điều 13. Công tác chuyển giao, tiếp nhận hồ sơ viên chức"
+  },
+  {
+    "doc_id": "zalo_legal__08_2019_tt-bgd_t_6__28941d90.md",
+    "original_corpus_id": "08/2019/tt-bgdđt+6",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "08/2019/TT-BGDĐT - Điều 6. Cách xếp lương"
+  },
+  {
+    "doc_id": "zalo_legal__09_2014_tt-bvhttdl_12__8f58afbc.md",
+    "original_corpus_id": "09/2014/tt-bvhttdl+12",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "09/2014/TT-BVHTTDL - Điều 12. Bảo vệ bí mật nhà nước trong thông tin liên lạc và thông tin đại chúng"
+  },
+  {
+    "doc_id": "zalo_legal__09_2019_n_-cp_19__90cfd5f6.md",
+    "original_corpus_id": "09/2019/nđ-cp+19",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "09/2019/NĐ-CP - Điều 19. Hạ tầng kỹ thuật, công nghệ"
+  },
+  {
+    "doc_id": "zalo_legal__100_2019_n_-cp_15__fe7cedc0.md",
+    "original_corpus_id": "100/2019/nđ-cp+15",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "100/2019/NĐ-CP - Điều 15. Xử phạt các hành vi vi phạm quy định về quản lý, khai thác, bảo trì, bảo vệ kết cấu hạ tầng giao thông đường bộ"
+  },
+  {
+    "doc_id": "zalo_legal__100_2019_n_-cp_23__f0e6af54.md",
+    "original_corpus_id": "100/2019/nđ-cp+23",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "100/2019/NĐ-CP - Điều 23. Xử phạt người điều khiển xe ô tô chở hành khách, ô tô chở người và các loại xe tương tự xe ô tô chở hành khách, chở người vi phạm quy định về vận tải đường bộ"
+  },
+  {
+    "doc_id": "zalo_legal__100_2019_n_-cp_6__b9f48689.md",
+    "original_corpus_id": "100/2019/nđ-cp+6",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "100/2019/NĐ-CP - Điều 6. Xử phạt người điều khiển xe mô tô, xe gắn máy (kể cả xe máy điện), các loại xe tương tự xe mô tô và các loại xe tương tự xe gắn máy vi phạm quy tắc giao thông đường bộ"
+  },
+  {
+    "doc_id": "zalo_legal__17_2019_tt-btc_3__108d1439.md",
+    "original_corpus_id": "17/2019/tt-btc+3",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "17/2019/TT-BTC - Điều 3. Kỷ niệm chương “Vì sự nghiệp Tài chính Việt Nam”"
+  },
+  {
+    "doc_id": "zalo_legal__19_2020_q_-ttg_21__2c79a88d.md",
+    "original_corpus_id": "19/2020/qđ-ttg+21",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "19/2020/QĐ-TTG - Điều 21. Trách nhiệm của Ngân hàng Nhà nước Việt Nam"
+  },
+  {
+    "doc_id": "zalo_legal__28_2020_n_-cp_47__493fbe5d.md",
+    "original_corpus_id": "28/2020/nđ-cp+47",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "28/2020/NĐ-CP - Điều 47. Vi phạm của người lao động đi làm việc ở nước ngoài và một số đối tượng liên quan khác"
+  },
+  {
+    "doc_id": "zalo_legal__35_2011_tt-btc_3__cd18bce5.md",
+    "original_corpus_id": "35/2011/tt-btc+3",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "35/2011/TT-BTC - Điều 3. Giải thích từ ngữ"
+  },
+  {
+    "doc_id": "zalo_legal__48_2020_tt-bgd_t_4__a6573583.md",
+    "original_corpus_id": "48/2020/tt-bgdđt+4",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "48/2020/TT-BGDĐT - Điều 4. Tập luyện và thi đấu thể thao"
+  },
+  {
+    "doc_id": "zalo_legal__50_2019_n_-cp_28__8fd50e76.md",
+    "original_corpus_id": "50/2019/nđ-cp+28",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "50/2019/NĐ-CP - Điều 28. Các trường hợp người hành nghề khám bệnh, chữa bệnh bị đình chỉ hoạt động chuyên môn do sai sót chuyên môn kỹ thuật"
+  },
+  {
+    "doc_id": "zalo_legal__53_2019_tt-bgtvt_7__6420bc2d.md",
+    "original_corpus_id": "53/2019/tt-bgtvt+7",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "53/2019/TT-BGTVT - Điều 7. Các trường hợp điều chỉnh giá"
+  },
+  {
+    "doc_id": "zalo_legal__54_2019_qh14_114__a89a0f47.md",
+    "original_corpus_id": "54/2019/qh14+114",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "54/2019/QH14 - Điều 114. Công ty đầu tư chứng khoán"
+  },
+  {
+    "doc_id": "zalo_legal__57_2014_qh13_37__aaaae816.md",
+    "original_corpus_id": "57/2014/qh13+37",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "57/2014/QH13 - Điều 37. Quyền miễn trừ của đại biểu Quốc hội"
+  },
+  {
+    "doc_id": "zalo_legal__59_2019_n_-cp_24__02f91c96.md",
+    "original_corpus_id": "59/2019/nđ-cp+24",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "59/2019/NĐ-CP - Điều 24. Quy định về việc tặng quà"
+  },
+  {
+    "doc_id": "zalo_legal__64_2020_qh14_97__e52508ca.md",
+    "original_corpus_id": "64/2020/qh14+97",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "64/2020/QH14 - Điều 97. Giải quyết tranh chấp"
+  },
+  {
+    "doc_id": "zalo_legal__69_2019_n_-cp_7__4198e1de.md",
+    "original_corpus_id": "69/2019/nđ-cp+7",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "69/2019/NĐ-CP - Điều 7. Sử dụng quỹ đất đã hoàn thành giải phóng mặt bằng để thanh toán Dự án BT"
+  },
+  {
+    "doc_id": "zalo_legal__91_2015_qh13_571__c6977ecd.md",
+    "original_corpus_id": "91/2015/qh13+571",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "91/2015/QH13 - Điều 571. Rút lại tuyên bố hứa thưởng"
+  },
+  {
+    "doc_id": "zalo_legal__95_2018_n_-cp_4__8f07481a.md",
+    "original_corpus_id": "95/2018/nđ-cp+4",
+    "subset": "ZacLegalTextRetrieval",
+    "title": "95/2018/NĐ-CP - Điều 4. Chủ thể tổ chức phát hành công cụ nợ của Chính phủ"
+  },
+  {
+    "doc_id": "hotpot_vn__10000166__ff42e276.md",
+    "original_corpus_id": "10000166",
+    "subset": "HotpotQA-VN",
+    "title": "Cantaninho kể một câu chuyện"
+  },
+  {
+    "doc_id": "hotpot_vn__10000591__67d697ab.md",
+    "original_corpus_id": "10000591",
+    "subset": "HotpotQA-VN",
+    "title": "Katha, Myanmar"
+  },
+  {
+    "doc_id": "hotpot_vn__1000067__4245c61f.md",
+    "original_corpus_id": "1000067",
+    "subset": "HotpotQA-VN",
+    "title": "tế bào tủy"
+  },
+  {
+    "doc_id": "hotpot_vn__10000773__2f8b28de.md",
+    "original_corpus_id": "10000773",
+    "subset": "HotpotQA-VN",
+    "title": "Công ty phim Film Ventures International"
+  },
+  {
+    "doc_id": "hotpot_vn__100012__21bf043d.md",
+    "original_corpus_id": "100012",
+    "subset": "HotpotQA-VN",
+    "title": "Marc Okrand"
+  },
+  {
+    "doc_id": "hotpot_vn__100031__c7a8558c.md",
+    "original_corpus_id": "100031",
+    "subset": "HotpotQA-VN",
+    "title": "Federico García Lorca"
+  },
+  {
+    "doc_id": "hotpot_vn__100034__fc991ffe.md",
+    "original_corpus_id": "100034",
+    "subset": "HotpotQA-VN",
+    "title": "Kỹ thuật quân sự"
+  },
+  {
+    "doc_id": "hotpot_vn__1000354__560f9ecb.md",
+    "original_corpus_id": "1000354",
+    "subset": "HotpotQA-VN",
+    "title": "Aero Ae 01"
+  },
+  {
+    "doc_id": "hotpot_vn__1000381__76709703.md",
+    "original_corpus_id": "1000381",
+    "subset": "HotpotQA-VN",
+    "title": "Rabiah ibn Mudhar"
+  },
+  {
+    "doc_id": "hotpot_vn__10005399__34d54e8f.md",
+    "original_corpus_id": "10005399",
+    "subset": "HotpotQA-VN",
+    "title": "Yebin Mok"
+  },
+  {
+    "doc_id": "hotpot_vn__10005644__835db573.md",
+    "original_corpus_id": "10005644",
+    "subset": "HotpotQA-VN",
+    "title": "Lịch sử của Bridgeport, Connecticut"
+  },
+  {
+    "doc_id": "hotpot_vn__10005801__0505b825.md",
+    "original_corpus_id": "10005801",
+    "subset": "HotpotQA-VN",
+    "title": "Phòng Waller"
+  },
+  {
+    "doc_id": "hotpot_vn__10006__19b1b73d.md",
+    "original_corpus_id": "10006",
+    "subset": "HotpotQA-VN",
+    "title": "Thiết bị nhạc điện tử"
+  },
+  {
+    "doc_id": "hotpot_vn__1000681__0dfd61db.md",
+    "original_corpus_id": "1000681",
+    "subset": "HotpotQA-VN",
+    "title": "Cây Thò Lòng"
+  },
+  {
+    "doc_id": "hotpot_vn__10006884__472166ce.md",
+    "original_corpus_id": "10006884",
+    "subset": "HotpotQA-VN",
+    "title": "Danh sách những người đoạt giải Đạo diễn xuất sắc nhất tại Giải Oscar theo độ tuổi"
+  },
+  {
+    "doc_id": "hotpot_vn__10007089__1bd20832.md",
+    "original_corpus_id": "10007089",
+    "subset": "HotpotQA-VN",
+    "title": "Rosarigasinos"
+  },
+  {
+    "doc_id": "hotpot_vn__100096__e50168cc.md",
+    "original_corpus_id": "100096",
+    "subset": "HotpotQA-VN",
+    "title": "Thời kỳ Edward"
+  },
+  {
+    "doc_id": "hotpot_vn__100097__8f1be10f.md",
+    "original_corpus_id": "100097",
+    "subset": "HotpotQA-VN",
+    "title": "Damon Albarn"
+  },
+  {
+    "doc_id": "hotpot_vn__1001027__980eb1dd.md",
+    "original_corpus_id": "1001027",
+    "subset": "HotpotQA-VN",
+    "title": "Danh sách mã bưu điện của Áo"
+  },
+  {
+    "doc_id": "hotpot_vn__10010424__af35c6dc.md",
+    "original_corpus_id": "10010424",
+    "subset": "HotpotQA-VN",
+    "title": "Cô dâu của trung đoàn"
+  },
+  {
+    "doc_id": "hotpot_vn__1233146__4f0d3568.md",
+    "original_corpus_id": "1233146",
+    "subset": "HotpotQA-VN",
+    "title": "Shamrock Rovers F.C."
+  },
+  {
+    "doc_id": "hotpot_vn__13441785__0cf23ab0.md",
+    "original_corpus_id": "13441785",
+    "subset": "HotpotQA-VN",
+    "title": "Tìm Kraftland"
+  },
+  {
+    "doc_id": "hotpot_vn__13599028__95965f1b.md",
+    "original_corpus_id": "13599028",
+    "subset": "HotpotQA-VN",
+    "title": "Edmund Mortimer (diễn viên)"
+  },
+  {
+    "doc_id": "hotpot_vn__14486320__f265ed9f.md",
+    "original_corpus_id": "14486320",
+    "subset": "HotpotQA-VN",
+    "title": "Sean Francis (cầu thủ bóng đá)"
+  },
+  {
+    "doc_id": "hotpot_vn__14723194__c07c29b1.md",
+    "original_corpus_id": "14723194",
+    "subset": "HotpotQA-VN",
+    "title": "Chiến Tranh Các Vì Sao: Thần Lực Thức Tỉnh"
+  },
+  {
+    "doc_id": "hotpot_vn__1489331__cf282673.md",
+    "original_corpus_id": "1489331",
+    "subset": "HotpotQA-VN",
+    "title": "Scott Treleaven"
+  },
+  {
+    "doc_id": "hotpot_vn__14927640__11e2e062.md",
+    "original_corpus_id": "14927640",
+    "subset": "HotpotQA-VN",
+    "title": "Thôi thì"
+  },
+  {
+    "doc_id": "hotpot_vn__1617708__289ef7d9.md",
+    "original_corpus_id": "1617708",
+    "subset": "HotpotQA-VN",
+    "title": "Chó Bull Terrier (miniature)"
+  },
+  {
+    "doc_id": "hotpot_vn__174216__9df1dc0e.md",
+    "original_corpus_id": "174216",
+    "subset": "HotpotQA-VN",
+    "title": "Đại học Northwestern"
+  },
+  {
+    "doc_id": "hotpot_vn__1773391__67ad47b5.md",
+    "original_corpus_id": "1773391",
+    "subset": "HotpotQA-VN",
+    "title": "Essence (tạp chí)"
+  },
+  {
+    "doc_id": "hotpot_vn__19682758__b559dbb3.md",
+    "original_corpus_id": "19682758",
+    "subset": "HotpotQA-VN",
+    "title": "Chó Schapendoes"
+  },
+  {
+    "doc_id": "hotpot_vn__19996678__e4159d0d.md",
+    "original_corpus_id": "19996678",
+    "subset": "HotpotQA-VN",
+    "title": "Yoruba"
+  },
+  {
+    "doc_id": "hotpot_vn__2037468__c2f090fe.md",
+    "original_corpus_id": "2037468",
+    "subset": "HotpotQA-VN",
+    "title": "Maria Golovin"
+  },
+  {
+    "doc_id": "hotpot_vn__20387292__c306dfd3.md",
+    "original_corpus_id": "20387292",
+    "subset": "HotpotQA-VN",
+    "title": "Libby Mitchell"
+  },
+  {
+    "doc_id": "hotpot_vn__225230__bc380f82.md",
+    "original_corpus_id": "225230",
+    "subset": "HotpotQA-VN",
+    "title": "Giao Hưởng Số 7"
+  },
+  {
+    "doc_id": "hotpot_vn__2458960__ed30d6bc.md",
+    "original_corpus_id": "2458960",
+    "subset": "HotpotQA-VN",
+    "title": "Anneliese Michel"
+  },
+  {
+    "doc_id": "hotpot_vn__25060122__add0d109.md",
+    "original_corpus_id": "25060122",
+    "subset": "HotpotQA-VN",
+    "title": "Eliot Cutler"
+  },
+  {
+    "doc_id": "hotpot_vn__32252__2bae3b53.md",
+    "original_corpus_id": "32252",
+    "subset": "HotpotQA-VN",
+    "title": "Unbreakable (phim)"
+  },
+  {
+    "doc_id": "hotpot_vn__3247089__8d6debd0.md",
+    "original_corpus_id": "3247089",
+    "subset": "HotpotQA-VN",
+    "title": "Khunyang Chhish"
+  },
+  {
+    "doc_id": "hotpot_vn__3337257__54d01ea0.md",
+    "original_corpus_id": "3337257",
+    "subset": "HotpotQA-VN",
+    "title": "Spettekaka"
+  },
+  {
+    "doc_id": "hotpot_vn__3441__b2004314.md",
+    "original_corpus_id": "3441",
+    "subset": "HotpotQA-VN",
+    "title": "Sonata Violin số 5 (Beethoven)"
+  },
+  {
+    "doc_id": "hotpot_vn__362229__b90b1a29.md",
+    "original_corpus_id": "362229",
+    "subset": "HotpotQA-VN",
+    "title": "Masherbrum"
+  },
+  {
+    "doc_id": "hotpot_vn__36390615__81c44b28.md",
+    "original_corpus_id": "36390615",
+    "subset": "HotpotQA-VN",
+    "title": "Kareena Kapoor phim"
+  },
+  {
+    "doc_id": "hotpot_vn__37393650__97c3bd17.md",
+    "original_corpus_id": "37393650",
+    "subset": "HotpotQA-VN",
+    "title": "Chevrolet Corvette (C7)"
+  },
+  {
+    "doc_id": "hotpot_vn__38179119__1ad519a9.md",
+    "original_corpus_id": "38179119",
+    "subset": "HotpotQA-VN",
+    "title": "Lupita Nyong'o"
+  },
+  {
+    "doc_id": "hotpot_vn__38420__65f84ed6.md",
+    "original_corpus_id": "38420",
+    "subset": "HotpotQA-VN",
+    "title": "Đại học Johns Hopkins"
+  },
+  {
+    "doc_id": "hotpot_vn__39784569__9577ac43.md",
+    "original_corpus_id": "39784569",
+    "subset": "HotpotQA-VN",
+    "title": "Cuộc đua kỳ thú Canada 1"
+  },
+  {
+    "doc_id": "hotpot_vn__40695760__57cbbd89.md",
+    "original_corpus_id": "40695760",
+    "subset": "HotpotQA-VN",
+    "title": "Dan Bilzerian"
+  },
+  {
+    "doc_id": "hotpot_vn__4403170__30e7df51.md",
+    "original_corpus_id": "4403170",
+    "subset": "HotpotQA-VN",
+    "title": "Bảo tàng Hàng hải Penobscot"
+  },
+  {
+    "doc_id": "hotpot_vn__46194566__ab88b74b.md",
+    "original_corpus_id": "46194566",
+    "subset": "HotpotQA-VN",
+    "title": "Extraction (phim)"
+  },
+  {
+    "doc_id": "hotpot_vn__46321311__ce52c1ca.md",
+    "original_corpus_id": "46321311",
+    "subset": "HotpotQA-VN",
+    "title": "Alt dành cho phụ nữ"
+  },
+  {
+    "doc_id": "hotpot_vn__46954744__d72a9575.md",
+    "original_corpus_id": "46954744",
+    "subset": "HotpotQA-VN",
+    "title": "Searsport, Maine"
+  },
+  {
+    "doc_id": "hotpot_vn__48965__1dfb15a8.md",
+    "original_corpus_id": "48965",
+    "subset": "HotpotQA-VN",
+    "title": "Trận Cold Harbor"
+  },
+  {
+    "doc_id": "hotpot_vn__49446160__50f9205f.md",
+    "original_corpus_id": "49446160",
+    "subset": "HotpotQA-VN",
+    "title": "Gian Carlo Menotti"
+  },
+  {
+    "doc_id": "hotpot_vn__52958268__2eff1d91.md",
+    "original_corpus_id": "52958268",
+    "subset": "HotpotQA-VN",
+    "title": "David Dunn (nhân vật)"
+  },
+  {
+    "doc_id": "hotpot_vn__54492__26e4ff63.md",
+    "original_corpus_id": "54492",
+    "subset": "HotpotQA-VN",
+    "title": "Trận Bull Run lần thứ hai"
+  },
+  {
+    "doc_id": "hotpot_vn__581185__67e5ae8f.md",
+    "original_corpus_id": "581185",
+    "subset": "HotpotQA-VN",
+    "title": "Kabhi Khushi Kabhie Gham..."
+  },
+  {
+    "doc_id": "hotpot_vn__6637850__eb632363.md",
+    "original_corpus_id": "6637850",
+    "subset": "HotpotQA-VN",
+    "title": "Ida (Huyền)"
+  },
+  {
+    "doc_id": "hotpot_vn__754563__77adddd4.md",
+    "original_corpus_id": "754563",
+    "subset": "HotpotQA-VN",
+    "title": "Phương ngữ Scanian"
+  },
+  {
+    "doc_id": "hotpot_vn__9295829__dbedd439.md",
+    "original_corpus_id": "9295829",
+    "subset": "HotpotQA-VN",
+    "title": "Erich Schmidt-Leichner"
+  }
+]

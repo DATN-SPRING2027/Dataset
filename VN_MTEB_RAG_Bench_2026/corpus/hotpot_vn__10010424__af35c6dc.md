@@ -1,0 +1,3 @@
+# Cô dâu của trung đoàn
+
+Bride of the Regiment là một bộ phim ca nhạc Mỹ năm 1930 do John Francis Dillon đạo diễn và quay hoàn toàn bằng kỹ thuật Technicolor. Kịch bản của Ray Harris và Humphrey Pearson được dựa trên cuốn sách năm 1922 của vở kịch "The Lady in Ermine" của Frederick Lonsdale và Cyrus Wood, được chuyển thể từ vở opera "Die Frau im Hermelin" của Rudolph Schanzer và Ernst Welisch. Câu chuyện này là phiên bản làm lại từ bộ phim câm năm 1927 First National, "The Lady in Ermine", với sự tham gia của Corinne Griffith. Sau đó nó đã được hãng phim 20th Century-Fox làm lại thành tác phẩm "That Lady in Ermine" (năm 1948) với sự tham gia diễn xuất chính của Betty Grable và Douglas Fairbanks Jr..
