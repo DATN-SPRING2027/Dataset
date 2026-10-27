@@ -1,4 +1,4 @@
-"""Download and materialize the official VN-MTEB / MMTEB Vietnamese RAG Benchmark suite.
+"""Materialize deterministic local subsets drawn from VN-MTEB / MMTEB datasets.
 
 Sources (Hugging Face official GreenNode / MMTEB repositories):
 1. `GreenNode/zalo-ai-legal-text-retrieval-vn` (MTEB task: `ZacLegalTextRetrieval`)

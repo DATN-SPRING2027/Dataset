@@ -1,0 +1,1367 @@
+{
+  "old_retrievalci_completed": {
+    "documents": [
+      {
+        "status": "READY",
+        "n": 81,
+        "chunks": 0,
+        "events": 0,
+        "extraction_tokens": "0"
+      }
+    ],
+    "versions": [
+      {
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY",
+        "n": 81
+      }
+    ],
+    "units": [
+      {
+        "n": 3585,
+        "dense_units": 0,
+        "max_dimension": 0
+      }
+    ],
+    "graph_builds": [
+      {
+        "id": "graph-dea50f29932e46bf0072deb5",
+        "n_units": 3585,
+        "n_edges": 29364
+      }
+    ],
+    "trees": [],
+    "knowledge_jobs": [],
+    "document_jobs": [],
+    "index_stages": [
+      {
+        "status": "SUCCESS",
+        "duration_ms": 12864.568000000001,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 12884.532,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 14833.28,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 10228.109999999999,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 21124.268,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 12573.751,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 8509.383,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 8165.941999999999,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 5687.146000000001,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 11766.431,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 12202.449,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 6150.009,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4224.708,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 5857.554,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4200.22,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 8823.99,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 6631.983,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4092.359,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 7215.528,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 5916.165,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 6069.366,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 9637.098,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 5282.942,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 11434.446,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 8989.815,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4974.389999999999,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 15570.081999999999,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 13168.348999999998,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4294.909,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2818.711,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2727.854,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2338.971,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2424.429,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2289.2329999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2204.799,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2558.207,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2390.4930000000004,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2286.0330000000004,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2217.997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2280.1459999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3227.171,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3132.524,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4133.951,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3226.2780000000002,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3232.4809999999998,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3023.424,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4563.458,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4076.153,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4059.042,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2578.436,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3061.449,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3020.333,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3054.4449999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4543.824,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4264.958,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2294.3669999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2331.609,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2737.542,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3039.7630000000004,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2584.177,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2330.719,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3083.1330000000003,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2404.766,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2260.13,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2955.563,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2448.8430000000003,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2698.558,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2700.011,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2424.4849999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2507.715,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2591.973,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2571.9759999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2205.327,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2439.705,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2356.556,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2247.458,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2485.048,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2483.483,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4280.657999999999,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3294.712,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3279.979,
+        "error_message": null
+      }
+    ]
+  },
+  "old_vn_completed": {
+    "documents": [
+      {
+        "status": "READY",
+        "n": 130,
+        "chunks": 0,
+        "events": 0,
+        "extraction_tokens": "0"
+      }
+    ],
+    "versions": [
+      {
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY",
+        "n": 130
+      }
+    ],
+    "units": [
+      {
+        "n": 368,
+        "dense_units": 368,
+        "max_dimension": 1024
+      }
+    ],
+    "graph_builds": [
+      {
+        "id": "graph-e9bec83cdaca62dd1284c2f7",
+        "n_units": 368,
+        "n_edges": 3905
+      }
+    ],
+    "trees": [
+      {
+        "status": "ACTIVE",
+        "tree_version": "tree-1a714b13598ca9efc1e94917"
+      }
+    ],
+    "knowledge_jobs": [
+      {
+        "kind": "E2",
+        "status": "SUCCEEDED",
+        "error_code": null,
+        "n": 19,
+        "attempts": 1
+      }
+    ],
+    "document_jobs": [],
+    "index_stages": [
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2971.7259999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2712.003,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2636.463,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2969.1960000000004,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3647.366,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2472.885,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2623.2129999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2622.369,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2373.439,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2456.4080000000004,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2811.307,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2236.763,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2600.197,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2513.745,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2624.2909999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2438.599,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2679.6839999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2431.9139999999998,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2394.044,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2469.415,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2384.8340000000003,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2516.6040000000003,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2521.8340000000003,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2614.81,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2724.8489999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2517.262,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3235.198,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2386.474,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2549.112,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2415.951,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2506.2540000000004,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2720.924,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2520.047,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2501.061,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2512.046,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2527.446,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2719.4210000000003,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3125.995,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2902.24,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2947.8520000000003,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2626.0080000000003,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2598.944,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2524.5440000000003,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2700.513,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2434.39,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2478.513,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2717.486,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2600.063,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3008.344,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2720.065,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2600.679,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2499.383,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2506.8959999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2440.52,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2329.719,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2484.918,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2832.3239999999996,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2600.627,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3126.031,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2611.393,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3118.9320000000002,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2582.328,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2808.607,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2664.278,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2588.264,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2499.429,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2801.044,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2886.556,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3389.6389999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2799.474,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3294.078,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3243.69,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3223.138,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2622.562,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2909.1040000000003,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2680.863,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2503.891,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2697.1440000000002,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2780.94,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2552.707,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2570.275,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2498.265,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2858.137,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3962.0069999999996,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3327.2110000000002,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2885.415,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3256.363,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3293.8109999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2654.103,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3000.355,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2979.375,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2271.584,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2727.186,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2479.26,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2794.622,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3050.601,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2519.268,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4614.147,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2602.71,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2741.286,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2569.699,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2813.43,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2545.7019999999998,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2461.0919999999996,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2881.8039999999996,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2685.0679999999998,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2536.888,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3488.52,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2431.584,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3048.407,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2557.7980000000002,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2319.159,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3186.38,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4715.839,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4121.028,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 4210.656,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2282.521,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2305.9210000000003,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3007.484,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2358.9120000000003,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2262.949,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2518.796,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2892.1549999999997,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2521.353,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2607.147,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2647.605,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2454.12,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 3114.485,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2565.058,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 2593.3109999999997,
+        "error_message": null
+      }
+    ]
+  },
+  "new_isolated_failed": {
+    "documents": [
+      {
+        "status": "FAILED",
+        "n": 2,
+        "chunks": 0,
+        "events": 0,
+        "extraction_tokens": "0"
+      },
+      {
+        "status": "PENDING",
+        "n": 71,
+        "chunks": 0,
+        "events": 0,
+        "extraction_tokens": "0"
+      },
+      {
+        "status": "READY",
+        "n": 8,
+        "chunks": 229,
+        "events": 0,
+        "extraction_tokens": "0"
+      }
+    ],
+    "versions": [
+      {
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY",
+        "n": 8
+      },
+      {
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED",
+        "n": 71
+      },
+      {
+        "search_status": "INDEX_FAILED",
+        "knowledge_status": "NOT_STARTED",
+        "n": 2
+      }
+    ],
+    "units": [
+      {
+        "n": 677,
+        "dense_units": 677,
+        "max_dimension": 1024
+      }
+    ],
+    "graph_builds": [
+      {
+        "id": "graph-900f7646dc9810bc69bc12bd",
+        "n_units": 217,
+        "n_edges": 2027
+      },
+      {
+        "id": "graph-ea47cf4bd7cbcb7014f49ae1",
+        "n_units": 104,
+        "n_edges": 860
+      }
+    ],
+    "trees": [],
+    "knowledge_jobs": [
+      {
+        "kind": "FOUNDATION",
+        "status": "RUNNING",
+        "error_code": null,
+        "n": 1,
+        "attempts": 2
+      },
+      {
+        "kind": "FOUNDATION",
+        "status": "SUCCEEDED",
+        "error_code": null,
+        "n": 2,
+        "attempts": 1
+      },
+      {
+        "kind": "FOUNDATION",
+        "status": "RETRY",
+        "error_code": "TimeoutError",
+        "n": 4,
+        "attempts": 2
+      }
+    ],
+    "document_jobs": [
+      {
+        "type": "PROCESS_DOCUMENT",
+        "status": "RUNNING",
+        "attempts": 1,
+        "error": null,
+        "filename": "confluence__dsid_58bdb9f3bb4241e089f4f2b102765db4.md"
+      },
+      {
+        "type": "PROCESS_DOCUMENT",
+        "status": "RUNNING",
+        "attempts": 1,
+        "error": null,
+        "filename": "confluence__dsid_602422b841b94f5c8089555015df0ed8.md"
+      },
+      {
+        "type": "PROCESS_DOCUMENT",
+        "status": "FAILED",
+        "attempts": 1,
+        "error": "Qdrant point cleanup failed:",
+        "filename": "confluence__dsid_610d2c74a60441e886fcc39e351a4176.md"
+      },
+      {
+        "type": "PROCESS_DOCUMENT",
+        "status": "FAILED",
+        "attempts": 1,
+        "error": "Qdrant point cleanup failed:",
+        "filename": "confluence__dsid_8c24fd15fe5b473eb71341751d292b6e.md"
+      },
+      {
+        "type": "PROCESS_DOCUMENT",
+        "status": "RUNNING",
+        "attempts": 1,
+        "error": null,
+        "filename": "confluence__dsid_9c8cb10d65324c03a8ededbd98c1b058.md"
+      },
+      {
+        "type": "PROCESS_DOCUMENT",
+        "status": "RUNNING",
+        "attempts": 1,
+        "error": null,
+        "filename": "confluence__dsid_a2983978ba0d4d70a795eb7e13de8670.md"
+      },
+      {
+        "type": "PROCESS_DOCUMENT",
+        "status": "QUEUED",
+        "attempts": 0,
+        "error": null,
+        "filename": "confluence__dsid_a2bf755670ad44e09b42c11e9d73e5d3.md"
+      },
+      {
+        "type": "PROCESS_DOCUMENT",
+        "status": "QUEUED",
+        "attempts": 0,
+        "error": null,
+        "filename": "confluence__dsid_a3f94972391244f38ef773c05926af83.md"
+      },
+      {
+        "type": "PROCESS_DOCUMENT",
+        "status": "QUEUED",
+        "attempts": 0,
+        "error": null,
+        "filename": "confluence__dsid_a9a67d815b07451e90ed8c3d1734d007.md"
+      },
+      {
+        "type": "PROCESS_DOCUMENT",
+        "status": "QUEUED",
+        "attempts": 0,
+        "error": null,
+        "filename": "confluence__dsid_ba7d1565b0694e359983bccaa4bf5977.md"
+      },
+      {
+        "type": "PROCESS_DOCUMENT",
+        "status": "QUEUED",
+        "attempts": 0,
+        "error": null,
+        "filename": "confluence__dsid_c52c609c0cdf4211a7e8c57bb1da72e4.md"
+      },
+      {
+        "type": "PROCESS_DOCUMENT",
+        "status": "QUEUED",
+        "attempts": 0,
+        "error": null,
+        "filename": "confluence__dsid_ca42a8f18d784c879c5a6fcfe3a484c0.md"
+      }
+    ],
+    "index_stages": [
+      {
+        "status": "SUCCESS",
+        "duration_ms": 26684.713,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 72377.41,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 60127.336,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 51697.751,
+        "error_message": null
+      },
+      {
+        "status": "FAILED",
+        "duration_ms": 0.0,
+        "error_message": "Qdrant point cleanup failed:"
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 10931.837,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 20912.219,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 22340.48,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 80687.371,
+        "error_message": null
+      },
+      {
+        "status": "FAILED",
+        "duration_ms": 0.0,
+        "error_message": "Qdrant point cleanup failed:"
+      }
+    ]
+  }
+}

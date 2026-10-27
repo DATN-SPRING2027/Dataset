@@ -1,0 +1,30 @@
+{
+  "run_id": "20261027T071001Z-15e97d",
+  "status": "RUNNING",
+  "questions_done": 31,
+  "errors": 1,
+  "retrieval_latency_ms_p50": 7094.671099912375,
+  "first_token_ms_p50": 23879.131500027142,
+  "latency_ms_p50": 23888.635499984957,
+  "tree_jobs": [
+    {
+      "id": "67a6261a40a3414e82cad93f74fc9982",
+      "status": "SUCCEEDED",
+      "attempts": 1,
+      "error": null
+    },
+    {
+      "id": "4e082e99cdca4eed83ca255520626037",
+      "status": "SUCCEEDED",
+      "attempts": 2,
+      "error": null
+    }
+  ],
+  "graphs": [
+    {
+      "id": "graph-30504bf4684e2319c037eb9e",
+      "units": 3585,
+      "edges": 46083
+    }
+  ]
+}

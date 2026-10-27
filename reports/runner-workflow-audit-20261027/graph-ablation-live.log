@@ -1,0 +1,326 @@
+PROBE_OUTPUT=D:\DoAnTotnghiep\Dataset\reports\retrievalci-paired-probe-20261027112048
+warning: in the working copy of 'SAG/apps/api/sag_api/core/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/sag/engine_manager.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/evidence_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/knowledge_service.py', LF will be replaced by CRLF the next time Git touches it
+RUN_ID=20261027T112049Z-6afc25 OWNER=6acc9a5425f02c9d92a01012 PROJECT=25ea0fd0b8be4081b6ffe9f4 SCHEMA=sag_bench_retrievalci_20261027070959
+18:20:58  INFO     [-]  sag.jobs  任务队列已启动（并发=4）
+18:20:58  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager started
+18:20:58  INFO     [-]  sag.runtime  MCP 端点已就绪 · /mcp/（全库）· 可选 ?source_id=<信源 id>
+18:20:58  INFO     [-]  sag.runtime  sag-api 知识运行时已启动 · env=dev · llm_configured=True · vector=qdrant
+18:20:58  INFO     [-]  zleap.sag.ai.embedding  Embedding客户端初始化完成
+18:20:58  INFO     [-]  zleap.sag.ai.factory  ✅ 创建Embedding客户端
+Pipeline: [{"READY": 81}, {"total": 3585, "e2_selected": 258}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 81, "attempts": 1}], [{"status": "ACTIVE", "tree_version": "tree-2cd3afa881cdd8fc3f0eba29"}]]
+GRAPH_ABLATION_READY {"scope": "dense graph expansion only; published routing tree remains dense", "graph_id": "graph-30504bf4684e2319c037eb9e", "tree_version": "tree-2cd3afa881cdd8fc3f0eba29", "unit_count": 3585, "on_edges": 46083, "off_edges": 29310, "off_graph_build_seconds": 6.743464899947867, "top_k": 5, "question_count": 50, "order": "AB/BA alternating by question", "retrieval_only": true, "searchunit_dense": "unchanged"}
+18:21:29  INFO     [66ed29e0967141b5]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:21:31  WARNING  [66ed29e0967141b5]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+18:21:32  DEBUG    [66ed29e0967141b5]  zleap.sag.ai.embedding  生成embedding成功
+18:21:39  WARNING  [66ed29e0967141b5]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+GRAPH_PROBE 1/100 qst_0001 on error=None index_uses=3
+18:21:48  INFO     [afa785ecd4244e7d]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+C:\Program Files\Python312\Lib\json\decoder.py:354: RuntimeWarning: coroutine 'OpenAIChatCompletion.async_streaming' was never awaited
+  obj, end = self.scan_once(s, idx)
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+GRAPH_PROBE 2/100 qst_0001 off error=None index_uses=4
+18:22:09  INFO     [9a29a54fbfa04cfc]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:22:10  DEBUG    [9a29a54fbfa04cfc]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 3/100 qst_0002 off error=None index_uses=1
+18:22:15  INFO     [15975022ac6046f8]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 4/100 qst_0002 on error=None index_uses=1
+18:22:19  INFO     [5c42c357911d4457]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:22:21  DEBUG    [5c42c357911d4457]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 5/100 qst_0003 on error=None index_uses=4
+18:22:39  INFO     [9df3951f4b1b4eb0]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 6/100 qst_0003 off error=None index_uses=4
+18:22:58  INFO     [3607684c1f3c4cda]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:22:59  DEBUG    [3607684c1f3c4cda]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 7/100 qst_0004 off error=None index_uses=1
+18:23:04  INFO     [f09069a488704f80]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 8/100 qst_0004 on error=None index_uses=1
+18:23:08  INFO     [9b116e848c2745fc]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:23:09  DEBUG    [9b116e848c2745fc]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 9/100 qst_0005 on error=None index_uses=1
+18:23:14  INFO     [2ea6c2cd1e864589]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:23:15  WARNING  [2ea6c2cd1e864589]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+GRAPH_PROBE 10/100 qst_0005 off error=None index_uses=1
+18:23:20  INFO     [2de5425a08094943]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:23:21  WARNING  [2de5425a08094943]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+18:23:22  DEBUG    [2de5425a08094943]  zleap.sag.ai.embedding  生成embedding成功
+18:23:34  WARNING  [2de5425a08094943]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+GRAPH_PROBE 11/100 qst_0006 off error=None index_uses=3
+18:23:41  INFO     [44a1e01906044d0b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:23:46  WARNING  [44a1e01906044d0b]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+GRAPH_PROBE 12/100 qst_0006 on error=None index_uses=3
+18:23:56  INFO     [af257d8e9c6c46af]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:23:58  WARNING  [af257d8e9c6c46af]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+18:23:58  DEBUG    [af257d8e9c6c46af]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 13/100 qst_0007 on error=None index_uses=1
+18:24:03  INFO     [e0892221118a4ded]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 14/100 qst_0007 off error=None index_uses=1
+18:24:09  INFO     [bc51a166bee84e5e]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:24:10  WARNING  [bc51a166bee84e5e]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+18:24:11  DEBUG    [bc51a166bee84e5e]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 15/100 qst_0008 off error=None index_uses=4
+18:24:29  INFO     [8528c682253f45ae]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 16/100 qst_0008 on error=None index_uses=4
+18:24:49  INFO     [ca1357bf93444485]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:24:50  DEBUG    [ca1357bf93444485]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 17/100 qst_0009 on error=None index_uses=4
+18:25:09  INFO     [e3a53c15e3bf41a2]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 18/100 qst_0009 off error=None index_uses=4
+18:25:33  INFO     [2b947bc68b734b50]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:25:34  DEBUG    [2b947bc68b734b50]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 19/100 qst_0010 off error=None index_uses=1
+18:25:39  INFO     [2a9bb1e16d27434f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 20/100 qst_0010 on error=None index_uses=1
+18:25:45  INFO     [11fd06cd6fae4001]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:25:46  DEBUG    [11fd06cd6fae4001]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 21/100 qst_0011 on error=None index_uses=4
+18:26:06  INFO     [2ad469b327f64f53]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 22/100 qst_0011 off error=None index_uses=4
+18:26:28  INFO     [86d79330262d4caf]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:26:29  DEBUG    [86d79330262d4caf]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 23/100 qst_0012 off error=None index_uses=1
+18:26:34  INFO     [203ed3f9badf498c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 24/100 qst_0012 on error=None index_uses=1
+18:26:38  INFO     [2a7ef5a5bebb41ae]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:26:39  DEBUG    [2a7ef5a5bebb41ae]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 25/100 qst_0013 on error=None index_uses=4
+18:26:59  INFO     [439e8b84f34740e1]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 26/100 qst_0013 off error=None index_uses=4
+18:27:20  INFO     [2e11ac9836dc4549]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:27:21  DEBUG    [2e11ac9836dc4549]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 27/100 qst_0014 off error=None index_uses=1
+18:27:25  INFO     [849f2b67950d4306]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 28/100 qst_0014 on error=None index_uses=1
+18:27:30  INFO     [e22c293725174b73]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:27:31  DEBUG    [e22c293725174b73]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 29/100 qst_0015 on error=None index_uses=1
+18:27:36  INFO     [04147a249cff4f10]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 30/100 qst_0015 off error=None index_uses=1
+18:27:42  INFO     [664a606429704789]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:27:43  DEBUG    [664a606429704789]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 31/100 qst_0016 off error=None index_uses=1
+18:27:47  INFO     [205fe4dfe3944436]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 32/100 qst_0016 on error=None index_uses=1
+18:27:53  INFO     [7bd2e8f5e2874ba6]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:27:54  DEBUG    [7bd2e8f5e2874ba6]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 33/100 qst_0017 on error=None index_uses=1
+18:27:59  INFO     [86d202f6387a4f76]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 34/100 qst_0017 off error=None index_uses=1
+18:28:04  INFO     [a8dd6a4707e1422f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:28:05  DEBUG    [a8dd6a4707e1422f]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 35/100 qst_0018 off error=None index_uses=4
+18:28:24  INFO     [6a20442a877e446f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 36/100 qst_0018 on error=None index_uses=4
+18:28:44  INFO     [454682732fbb444d]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:28:45  DEBUG    [454682732fbb444d]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 37/100 qst_0019 on error=None index_uses=4
+18:29:04  INFO     [e92e57e4e9d34e9f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 38/100 qst_0019 off error=None index_uses=4
+18:29:25  INFO     [248e6cabcdff4cfd]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:29:26  DEBUG    [248e6cabcdff4cfd]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 39/100 qst_0020 off error=None index_uses=4
+18:29:46  INFO     [a2e696e34af74f9f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 40/100 qst_0020 on error=None index_uses=4
+18:30:06  INFO     [2ab057a445e042b3]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:30:07  DEBUG    [2ab057a445e042b3]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 41/100 qst_0021 on error=None index_uses=1
+18:30:12  INFO     [894b027c3fa74ce1]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 42/100 qst_0021 off error=None index_uses=1
+18:30:16  INFO     [ad648564116b4cf7]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:30:18  DEBUG    [ad648564116b4cf7]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 43/100 qst_0022 off error=None index_uses=4
+18:30:37  INFO     [b81f7028934f4201]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:30:51  WARNING  [b81f7028934f4201]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+GRAPH_PROBE 44/100 qst_0022 on error=None index_uses=4
+18:30:58  INFO     [b2d564d450b14989]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:30:59  DEBUG    [b2d564d450b14989]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 45/100 qst_0023 on error=None index_uses=1
+18:31:04  INFO     [bc9f84100e074004]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 46/100 qst_0023 off error=None index_uses=1
+18:31:09  INFO     [8e8926a382824925]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:31:11  DEBUG    [8e8926a382824925]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 47/100 qst_0024 off error=None index_uses=1
+18:31:16  INFO     [c273acc9b41d415f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:31:17  WARNING  [c273acc9b41d415f]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+GRAPH_PROBE 48/100 qst_0024 on error=None index_uses=1
+18:31:22  INFO     [dc652d7a652f4211]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:31:23  DEBUG    [dc652d7a652f4211]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 49/100 qst_0025 on error=None index_uses=1
+18:31:28  INFO     [6e21fc72db2b4b66]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 50/100 qst_0025 off error=None index_uses=1
+18:31:34  INFO     [c2686e464d22408b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:31:35  DEBUG    [c2686e464d22408b]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 51/100 qst_0341 off error=None index_uses=1
+18:31:40  INFO     [925b08d89d3e4f48]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 52/100 qst_0341 on error=None index_uses=1
+18:31:46  INFO     [a614c74f6c4b4ed6]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:31:47  DEBUG    [a614c74f6c4b4ed6]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 53/100 qst_0342 on error=None index_uses=1
+18:31:53  INFO     [eb35c1dea68442f5]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 54/100 qst_0342 off error=None index_uses=1
+18:31:58  INFO     [b37d07a339424a20]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:32:00  DEBUG    [b37d07a339424a20]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 55/100 qst_0343 off error=None index_uses=1
+18:32:05  INFO     [16334d1d12c34f18]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 56/100 qst_0343 on error=None index_uses=1
+18:32:11  INFO     [133df7a97d254253]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:32:12  DEBUG    [133df7a97d254253]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 57/100 qst_0344 on error=None index_uses=1
+18:32:17  INFO     [c7ae522ad0654a04]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 58/100 qst_0344 off error=None index_uses=1
+18:32:22  INFO     [58e715e545e948f4]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:32:24  DEBUG    [58e715e545e948f4]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 59/100 qst_0345 off error=None index_uses=1
+18:32:29  INFO     [fad7ba85d2a74eb5]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 60/100 qst_0345 on error=None index_uses=1
+18:32:34  INFO     [57c6c649e0854b0a]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:32:36  DEBUG    [57c6c649e0854b0a]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 61/100 qst_0346 on error=None index_uses=1
+18:32:41  INFO     [53b149488187416b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 62/100 qst_0346 off error=None index_uses=1
+18:32:45  INFO     [ff37f3368f034168]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:32:47  DEBUG    [ff37f3368f034168]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 63/100 qst_0347 off error=None index_uses=1
+18:32:52  INFO     [fa5e7f7b9a8c4f81]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 64/100 qst_0347 on error=None index_uses=1
+18:32:58  INFO     [14bfb77a2614403c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:32:59  DEBUG    [14bfb77a2614403c]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 65/100 qst_0348 on error=None index_uses=1
+18:33:04  INFO     [d3f1fa71809549d8]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 66/100 qst_0348 off error=None index_uses=1
+18:33:10  INFO     [e5c68dcbc42947ab]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:33:11  DEBUG    [e5c68dcbc42947ab]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 67/100 qst_0349 off error=None index_uses=1
+18:33:16  INFO     [f76913d485004f5b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 68/100 qst_0349 on error=None index_uses=1
+18:33:22  INFO     [328d7d70f3b7465e]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:33:23  DEBUG    [328d7d70f3b7465e]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 69/100 qst_0350 on error=None index_uses=1
+18:33:28  INFO     [a20cf157f3984ffc]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 70/100 qst_0350 off error=None index_uses=1
+18:33:33  INFO     [4a4cfa848ed44bb5]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:33:34  WARNING  [4a4cfa848ed44bb5]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+18:33:34  DEBUG    [4a4cfa848ed44bb5]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 71/100 qst_0351 off error=None index_uses=1
+18:33:39  INFO     [5f41c4bb27164f3b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:33:40  WARNING  [5f41c4bb27164f3b]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+GRAPH_PROBE 72/100 qst_0351 on error=None index_uses=1
+18:33:44  INFO     [133be2a23f2d4838]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:33:46  DEBUG    [133be2a23f2d4838]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 73/100 qst_0352 on error=None index_uses=1
+18:33:51  INFO     [b1c266bc32104d9d]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 74/100 qst_0352 off error=None index_uses=1
+18:33:55  INFO     [5854ec99708f4380]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:33:57  DEBUG    [5854ec99708f4380]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 75/100 qst_0353 off error=None index_uses=1
+18:34:01  INFO     [df8bada175a1482b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 76/100 qst_0353 on error=None index_uses=1
+18:34:07  INFO     [b7f66a2099e34629]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:34:08  DEBUG    [b7f66a2099e34629]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 77/100 qst_0354 on error=None index_uses=1
+18:34:13  INFO     [7e671e22b18142ba]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 78/100 qst_0354 off error=None index_uses=1
+18:34:18  INFO     [51312dfb6dc24166]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:34:19  DEBUG    [51312dfb6dc24166]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 79/100 qst_0355 off error=None index_uses=1
+18:34:24  INFO     [08bdb7cdc8fa41b5]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 80/100 qst_0355 on error=None index_uses=1
+18:34:30  INFO     [e86b2c7f0e7541e5]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:34:32  DEBUG    [e86b2c7f0e7541e5]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 81/100 qst_0411 on error=None index_uses=1
+18:34:37  INFO     [21b046322f074226]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 82/100 qst_0411 off error=None index_uses=1
+18:34:41  INFO     [0557c20cf1eb4723]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:34:42  DEBUG    [0557c20cf1eb4723]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 83/100 qst_0412 off error=None index_uses=1
+18:34:48  INFO     [29fe8a6d7905402d]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 84/100 qst_0412 on error=None index_uses=1
+18:34:53  INFO     [afb06fda43074616]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:34:55  DEBUG    [afb06fda43074616]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 85/100 qst_0413 on error=None index_uses=4
+18:35:15  INFO     [d5324dd212344409]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 86/100 qst_0413 off error=None index_uses=4
+18:35:38  INFO     [312dcb337e77415d]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:35:40  DEBUG    [312dcb337e77415d]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 87/100 qst_0414 off error=None index_uses=1
+18:35:45  INFO     [6a0e91369b674459]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 88/100 qst_0414 on error=None index_uses=1
+18:35:49  INFO     [fdfafe683fa44844]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:35:51  WARNING  [fdfafe683fa44844]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+18:35:51  DEBUG    [fdfafe683fa44844]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 89/100 qst_0415 on error=None index_uses=1
+18:35:56  INFO     [97acb1c753f2461c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 90/100 qst_0415 off error=None index_uses=1
+18:36:02  INFO     [f7042a55735e48cf]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:36:03  DEBUG    [f7042a55735e48cf]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 91/100 qst_0481 off error=None index_uses=1
+18:36:09  INFO     [08ff68ce4d04435e]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 92/100 qst_0481 on error=None index_uses=1
+18:36:14  INFO     [953b18eb5a504b6a]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:36:16  DEBUG    [953b18eb5a504b6a]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 93/100 qst_0482 on error=None index_uses=1
+18:36:21  INFO     [ac01de9700eb42ee]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:36:22  WARNING  [ac01de9700eb42ee]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+GRAPH_PROBE 94/100 qst_0482 off error=None index_uses=1
+18:36:27  INFO     [52b4ccd1af634839]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:36:28  DEBUG    [52b4ccd1af634839]  zleap.sag.ai.embedding  生成embedding成功
+GRAPH_PROBE 95/100 qst_0483 off error=None index_uses=1
+18:36:33  INFO     [23933d25651a419b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 96/100 qst_0483 on error=None index_uses=1
+18:36:38  INFO     [55aa4cba50c9492c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:36:39  DEBUG    [55aa4cba50c9492c]  zleap.sag.ai.embedding  生成embedding成功
+18:36:43  ERROR    [-]  asyncio  Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\Python312\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+GRAPH_PROBE 97/100 qst_0484 on error=None index_uses=1
+18:36:44  INFO     [3ed2d1d2532247d8]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:36:49  ERROR    [-]  asyncio  Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\Python312\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+GRAPH_PROBE 98/100 qst_0484 off error=None index_uses=1
+18:36:50  INFO     [9a883fa3d37642b3]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:36:51  DEBUG    [9a883fa3d37642b3]  zleap.sag.ai.embedding  生成embedding成功
+18:36:55  ERROR    [-]  asyncio  Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\Python312\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+GRAPH_PROBE 99/100 qst_0485 off error=None index_uses=1
+18:36:57  INFO     [d2d1fe328b584614]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+GRAPH_PROBE 100/100 qst_0485 on error=None index_uses=1
+{
+  "on": {
+    "requests": 50,
+    "errors": 0,
+    "index_uses": 84,
+    "retrieval_source_recall": 0.9842592592592592,
+    "retrieval_source_precision": 0.6226666666666667,
+    "retrieval_p50_ms": 6017.34745001886
+  },
+  "off": {
+    "requests": 50,
+    "errors": 0,
+    "index_uses": 85,
+    "retrieval_source_recall": 0.962037037037037,
+    "retrieval_source_precision": 0.616,
+    "retrieval_p50_ms": 6034.071350004524
+  }
+}
+ERROR:    Cancel 0 running task(s), timeout graceful shutdown exceeded
+18:37:07  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager shutting down
+18:37:07  DEBUG    [-]  asyncio  Using proactor: IocpProactor

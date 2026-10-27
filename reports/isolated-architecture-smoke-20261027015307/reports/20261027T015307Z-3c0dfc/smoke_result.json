@@ -1,0 +1,469 @@
+{
+  "ready_seconds": 30.753,
+  "pipeline": {
+    "ready_versions": [
+      {
+        "id": "9252d010-dc93-5981-b4ce-e6f5d47c0795",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "86a432fe-e3d1-5c58-98cf-f5db639b1d6d",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      }
+    ],
+    "jobs": [],
+    "units": {
+      "total": 2,
+      "e2_selected": 1
+    },
+    "evidence": {
+      "E0": 4
+    },
+    "tree": [
+      {
+        "status": "ACTIVE",
+        "tree_version": "tree-ef4c2721339cdedaf8f8354a"
+      }
+    ],
+    "ingestion": {
+      "READY": 2
+    }
+  },
+  "query": {
+    "response": {
+      "query": "What is the default size limit for an individual uploaded file?",
+      "sections": [
+        {
+          "chunk_id": "8b816d6a-681b-5ed9-bd3e-94c8d682dad8",
+          "search_unit_id": "8b816d6a-681b-5ed9-bd3e-94c8d682dad8",
+          "block_from_id": "5290da79-1eb2-5026-8fb8-7e2c05cc4e05",
+          "block_to_id": "4316cc98-000d-5e8e-8b12-64d25b878689",
+          "section_path": "Upload limits",
+          "document_id": "86a432fe-e3d1-5c58-98cf-f5db639b1d6d",
+          "document_version_id": "f682ee08-afe2-548d-b735-c90bc47d9f88",
+          "document_name": "upload.md",
+          "version_no": 1,
+          "page_from": 1,
+          "page_to": 1,
+          "anchor": "h1-0",
+          "heading": "Upload limits",
+          "content": "Upload limits\n\nThe default limit for an individual uploaded file is 10 MiB. The total multipart request limit is 50 MiB.",
+          "score": 0.83395,
+          "rank": 0,
+          "source_id": "f66fdd46af3642e982f406e75f710fa4",
+          "source_name": "Project 11f07d5b49ad403fa547ad70"
+        }
+      ],
+      "events": [],
+      "entities": [],
+      "relations": [],
+      "source_hits": [],
+      "summary": "The default size limit for an individual uploaded file is 10 MiB. [1]",
+      "citations": [
+        {
+          "kind": "internal",
+          "n": 1,
+          "document_id": "86a432fe-e3d1-5c58-98cf-f5db639b1d6d",
+          "document_version_id": "f682ee08-afe2-548d-b735-c90bc47d9f88",
+          "document_name": "upload.md",
+          "version_no": 1,
+          "chunk_id": "8b816d6a-681b-5ed9-bd3e-94c8d682dad8",
+          "search_unit_id": "8b816d6a-681b-5ed9-bd3e-94c8d682dad8",
+          "block_from_id": "5290da79-1eb2-5026-8fb8-7e2c05cc4e05",
+          "block_to_id": "4316cc98-000d-5e8e-8b12-64d25b878689",
+          "section_path": "Upload limits",
+          "page_from": 1,
+          "page_to": 1,
+          "anchor": "h1-0",
+          "heading": "Upload limits",
+          "snippet": "Upload limits The default limit for an individual uploaded file is 10 MiB. The total multipart request limit is 50 MiB.",
+          "score": 0.8339,
+          "source_id": "f66fdd46af3642e982f406e75f710fa4",
+          "source_name": "Project 11f07d5b49ad403fa547ad70"
+        }
+      ],
+      "answer_status": "answered",
+      "no_answer_reason": null,
+      "exploration_id": null,
+      "stats": {
+        "canonical_index": true,
+        "ready_versions": 2,
+        "requested_top_k": null,
+        "candidate_top_k": 32,
+        "candidate_unit_pool_limit": 1024,
+        "candidate_pool_saturated": false,
+        "candidate_units_before_cap": 2,
+        "candidate_units_after_cap": 2,
+        "candidate_units_truncated": 0,
+        "semantic_candidates": 2,
+        "lexical_candidates": 1,
+        "candidates": 2,
+        "relevant": 1,
+        "filtered_irrelevant": 1,
+        "fusion_method": "rrf",
+        "selection_method": "authorized_content_dedup_mmr",
+        "cross_scope_merge": "rank_interleave",
+        "coverage": {
+          "candidate_count": 1,
+          "deduplicated_count": 0,
+          "diversity_weight": 0.5,
+          "near_duplicate_similarity": 0.98,
+          "required_anchor_count": 0,
+          "covered_anchor_count": 0,
+          "anchor_coverage": "not_required",
+          "status": "unknown",
+          "canonical_locator_verified": true,
+          "semantic_answerability": "unknown"
+        },
+        "routing": {
+          "planner": {
+            "planner_version": "qsp-v1",
+            "requested_strategy": "AUTO",
+            "effective_strategy": "LOCAL_FACTUAL",
+            "modifiers": [],
+            "reason_codes": [
+              "DEFAULT_LOCAL_FACTUAL"
+            ],
+            "multi_hop_eligible": false
+          },
+          "request_snapshot_id": "e7573cc0-dae6-465c-9e44-ae0b82019038",
+          "groups": [
+            {
+              "project_id": "11f07d5b49ad403fa547ad70",
+              "source_id": "f66fdd46af3642e982f406e75f710fa4",
+              "partition_id": "11f07d5b49ad403fa547ad70",
+              "snapshot_id": "8ca84f5e-82f0-4fe4-a1b7-11ea93c422e8",
+              "request_snapshot_id": "e7573cc0-dae6-465c-9e44-ae0b82019038",
+              "acl_scope_fingerprint": "ff050fd3ff333a2dbea6d6ec25d2f3e640d9ccdac983dfb0143eb0c1f83de29f",
+              "tree_version": "tree-ef4c2721339cdedaf8f8354a",
+              "routing_slot": "SLOT_A",
+              "search_epoch": 2,
+              "selected_nodes": [
+                "85f87551acebd3e0f37c426d33cf719c"
+              ],
+              "membership_count": 1,
+              "entropy": 0.0,
+              "margin": 1.0,
+              "broad_route": false,
+              "reason_code": "ROUTE_DESCENDED",
+              "fallback_reason": null,
+              "branch_local_candidates": 1,
+              "global_candidates": 2,
+              "escape_recovered_candidates": 1,
+              "escape_attempted": true,
+              "escape_trigger": "reserved_parallel_global_escape",
+              "local_failure": null,
+              "escape_failure": null,
+              "blackhole_detected": false
+            }
+          ],
+          "coverage": {
+            "candidate_count": 1,
+            "deduplicated_count": 0,
+            "diversity_weight": 0.5,
+            "near_duplicate_similarity": 0.98,
+            "required_anchor_count": 0,
+            "covered_anchor_count": 0,
+            "anchor_coverage": "not_required",
+            "status": "unknown",
+            "canonical_locator_verified": true,
+            "semantic_answerability": "unknown"
+          },
+          "selection_fallback_reason": null,
+          "multi_hop": {
+            "eligible": false,
+            "effective": "LOCAL_FACTUAL",
+            "graph_expansion_attempted": false,
+            "graph_expanded_candidates": 0,
+            "graph_expansion_skip_reason": null
+          },
+          "fallback_used": true
+        },
+        "selection_fallback_reason": null,
+        "stage_latencies_ms": {
+          "auth_scope": 173.18,
+          "tree_route": 12.37,
+          "candidate_retrieval": 2145.8,
+          "evidence_hydration": 17.53,
+          "rank_fusion": 0.69,
+          "graph_expansion": 0.0,
+          "diversity_selection": 11.0,
+          "total_retrieval": 2372.7
+        },
+        "latency_total_ms": 2372.7,
+        "automatic_top_k": true,
+        "effective_top_k": 1,
+        "adaptive_waves": 1,
+        "retrieval_stop_reason": "corpus_exhausted",
+        "budget_exhausted": false,
+        "has_more": false,
+        "acl_filtered_candidates": 0,
+        "query_route": {
+          "version": "query-flow-v1",
+          "query_original": "What is the default size limit for an individual uploaded file?",
+          "scope_source_ids": [
+            "f66fdd46af3642e982f406e75f710fa4"
+          ],
+          "coarse_intent": "KNOWLEDGE",
+          "confidence": 0.9534,
+          "model": "Kev-4b",
+          "suggested_strategy": "vector",
+          "requested_strategy": "auto",
+          "effective_strategy": "vector",
+          "retrieval": "required",
+          "fallback_used": false,
+          "fallback_reason": null,
+          "reason_codes": [
+            "KNOWLEDGE_INTENT"
+          ],
+          "query_analysis": {
+            "normalized_phrase": "whatisthedefaultsizelimitforanindividualuploadedfile",
+            "lookup_terms": [
+              "default",
+              "size",
+              "limit",
+              "individual",
+              "uploaded",
+              "file",
+              "whatisthedefaultsizelimitforanindividualuploadedfile"
+            ],
+            "features": {
+              "exact_terms": [],
+              "identifier_terms": [],
+              "path_terms": [],
+              "temporal_cues": [],
+              "relation_cues": [],
+              "global_cues": [],
+              "multi_hop": false
+            }
+          },
+          "strategy_plan": {
+            "planner_version": "qsp-v1",
+            "requested_strategy": "AUTO",
+            "effective_strategy": "LOCAL_FACTUAL",
+            "modifiers": [],
+            "reason_codes": [
+              "DEFAULT_LOCAL_FACTUAL"
+            ],
+            "multi_hop_eligible": false
+          },
+          "retrieval_fallback_used": false
+        }
+      }
+    },
+    "retrieval_latency_ms": 4216.485199984163,
+    "latency_ms": 20263.700799900107,
+    "first_token_ms": 20263.031899929047,
+    "error": null
+  },
+  "explicit_128": {
+    "response": {
+      "query": "What is the default size limit for an individual uploaded file?",
+      "sections": [
+        {
+          "chunk_id": "8b816d6a-681b-5ed9-bd3e-94c8d682dad8",
+          "search_unit_id": "8b816d6a-681b-5ed9-bd3e-94c8d682dad8",
+          "block_from_id": "5290da79-1eb2-5026-8fb8-7e2c05cc4e05",
+          "block_to_id": "4316cc98-000d-5e8e-8b12-64d25b878689",
+          "section_path": "Upload limits",
+          "document_id": "86a432fe-e3d1-5c58-98cf-f5db639b1d6d",
+          "document_version_id": "f682ee08-afe2-548d-b735-c90bc47d9f88",
+          "document_name": "upload.md",
+          "version_no": 1,
+          "page_from": 1,
+          "page_to": 1,
+          "anchor": "h1-0",
+          "heading": "Upload limits",
+          "content": "Upload limits\n\nThe default limit for an individual uploaded file is 10 MiB. The total multipart request limit is 50 MiB.",
+          "score": 0.83395,
+          "rank": 0,
+          "source_id": "f66fdd46af3642e982f406e75f710fa4",
+          "source_name": "Project 11f07d5b49ad403fa547ad70"
+        }
+      ],
+      "events": [],
+      "entities": [],
+      "relations": [],
+      "source_hits": [],
+      "summary": "",
+      "citations": [],
+      "answer_status": "pending",
+      "no_answer_reason": null,
+      "exploration_id": null,
+      "stats": {
+        "canonical_index": true,
+        "ready_versions": 2,
+        "requested_top_k": 128,
+        "candidate_top_k": 512,
+        "candidate_unit_pool_limit": 1024,
+        "candidate_pool_saturated": false,
+        "candidate_units_before_cap": 2,
+        "candidate_units_after_cap": 2,
+        "candidate_units_truncated": 0,
+        "semantic_candidates": 2,
+        "lexical_candidates": 1,
+        "candidates": 2,
+        "relevant": 1,
+        "filtered_irrelevant": 1,
+        "fusion_method": "rrf",
+        "selection_method": "authorized_content_dedup_mmr",
+        "cross_scope_merge": "rank_interleave",
+        "coverage": {
+          "candidate_count": 1,
+          "deduplicated_count": 0,
+          "diversity_weight": 0.5,
+          "near_duplicate_similarity": 0.98,
+          "required_anchor_count": 0,
+          "covered_anchor_count": 0,
+          "anchor_coverage": "not_required",
+          "status": "unknown",
+          "canonical_locator_verified": true,
+          "semantic_answerability": "unknown"
+        },
+        "routing": {
+          "planner": {
+            "planner_version": "qsp-v1",
+            "requested_strategy": "AUTO",
+            "effective_strategy": "LOCAL_FACTUAL",
+            "modifiers": [],
+            "reason_codes": [
+              "DEFAULT_LOCAL_FACTUAL"
+            ],
+            "multi_hop_eligible": false
+          },
+          "request_snapshot_id": "03e365ea-335c-4568-bfaf-4cb71df7bd7a",
+          "groups": [
+            {
+              "project_id": "11f07d5b49ad403fa547ad70",
+              "source_id": "f66fdd46af3642e982f406e75f710fa4",
+              "partition_id": "11f07d5b49ad403fa547ad70",
+              "snapshot_id": "c11d7acf-647a-43ba-a529-888355cbcb0a",
+              "request_snapshot_id": "03e365ea-335c-4568-bfaf-4cb71df7bd7a",
+              "acl_scope_fingerprint": "ff050fd3ff333a2dbea6d6ec25d2f3e640d9ccdac983dfb0143eb0c1f83de29f",
+              "tree_version": "tree-ef4c2721339cdedaf8f8354a",
+              "routing_slot": "SLOT_A",
+              "search_epoch": 2,
+              "selected_nodes": [
+                "85f87551acebd3e0f37c426d33cf719c"
+              ],
+              "membership_count": 1,
+              "entropy": 0.0,
+              "margin": 1.0,
+              "broad_route": false,
+              "reason_code": "ROUTE_DESCENDED",
+              "fallback_reason": null,
+              "branch_local_candidates": 1,
+              "global_candidates": 2,
+              "escape_recovered_candidates": 1,
+              "escape_attempted": true,
+              "escape_trigger": "reserved_parallel_global_escape",
+              "local_failure": null,
+              "escape_failure": null,
+              "blackhole_detected": false
+            }
+          ],
+          "coverage": {
+            "candidate_count": 1,
+            "deduplicated_count": 0,
+            "diversity_weight": 0.5,
+            "near_duplicate_similarity": 0.98,
+            "required_anchor_count": 0,
+            "covered_anchor_count": 0,
+            "anchor_coverage": "not_required",
+            "status": "unknown",
+            "canonical_locator_verified": true,
+            "semantic_answerability": "unknown"
+          },
+          "selection_fallback_reason": null,
+          "multi_hop": {
+            "eligible": false,
+            "effective": "LOCAL_FACTUAL",
+            "graph_expansion_attempted": false,
+            "graph_expanded_candidates": 0,
+            "graph_expansion_skip_reason": null
+          },
+          "fallback_used": true
+        },
+        "selection_fallback_reason": null,
+        "stage_latencies_ms": {
+          "auth_scope": 9.86,
+          "tree_route": 11.4,
+          "candidate_retrieval": 947.25,
+          "evidence_hydration": 11.89,
+          "rank_fusion": 0.41,
+          "graph_expansion": 0.0,
+          "diversity_selection": 0.27,
+          "total_retrieval": 989.01
+        },
+        "latency_total_ms": 989.01,
+        "automatic_top_k": false,
+        "effective_top_k": 1,
+        "adaptive_waves": 1,
+        "retrieval_stop_reason": "corpus_exhausted",
+        "budget_exhausted": false,
+        "has_more": false,
+        "acl_filtered_candidates": 0,
+        "query_route": {
+          "version": "query-flow-v1",
+          "query_original": "What is the default size limit for an individual uploaded file?",
+          "scope_source_ids": [
+            "f66fdd46af3642e982f406e75f710fa4"
+          ],
+          "coarse_intent": "KNOWLEDGE",
+          "confidence": 0.9534,
+          "model": "Kev-4b",
+          "suggested_strategy": "vector",
+          "requested_strategy": "auto",
+          "effective_strategy": "vector",
+          "retrieval": "required",
+          "fallback_used": false,
+          "fallback_reason": null,
+          "reason_codes": [
+            "KNOWLEDGE_INTENT"
+          ],
+          "query_analysis": {
+            "normalized_phrase": "whatisthedefaultsizelimitforanindividualuploadedfile",
+            "lookup_terms": [
+              "default",
+              "size",
+              "limit",
+              "individual",
+              "uploaded",
+              "file",
+              "whatisthedefaultsizelimitforanindividualuploadedfile"
+            ],
+            "features": {
+              "exact_terms": [],
+              "identifier_terms": [],
+              "path_terms": [],
+              "temporal_cues": [],
+              "relation_cues": [],
+              "global_cues": [],
+              "multi_hop": false
+            }
+          },
+          "strategy_plan": {
+            "planner_version": "qsp-v1",
+            "requested_strategy": "AUTO",
+            "effective_strategy": "LOCAL_FACTUAL",
+            "modifiers": [],
+            "reason_codes": [
+              "DEFAULT_LOCAL_FACTUAL"
+            ],
+            "multi_hop_eligible": false
+          },
+          "retrieval_fallback_used": false
+        }
+      }
+    },
+    "retrieval_latency_ms": 2431.375600048341,
+    "latency_ms": 2431.665900046937,
+    "first_token_ms": null,
+    "error": null
+  },
+  "event_extraction_enabled": false
+}

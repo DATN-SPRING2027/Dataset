@@ -1,0 +1,131 @@
+warning: in the working copy of 'SAG/apps/api/sag_api/core/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/jobs/knowledge.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/jobs/tasks.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/sag/engine_manager.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/evidence_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/search_index_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/search_unit_retrieval_service.py', LF will be replaced by CRLF the next time Git touches it
+RUN_ID=20261027T024732Z-ae0ab1 OWNER=6acc9a5425f02c9d92a01012 PROJECT=276bb66687964fe28b5ba336 SCHEMA=sag
+09:47:53  INFO     [-]  sag.jobs  恢复 44 个未完成任务
+09:47:53  INFO     [-]  sag.jobs  任务队列已启动（并发=4）
+09:47:53  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager started
+09:47:53  INFO     [-]  sag.runtime  MCP 端点已就绪 · /mcp/（全库）· 可选 ?source_id=<信源 id>
+09:47:53  INFO     [-]  sag.runtime  sag-api 知识运行时已启动 · env=dev · llm_configured=True · vector=qdrant
+09:47:54  INFO     [-]  zleap.sag.ai.embedding  Embedding客户端初始化完成
+09:47:54  INFO     [-]  zleap.sag.ai.factory  ✅ 创建Embedding客户端
+Uploaded 10/81 through SAG upload service
+Uploaded 20/81 through SAG upload service
+Uploaded 30/81 through SAG upload service
+Uploaded 40/81 through SAG upload service
+Uploaded 50/81 through SAG upload service
+Uploaded 60/81 through SAG upload service
+Uploaded 70/81 through SAG upload service
+Uploaded 80/81 through SAG upload service
+Uploaded 81/81 through SAG upload service
+Pipeline: [{"PENDING": 81}, {"total": 0, "e2_selected": 0}, [], []]
+09:48:47  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:48:49  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:48:50  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:48:50  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:48:51  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:48:51  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:48:52  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:48:52  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:48:53  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=f5524635-649b-53d4-b7b4-be9d89a60657 parser=original cached=False chunks=3 events=0 tokens=0
+09:48:54  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=42c92c3c-4e2a-5edc-a1c2-5d71fb3d7407 parser=original cached=False chunks=4 events=0 tokens=0
+09:49:50  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 01e63aea-dce4-5ac3-8cac-4f884d3349d2 failed (TimeoutError)
+09:49:50  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 96b603e8-43d8-5c1c-8445-4327ce301335 failed (TimeoutError)
+09:49:50  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 2fbb13cd-c831-5b94-8515-19814896f5f5 failed (TimeoutError)
+09:49:50  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job d595aebe-b919-5c63-9f0e-bd751a06ceb7 failed (TimeoutError)
+09:49:50  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=1435719d-8031-589d-ac3b-841383f5f03d parser=original cached=False chunks=3 events=0 tokens=0
+09:49:50  INFO     [-]  sag.jobs  任务已暂停 job=12c76eb7217345e08e4b850cda8f49eb progress=5%
+09:50:00  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:50:00  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:50:00  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:50:10  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:50:10  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:50:21  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:50:34  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=79864eda-c2db-5c75-a255-71fb77ac3392 parser=original cached=False chunks=3 events=0 tokens=0
+09:50:37  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:50:39  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=0c790c14-bd11-58cd-a027-c2b273ff86d0 parser=original cached=False chunks=4 events=0 tokens=0
+09:50:39  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:50:44  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=fadd9a2e-6767-5a51-b131-27000c18686a parser=original cached=False chunks=4 events=0 tokens=0
+09:50:44  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=3e5d9ca8-e193-5ed3-9437-6c6954713cab parser=original cached=False chunks=5 events=0 tokens=0
+09:50:52  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 6178b754-3e74-52bf-9ddd-30041554fda4 failed (TimeoutError)
+09:51:20  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 6dadc45a-c2fc-540c-a053-e4dbb6e92031 failed (TimeoutError)
+09:51:20  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 7e538249-2551-538b-9c46-f1f3ea08c6e9 failed (TimeoutError)
+09:51:21  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job ecd0fd12-3e8c-59c2-b462-d5d61a2eb1f6 failed (TimeoutError)
+09:51:24  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:51:27  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=5a8ca633-ecf9-50d6-9891-656fd0499a46 parser=original cached=False chunks=2 events=0 tokens=0
+09:52:03  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:52:31  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 96b603e8-43d8-5c1c-8445-4327ce301335 failed (TimeoutError)
+09:52:31  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 6178b754-3e74-52bf-9ddd-30041554fda4 failed (TimeoutError)
+09:52:31  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 2fbb13cd-c831-5b94-8515-19814896f5f5 failed (TimeoutError)
+09:52:31  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job d595aebe-b919-5c63-9f0e-bd751a06ceb7 failed (TimeoutError)
+09:53:01  ERROR    [-]  sag.jobs  Phase 2 pipeline execution failed run_id=d37947be-6ed3-4531-9159-64fccaea467b: Search indexing failed: manifest verification mismatch (units=2, pg=2, qdrant=0, qdrant_checksum=None)
+09:53:01  WARNING  [-]  sag.jobs  Xử lý tài liệu thất bại doc=af514592-81a2-5e0f-bc74-7ddc875e60a3 layer=store stage=persist error=Search indexing failed: manifest verification mismatch (units=2, pg=2, qdrant=0, qdrant_checksum=None)
+09:53:01  WARNING  [-]  sag.jobs  任务失败 job=6dc6c47e11f54c31832470e473344687（尝试 1 次）：Search indexing failed: manifest verification mismatch (units=2, pg=2, qdrant=0, qdrant_checksum=None)
+09:53:02  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:53:02  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:53:29  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:53:30  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:53:32  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=37b18891-82c3-56fd-8e59-2165a5f6cc71 parser=original cached=False chunks=5 events=0 tokens=0
+09:53:33  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:53:33  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=3f67f12b-1c56-5146-99f7-57a7f3c387cb parser=original cached=False chunks=4 events=0 tokens=0
+09:53:34  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=4111545c-ff92-55aa-b5e6-4f1705dd06bd parser=original cached=False chunks=3 events=0 tokens=0
+09:53:38  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=d4a64d5e-d61f-5c3b-aa48-75836c0c9dee parser=original cached=False chunks=5 events=0 tokens=0
+09:54:15  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 7e538249-2551-538b-9c46-f1f3ea08c6e9 failed (TimeoutError)
+09:54:15  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job ecd0fd12-3e8c-59c2-b462-d5d61a2eb1f6 failed (TimeoutError)
+09:54:15  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 6dadc45a-c2fc-540c-a053-e4dbb6e92031 failed (TimeoutError)
+09:54:15  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job f431ad8e-add4-5ac5-b0cc-76b8a546c03b failed (TimeoutError)
+09:54:47  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:54:49  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:55:02  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=81369d2e-f6ac-593b-b8c2-b53b50e08b27 parser=original cached=False chunks=3 events=0 tokens=0
+09:55:03  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=73fc7255-6b99-5c77-9c0d-573bb16dfad9 parser=original cached=False chunks=1 events=0 tokens=0
+09:55:04  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:55:05  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:56:07  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=0204a38e-b657-599f-a6dc-95f989e3ec0a parser=original cached=False chunks=2 events=0 tokens=0
+09:56:07  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 63944169-8d38-5e86-a989-1d4576424512 failed (TimeoutError)
+09:56:07  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 6178b754-3e74-52bf-9ddd-30041554fda4 failed (TimeoutError)
+09:56:07  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 96b603e8-43d8-5c1c-8445-4327ce301335 failed (TimeoutError)
+09:56:07  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job f431ad8e-add4-5ac5-b0cc-76b8a546c03b failed (TimeoutError)
+09:56:34  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:56:36  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:56:36  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:57:04  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:57:04  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=43811d85-1964-520f-9c8f-eff05184bbd1 parser=original cached=False chunks=2 events=0 tokens=0
+09:57:05  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=d817d3e0-b12b-581f-9ac3-80780312f4fa parser=original cached=False chunks=14 events=0 tokens=0
+09:57:06  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:57:07  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=7b59bcb9-e3cf-5cd5-b834-af30218fe812 parser=original cached=False chunks=1 events=0 tokens=0
+09:57:12  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=f37e6e02-c2de-58a4-9b97-b5b961a4e2c0 parser=original cached=False chunks=2 events=0 tokens=0
+09:57:15  WARNING  [-]  sag.jobs  任务可重试 job=6c0b1023880b4c9ea80ffa384a340167（第 1/3 次），2.0s 后重排：OCTX operation resource is busy: source:9631f954f5f845e5857630c71d1cae1a
+09:58:18  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 6bb955b3-cd0a-50ab-a778-5a481f545a7d failed (TimeoutError)
+09:58:18  ERROR    [-]  sag.sag.search_index  Could not delete prior points from Qdrant: 
+09:58:18  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 7e538249-2551-538b-9c46-f1f3ea08c6e9 failed (TimeoutError)
+09:58:18  ERROR    [-]  sag.jobs  Phase 2 pipeline execution failed run_id=01196474-61a3-4c77-802a-8710071eee3e: Qdrant point cleanup failed:
+09:58:18  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 6dadc45a-c2fc-540c-a053-e4dbb6e92031 failed (TimeoutError)
+09:58:18  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job ecd0fd12-3e8c-59c2-b462-d5d61a2eb1f6 failed (TimeoutError)
+09:58:18  WARNING  [-]  sag.jobs  Xử lý tài liệu thất bại doc=eb77434a-590a-50aa-851f-092d63eb2b46 layer=store stage=persist error=Qdrant point cleanup failed:
+09:58:19  WARNING  [-]  sag.jobs  任务失败 job=cb3946d7f5e44b22937215506e5a007c（尝试 1 次）：Qdrant point cleanup failed:
+09:59:24  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:59:24  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:59:24  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 63944169-8d38-5e86-a989-1d4576424512 failed (TimeoutError)
+09:59:24  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job f431ad8e-add4-5ac5-b0cc-76b8a546c03b failed (TimeoutError)
+09:59:41  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:59:42  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=78ec2c60-6379-598f-8613-5b0337455ef7 parser=original cached=False chunks=2 events=0 tokens=0
+09:59:42  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=41e6e3b3-f766-53b5-877a-937fb5615930 parser=original cached=False chunks=3 events=0 tokens=0
+09:59:42  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:59:42  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:59:43  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+09:59:55  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 6bb955b3-cd0a-50ab-a778-5a481f545a7d failed (TimeoutError)
+09:59:55  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 4673f92d-10a6-59cf-8ea4-70b1a4eb5ee8 failed (TimeoutError)
+10:00:24  ERROR    [-]  sag.sag.search_index  Could not delete prior points from Qdrant: 
+10:00:24  ERROR    [-]  sag.jobs  Phase 2 pipeline execution failed run_id=6d7275ce-4bee-4bdc-859d-11aa875517db: Qdrant point cleanup failed:
+10:00:24  WARNING  [-]  sag.jobs  Xử lý tài liệu thất bại doc=ffb2f077-e60f-5549-839e-35e71c74d555 layer=store stage=persist error=Qdrant point cleanup failed:
+10:00:24  WARNING  [-]  sag.jobs  任务失败 job=6900c069e7dd4f9aa4ef1755f11fee9b（尝试 1 次）：Qdrant point cleanup failed:
+10:00:24  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=b5a26bcd-bd35-5eef-8efd-6965c5e6e481 parser=original cached=False chunks=3 events=0 tokens=0
+10:00:24  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=47a234b1-d28b-5d84-bf81-d02cf56be168 parser=original cached=False chunks=4 events=0 tokens=0
+10:01:04  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+10:01:05  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job b66ac661-2e4b-554a-b550-788a561ac671 failed (TimeoutError)
+10:01:05  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 0a262d70-e8a6-56f0-a691-a9eee76735ed failed (TimeoutError)
+10:01:06  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功

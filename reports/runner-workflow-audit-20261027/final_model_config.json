@@ -1,0 +1,14 @@
+{
+  "llm_model": "Qwen/Qwen3-8B",
+  "llm_max_tokens": 4096,
+  "llm_context_window": 128000,
+  "llm_timeout_ms": 120000,
+  "llm_max_retries": 2,
+  "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+  "embedding_timeout": 120,
+  "embedding_max_retries": 3,
+  "search_source_timeout": 25.0,
+  "search_tree_snapshot_timeout": 1.0,
+  "knowledge_graph_timeout_seconds": 300,
+  "effective_enable_thinking": false
+}

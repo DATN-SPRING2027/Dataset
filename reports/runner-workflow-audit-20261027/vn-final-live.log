@@ -1,0 +1,951 @@
+BENCH_OUTPUT=D:\DoAnTotnghiep\Dataset\reports\vn_mteb-fixed-20261027100535
+warning: in the working copy of 'SAG/apps/api/sag_api/core/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/sag/engine_manager.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/evidence_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/knowledge_service.py', LF will be replaced by CRLF the next time Git touches it
+RUN_ID=20261027T100540Z-154240 OWNER=6acc9a5425f02c9d92a01012 PROJECT=01c25b410b9d47219c748e72 SCHEMA=sag_bench_vn_mteb_20261027100535
+17:05:58  INFO     [-]  sag.jobs  任务队列已启动（并发=4）
+17:05:58  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager started
+17:05:58  INFO     [-]  sag.runtime  MCP 端点已就绪 · /mcp/（全库）· 可选 ?source_id=<信源 id>
+17:05:58  INFO     [-]  sag.runtime  sag-api 知识运行时已启动 · env=dev · llm_configured=True · vector=qdrant
+17:05:59  INFO     [-]  zleap.sag.ai.embedding  Embedding客户端初始化完成
+17:05:59  INFO     [-]  zleap.sag.ai.factory  ✅ 创建Embedding客户端
+Uploaded 10/130 through SAG upload service
+Uploaded 20/130 through SAG upload service
+Uploaded 30/130 through SAG upload service
+Uploaded 40/130 through SAG upload service
+Uploaded 50/130 through SAG upload service
+Uploaded 60/130 through SAG upload service
+Uploaded 70/130 through SAG upload service
+Uploaded 80/130 through SAG upload service
+Uploaded 90/130 through SAG upload service
+Uploaded 100/130 through SAG upload service
+Uploaded 110/130 through SAG upload service
+Uploaded 120/130 through SAG upload service
+Uploaded 130/130 through SAG upload service
+Pipeline: [{"PENDING": 130}, {"total": 0, "e2_selected": 0}, [], []]
+17:06:12  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:06:17  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=c20c212f-10cd-5623-ae14-3205de22f4b2 parser=original cached=False chunks=1 events=0 tokens=0
+17:06:17  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 129, "READY": 1}, {"total": 0, "e2_selected": 0}, [], []]
+17:06:19  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=c63c6cae-c71c-5a14-9c75-caee402597e6 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"READY": 2, "PENDING": 128}, {"total": 1, "e2_selected": 0}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 1, "attempts": 1}], []]
+Pipeline: [{"READY": 2, "PENDING": 128}, {"total": 2, "e2_selected": 0}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 2, "attempts": 1}], []]
+17:06:22  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:06:24  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=ffbe8f56-d09c-5e98-8d22-e8d644b9ddeb parser=original cached=False chunks=1 events=0 tokens=0
+17:06:25  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"READY": 3, "PENDING": 127}, {"total": 2, "e2_selected": 0}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 2, "attempts": 1}], []]
+17:06:27  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=87c253b8-0dae-5127-aa4c-545da5d78262 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"READY": 4, "PENDING": 126}, {"total": 3, "e2_selected": 0}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 3, "attempts": 1}], []]
+17:06:28  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"READY": 4, "PENDING": 126}, {"total": 3, "e2_selected": 0}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 3, "attempts": 1}], []]
+17:06:30  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=f09c9683-8e79-555d-8072-79d205143f76 parser=original cached=False chunks=1 events=0 tokens=0
+17:06:31  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"READY": 5, "PENDING": 125}, {"total": 5, "e2_selected": 1}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 5, "attempts": 1}], []]
+17:06:34  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=31079dcc-a272-565d-8445-f52929ef752c parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"READY": 6, "PENDING": 124}, {"total": 5, "e2_selected": 1}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 5, "attempts": 1}], []]
+17:06:36  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"READY": 6, "PENDING": 124}, {"total": 6, "e2_selected": 1}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 6, "attempts": 1}], []]
+17:06:38  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=abd9f686-d812-53b1-8c6a-953c8fcc6106 parser=original cached=False chunks=1 events=0 tokens=0
+17:06:39  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 123, "READY": 7}, {"total": 6, "e2_selected": 1}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 6, "attempts": 1}], []]
+17:06:41  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=88a5682d-0ed8-5c54-ab51-baea06069244 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 122, "READY": 8}, {"total": 7, "e2_selected": 1}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 7, "attempts": 1}], []]
+Pipeline: [{"PENDING": 122, "READY": 8}, {"total": 8, "e2_selected": 1}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 8, "attempts": 1}], []]
+17:06:44  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:06:46  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=655c71e0-ca36-5f0b-9556-45dbaace11f2 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 121, "READY": 9}, {"total": 9, "e2_selected": 2}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 9, "attempts": 1}], []]
+17:06:48  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:06:50  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=79c63c7d-aea6-55fc-9960-7e210ae7d0e4 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 120, "READY": 10}, {"total": 10, "e2_selected": 2}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 10, "attempts": 1}], []]
+17:06:52  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:06:55  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=11e2b565-e4a3-507a-b443-973ec145619a parser=original cached=False chunks=1 events=0 tokens=0
+17:06:56  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 119, "READY": 11}, {"total": 11, "e2_selected": 2}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 11, "attempts": 1}], []]
+17:06:58  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=8b363bdd-3369-564c-b9c7-3cb727ea287e parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 118, "READY": 12}, {"total": 11, "e2_selected": 2}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 11, "attempts": 1}], []]
+17:06:59  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:07:01  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=46325f2f-a744-5272-a33e-9cc22d44f786 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 117, "READY": 13}, {"total": 12, "e2_selected": 3}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 12, "attempts": 1}], []]
+17:07:02  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:07:04  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=01a0e149-df23-5360-ad18-f63fe8609b3f parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 116, "READY": 14}, {"total": 13, "e2_selected": 4}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 13, "attempts": 1}], []]
+17:07:06  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 116, "READY": 14}, {"total": 14, "e2_selected": 4}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 14, "attempts": 1}], []]
+17:07:09  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:07:09  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=0bf79386-dd89-5ff5-9654-d41921cca812 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 115, "READY": 15}, {"total": 14, "e2_selected": 4}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 14, "attempts": 1}], []]
+17:07:11  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=1f0ac1b9-996c-575f-9dce-3d7408878312 parser=original cached=False chunks=1 events=0 tokens=0
+17:07:12  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 114, "READY": 16}, {"total": 15, "e2_selected": 4}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 15, "attempts": 1}], []]
+17:07:14  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=0291f97b-9a52-509b-ab94-84927b9ac758 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 113, "READY": 17}, {"total": 16, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 16, "attempts": 1}], []]
+17:07:15  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 113, "READY": 17}, {"total": 17, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 17, "attempts": 1}], []]
+17:07:17  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=74ed7af1-0dc6-5293-8255-462a4c995ea9 parser=original cached=False chunks=1 events=0 tokens=0
+17:07:18  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 112, "READY": 18}, {"total": 18, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 18, "attempts": 1}], []]
+17:07:20  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=803d308e-42a7-5219-b72a-9d449d6ec4f9 parser=original cached=False chunks=1 events=0 tokens=0
+17:07:21  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 111, "READY": 19}, {"total": 18, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 18, "attempts": 1}], []]
+17:07:23  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=b70e33f1-f420-56b9-a2f1-07cb1f20de16 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 110, "READY": 20}, {"total": 19, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 19, "attempts": 1}], []]
+17:07:25  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:07:27  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=67bcf9ff-1f38-5846-a072-d844f40e3846 parser=original cached=False chunks=1 events=0 tokens=0
+17:07:28  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 109, "READY": 21}, {"total": 20, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 20, "attempts": 1}], []]
+17:07:30  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=07e49486-6208-5dce-8a28-35dc5c95e4fd parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 108, "READY": 22}, {"total": 21, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 21, "attempts": 1}], []]
+17:07:31  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 108, "READY": 22}, {"total": 22, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 22, "attempts": 1}], []]
+17:07:33  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=aac64bbd-8a0e-5256-8ec6-26ebc26833d9 parser=original cached=False chunks=1 events=0 tokens=0
+17:07:34  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 107, "READY": 23}, {"total": 22, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 22, "attempts": 1}], []]
+Pipeline: [{"PENDING": 107, "READY": 23}, {"total": 23, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 23, "attempts": 1}], []]
+17:07:37  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=f4816520-a5bb-5a4a-beda-0ba3d017ff49 parser=original cached=False chunks=1 events=0 tokens=0
+17:07:37  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 106, "READY": 24}, {"total": 24, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 24, "attempts": 1}], []]
+17:07:39  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=f4fb8d70-08e8-5464-87e1-ec1e858d3d63 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 105, "READY": 25}, {"total": 24, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 24, "attempts": 1}], []]
+17:07:42  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 105, "READY": 25}, {"total": 25, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 25, "attempts": 1}], []]
+17:07:43  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:07:44  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=ba94ac1a-4d3c-5ffa-b03e-36c088dd27b1 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 104, "READY": 26}, {"total": 26, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 26, "attempts": 1}], []]
+17:07:45  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=738ff55a-0a94-5d88-a4ea-502ff83967fb parser=original cached=False chunks=1 events=0 tokens=0
+17:07:46  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 103, "READY": 27}, {"total": 26, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 26, "attempts": 1}], []]
+17:07:48  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=541acb8e-84b6-57c2-8323-b8ca04e4ea26 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 102, "READY": 28}, {"total": 27, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 27, "attempts": 1}], []]
+17:07:49  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 102, "READY": 28}, {"total": 27, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 27, "attempts": 1}], []]
+17:07:52  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=3ed9f080-2d3b-501c-ac80-20cb4b13e34c parser=original cached=False chunks=1 events=0 tokens=0
+17:07:53  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 101, "READY": 29}, {"total": 29, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 29, "attempts": 1}], []]
+17:07:55  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=544600a4-11aa-5258-a120-d59973387c0f parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 100, "READY": 30}, {"total": 29, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 29, "attempts": 1}], []]
+17:07:56  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 100, "READY": 30}, {"total": 30, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 30, "attempts": 1}], []]
+17:07:58  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=e7365312-fda3-52c3-a0d5-09bcbe1b3f80 parser=original cached=False chunks=1 events=0 tokens=0
+17:07:59  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 99, "READY": 31}, {"total": 30, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 30, "attempts": 1}], []]
+17:08:01  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=a3663682-6738-55c1-a2e5-be8eb92a61ee parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 98, "READY": 32}, {"total": 31, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 31, "attempts": 1}], []]
+17:08:02  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 98, "READY": 32}, {"total": 32, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 32, "attempts": 1}], []]
+17:08:04  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=27595008-4c09-5348-9923-c9ddc03973ce parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 97, "READY": 33}, {"total": 32, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 32, "attempts": 1}], []]
+17:08:05  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 97, "READY": 33}, {"total": 33, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 33, "attempts": 1}], []]
+17:08:07  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=4e21a1d8-40c6-57f8-85cd-b9bd92dbb128 parser=original cached=False chunks=1 events=0 tokens=0
+17:08:08  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 96, "READY": 34}, {"total": 33, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 33, "attempts": 1}], []]
+17:08:10  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=cd0baf1d-0ecb-5b86-a01f-7547d987fd13 parser=original cached=False chunks=1 events=0 tokens=0
+17:08:11  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 95, "READY": 35}, {"total": 35, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 35, "attempts": 1}], []]
+17:08:13  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=9fc5dcf1-1ab4-5bcd-b47a-acabe3bb613c parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 94, "READY": 36}, {"total": 35, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 35, "attempts": 1}], []]
+17:08:14  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 94, "READY": 36}, {"total": 36, "e2_selected": 6}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 36, "attempts": 1}], []]
+17:08:16  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=75b37c08-a8ce-5a77-bab9-0d14d92e6556 parser=original cached=False chunks=1 events=0 tokens=0
+17:08:17  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 93, "READY": 37}, {"total": 37, "e2_selected": 6}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 37, "attempts": 1}], []]
+17:08:19  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=096e6e16-7fbe-5727-bc7b-ea6706621750 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 92, "READY": 38}, {"total": 37, "e2_selected": 6}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 37, "attempts": 1}], []]
+17:08:20  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 92, "READY": 38}, {"total": 38, "e2_selected": 6}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 38, "attempts": 1}], []]
+17:08:22  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=460db341-5c0f-5f63-b46b-dfd0fb287ab9 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 91, "READY": 39}, {"total": 39, "e2_selected": 7}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 39, "attempts": 1}], []]
+17:08:24  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:08:26  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=100a4f06-34d6-57e0-aca3-8471d1613f92 parser=original cached=False chunks=1 events=0 tokens=0
+17:08:26  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 90, "READY": 40}, {"total": 39, "e2_selected": 7}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 39, "attempts": 1}], []]
+17:08:28  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=d9406f6d-a884-5ea2-bded-5152d2cbddf9 parser=original cached=False chunks=1 events=0 tokens=0
+17:08:29  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 89, "READY": 41}, {"total": 40, "e2_selected": 7}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 40, "attempts": 1}], []]
+17:08:31  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=6f1b99e5-a2fb-5c14-bcc6-c8cfaa752e12 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 88, "READY": 42}, {"total": 41, "e2_selected": 7}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 41, "attempts": 1}], []]
+17:08:32  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 88, "READY": 42}, {"total": 41, "e2_selected": 7}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 41, "attempts": 1}], []]
+17:08:34  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=64736369-29ab-5b2c-96ca-5407597f7114 parser=original cached=False chunks=1 events=0 tokens=0
+17:08:35  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 87, "READY": 43}, {"total": 42, "e2_selected": 8}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 42, "attempts": 1}], []]
+17:08:37  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=9058e7b0-efe2-5711-87c5-6c5cfe9cd22f parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 86, "READY": 44}, {"total": 42, "e2_selected": 8}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 2, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 42, "attempts": 1}], []]
+17:08:38  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 86, "READY": 44}, {"total": 44, "e2_selected": 8}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 44, "attempts": 1}], []]
+17:08:40  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=fb4f6490-02be-5fc1-9d86-4fd224fb8534 parser=original cached=False chunks=1 events=0 tokens=0
+17:08:40  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 85, "READY": 45}, {"total": 44, "e2_selected": 8}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 44, "attempts": 1}], []]
+17:08:42  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=15059c20-6dee-5e1d-82d8-301b028aeccb parser=original cached=False chunks=1 events=0 tokens=0
+17:08:43  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 84, "READY": 46}, {"total": 45, "e2_selected": 8}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 45, "attempts": 1}], []]
+17:08:45  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=dc3d960c-74ab-5f39-8f3e-644228983102 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 83, "READY": 47}, {"total": 45, "e2_selected": 8}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 2, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 45, "attempts": 1}], []]
+17:08:46  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 83, "READY": 47}, {"total": 47, "e2_selected": 8}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 47, "attempts": 1}], []]
+17:08:48  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=28f815ef-40fc-5562-8138-fd76b0804656 parser=original cached=False chunks=1 events=0 tokens=0
+17:08:49  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 82, "READY": 48}, {"total": 47, "e2_selected": 8}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 47, "attempts": 1}], []]
+17:08:50  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=82a13899-afc4-537b-ad8c-6ab708ab6f5a parser=original cached=False chunks=1 events=0 tokens=0
+17:08:51  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 81, "READY": 49}, {"total": 48, "e2_selected": 8}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 48, "attempts": 1}], []]
+17:08:53  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=ca714660-0ff8-52ef-8096-7d6b4e9c60e0 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 80, "READY": 50}, {"total": 48, "e2_selected": 8}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 2, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 48, "attempts": 1}], []]
+17:08:54  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 80, "READY": 50}, {"total": 50, "e2_selected": 8}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 50, "attempts": 1}], []]
+17:08:56  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=54cd7510-dce0-553f-83db-9e3034a71305 parser=original cached=False chunks=1 events=0 tokens=0
+17:08:57  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 79, "READY": 51}, {"total": 51, "e2_selected": 9}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 51, "attempts": 1}], []]
+17:08:59  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=33d488fd-8748-5ee7-b690-a8fed36998a2 parser=original cached=False chunks=1 events=0 tokens=0
+17:09:00  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 78, "READY": 52}, {"total": 51, "e2_selected": 9}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 51, "attempts": 1}], []]
+17:09:02  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=25e1aa43-d2dc-53e3-a6db-2d84c01a6ecf parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 77, "READY": 53}, {"total": 53, "e2_selected": 9}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 53, "attempts": 1}], []]
+17:09:02  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:09:04  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=83848784-db84-5b30-b33e-0e665d5496c0 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 76, "READY": 54}, {"total": 54, "e2_selected": 9}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 54, "attempts": 1}], []]
+17:09:06  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:09:08  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:09:08  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=9ca06b21-f575-57c1-abe4-2d4ecabc4e61 parser=original cached=False chunks=1 events=0 tokens=0
+17:09:10  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=487a0462-1aec-5c8f-bcbd-cbc6dd16ddb0 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 74, "READY": 56}, {"total": 55, "e2_selected": 9}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 55, "attempts": 1}], []]
+17:09:11  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 74, "READY": 56}, {"total": 56, "e2_selected": 9}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 56, "attempts": 1}], []]
+17:09:13  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=7b311e2f-b4df-5fbc-acba-e1f6f910daeb parser=original cached=False chunks=1 events=0 tokens=0
+17:09:13  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 73, "READY": 57}, {"total": 56, "e2_selected": 9}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 56, "attempts": 1}], []]
+17:09:15  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=1c1927e4-dd72-5fe5-aec7-556701cd5f8d parser=original cached=False chunks=1 events=0 tokens=0
+17:09:16  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 72, "READY": 58}, {"total": 58, "e2_selected": 11}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 58, "attempts": 1}], []]
+17:09:18  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=e9d92178-32de-5d62-8ef2-ef7c927349f0 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 71, "READY": 59}, {"total": 58, "e2_selected": 11}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 58, "attempts": 1}], []]
+17:09:19  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 71, "READY": 59}, {"total": 59, "e2_selected": 12}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 59, "attempts": 1}], []]
+17:09:20  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=7afcca61-91d8-5344-99a2-b4898c5e516d parser=original cached=False chunks=1 events=0 tokens=0
+17:09:21  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 70, "READY": 60}, {"total": 59, "e2_selected": 12}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 59, "attempts": 1}], []]
+17:09:23  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=4e68c757-cd6d-5d08-8b83-a578e468c4c4 parser=original cached=False chunks=1 events=0 tokens=0
+17:09:24  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 69, "READY": 61}, {"total": 64, "e2_selected": 15}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 61, "attempts": 1}], []]
+17:09:26  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=1f0d4f94-db3d-577d-a811-e0175592efad parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 68, "READY": 62}, {"total": 64, "e2_selected": 15}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 61, "attempts": 1}], []]
+17:09:27  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 68, "READY": 62}, {"total": 66, "e2_selected": 15}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 62, "attempts": 1}], []]
+17:09:29  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=6065ab71-0276-50a8-9556-a82185662350 parser=original cached=False chunks=1 events=0 tokens=0
+17:09:30  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 67, "READY": 63}, {"total": 70, "e2_selected": 15}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 63, "attempts": 1}], []]
+17:09:32  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=ecb9f5a0-1e5f-54bd-bdd3-d0f826b77df0 parser=original cached=False chunks=1 events=0 tokens=0
+17:09:32  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 66, "READY": 64}, {"total": 70, "e2_selected": 15}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 63, "attempts": 1}], []]
+17:09:34  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=9e1e1da6-1a64-54c3-8bd7-70b6681bb2a7 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 65, "READY": 65}, {"total": 73, "e2_selected": 15}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 64, "attempts": 1}], []]
+17:09:35  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 65, "READY": 65}, {"total": 75, "e2_selected": 15}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 65, "attempts": 1}], []]
+17:09:37  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=aba3c0c3-6316-53a3-b159-b9b1377c3f52 parser=original cached=False chunks=1 events=0 tokens=0
+17:09:38  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 64, "READY": 66}, {"total": 75, "e2_selected": 15}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 65, "attempts": 1}], []]
+17:09:40  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=986bedaf-a290-590b-a2d3-b5f6fed45899 parser=original cached=False chunks=1 events=0 tokens=0
+17:09:40  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 63, "READY": 67}, {"total": 80, "e2_selected": 17}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 67, "attempts": 1}], []]
+17:09:42  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=47e65fa7-3c11-5917-b418-9858827252f6 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 62, "READY": 68}, {"total": 80, "e2_selected": 17}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 67, "attempts": 1}], []]
+17:09:43  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 62, "READY": 68}, {"total": 84, "e2_selected": 20}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 68, "attempts": 1}], []]
+17:09:46  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:09:46  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=f29df6d8-9871-5434-983d-6bdf1a703798 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 61, "READY": 69}, {"total": 84, "e2_selected": 20}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 68, "attempts": 1}], []]
+17:09:48  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=5ee00c35-c013-510a-a3ed-32886ef33c72 parser=original cached=False chunks=1 events=0 tokens=0
+17:09:49  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 60, "READY": 70}, {"total": 93, "e2_selected": 24}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 70, "attempts": 1}], []]
+17:09:51  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=ddbfcc68-6cb2-57cb-80b8-b0caf9fce7f5 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 59, "READY": 71}, {"total": 93, "e2_selected": 24}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 70, "attempts": 1}], []]
+17:09:51  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 59, "READY": 71}, {"total": 98, "e2_selected": 27}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 71, "attempts": 1}], []]
+17:09:53  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=08c16980-0171-5ec5-a2f0-68db2dcc5261 parser=original cached=False chunks=1 events=0 tokens=0
+17:09:54  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 58, "READY": 72}, {"total": 100, "e2_selected": 27}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 72, "attempts": 1}], []]
+17:09:56  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=849f3399-78c8-56f5-b27c-41978be56f9b parser=original cached=False chunks=1 events=0 tokens=0
+17:09:57  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 57, "READY": 73}, {"total": 100, "e2_selected": 27}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 72, "attempts": 1}], []]
+17:09:59  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=6d97178a-078e-5392-90ce-2011032a7b40 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 56, "READY": 74}, {"total": 102, "e2_selected": 27}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 73, "attempts": 1}], []]
+17:10:00  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 56, "READY": 74}, {"total": 104, "e2_selected": 27}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 74, "attempts": 1}], []]
+17:10:02  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=9f84debb-5e22-507e-87e3-748f75d0ec6a parser=original cached=False chunks=1 events=0 tokens=0
+17:10:02  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 55, "READY": 75}, {"total": 104, "e2_selected": 27}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 74, "attempts": 1}], []]
+17:10:04  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=0bd7bf3a-b4ec-5f87-b7c5-dd76afa0c74b parser=original cached=False chunks=1 events=0 tokens=0
+17:10:05  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 54, "READY": 76}, {"total": 109, "e2_selected": 27}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 76, "attempts": 1}], []]
+17:10:07  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=625bef57-893d-5e14-80ec-ce9b3cb49c50 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 53, "READY": 77}, {"total": 109, "e2_selected": 27}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 76, "attempts": 1}], []]
+17:10:08  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 53, "READY": 77}, {"total": 111, "e2_selected": 28}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 77, "attempts": 1}], []]
+17:10:10  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=0e455480-a692-5f1a-8f91-eb065e44c924 parser=original cached=False chunks=1 events=0 tokens=0
+17:10:11  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 52, "READY": 78}, {"total": 111, "e2_selected": 28}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 77, "attempts": 1}], []]
+17:10:12  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=0604117a-d104-5556-80e2-d253308d0109 parser=original cached=False chunks=1 events=0 tokens=0
+17:10:13  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 51, "READY": 79}, {"total": 115, "e2_selected": 28}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 79, "attempts": 1}], []]
+17:10:15  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=6c9431f1-4538-580e-8e04-e4edade4f18d parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 50, "READY": 80}, {"total": 115, "e2_selected": 28}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 79, "attempts": 1}], []]
+17:10:16  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 50, "READY": 80}, {"total": 117, "e2_selected": 28}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 80, "attempts": 1}], []]
+17:10:18  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=8e777cb5-cbfa-568b-97ea-6ae6f96b1a93 parser=original cached=False chunks=1 events=0 tokens=0
+17:10:19  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 49, "READY": 81}, {"total": 119, "e2_selected": 28}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 81, "attempts": 1}], []]
+17:10:21  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=07dcae41-b23f-569d-a2d1-0404c1cff674 parser=original cached=False chunks=1 events=0 tokens=0
+17:10:21  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"READY": 82, "PENDING": 48}, {"total": 119, "e2_selected": 28}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 81, "attempts": 1}], []]
+17:10:23  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=d34121da-ae1a-5988-a46b-332b40881a1b parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"READY": 83, "PENDING": 47}, {"total": 121, "e2_selected": 29}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 82, "attempts": 1}], []]
+17:10:24  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"READY": 83, "PENDING": 47}, {"total": 125, "e2_selected": 29}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 83, "attempts": 1}], []]
+17:10:27  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=2d23088a-a165-5535-8d02-8921400a7487 parser=original cached=False chunks=2 events=0 tokens=0
+17:10:27  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"READY": 84, "PENDING": 46}, {"total": 125, "e2_selected": 29}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 83, "attempts": 1}], []]
+17:10:29  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=1be9c1ad-8ed6-5dc7-97e4-584374a61573 parser=original cached=False chunks=2 events=0 tokens=0
+17:10:29  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"READY": 85, "PENDING": 45}, {"total": 144, "e2_selected": 30}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 85, "attempts": 1}], []]
+17:10:31  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=94161a5c-188d-5658-97f3-a2431475f827 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 44, "READY": 86}, {"total": 144, "e2_selected": 30}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 85, "attempts": 1}], []]
+17:10:32  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 44, "READY": 86}, {"total": 149, "e2_selected": 31}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 86, "attempts": 1}], []]
+17:10:34  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=43fdc73e-6576-5a02-a674-aa78466f0f14 parser=original cached=False chunks=2 events=0 tokens=0
+17:10:35  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 43, "READY": 87}, {"total": 149, "e2_selected": 31}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 86, "attempts": 1}], []]
+17:10:37  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=c9c48f67-d92e-5672-b2c3-48e9298f657e parser=original cached=False chunks=1 events=0 tokens=0
+17:10:38  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 42, "READY": 88}, {"total": 161, "e2_selected": 32}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 88, "attempts": 1}], []]
+17:10:40  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=47789de1-3bbe-509f-928f-fafb78afec36 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 41, "READY": 89}, {"total": 161, "e2_selected": 32}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 88, "attempts": 1}], []]
+17:10:41  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 41, "READY": 89}, {"total": 163, "e2_selected": 32}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 89, "attempts": 1}], []]
+17:10:43  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=83d71e0a-7562-52db-88fe-04b4968bab63 parser=original cached=False chunks=2 events=0 tokens=0
+17:10:43  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 40, "READY": 90}, {"total": 170, "e2_selected": 32}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 90, "attempts": 1}], []]
+17:10:45  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=a9dfd10a-59ac-59c5-a0bc-d0ea84d5ebd2 parser=original cached=False chunks=1 events=0 tokens=0
+17:10:46  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 39, "READY": 91}, {"total": 170, "e2_selected": 32}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 90, "attempts": 1}], []]
+17:10:48  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=96fc0d9a-eda0-504c-a350-ed5131f141d2 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 38, "READY": 92}, {"total": 175, "e2_selected": 32}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 91, "attempts": 1}], []]
+17:10:49  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:10:51  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=8290af49-f2ad-5fce-b788-3d551f4ae5a0 parser=original cached=False chunks=1 events=0 tokens=0
+17:10:51  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 37, "READY": 93}, {"total": 183, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 93, "attempts": 1}], []]
+17:10:53  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=55a36da9-33b4-5564-a816-31d9265ee462 parser=original cached=False chunks=1 events=0 tokens=0
+17:10:54  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 36, "READY": 94}, {"total": 183, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 93, "attempts": 1}], []]
+17:10:56  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=e361800b-122e-5eb2-a9f2-a2982363b552 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 35, "READY": 95}, {"total": 185, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 94, "attempts": 1}], []]
+17:10:57  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 35, "READY": 95}, {"total": 191, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 95, "attempts": 1}], []]
+17:10:59  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=00d6f2bc-f340-5bd1-b56d-d425cbc9a812 parser=original cached=False chunks=1 events=0 tokens=0
+17:10:59  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 34, "READY": 96}, {"total": 191, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 95, "attempts": 1}], []]
+17:11:01  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=2a237cc5-1cc3-5d8b-8aac-941db0dc2d0d parser=original cached=False chunks=1 events=0 tokens=0
+17:11:02  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 33, "READY": 97}, {"total": 200, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 96, "attempts": 1}], []]
+17:11:05  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:11:05  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=aaef4f88-7501-5e22-8d27-0989dba4899b parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 32, "READY": 98}, {"total": 211, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 98, "attempts": 1}], []]
+17:11:08  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:11:08  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=4489dcc7-9d1a-51ea-8849-0fd710b6ecf0 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 31, "READY": 99}, {"total": 211, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 98, "attempts": 1}], []]
+17:11:10  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=77db290a-0e69-5d86-b2bc-b05f4ad2610d parser=original cached=False chunks=1 events=0 tokens=0
+17:11:10  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 30, "READY": 100}, {"total": 215, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 99, "attempts": 1}], []]
+17:11:12  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=55a0e0de-408f-58ee-94a3-ee36c924559e parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 29, "READY": 101}, {"total": 218, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 100, "attempts": 1}], []]
+17:11:13  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 29, "READY": 101}, {"total": 220, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 101, "attempts": 1}], []]
+17:11:15  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=45eeac52-7542-5892-90f0-2af8b0ba81e5 parser=original cached=False chunks=1 events=0 tokens=0
+17:11:16  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 28, "READY": 102}, {"total": 220, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 101, "attempts": 1}], []]
+17:11:18  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=ec9b2157-04a9-5ddd-b3a6-ad709badcf38 parser=original cached=False chunks=1 events=0 tokens=0
+17:11:18  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 27, "READY": 103}, {"total": 225, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 102, "attempts": 1}], []]
+17:11:20  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=e2267675-0546-526c-ba54-ac252c02cd0e parser=original cached=False chunks=1 events=0 tokens=0
+17:11:21  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 26, "READY": 104}, {"total": 225, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 102, "attempts": 1}], []]
+Pipeline: [{"PENDING": 26, "READY": 104}, {"total": 232, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 104, "attempts": 1}], []]
+17:11:23  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=a4de0174-ff29-5285-b568-69aa58adaa84 parser=original cached=False chunks=2 events=0 tokens=0
+17:11:24  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 25, "READY": 105}, {"total": 232, "e2_selected": 34}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 104, "attempts": 1}], []]
+17:11:26  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=2535381a-5abf-5824-8733-45e4c5015276 parser=original cached=False chunks=1 events=0 tokens=0
+17:11:26  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 24, "READY": 106}, {"total": 237, "e2_selected": 35}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 105, "attempts": 1}], []]
+17:11:29  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=6b2e5c3a-d8f6-547c-bfb6-9ca32ff6e201 parser=original cached=False chunks=1 events=0 tokens=0
+17:11:29  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 23, "READY": 107}, {"total": 237, "e2_selected": 35}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 105, "attempts": 1}], []]
+17:11:31  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=843cc85a-ded4-5d31-9ad7-76165b79394a parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 22, "READY": 108}, {"total": 243, "e2_selected": 35}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 107, "attempts": 1}], []]
+17:11:32  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:11:34  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=a8b2bd24-5635-5a04-ae00-8bebe61203c4 parser=original cached=False chunks=1 events=0 tokens=0
+17:11:35  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 21, "READY": 109}, {"total": 250, "e2_selected": 35}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 108, "attempts": 1}], []]
+17:11:37  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:11:37  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=4cf96215-9bc5-55ed-8123-4f348efe2e83 parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"PENDING": 20, "READY": 110}, {"total": 252, "e2_selected": 35}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 109, "attempts": 1}], []]
+17:11:39  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=12fcfaef-a3e8-5688-9af1-aa883664d828 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 19, "READY": 111}, {"total": 259, "e2_selected": 38}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 110, "attempts": 1}], []]
+17:11:40  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 19, "READY": 111}, {"total": 259, "e2_selected": 38}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 110, "attempts": 1}], []]
+17:11:42  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=3838a485-33c9-5d9e-9c30-e431bebfbe19 parser=original cached=False chunks=1 events=0 tokens=0
+17:11:43  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 18, "READY": 112}, {"total": 262, "e2_selected": 39}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 111, "attempts": 1}], []]
+17:11:45  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=74d55882-eadd-5d05-a7e6-d9dc05daf63d parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 17, "READY": 113}, {"total": 264, "e2_selected": 40}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 112, "attempts": 1}], []]
+17:11:46  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 17, "READY": 113}, {"total": 266, "e2_selected": 41}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 113, "attempts": 1}], []]
+17:11:48  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=fdf2d6fa-f8ae-59a6-811e-f8cedef9b438 parser=original cached=False chunks=4 events=0 tokens=0
+17:11:49  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 16, "READY": 114}, {"total": 266, "e2_selected": 41}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 113, "attempts": 1}], []]
+Pipeline: [{"PENDING": 16, "READY": 114}, {"total": 287, "e2_selected": 42}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 114, "attempts": 1}], []]
+17:11:52  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:11:53  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=e46af477-6729-5bd3-937f-79bb0d9a8509 parser=original cached=False chunks=7 events=0 tokens=0
+Pipeline: [{"PENDING": 15, "READY": 115}, {"total": 302, "e2_selected": 45}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 115, "attempts": 1}], []]
+17:11:54  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:11:55  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=dd6be2be-445d-50ea-a8e3-c273c81ea34c parser=original cached=False chunks=8 events=0 tokens=0
+Pipeline: [{"PENDING": 14, "READY": 116}, {"total": 302, "e2_selected": 45}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 115, "attempts": 1}], []]
+17:11:56  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=563407eb-0385-5d70-bc81-8e893af59aff parser=original cached=False chunks=1 events=0 tokens=0
+17:11:57  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 13, "READY": 117}, {"total": 321, "e2_selected": 49}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 117, "attempts": 1}], []]
+17:12:00  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:12:00  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=88425f8f-66a6-5172-a2ab-17046a0bc3c9 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 12, "READY": 118}, {"total": 321, "e2_selected": 49}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 117, "attempts": 1}], []]
+17:12:02  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=c3b699ba-c97c-53df-870d-5476fa279085 parser=original cached=False chunks=1 events=0 tokens=0
+17:12:02  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 11, "READY": 119}, {"total": 328, "e2_selected": 50}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 119, "attempts": 1}], []]
+17:12:04  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=2e8d493c-599e-5ee3-a191-d02e32eaf073 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 10, "READY": 120}, {"total": 328, "e2_selected": 50}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 119, "attempts": 1}], []]
+17:12:05  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 10, "READY": 120}, {"total": 333, "e2_selected": 50}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 120, "attempts": 1}], []]
+17:12:07  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=3a950a54-0a44-537f-88d6-e0b7bb70ca75 parser=original cached=False chunks=1 events=0 tokens=0
+17:12:08  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 9, "READY": 121}, {"total": 335, "e2_selected": 51}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 121, "attempts": 1}], []]
+17:12:10  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=c257adeb-23b7-5dfc-a5e1-379ece803f91 parser=original cached=False chunks=1 events=0 tokens=0
+17:12:10  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 8, "READY": 122}, {"total": 335, "e2_selected": 51}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 121, "attempts": 1}], []]
+17:12:12  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=8514d4ff-800d-5efb-8587-452145deee2c parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 7, "READY": 123}, {"total": 337, "e2_selected": 52}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 122, "attempts": 1}], []]
+17:12:14  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:12:16  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=ca29cba2-5e08-51d8-b463-1ba96eb5bf20 parser=original cached=False chunks=1 events=0 tokens=0
+17:12:16  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 6, "READY": 124}, {"total": 347, "e2_selected": 52}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 124, "attempts": 1}], []]
+17:12:18  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=bad3cba3-8971-5e7d-917d-b2752515b643 parser=original cached=False chunks=1 events=0 tokens=0
+17:12:19  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 5, "READY": 125}, {"total": 347, "e2_selected": 52}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 124, "attempts": 1}], []]
+17:12:21  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=8806ac98-086b-59c5-bbe1-01f81e69f953 parser=original cached=False chunks=1 events=0 tokens=0
+17:12:21  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 4, "READY": 126}, {"total": 351, "e2_selected": 55}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 125, "attempts": 1}], []]
+17:12:23  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=c4bf64f8-3e4f-5abf-86da-c5902b12692c parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 3, "READY": 127}, {"total": 353, "e2_selected": 56}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 126, "attempts": 1}], []]
+17:12:24  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+17:12:26  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=e077ef8d-1004-50c2-8b0e-394dce2cedc3 parser=original cached=False chunks=2 events=0 tokens=0
+17:12:27  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 2, "READY": 128}, {"total": 357, "e2_selected": 56}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 127, "attempts": 1}], []]
+17:12:29  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=8a27a563-4cfa-59f2-9e93-742da74e7b3d parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 1, "READY": 129}, {"total": 357, "e2_selected": 56}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 127, "attempts": 1}], []]
+17:12:30  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 1, "READY": 129}, {"total": 366, "e2_selected": 59}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 129, "attempts": 1}], []]
+17:12:32  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=caac0ca2-9cae-54ee-ab83-7e6063f22334 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"READY": 130}, {"total": 366, "e2_selected": 59}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 129, "attempts": 1}], []]
+Pipeline: [{"READY": 130}, {"total": 368, "e2_selected": 59}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 130, "attempts": 1}], []]
+Pipeline: [{"READY": 130}, {"total": 368, "e2_selected": 59}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 130, "attempts": 1}], [{"status": "INACTIVE", "tree_version": "tree-e8d8ab34d61e5dbeb06dc815"}]]
+Pipeline: [{"READY": 130}, {"total": 368, "e2_selected": 59}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 130, "attempts": 1}], [{"status": "ACTIVE", "tree_version": "tree-e8d8ab34d61e5dbeb06dc815"}]]
+17:13:32  INFO     [930ad2d768f14040]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:13:33  DEBUG    [930ad2d768f14040]  zleap.sag.ai.embedding  生成embedding成功
+Asked 1/50 vn_zalo_001: status=answered error=None
+17:14:30  WARNING  [e80510a5a9ef4915]  sag.decision_router  SiliconFlow Decision request failed (HTTP 503)
+17:14:30  INFO     [e80510a5a9ef4915]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:14:31  DEBUG    [e80510a5a9ef4915]  zleap.sag.ai.embedding  生成embedding成功
+Asked 2/50 vn_zalo_002: status=answered error=None
+17:15:01  WARNING  [ec960db397664fa3]  sag.decision_router  SiliconFlow Decision request failed (HTTP 503)
+17:15:01  INFO     [ec960db397664fa3]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:15:02  DEBUG    [ec960db397664fa3]  zleap.sag.ai.embedding  生成embedding成功
+Asked 3/50 vn_zalo_003: status=answered error=None
+17:15:29  WARNING  [08b005b7947d43db]  sag.decision_router  SiliconFlow Decision request failed (HTTP 503)
+17:15:29  INFO     [08b005b7947d43db]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:15:30  DEBUG    [08b005b7947d43db]  zleap.sag.ai.embedding  生成embedding成功
+Asked 4/50 vn_zalo_004: status=answered error=None
+17:17:31  WARNING  [bd9b5239bc0442e5]  sag.decision_router  SiliconFlow Decision request failed (HTTP 503)
+17:17:31  INFO     [bd9b5239bc0442e5]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:17:32  DEBUG    [bd9b5239bc0442e5]  zleap.sag.ai.embedding  生成embedding成功
+Asked 5/50 vn_zalo_005: status=answered error=None
+17:18:17  WARNING  [e9acb60e4f5c46a6]  sag.decision_router  SiliconFlow Decision request failed (ReadTimeout)
+17:18:17  INFO     [e9acb60e4f5c46a6]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:18:18  DEBUG    [e9acb60e4f5c46a6]  zleap.sag.ai.embedding  生成embedding成功
+Asked 6/50 vn_zalo_006: status=answered error=None
+17:18:42  WARNING  [235a1833070745b3]  sag.decision_router  SiliconFlow Decision request failed (ReadTimeout)
+17:18:42  INFO     [235a1833070745b3]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:18:44  DEBUG    [235a1833070745b3]  zleap.sag.ai.embedding  生成embedding成功
+Asked 7/50 vn_zalo_007: status=answered error=None
+17:19:21  WARNING  [61aa93891b124984]  sag.decision_router  SiliconFlow Decision request failed (ReadTimeout)
+17:19:21  INFO     [61aa93891b124984]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:19:22  DEBUG    [61aa93891b124984]  zleap.sag.ai.embedding  生成embedding成功
+Asked 8/50 vn_zalo_008: status=answered error=None
+17:19:35  WARNING  [2dbf5c73af434ccf]  sag.decision_router  SiliconFlow Decision request failed (ReadTimeout)
+17:19:35  INFO     [2dbf5c73af434ccf]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:19:36  DEBUG    [2dbf5c73af434ccf]  zleap.sag.ai.embedding  生成embedding成功
+Asked 9/50 vn_zalo_009: status=answered error=None
+17:19:51  WARNING  [db0b68a69af64c45]  sag.decision_router  SiliconFlow Decision request failed (ReadTimeout)
+17:19:51  INFO     [db0b68a69af64c45]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:19:52  DEBUG    [db0b68a69af64c45]  zleap.sag.ai.embedding  生成embedding成功
+Asked 10/50 vn_zalo_010: status=answered error=None
+17:20:17  WARNING  [4a5b61e7e3204cf0]  sag.decision_router  SiliconFlow Decision request failed (ReadTimeout)
+17:20:17  INFO     [4a5b61e7e3204cf0]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:20:18  DEBUG    [4a5b61e7e3204cf0]  zleap.sag.ai.embedding  生成embedding成功
+Asked 11/50 vn_zalo_011: status=answered error=None
+17:20:58  WARNING  [90263938c6204629]  sag.decision_router  SiliconFlow Decision request failed (ReadTimeout)
+17:20:58  INFO     [90263938c6204629]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:20:59  DEBUG    [90263938c6204629]  zleap.sag.ai.embedding  生成embedding成功
+Asked 12/50 vn_zalo_012: status=answered error=None
+17:21:24  WARNING  [46e92829ba144e17]  sag.decision_router  SiliconFlow Decision request failed (ReadTimeout)
+17:21:24  INFO     [46e92829ba144e17]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:21:25  DEBUG    [46e92829ba144e17]  zleap.sag.ai.embedding  生成embedding成功
+Asked 13/50 vn_zalo_013: status=answered error=None
+17:21:59  INFO     [590902144912426b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:22:00  DEBUG    [590902144912426b]  zleap.sag.ai.embedding  生成embedding成功
+Asked 14/50 vn_zalo_014: status=answered error=None
+17:22:48  INFO     [773099f5845b4ff3]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:22:49  DEBUG    [773099f5845b4ff3]  zleap.sag.ai.embedding  生成embedding成功
+Asked 15/50 vn_zalo_015: status=answered error=None
+17:23:21  INFO     [b61647d6e48b445e]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:23:22  DEBUG    [b61647d6e48b445e]  zleap.sag.ai.embedding  生成embedding成功
+Asked 16/50 vn_zalo_016: status=answered error=None
+17:23:46  INFO     [52262996f93a4ed1]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:23:47  DEBUG    [52262996f93a4ed1]  zleap.sag.ai.embedding  生成embedding成功
+Asked 17/50 vn_zalo_017: status=answered error=None
+17:24:08  INFO     [6d304d68c68349a2]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:24:10  DEBUG    [6d304d68c68349a2]  zleap.sag.ai.embedding  生成embedding成功
+Asked 18/50 vn_zalo_018: status=answered error=None
+17:24:17  INFO     [1250a146fd7f4a24]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:24:18  DEBUG    [1250a146fd7f4a24]  zleap.sag.ai.embedding  生成embedding成功
+Asked 19/50 vn_zalo_019: status=answered error=None
+17:24:46  INFO     [8b5b8310ca714a5c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:24:47  DEBUG    [8b5b8310ca714a5c]  zleap.sag.ai.embedding  生成embedding成功
+Asked 20/50 vn_zalo_020: status=answered error=None
+17:25:15  INFO     [49de56e88082443e]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:25:16  DEBUG    [49de56e88082443e]  zleap.sag.ai.embedding  生成embedding成功
+Asked 21/50 vn_zalo_021: status=answered error=None
+17:25:25  INFO     [f28ba4a047694754]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:25:26  DEBUG    [f28ba4a047694754]  zleap.sag.ai.embedding  生成embedding成功
+17:25:36  ERROR    [-]  asyncio  Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\Python312\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+Asked 22/50 vn_zalo_022: status=answered error=None
+17:25:37  INFO     [0709e72de778466d]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:25:38  DEBUG    [0709e72de778466d]  zleap.sag.ai.embedding  生成embedding成功
+Asked 23/50 vn_zalo_023: status=answered error=None
+17:26:15  INFO     [a750c2744ba54c15]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:26:16  DEBUG    [a750c2744ba54c15]  zleap.sag.ai.embedding  生成embedding成功
+Asked 24/50 vn_zalo_024: status=answered error=None
+17:26:35  INFO     [b2b46a5156e94c91]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:26:36  DEBUG    [b2b46a5156e94c91]  zleap.sag.ai.embedding  生成embedding成功
+Asked 25/50 vn_zalo_025: status=answered error=None
+17:26:53  INFO     [29b28b5c8f3c4c68]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:26:54  DEBUG    [29b28b5c8f3c4c68]  zleap.sag.ai.embedding  生成embedding成功
+Asked 26/50 vn_zalo_026: status=answered error=None
+17:27:09  INFO     [11da738c55b74ffb]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:27:10  DEBUG    [11da738c55b74ffb]  zleap.sag.ai.embedding  生成embedding成功
+Asked 27/50 vn_zalo_027: status=answered error=None
+17:27:40  INFO     [4512c7b647d040a8]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:27:41  DEBUG    [4512c7b647d040a8]  zleap.sag.ai.embedding  生成embedding成功
+Asked 28/50 vn_zalo_028: status=answered error=None
+17:28:06  INFO     [0c5bd424014c4c6d]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:28:07  DEBUG    [0c5bd424014c4c6d]  zleap.sag.ai.embedding  生成embedding成功
+Asked 29/50 vn_zalo_029: status=answered error=None
+17:28:38  INFO     [b631a811a0c44f9b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:28:39  DEBUG    [b631a811a0c44f9b]  zleap.sag.ai.embedding  生成embedding成功
+Asked 30/50 vn_zalo_030: status=answered error=None
+17:29:07  INFO     [3ef5cc2dea1e4c89]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:29:08  DEBUG    [3ef5cc2dea1e4c89]  zleap.sag.ai.embedding  生成embedding成功
+Asked 31/50 vn_hotpot_001: status=answered error=None
+17:29:23  INFO     [6e23c2edf46b4657]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:29:24  DEBUG    [6e23c2edf46b4657]  zleap.sag.ai.embedding  生成embedding成功
+Asked 32/50 vn_hotpot_002: status=answered error=None
+17:29:36  INFO     [39669bcfdd6d40a2]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:29:37  DEBUG    [39669bcfdd6d40a2]  zleap.sag.ai.embedding  生成embedding成功
+Asked 33/50 vn_hotpot_003: status=answered error=None
+17:29:43  INFO     [c0df6927671f4990]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:29:44  DEBUG    [c0df6927671f4990]  zleap.sag.ai.embedding  生成embedding成功
+Asked 34/50 vn_hotpot_004: status=answered error=None
+17:30:06  INFO     [2f01b1ecc57049db]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:30:07  DEBUG    [2f01b1ecc57049db]  zleap.sag.ai.embedding  生成embedding成功
+Asked 35/50 vn_hotpot_005: status=answered error=None
+17:30:22  INFO     [e311a583b51a450f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:30:23  DEBUG    [e311a583b51a450f]  zleap.sag.ai.embedding  生成embedding成功
+Asked 36/50 vn_hotpot_006: status=answered error=None
+17:30:54  INFO     [008c6cb2a1a14152]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:30:55  DEBUG    [008c6cb2a1a14152]  zleap.sag.ai.embedding  生成embedding成功
+Asked 37/50 vn_hotpot_007: status=answered error=None
+17:31:21  INFO     [ed763419444c4b55]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:31:22  DEBUG    [ed763419444c4b55]  zleap.sag.ai.embedding  生成embedding成功
+Asked 38/50 vn_hotpot_008: status=answered error=None
+17:31:45  INFO     [b9b586238c8e4d3b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:31:46  DEBUG    [b9b586238c8e4d3b]  zleap.sag.ai.embedding  生成embedding成功
+Asked 39/50 vn_hotpot_009: status=answered error=None
+17:32:08  INFO     [6e68f096a8e34bfc]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:32:09  DEBUG    [6e68f096a8e34bfc]  zleap.sag.ai.embedding  生成embedding成功
+Asked 40/50 vn_hotpot_010: status=answered error=None
+17:32:43  INFO     [2b25408416de4824]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:32:44  DEBUG    [2b25408416de4824]  zleap.sag.ai.embedding  生成embedding成功
+Asked 41/50 vn_hotpot_011: status=answered error=None
+17:32:56  INFO     [041f865a849e4fc4]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:32:57  DEBUG    [041f865a849e4fc4]  zleap.sag.ai.embedding  生成embedding成功
+Asked 42/50 vn_hotpot_012: status=answered error=None
+17:33:06  INFO     [b40920e552a844ac]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:33:07  DEBUG    [b40920e552a844ac]  zleap.sag.ai.embedding  生成embedding成功
+Asked 43/50 vn_hotpot_013: status=answered error=None
+17:33:16  INFO     [9ca231b55c614c9b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:33:17  DEBUG    [9ca231b55c614c9b]  zleap.sag.ai.embedding  生成embedding成功
+Asked 44/50 vn_hotpot_014: status=answered error=None
+17:33:29  INFO     [33dff7f594d94af9]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:33:30  DEBUG    [33dff7f594d94af9]  zleap.sag.ai.embedding  生成embedding成功
+Asked 45/50 vn_hotpot_015: status=answered error=None
+17:33:42  INFO     [8c900f4c0d314a70]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:33:43  DEBUG    [8c900f4c0d314a70]  zleap.sag.ai.embedding  生成embedding成功
+Asked 46/50 vn_hotpot_016: status=answered error=None
+17:33:55  INFO     [209a781ad7974e6b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:33:56  DEBUG    [209a781ad7974e6b]  zleap.sag.ai.embedding  生成embedding成功
+Asked 47/50 vn_hotpot_017: status=answered error=None
+17:34:09  INFO     [a526def0ad064cd8]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:34:10  DEBUG    [a526def0ad064cd8]  zleap.sag.ai.embedding  生成embedding成功
+Asked 48/50 vn_hotpot_018: status=answered error=None
+17:34:24  INFO     [4a3fc02c3feb4593]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:34:25  DEBUG    [4a3fc02c3feb4593]  zleap.sag.ai.embedding  生成embedding成功
+Asked 49/50 vn_hotpot_019: status=answered error=None
+17:34:41  INFO     [b470796097634b67]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:34:42  DEBUG    [b470796097634b67]  zleap.sag.ai.embedding  生成embedding成功
+Asked 50/50 vn_hotpot_020: status=answered error=None
+Independent judge 1/50: vn_zalo_001
+Independent judge 2/50: vn_zalo_002
+Independent judge 3/50: vn_zalo_003
+Independent judge 4/50: vn_zalo_004
+Independent judge 5/50: vn_zalo_005
+Independent judge 6/50: vn_zalo_006
+Independent judge 7/50: vn_zalo_007
+Independent judge 8/50: vn_zalo_008
+Independent judge 9/50: vn_zalo_009
+Independent judge 10/50: vn_zalo_010
+Independent judge 11/50: vn_zalo_011
+Independent judge 12/50: vn_zalo_012
+Independent judge 13/50: vn_zalo_013
+Independent judge 14/50: vn_zalo_014
+Independent judge 15/50: vn_zalo_015
+Independent judge 16/50: vn_zalo_016
+Independent judge 17/50: vn_zalo_017
+Independent judge 18/50: vn_zalo_018
+Independent judge 19/50: vn_zalo_019
+Independent judge 20/50: vn_zalo_020
+Independent judge 21/50: vn_zalo_021
+Independent judge 22/50: vn_zalo_022
+Independent judge 23/50: vn_zalo_023
+Independent judge 24/50: vn_zalo_024
+Independent judge 25/50: vn_zalo_025
+Independent judge 26/50: vn_zalo_026
+Independent judge 27/50: vn_zalo_027
+Independent judge 28/50: vn_zalo_028
+Independent judge 29/50: vn_zalo_029
+Independent judge 30/50: vn_zalo_030
+Independent judge 31/50: vn_hotpot_001
+Independent judge 32/50: vn_hotpot_002
+Independent judge 33/50: vn_hotpot_003
+Independent judge 34/50: vn_hotpot_004
+Independent judge 35/50: vn_hotpot_005
+Independent judge 36/50: vn_hotpot_006
+Independent judge 37/50: vn_hotpot_007
+Independent judge 38/50: vn_hotpot_008
+Independent judge 39/50: vn_hotpot_009
+Independent judge 40/50: vn_hotpot_010
+Independent judge 41/50: vn_hotpot_011
+Independent judge 42/50: vn_hotpot_012
+Independent judge 43/50: vn_hotpot_013
+Independent judge 44/50: vn_hotpot_014
+Independent judge 45/50: vn_hotpot_015
+Independent judge 46/50: vn_hotpot_016
+Independent judge 47/50: vn_hotpot_017
+Independent judge 48/50: vn_hotpot_018
+Independent judge 49/50: vn_hotpot_019
+Independent judge 50/50: vn_hotpot_020
+17:45:00  INFO     [fcb5355e451a4696]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 1/50 error=None
+17:45:16  INFO     [b2f01b55e71346d7]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 2/50 error=None
+17:45:42  INFO     [d1acf371aee44a5f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 3/50 error=None
+17:46:18  INFO     [ae3195a1f2d24bf1]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 4/50 error=None
+17:47:14  INFO     [c968d457bfe948a3]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 5/50 error=None
+17:47:54  INFO     [c27e179c89544a60]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 6/50 error=None
+17:48:21  INFO     [548b7d48986f441c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 7/50 error=None
+17:48:47  INFO     [5321b17fb12348a3]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 8/50 error=None
+17:49:03  INFO     [e47686f788494408]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 9/50 error=None
+17:49:12  INFO     [66fc54bfb9774e41]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 10/50 error=None
+17:49:21  INFO     [056bebfa038043e9]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 11/50 error=None
+17:49:43  INFO     [0d10dde64ecc45c4]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 12/50 error=None
+17:50:06  INFO     [dd2684e100ea4f47]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 13/50 error=None
+17:50:28  INFO     [37b64333eaa84fce]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 14/50 error=None
+17:50:42  INFO     [26c784afd7d14109]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 15/50 error=None
+17:51:12  INFO     [d865aebdbe954fdc]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 16/50 error=None
+17:51:23  INFO     [adc6f976a82a43cb]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 17/50 error=None
+17:51:29  INFO     [3ea6cc7614174bd9]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 18/50 error=None
+17:51:38  INFO     [2487af1fcaaf451e]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 19/50 error=None
+17:52:05  INFO     [9879ac758acc43cb]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 20/50 error=None
+17:52:23  INFO     [ed66813565ad4d21]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 21/50 error=None
+17:52:48  INFO     [d0e0f73ce8904c2a]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 22/50 error=None
+17:53:05  INFO     [ef3d4c93f0774c80]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 23/50 error=None
+17:53:18  INFO     [ec68038fffde46ce]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 24/50 error=None
+17:53:44  INFO     [b7c09c3d46bb4fb5]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 25/50 error=None
+17:54:04  INFO     [f02b15e0354c4f51]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 26/50 error=None
+17:54:29  INFO     [647bb67badb84655]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 27/50 error=None
+17:54:52  INFO     [6fd32aef69484127]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 28/50 error=None
+17:55:13  INFO     [19c7e95fcd834530]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 29/50 error=None
+17:55:38  INFO     [06f9767d259043eb]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 30/50 error=None
+17:55:49  INFO     [c33aac78d1e04e47]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 31/50 error=None
+17:55:56  INFO     [344b50ecc46d47ae]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 32/50 error=None
+17:56:06  INFO     [89ce21a013d54a00]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 33/50 error=None
+17:56:22  INFO     [ddb30152c10f4b15]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 34/50 error=None
+17:56:37  INFO     [2e2c45a1796c42a4]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 35/50 error=None
+17:56:51  INFO     [994066a1c55345df]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 36/50 error=None
+17:57:05  INFO     [35554e3517464835]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 37/50 error=None
+17:57:13  INFO     [d6248e56392c4bdd]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 38/50 error=None
+17:57:28  INFO     [8158953b6c544de6]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 39/50 error=None
+17:58:05  INFO     [45610d6e81824c2e]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 40/50 error=None
+17:58:16  INFO     [608dfd79b1564c21]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 41/50 error=None
+17:58:33  INFO     [708df1b2b6c343b8]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 42/50 error=None
+17:58:43  INFO     [beb227f0ec524b5f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 43/50 error=None
+17:58:52  INFO     [e701395547484aea]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 44/50 error=None
+17:59:00  INFO     [19688ad4e04c48af]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 45/50 error=None
+17:59:19  INFO     [3493f654e6334892]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 46/50 error=None
+17:59:50  INFO     [35a5fdfb06ba44d5]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 47/50 error=None
+18:00:11  INFO     [08bc81784452470b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 1: 48/50 error=None
+18:00:30  INFO     [7291bf1276304848]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+18:00:38  WARNING  [7291bf1276304848]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Latency replay 1: 49/50 error=None
+18:00:39  INFO     [98932c26f1e2474a]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+18:00:47  WARNING  [98932c26f1e2474a]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Latency replay 1: 50/50 error=None
+18:00:48  INFO     [386dc8dd98ba40cd]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 1/50 error=None
+18:01:33  INFO     [ac2e24e389634ae3]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 2/50 error=None
+18:01:54  INFO     [89f6a2e9b04841bb]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 3/50 error=None
+18:02:27  INFO     [88d3bb471f564485]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 4/50 error=None
+18:03:01  INFO     [8f93b97fe6c247b2]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 5/50 error=None
+18:03:39  INFO     [4892bce9e61741f2]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 6/50 error=None
+18:04:01  INFO     [3be7c0ab6e764b7d]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 7/50 error=None
+18:04:23  INFO     [c528eb401a154e5c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 8/50 error=None
+18:04:52  INFO     [a59bb7ab5be54806]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 9/50 error=None
+18:05:03  INFO     [379a921188eb4b97]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 10/50 error=None
+18:05:28  INFO     [afb4bcf17a094a4c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 11/50 error=None
+18:05:36  INFO     [e0e2471503424c17]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 12/50 error=None
+18:06:38  INFO     [5ba0deb347594c42]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 13/50 error=None
+18:06:59  INFO     [904d672ed6af4ce3]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 14/50 error=None
+18:07:21  INFO     [793c1816d45941b9]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 15/50 error=None
+18:07:38  INFO     [ae90d871f5fd4c39]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 16/50 error=None
+18:07:46  INFO     [c2ab4cc3a1914cf4]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 17/50 error=None
+18:08:01  INFO     [8110a0f7f58f413b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 18/50 error=None
+18:08:15  INFO     [8d65f582aecf4f8f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 19/50 error=None
+18:08:28  INFO     [12f1f6e08c7b4878]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 20/50 error=None
+18:08:41  INFO     [892cf99e740e4432]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 21/50 error=None
+18:09:09  INFO     [9eb9f69c6d18461c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 22/50 error=None
+18:09:32  INFO     [e8f046d7bb7e4454]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 23/50 error=None
+18:09:58  INFO     [a38190bd4a0a46b1]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 24/50 error=None
+18:10:20  INFO     [5855242a86094469]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 25/50 error=None
+18:11:00  INFO     [45e50e3f6ea84e21]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 26/50 error=None
+18:11:11  INFO     [d893825221fb491b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 27/50 error=None
+18:11:26  INFO     [25c9d5a2f4f64587]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 28/50 error=None
+18:11:38  INFO     [5ecc8910df1f44dc]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 29/50 error=None
+18:11:45  INFO     [57f15d9f53f142f7]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 30/50 error=None
+18:11:58  INFO     [b4d1e411f8cc4cfd]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 31/50 error=None
+18:12:24  INFO     [43ca0ab5c7ef4f4c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 32/50 error=None
+18:12:32  INFO     [1178df1daf9143f6]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 33/50 error=None
+18:12:52  INFO     [a37dff3a1d1a4ed4]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 34/50 error=None
+18:13:06  INFO     [e809917de2a04350]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 35/50 error=None
+18:13:26  INFO     [7a073e84f60d43a2]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 36/50 error=None
+18:13:43  INFO     [ebb09de98a9b4962]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 37/50 error=None
+18:13:54  INFO     [5f393c3e3224421e]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+18:13:54  ERROR    [dd2684e100ea4f47]  asyncio  Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000025763779820>
+Latency replay 2: 38/50 error=None
+18:14:11  INFO     [97fd9e6e48ea441f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 39/50 error=None
+18:14:24  INFO     [c603f3879de94ea0]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 40/50 error=None
+18:14:40  INFO     [6515cc0a9f304738]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+18:14:44  WARNING  [6515cc0a9f304738]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Latency replay 2: 41/50 error=None
+18:14:46  INFO     [2d508fe38aca4e5f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+18:14:50  WARNING  [2d508fe38aca4e5f]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Latency replay 2: 42/50 error=None
+18:14:51  INFO     [25060b9ed32b477b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 43/50 error=None
+18:15:00  INFO     [3fbc82a9b4ea4e23]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 44/50 error=None
+18:15:16  INFO     [83c8aea928134159]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+18:15:21  WARNING  [83c8aea928134159]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Latency replay 2: 45/50 error=None
+18:15:23  INFO     [0fa40b508dac44e2]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+18:15:28  WARNING  [0fa40b508dac44e2]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Latency replay 2: 46/50 error=None
+18:15:29  INFO     [f4e97511a9d34fb5]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+18:15:33  WARNING  [f4e97511a9d34fb5]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Latency replay 2: 47/50 error=None
+18:15:35  INFO     [163679ad8f9b4474]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Latency replay 2: 48/50 error=None
+18:15:54  INFO     [4a4461632d2b4e38]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+18:16:02  WARNING  [4a4461632d2b4e38]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Latency replay 2: 49/50 error=None
+18:16:03  INFO     [376d670e47304389]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+18:16:07  WARNING  [376d670e47304389]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Latency replay 2: 50/50 error=None
+{
+  "documents": 130,
+  "questions": 50,
+  "retrieval": {
+    "5": {
+      "recall": 1.0,
+      "precision": 0.28,
+      "mrr": 0.9866666666666667,
+      "map": 0.9733333333333333,
+      "ndcg": 0.9834830283964857
+    },
+    "10": {
+      "recall": 1.0,
+      "precision": 0.14,
+      "mrr": 0.9866666666666667,
+      "map": 0.9733333333333333,
+      "ndcg": 0.9834830283964857
+    }
+  },
+  "answered": 50,
+  "execution_errors": 0,
+  "retrieval_p50_ms": 4634.27215005504,
+  "qa_p50_ms": 23783.41250005178
+}
+ERROR:    Cancel 0 running task(s), timeout graceful shutdown exceeded
+18:16:13  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager shutting down
+18:16:13  DEBUG    [-]  asyncio  Using proactor: IocpProactor

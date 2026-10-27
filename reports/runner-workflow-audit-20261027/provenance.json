@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-27",
+  "timezone": "Asia/Saigon",
+  "application_code_changed": false,
+  "database_writes": 0,
+  "qdrant_writes": 0,
+  "llm_calls": 0,
+  "git_dataset": "895f012eb0ea7496c9ee20c9be6685fa1857b431",
+  "git_sag": "65f256772a50f82ce64c01e480579c665f288e11",
+  "artifacts_sha256": {
+    "checksum_validation.json": "a4940ec0aa3e26f20ba573c02f1f764eafbaa21557f8653a2993b5b49817c814",
+    "database_comparison.json": "18446b60b896c2393d7677590f3a61bf3ce43a2498763992a9f957256e42f01b",
+    "graph_measurements.json": "398abc2d60469e9eae0f343a04b377cb49e070a12d702c2a0a57e163d29fd440",
+    "graph_profile.txt": "56ca652d355849676503ae6b6cd7afa98659099a8a3628361c73db14f2e3443e",
+    "loop_timeout_reproduction.json": "2da1d456af94ab2d21605b36937303b4ff4e6c5177c9f6c1e7f5ee9048a93932",
+    "old_retrievalci_895f012.py": "26f2f1a8d623e9f13f350052a74226a72c54358f6be3bf466f1156ee7a762af4",
+    "old_vn_mteb_895f012.py": "a4d350c721e95bf74303825cbdeaf47410d95523fbecdc34bdc4cdb760b5b77f",
+    "operational_checks.json": "e70540fccd7603f89490f37e42fdbc487e22e5ff363d3e1d02bb32d10ef457d7",
+    "profile_graph.py": "72ffd9d1720b3434acc4afa3929c00ca7a945ccb9a03f280b51b1f9a5490b56c",
+    "qdrant_read_reproduction.json": "842d05a68b7058118f5bbcad18e4dda7f51ebed5308f924eb74d60eb3792b389",
+    "read_database.py": "edfbe5772c8933c682f665944c73b45fba4303a20f60ed517313d838674bdfd3",
+    "REPORT.md": "32c86146561f71fbf5a317537927416146eec6f909742bad12b051c64c2b4c54",
+    "reproduce_loop_timeouts.py": "b4219fe55afe57e71e3af29a7e524ec96c02742f2b8811c7724b7fe865478cbf",
+    "reproduce_qdrant_read.py": "d4734006eaae6016e87c2add8cd6872bdf91b2d921e6b5872d8348738964e807"
+  }
+}

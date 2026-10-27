@@ -1,0 +1,170 @@
+warning: in the working copy of 'SAG/apps/api/sag_api/core/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/jobs/knowledge.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/jobs/tasks.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/sag/engine_manager.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/evidence_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/search_unit_retrieval_service.py', LF will be replaced by CRLF the next time Git touches it
+RUN_ID=20261027T013334Z-c97950 OWNER=6acc9a5425f02c9d92a01012 PROJECT=378fda811a8c4d60aa257747 SCHEMA=sag
+08:33:39  INFO     [-]  sag.runtime  OCTX 启动恢复完成 {'requeued': 0, 'expired': 0, 'leases_removed': 4, 'gc_scheduled': 0}
+08:33:44  INFO     [-]  sag.jobs  恢复 51 个未完成任务
+08:33:44  INFO     [-]  sag.jobs  任务队列已启动（并发=4）
+08:33:44  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager started
+08:33:44  INFO     [-]  sag.runtime  MCP 端点已就绪 · /mcp/（全库）· 可选 ?source_id=<信源 id>
+08:33:44  INFO     [-]  sag.runtime  sag-api 知识运行时已启动 · env=dev · llm_configured=True · vector=qdrant
+08:33:44  INFO     [-]  sag.sag  构造引擎 source_config_id=__knowledge__
+08:33:44  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_chat
+08:33:44  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_document
+08:33:44  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_parent
+08:33:44  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_recording
+08:33:44  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: rewrite_and_extract_entities
+08:33:44  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_named_entities
+08:33:44  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events
+08:33:44  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events_cot
+08:33:44  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: select_useful_relations_local
+08:33:44  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: image_analysis
+08:33:44  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events_cot_atomic
+08:33:44  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: qwen3_rerank
+08:33:44  INFO     [-]  zleap.sag.prompt.manager  提示词管理器初始化完成
+08:34:25  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_chat
+08:34:25  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_document
+08:34:25  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_parent
+08:34:25  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_recording
+08:34:25  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: rewrite_and_extract_entities
+08:34:25  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_named_entities
+08:34:25  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events
+08:34:25  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events_cot
+08:34:25  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: select_useful_relations_local
+08:34:25  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: image_analysis
+08:34:25  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events_cot_atomic
+08:34:25  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: qwen3_rerank
+08:34:25  INFO     [-]  zleap.sag.prompt.manager  提示词管理器初始化完成
+08:34:29  INFO     [-]  zleap.sag.modules.load.processor  文档处理器初始化完成
+08:34:29  INFO     [-]  zleap.sag.engine  [搜索能力] rerank=False, capabilities=['filtered_knn', 'graph_relation_lookup', 'llm_structured_output', 'vector_knn']
+08:34:29  INFO     [-]  sag.sag  构造引擎 source_config_id=tp_515adc15c8ab5ce57f8e7eb226a71914
+08:34:29  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_chat
+08:34:29  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_document
+08:34:29  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_parent
+08:34:29  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_recording
+08:34:29  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: rewrite_and_extract_entities
+08:34:29  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_named_entities
+08:34:29  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events
+08:34:29  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events_cot
+08:34:29  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: select_useful_relations_local
+08:34:29  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: image_analysis
+08:34:29  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events_cot_atomic
+08:34:29  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: qwen3_rerank
+08:34:29  INFO     [-]  zleap.sag.prompt.manager  提示词管理器初始化完成
+Uploaded 2/2 through SAG upload service
+Pipeline: [{"PENDING": 2}, {"total": 0, "e2_selected": 0}, [], []]
+08:34:32  INFO     [-]  zleap.sag.modules.load.processor  文档处理器初始化完成
+08:34:32  INFO     [-]  zleap.sag.engine  [搜索能力] rerank=False, capabilities=['filtered_knn', 'graph_relation_lookup', 'llm_structured_output', 'vector_knn']
+08:34:33  INFO     [-]  sag.sag  构造引擎 source_config_id=bench-vn_mteb-1ac5962da611
+08:34:33  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_chat
+08:34:33  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_document
+08:34:33  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_parent
+08:34:33  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_recording
+08:34:33  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: rewrite_and_extract_entities
+08:34:33  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_named_entities
+08:34:33  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events
+08:34:33  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events_cot
+08:34:33  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: select_useful_relations_local
+08:34:33  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: image_analysis
+08:34:33  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events_cot_atomic
+08:34:33  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: qwen3_rerank
+08:34:33  INFO     [-]  zleap.sag.prompt.manager  提示词管理器初始化完成
+08:34:34  INFO     [-]  zleap.sag.ai.embedding  Embedding客户端初始化完成
+08:34:34  INFO     [-]  zleap.sag.ai.factory  ✅ 创建Embedding客户端
+08:34:38  INFO     [-]  zleap.sag.modules.load.processor  文档处理器初始化完成
+08:34:38  INFO     [-]  zleap.sag.engine  [搜索能力] rerank=False, capabilities=['filtered_knn', 'graph_relation_lookup', 'llm_structured_output', 'vector_knn']
+08:34:38  INFO     [-]  sag.sag  构造引擎 source_config_id=bench-retrievalci_v0-dea901358d73
+08:34:38  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_chat
+08:34:38  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_document
+08:34:38  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_parent
+08:34:38  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_recording
+08:34:38  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: rewrite_and_extract_entities
+08:34:38  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_named_entities
+08:34:38  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events
+08:34:38  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events_cot
+08:34:38  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: select_useful_relations_local
+08:34:38  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: image_analysis
+08:34:38  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events_cot_atomic
+08:34:38  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: qwen3_rerank
+08:34:38  INFO     [-]  zleap.sag.prompt.manager  提示词管理器初始化完成
+08:34:39  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+08:34:40  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+08:34:40  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+08:34:41  INFO     [-]  zleap.sag.modules.load.processor  文档处理器初始化完成
+08:34:41  INFO     [-]  zleap.sag.engine  [搜索能力] rerank=False, capabilities=['filtered_knn', 'graph_relation_lookup', 'llm_structured_output', 'vector_knn']
+08:34:41  INFO     [-]  sag.sag  构造引擎 source_config_id=cfg-northstar-formal
+08:34:41  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_chat
+08:34:41  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_document
+08:34:41  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_parent
+08:34:41  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_recording
+08:34:41  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: rewrite_and_extract_entities
+08:34:41  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: extract_named_entities
+08:34:41  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events
+08:34:41  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events_cot
+08:34:41  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: select_useful_relations_local
+08:34:41  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: image_analysis
+08:34:41  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: llm_rank_events_cot_atomic
+08:34:41  DEBUG    [-]  zleap.sag.prompt.manager  加载模板: qwen3_rerank
+08:34:41  INFO     [-]  zleap.sag.prompt.manager  提示词管理器初始化完成
+08:34:42  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=b5424e49-5ebf-59ec-a55c-9db34da1ff34 parser=original cached=False chunks=3 events=0 tokens=0
+08:34:42  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+08:34:50  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=f6ef3fd2-e3ca-5b18-ae2a-bfc908f790ce parser=original cached=False chunks=40 events=0 tokens=0
+08:34:50  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=c2d35ed3-610b-50f0-999a-316d79f5a972 parser=original cached=False chunks=38 events=0 tokens=0
+08:34:51  INFO     [-]  zleap.sag.modules.load.processor  文档处理器初始化完成
+08:34:51  INFO     [-]  zleap.sag.engine  [搜索能力] rerank=False, capabilities=['filtered_knn', 'graph_relation_lookup', 'llm_structured_output', 'vector_knn']
+08:34:51  INFO     [-]  sag.runtime  已预热 4 个信源引擎
+08:34:52  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+08:34:55  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=c00be937-dcb5-5708-9bc7-eca9577da008 parser=original cached=False chunks=11 events=0 tokens=0
+08:34:55  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=152431c8-61bc-5835-9a79-f71e61b43d91 parser=original cached=False chunks=3 events=0 tokens=0
+08:35:03  INFO     [-]  zleap.sag.ai.embedding  Embedding客户端初始化完成
+08:35:03  INFO     [-]  zleap.sag.ai.factory  ✅ 创建Embedding客户端
+08:35:21  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+08:35:31  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+08:35:31  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+08:35:31  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+08:35:31  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+08:35:31  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+08:35:32  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=4190cb51-ff11-55d0-b493-4f74501a4892 parser=original cached=False chunks=1 events=0 tokens=0
+08:35:42  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+08:35:43  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=ced797f0-f1e2-5039-9683-f04cbf140270 parser=original cached=False chunks=2 events=0 tokens=0
+08:35:44  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=d9ba31e6-3ca8-5ea1-92a3-a20e4e6cff29 parser=original cached=False chunks=2 events=0 tokens=0
+08:36:56  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+08:36:56  ERROR    [-]  sag.sag.search_index  Could not delete prior points from Qdrant: 
+08:36:56  ERROR    [-]  sag.jobs  Phase 2 pipeline execution failed run_id=49fb7e03-fa1f-41d4-90e9-096a85b41820: Qdrant point cleanup failed:
+08:36:56  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job d595aebe-b919-5c63-9f0e-bd751a06ceb7 failed (TimeoutError)
+08:36:56  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 2fbb13cd-c831-5b94-8515-19814896f5f5 failed (TimeoutError)
+08:36:56  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 01e63aea-dce4-5ac3-8cac-4f884d3349d2 failed (TimeoutError)
+08:36:56  WARNING  [-]  sag.jobs  Xử lý tài liệu thất bại doc=22ac7a49-3579-5d98-a352-3bc17344a69d layer=store stage=persist error=Qdrant point cleanup failed:
+08:36:56  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 49420aa9-27cd-5ed9-8c21-c4b9412c1ef5 failed (TimeoutError)
+08:36:56  WARNING  [-]  sag.jobs  任务失败 job=bc652ccfd82749c081cce05fe0dea80e（尝试 1 次）：Qdrant point cleanup failed:
+08:36:56  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=52d105e0-e2a4-52cf-bd68-4921c682027d parser=original cached=False chunks=3 events=0 tokens=0
+08:38:35  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager shutting down
+Traceback (most recent call last):
+  File "<stdin>", line 22, in main
+  File "D:\DoAnTotnghiep\Dataset\sag_benchmark_runtime.py", line 216, in wait_ready
+    await asyncio.sleep(2)
+  File "C:\Program Files\Python312\Lib\asyncio\tasks.py", line 665, in sleep
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 35, in <module>
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "<stdin>", line 19, in main
+  File "C:\Program Files\Python312\Lib\asyncio\timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError

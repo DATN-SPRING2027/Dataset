@@ -1,0 +1,395 @@
+BENCH_OUTPUT=D:\DoAnTotnghiep\Dataset\reports\retrievalci-fixed-20261027070959
+warning: in the working copy of 'SAG/apps/api/sag_api/core/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/sag/engine_manager.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/evidence_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/knowledge_service.py', LF will be replaced by CRLF the next time Git touches it
+RUN_ID=20261027T071001Z-15e97d OWNER=6acc9a5425f02c9d92a01012 PROJECT=25ea0fd0b8be4081b6ffe9f4 SCHEMA=sag_bench_retrievalci_20261027070959
+14:10:08  INFO     [-]  sag.jobs  任务队列已启动（并发=4）
+14:10:08  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager started
+14:10:08  INFO     [-]  sag.runtime  MCP 端点已就绪 · /mcp/（全库）· 可选 ?source_id=<信源 id>
+14:10:08  INFO     [-]  sag.runtime  sag-api 知识运行时已启动 · env=dev · llm_configured=True · vector=qdrant
+14:10:08  INFO     [-]  zleap.sag.ai.embedding  Embedding客户端初始化完成
+14:10:08  INFO     [-]  zleap.sag.ai.factory  ✅ 创建Embedding客户端
+Uploaded 10/81 through SAG upload service
+Uploaded 20/81 through SAG upload service
+Uploaded 30/81 through SAG upload service
+Uploaded 40/81 through SAG upload service
+Uploaded 50/81 through SAG upload service
+Uploaded 60/81 through SAG upload service
+Uploaded 70/81 through SAG upload service
+Uploaded 80/81 through SAG upload service
+Uploaded 81/81 through SAG upload service
+Pipeline: [{"PENDING": 81}, {"total": 0, "e2_selected": 0}, [], []]
+14:10:22  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=1946b9a7-0b09-507d-ba78-544af657af47 parser=original cached=False chunks=18 events=0 tokens=0
+Pipeline: [{"READY": 1, "PENDING": 80}, {"total": 41, "e2_selected": 2}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 1, "attempts": 1}], []]
+14:10:23  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=caa92a77-4db2-55f7-a76c-2ca370b110a0 parser=original cached=False chunks=22 events=0 tokens=0
+Pipeline: [{"READY": 2, "PENDING": 79}, {"total": 41, "e2_selected": 2}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 1, "attempts": 1}], []]
+14:10:26  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=e4f74ba0-3be8-5432-abd3-fcabf85f8967 parser=original cached=False chunks=37 events=0 tokens=0
+Pipeline: [{"READY": 3, "PENDING": 78}, {"total": 154, "e2_selected": 4}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 2, "attempts": 1}], []]
+14:10:29  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=444bbcbb-7071-587d-998b-704ecc2d2d1c parser=original cached=False chunks=43 events=0 tokens=0
+Pipeline: [{"READY": 4, "PENDING": 77}, {"total": 154, "e2_selected": 4}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 2, "attempts": 1}], []]
+Pipeline: [{"READY": 4, "PENDING": 77}, {"total": 280, "e2_selected": 7}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 3, "attempts": 1}], []]
+14:10:33  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=da3f6215-72d1-551a-9dbc-4450d18ec66b parser=original cached=False chunks=46 events=0 tokens=0
+Pipeline: [{"READY": 5, "PENDING": 76}, {"total": 343, "e2_selected": 30}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 4, "attempts": 1}], []]
+Pipeline: [{"READY": 5, "PENDING": 76}, {"total": 343, "e2_selected": 30}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 4, "attempts": 1}], []]
+14:10:37  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=9b45bcb2-2dca-5ec1-be8f-ad6a30eac47e parser=original cached=False chunks=34 events=0 tokens=0
+Pipeline: [{"READY": 6, "PENDING": 75}, {"total": 462, "e2_selected": 51}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 5, "attempts": 1}], []]
+14:10:39  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=38944942-118a-5577-96fb-1b84b15ea794 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"READY": 7, "PENDING": 74}, {"total": 572, "e2_selected": 54}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 6, "attempts": 1}], []]
+Pipeline: [{"READY": 7, "PENDING": 74}, {"total": 612, "e2_selected": 54}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 7, "attempts": 1}], []]
+14:10:44  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=0803a770-d047-5ad9-90b0-9387082824ec parser=original cached=False chunks=26 events=0 tokens=0
+Pipeline: [{"READY": 8, "PENDING": 73}, {"total": 612, "e2_selected": 54}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 7, "attempts": 1}], []]
+Pipeline: [{"READY": 8, "PENDING": 73}, {"total": 677, "e2_selected": 60}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 8, "attempts": 1}], []]
+14:10:48  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=062d8e99-3f8b-523c-b478-8f80aafa6722 parser=original cached=False chunks=23 events=0 tokens=0
+Pipeline: [{"READY": 9, "PENDING": 72}, {"total": 677, "e2_selected": 60}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 8, "attempts": 1}], []]
+Pipeline: [{"READY": 9, "PENDING": 72}, {"total": 718, "e2_selected": 66}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 9, "attempts": 1}], []]
+14:10:53  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=eaf5035b-800d-5299-bce5-2e521d870eb4 parser=original cached=False chunks=36 events=0 tokens=0
+Pipeline: [{"PENDING": 71, "READY": 10}, {"total": 718, "e2_selected": 66}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 9, "attempts": 1}], []]
+Pipeline: [{"PENDING": 71, "READY": 10}, {"total": 846, "e2_selected": 72}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 10, "attempts": 1}], []]
+14:10:57  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=14e74bb1-d1de-5adb-a9e9-5bd8178f05eb parser=original cached=False chunks=27 events=0 tokens=0
+Pipeline: [{"PENDING": 70, "READY": 11}, {"total": 846, "e2_selected": 72}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 10, "attempts": 1}], []]
+Pipeline: [{"PENDING": 70, "READY": 11}, {"total": 915, "e2_selected": 83}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 11, "attempts": 1}], []]
+14:11:02  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=86526e4b-85b7-5878-b6cc-826e57f51b04 parser=original cached=False chunks=26 events=0 tokens=0
+Pipeline: [{"PENDING": 69, "READY": 12}, {"total": 915, "e2_selected": 83}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 11, "attempts": 1}], []]
+14:11:04  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=163802b8-5f4d-596e-a545-38d786bd2a3c parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 68, "READY": 13}, {"total": 978, "e2_selected": 95}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 12, "attempts": 1}], []]
+Pipeline: [{"PENDING": 68, "READY": 13}, {"total": 1011, "e2_selected": 98}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 13, "attempts": 1}], []]
+14:11:10  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=22014b1a-949b-584c-ab4a-84aa18d4125f parser=original cached=False chunks=19 events=0 tokens=0
+Pipeline: [{"PENDING": 67, "READY": 14}, {"total": 1011, "e2_selected": 98}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 13, "attempts": 1}], []]
+14:11:13  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=36c9ecbc-9ce7-5fed-8b72-632a701e3368 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 66, "READY": 15}, {"total": 1086, "e2_selected": 102}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 14, "attempts": 1}], []]
+Pipeline: [{"PENDING": 66, "READY": 15}, {"total": 1132, "e2_selected": 103}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 15, "attempts": 1}], []]
+14:11:19  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=9b185f3e-e6a1-561c-947c-45957271f87b parser=original cached=False chunks=35 events=0 tokens=0
+Pipeline: [{"PENDING": 65, "READY": 16}, {"total": 1213, "e2_selected": 109}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 16, "attempts": 1}], []]
+14:11:24  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=28546333-6b99-56cc-a85d-b30581356a8a parser=original cached=False chunks=24 events=0 tokens=0
+Pipeline: [{"PENDING": 64, "READY": 17}, {"total": 1213, "e2_selected": 109}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 16, "attempts": 1}], []]
+14:11:27  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=95880e95-025c-5576-9829-18bd04c64232 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 63, "READY": 18}, {"total": 1285, "e2_selected": 110}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 17, "attempts": 1}], []]
+Pipeline: [{"PENDING": 63, "READY": 18}, {"total": 1344, "e2_selected": 117}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 18, "attempts": 1}], []]
+14:11:33  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=8b1000e8-e8e9-5433-ae63-c0c3c832c47e parser=original cached=False chunks=40 events=0 tokens=0
+Pipeline: [{"PENDING": 62, "READY": 19}, {"total": 1344, "e2_selected": 117}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 18, "attempts": 1}], []]
+Pipeline: [{"PENDING": 62, "READY": 19}, {"total": 1417, "e2_selected": 123}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 19, "attempts": 1}], []]
+14:11:37  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=e1c12423-1686-58e4-9896-1aa6cefb6d8b parser=original cached=False chunks=24 events=0 tokens=0
+Pipeline: [{"PENDING": 61, "READY": 20}, {"total": 1417, "e2_selected": 123}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 19, "attempts": 1}], []]
+Pipeline: [{"PENDING": 61, "READY": 20}, {"total": 1471, "e2_selected": 124}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 20, "attempts": 1}], []]
+14:11:42  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=d1e789bf-f014-5604-86e1-76774b383fdb parser=original cached=False chunks=25 events=0 tokens=0
+Pipeline: [{"PENDING": 60, "READY": 21}, {"total": 1471, "e2_selected": 124}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 20, "attempts": 1}], []]
+Pipeline: [{"PENDING": 60, "READY": 21}, {"total": 1533, "e2_selected": 133}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 21, "attempts": 1}], []]
+14:11:47  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=7cb3e806-4fc2-53a1-864e-2d2ed260d0f4 parser=original cached=False chunks=32 events=0 tokens=0
+Pipeline: [{"PENDING": 59, "READY": 22}, {"total": 1533, "e2_selected": 133}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 21, "attempts": 1}], []]
+14:11:50  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=c6f1e299-aab2-5c8c-b6b4-2410ccacadf5 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 58, "READY": 23}, {"total": 1604, "e2_selected": 145}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 22, "attempts": 1}], []]
+Pipeline: [{"PENDING": 58, "READY": 23}, {"total": 1604, "e2_selected": 145}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 22, "attempts": 1}], []]
+Pipeline: [{"PENDING": 58, "READY": 23}, {"total": 1646, "e2_selected": 148}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 23, "attempts": 1}], []]
+14:11:57  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=746cf6a0-c212-5671-8e18-eff2e9990a18 parser=original cached=False chunks=38 events=0 tokens=0
+Pipeline: [{"PENDING": 57, "READY": 24}, {"total": 1646, "e2_selected": 148}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 23, "attempts": 1}], []]
+14:12:00  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=9a43257d-0312-5ace-89be-38b7ee76cc8e parser=original cached=False chunks=4 events=0 tokens=0
+Pipeline: [{"PENDING": 56, "READY": 25}, {"total": 1721, "e2_selected": 158}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 24, "attempts": 1}], []]
+14:12:04  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=877a6bd1-054e-5e31-8ece-56844e7fb308 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 55, "READY": 26}, {"total": 1761, "e2_selected": 165}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 25, "attempts": 1}], []]
+Pipeline: [{"PENDING": 55, "READY": 26}, {"total": 1793, "e2_selected": 170}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 26, "attempts": 1}], []]
+14:12:14  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=17bc675a-89b5-51af-9647-4058805f42df parser=original cached=False chunks=10 events=0 tokens=0
+Pipeline: [{"PENDING": 54, "READY": 27}, {"total": 1793, "e2_selected": 170}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 26, "attempts": 1}], []]
+Pipeline: [{"PENDING": 54, "READY": 27}, {"total": 1944, "e2_selected": 174}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 27, "attempts": 1}], []]
+14:12:20  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=ccd516e9-196a-5127-8515-e174fbdf7b7a parser=original cached=False chunks=11 events=0 tokens=0
+Pipeline: [{"PENDING": 53, "READY": 28}, {"total": 1944, "e2_selected": 174}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 27, "attempts": 1}], []]
+14:12:22  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=517cd6e3-8844-5594-a1ce-7f9587834a39 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 52, "READY": 29}, {"total": 1944, "e2_selected": 174}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 27, "attempts": 1}], []]
+14:12:26  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=5d1b2c24-5b61-588a-9ba3-dd2655a68ef0 parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"PENDING": 51, "READY": 30}, {"total": 2220, "e2_selected": 182}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 29, "attempts": 1}], []]
+14:12:30  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=5f400e57-faed-5e1f-9327-7b8ebe892251 parser=original cached=False chunks=8 events=0 tokens=0
+Pipeline: [{"PENDING": 50, "READY": 31}, {"total": 2234, "e2_selected": 188}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 30, "attempts": 1}], []]
+14:12:34  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=abba6280-bfe4-5600-ba75-b0fa309dde0d parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"PENDING": 49, "READY": 32}, {"total": 2247, "e2_selected": 189}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 31, "attempts": 1}], []]
+14:12:38  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=8113002c-7318-5683-b1dc-4955ece67867 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 48, "READY": 33}, {"total": 2255, "e2_selected": 189}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 32, "attempts": 1}], []]
+14:12:42  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=f552c1ad-25d8-5ad5-bd44-90c5691bf258 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 47, "READY": 34}, {"total": 2257, "e2_selected": 189}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 33, "attempts": 1}], []]
+Pipeline: [{"PENDING": 47, "READY": 34}, {"total": 2259, "e2_selected": 190}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 34, "attempts": 1}], []]
+14:12:46  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=6d626ba1-c61e-59bd-847d-c7dd93ef753a parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 46, "READY": 35}, {"total": 2259, "e2_selected": 190}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 34, "attempts": 1}], []]
+14:12:50  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=f34eae7f-7d3d-54d5-b3ab-60c2042790b0 parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"PENDING": 45, "READY": 36}, {"total": 2261, "e2_selected": 190}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 35, "attempts": 1}], []]
+Pipeline: [{"PENDING": 45, "READY": 36}, {"total": 2283, "e2_selected": 191}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 36, "attempts": 1}], []]
+14:12:54  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=1ed37065-8e7f-54df-b087-81d3d8419a85 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 44, "READY": 37}, {"total": 2283, "e2_selected": 191}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 36, "attempts": 1}], []]
+14:12:58  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=aed10be7-5537-54c2-8db2-8ff316301679 parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"PENDING": 43, "READY": 38}, {"total": 2285, "e2_selected": 192}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 37, "attempts": 1}], []]
+Pipeline: [{"PENDING": 43, "READY": 38}, {"total": 2289, "e2_selected": 192}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 38, "attempts": 1}], []]
+14:13:01  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=541b4f57-8c2f-563f-acca-591d40a1b02a parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 42, "READY": 39}, {"total": 2289, "e2_selected": 192}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 38, "attempts": 1}], []]
+14:13:06  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=8b0178cd-af24-587a-9a85-73ebd3ffcc79 parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"PENDING": 41, "READY": 40}, {"total": 2291, "e2_selected": 192}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 39, "attempts": 1}], []]
+Pipeline: [{"PENDING": 41, "READY": 40}, {"total": 2302, "e2_selected": 192}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 40, "attempts": 1}], []]
+14:13:11  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=23a83107-7957-5266-8bb6-8f2556353ef0 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 40, "READY": 41}, {"total": 2302, "e2_selected": 192}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 40, "attempts": 1}], []]
+Pipeline: [{"PENDING": 40, "READY": 41}, {"total": 2354, "e2_selected": 192}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 41, "attempts": 1}], []]
+14:13:17  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=aa325bc6-0109-5b4d-9708-c857dee0d7bb parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 39, "READY": 42}, {"total": 2354, "e2_selected": 192}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 41, "attempts": 1}], []]
+Pipeline: [{"PENDING": 39, "READY": 42}, {"total": 2408, "e2_selected": 194}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 42, "attempts": 1}], []]
+14:13:25  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=3479d252-3a06-5fc6-9f45-945b5c63b389 parser=original cached=False chunks=4 events=0 tokens=0
+Pipeline: [{"PENDING": 38, "READY": 43}, {"total": 2408, "e2_selected": 194}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 42, "attempts": 1}], []]
+14:13:28  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=1592748e-a528-51cc-b6a8-6b732f5e3f6d parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 37, "READY": 44}, {"total": 2463, "e2_selected": 196}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 43, "attempts": 1}], []]
+Pipeline: [{"PENDING": 37, "READY": 44}, {"total": 2463, "e2_selected": 196}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 43, "attempts": 1}], []]
+Pipeline: [{"PENDING": 37, "READY": 44}, {"total": 2501, "e2_selected": 196}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 44, "attempts": 1}], []]
+14:13:34  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=401ce539-edaf-5662-9272-54e68d68fcf6 parser=original cached=False chunks=4 events=0 tokens=0
+Pipeline: [{"PENDING": 36, "READY": 45}, {"total": 2501, "e2_selected": 196}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 44, "attempts": 1}], []]
+14:13:39  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=b1aff9fb-89fa-5cc4-8ee2-7f366e42ebb0 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 35, "READY": 46}, {"total": 2555, "e2_selected": 196}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 45, "attempts": 1}], []]
+Pipeline: [{"PENDING": 35, "READY": 46}, {"total": 2587, "e2_selected": 200}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 46, "attempts": 1}], []]
+14:13:47  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=f40826fa-60fe-572f-87bb-4c399123c00f parser=original cached=False chunks=4 events=0 tokens=0
+Pipeline: [{"PENDING": 34, "READY": 47}, {"total": 2587, "e2_selected": 200}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 46, "attempts": 1}], []]
+Pipeline: [{"PENDING": 34, "READY": 47}, {"total": 2660, "e2_selected": 200}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 47, "attempts": 1}], []]
+14:13:51  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=ff219f90-c0a1-58b7-95b0-e41f345c6780 parser=original cached=False chunks=4 events=0 tokens=0
+Pipeline: [{"PENDING": 33, "READY": 48}, {"total": 2660, "e2_selected": 200}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 47, "attempts": 1}], []]
+Pipeline: [{"PENDING": 33, "READY": 48}, {"total": 2733, "e2_selected": 211}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 48, "attempts": 1}], []]
+14:14:00  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=7550ea37-ac6c-5300-9f59-0d2db78ce99e parser=original cached=False chunks=5 events=0 tokens=0
+14:14:01  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=2695a824-32ba-5a36-a4fa-5a3b2c0f1d21 parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"PENDING": 31, "READY": 50}, {"total": 2733, "e2_selected": 211}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 48, "attempts": 1}], []]
+Pipeline: [{"PENDING": 31, "READY": 50}, {"total": 2834, "e2_selected": 216}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 50, "attempts": 1}], []]
+14:14:06  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=f32ae3a1-54c1-51e3-baec-14a00f9f2cbf parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"PENDING": 30, "READY": 51}, {"total": 2834, "e2_selected": 216}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 50, "attempts": 1}], []]
+Pipeline: [{"PENDING": 30, "READY": 51}, {"total": 2868, "e2_selected": 218}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 51, "attempts": 1}], []]
+14:14:11  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=93182523-6011-5d30-ab11-3a1d602dce08 parser=original cached=False chunks=5 events=0 tokens=0
+Pipeline: [{"PENDING": 29, "READY": 52}, {"total": 2868, "e2_selected": 218}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 51, "attempts": 1}], []]
+14:14:15  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=96a7af7a-0481-5358-b7e3-318f0af706c7 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 28, "READY": 53}, {"total": 2906, "e2_selected": 219}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 52, "attempts": 1}], []]
+Pipeline: [{"PENDING": 28, "READY": 53}, {"total": 2937, "e2_selected": 220}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 53, "attempts": 1}], []]
+14:14:21  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=d5d0b076-c3c0-5464-8887-2007c73eec03 parser=original cached=False chunks=4 events=0 tokens=0
+Pipeline: [{"PENDING": 27, "READY": 54}, {"total": 2937, "e2_selected": 220}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 53, "attempts": 1}], []]
+Pipeline: [{"PENDING": 27, "READY": 54}, {"total": 3006, "e2_selected": 226}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 54, "attempts": 1}], []]
+14:14:27  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=c9ebddd7-a824-5785-9480-a8a4e2f45ab0 parser=original cached=False chunks=5 events=0 tokens=0
+Pipeline: [{"PENDING": 26, "READY": 55}, {"total": 3006, "e2_selected": 226}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 54, "attempts": 1}], []]
+14:14:31  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=7781b3cc-7d7c-5da4-9030-df949eaf3a3a parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 25, "READY": 56}, {"total": 3096, "e2_selected": 228}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 55, "attempts": 1}], []]
+Pipeline: [{"PENDING": 25, "READY": 56}, {"total": 3099, "e2_selected": 229}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 56, "attempts": 1}], []]
+14:14:35  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=5e82df81-2cd2-5a94-b54a-049b5a0a2e25 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"PENDING": 24, "READY": 57}, {"total": 3099, "e2_selected": 229}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 56, "attempts": 1}], []]
+14:14:38  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=5ae32a18-39e4-5ccf-af82-0452709d8f2d parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"READY": 58, "PENDING": 23}, {"total": 3109, "e2_selected": 231}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 57, "attempts": 1}], []]
+Pipeline: [{"READY": 58, "PENDING": 23}, {"total": 3116, "e2_selected": 231}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 58, "attempts": 1}], []]
+14:14:43  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=9be13f56-e358-5cc0-873a-90a21dc265fa parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"READY": 59, "PENDING": 22}, {"total": 3116, "e2_selected": 231}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 58, "attempts": 1}], []]
+14:14:48  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=af06d60b-180a-5c3b-85ea-03bfefacfae5 parser=original cached=False chunks=14 events=0 tokens=0
+Pipeline: [{"READY": 60, "PENDING": 21}, {"total": 3141, "e2_selected": 233}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 59, "attempts": 1}], []]
+14:14:51  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=f1925cb6-bf25-566c-ba76-5fa95509bb12 parser=original cached=False chunks=1 events=0 tokens=0
+Pipeline: [{"READY": 61, "PENDING": 20}, {"total": 3158, "e2_selected": 236}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 60, "attempts": 1}], []]
+Pipeline: [{"READY": 61, "PENDING": 20}, {"total": 3160, "e2_selected": 237}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 61, "attempts": 1}], []]
+14:14:56  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=7eaf3ba0-a89f-5c05-b6a5-22e3e8b7c9e7 parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"PENDING": 19, "READY": 62}, {"total": 3160, "e2_selected": 237}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 61, "attempts": 1}], []]
+Pipeline: [{"PENDING": 19, "READY": 62}, {"total": 3197, "e2_selected": 238}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 62, "attempts": 1}], []]
+14:15:01  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=a68110e6-f45e-57a0-a0e7-c7833ad842fa parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 18, "READY": 63}, {"total": 3209, "e2_selected": 238}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 63, "attempts": 1}], []]
+14:15:05  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=92dfb14b-32da-56ee-860c-3120234281d2 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 17, "READY": 64}, {"total": 3211, "e2_selected": 238}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 64, "attempts": 1}], []]
+14:15:09  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=9817ff44-fa2a-5c48-bfbe-95af520a42a8 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 16, "READY": 65}, {"total": 3211, "e2_selected": 238}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 64, "attempts": 1}], []]
+Pipeline: [{"PENDING": 16, "READY": 65}, {"total": 3224, "e2_selected": 239}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 65, "attempts": 1}], []]
+14:15:13  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=4d2dee48-633c-5a9c-9726-9efaa814fe04 parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"PENDING": 15, "READY": 66}, {"total": 3240, "e2_selected": 239}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 66, "attempts": 1}], []]
+14:15:18  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=15a2b1d8-cde7-512c-a8a7-a2156520c4f7 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 14, "READY": 67}, {"total": 3240, "e2_selected": 239}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 66, "attempts": 1}], []]
+Pipeline: [{"PENDING": 14, "READY": 67}, {"total": 3260, "e2_selected": 240}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 67, "attempts": 1}], []]
+14:15:22  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=d5e328b8-3f3d-5327-9cd8-b9ad84581f47 parser=original cached=False chunks=4 events=0 tokens=0
+Pipeline: [{"PENDING": 13, "READY": 68}, {"total": 3285, "e2_selected": 243}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 68, "attempts": 1}], []]
+14:15:26  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=900fe2b1-3cc4-52f6-8593-4ffe8deb38d1 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 12, "READY": 69}, {"total": 3285, "e2_selected": 243}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 68, "attempts": 1}], []]
+14:15:31  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=eecf6f91-f0c7-5f67-8fc6-f42f75d3ede1 parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"PENDING": 11, "READY": 70}, {"total": 3305, "e2_selected": 243}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 69, "attempts": 1}], []]
+Pipeline: [{"PENDING": 11, "READY": 70}, {"total": 3327, "e2_selected": 243}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 70, "attempts": 1}], []]
+14:15:35  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=8b2611c3-3aed-5da5-8f05-ca14fc565478 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 10, "READY": 71}, {"total": 3352, "e2_selected": 245}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 71, "attempts": 1}], []]
+14:15:40  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=d0cbd754-a11f-520b-b845-6ed4244cb42a parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 9, "READY": 72}, {"total": 3352, "e2_selected": 245}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 71, "attempts": 1}], []]
+Pipeline: [{"PENDING": 9, "READY": 72}, {"total": 3383, "e2_selected": 247}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 72, "attempts": 1}], []]
+14:15:44  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=93e2796a-7d90-5aa9-8c49-7596a626238e parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"PENDING": 8, "READY": 73}, {"total": 3383, "e2_selected": 247}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 72, "attempts": 1}], []]
+14:15:49  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=8049b50d-8009-5e68-a09e-0f24af4e9c85 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 7, "READY": 74}, {"total": 3387, "e2_selected": 248}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 73, "attempts": 1}], []]
+Pipeline: [{"PENDING": 7, "READY": 74}, {"total": 3406, "e2_selected": 249}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 74, "attempts": 1}], []]
+14:15:54  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=37f59103-2bd4-5343-a7bb-fffee57bc09c parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 6, "READY": 75}, {"total": 3406, "e2_selected": 249}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 74, "attempts": 1}], []]
+14:15:58  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=98182d38-502c-5d29-a405-6ba7aad709db parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 5, "READY": 76}, {"total": 3431, "e2_selected": 253}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 75, "attempts": 1}], []]
+Pipeline: [{"PENDING": 5, "READY": 76}, {"total": 3433, "e2_selected": 254}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 76, "attempts": 1}], []]
+14:16:03  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=a5cfcbe1-466c-5fd9-a9ee-e6244802b630 parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"PENDING": 4, "READY": 77}, {"total": 3433, "e2_selected": 254}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 76, "attempts": 1}], []]
+14:16:07  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=b1ce2856-94c0-5ef0-b735-b88786f391f0 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 3, "READY": 78}, {"total": 3443, "e2_selected": 255}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 77, "attempts": 1}], []]
+Pipeline: [{"PENDING": 3, "READY": 78}, {"total": 3445, "e2_selected": 256}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 78, "attempts": 1}], []]
+14:16:17  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=d0ffb26d-ca9c-57cb-a82b-2977450887d9 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 2, "READY": 79}, {"total": 3445, "e2_selected": 256}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 78, "attempts": 1}], []]
+14:16:20  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=389bd9ad-9877-52dc-8194-de779ee6b0a2 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 1, "READY": 80}, {"total": 3555, "e2_selected": 258}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 80, "attempts": 1}], []]
+14:16:25  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=b41a1298-6f6b-5b8d-8a98-1ffcce8adb20 parser=original cached=False chunks=2 events=0 tokens=0
+Pipeline: [{"READY": 81}, {"total": 3555, "e2_selected": 258}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 80, "attempts": 1}], []]
+Pipeline: [{"READY": 81}, {"total": 3585, "e2_selected": 258}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 81, "attempts": 1}], []]
+14:18:13  WARNING  [-]  sag.jobs  任务可重试 job=4e082e99cdca4eed83ca255520626037（第 1/3 次），2.0s 后重排：Knowledge inputs changed during project rebuild
+Pipeline: [{"READY": 81}, {"total": 3585, "e2_selected": 258}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 81, "attempts": 1}], [{"status": "INACTIVE", "tree_version": "tree-2cd3afa881cdd8fc3f0eba29"}]]
+Pipeline: [{"READY": 81}, {"total": 3585, "e2_selected": 258}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 81, "attempts": 1}], [{"status": "ACTIVE", "tree_version": "tree-2cd3afa881cdd8fc3f0eba29"}]]
+14:23:33  INFO     [3ad4e47852884bec]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:23:35  WARNING  [3ad4e47852884bec]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 1/50 qst_0001: status=answered error=None
+14:23:52  INFO     [19326558903249b4]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 2/50 qst_0002: status=answered error=None
+14:24:20  INFO     [00ac27606940481c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 3/50 qst_0003: status=answered error=None
+14:24:54  INFO     [ef1175738a674ab3]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:24:57  WARNING  [ef1175738a674ab3]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 4/50 qst_0004: status=answered error=None
+14:25:14  INFO     [3f88619644f647a6]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:25:29  WARNING  [3f88619644f647a6]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+Asked 5/50 qst_0005: status=answered error=None
+14:25:48  INFO     [1e7d4761c29b4131]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 6/50 qst_0006: status=answered error=None
+14:26:00  INFO     [c2db43ec9c914b45]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:26:12  WARNING  [c2db43ec9c914b45]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 7/50 qst_0007: status=answered error=None
+14:26:34  INFO     [ef1dc4f8f3fd4238]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 8/50 qst_0008: status=answered error=None
+14:26:47  INFO     [6031e53e3aad45af]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 9/50 qst_0009: status=answered error=None
+14:26:58  INFO     [d2a97e230211443b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:27:06  WARNING  [d2a97e230211443b]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+Asked 10/50 qst_0010: status=answered error=None
+14:27:16  INFO     [f771245d09aa40b8]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 11/50 qst_0011: status=answered error=None
+14:27:40  INFO     [f71c9edc6fbd40b5]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 12/50 qst_0012: status=answered error=None
+14:27:51  INFO     [71ff48c50caf43be]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 13/50 qst_0013: status=answered error=None
+14:28:16  INFO     [5888dbcb61cd4386]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:28:17  WARNING  [5888dbcb61cd4386]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 14/50 qst_0014: status=answered error=None
+14:28:28  INFO     [11608f3969774334]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:28:47  WARNING  [11608f3969774334]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+Asked 15/50 qst_0015: status=answered error=None
+14:29:21  INFO     [9ed674858e1644b3]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:29:35  WARNING  [9ed674858e1644b3]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+Asked 16/50 qst_0016: status=answered error=None
+14:29:53  INFO     [639624c26bb44b9a]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:29:54  WARNING  [639624c26bb44b9a]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 17/50 qst_0017: status=answered error=None
+14:30:14  INFO     [f578d136e4234938]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:30:16  WARNING  [f578d136e4234938]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 18/50 qst_0018: status=answered error=None
+14:30:33  INFO     [db4eaed757634e2f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 19/50 qst_0019: status=no_answer error=None
+14:30:39  INFO     [e890c49874764b59]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 20/50 qst_0020: status=answered error=None
+14:30:49  INFO     [4ec33dae98d143cd]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:30:54  WARNING  [4ec33dae98d143cd]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+Asked 21/50 qst_0021: status=answered error=None
+14:31:09  INFO     [25efa36fef8d40db]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 22/50 qst_0022: status=answered error=None
+14:31:37  INFO     [7b04abf4b2164b3d]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:31:39  WARNING  [7b04abf4b2164b3d]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 23/50 qst_0023: status=answered error=None
+14:32:00  INFO     [a776191932ac491d]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:32:19  WARNING  [a776191932ac491d]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+Asked 24/50 qst_0024: status=answered error=None
+14:32:50  INFO     [5233f0b6c7044a2c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:32:56  WARNING  [5233f0b6c7044a2c]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+14:33:05  WARNING  [5233f0b6c7044a2c]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+Asked 25/50 qst_0025: status=answered error=None
+14:33:32  INFO     [b06b525c59e94597]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:33:41  WARNING  [b06b525c59e94597]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 26/50 qst_0341: status=pending error={'code': 'TimeoutError'}
+14:34:36  INFO     [d5b5b4a7ba9b424a]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:34:48  WARNING  [d5b5b4a7ba9b424a]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+Asked 27/50 qst_0342: status=answered error=None
+14:35:24  INFO     [62b37dce9def4c11]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:35:25  WARNING  [62b37dce9def4c11]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 28/50 qst_0343: status=answered error=None
+14:36:17  INFO     [c9bf7576e45c4bbd]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:36:18  WARNING  [c9bf7576e45c4bbd]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+14:36:31  WARNING  [c9bf7576e45c4bbd]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+Asked 29/50 qst_0344: status=answered error=None
+14:37:00  INFO     [39a4639fcbf64f69]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:37:01  WARNING  [39a4639fcbf64f69]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+14:37:17  WARNING  [39a4639fcbf64f69]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+Asked 30/50 qst_0345: status=answered error=None
+14:38:00  INFO     [e5012dcf51a24fdb]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:38:01  WARNING  [e5012dcf51a24fdb]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 31/50 qst_0346: status=answered error=None
+14:38:24  INFO     [1c8343548fd0476e]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:38:26  WARNING  [1c8343548fd0476e]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 32/50 qst_0347: status=answered error=None
+14:38:55  INFO     [317f05714b05400c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:39:13  WARNING  [317f05714b05400c]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+Asked 33/50 qst_0348: status=answered error=None
+14:39:34  INFO     [b8be5470a2114bdb]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:39:43  WARNING  [b8be5470a2114bdb]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 34/50 qst_0349: status=answered error=None
+14:40:29  INFO     [581bdfee1a174190]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:40:49  WARNING  [581bdfee1a174190]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+14:40:53  WARNING  [581bdfee1a174190]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Asked 35/50 qst_0350: status=answered error=None
+14:40:55  INFO     [ccc87d090ea244c5]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:41:10  WARNING  [ccc87d090ea244c5]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+Asked 36/50 qst_0351: status=answered error=None
+14:41:37  INFO     [46a1b0206dc44c23]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:41:55  WARNING  [46a1b0206dc44c23]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+14:41:58  WARNING  [46a1b0206dc44c23]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Asked 37/50 qst_0352: status=answered error=None
+14:42:00  INFO     [e6886fd9ba1c4717]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:42:05  WARNING  [e6886fd9ba1c4717]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+14:42:07  WARNING  [e6886fd9ba1c4717]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Asked 38/50 qst_0353: status=answered error=None
+14:42:09  INFO     [b9d0b296221e42c7]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:42:23  WARNING  [b9d0b296221e42c7]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+Asked 39/50 qst_0354: status=answered error=None
+14:42:48  INFO     [2eabd59c25424fb9]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:42:54  WARNING  [2eabd59c25424fb9]  sag.search_units  knowledge query demand write failed error_type=TimeoutError
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+14:42:57  WARNING  [2eabd59c25424fb9]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Asked 40/50 qst_0355: status=answered error=None
+14:42:59  INFO     [00afd76c30174d69]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+14:43:06  WARNING  [00afd76c30174d69]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Asked 41/50 qst_0411: status=answered error=None
+14:43:08  INFO     [05f0f772e1174db7]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+14:43:15  WARNING  [05f0f772e1174db7]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Asked 42/50 qst_0412: status=answered error=None
+14:43:17  INFO     [aaeafce2e00245cd]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+14:43:24  WARNING  [aaeafce2e00245cd]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Asked 43/50 qst_0413: status=answered error=None
+14:43:25  INFO     [570c1047f8b347e6]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:43:33  WARNING  [570c1047f8b347e6]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+14:43:44  WARNING  [570c1047f8b347e6]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Asked 44/50 qst_0414: status=answered error=None
+14:43:46  INFO     [af05cb4928a04421]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 45/50 qst_0415: status=answered error=None
+14:44:14  INFO     [d94b0faae89d4540]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:44:20  WARNING  [d94b0faae89d4540]  sag.search_units  knowledge query demand write failed error_type=TimeoutError

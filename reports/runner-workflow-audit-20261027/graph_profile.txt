@@ -1,0 +1,26 @@
+         37160027 function calls (37159899 primitive calls) in 9.986 seconds
+
+   Ordered by: cumulative time
+   List reduced from 73 to 18 due to restriction <18>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.210    0.210   10.436   10.436 D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\knowledge_service.py:665(graph_payload)
+     5268    0.561    0.000    7.600    0.001 D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\knowledge_service.py:634(_cosine)
+    10536    0.969    0.000    3.546    0.000 {built-in method builtins.any}
+    41094    1.864    0.000    3.314    0.000 {built-in method math.fsum}
+ 10794132    1.757    0.000    2.561    0.000 D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\knowledge_service.py:637(<genexpr>)
+11689/11561    0.132    0.000    2.372    0.000 {built-in method builtins.sum}
+     1152    0.004    0.000    2.372    0.002 D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\knowledge_service.py:702(<genexpr>)
+  1049600    1.226    0.000    2.240    0.000 D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\knowledge_service.py:703(<genexpr>)
+ 10812045    0.806    0.000    0.806    0.000 {built-in method math.isfinite}
+  5399700    0.529    0.000    0.529    0.000 D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\knowledge_service.py:643(<genexpr>)
+  1048576    0.520    0.000    0.520    0.000 {method 'hexdigest' of '_hashlib.HASH' objects}
+  5399700    0.447    0.000    0.447    0.000 D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\knowledge_service.py:644(<genexpr>)
+  1048576    0.343    0.000    0.343    0.000 {built-in method _hashlib.openssl_sha256}
+    25169    0.242    0.000    0.242    0.000 {built-in method builtins.max}
+  1048576    0.150    0.000    0.150    0.000 {method 'encode' of 'str' objects}
+     5268    0.026    0.000    0.073    0.000 D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\knowledge_service.py:649(fuse_signals)
+    10536    0.023    0.000    0.061    0.000 D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\knowledge_service.py:731(bm25)
+   111587    0.050    0.000    0.050    0.000 D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\orm\attributes.py:555(__get__)
+
+

@@ -1,0 +1,182 @@
+{
+  "uploads": [
+    {
+      "filename": "fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md",
+      "bytes": 34236,
+      "seconds": 0.101
+    }
+  ],
+  "knowledge_jobs": [
+    {
+      "job_id": "ed7c4551-3f27-5dc1-83d3-a10517f507ed",
+      "kind": "FOUNDATION",
+      "document_version_id": "d77a31c5-bcac-5243-8982-a72770b8428f",
+      "seconds": 2.539
+    }
+  ],
+  "graph_cpu": [
+    {
+      "units": 274,
+      "edges": 2155,
+      "semantic_edges": 2155,
+      "seconds": 2.822
+    }
+  ],
+  "graph_persistence": [
+    {
+      "units": 274,
+      "edges": 2155,
+      "seconds": 3.28
+    }
+  ],
+  "tree_rebuilds": [
+    {
+      "project_id": "a0270a33990e43a2b3e9ae05",
+      "seconds": 15.315
+    }
+  ],
+  "qdrant_cleanup": [
+    {
+      "status": 200
+    }
+  ],
+  "search_embedding_batches": [
+    {
+      "texts": 285,
+      "vectors": 285,
+      "seconds": 7.016
+    }
+  ],
+  "knowledge_embedding_batches": [
+    {
+      "blocks": 274,
+      "vectors": 274,
+      "seconds": 0.009
+    }
+  ],
+  "qdrant_collection_setup": [
+    {
+      "phase": "qdrant_preflight",
+      "seconds": 2.242
+    },
+    {
+      "phase": "document_ingest",
+      "seconds": 1.495
+    }
+  ],
+  "qdrant_preflight_seconds": 2.242,
+  "file": "examples/rag_eval/bench_v0/corpus/fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md",
+  "bytes": 34236,
+  "sha256": "2af843f09c31f79930a41c56badd85db4970b18977447bf9ee4aa465ecf19c2c",
+  "benchmark_registration_seconds": 0.362,
+  "app_startup_and_login_seconds": 5.343,
+  "upload_service_seconds": 0.127,
+  "processing_after_upload_seconds": 33.167,
+  "upload_to_tree_active_seconds": 33.294,
+  "collection_setup_to_tree_active_seconds": 35.535,
+  "service_start_to_tree_active_seconds": 41.7,
+  "poll_interval_seconds": 0.5,
+  "readiness_polls": 62,
+  "documents_ready": 1,
+  "knowledge_units": 274,
+  "foundation_job_count": 1,
+  "foundation_job_seconds_total": 2.539,
+  "graph_cpu_seconds_total": 2.822,
+  "graph_persistence_seconds_total": 3.28,
+  "tree_rebuild_seconds_total": 15.315,
+  "ingestion_stages": {
+    "receive": {
+      "count": 1,
+      "total_seconds": 0.01,
+      "mean_seconds": 0.01
+    },
+    "PARSE": {
+      "count": 1,
+      "total_seconds": 0.016,
+      "mean_seconds": 0.016
+    },
+    "DEDUP_TEMPORAL": {
+      "count": 1,
+      "total_seconds": 2.263,
+      "mean_seconds": 2.263
+    },
+    "INDEX_SEARCH": {
+      "count": 1,
+      "total_seconds": 10.621,
+      "mean_seconds": 10.621
+    }
+  },
+  "ingestion_stage_details": [
+    {
+      "ingestion_run_id": "1573a4b4-2659-496f-b8d6-6d3dd348d2e5",
+      "ingestion_status": "SUCCEEDED",
+      "stage": "receive",
+      "stage_status": "SUCCESS",
+      "duration_ms": 10.0
+    },
+    {
+      "ingestion_run_id": "1573a4b4-2659-496f-b8d6-6d3dd348d2e5",
+      "ingestion_status": "SUCCEEDED",
+      "stage": "PARSE",
+      "stage_status": "SUCCESS",
+      "duration_ms": 15.999999945051968
+    },
+    {
+      "ingestion_run_id": "1573a4b4-2659-496f-b8d6-6d3dd348d2e5",
+      "ingestion_status": "SUCCEEDED",
+      "stage": "DEDUP_TEMPORAL",
+      "stage_status": "SUCCESS",
+      "duration_ms": 2262.824
+    },
+    {
+      "ingestion_run_id": "1573a4b4-2659-496f-b8d6-6d3dd348d2e5",
+      "ingestion_status": "SUCCEEDED",
+      "stage": "INDEX_SEARCH",
+      "stage_status": "SUCCESS",
+      "duration_ms": 10620.62
+    }
+  ],
+  "final_state": {
+    "ready_versions": [
+      {
+        "id": "f8136735-8402-5594-ab4a-464be6e068cf",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      }
+    ],
+    "jobs": [
+      {
+        "kind": "FOUNDATION",
+        "status": "SUCCEEDED",
+        "error_code": null,
+        "count": 1,
+        "attempts": 1
+      }
+    ],
+    "units": {
+      "total": 274,
+      "e2_selected": 8
+    },
+    "evidence": {
+      "E0": 947,
+      "E1": 121
+    },
+    "tree": [
+      {
+        "status": "ACTIVE",
+        "tree_version": "tree-1de1132d97f737489c1e9588"
+      }
+    ],
+    "tree_jobs": [
+      {
+        "status": "succeeded",
+        "attempts": 1,
+        "error": null
+      }
+    ],
+    "ingestion": {
+      "READY": 1
+    }
+  }
+}

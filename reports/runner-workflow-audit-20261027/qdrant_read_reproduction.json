@@ -1,0 +1,30 @@
+{
+  "units": 677,
+  "database_writes": 0,
+  "qdrant_writes": 0,
+  "timeout_seconds": 30,
+  "measurements": [
+    {
+      "mode": "idle_baseline",
+      "http_status": 200,
+      "count": 252,
+      "seconds": 0.7553966999985278
+    },
+    {
+      "mode": "during_two_graph_tasks",
+      "http_status": 200,
+      "count": 252,
+      "seconds": 49.12186259997543
+    },
+    {
+      "mode": "idle_after",
+      "http_status": 200,
+      "count": 252,
+      "seconds": 0.17857039999216795
+    }
+  ],
+  "graph_seconds": [
+    25.006029200041667,
+    24.077422100002877
+  ]
+}

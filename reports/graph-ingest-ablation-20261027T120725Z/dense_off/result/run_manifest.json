@@ -1,0 +1,810 @@
+{
+  "run_id": "20261027T120855Z-92bd24",
+  "benchmark": "retrievalci_v0",
+  "user_id": "6acc9a5425f02c9d92a01012",
+  "user_name": "Tai Phan Thanhh",
+  "organization_id": "ORG-NSC",
+  "project_id": "839b31d6da7f464f890efe36",
+  "source_id": "81e791f17cf24c6080dd6e3114fa3288",
+  "schema": "sag_bench_retrievalci_20261027070959",
+  "source_config_id": "tp_090ed7d459d96be25f44f1a8ba08e753",
+  "collection": "search_units_839b31d6da7f464f890efe36",
+  "documents": 8,
+  "questions": 50,
+  "questions_sha256": "fe2db67c1a1e8b4dbc39d4eb409ca63681440b62765bfb920a303e959140dfa3",
+  "corpus_sha256": {
+    "examples\\rag_eval\\bench_v0\\corpus\\hubspot__dsid_e75bbf328fe349d2bb39e29b1ed7c9d5.md": "8c7c50a06abd63c4a694fb1044b9798e9a43345e5d40d0ae06f8292be83e3096",
+    "examples\\rag_eval\\bench_v0\\corpus\\github__dsid_44cf2d75d70d4365914aa46947a94b1d.md": "0b35cb6f1c3b0693b2efd6843e0b4acd7371c2e07e57d30bcff68d8d00064157",
+    "examples\\rag_eval\\bench_v0\\corpus\\jira__dsid_21d6b99dc771418287d61444f373852e.md": "800c5bad3da58c05d4d232cb1a510477f6583cafecea21c0dc22d5c9abcddf25",
+    "examples\\rag_eval\\bench_v0\\corpus\\confluence__dsid_05841423a55e4c35abd276d9899b7134.md": "d556aea679355f9d72095eea359e7b43ff0eae1eb43832e9b1ecf67fcc1643c1",
+    "examples\\rag_eval\\bench_v0\\corpus\\slack__dsid_8ae540be8e4c458ca15e122040ea2418.md": "7f73c0bbb25756dd21588edc128ac42644a336092c9187f68ca82beb33ff54e6",
+    "examples\\rag_eval\\bench_v0\\corpus\\confluence__dsid_d32eb5051b554e038222c3bf399acef8.md": "a7b80c1246620ac987223185322af7588b627f67fcb965b484344d214038f38c",
+    "examples\\rag_eval\\bench_v0\\corpus\\google_drive__dsid_4587f467ecf646b7926dbd6b886f9f23.md": "ef515f7c204dc5eba7937ceb230f6f446a4fda0e584803fb5162f30972621566",
+    "examples\\rag_eval\\bench_v0\\corpus\\fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md": "2af843f09c31f79930a41c56badd85db4970b18977447bf9ee4aa465ecf19c2c"
+  },
+  "started_at_utc": "2026-10-27T12:08:55.457903+00:00",
+  "models": {
+    "mode": "paired_8_file_graph_ingest_ablation",
+    "dense_graph": false,
+    "top_k": 5
+  },
+  "status": "COMPLETED",
+  "output_dir": "D:\\DoAnTotnghiep\\Dataset\\reports\\graph-ingest-ablation-20261027T120725Z\\dense_off\\result",
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cpu_count": 16,
+    "network": "loopback API; remote model/Qdrant providers"
+  },
+  "harness_sha256": {
+    "D:\\DoAnTotnghiep\\Dataset\\benchmark_support.py": "07902cf4e83b6c31b13653cc94f8bcd619689263c90e4aca63a1fb724cbdeb69",
+    "D:\\DoAnTotnghiep\\Dataset\\sag_benchmark_runtime.py": "4c044f86b300f8995c2310c94e8eeef54e3248e2d1235c33c4c6010ceb33278e",
+    "D:\\DoAnTotnghiep\\Dataset\\benchmark_http_client.py": "d14bd431963dac6fa2e0af7f8a78111a16072e0b057706e3f81e673579f6fd91",
+    "D:\\DoAnTotnghiep\\Dataset\\benchmark_quality.py": "918a1c5ce12f3938cf344b60f136aa4f4588c6a34eb58ded7fb7d32fe8a81412",
+    "D:\\DoAnTotnghiep\\Dataset\\international_references.json": "5f5706a349b6773d4afce2c5525e97410a534f0b5df2d96058dbab41f421ea0d"
+  },
+  "git_commit": "65f256772a50f82ce64c01e480579c665f288e11",
+  "git_worktree_diff_sha256": "bd0c879930232b032ffd2ca805bf741578429a07660efffd20170906866b9fba",
+  "api_source_sha256": {
+    "SAG/apps/api/sag_api/__init__.py": "2580492f748d5c6580ac1cb17d12c499f19d4beb9786f762a70d167e1b7b57cc",
+    "SAG/apps/api/sag_api/api/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "SAG/apps/api/sag_api/api/v1/__init__.py": "95a99b9063c361664955c398c885f472cc7b5309c0143317f8ccbdb06c8a54ba",
+    "SAG/apps/api/sag_api/api/v1/activity.py": "994a02133caf49196303162664fadc9e13071c08f8aab0490ee3bbf90c2f1f59",
+    "SAG/apps/api/sag_api/api/v1/agents.py": "eeb48dd4bc38962544553a737af4e147721ab9ffb6dcc17d96f6db3d6f24e5bf",
+    "SAG/apps/api/sag_api/api/v1/attachments.py": "440531a8cb92d5805d17e2649718e867d2f6f6da5609a03427f455fc59f94c3f",
+    "SAG/apps/api/sag_api/api/v1/auth.py": "648edfc57aa9a8c3802593f71d671e4121e9a4d38eac0f9eee0c54e3d8433111",
+    "SAG/apps/api/sag_api/api/v1/decision.py": "611325003e16d90b74ba472ed05417cb9dbfc5da7620271bd1e8564074625fc3",
+    "SAG/apps/api/sag_api/api/v1/dify.py": "5843af90f1ff4601b598a82974b2b98f5ced43167a83de633d8eb4b739e123bb",
+    "SAG/apps/api/sag_api/api/v1/documents.py": "f34621f0b30d7393c75d6e2b7eef14661bbeb997bae151eda419808b20211808",
+    "SAG/apps/api/sag_api/api/v1/insights.py": "36943bb36716098b7d6c390164a2c1cb19e0eaabae9949106580d5247064ea6a",
+    "SAG/apps/api/sag_api/api/v1/jobs.py": "052a947804bbfef1161d1edc5cdf021605093bfea630c2d29c482b646cefc682",
+    "SAG/apps/api/sag_api/api/v1/knowledge.py": "f4d26f72fed8d5981f3db6c0e956a8399df8bb349b356ec8c1bf088e5bf3bdf6",
+    "SAG/apps/api/sag_api/api/v1/octx.py": "8ced958e5f53e386823d84c79b80e7a4a74eb81526536258c7ac892cf2a49144",
+    "SAG/apps/api/sag_api/api/v1/openai.py": "34d8241e6b739ade37df38ec9dcfeaca3d6d7456188b22ae0ac542a49c49464e",
+    "SAG/apps/api/sag_api/api/v1/search.py": "ee26d02b88aa62483bfeb8e14eb225878fa8ba309e7002c176a394ea659b387b",
+    "SAG/apps/api/sag_api/api/v1/sources.py": "5de45dfe45faf2041d584f7b20583b9f69cad681ac26bd7c85a77e76c50256de",
+    "SAG/apps/api/sag_api/api/v1/system.py": "bfaab0f4a9425888556de5362edbcef36a50485cc56d700f68059255cc98dfb8",
+    "SAG/apps/api/sag_api/api/v1/universe.py": "7b6be6ace6b527432b49bc49822ab51c90b4acbde4f5c42ccd9af00af30c71fa",
+    "SAG/apps/api/sag_api/branding.py": "bc65bd0d3a61ff3e829545875899d73fe46d09eb5a4ae1868f11c5feb04cb8d3",
+    "SAG/apps/api/sag_api/connectors/__init__.py": "8224b72a20eb26b57e57f0a33d6391592852242941e6dc85eb0de042f3e4b12f",
+    "SAG/apps/api/sag_api/connectors/base.py": "a0cbac2be7fbb8ccd73d55189d824bb363e6f40267b8cfb70fc45b5b8785ba25",
+    "SAG/apps/api/sag_api/connectors/file_upload.py": "bb7c6372c0c07f13f3127baea57e283c4f1d58d93b064852527eb0cb203b4a95",
+    "SAG/apps/api/sag_api/connectors/registry.py": "d25c85c4740565c66e0ddd1729515b91e4e9182bf4b90f2376433b7ec7976d25",
+    "SAG/apps/api/sag_api/connectors/web.py": "de6a8ce8116dc953bd193656b03004f2096ffaf9e7654c10fbb6e07f4d79189c",
+    "SAG/apps/api/sag_api/core/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "SAG/apps/api/sag_api/core/config.py": "7e86f3e59cdc0647e5373d0cad989213d32401c9e603c7e90b9e66c6b075ed6c",
+    "SAG/apps/api/sag_api/core/conversation_ownership.py": "c793062b42fdd8af428794d279d3515107214b3bdad31d5c6211a75e1740fd7a",
+    "SAG/apps/api/sag_api/core/db.py": "068c8b2069ac83e4952a26a2c99f3ca2d932392d4c6fd2462e3953d039886821",
+    "SAG/apps/api/sag_api/core/deps.py": "5a007bef602607091b7fb9447e1ae1f37c46f5fb5319a0f9cf039db871718804",
+    "SAG/apps/api/sag_api/core/error_taxonomy.py": "d8e38ca4622dea2d36dffa32db6401e3da497940310e846020aa0fe7152f3d57",
+    "SAG/apps/api/sag_api/core/errors.py": "088cf9df676fd3278c2c3226d8fd6f228a9db16a1b36f25049575bfe8da9b6ce",
+    "SAG/apps/api/sag_api/core/identity.py": "7c8fe1aebb415b0429aa20e0ce772361a3bf4832db32c2656e46710da30bfd91",
+    "SAG/apps/api/sag_api/core/litellm_policy.py": "02b987c20721130f621a908b1dda156a11aabca8f941ac4a9886447a77f17b1a",
+    "SAG/apps/api/sag_api/core/logging.py": "3a0fdb39f7f80a81d48fa5410e5c9fa3826593d716a495a31f562a4603161afc",
+    "SAG/apps/api/sag_api/core/model_providers.py": "08688fd93818413a76c3a32db9ac76946d99df47a49c8dae44dae3656093ae64",
+    "SAG/apps/api/sag_api/core/principal_assertion.py": "b95e042ff98560e4eabd9c3d610a3ff94b321f46bb55e9392d3f2ea64cf493ed",
+    "SAG/apps/api/sag_api/core/sanitizer.py": "5b78ab9141780687fcb43bd3268f58f8a65a1f08803cd2a15a3f128ca57764f1",
+    "SAG/apps/api/sag_api/core/security.py": "fa772822955b1491b11b6829d345a81daf8d1fff2e1def294a5039c434eecf8b",
+    "SAG/apps/api/sag_api/db/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "SAG/apps/api/sag_api/db/base.py": "aa8eefe6ef17625924036faae22decb48264ada50f6b3678173c35f895a261df",
+    "SAG/apps/api/sag_api/db/models/__init__.py": "68b6c525e8bda47865016723ca610e1a1a21fc6f2fd113ef6c97147012becf25",
+    "SAG/apps/api/sag_api/db/models/agent.py": "6b3213a51809036648dd4b342c40cd44c9e6284c4118f5395c08b35d257dc9e7",
+    "SAG/apps/api/sag_api/db/models/document.py": "338bc9bb2da5f02d62db75582219b9cd85c8358f35dc63f77bf2e1dff28df2fb",
+    "SAG/apps/api/sag_api/db/models/job.py": "1b81ca3054f7ed179e99c82e2789b88a2f91f1b2e7dadee0350106bb5cab1660",
+    "SAG/apps/api/sag_api/db/models/knowledge.py": "11a555574919e48da7c8f6df95b8fa77e52a3e678bf9c79d9091b7f74868361d",
+    "SAG/apps/api/sag_api/db/models/knowledge_quality.py": "6f4bb7839623445f58fed82503c560b610c46ee1844bf922f3ab7811d4db911c",
+    "SAG/apps/api/sag_api/db/models/octx.py": "a9617692a0df6ff2acd78d9a40e18d8b06d27fec54ec0a0d3d12e865fb8a7b29",
+    "SAG/apps/api/sag_api/db/models/research.py": "283d7d5c4784f49e5f50095ad61cb7d912028c4e0270e28f327433ba65d14a6c",
+    "SAG/apps/api/sag_api/db/models/routing_rag.py": "974df275902941a855d82e64b4fdf6caaa7329e8adf939c43bacf02e5fc4b6da",
+    "SAG/apps/api/sag_api/db/models/setting.py": "8feb1887de4c8b4796e27d0a53447af99bfbaf6335888a768dc3fe7797b63de0",
+    "SAG/apps/api/sag_api/db/models/source.py": "ad500df0f9f908870d5fdf568fcb9ca188d606ff477eab4b3af0bc392cc26b98",
+    "SAG/apps/api/sag_api/db/models/source_project_mapping.py": "bf34e55dc087d167219933ee2649599fc8e021e30c481a27ec17f5d0754401e0",
+    "SAG/apps/api/sag_api/db/models/universe.py": "892d5704d6cef173855bf181e564c4f394d952b09f1ec02b297fb1496aab5ead",
+    "SAG/apps/api/sag_api/db/models/user.py": "41fb90400775afab8e9607eb9c800ebd7587cbda629bfb0ce6cbeba46e665780",
+    "SAG/apps/api/sag_api/desktop.py": "b9397479050ed3cc870f8816da574f437a215421e121e32d7a025407122d0fe2",
+    "SAG/apps/api/sag_api/enums.py": "5417c0675d7d578acaa3b883a614dcf6afdcd3351d98f5c4b8c998de463c851f",
+    "SAG/apps/api/sag_api/generation/__init__.py": "976f274fc2ae639ef2f1a7236c63348af042b1b29ae426c4ad40f0b1bafe2340",
+    "SAG/apps/api/sag_api/generation/llm.py": "1502a6de85e94300f156d4a4e624c8399b306b14d05e08cc0edaf9cbcb03d2eb",
+    "SAG/apps/api/sag_api/generation/prompt.py": "a5b6757472efb167986a24d753031e33c077c14e7fe3788af575d7f614e8b658",
+    "SAG/apps/api/sag_api/jobs/__init__.py": "1ac9516214993e353d0ab0a34e369ee4f6293c147ed4c2092539e1ed01eed93c",
+    "SAG/apps/api/sag_api/jobs/control.py": "7764d2ecea2f6a238bcc9b97bac65b773eedb9f06445a71d539d2c963c554672",
+    "SAG/apps/api/sag_api/jobs/inproc.py": "0a67f9b4d9d70f9ae38477215d5e8ae4b171ff437d24abde2d60ddb9f5978260",
+    "SAG/apps/api/sag_api/jobs/knowledge.py": "7fcc295df9792ddd71f836d3afbb45a747a2a4a282a70cf4fe5be704e07f854b",
+    "SAG/apps/api/sag_api/jobs/octx_tasks.py": "a58aad041badfc456db0c63c795768fb57e51777f54344ba6fb05a89e728f621",
+    "SAG/apps/api/sag_api/jobs/queue.py": "7e819f21c1b8738eafaedace5c13bde61eebdccde4c7a18731d9d6e32a173ccb",
+    "SAG/apps/api/sag_api/jobs/scheduling.py": "f019d2eee0dd9c72af6b3b4618ec70cd694863b99751975ead8abb6324c18a7e",
+    "SAG/apps/api/sag_api/jobs/tasks.py": "7caefd4f572e22919ffcf943deb34b4e322c7e9a717499c6f7ed13529fe3f55f",
+    "SAG/apps/api/sag_api/main.py": "22297b2cbfa60399510878043941b42650fa80af1519889fecdf209991e477a3",
+    "SAG/apps/api/sag_api/mcp/__init__.py": "a2bf13810628bcb8b8480be98bff71bf122f18ae8a70425f4cb594d3eda14734",
+    "SAG/apps/api/sag_api/mcp/mount.py": "93450eab5d88ed2cf525c0ce769cc6684f3f6167a35ea8f04e1975da4cba6cde",
+    "SAG/apps/api/sag_api/mcp/server.py": "4e304096d4e12d63ba9262048ca23363146bdbf8acdd9d93e29f0b9e97fbb8d9",
+    "SAG/apps/api/sag_api/octx/__init__.py": "169f060b58bd390445120a0ab77267a71544dcf36746c08f268bb36f1c7896a9",
+    "SAG/apps/api/sag_api/octx/_worker.py": "364d5fe6f2927f4fb20b53dc7606b6ec47e7c30295acd7cb7db0002aca75857d",
+    "SAG/apps/api/sag_api/octx/decision_token.py": "25d36dab6a7dc3eb8d108b6b6785547d8e1c0b5313668629a2c973bedfe3c9cd",
+    "SAG/apps/api/sag_api/octx/errors.py": "a31564d58a5c2ce3bae8d49761473deb521d7ae4439f2c82cd6010f77999d182",
+    "SAG/apps/api/sag_api/octx/limits.py": "09210acf5da24a9cbf7ffd7af311fecb41236c4feabeabe013c2cdc273893e57",
+    "SAG/apps/api/sag_api/octx/runner.py": "b9680c8d751cfb2cde303a8c2233541110bfea7f754635187b8aef9d4abb7444",
+    "SAG/apps/api/sag_api/octx/semver.py": "12271e602fedc5f5ba251e33f2e635668a3e91df9c4b94e0325058e946f99bc9",
+    "SAG/apps/api/sag_api/octx/storage.py": "11002b7f299a2ad81578061664e97530cecfe2e537b58b6387b73169c3493893",
+    "SAG/apps/api/sag_api/parsing/__init__.py": "ee5652c03c98834990d02d512c004cd514aa0508d6647d44f7b9876fc86e2c10",
+    "SAG/apps/api/sag_api/parsing/canonical.py": "063558f08659c3f1310e103c13eff8d7452cd2fe4693f8d807f5a131977a1bf8",
+    "SAG/apps/api/sag_api/parsing/mineru.py": "845d28a5efd5bfe69e9f1b193651d107295b7bab169af8d051915aa3b9c1c08c",
+    "SAG/apps/api/sag_api/parsing/mineru_official.py": "573d5246c2fbf6a6b9a32594169b7581b81aefa16e1d16f8d11a0a94a777c899",
+    "SAG/apps/api/sag_api/parsing/service.py": "415d1e56267a65b48ecdab041535cf4d1ee023cb161c40ca2e5698015e1aec8e",
+    "SAG/apps/api/sag_api/parsing/text.py": "87b6036d8582dab785d37e616274ca165e2cb2b96af7ebbd33391ca75d9782b9",
+    "SAG/apps/api/sag_api/runtime.py": "533cdc3f407adf9ee26613051f68a2d887d011c9bba38f6b22da9eb98d8f8c43",
+    "SAG/apps/api/sag_api/sag/__init__.py": "113cc0687b16d4b31cb706d7235e44d82c0c2686519a0ab60fb22b9c1befbedd",
+    "SAG/apps/api/sag_api/sag/_timings_probe.py": "eb58fbf148b61c8beda581d0513051d134fed9e54ef578074027533a71638aac",
+    "SAG/apps/api/sag_api/sag/chunk_heading_vectors.py": "4590050a4596a7be5e3297f9a80df8b32d072815ef5765864f18539c6ac581d3",
+    "SAG/apps/api/sag_api/sag/compat.py": "d23b3c915507a46b568787f75ca0e2f6d0696beb3fc9c6e59f0854706895b831",
+    "SAG/apps/api/sag_api/sag/config_builder.py": "d45d4a3eaec5cdaf1503fb8cba570dd88617e861e32f21ed90c1264d9085e62a",
+    "SAG/apps/api/sag_api/sag/document_cleanup.py": "f43ef97c56a55e33204b7c248768e79822bc3c3f835db31dc3927541704d6022",
+    "SAG/apps/api/sag_api/sag/dto.py": "83ada8ed26b24fa9061d1c69533e6cda29ff76d50d60dfe3dbb53dffc94ff533",
+    "SAG/apps/api/sag_api/sag/engine_manager.py": "eea5a0d4e8afda3bcfcaaf5285c22f7ce67d1b2d5bec490da557f2c0e8257650",
+    "SAG/apps/api/sag_api/sag/errors.py": "7a1410db5e7cbc043313ad1e414e4805ea61da143086e596bbbe720d1981f4ef",
+    "SAG/apps/api/sag_api/sag/incremental_processor.py": "610eae279b2ca0736fb15f293b50f2fe497d69d9338d9175ed0a9347b8ca35e6",
+    "SAG/apps/api/sag_api/sag/octx_ids.py": "bdc659ad63fab206960a805d7f6fe62aa808dcb380cba77635959416e5e555fd",
+    "SAG/apps/api/sag_api/sag/octx_importer.py": "cdea645fc4d395cbac8dcc9b064e68820418585f77fda849ca76e42b0b527276",
+    "SAG/apps/api/sag_api/sag/octx_plan_store.py": "b3056ea67945c175d2a5ac66fb0324bb4bdcca27d8cb36864553d3517f60bc84",
+    "SAG/apps/api/sag_api/sag/octx_smoke_test.py": "3c39ed1ca6a611784120ced1e8c4f8959d540519000e0ccc5585230776de9368",
+    "SAG/apps/api/sag_api/sag/octx_snapshot.py": "91e0bcb30779b9e058dac9cd7f27f5856f47e5918875cf51baf632ebc4c685ce",
+    "SAG/apps/api/sag_api/sag/octx_vector_manifest.py": "fe0072e8eb430b28f44c484f8fda1505790e4632f3ac13ef68f42aff724b11fe",
+    "SAG/apps/api/sag_api/sag/octx_vector_protocol.py": "6adb4a674717a58f49a122dac0a30e4c88267e8df895fd96d45a81f59bc61a99",
+    "SAG/apps/api/sag_api/sag/octx_vector_rebuilder.py": "efa06bb2a8c7af38285d4d432db79d037eb5fc2529f3ff0e5c66a52b44f243b6",
+    "SAG/apps/api/sag_api/sag/octx_vector_reuse.py": "ea81be9cf07a97b7a9b5aa6451824e62ed3bbc89b25b7f6a401aa00de2082c1d",
+    "SAG/apps/api/sag_api/sag/qdrant_store.py": "e6983dad5cb59419c1c6f8ca30cce1db2bbb47b5362e7a24987c21cdf07350b6",
+    "SAG/apps/api/sag_api/sag/search_unit_store.py": "b5240d1c8a5c1f72b3da8971cdef9528f36aefcb974abeae62add582c7e49a98",
+    "SAG/apps/api/sag_api/schemas/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "SAG/apps/api/sag_api/schemas/agent.py": "6df05cf38352101fef20153f8b97cdbee25ffdb42495716a4f5e0157faf65afd",
+    "SAG/apps/api/sag_api/schemas/auth.py": "9f1ef94d3c50a6938a1ad21acdccc3d463921066de0e0dbd2d1240274c2753ab",
+    "SAG/apps/api/sag_api/schemas/chunk.py": "8f0ea53f60955b4b60041478f3040e265f74e723c71fc8ae749980bfaf79de48",
+    "SAG/apps/api/sag_api/schemas/common.py": "043fdfede09cdb7cf137040bff90c10cbf0d0e4c3466cc499d9cb348c6a9c441",
+    "SAG/apps/api/sag_api/schemas/dify.py": "273a501158762fdd7ba227987e283897878d0b348b7624f967721050c56916a5",
+    "SAG/apps/api/sag_api/schemas/document.py": "be88e35fefa3d7958692c9b80ec0eb8d8d58ab625b6e4508c2e9885579a6f9cb",
+    "SAG/apps/api/sag_api/schemas/dsh_integration.py": "6d27520c1375dd4f372bfe444cfa3da8568b3dc5c0d8f5bb746d4d032d5ea870",
+    "SAG/apps/api/sag_api/schemas/insight.py": "66a7ccd25f334bdd5e2bf4c8b1c475279f7eea20a8dd586a09a75502bec1f38d",
+    "SAG/apps/api/sag_api/schemas/job.py": "8458dcf15a90010bd8b1deefea8b0661ec982dfbceccc79f753b7e6652af7265",
+    "SAG/apps/api/sag_api/schemas/octx.py": "5f311efb9d87929da9249485016ad8727357e0e108f2b3e7419af71a590a4e34",
+    "SAG/apps/api/sag_api/schemas/routing_rag.py": "23ffd051d18357d5fa4bfcd08eaac502012c0e9dd2833bd84859e76c3f477eea",
+    "SAG/apps/api/sag_api/schemas/search.py": "d4067cf4ae0de72400f548d2a6965238faa40869148787931df7ed3626cbda14",
+    "SAG/apps/api/sag_api/schemas/source.py": "b8453236c259cefbef7295b9914e9f5be994f7f4b24fe6e45b3406f90f4f6890",
+    "SAG/apps/api/sag_api/schemas/system.py": "f87a0cff35e340749250ff9bc110d3c6621e42095cb948c7570fd668c2e90c21",
+    "SAG/apps/api/sag_api/schemas/universe.py": "48ca55730d249f713b9f2982d4db6dce2af6d011d90962cbcee53fd7d0467746",
+    "SAG/apps/api/sag_api/services/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "SAG/apps/api/sag_api/services/agent_domain.py": "e8b28699165eac46a099d91b44910cc36a9211018f9c21f44bb60eeeae518ae1",
+    "SAG/apps/api/sag_api/services/agent_service.py": "13ac27573fade89c68f4304ca71bede6283f90013635db6f49f1c7f65eea4580",
+    "SAG/apps/api/sag_api/services/auth_service.py": "2277aad556587092ea747eaddfcbb00f8d584255c6b7d06bbd6d88c8a327d985",
+    "SAG/apps/api/sag_api/services/canonical_service.py": "ba53ad37611c6edfa6a4858aa6fa1d1973cceb9ed5f02c88e48ab30ccb982ff7",
+    "SAG/apps/api/sag_api/services/cpu_worker.py": "9bd42e0c2e458a041e8dda2e35940c7fc81a6deb6544162fef64c19de0d7ae79",
+    "SAG/apps/api/sag_api/services/decision_router.py": "8af9499f6eb8b30545c595d973779f74ee719b0506d45033f3c5743b3d282d37",
+    "SAG/apps/api/sag_api/services/dedup_and_temporal_service.py": "f3631b7bcf1db92ddc9e8139d42d3b2ba84229876f5bc233b2d172541c9f1384",
+    "SAG/apps/api/sag_api/services/document_service.py": "73643d8b682c5966accc690d3fb687f1ebe4fb2c6c804d62c1e4b65c97e78d38",
+    "SAG/apps/api/sag_api/services/dsh_integration_service.py": "782deb4f9dcea3ae54a0e29dc33193c1323bf85e11b06768ec2cad94d521f951",
+    "SAG/apps/api/sag_api/services/eval/__init__.py": "ca725d0cdf1c0573fdbbb78af055fa4a8b64fbf78f3f00c12072f133f1250f4c",
+    "SAG/apps/api/sag_api/services/eval/llm_judge.py": "9e0da5b1417e47d7c58c4efc4138e035b168c2435ba74a115b839bff3eeb509c",
+    "SAG/apps/api/sag_api/services/evidence_service.py": "c061487468fc71b5a165669a99ccb3e5cc184b80b91b7c99c752b6db1eedd3db",
+    "SAG/apps/api/sag_api/services/incremental_tree_service.py": "7d49fdb24d7e2fe411683733bd8ce054c3224d5f765e795724f3f6faa0e4f318",
+    "SAG/apps/api/sag_api/services/insight_service.py": "c37b7a6b089d1d8856908a0b56f2081b36e4a47a3d108b0d55ca950b657a593b",
+    "SAG/apps/api/sag_api/services/knowledge_candidate_service.py": "cfd9505a4dad67906b598f9a73d247e19e11f8de04d6d9c971bb5ac72ab21e10",
+    "SAG/apps/api/sag_api/services/knowledge_gap_question_service.py": "5b3d358a827439d152fb7e6c9e2cde399b4ddbe3197abd02deff36e8e2decf13",
+    "SAG/apps/api/sag_api/services/knowledge_quality_persistence.py": "9b98fd5992998f72fdb04382cf04c5e7f316c4dc7b41137bd0c539e84339aace",
+    "SAG/apps/api/sag_api/services/knowledge_quality_repository.py": "a46cc8872263c2fc510adcce3311dc137f20e1fd43b80fbb2aca1ffdc132225d",
+    "SAG/apps/api/sag_api/services/knowledge_quality_service.py": "f6a18e18dcb2388b765bf421a5a1c675a003f59b36b567455d51767a7e6a3d2a",
+    "SAG/apps/api/sag_api/services/knowledge_service.py": "f11e07e38e8f249f94f6f8832fc41b70beceed8876d7acee14258c817c45bcc0",
+    "SAG/apps/api/sag_api/services/octx_conflict_service.py": "b5f96faa6af8f360262d8f4ddcbc5be4201587b9e4bf2abe5fa361e806acf513",
+    "SAG/apps/api/sag_api/services/octx_diagnostics_service.py": "f9618e4da653c093364220a496c0406b1ad544d5b959d774aaf4c19f2950af78",
+    "SAG/apps/api/sag_api/services/octx_gc_service.py": "c5d7fdaf9e7208d00241c57669ac4fef72a02bf5a4efcbb960aab17c5ab77fc4",
+    "SAG/apps/api/sag_api/services/octx_recovery_service.py": "f01a69a6904b41242fba5eb6784b46f95dabd7b51ce5e8c7e30e64bbca127eb9",
+    "SAG/apps/api/sag_api/services/octx_transfer_service.py": "be6a17305e7cd501ccab07dba3abb9617c5a321f1761b94fdb6da21dcf7f01ca",
+    "SAG/apps/api/sag_api/services/query_analysis.py": "bff0a85666a827ee814cdf426580fea733d2606a2140772e62e2ee41ff6eb228",
+    "SAG/apps/api/sag_api/services/query_routing_service.py": "92b7fec752a963e1352eb0bca214c0cb593efccb99621cc83142b7c2840e1246",
+    "SAG/apps/api/sag_api/services/query_strategy_planner.py": "f8a36271fd64bec8e15de50dc9fdd7e868a0bef287e7002cfd219a3ac74d22cf",
+    "SAG/apps/api/sag_api/services/rebuild_service.py": "19cbef288d2c2142ddffca48c47ed3516e50c9be85e5c5d597a1d191ca203599",
+    "SAG/apps/api/sag_api/services/research_agent_service.py": "5be26a58bfaa152046f0c38e22e15ac34d691d96790ec1d6f88516c8633b2e65",
+    "SAG/apps/api/sag_api/services/research_planner_service.py": "166d089a3abd3bed40a575eb7b64d78b41b1358d4f6e1e32ff873ca8f7361e25",
+    "SAG/apps/api/sag_api/services/retrieval_service.py": "989ed1f2e0eef00094444bc907932d1ff672ec75c7441542a682ae3a06ea6524",
+    "SAG/apps/api/sag_api/services/route_cache_service.py": "96972b45bd6b1923bfa13258dc0802dcba15949e6bb58a23a34cf9120bde90d7",
+    "SAG/apps/api/sag_api/services/routing_tree_service.py": "f0f928a5bb19554d2c4c246ab7956e51676d79d903ba4f5460f3e01788abb981",
+    "SAG/apps/api/sag_api/services/search_index_service.py": "12063cb16562434c33e636783246bf656cdfcda2e40fd98b2493cf76e088d282",
+    "SAG/apps/api/sag_api/services/search_unit_retrieval_service.py": "8fb4990bd32db793b45db180c274f179c0a84f8fe6a9a56587141ccb6ee028b7",
+    "SAG/apps/api/sag_api/services/settings_service.py": "743a7ea66bcf23e86da8e6a42d44389a0998fab0c3361b820e566feef38449e2",
+    "SAG/apps/api/sag_api/services/source_operation_service.py": "56b9ca7dc338a25c06c577bc5ed147cd59fe33ca4b4c4ec18f814ae63bc2e5dc",
+    "SAG/apps/api/sag_api/services/source_service.py": "998cc879d73265c87477bbdb4e67ce9f5912abcd3871da0a0fc368bb45371b50",
+    "SAG/apps/api/sag_api/services/tree_publish_service.py": "e3992aef5987e2ac8c0e1c4032602ce2fe1db2a52454076dc7a1e7b68255cec8",
+    "SAG/apps/api/sag_api/services/tree_query_snapshot_service.py": "480e3c19abee60d81895ef8d9a101c712f7c25fc9adc2c7e65c0550dafa36e96",
+    "SAG/apps/api/sag_api/services/tree_rollback_service.py": "35497297c7d8755db2b24d8f88a95534e999eb74d7ac920a76b1d778674b2f52",
+    "SAG/apps/api/sag_api/services/universe_knowledge_service.py": "e712b37691b91e922a417c167d0607894c1d540fc6c0a29187f1e731cf851b6a",
+    "SAG/apps/api/sag_api/services/universe_service.py": "01a7da36b6cf59bed2cb6606c1bd3626ca354640bf1eacf8a74861dd50772f6a",
+    "SAG/apps/api/sag_api/services/universe_tree_service.py": "a8ab3cfa2a5204382ed9f8f3eb953e1370c16c126246cf8aeb98f897f6e80749",
+    "SAG/apps/api/sag_api/tools/__init__.py": "bca8da2c9489bd75867b72a21e17ad3877b497112a1aa9c268afecd7ece6b835",
+    "SAG/apps/api/sag_api/tools/base.py": "51f9bbb0bb3458b62ce5e9d4ac819b21fcc3808f08e16fd885617248a108b02f",
+    "SAG/apps/api/sag_api/tools/builtin.py": "6080df41696e681d603f348d4e8e91cea47ae3eaf079800be9f0ad3390cc7427",
+    "SAG/apps/api/sag_api/tools/mcp.py": "e153778cd46ce619b19d1e6be5cb2cfcea47cc91ba5e741a764b60bf605d43bf",
+    "SAG/apps/api/sag_api/tools/registry.py": "225dcbc72751df9bf8001258e6e13011f29bce782a48802807484277be86a2d2"
+  },
+  "probe_protocol": {
+    "files": [
+      {
+        "path": "examples/rag_eval/bench_v0/corpus/hubspot__dsid_e75bbf328fe349d2bb39e29b1ed7c9d5.md",
+        "bytes": 2705
+      },
+      {
+        "path": "examples/rag_eval/bench_v0/corpus/github__dsid_44cf2d75d70d4365914aa46947a94b1d.md",
+        "bytes": 5072
+      },
+      {
+        "path": "examples/rag_eval/bench_v0/corpus/jira__dsid_21d6b99dc771418287d61444f373852e.md",
+        "bytes": 6422
+      },
+      {
+        "path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_05841423a55e4c35abd276d9899b7134.md",
+        "bytes": 7914
+      },
+      {
+        "path": "examples/rag_eval/bench_v0/corpus/slack__dsid_8ae540be8e4c458ca15e122040ea2418.md",
+        "bytes": 9513
+      },
+      {
+        "path": "examples/rag_eval/bench_v0/corpus/confluence__dsid_d32eb5051b554e038222c3bf399acef8.md",
+        "bytes": 11785
+      },
+      {
+        "path": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_4587f467ecf646b7926dbd6b886f9f23.md",
+        "bytes": 14985
+      },
+      {
+        "path": "examples/rag_eval/bench_v0/corpus/fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md",
+        "bytes": 34236
+      }
+    ],
+    "corpus_sha256": "45866fe7a30334edab1a7d6eb98b415490bfd743731cbd9b70d8c29f95d74ea0",
+    "condition": "dense_off",
+    "dense_graph_only": true,
+    "search_unit_dense": "unchanged",
+    "knowledge_unit_dense_embeddings": "computed and stored in both conditions; omitted only from dense_off graph-builder payload",
+    "top_k": "fixed at 5; no search queries issued during ingest probe",
+    "order": "dense_on then dense_off; shared app runtime; local embedding cache cleared before each condition",
+    "queue_isolation": "skip recovery of pre-existing document jobs and scope ORM reads/writes to this condition's fresh project; old backlog rows remain untouched",
+    "qdrant_setup": "initialize the fresh collection and payload indexes with the production helper before document upload; dimension is read from the existing benchmark collection; setup time is included in total elapsed time"
+  },
+  "document_paths": {
+    "d64d9bb2-50cd-54ee-a74e-5207c51f98aa": "examples/rag_eval/bench_v0/corpus/hubspot__dsid_e75bbf328fe349d2bb39e29b1ed7c9d5.md",
+    "8b412281-10a9-5d9b-a9f1-e3e63511d25c": "examples/rag_eval/bench_v0/corpus/github__dsid_44cf2d75d70d4365914aa46947a94b1d.md",
+    "5a897dbc-4b99-5509-b000-2a39efc197eb": "examples/rag_eval/bench_v0/corpus/jira__dsid_21d6b99dc771418287d61444f373852e.md",
+    "e780b8b0-45e3-5ac5-924b-30688de6ba0b": "examples/rag_eval/bench_v0/corpus/confluence__dsid_05841423a55e4c35abd276d9899b7134.md",
+    "2085b171-2b40-55b2-9d66-ab58bce6e7ce": "examples/rag_eval/bench_v0/corpus/slack__dsid_8ae540be8e4c458ca15e122040ea2418.md",
+    "6a8a73b4-84e3-55a4-9fe2-89413704e8d8": "examples/rag_eval/bench_v0/corpus/confluence__dsid_d32eb5051b554e038222c3bf399acef8.md",
+    "b774fcf7-0777-55cd-bb9a-971ff3fedbf3": "examples/rag_eval/bench_v0/corpus/google_drive__dsid_4587f467ecf646b7926dbd6b886f9f23.md",
+    "62f16143-b13b-5f39-a6b4-d0b31c2d36d4": "examples/rag_eval/bench_v0/corpus/fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md"
+  },
+  "pipeline": {
+    "ready_versions": [
+      {
+        "id": "d64d9bb2-50cd-54ee-a74e-5207c51f98aa",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "e780b8b0-45e3-5ac5-924b-30688de6ba0b",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "62f16143-b13b-5f39-a6b4-d0b31c2d36d4",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "5a897dbc-4b99-5509-b000-2a39efc197eb",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "8b412281-10a9-5d9b-a9f1-e3e63511d25c",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "6a8a73b4-84e3-55a4-9fe2-89413704e8d8",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "2085b171-2b40-55b2-9d66-ab58bce6e7ce",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "b774fcf7-0777-55cd-bb9a-971ff3fedbf3",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      }
+    ],
+    "jobs": [
+      {
+        "kind": "FOUNDATION",
+        "status": "SUCCEEDED",
+        "error_code": null,
+        "count": 8,
+        "attempts": 1
+      }
+    ],
+    "units": {
+      "total": 581,
+      "e2_selected": 30
+    },
+    "evidence": {
+      "E0": 2082,
+      "E1": 615
+    },
+    "tree": [
+      {
+        "status": "ACTIVE",
+        "tree_version": "tree-c959b9923de285c977e3d04b"
+      }
+    ],
+    "tree_jobs": [
+      {
+        "status": "succeeded",
+        "attempts": 1,
+        "error": null
+      }
+    ],
+    "ingestion": {
+      "READY": 8
+    }
+  },
+  "ingest_probe": {
+    "uploads": [
+      {
+        "filename": "hubspot__dsid_e75bbf328fe349d2bb39e29b1ed7c9d5.md",
+        "bytes": 2705,
+        "seconds": 0.046
+      },
+      {
+        "filename": "github__dsid_44cf2d75d70d4365914aa46947a94b1d.md",
+        "bytes": 5072,
+        "seconds": 0.022
+      },
+      {
+        "filename": "jira__dsid_21d6b99dc771418287d61444f373852e.md",
+        "bytes": 6422,
+        "seconds": 0.026
+      },
+      {
+        "filename": "confluence__dsid_05841423a55e4c35abd276d9899b7134.md",
+        "bytes": 7914,
+        "seconds": 0.039
+      },
+      {
+        "filename": "slack__dsid_8ae540be8e4c458ca15e122040ea2418.md",
+        "bytes": 9513,
+        "seconds": 0.102
+      },
+      {
+        "filename": "confluence__dsid_d32eb5051b554e038222c3bf399acef8.md",
+        "bytes": 11785,
+        "seconds": 0.019
+      },
+      {
+        "filename": "google_drive__dsid_4587f467ecf646b7926dbd6b886f9f23.md",
+        "bytes": 14985,
+        "seconds": 0.019
+      },
+      {
+        "filename": "fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md",
+        "bytes": 34236,
+        "seconds": 0.017
+      }
+    ],
+    "knowledge_jobs": [
+      {
+        "job_id": "0772d65c-5e2b-54b2-bbe1-10be64c47385",
+        "kind": "FOUNDATION",
+        "document_version_id": "59806f9d-d5e8-5d7b-ae54-0c8d75a6dce1",
+        "seconds": 0.386
+      },
+      {
+        "job_id": "67800efd-2190-52b2-a7be-78acef4137e5",
+        "kind": "FOUNDATION",
+        "document_version_id": "a89cb766-fd34-598a-a081-1dd251c91a11",
+        "seconds": 0.604
+      },
+      {
+        "job_id": "afda32fc-f535-56f2-b9a6-f7c432596d60",
+        "kind": "FOUNDATION",
+        "document_version_id": "81df2a44-1b11-577a-8e75-23bd435d3f3e",
+        "seconds": 0.436
+      },
+      {
+        "job_id": "ccfa95d8-c40f-53f1-a8d9-f069a7121241",
+        "kind": "FOUNDATION",
+        "document_version_id": "747c4fbe-c249-51cc-93fe-3727fe0e5308",
+        "seconds": 0.801
+      },
+      {
+        "job_id": "6d35c9a0-6f47-5d68-a344-bc0949302d1d",
+        "kind": "FOUNDATION",
+        "document_version_id": "69d1476f-db1f-5d24-aae7-00f46034a748",
+        "seconds": 0.645
+      },
+      {
+        "job_id": "2b329dea-7ed9-55e6-88ac-39e806bdd70d",
+        "kind": "FOUNDATION",
+        "document_version_id": "841f2b9d-d873-59f2-adce-54d147a2f67b",
+        "seconds": 1.067
+      },
+      {
+        "job_id": "7baf4847-9e24-5c38-9565-9d09c6c5a2f0",
+        "kind": "FOUNDATION",
+        "document_version_id": "993b8a0d-2bf8-517a-a1dc-21844d9be46c",
+        "seconds": 1.548
+      },
+      {
+        "job_id": "b2ddf1b6-bc71-5860-b66b-75fc3413e8f9",
+        "kind": "FOUNDATION",
+        "document_version_id": "7a9be34f-dd53-5e33-bb4b-a1e478047967",
+        "seconds": 1.895
+      }
+    ],
+    "graph_cpu": [
+      {
+        "units": 581,
+        "edges": 4478,
+        "semantic_edges": 0,
+        "seconds": 1.759
+      }
+    ],
+    "graph_persistence": [
+      {
+        "units": 581,
+        "edges": 4478,
+        "seconds": 2.856
+      }
+    ],
+    "tree_rebuilds": [
+      {
+        "project_id": "839b31d6da7f464f890efe36",
+        "seconds": 36.857
+      }
+    ],
+    "qdrant_cleanup": [
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      }
+    ],
+    "pipeline_stages": {
+      "details": [
+        {
+          "ingestion_run_id": "645acc65-51f9-407e-bb24-cea44f098170",
+          "document_version_id": "59806f9d-d5e8-5d7b-ae54-0c8d75a6dce1",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "receive",
+          "stage_status": "SUCCESS",
+          "duration_ms": 10.0
+        },
+        {
+          "ingestion_run_id": "645acc65-51f9-407e-bb24-cea44f098170",
+          "document_version_id": "59806f9d-d5e8-5d7b-ae54-0c8d75a6dce1",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "PARSE",
+          "stage_status": "SUCCESS",
+          "duration_ms": 15.999999945051968
+        },
+        {
+          "ingestion_run_id": "645acc65-51f9-407e-bb24-cea44f098170",
+          "document_version_id": "59806f9d-d5e8-5d7b-ae54-0c8d75a6dce1",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "DEDUP_TEMPORAL",
+          "stage_status": "SUCCESS",
+          "duration_ms": 921.138
+        },
+        {
+          "ingestion_run_id": "645acc65-51f9-407e-bb24-cea44f098170",
+          "document_version_id": "59806f9d-d5e8-5d7b-ae54-0c8d75a6dce1",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "INDEX_SEARCH",
+          "stage_status": "SUCCESS",
+          "duration_ms": 5709.285000000001
+        },
+        {
+          "ingestion_run_id": "5dc8cafe-140e-4dff-bcc3-350a00afdf95",
+          "document_version_id": "a89cb766-fd34-598a-a081-1dd251c91a11",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "receive",
+          "stage_status": "SUCCESS",
+          "duration_ms": 10.0
+        },
+        {
+          "ingestion_run_id": "5dc8cafe-140e-4dff-bcc3-350a00afdf95",
+          "document_version_id": "a89cb766-fd34-598a-a081-1dd251c91a11",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "INDEX_SEARCH",
+          "stage_status": "SUCCESS",
+          "duration_ms": 5592.537
+        },
+        {
+          "ingestion_run_id": "5dc8cafe-140e-4dff-bcc3-350a00afdf95",
+          "document_version_id": "a89cb766-fd34-598a-a081-1dd251c91a11",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "DEDUP_TEMPORAL",
+          "stage_status": "SUCCESS",
+          "duration_ms": 1810.6219999999998
+        },
+        {
+          "ingestion_run_id": "5dc8cafe-140e-4dff-bcc3-350a00afdf95",
+          "document_version_id": "a89cb766-fd34-598a-a081-1dd251c91a11",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "PARSE",
+          "stage_status": "SUCCESS",
+          "duration_ms": 15.999999945051968
+        },
+        {
+          "ingestion_run_id": "f47b1951-21d5-440e-8a70-7e79e0675413",
+          "document_version_id": "81df2a44-1b11-577a-8e75-23bd435d3f3e",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "receive",
+          "stage_status": "SUCCESS",
+          "duration_ms": 10.0
+        },
+        {
+          "ingestion_run_id": "f47b1951-21d5-440e-8a70-7e79e0675413",
+          "document_version_id": "81df2a44-1b11-577a-8e75-23bd435d3f3e",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "INDEX_SEARCH",
+          "stage_status": "SUCCESS",
+          "duration_ms": 5149.353999999999
+        },
+        {
+          "ingestion_run_id": "f47b1951-21d5-440e-8a70-7e79e0675413",
+          "document_version_id": "81df2a44-1b11-577a-8e75-23bd435d3f3e",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "PARSE",
+          "stage_status": "SUCCESS",
+          "duration_ms": 15.000000013969839
+        },
+        {
+          "ingestion_run_id": "f47b1951-21d5-440e-8a70-7e79e0675413",
+          "document_version_id": "81df2a44-1b11-577a-8e75-23bd435d3f3e",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "DEDUP_TEMPORAL",
+          "stage_status": "SUCCESS",
+          "duration_ms": 2786.0260000000003
+        },
+        {
+          "ingestion_run_id": "1933ba5b-3b7f-4581-9810-ffe8ade151fd",
+          "document_version_id": "747c4fbe-c249-51cc-93fe-3727fe0e5308",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "receive",
+          "stage_status": "SUCCESS",
+          "duration_ms": 10.0
+        },
+        {
+          "ingestion_run_id": "1933ba5b-3b7f-4581-9810-ffe8ade151fd",
+          "document_version_id": "747c4fbe-c249-51cc-93fe-3727fe0e5308",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "INDEX_SEARCH",
+          "stage_status": "SUCCESS",
+          "duration_ms": 6216.258
+        },
+        {
+          "ingestion_run_id": "1933ba5b-3b7f-4581-9810-ffe8ade151fd",
+          "document_version_id": "747c4fbe-c249-51cc-93fe-3727fe0e5308",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "DEDUP_TEMPORAL",
+          "stage_status": "SUCCESS",
+          "duration_ms": 3791.248
+        },
+        {
+          "ingestion_run_id": "1933ba5b-3b7f-4581-9810-ffe8ade151fd",
+          "document_version_id": "747c4fbe-c249-51cc-93fe-3727fe0e5308",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "PARSE",
+          "stage_status": "SUCCESS",
+          "duration_ms": 15.000000013969839
+        },
+        {
+          "ingestion_run_id": "f0203b93-5513-4ae9-bc46-70c6805b1d83",
+          "document_version_id": "69d1476f-db1f-5d24-aae7-00f46034a748",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "receive",
+          "stage_status": "SUCCESS",
+          "duration_ms": 10.0
+        },
+        {
+          "ingestion_run_id": "f0203b93-5513-4ae9-bc46-70c6805b1d83",
+          "document_version_id": "69d1476f-db1f-5d24-aae7-00f46034a748",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "PARSE",
+          "stage_status": "SUCCESS",
+          "duration_ms": 16.00000006146729
+        },
+        {
+          "ingestion_run_id": "f0203b93-5513-4ae9-bc46-70c6805b1d83",
+          "document_version_id": "69d1476f-db1f-5d24-aae7-00f46034a748",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "INDEX_SEARCH",
+          "stage_status": "SUCCESS",
+          "duration_ms": 4164.008
+        },
+        {
+          "ingestion_run_id": "f0203b93-5513-4ae9-bc46-70c6805b1d83",
+          "document_version_id": "69d1476f-db1f-5d24-aae7-00f46034a748",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "DEDUP_TEMPORAL",
+          "stage_status": "SUCCESS",
+          "duration_ms": 929.0690000000001
+        },
+        {
+          "ingestion_run_id": "536b3f36-622b-44c9-b7b0-626160af435e",
+          "document_version_id": "841f2b9d-d873-59f2-adce-54d147a2f67b",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "receive",
+          "stage_status": "SUCCESS",
+          "duration_ms": 10.0
+        },
+        {
+          "ingestion_run_id": "536b3f36-622b-44c9-b7b0-626160af435e",
+          "document_version_id": "841f2b9d-d873-59f2-adce-54d147a2f67b",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "INDEX_SEARCH",
+          "stage_status": "SUCCESS",
+          "duration_ms": 5306.5689999999995
+        },
+        {
+          "ingestion_run_id": "536b3f36-622b-44c9-b7b0-626160af435e",
+          "document_version_id": "841f2b9d-d873-59f2-adce-54d147a2f67b",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "DEDUP_TEMPORAL",
+          "stage_status": "SUCCESS",
+          "duration_ms": 1090.726
+        },
+        {
+          "ingestion_run_id": "536b3f36-622b-44c9-b7b0-626160af435e",
+          "document_version_id": "841f2b9d-d873-59f2-adce-54d147a2f67b",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "PARSE",
+          "stage_status": "SUCCESS",
+          "duration_ms": 0.0
+        },
+        {
+          "ingestion_run_id": "c5d63562-98fa-4f11-aed1-c006de126a6f",
+          "document_version_id": "993b8a0d-2bf8-517a-a1dc-21844d9be46c",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "receive",
+          "stage_status": "SUCCESS",
+          "duration_ms": 10.0
+        },
+        {
+          "ingestion_run_id": "c5d63562-98fa-4f11-aed1-c006de126a6f",
+          "document_version_id": "993b8a0d-2bf8-517a-a1dc-21844d9be46c",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "INDEX_SEARCH",
+          "stage_status": "SUCCESS",
+          "duration_ms": 3981.8630000000003
+        },
+        {
+          "ingestion_run_id": "c5d63562-98fa-4f11-aed1-c006de126a6f",
+          "document_version_id": "993b8a0d-2bf8-517a-a1dc-21844d9be46c",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "PARSE",
+          "stage_status": "SUCCESS",
+          "duration_ms": 15.000000013969839
+        },
+        {
+          "ingestion_run_id": "c5d63562-98fa-4f11-aed1-c006de126a6f",
+          "document_version_id": "993b8a0d-2bf8-517a-a1dc-21844d9be46c",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "DEDUP_TEMPORAL",
+          "stage_status": "SUCCESS",
+          "duration_ms": 1564.94
+        },
+        {
+          "ingestion_run_id": "ae2b7fae-905b-4f54-85e8-58e56f892c23",
+          "document_version_id": "7a9be34f-dd53-5e33-bb4b-a1e478047967",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "receive",
+          "stage_status": "SUCCESS",
+          "duration_ms": 10.0
+        },
+        {
+          "ingestion_run_id": "ae2b7fae-905b-4f54-85e8-58e56f892c23",
+          "document_version_id": "7a9be34f-dd53-5e33-bb4b-a1e478047967",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "INDEX_SEARCH",
+          "stage_status": "SUCCESS",
+          "duration_ms": 6453.808
+        },
+        {
+          "ingestion_run_id": "ae2b7fae-905b-4f54-85e8-58e56f892c23",
+          "document_version_id": "7a9be34f-dd53-5e33-bb4b-a1e478047967",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "PARSE",
+          "stage_status": "SUCCESS",
+          "duration_ms": 0.0
+        },
+        {
+          "ingestion_run_id": "ae2b7fae-905b-4f54-85e8-58e56f892c23",
+          "document_version_id": "7a9be34f-dd53-5e33-bb4b-a1e478047967",
+          "ingestion_status": "SUCCEEDED",
+          "stage": "DEDUP_TEMPORAL",
+          "stage_status": "SUCCESS",
+          "duration_ms": 1027.981
+        }
+      ],
+      "by_stage": {
+        "receive": {
+          "count": 8,
+          "total_seconds": 0.08,
+          "mean_seconds": 0.01
+        },
+        "PARSE": {
+          "count": 8,
+          "total_seconds": 0.093,
+          "mean_seconds": 0.012
+        },
+        "DEDUP_TEMPORAL": {
+          "count": 8,
+          "total_seconds": 13.922,
+          "mean_seconds": 1.74
+        },
+        "INDEX_SEARCH": {
+          "count": 8,
+          "total_seconds": 42.574,
+          "mean_seconds": 5.322
+        }
+      }
+    },
+    "upload_seconds": 0.311,
+    "qdrant_prepare_seconds": 3.28,
+    "processing_to_tree_ready_seconds": 69.437,
+    "total_ingest_to_tree_ready_seconds": 73.044,
+    "documents_ready": 8,
+    "knowledge_units": 581,
+    "knowledge_jobs_state": [
+      {
+        "kind": "FOUNDATION",
+        "status": "SUCCEEDED",
+        "error_code": null,
+        "count": 8,
+        "attempts": 1
+      }
+    ],
+    "active_tree_count": 1,
+    "foundation_job_count": 8,
+    "foundation_job_seconds_total": 7.382,
+    "graph_cpu_seconds_total": 1.759,
+    "graph_persistence_seconds_total": 2.856,
+    "tree_rebuild_seconds_total": 36.857
+  },
+  "finished_at_utc": "2026-10-27T12:10:08.666514+00:00"
+}

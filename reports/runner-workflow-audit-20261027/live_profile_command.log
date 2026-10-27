@@ -1,0 +1,4 @@
+py-spy> Sampling process 100 times a second for 12 seconds. Press Control-C to exit.
+
+py-spy> Wrote speedscope file to 'reports/runner-workflow-audit-20261027/live_api_profile.json'. Samples: 1185 Errors: 0
+py-spy> Visit https://www.speedscope.app/ to view

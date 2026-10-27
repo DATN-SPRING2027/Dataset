@@ -1,0 +1,45 @@
+{
+  "inline_flag": {
+    "declared": false,
+    "effective_even_when_constructor_false": true
+  },
+  "wrapped_timeout": {
+    "outer_type": "ApiError",
+    "outer_retryable": false,
+    "inner_type": "RuntimeError",
+    "root_type": "ReadTimeout",
+    "public_message": "Qdrant point cleanup failed: "
+  },
+  "isolated_queue": [
+    {
+      "type": "INDEX_UNIVERSE",
+      "status": "QUEUED",
+      "n": 1
+    },
+    {
+      "type": "PROCESS_DOCUMENT",
+      "status": "FAILED",
+      "n": 2
+    },
+    {
+      "type": "PROCESS_DOCUMENT",
+      "status": "QUEUED",
+      "n": 67
+    },
+    {
+      "type": "PROCESS_DOCUMENT",
+      "status": "RUNNING",
+      "n": 4
+    },
+    {
+      "type": "PROCESS_DOCUMENT",
+      "status": "SUCCEEDED",
+      "n": 8
+    },
+    {
+      "type": "REBUILD_UNIVERSE_TREE",
+      "status": "QUEUED",
+      "n": 1
+    }
+  ]
+}

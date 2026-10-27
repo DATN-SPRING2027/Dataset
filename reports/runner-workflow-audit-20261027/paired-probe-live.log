@@ -1,0 +1,108 @@
+PROBE_OUTPUT=D:\DoAnTotnghiep\Dataset\reports\retrievalci-paired-probe-20261027095847
+warning: in the working copy of 'SAG/apps/api/sag_api/core/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/sag/engine_manager.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/evidence_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/knowledge_service.py', LF will be replaced by CRLF the next time Git touches it
+RUN_ID=20261027T095848Z-895212 OWNER=6acc9a5425f02c9d92a01012 PROJECT=25ea0fd0b8be4081b6ffe9f4 SCHEMA=sag_bench_retrievalci_20261027070959
+16:58:57  INFO     [-]  sag.jobs  任务队列已启动（并发=4）
+16:58:57  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager started
+16:58:57  INFO     [-]  sag.runtime  MCP 端点已就绪 · /mcp/（全库）· 可选 ?source_id=<信源 id>
+16:58:57  INFO     [-]  sag.runtime  sag-api 知识运行时已启动 · env=dev · llm_configured=True · vector=qdrant
+16:58:57  INFO     [-]  zleap.sag.ai.embedding  Embedding客户端初始化完成
+16:58:57  INFO     [-]  zleap.sag.ai.factory  ✅ 创建Embedding客户端
+Pipeline: [{"READY": 81}, {"total": 3585, "e2_selected": 258}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 81, "attempts": 1}], [{"status": "ACTIVE", "tree_version": "tree-2cd3afa881cdd8fc3f0eba29"}]]
+16:59:16  INFO     [0106a4ca93e94090]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+16:59:17  WARNING  [0106a4ca93e94090]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+16:59:18  DEBUG    [0106a4ca93e94090]  zleap.sag.ai.embedding  生成embedding成功
+Probe 1/32 qst_0343 mode=top5 error=None
+D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\sql\cache_key.py:322: RuntimeWarning: coroutine 'OpenAIChatCompletion.async_streaming' was never awaited
+  result += self._annotations_cache_key  # type: ignore  # noqa: E501
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+16:59:25  INFO     [f5dfb16331424d3a]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+16:59:27  WARNING  [f5dfb16331424d3a]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Probe 2/32 qst_0343 mode=auto error=None
+16:59:45  INFO     [a8fe9bb5078d42db]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 3/32 qst_0343 mode=auto error=None
+17:00:02  INFO     [1c911942d82c4d1b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 4/32 qst_0343 mode=top5 error=None
+17:00:08  INFO     [6ede7913d4544a97]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:00:09  DEBUG    [6ede7913d4544a97]  zleap.sag.ai.embedding  生成embedding成功
+Probe 5/32 qst_0344 mode=auto error=None
+17:00:21  INFO     [1622550447574d4f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 6/32 qst_0344 mode=top5 error=None
+17:00:27  INFO     [ec1f789588ea4df9]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 7/32 qst_0344 mode=top5 error=None
+17:00:32  INFO     [ce4efaaec8ec40ab]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 8/32 qst_0344 mode=auto error=None
+17:00:45  INFO     [c7adbcd4088a40e1]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:00:46  DEBUG    [c7adbcd4088a40e1]  zleap.sag.ai.embedding  生成embedding成功
+Probe 9/32 qst_0348 mode=top5 error=None
+17:00:52  INFO     [0eda75ab37fa4a08]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 10/32 qst_0348 mode=auto error=None
+17:01:05  INFO     [4ab5de835e874e72]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 11/32 qst_0348 mode=auto error=None
+17:01:20  INFO     [01a35da5b77e433c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 12/32 qst_0348 mode=top5 error=None
+17:01:26  INFO     [6987d84634294d23]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:01:27  DEBUG    [6987d84634294d23]  zleap.sag.ai.embedding  生成embedding成功
+Probe 13/32 qst_0350 mode=auto error=None
+17:01:43  INFO     [19392ac1607e4285]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 14/32 qst_0350 mode=top5 error=None
+17:01:49  INFO     [f5e3d6adf06f4bc2]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 15/32 qst_0350 mode=top5 error=None
+17:01:55  INFO     [7d47cd5787c34e7d]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 16/32 qst_0350 mode=auto error=None
+17:02:13  INFO     [0e908f0966e84c3f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:02:17  DEBUG    [0e908f0966e84c3f]  zleap.sag.ai.embedding  生成embedding成功
+Probe 17/32 qst_0354 mode=top5 error=None
+17:02:22  INFO     [58ae15be15df4a59]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 18/32 qst_0354 mode=auto error=None
+17:02:42  INFO     [7529de6c367d479d]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 19/32 qst_0354 mode=auto error=None
+17:03:00  INFO     [0dbdce826cf64f6e]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 20/32 qst_0354 mode=top5 error=None
+17:03:06  INFO     [d3bd234598cc4339]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:03:07  DEBUG    [d3bd234598cc4339]  zleap.sag.ai.embedding  生成embedding成功
+Probe 21/32 qst_0005 mode=auto error=None
+17:03:22  INFO     [dfe798b22a264ae4]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 22/32 qst_0005 mode=top5 error=None
+17:03:28  INFO     [abb55cb79a724f82]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 23/32 qst_0005 mode=top5 error=None
+17:03:33  INFO     [72b16fb142864acb]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 24/32 qst_0005 mode=auto error=None
+17:03:49  INFO     [550d3274dd874764]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:03:51  DEBUG    [550d3274dd874764]  zleap.sag.ai.embedding  生成embedding成功
+Probe 25/32 qst_0015 mode=top5 error=None
+17:03:56  INFO     [2213babe07514454]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 26/32 qst_0015 mode=auto error=None
+17:04:16  INFO     [b08938d295474fcc]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 27/32 qst_0015 mode=auto error=None
+17:04:37  INFO     [cfb975bb1c434e25]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 28/32 qst_0015 mode=top5 error=None
+17:04:44  INFO     [1bd11eaa05a24d17]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+17:04:45  DEBUG    [1bd11eaa05a24d17]  zleap.sag.ai.embedding  生成embedding成功
+Probe 29/32 qst_0001 mode=auto error=None
+17:04:51  INFO     [ec69b7ec61a948d9]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 30/32 qst_0001 mode=top5 error=None
+17:05:08  INFO     [90df0a973c15430d]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 31/32 qst_0001 mode=top5 error=None
+17:05:29  INFO     [421b909a13904341]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Probe 32/32 qst_0001 mode=auto error=None
+{
+  "top5": {
+    "requests": 16,
+    "errors": 0,
+    "retrieval_source_recall": 0.953125,
+    "retrieval_source_precision": 0.6666666666666666,
+    "retrieval_p50_ms": 6173.173799994402
+  },
+  "auto": {
+    "requests": 16,
+    "errors": 0,
+    "retrieval_source_recall": 1.0,
+    "retrieval_source_precision": 0.2919741353607633,
+    "retrieval_p50_ms": 16501.220200036187
+  }
+}
+17:05:34  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager shutting down
+17:05:34  DEBUG    [-]  asyncio  Using proactor: IocpProactor

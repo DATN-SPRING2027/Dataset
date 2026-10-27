@@ -1,0 +1,13 @@
+{
+  "units": 677,
+  "exact_payload_parity": true,
+  "checksum": "cd6900f3602eb26a47a9c066aaa627f2c40401c792ac56b295af709c3ae998e1",
+  "edges": 7869,
+  "seconds": {
+    "reference": 24.67786639998667,
+    "fixed": 5.0461233999812976
+  },
+  "speedup": 4.890460348250329,
+  "database_writes": 0,
+  "provider_calls": 0
+}

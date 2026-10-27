@@ -1,0 +1,12 @@
+Process 42976: "C:\Program Files\Python312\python.exe" "-c" "from multiprocessing.spawn import spawn_main; spawn_main(parent_pid=16980, pipe_handle=3232)" "--multiprocessing-fork"
+Python v3.12.10 (C:\Program Files\Python312\python.exe)
+
+Thread 32792 (active): "MainThread"
+    build_routing_snapshot (sag_api\services\routing_tree_service.py:620)
+    _calculate (sag_api\services\cpu_worker.py:30)
+    _entry (sag_api\services\cpu_worker.py:37)
+    run (multiprocessing\process.py:108)
+    _bootstrap (multiprocessing\process.py:314)
+    _main (multiprocessing\spawn.py:135)
+    spawn_main (multiprocessing\spawn.py:122)
+    <module> (<string>:1)

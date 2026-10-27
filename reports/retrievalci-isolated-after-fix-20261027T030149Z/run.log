@@ -1,0 +1,92 @@
+warning: in the working copy of 'SAG/apps/api/sag_api/core/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/jobs/knowledge.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/jobs/tasks.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/sag/engine_manager.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/evidence_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/search_index_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/search_unit_retrieval_service.py', LF will be replaced by CRLF the next time Git touches it
+RUN_ID=20261027T030153Z-9b0297 OWNER=6acc9a5425f02c9d92a01012 PROJECT=0924d58e249b4502b86dfdb9 SCHEMA=sag_bench_ci_20261027030149
+10:02:13  INFO     [-]  sag.jobs  任务队列已启动（并发=4）
+10:02:13  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager started
+10:02:13  INFO     [-]  sag.runtime  MCP 端点已就绪 · /mcp/（全库）· 可选 ?source_id=<信源 id>
+10:02:13  INFO     [-]  sag.runtime  sag-api 知识运行时已启动 · env=dev · llm_configured=True · vector=qdrant
+10:02:13  INFO     [-]  zleap.sag.ai.embedding  Embedding客户端初始化完成
+10:02:13  INFO     [-]  zleap.sag.ai.factory  ✅ 创建Embedding客户端
+Uploaded 10/81 through SAG upload service
+Uploaded 20/81 through SAG upload service
+Uploaded 30/81 through SAG upload service
+Uploaded 40/81 through SAG upload service
+Uploaded 50/81 through SAG upload service
+Uploaded 60/81 through SAG upload service
+Uploaded 70/81 through SAG upload service
+Uploaded 80/81 through SAG upload service
+Uploaded 81/81 through SAG upload service
+Pipeline: [{"PENDING": 81}, {"total": 0, "e2_selected": 0}, [], []]
+10:02:30  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+10:02:31  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+10:02:31  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+10:02:32  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+10:02:37  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=e7fc9a42-ca43-52fd-aafa-e22061a9678f parser=original cached=False chunks=18 events=0 tokens=0
+10:02:37  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=afdf9a96-5752-5817-b80f-4d7dcfbfc3f0 parser=original cached=False chunks=22 events=0 tokens=0
+10:02:37  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=2a5e9091-90bd-5a32-97c6-5de5ded6992d parser=original cached=False chunks=43 events=0 tokens=0
+Pipeline: [{"PENDING": 78, "READY": 3}, {"total": 0, "e2_selected": 0}, [], []]
+Pipeline: [{"PENDING": 78, "READY": 3}, {"total": 41, "e2_selected": 2}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 3, "attempts": 1}], []]
+10:02:46  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=e1b06ea8-cc69-535a-97d3-e4ce0b4ba724 parser=original cached=False chunks=37 events=0 tokens=0
+Pipeline: [{"PENDING": 77, "READY": 4}, {"total": 104, "e2_selected": 25}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 3, "attempts": 1}], []]
+Pipeline: [{"PENDING": 77, "READY": 4}, {"total": 217, "e2_selected": 27}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 4, "attempts": 1}], []]
+Pipeline: [{"PENDING": 77, "READY": 4}, {"total": 217, "e2_selected": 27}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 3, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 1, "attempts": 1}], []]
+10:03:25  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+10:03:25  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"READY": 4, "PENDING": 77}, {"total": 343, "e2_selected": 30}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 2, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 2, "attempts": 1}], []]
+10:03:31  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+10:04:04  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 1df83d76-3322-5346-80e7-dc5cc97affb6 failed (TimeoutError)
+10:04:04  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job a6a73fc7-b768-5e98-b9d7-5f2d9a99d0a7 failed (TimeoutError)
+10:04:04  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=826c74a9-83f6-57ab-9833-8684ee51572b parser=original cached=False chunks=34 events=0 tokens=0
+10:04:04  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=77c11b9b-0251-5d01-b60a-ee9ee58dfd5c parser=original cached=False chunks=3 events=0 tokens=0
+10:04:11  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"READY": 6, "PENDING": 75}, {"total": 383, "e2_selected": 30}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 2, "attempts": 1}, {"kind": "FOUNDATION", "status": "RETRY", "error_code": "TimeoutError", "count": 2, "attempts": 1}], []]
+10:04:11  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=85aaa57e-fc54-548a-beb3-32aa99a80521 parser=original cached=False chunks=46 events=0 tokens=0
+Pipeline: [{"READY": 7, "PENDING": 74}, {"total": 493, "e2_selected": 33}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 2, "attempts": 1}, {"kind": "FOUNDATION", "status": "RETRY", "error_code": "TimeoutError", "count": 2, "attempts": 1}], []]
+Pipeline: [{"READY": 7, "PENDING": 74}, {"total": 493, "e2_selected": 33}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 2, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 2, "attempts": 1}, {"kind": "FOUNDATION", "status": "RETRY", "error_code": "TimeoutError", "count": 2, "attempts": 1}], []]
+10:04:23  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=3fb074ad-dfd8-589f-a0b4-ec97ffa54b21 parser=original cached=False chunks=26 events=0 tokens=0
+10:04:24  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 73, "READY": 8}, {"total": 612, "e2_selected": 54}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 2, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 2, "attempts": 1}, {"kind": "FOUNDATION", "status": "RETRY", "error_code": "TimeoutError", "count": 2, "attempts": 1}], []]
+Pipeline: [{"PENDING": 73, "READY": 8}, {"total": 677, "e2_selected": 60}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 3, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 2, "attempts": 1}, {"kind": "FOUNDATION", "status": "RETRY", "error_code": "TimeoutError", "count": 2, "attempts": 1}], []]
+Pipeline: [{"PENDING": 73, "READY": 8}, {"total": 677, "e2_selected": 60}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 4, "attempts": 2}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 2, "attempts": 1}, {"kind": "FOUNDATION", "status": "RETRY", "error_code": "TimeoutError", "count": 1, "attempts": 1}], []]
+10:05:25  ERROR    [-]  sag.sag.search_index  Could not delete prior points from Qdrant: 
+10:05:25  ERROR    [-]  sag.sag.search_index  Could not delete prior points from Qdrant: 
+10:05:25  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+10:05:25  ERROR    [-]  sag.jobs  Phase 2 pipeline execution failed run_id=da04f53a-a17b-4f80-9608-21e09bab0c92: Qdrant point cleanup failed:
+10:05:25  ERROR    [-]  sag.jobs  Phase 2 pipeline execution failed run_id=582092a4-10c2-4669-8abc-212496c0978e: Qdrant point cleanup failed:
+10:05:25  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job c33ed88a-3930-5fed-a3d5-35a57cf1a043 failed (TimeoutError)
+10:05:25  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job d40362ee-a21c-53ab-9719-382cf34c46fe failed (TimeoutError)
+10:05:25  WARNING  [-]  sag.jobs  Xử lý tài liệu thất bại doc=ade768e4-3733-5e61-8c7f-f29d302f9d8b layer=store stage=persist error=Qdrant point cleanup failed:
+10:05:25  WARNING  [-]  sag.jobs  Xử lý tài liệu thất bại doc=eb7d8b58-4d51-5d0e-9e6e-d506047aa734 layer=store stage=persist error=Qdrant point cleanup failed:
+10:05:25  WARNING  [-]  sag.jobs  任务失败 job=faaa3a8f5b32454d9095883a336f9d0f（尝试 1 次）：Qdrant point cleanup failed:
+10:05:25  WARNING  [-]  sag.jobs  任务失败 job=777cb097ff1a4f598de9c4d04fafba09（尝试 1 次）：Qdrant point cleanup failed:
+10:05:33  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 39384e93-4d5b-5004-841e-d3b825c53f99 failed (TimeoutError)
+Pipeline: [{"FAILED": 2, "PENDING": 71, "READY": 8}, {"total": 677, "e2_selected": 60}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 2, "attempts": 2}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 2, "attempts": 1}, {"kind": "FOUNDATION", "status": "RETRY", "error_code": "TimeoutError", "count": 3, "attempts": 1}], []]
+10:05:42  WARNING  [-]  sag_api.jobs.knowledge  Knowledge job 1df83d76-3322-5346-80e7-dc5cc97affb6 failed (TimeoutError)
+10:05:42  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager shutting down
+Traceback (most recent call last):
+  File "D:\DoAnTotnghiep\Dataset\reports\retrievalci-isolated-after-fix-20261027T030149Z\launch.py", line 38, in <module>
+    runpy.run_path(str(script),run_name='__main__')
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\DoAnTotnghiep\Dataset\RetrievalCI_Bench_v0_2026\scripts\run_bench_v0_sag.py", line 271, in <module>
+    asyncio.run(async_main())
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\Dataset\RetrievalCI_Bench_v0_2026\scripts\run_bench_v0_sag.py", line 200, in async_main
+    await runtime.wait_ready()
+  File "D:\DoAnTotnghiep\Dataset\sag_benchmark_runtime.py", line 210, in wait_ready
+    raise RuntimeError('Real SAG ingestion failed; inspect retained document/job errors')
+RuntimeError: Real SAG ingestion failed; inspect retained document/job errors
