@@ -1,0 +1,4 @@
+{"operation": "dedup_candidates", "entry_absolute": 717227.6172985, "import_seconds": 0.562, "calculate_seconds": 0.001, "send_seconds": 0.0}
+{"operation": "graph", "entry_absolute": 717242.0448656, "import_seconds": 0.986, "calculate_seconds": 1.635, "send_seconds": 0.002}
+{"operation": "routing", "entry_absolute": 717245.2885356, "import_seconds": 0.916, "calculate_seconds": 2.791, "send_seconds": 0.014}
+{"operation": "prepare_tree", "entry_absolute": 717250.811767, "import_seconds": 0.001, "calculate_seconds": 0.429, "send_seconds": 0.01}

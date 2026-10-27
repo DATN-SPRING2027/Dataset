@@ -1,0 +1,514 @@
+{
+  "error_type": "RuntimeError",
+  "conditions": {
+    "dense_on": {
+      "uploads": [
+        {
+          "filename": "hubspot__dsid_e75bbf328fe349d2bb39e29b1ed7c9d5.md",
+          "bytes": 2705,
+          "seconds": 0.134
+        },
+        {
+          "filename": "github__dsid_44cf2d75d70d4365914aa46947a94b1d.md",
+          "bytes": 5072,
+          "seconds": 0.039
+        },
+        {
+          "filename": "jira__dsid_21d6b99dc771418287d61444f373852e.md",
+          "bytes": 6422,
+          "seconds": 0.074
+        },
+        {
+          "filename": "confluence__dsid_05841423a55e4c35abd276d9899b7134.md",
+          "bytes": 7914,
+          "seconds": 0.039
+        },
+        {
+          "filename": "slack__dsid_8ae540be8e4c458ca15e122040ea2418.md",
+          "bytes": 9513,
+          "seconds": 0.122
+        },
+        {
+          "filename": "confluence__dsid_d32eb5051b554e038222c3bf399acef8.md",
+          "bytes": 11785,
+          "seconds": 0.024
+        },
+        {
+          "filename": "google_drive__dsid_4587f467ecf646b7926dbd6b886f9f23.md",
+          "bytes": 14985,
+          "seconds": 0.022
+        },
+        {
+          "filename": "fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md",
+          "bytes": 34236,
+          "seconds": 0.021
+        }
+      ],
+      "knowledge_jobs": [
+        {
+          "job_id": "09717fd5-238b-50b4-a812-de4fbbb06e91",
+          "kind": "FOUNDATION",
+          "document_version_id": "76c541eb-f32a-54bc-84d2-7e6a464d167f",
+          "seconds": 0.24
+        },
+        {
+          "job_id": "801cd265-8cfd-59b9-8650-e4c1d57ff397",
+          "kind": "FOUNDATION",
+          "document_version_id": "8a187857-ecbb-5a71-8377-8ca204645680",
+          "seconds": 0.377
+        },
+        {
+          "job_id": "39970778-0a2f-5b84-a2df-ed7f99cb1d5f",
+          "kind": "FOUNDATION",
+          "document_version_id": "eb75d9d6-a096-5b07-8e3b-12d7ea773c10",
+          "seconds": 0.369
+        },
+        {
+          "job_id": "748d03ee-b560-5052-96c7-e2319d866950",
+          "kind": "FOUNDATION",
+          "document_version_id": "6a5154e1-93fe-5906-9fdf-4c9d51547635",
+          "seconds": 0.767
+        },
+        {
+          "job_id": "5fc351d1-d139-5e30-a397-54ed2064b7ce",
+          "kind": "FOUNDATION",
+          "document_version_id": "d4367c68-07c1-5f17-ad33-36aeece68a13",
+          "seconds": 1.097
+        },
+        {
+          "job_id": "f9e7a6b3-eb92-59d3-8cb8-9a7bd0ea94e8",
+          "kind": "FOUNDATION",
+          "document_version_id": "31740f1c-cbd4-5f99-9d93-89e19b41c607",
+          "seconds": 0.522
+        },
+        {
+          "job_id": "fed61741-fc22-501e-b64f-9f28ea865156",
+          "kind": "FOUNDATION",
+          "document_version_id": "974bfa9f-dca0-512a-926f-22677f12e8eb",
+          "seconds": 1.026
+        },
+        {
+          "job_id": "68fbdbb7-75e8-5a30-a955-5a81fddbd58f",
+          "kind": "FOUNDATION",
+          "document_version_id": "7a690694-4ba2-5290-b357-deeb8f9cb23f",
+          "seconds": 1.932
+        }
+      ],
+      "graph_cpu": [
+        {
+          "units": 581,
+          "edges": 5588,
+          "semantic_edges": 5588,
+          "seconds": 4.348
+        }
+      ],
+      "graph_persistence": [
+        {
+          "units": 581,
+          "edges": 5588,
+          "seconds": 5.792
+        }
+      ],
+      "tree_rebuilds": [
+        {
+          "project_id": "ac83d826f0564770953e1ced",
+          "seconds": 40.668
+        }
+      ],
+      "qdrant_cleanup": [
+        {
+          "status": 404
+        },
+        {
+          "status": 404
+        },
+        {
+          "status": 200
+        },
+        {
+          "status": 200
+        },
+        {
+          "status": 200
+        },
+        {
+          "status": 200
+        },
+        {
+          "status": 200
+        },
+        {
+          "status": 200
+        }
+      ],
+      "pipeline_stages": {
+        "details": [
+          {
+            "ingestion_run_id": "2fe1c7f0-7bc1-4f62-8297-2a636054fcd4",
+            "document_version_id": "76c541eb-f32a-54bc-84d2-7e6a464d167f",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "receive",
+            "stage_status": "SUCCESS",
+            "duration_ms": 10.0
+          },
+          {
+            "ingestion_run_id": "2fe1c7f0-7bc1-4f62-8297-2a636054fcd4",
+            "document_version_id": "76c541eb-f32a-54bc-84d2-7e6a464d167f",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "PARSE",
+            "stage_status": "SUCCESS",
+            "duration_ms": 15.000000013969839
+          },
+          {
+            "ingestion_run_id": "2fe1c7f0-7bc1-4f62-8297-2a636054fcd4",
+            "document_version_id": "76c541eb-f32a-54bc-84d2-7e6a464d167f",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "INDEX_SEARCH",
+            "stage_status": "SUCCESS",
+            "duration_ms": 6595.22
+          },
+          {
+            "ingestion_run_id": "2fe1c7f0-7bc1-4f62-8297-2a636054fcd4",
+            "document_version_id": "76c541eb-f32a-54bc-84d2-7e6a464d167f",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "DEDUP_TEMPORAL",
+            "stage_status": "SUCCESS",
+            "duration_ms": 1881.897
+          },
+          {
+            "ingestion_run_id": "e743b4f8-1063-4662-aa4e-22a152f28092",
+            "document_version_id": "8a187857-ecbb-5a71-8377-8ca204645680",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "receive",
+            "stage_status": "SUCCESS",
+            "duration_ms": 10.0
+          },
+          {
+            "ingestion_run_id": "e743b4f8-1063-4662-aa4e-22a152f28092",
+            "document_version_id": "8a187857-ecbb-5a71-8377-8ca204645680",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "INDEX_SEARCH",
+            "stage_status": "SUCCESS",
+            "duration_ms": 4869.917
+          },
+          {
+            "ingestion_run_id": "e743b4f8-1063-4662-aa4e-22a152f28092",
+            "document_version_id": "8a187857-ecbb-5a71-8377-8ca204645680",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "DEDUP_TEMPORAL",
+            "stage_status": "SUCCESS",
+            "duration_ms": 4048.342
+          },
+          {
+            "ingestion_run_id": "e743b4f8-1063-4662-aa4e-22a152f28092",
+            "document_version_id": "8a187857-ecbb-5a71-8377-8ca204645680",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "PARSE",
+            "stage_status": "SUCCESS",
+            "duration_ms": 15.000000013969839
+          },
+          {
+            "ingestion_run_id": "8831d65c-a6a8-4e3a-868e-d2274f6e4239",
+            "document_version_id": "eb75d9d6-a096-5b07-8e3b-12d7ea773c10",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "receive",
+            "stage_status": "SUCCESS",
+            "duration_ms": 10.0
+          },
+          {
+            "ingestion_run_id": "8831d65c-a6a8-4e3a-868e-d2274f6e4239",
+            "document_version_id": "eb75d9d6-a096-5b07-8e3b-12d7ea773c10",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "INDEX_SEARCH",
+            "stage_status": "SUCCESS",
+            "duration_ms": 4826.31
+          },
+          {
+            "ingestion_run_id": "8831d65c-a6a8-4e3a-868e-d2274f6e4239",
+            "document_version_id": "eb75d9d6-a096-5b07-8e3b-12d7ea773c10",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "DEDUP_TEMPORAL",
+            "stage_status": "SUCCESS",
+            "duration_ms": 5993.871999999999
+          },
+          {
+            "ingestion_run_id": "8831d65c-a6a8-4e3a-868e-d2274f6e4239",
+            "document_version_id": "eb75d9d6-a096-5b07-8e3b-12d7ea773c10",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "PARSE",
+            "stage_status": "SUCCESS",
+            "duration_ms": 15.000000013969839
+          },
+          {
+            "ingestion_run_id": "890ecb21-a05d-4ece-bba2-1a966492d988",
+            "document_version_id": "d4367c68-07c1-5f17-ad33-36aeece68a13",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "receive",
+            "stage_status": "SUCCESS",
+            "duration_ms": 10.0
+          },
+          {
+            "ingestion_run_id": "890ecb21-a05d-4ece-bba2-1a966492d988",
+            "document_version_id": "d4367c68-07c1-5f17-ad33-36aeece68a13",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "DEDUP_TEMPORAL",
+            "stage_status": "SUCCESS",
+            "duration_ms": 7950.38
+          },
+          {
+            "ingestion_run_id": "890ecb21-a05d-4ece-bba2-1a966492d988",
+            "document_version_id": "d4367c68-07c1-5f17-ad33-36aeece68a13",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "INDEX_SEARCH",
+            "stage_status": "SUCCESS",
+            "duration_ms": 4749.494000000001
+          },
+          {
+            "ingestion_run_id": "890ecb21-a05d-4ece-bba2-1a966492d988",
+            "document_version_id": "d4367c68-07c1-5f17-ad33-36aeece68a13",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "PARSE",
+            "stage_status": "SUCCESS",
+            "duration_ms": 15.000000013969839
+          },
+          {
+            "ingestion_run_id": "9256b10f-de37-4c10-862c-4d91c33991d2",
+            "document_version_id": "6a5154e1-93fe-5906-9fdf-4c9d51547635",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "receive",
+            "stage_status": "SUCCESS",
+            "duration_ms": 10.0
+          },
+          {
+            "ingestion_run_id": "9256b10f-de37-4c10-862c-4d91c33991d2",
+            "document_version_id": "6a5154e1-93fe-5906-9fdf-4c9d51547635",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "PARSE",
+            "stage_status": "SUCCESS",
+            "duration_ms": 15.999999945051968
+          },
+          {
+            "ingestion_run_id": "9256b10f-de37-4c10-862c-4d91c33991d2",
+            "document_version_id": "6a5154e1-93fe-5906-9fdf-4c9d51547635",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "INDEX_SEARCH",
+            "stage_status": "SUCCESS",
+            "duration_ms": 4407.603
+          },
+          {
+            "ingestion_run_id": "9256b10f-de37-4c10-862c-4d91c33991d2",
+            "document_version_id": "6a5154e1-93fe-5906-9fdf-4c9d51547635",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "DEDUP_TEMPORAL",
+            "stage_status": "SUCCESS",
+            "duration_ms": 2006.763
+          },
+          {
+            "ingestion_run_id": "acc4e1ae-9ebe-4834-8028-fb7aa068c960",
+            "document_version_id": "31740f1c-cbd4-5f99-9d93-89e19b41c607",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "receive",
+            "stage_status": "SUCCESS",
+            "duration_ms": 10.0
+          },
+          {
+            "ingestion_run_id": "acc4e1ae-9ebe-4834-8028-fb7aa068c960",
+            "document_version_id": "31740f1c-cbd4-5f99-9d93-89e19b41c607",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "INDEX_SEARCH",
+            "stage_status": "SUCCESS",
+            "duration_ms": 4963.48
+          },
+          {
+            "ingestion_run_id": "acc4e1ae-9ebe-4834-8028-fb7aa068c960",
+            "document_version_id": "31740f1c-cbd4-5f99-9d93-89e19b41c607",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "DEDUP_TEMPORAL",
+            "stage_status": "SUCCESS",
+            "duration_ms": 3578.642
+          },
+          {
+            "ingestion_run_id": "acc4e1ae-9ebe-4834-8028-fb7aa068c960",
+            "document_version_id": "31740f1c-cbd4-5f99-9d93-89e19b41c607",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "PARSE",
+            "stage_status": "SUCCESS",
+            "duration_ms": 16.00000006146729
+          },
+          {
+            "ingestion_run_id": "855e3e6b-2a74-4e96-8f82-38d5acfacb93",
+            "document_version_id": "974bfa9f-dca0-512a-926f-22677f12e8eb",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "receive",
+            "stage_status": "SUCCESS",
+            "duration_ms": 10.0
+          },
+          {
+            "ingestion_run_id": "855e3e6b-2a74-4e96-8f82-38d5acfacb93",
+            "document_version_id": "974bfa9f-dca0-512a-926f-22677f12e8eb",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "INDEX_SEARCH",
+            "stage_status": "SUCCESS",
+            "duration_ms": 4068.3129999999996
+          },
+          {
+            "ingestion_run_id": "855e3e6b-2a74-4e96-8f82-38d5acfacb93",
+            "document_version_id": "974bfa9f-dca0-512a-926f-22677f12e8eb",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "DEDUP_TEMPORAL",
+            "stage_status": "SUCCESS",
+            "duration_ms": 3761.67
+          },
+          {
+            "ingestion_run_id": "855e3e6b-2a74-4e96-8f82-38d5acfacb93",
+            "document_version_id": "974bfa9f-dca0-512a-926f-22677f12e8eb",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "PARSE",
+            "stage_status": "SUCCESS",
+            "duration_ms": 0.0
+          },
+          {
+            "ingestion_run_id": "28b3978a-138f-4b03-a730-0ff016ec10d8",
+            "document_version_id": "7a690694-4ba2-5290-b357-deeb8f9cb23f",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "receive",
+            "stage_status": "SUCCESS",
+            "duration_ms": 10.0
+          },
+          {
+            "ingestion_run_id": "28b3978a-138f-4b03-a730-0ff016ec10d8",
+            "document_version_id": "7a690694-4ba2-5290-b357-deeb8f9cb23f",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "INDEX_SEARCH",
+            "stage_status": "SUCCESS",
+            "duration_ms": 6765.04
+          },
+          {
+            "ingestion_run_id": "28b3978a-138f-4b03-a730-0ff016ec10d8",
+            "document_version_id": "7a690694-4ba2-5290-b357-deeb8f9cb23f",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "DEDUP_TEMPORAL",
+            "stage_status": "SUCCESS",
+            "duration_ms": 4454.699
+          },
+          {
+            "ingestion_run_id": "28b3978a-138f-4b03-a730-0ff016ec10d8",
+            "document_version_id": "7a690694-4ba2-5290-b357-deeb8f9cb23f",
+            "ingestion_status": "SUCCEEDED",
+            "stage": "PARSE",
+            "stage_status": "SUCCESS",
+            "duration_ms": 15.999999945051968
+          }
+        ],
+        "by_stage": {
+          "receive": {
+            "count": 8,
+            "total_seconds": 0.08,
+            "mean_seconds": 0.01
+          },
+          "PARSE": {
+            "count": 8,
+            "total_seconds": 0.108,
+            "mean_seconds": 0.014
+          },
+          "INDEX_SEARCH": {
+            "count": 8,
+            "total_seconds": 41.245,
+            "mean_seconds": 5.156
+          },
+          "DEDUP_TEMPORAL": {
+            "count": 8,
+            "total_seconds": 33.676,
+            "mean_seconds": 4.21
+          }
+        }
+      },
+      "upload_seconds": 0.506,
+      "processing_to_tree_ready_seconds": 79.867,
+      "total_ingest_to_tree_ready_seconds": 80.377,
+      "documents_ready": 8,
+      "knowledge_units": 581,
+      "knowledge_jobs_state": [
+        {
+          "kind": "FOUNDATION",
+          "status": "SUCCEEDED",
+          "error_code": null,
+          "count": 8,
+          "attempts": 1
+        }
+      ],
+      "active_tree_count": 1,
+      "foundation_job_count": 8,
+      "foundation_job_seconds_total": 6.33,
+      "graph_cpu_seconds_total": 4.348,
+      "graph_persistence_seconds_total": 5.792,
+      "tree_rebuild_seconds_total": 40.668
+    },
+    "dense_off": {
+      "uploads": [
+        {
+          "filename": "hubspot__dsid_e75bbf328fe349d2bb39e29b1ed7c9d5.md",
+          "bytes": 2705,
+          "seconds": 0.024
+        },
+        {
+          "filename": "github__dsid_44cf2d75d70d4365914aa46947a94b1d.md",
+          "bytes": 5072,
+          "seconds": 0.022
+        },
+        {
+          "filename": "jira__dsid_21d6b99dc771418287d61444f373852e.md",
+          "bytes": 6422,
+          "seconds": 0.032
+        },
+        {
+          "filename": "confluence__dsid_05841423a55e4c35abd276d9899b7134.md",
+          "bytes": 7914,
+          "seconds": 0.069
+        },
+        {
+          "filename": "slack__dsid_8ae540be8e4c458ca15e122040ea2418.md",
+          "bytes": 9513,
+          "seconds": 0.043
+        },
+        {
+          "filename": "confluence__dsid_d32eb5051b554e038222c3bf399acef8.md",
+          "bytes": 11785,
+          "seconds": 0.023
+        },
+        {
+          "filename": "google_drive__dsid_4587f467ecf646b7926dbd6b886f9f23.md",
+          "bytes": 14985,
+          "seconds": 0.033
+        },
+        {
+          "filename": "fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md",
+          "bytes": 34236,
+          "seconds": 0.033
+        }
+      ],
+      "knowledge_jobs": [],
+      "graph_cpu": [],
+      "graph_persistence": [],
+      "tree_rebuilds": [],
+      "qdrant_cleanup": [
+        {
+          "status": 404
+        },
+        {
+          "status": 404
+        },
+        {
+          "status": 404
+        },
+        {
+          "status": 400,
+          "detail": "{\"status\":{\"error\":\"Bad request: Index required but not found for \\\"document_version_id\\\" of one of the following types: [keyword, uuid]. Help: Create an index for this key or use a different filter.\"},\"time\":0.000035396}"
+        },
+        {
+          "status": 200
+        }
+      ]
+    }
+  }
+}

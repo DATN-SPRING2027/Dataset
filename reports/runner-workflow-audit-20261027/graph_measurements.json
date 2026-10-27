@@ -1,0 +1,22 @@
+{
+  "units": 677,
+  "database_writes": 0,
+  "measurements": [
+    {
+      "mode": "actual_dense",
+      "wall_seconds": 28.85291200003121,
+      "cpu_seconds": 28.078125,
+      "edges": 7869,
+      "candidate_pairs": 41809,
+      "max_event_loop_lag_seconds": 28.865747299995274
+    },
+    {
+      "mode": "same_units_without_dense",
+      "wall_seconds": 1.1599164000945166,
+      "cpu_seconds": 1.171875,
+      "edges": 4953,
+      "candidate_pairs": 41742,
+      "max_event_loop_lag_seconds": 1.1749876999715343
+    }
+  ]
+}

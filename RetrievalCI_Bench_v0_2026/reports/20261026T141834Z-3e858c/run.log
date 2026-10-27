@@ -1,0 +1,60 @@
+RUN_ID=20261026T141834Z-3e858c OWNER=6acc9a5425f02c9d92a01012 PROJECT=08c89c865e2c481fb5ebbe02 SCHEMA=sag
+[1/3] Preparing new project in schema `sag` and Qdrant collection for project `08c89c865e2c481fb5ebbe02`...
+Found 81 Markdown documents in D:\DoAnTotnghiep\Dataset\RetrievalCI_Bench_v0_2026\examples\rag_eval\bench_v0\corpus
+Parsed canonical blocks for 81 documents in 3.0s.
+  Indexed 10/81 docs (127.0s elapsed)...
+  Indexed 20/81 docs (198.4s elapsed)...
+  Indexed 30/81 docs (288.7s elapsed)...
+  Indexed 40/81 docs (314.1s elapsed)...
+  Indexed 50/81 docs (354.9s elapsed)...
+  Indexed 60/81 docs (389.3s elapsed)...
+  Indexed 70/81 docs (417.5s elapsed)...
+  Indexed 80/81 docs (447.6s elapsed)...
+  Indexed 81/81 docs (451.2s elapsed)...
+Persisting KnowledgeUnit graph edges across 3585 KUs...
+Completed indexing 81 docs (3585 KUs, 29364 edges) in 482.5s.
+[2/3] Running 50 RetrievalCI Bench-v0 questions (top_k=5)...
+  Evaluated 10/50 questions...
+  Evaluated 20/50 questions...
+  Evaluated 30/50 questions...
+  Evaluated 40/50 questions...
+  Evaluated 50/50 questions...
+
+================================================================================
+RETRIEVALCI BENCH-V0 (2026) OFFICIAL SCORECARD
+================================================================================
+```text
+score = 100 * (0.7 * retrieval_source_recall + 0.3 * retrieval_source_precision)
+```
+
+| System | Score | Recall | Precision | p50 retrieve (ms) |
+| --- | ---: | ---: | ---: | ---: |
+| sag_engine | 88.0 | 98.6% | 63.3% | 1888.9 |
+| BM25 (lexical) | 45.7 | 47.7% | 41.0% | 2998.0 |
+| Dense (vector RAG) | 45.6 | 48.5% | 38.8% | 3059.2 |
+| Hybrid (BM25+Dense RRF) | 46.2 | 47.7% | 42.9% | 3323.6 |
+| Rerank (Dense+LLM) | 46.3 | 48.2% | 41.7% | 3000.9 |
+| Chunk-summary (Dense) | 43.2 | 45.8% | 37.1% | 3200.1 |
+| Vertex AI RAG Engine | 82.6 | 94.5% | 54.7% | 358.4 |
+| Bedrock KB (Cohere embed) | 82.5 | 87.9% | 70.1% | 408.1 |
+| OpenAI File Search | 78.5 | 89.3% | 53.4% | 1358.3 |
+| Azure AI Search (Gemini embed) | 84.0 | 90.9% | 67.8% | 408.4 |
+
+
+--- Per-Tier Recall / Precision Breakdown ---
+sag_engine           | Score= 88.0 | R= 98.6% P= 63.3% Abs=  0.0% | SH(R=100.0%,P= 61.9%) | MH(R= 95.8%,P= 61.8%) | CT(R=100.0%,P= 76.0%)
+azure_ai_search      | Score= 84.0 | R= 90.9% P= 67.8% Abs=  0.0% | SH(R=100.0%,P= 53.1%) | MH(R= 72.8%,P= 92.2%) | CT(R=100.0%,P= 83.3%)
+vertex_ai_rag        | Score= 82.6 | R= 94.5% P= 54.7% Abs=  0.0% | SH(R=100.0%,P= 33.4%) | MH(R= 83.6%,P= 94.8%) | CT(R=100.0%,P= 61.7%)
+bedrock_kb           | Score= 82.5 | R= 87.9% P= 70.1% Abs=  0.0% | SH(R= 96.0%,P= 54.7%) | MH(R= 70.3%,P=100.0%) | CT(R=100.0%,P= 73.0%)
+openai_file_search   | Score= 78.5 | R= 89.3% P= 53.4% Abs=  0.0% | SH(R=100.0%,P= 32.3%) | MH(R= 71.1%,P= 88.3%) | CT(R= 90.0%,P= 75.0%)
+
+--- SAG Engine Question-Level Bottleneck Audit ---
+Answerable questions with Recall < 1.0: 2 / 45
+  - qst_0348 (multi_hop): Recall=0.750, Precision=0.600 | Missing=1: ['confluence__dsid_d32eb5051b554e038222c3bf399acef8.md']
+  - qst_0354 (multi_hop): Recall=0.625, Precision=1.000 | Missing=3: ['confluence__dsid_c52c609c0cdf4211a7e8c57bb1da72e4.md', 'google_drive__dsid_4587f467ecf646b7926dbd6b886f9f23.md', 'jira__dsid_2f1f0358b85148f19d38f619891bfb15.md']
+Unanswerable questions (n=5):
+  - qst_0481: abstention_correctness=0.0, precision=0.0, retrieved_docs=5
+  - qst_0482: abstention_correctness=0.0, precision=0.0, retrieved_docs=3
+  - qst_0483: abstention_correctness=0.0, precision=0.0, retrieved_docs=5
+  - qst_0484: abstention_correctness=0.0, precision=0.0, retrieved_docs=5
+  - qst_0485: abstention_correctness=0.0, precision=0.0, retrieved_docs=5

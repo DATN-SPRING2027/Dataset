@@ -1,0 +1,62 @@
+RUN_ID=20261026T142931Z-35460f OWNER=6acc9a5425f02c9d92a01012 PROJECT=9f1dfc0aab484447a0b1e5c1 SCHEMA=sag
+[1/4] Preparing new project in schema `sag` and Qdrant collection for project `9f1dfc0aab484447a0b1e5c1`...
+Parsed canonical blocks for 130 Vietnamese documents in 2.2s.
+  Indexed 25/130 docs + Dense KU Vectors (66.9s elapsed)...
+  Indexed 50/130 docs + Dense KU Vectors (134.6s elapsed)...
+  Indexed 75/130 docs + Dense KU Vectors (205.8s elapsed)...
+  Indexed 100/130 docs + Dense KU Vectors (281.5s elapsed)...
+  Indexed 125/130 docs + Dense KU Vectors (355.7s elapsed)...
+  Indexed 130/130 docs + Dense KU Vectors (369.6s elapsed)...
+[1b/4] Running Tier E2 LLM Knowledge Extraction (`Qwen/Qwen3-8B`) on 24 flagged KnowledgeUnits...
+    [WARN] E2 enrich skipped for unit 4a036880: ReadTimeout: 
+    [WARN] E2 enrich skipped for unit 3d6c77dd: ReadTimeout: 
+    [WARN] E2 enrich skipped for unit bb778295: ReadTimeout: 
+    [WARN] E2 enrich skipped for unit ea6d9295: ReadTimeout: 
+    [WARN] E2 enrich skipped for unit fd6e1364: ReadTimeout: 
+  Completed E2 LLM Enrichment: 19/24 units enriched (+98 entities, +42 claims, +50 relations) in 191.6s.
+[1c/4] Persisting KnowledgeUnit graph edges across 368 KUs (with 0.40 semantic + 0.35 entity + 0.25 lexical signals)...
+[1d/4] Building & publishing Universe Routing Tree for project `9f1dfc0aab484447a0b1e5c1`...
+  Published active Universe Tree snapshot (tree_id=ok).
+Completed Full-AI indexing: 130 docs, 368 KUs (368 with dense vectors), 19 E2 LLM units, 3905 graph edges (3905 with semantic signal) in 678.91s.
+[2/4] Evaluating 50 Vietnamese queries across 3 Same-Corpus Systems:
+      (A) Pure Dense (`Qwen/Qwen3-Embedding-0.6B` Cosine Only)
+      (B) Pure Sparse (`bm25_sparse` Lexical Overlap Only)
+      (C) SAG Engine (Full AI Pipeline: Hybrid + E0/E1/E2 Graph + Multi-Hop Bridge + Clause Reranker)
+  Evaluated 10/50 queries...
+  Evaluated 20/50 queries...
+  Evaluated 30/50 queries...
+  Evaluated 40/50 queries...
+  Evaluated 50/50 queries...
+[3/4] Running End-to-End LLM Answer Synthesis (`Qwen/Qwen3-8B`) across 50 Vietnamese queries...
+  Completed LLM Answer Synthesis: 50/50 answers generated, 50/50 (100.0%) with citation markers (not independently judged grounding) (p50=7735.5ms).
+
+============================================================================================
+1. VIETNAMESE LEGAL RAG BENCHMARK: ZacLegalTextRetrieval (Same-Corpus + MMTEB Leaderboard)
+============================================================================================
+| System / Model | Mode | MAP@5 | MRR@5 | NDCG@5 | Recall@5 | Mean |
+| :--- | :--- | ---: | ---: | ---: | ---: | ---: |
+| **SAG Engine (Full AI Pipeline)** | **Same-Corpus (130 docs)** | **97.78** | **97.78** | **98.33** | **100.00** | **98.47** |
+| Pure Dense (`Qwen3-Embedding-0.6B`) | Same-Corpus (130 docs) | 94.00 | 94.00 | 95.50 | 100.00 | 95.88 |
+| Pure Sparse (`BM25 / Token Overlap`) | Same-Corpus (130 docs) | 72.89 | 72.89 | 78.88 | 96.67 | 80.33 |
+| GreenNode M3-GN-VN-Mixed (SOTA VN) | Full Leaderboard | 69.75 | 69.28 | 74.01 | 86.74 | 74.95 |
+| BAAI M3-Embedding (`bge-m3`) | Full Leaderboard | 69.34 | 68.96 | 73.70 | 86.68 | 74.67 |
+| Microsoft `multilingual-e5-large` | Full Leaderboard | 60.14 | 59.62 | 64.17 | 76.02 | 64.99 |
+| **OpenAI `text-embedding-3`** | Full Leaderboard | 38.68 | 38.80 | 41.53 | 49.94 | 41.74 |
+
+============================================================================================
+2. VIETNAMESE MULTI-HOP RAG BENCHMARK: HotpotQA-VN (Same-Corpus + VN-MTEB Leaderboard)
+============================================================================================
+| System / Model | Mode | NDCG@10 | Recall@5 | Recall@10 | MRR@5 |
+| :--- | :--- | ---: | ---: | ---: | ---: |
+| **SAG Engine (Full AI Pipeline)** | **Same-Corpus (130 docs)** | **99.20** | **100.00** | **100.00** | **100.00** |
+| Pure Dense (`Qwen3-Embedding-0.6B`) | Same-Corpus (130 docs) | 99.09 | 97.50 | 100.00 | 100.00 |
+| Pure Sparse (`BM25 / Token Overlap`) | Same-Corpus (130 docs) | 89.49 | 95.00 | 97.50 | 94.17 |
+| AITeamVN `Vietnamese_Embedding` (568M) | Full Leaderboard | 70.07 | - | - | - |
+| **Alibaba `gte-Qwen2-7B-instruct` (7B)** | Full Leaderboard | 67.99 | - | - | - |
+| **Microsoft `multilingual-e5-large` (560M)** | Full Leaderboard | 65.11 | - | - | - |
+| **BAAI `bge-m3` (568M)** | Full Leaderboard | 63.76 | - | - | - |
+| **Google `bge-multilingual-Gemma2` (9B)** | Full Leaderboard | 29.72 | - | - | - |
+
+============================================================================================
+OVERALL VN-MTEB SUMMARY (n=50): NDCG@5=98.68% | Recall@5=100.00% | NDCG@10=98.68% | Recall@10=100.00% | p50=1852.0ms
+============================================================================================

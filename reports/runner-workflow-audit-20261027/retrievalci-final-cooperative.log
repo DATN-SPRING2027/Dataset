@@ -1,0 +1,26 @@
+BENCH_OUTPUT=D:\DoAnTotnghiep\Dataset\reports\retrievalci-fixed-20261027080911
+warning: in the working copy of 'SAG/apps/api/sag_api/core/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/sag/engine_manager.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/evidence_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/knowledge_service.py', LF will be replaced by CRLF the next time Git touches it
+RUN_ID=20261027T080912Z-871da9 OWNER=6acc9a5425f02c9d92a01012 PROJECT=25ea0fd0b8be4081b6ffe9f4 SCHEMA=sag_bench_retrievalci_20261027070959
+15:09:19  INFO     [-]  sag.jobs  任务队列已启动（并发=4）
+15:09:19  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager started
+15:09:19  INFO     [-]  sag.runtime  MCP 端点已就绪 · /mcp/（全库）· 可选 ?source_id=<信源 id>
+15:09:19  INFO     [-]  sag.runtime  sag-api 知识运行时已启动 · env=dev · llm_configured=True · vector=qdrant
+15:09:19  INFO     [-]  zleap.sag.ai.embedding  Embedding客户端初始化完成
+15:09:19  INFO     [-]  zleap.sag.ai.factory  ✅ 创建Embedding客户端
+Pipeline: [{"READY": 81}, {"total": 3585, "e2_selected": 258}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 81, "attempts": 1}], [{"status": "ACTIVE", "tree_version": "tree-2cd3afa881cdd8fc3f0eba29"}]]
+15:09:38  INFO     [e1e31d6f8b6a4241]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+15:09:39  WARNING  [e1e31d6f8b6a4241]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 1/50 qst_0001: status=answered error=None
+15:09:57  INFO     [50c648847a4d41f7]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+15:09:58  WARNING  [50c648847a4d41f7]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 2/50 qst_0002: status=answered error=None
+15:10:08  INFO     [6de096de2dc540e7]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 3/50 qst_0003: status=answered error=None
+15:10:22  INFO     [d2b9ee80db794639]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 4/50 qst_0004: status=answered error=None
+15:10:48  INFO     [a74a07d3bf284ce4]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 5/50 qst_0005: status=answered error=None
+15:11:32  INFO     [d7d6db7d6ed54a72]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1

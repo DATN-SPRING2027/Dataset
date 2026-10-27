@@ -1,0 +1,688 @@
+{
+  "run_id": "20261027T030153Z-9b0297",
+  "status": "FAILED",
+  "project_id": "0924d58e249b4502b86dfdb9",
+  "schema": "sag_bench_ci_20261027030149",
+  "elapsed_seconds": 229.213673,
+  "protocol": {
+    "runtime": "sag_api.main.lifespan (unmodified)",
+    "frontend": {
+      "top_k": null,
+      "load_more_step": 12,
+      "stream_idle_seconds": 45.0,
+      "first_result_seconds": 30.0
+    },
+    "ingestion": "sag_api.services.document_service.handle_document_upload",
+    "llm_model": "Qwen/Qwen3-8B",
+    "transport": "loopback HTTP /api/v1/search/stream",
+    "e2_enabled": false,
+    "query_replays": 0,
+    "authentication": "real Continuum login and scoped SAG session; no dependency overrides",
+    "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+    "knowledge_queue": {
+      "capacity": 256,
+      "concurrency": 4,
+      "daily_tokens": 0,
+      "max_attempts": 3,
+      "poll_seconds": 2.0,
+      "retry_seconds": 30,
+      "max_age_seconds": 86400,
+      "max_input_chars": 6000,
+      "timeout_seconds": 60,
+      "max_output_tokens": 1000
+    },
+    "llm_max_retries": 2,
+    "llm_timeout_seconds": 120.0,
+    "embedding_timeout_seconds": 120,
+    "document_event_extraction_enabled": false
+  },
+  "checkpoint_at_failure": {
+    "jobs": [
+      {
+        "kind": "FOUNDATION",
+        "count": 2,
+        "status": "RUNNING",
+        "attempts": 2,
+        "error_code": null
+      },
+      {
+        "kind": "FOUNDATION",
+        "count": 2,
+        "status": "SUCCEEDED",
+        "attempts": 1,
+        "error_code": null
+      },
+      {
+        "kind": "FOUNDATION",
+        "count": 3,
+        "status": "RETRY",
+        "attempts": 1,
+        "error_code": "TimeoutError"
+      }
+    ],
+    "tree": [],
+    "units": {
+      "total": 677,
+      "e2_selected": 60
+    },
+    "evidence": {
+      "E0": 2049,
+      "E1": 1095
+    },
+    "ingestion": {
+      "READY": 8,
+      "FAILED": 2,
+      "PENDING": 71
+    },
+    "ready_versions": [
+      {
+        "id": "e1b06ea8-cc69-535a-97d3-e4ce0b4ba724",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "c21a81c3-de7e-58c8-a979-6d92b6bb608b",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "b0251ffa-788d-5c79-80c6-78e6427b18a8",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "d20914be-a13e-5e96-8684-1a6dcd3c3aa0",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "7f4773fe-9a93-5c0d-ae06-32600584349e",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "8902ee60-f06d-5ccf-8ee6-ab63abfa8450",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "0d1c2cac-71fd-5d4d-b849-c3ad5eab36ee",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "eb7d8b58-4d51-5d0e-9e6e-d506047aa734",
+        "status": "FAILED",
+        "search_status": "INDEX_FAILED",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "3936c34d-175c-5061-8a44-3587a24719cc",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "d5a755be-f988-5ea9-871a-2ae878384955",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "e5f00d84-cf17-5acb-810b-86d3ae790135",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "bcd8601c-0f7f-5dc4-be60-86557b043770",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "b0afc1cb-0372-5afc-bc46-2cbb3b847d09",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "1312f969-da0e-51ec-a7d3-df4a69ccf0f8",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "b7780724-469b-5e79-b293-95cbefc5cc7b",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "d51ee3ae-d1b9-58f3-bcf7-b01a107c80d8",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "e49d31e3-a47e-5bcc-bda9-b3c54b050793",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "acea8839-1227-59ba-be52-d11397f99279",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "ee1c1d26-f325-520f-82b6-cc128e5a175d",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "b5868165-fc93-52a5-a201-a57117f9f7e6",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "ef83f3fb-3893-56d8-b4d7-66c00e433067",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "4a4405fe-edf5-51a3-b4aa-f1917e9a080e",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "194435af-faa5-5b79-8223-ccad3c4b5837",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "79acbd36-580a-5daa-bec5-81edfd331e40",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "2107dce5-4fd6-5592-8542-0baf112aa812",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "8c992250-020a-53b1-890a-f01b47c740f4",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "a439b3a5-f995-5af9-9490-b11f1bc64857",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "8fe9d9a8-f371-522c-a487-6b3a2d777680",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "344b2396-64df-5dfb-9288-c64561d3d99f",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "e7ac57e4-ca84-52a7-8052-5b28456463e1",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "850693d9-0a3b-5deb-a29b-d240f25d96ad",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "b74005ec-6df6-5158-b01b-c0db4a40304e",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "84c85d6e-ba7a-5df2-b32a-21cb300d7e10",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "e5d706d1-6985-53e6-b26a-064b4c6a9cb2",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "6ec57831-dfeb-518d-b2db-e6864d9b90b0",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "35cdb08e-99d8-527f-bcf0-ebfe8f8082f5",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "cc64c421-6e0b-53e0-8918-3b99619d44a9",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "4d8b1ded-47dc-54a3-abbe-91d173445b95",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "085cd5cd-81c5-5728-9b0a-2b664329c14a",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "a8db476b-7a98-5818-a4c2-e938c3e665eb",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "9b40a3d0-18d5-53f0-8a99-64f4a24030a9",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "e57f6c86-0822-50a9-b215-4ab83a10d315",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "be43ebac-6550-5e65-a660-15ae722fee0f",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "f3a1adbc-2929-503b-807e-7c2c7ef1a8aa",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "fcad1728-5778-5f15-b9ae-1433b630a8e9",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "940713c9-6384-5fbc-b93b-4ba0170bb7e2",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "ae23e77e-a7b1-5243-9c19-be10e2203139",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "f1412b4e-9356-5d83-aa7f-f21c3240ea74",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "dab06d48-de36-58c8-b32b-09e9248f310d",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "9f273b66-3cdb-51bf-8f33-48528b6e15c7",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "bc00ebba-780b-553e-8c78-93b3d98925da",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "e9d2509a-29cc-5580-be0b-c9a123a48193",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "d4e889cf-81ae-5dc7-8703-6860a8182c4e",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "1ac8e407-b461-506e-82f3-78e510b1bf5e",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "d6194a7d-c85d-50a5-9dbb-0087e700df51",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "6b21ecf6-3f33-55b3-8f92-a8a00935e03c",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "fb30261c-ece2-5b1a-9ce4-994ad34c68e0",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "7484477f-e17d-5983-ad6a-dacdd1690e01",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "0a4db8ef-748e-5554-a505-7bd11b02b334",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "c8fd643f-a88e-513e-a26f-a22f8d38e5fc",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "85811fd3-b5e0-5847-80b8-d1a1b4773598",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "947ca4fd-6899-5c6f-b64a-6d5dfbc37ba6",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "ff5ee0c8-4f8b-5fbd-9aa4-b2fe0f49b58a",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "8fcfbde2-8aac-5acb-b986-0b73e9fd367b",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "6a1399d4-dcbb-5fe4-a5d8-cd9a796acdc3",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "ec632d8f-85ee-579c-9b5e-80221afc9b69",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "08b77cd7-b4c2-53f9-a876-3cd3c0af22db",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "41bf7922-f04f-5c81-b8ef-e0d1e03a0e03",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "a81addec-3261-579f-817a-5d0c1ffeb373",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "d5fbec65-45bf-56ad-8beb-98d932099c56",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "fb4b11e8-b666-5622-af3d-2f8e94dd911e",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "d92ca91a-9a76-5ee3-885d-89943cd9fa39",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "ac23e21e-f4c6-59b8-903d-da41635a4421",
+        "status": "PENDING",
+        "search_status": "PENDING",
+        "knowledge_status": "NOT_STARTED"
+      },
+      {
+        "id": "e7fc9a42-ca43-52fd-aafa-e22061a9678f",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "2a5e9091-90bd-5a32-97c6-5de5ded6992d",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "afdf9a96-5752-5817-b80f-4d7dcfbfc3f0",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "77c11b9b-0251-5d01-b60a-ee9ee58dfd5c",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "85aaa57e-fc54-548a-beb3-32aa99a80521",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "826c74a9-83f6-57ab-9833-8684ee51572b",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "3fb074ad-dfd8-589f-a0b4-ec97ffa54b21",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "ade768e4-3733-5e61-8c7f-f29d302f9d8b",
+        "status": "FAILED",
+        "search_status": "INDEX_FAILED",
+        "knowledge_status": "NOT_STARTED"
+      }
+    ]
+  },
+  "final_snapshot": {
+    "document_statuses": [
+      {
+        "status": "FAILED",
+        "count": 2
+      },
+      {
+        "status": "PENDING",
+        "count": 71
+      },
+      {
+        "status": "READY",
+        "count": 8
+      }
+    ],
+    "failed_documents": [
+      {
+        "filename": "confluence__dsid_8c24fd15fe5b473eb71341751d292b6e.md",
+        "error": "Qdrant point cleanup failed:",
+        "error_layer": "store",
+        "error_stage": "persist"
+      },
+      {
+        "filename": "confluence__dsid_610d2c74a60441e886fcc39e351a4176.md",
+        "error": "Qdrant point cleanup failed:",
+        "error_layer": "store",
+        "error_stage": "persist"
+      }
+    ],
+    "knowledge_jobs": [
+      {
+        "kind": "FOUNDATION",
+        "status": "RUNNING",
+        "error_code": null,
+        "count": 1,
+        "attempts": 2
+      },
+      {
+        "kind": "FOUNDATION",
+        "status": "SUCCEEDED",
+        "error_code": null,
+        "count": 2,
+        "attempts": 1
+      },
+      {
+        "kind": "FOUNDATION",
+        "status": "RETRY",
+        "error_code": "TimeoutError",
+        "count": 4,
+        "attempts": 2
+      }
+    ],
+    "knowledge_units": [
+      {
+        "count": 677
+      }
+    ],
+    "trees": [],
+    "index_stages": [
+      {
+        "status": "SUCCESS",
+        "duration_ms": 26684.713,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 72377.41,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 60127.336,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 51697.751,
+        "error_message": null
+      },
+      {
+        "status": "FAILED",
+        "duration_ms": 0.0,
+        "error_message": "Qdrant point cleanup failed:"
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 10931.837,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 20912.219,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 22340.48,
+        "error_message": null
+      },
+      {
+        "status": "SUCCESS",
+        "duration_ms": 80687.371,
+        "error_message": null
+      },
+      {
+        "status": "FAILED",
+        "duration_ms": 0.0,
+        "error_message": "Qdrant point cleanup failed:"
+      }
+    ]
+  },
+  "question_count_executed": 0,
+  "retrieval_quality": null,
+  "qa_latency": null,
+  "failure_reason": "Ingestion failed before question evaluation. FOUNDATION TimeoutError and Qdrant point-cleanup failures occurred in the isolated application runtime.",
+  "observations": [
+    "The shared-schema attempt was aborted because unrelated recovered jobs dominated the runtime. It is not scored.",
+    "The isolated attempt used the unchanged canonical Dataset script and actual SAG app lifespan, upload service and authentication.",
+    "A CPU sample showed 181.453125 CPU-seconds after approximately three wall-clock minutes. This is evidence of CPU pressure, not a sampled stack trace."
+  ],
+  "code_inspection_hypothesis": "FOUNDATION invokes synchronous whole-project graph calculation from the async worker; document tasks also perform inline foundation construction. These paths may block the event loop and duplicate work. No profiler stack was captured; the exact causal contribution is not confirmed.",
+  "code_changed_during_benchmark": false
+}

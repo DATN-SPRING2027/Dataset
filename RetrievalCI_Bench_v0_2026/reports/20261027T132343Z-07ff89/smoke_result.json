@@ -1,0 +1,373 @@
+{
+  "elapsed_seconds": 177.035,
+  "file_count": 8,
+  "pipeline": {
+    "ready_versions": [
+      {
+        "id": "496cdca4-0f60-5d0c-8c39-f44edcdf538d",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "0e23637b-511b-5dfa-a957-7b6d24e7bd0b",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "14738157-8642-57d7-9fd2-b675c1b50fe9",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "785c7a52-86bc-5155-b0b3-becf77096ed8",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "3f9e79c3-1d02-54f3-b815-d175e0557738",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "eed0bfbb-c6e4-5cca-8ff7-489a5e4b259c",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "7d266559-f0df-5215-8e31-e94b89d90b38",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "81953ac2-eb87-50b8-9fcb-c68b89c266f4",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      }
+    ],
+    "jobs": [
+      {
+        "kind": "FOUNDATION",
+        "status": "SUCCEEDED",
+        "error_code": null,
+        "count": 8,
+        "attempts": 1
+      }
+    ],
+    "units": {
+      "total": 614,
+      "e2_selected": 55
+    },
+    "evidence": {
+      "E1": 903,
+      "E0": 1838
+    },
+    "tree": [
+      {
+        "status": "ACTIVE",
+        "tree_version": "tree-50e9040ac9c30e1a3b2c8c5d"
+      }
+    ],
+    "tree_matches_current": true,
+    "tree_jobs": [
+      {
+        "status": "succeeded",
+        "attempts": 1,
+        "error": null
+      },
+      {
+        "status": "succeeded",
+        "attempts": 1,
+        "error": null
+      }
+    ],
+    "ingestion": {
+      "READY": 8
+    }
+  },
+  "query": {
+    "response": {
+      "query": "What are the default size limits for file uploads and total request size for the new multipart upload support on the OpenAI-compatible API endpoints?",
+      "sections": [
+        {
+          "chunk_id": "06bb4332-4bc2-5d6b-a1c0-07e9dd774cba",
+          "search_unit_id": "06bb4332-4bc2-5d6b-a1c0-07e9dd774cba",
+          "block_from_id": "6cce7321-9964-5f60-ac79-5492720bc8df",
+          "block_to_id": "6cce7321-9964-5f60-ac79-5492720bc8df",
+          "section_path": "Pr 18421 Multipart File Validation Limits",
+          "document_id": "496cdca4-0f60-5d0c-8c39-f44edcdf538d",
+          "document_version_id": "1d65855b-3975-5a3f-a1d3-5784b074495f",
+          "document_name": "github__dsid_ae068ee4aa9640159427cd941bef0238.md",
+          "version_no": 1,
+          "page_from": 1,
+          "page_to": 1,
+          "anchor": "p-2",
+          "heading": "Pr 18421 Multipart File Validation Limits",
+          "content": "Motivation: users integrating tool/function calling and file uploads via the OpenAI-compatibility endpoints were sending a wide variety of content-types and very large multipart requests which caused inconsistent runtime behavior, high memory pressure, and unexpected acceptance of unsupported payloads. This PR introduces a focused, backwards-compatible implementation for multipart/form-data parsing on the OpenAI-compatibility path, strict Content-Type validation for tool/file inputs, and deterministic payload limits both per-file and per-request. Summary of changes: 1) Add a streaming-safe multipart parser that yields parts rather than buffering entire requests; 2) Validate Content-Type of each part (whitelist: text/*, image/*, application/json, application/octet-stream with explicit size checks); 3) Enforce configurable limits: max_file_size (default 10MiB), max_total_request_size (default 50MiB), max_parts_count (default 20). These defaults are conservative and documented; they can be overridden at tenant or route level via API config. 4) Hook validation into the OpenAI-compat layer so existing client integrations get predictable errors (400/413) with structured error bodies when inputs are rejected. 5) Add detailed unit and integration tests and end-to-end tests for streaming uploads and for the dedicated Dedicated/Private ingress paths. Backwards compatibility notes: this does not change the non-multipart JSON body semantics. Existing users who relied on accepting arbitrary large file uploads should update their tenant config or use Redwood Dedicated with higher quotas. Rollout plan: feature-flagged behind feature.enable_multipart_input (off by default); staged rollout to internal dogfood tenants, then gradual roll to 10%, 50%, 100% via config rollout. Checklist: - [x] Streaming-safe multipart parser implemented - [x] Content-Type whitelist + validation errors - [x] Per-file and per-request size enforcement + configurable defaults - [x] OpenAI-compat error mapping and structured error shapes - [x] Tests: unit, integration, e2e - [x] Docs: compatibility notes and config guide - [x] Telemetry: counters for rejected parts and throttled requests - [x] Migration & rollout plan included Testing notes: the multipart parser uses a small constant memory footprint for each active part and yields part metadata to the handler; large parts trigger a streaming drain with early termination (413 response) to avoid OOM. Integration tests exercise combination of binary and text parts, wrong content-types, and boundary cases around the configured limits. Telemetry: added metrics api.multipart.rejected_content_type, api.multipart.rejected_size, api.multipart.accepted_parts and a hist for part sizes. Implementation details: - parser: runtime/multipart/stream_parser.py - validator: api/validation/multipart_validator.py - compat layer: api/openai_compat/input_adapter.py - config: config/defaults/multipart.yaml - docs: docs/openai-compat/multipart.md - tests: tests/unit/test_multipart_parser.py, tests/integration/test_openai_compat_multipart.py Error shape examples (structured output): when a part is rejected we return 413 with a JSON body {\"error\":{\"type\":\"request_too_large\",\"message\":\"part exceeds max_file_size\",\"meta\":{\"part_name\":\"file\",\"limit_bytes\":10485760}}} and 400 for unsupported content-types with type unsupported_media_type. Observability: trace spans added around parse->validate->route dispatch to help pinpoint latency regressions. Related items: Linear ENG-2728 (multipart uploader stability), PM-146 (OpenAI compat feature parity).\nLiam Chen: key question — do we need to special-case application/pdf? many partners send PDFs as application/pdf; current whitelist would block it. Suggest adding application/pdf or making whitelist configurable per-tenant.\nAisha Patel: replied — agreed, added application/pdf to tenant_whitelist in config and made default conservative. Added test case + note in docs explaining why binary blobs should be limited.",
+          "score": 0.840231,
+          "rank": 0,
+          "source_id": "e2e982bbe29e49dfa93f6a8447c0b5c7",
+          "source_name": "Project d0384cb1e12240cb9df393f2"
+        },
+        {
+          "chunk_id": "60320fd5-765a-537f-9ecd-7deec2cda43f",
+          "search_unit_id": "60320fd5-765a-537f-9ecd-7deec2cda43f",
+          "block_from_id": "6cce7321-9964-5f60-ac79-5492720bc8df",
+          "block_to_id": "6cce7321-9964-5f60-ac79-5492720bc8df",
+          "section_path": "Pr 18421 Multipart File Validation Limits",
+          "document_id": "496cdca4-0f60-5d0c-8c39-f44edcdf538d",
+          "document_version_id": "1d65855b-3975-5a3f-a1d3-5784b074495f",
+          "document_name": "github__dsid_ae068ee4aa9640159427cd941bef0238.md",
+          "version_no": 1,
+          "page_from": 1,
+          "page_to": 1,
+          "anchor": "p-2",
+          "heading": "Pr 18421 Multipart File Validation Limits",
+          "content": "Ravi Singh: please ensure the validator surfaces clear errors for multipart boundary parsing failures; I saw a flaky crash in an initial run.\nAisha Patel: replied — parser now catches malformed boundary exceptions and returns a 400 with error.type=malformed_multipart and includes low-signal debug id for tracing; updated tests.\nSofia Alvarez: approved — addressed my comments about metrics naming and added a suggestion to include counter tags for tenant_id and route_id.\nCI Bot: integration-tests failed on first run due to test harness timeout; rerun completed successfully.\nQA: noted an edge case where client SDK retries might double-submit large files; added a recommendation in docs and an optional idempotency header support in adapter.\nAdded multipart/form-data support on OpenAI-compat API paths with strict content-type validation and configurable per-file and per-request size limits. Default limits: 10MiB per file, 50MiB per request. Feature is behind a feature flag and can be enabled per-tenant. See docs/openai-compat/multipart.md for migration steps.",
+          "score": 0.754984,
+          "rank": 1,
+          "source_id": "e2e982bbe29e49dfa93f6a8447c0b5c7",
+          "source_name": "Project d0384cb1e12240cb9df393f2"
+        },
+        {
+          "chunk_id": "a64db089-d0b1-5da1-b824-9e39fad5175e",
+          "search_unit_id": "a64db089-d0b1-5da1-b824-9e39fad5175e",
+          "block_from_id": "14fc9d2d-4091-5893-a2a9-e9934bff2d1e",
+          "block_to_id": "068e2b52-831b-5f50-aa56-feb987bb78e7",
+          "section_path": "Pr 18421 Multipart File Validation Limits",
+          "document_id": "496cdca4-0f60-5d0c-8c39-f44edcdf538d",
+          "document_version_id": "1d65855b-3975-5a3f-a1d3-5784b074495f",
+          "document_name": "github__dsid_ae068ee4aa9640159427cd941bef0238.md",
+          "version_no": 1,
+          "page_from": 1,
+          "page_to": 1,
+          "anchor": "h1-0",
+          "heading": "Pr 18421 Multipart File Validation Limits",
+          "content": "Pr 18421 Multipart File Validation Limits\n\nSource type: github\nDocument ID: dsid_ae068ee4aa9640159427cd941bef0238\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstream data\nadd multipart/form-data handling, strict content-type validation, and payload limit enforcement for API tool/file inputs",
+          "score": 0.641539,
+          "rank": 2,
+          "source_id": "e2e982bbe29e49dfa93f6a8447c0b5c7",
+          "source_name": "Project d0384cb1e12240cb9df393f2"
+        }
+      ],
+      "events": [],
+      "entities": [],
+      "relations": [],
+      "source_hits": [],
+      "summary": "The default size limits for file uploads and total request size for the new multipart upload support on the OpenAI-compatible API endpoints are 10MiB per file and 50MiB per request [2].",
+      "citations": [
+        {
+          "kind": "internal",
+          "n": 2,
+          "document_id": "496cdca4-0f60-5d0c-8c39-f44edcdf538d",
+          "document_version_id": "1d65855b-3975-5a3f-a1d3-5784b074495f",
+          "document_name": "github__dsid_ae068ee4aa9640159427cd941bef0238.md",
+          "version_no": 1,
+          "chunk_id": "60320fd5-765a-537f-9ecd-7deec2cda43f",
+          "search_unit_id": "60320fd5-765a-537f-9ecd-7deec2cda43f",
+          "block_from_id": "6cce7321-9964-5f60-ac79-5492720bc8df",
+          "block_to_id": "6cce7321-9964-5f60-ac79-5492720bc8df",
+          "section_path": "Pr 18421 Multipart File Validation Limits",
+          "page_from": 1,
+          "page_to": 1,
+          "anchor": "p-2",
+          "heading": "Pr 18421 Multipart File Validation Limits",
+          "snippet": "Ravi Singh: please ensure the validator surfaces clear errors for multipart boundary parsing failures; I saw a flaky crash in an initial run. Aisha Patel: replied — parser now catches malformed boundary exceptions and returns a 400 with error.type=malformed_multipart and includes low-signal debug id for tracing; updated tests. Sofia Alvarez: approved — addressed my comments about metrics naming and added a suggestion to include counter tags for tenant_id and route_id. CI Bot: integration-tests failed on first run due to test harness timeout; rerun completed successfully. QA: noted an edge case where client SDK retries might double-submit large files; added a recommendation in docs and an optional idempotency he…",
+          "score": 0.755,
+          "source_id": "e2e982bbe29e49dfa93f6a8447c0b5c7",
+          "source_name": "Project d0384cb1e12240cb9df393f2"
+        }
+      ],
+      "answer_status": "answered",
+      "no_answer_reason": null,
+      "exploration_id": null,
+      "stats": {
+        "canonical_index": true,
+        "ready_versions": 8,
+        "requested_top_k": 5,
+        "candidate_top_k": 256,
+        "candidate_unit_pool_limit": 1024,
+        "candidate_pool_saturated": false,
+        "candidate_units_before_cap": 206,
+        "candidate_units_after_cap": 206,
+        "candidate_units_truncated": 0,
+        "semantic_candidates": 206,
+        "lexical_candidates": 118,
+        "candidates": 206,
+        "relevant": 118,
+        "filtered_irrelevant": 88,
+        "fusion_method": "rrf",
+        "selection_method": "authorized_content_dedup_mmr",
+        "cross_scope_merge": "rank_interleave",
+        "coverage": {
+          "candidate_count": 123,
+          "deduplicated_count": 0,
+          "diversity_weight": 0.5,
+          "near_duplicate_similarity": 0.98,
+          "required_anchor_count": 0,
+          "covered_anchor_count": 0,
+          "anchor_coverage": "not_required",
+          "status": "unknown",
+          "canonical_locator_verified": true,
+          "semantic_answerability": "unknown"
+        },
+        "routing": {
+          "planner": {
+            "planner_version": "qsp-v1",
+            "requested_strategy": "AUTO",
+            "effective_strategy": "LOCAL_FACTUAL",
+            "modifiers": [],
+            "reason_codes": [
+              "DEFAULT_LOCAL_FACTUAL"
+            ],
+            "multi_hop_eligible": false
+          },
+          "request_snapshot_id": "4f8e87a2-701e-4903-9a50-43c333fa2fce",
+          "groups": [
+            {
+              "project_id": "d0384cb1e12240cb9df393f2",
+              "source_id": "e2e982bbe29e49dfa93f6a8447c0b5c7",
+              "partition_id": "d0384cb1e12240cb9df393f2",
+              "snapshot_id": "51eb99be-b2b1-4d4c-b3d6-c4ab5ec878fc",
+              "request_snapshot_id": "4f8e87a2-701e-4903-9a50-43c333fa2fce",
+              "acl_scope_fingerprint": "f6d0354016d4ddd236fa91d791c570fd75c8b8761fc4635051c0cff6481d3f4f",
+              "tree_version": "tree-50e9040ac9c30e1a3b2c8c5d",
+              "routing_slot": "SLOT_A",
+              "search_epoch": 2,
+              "selected_nodes": [
+                "42abb894b57ed62e5408ed2f378d553b",
+                "42b62c7bfe615c8e02f5b60351ccff53",
+                "72caca443310a8ba8c316f9729be17df"
+              ],
+              "membership_count": 138,
+              "entropy": 0.9903395276079877,
+              "margin": 0.11582074065119263,
+              "broad_route": true,
+              "reason_code": "ROUTE_UNCERTAIN_BROADENED",
+              "fallback_reason": null,
+              "branch_local_candidates": 141,
+              "global_candidates": 206,
+              "escape_recovered_candidates": 65,
+              "escape_attempted": true,
+              "escape_trigger": "reserved_parallel_global_escape",
+              "local_failure": null,
+              "escape_failure": null,
+              "blackhole_detected": false
+            }
+          ],
+          "coverage": {
+            "candidate_count": 123,
+            "deduplicated_count": 0,
+            "diversity_weight": 0.5,
+            "near_duplicate_similarity": 0.98,
+            "required_anchor_count": 0,
+            "covered_anchor_count": 0,
+            "anchor_coverage": "not_required",
+            "status": "unknown",
+            "canonical_locator_verified": true,
+            "semantic_answerability": "unknown"
+          },
+          "selection_fallback_reason": null,
+          "multi_hop": {
+            "eligible": false,
+            "effective": "LOCAL_FACTUAL",
+            "graph_expansion_attempted": false,
+            "graph_expanded_candidates": 0,
+            "graph_expansion_skip_reason": null
+          },
+          "fallback_used": true
+        },
+        "selection_fallback_reason": null,
+        "stage_latencies_ms": {
+          "auth_scope": 87.59,
+          "tree_route": 924.29,
+          "candidate_retrieval": 6459.61,
+          "evidence_hydration": 93.24,
+          "rank_fusion": 173.25,
+          "graph_expansion": 0.0,
+          "diversity_selection": 2458.14,
+          "total_retrieval": 10328.49
+        },
+        "latency_total_ms": 10328.49,
+        "automatic_top_k": false,
+        "effective_top_k": 3,
+        "adaptive_waves": 4,
+        "retrieval_stop_reason": "candidate_pool_exhausted",
+        "budget_exhausted": false,
+        "has_more": false,
+        "acl_filtered_candidates": 0,
+        "query_route": {
+          "version": "query-flow-v1",
+          "query_original": "What are the default size limits for file uploads and total request size for the new multipart upload support on the OpenAI-compatible API endpoints?",
+          "scope_source_ids": [
+            "e2e982bbe29e49dfa93f6a8447c0b5c7"
+          ],
+          "coarse_intent": "AMBIGUOUS",
+          "confidence": 0.0,
+          "model": "fallback",
+          "suggested_strategy": "multi",
+          "requested_strategy": "auto",
+          "effective_strategy": "multi",
+          "retrieval": "fallback",
+          "fallback_used": true,
+          "fallback_reason": "siliconflow_request_failed",
+          "reason_codes": [
+            "SILICONFLOW_REQUEST_FAILED"
+          ],
+          "query_analysis": {
+            "normalized_phrase": "whatarethedefaultsizelimitsforfileuploadsandtotalrequestsizeforthenewmultipartuploadsupportontheopenaicompatibleapiendpoints",
+            "lookup_terms": [
+              "default",
+              "size",
+              "limits",
+              "file",
+              "uploads",
+              "total",
+              "request",
+              "new",
+              "multipart",
+              "upload",
+              "support",
+              "openai-compatible",
+              "api",
+              "endpoints",
+              "whatarethedefaultsizelimitsforfileuploadsandtotalrequestsizeforthenewmultipartuploadsupportontheopenaicompatibleapiendpoints"
+            ],
+            "features": {
+              "exact_terms": [],
+              "identifier_terms": [],
+              "path_terms": [],
+              "temporal_cues": [],
+              "relation_cues": [],
+              "global_cues": [],
+              "multi_hop": false
+            }
+          },
+          "strategy_plan": {
+            "planner_version": "qsp-v1",
+            "requested_strategy": "AUTO",
+            "effective_strategy": "LOCAL_FACTUAL",
+            "modifiers": [],
+            "reason_codes": [
+              "DEFAULT_LOCAL_FACTUAL"
+            ],
+            "multi_hop_eligible": false
+          },
+          "retrieval_fallback_used": false
+        }
+      }
+    },
+    "retrieval_latency_ms": 16345.579499960877,
+    "latency_ms": 20047.81689995434,
+    "first_token_ms": 20047.06609994173,
+    "error": null,
+    "http_client_pid": 37076
+  }
+}

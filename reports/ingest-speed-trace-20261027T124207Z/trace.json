@@ -1,0 +1,473 @@
+{
+  "uploads": [
+    {
+      "filename": "fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md",
+      "bytes": 34236,
+      "seconds": 0.086
+    }
+  ],
+  "knowledge_jobs": [
+    {
+      "job_id": "8fb397a9-db65-562f-a647-7e1a29804cdb",
+      "kind": "FOUNDATION",
+      "document_version_id": "a06ee35c-8b4d-5689-857a-cd7bfdc30420",
+      "seconds": 2.125
+    }
+  ],
+  "graph_cpu": [
+    {
+      "units": 274,
+      "edges": 2147,
+      "semantic_edges": 2147,
+      "seconds": 2.695
+    }
+  ],
+  "graph_persistence": [
+    {
+      "units": 274,
+      "edges": 2147,
+      "seconds": 3.17
+    }
+  ],
+  "tree_rebuilds": [
+    {
+      "project_id": "716bef8e441540fda6f141e8",
+      "seconds": 15.311
+    }
+  ],
+  "qdrant_cleanup": [
+    {
+      "status": 200
+    }
+  ],
+  "search_embedding_batches": [
+    {
+      "texts": 285,
+      "vectors": 285,
+      "seconds": 7.46
+    }
+  ],
+  "knowledge_embedding_batches": [
+    {
+      "blocks": 274,
+      "vectors": 274,
+      "seconds": 0.008
+    }
+  ],
+  "qdrant_collection_setup": [
+    {
+      "phase": "qdrant_preflight",
+      "seconds": 2.228
+    },
+    {
+      "phase": "document_ingest",
+      "seconds": 1.509
+    }
+  ],
+  "spans": [
+    {
+      "name": "cpu.minhash",
+      "start_seconds": 0.24,
+      "duration_seconds": 1.49
+    },
+    {
+      "name": "cpu.dedup_candidates",
+      "start_seconds": 1.734,
+      "duration_seconds": 0.933
+    },
+    {
+      "name": "ingest.dedup_temporal",
+      "start_seconds": 0.228,
+      "duration_seconds": 2.44
+    },
+    {
+      "name": "index.search_embeddings",
+      "start_seconds": 3.426,
+      "duration_seconds": 7.461
+    },
+    {
+      "name": "index.ensure_qdrant",
+      "start_seconds": 10.893,
+      "duration_seconds": 1.509
+    },
+    {
+      "name": "ingest.index_search",
+      "start_seconds": 2.822,
+      "duration_seconds": 10.892
+    },
+    {
+      "name": "foundation.knowledge_embeddings",
+      "start_seconds": 15.3,
+      "duration_seconds": 0.008
+    },
+    {
+      "name": "foundation.rebuild_units",
+      "start_seconds": 15.346,
+      "duration_seconds": 2.034
+    },
+    {
+      "name": "snapshot.current_units",
+      "start_seconds": 17.565,
+      "duration_seconds": 0.537
+    },
+    {
+      "name": "cpu.graph",
+      "start_seconds": 18.35,
+      "duration_seconds": 2.695
+    },
+    {
+      "name": "snapshot.persist_graph",
+      "start_seconds": 18.103,
+      "duration_seconds": 3.17
+    },
+    {
+      "name": "cpu.routing",
+      "start_seconds": 21.278,
+      "duration_seconds": 4.249
+    },
+    {
+      "name": "snapshot.current_units",
+      "start_seconds": 25.526,
+      "duration_seconds": 0.357
+    },
+    {
+      "name": "tree.snapshot",
+      "start_seconds": 17.422,
+      "duration_seconds": 8.465
+    },
+    {
+      "name": "tree.assignments",
+      "start_seconds": 25.887,
+      "duration_seconds": 0.013
+    },
+    {
+      "name": "cpu.prepare_tree",
+      "start_seconds": 25.907,
+      "duration_seconds": 1.699
+    },
+    {
+      "name": "publish.stage_db",
+      "start_seconds": 27.608,
+      "duration_seconds": 1.278
+    },
+    {
+      "name": "publish.verify_db_units",
+      "start_seconds": 28.886,
+      "duration_seconds": 0.007
+    },
+    {
+      "name": "publish.clear_qdrant_slot",
+      "start_seconds": 28.893,
+      "duration_seconds": 0.57
+    },
+    {
+      "name": "publish.write_qdrant_payloads",
+      "start_seconds": 29.463,
+      "duration_seconds": 1.924
+    },
+    {
+      "name": "publish.verify_staged_db",
+      "start_seconds": 31.387,
+      "duration_seconds": 0.38
+    },
+    {
+      "name": "publish.qdrant_count",
+      "start_seconds": 31.767,
+      "duration_seconds": 0.175
+    },
+    {
+      "name": "publish.qdrant_count",
+      "start_seconds": 31.942,
+      "duration_seconds": 0.173
+    },
+    {
+      "name": "publish.verify_qdrant_points",
+      "start_seconds": 32.115,
+      "duration_seconds": 0.175
+    },
+    {
+      "name": "publish.verify_qdrant_slot",
+      "start_seconds": 31.767,
+      "duration_seconds": 0.523
+    },
+    {
+      "name": "publish.atomic_switch",
+      "start_seconds": 32.29,
+      "duration_seconds": 0.436
+    },
+    {
+      "name": "tree.publish",
+      "start_seconds": 25.907,
+      "duration_seconds": 6.821
+    },
+    {
+      "name": "tree.rebuild",
+      "start_seconds": 17.422,
+      "duration_seconds": 15.311
+    }
+  ],
+  "timeline": [
+    {
+      "elapsed_seconds": 0.148,
+      "ingestion": {
+        "PENDING": 1
+      },
+      "versions": [
+        [
+          "PENDING",
+          "NOT_STARTED"
+        ]
+      ],
+      "jobs": [],
+      "tree": [],
+      "tree_jobs": []
+    },
+    {
+      "elapsed_seconds": 13.834,
+      "ingestion": {
+        "READY": 1
+      },
+      "versions": [
+        [
+          "SEARCH_READY",
+          "NOT_STARTED"
+        ]
+      ],
+      "jobs": [],
+      "tree": [],
+      "tree_jobs": []
+    },
+    {
+      "elapsed_seconds": 15.39,
+      "ingestion": {
+        "READY": 1
+      },
+      "versions": [
+        [
+          "SEARCH_READY",
+          "QUEUED"
+        ]
+      ],
+      "jobs": [
+        [
+          "FOUNDATION",
+          "RUNNING",
+          1
+        ]
+      ],
+      "tree": [],
+      "tree_jobs": []
+    },
+    {
+      "elapsed_seconds": 17.437,
+      "ingestion": {
+        "READY": 1
+      },
+      "versions": [
+        [
+          "SEARCH_READY",
+          "QUEUED"
+        ]
+      ],
+      "jobs": [
+        [
+          "FOUNDATION",
+          "RUNNING",
+          1
+        ]
+      ],
+      "tree": [],
+      "tree_jobs": [
+        "running"
+      ]
+    },
+    {
+      "elapsed_seconds": 18.129,
+      "ingestion": {
+        "READY": 1
+      },
+      "versions": [
+        [
+          "SEARCH_READY",
+          "DATA_READY"
+        ]
+      ],
+      "jobs": [
+        [
+          "FOUNDATION",
+          "SUCCEEDED",
+          1
+        ]
+      ],
+      "tree": [],
+      "tree_jobs": [
+        "running"
+      ]
+    },
+    {
+      "elapsed_seconds": 28.915,
+      "ingestion": {
+        "READY": 1
+      },
+      "versions": [
+        [
+          "SEARCH_READY",
+          "DATA_READY"
+        ]
+      ],
+      "jobs": [
+        [
+          "FOUNDATION",
+          "SUCCEEDED",
+          1
+        ]
+      ],
+      "tree": [
+        "INACTIVE"
+      ],
+      "tree_jobs": [
+        "running"
+      ]
+    },
+    {
+      "elapsed_seconds": 33.261,
+      "ingestion": {
+        "READY": 1
+      },
+      "versions": [
+        [
+          "SEARCH_READY",
+          "DATA_READY"
+        ]
+      ],
+      "jobs": [
+        [
+          "FOUNDATION",
+          "SUCCEEDED",
+          1
+        ]
+      ],
+      "tree": [
+        "ACTIVE"
+      ],
+      "tree_jobs": [
+        "succeeded"
+      ]
+    }
+  ],
+  "qdrant_preflight_seconds": 2.228,
+  "file": "examples/rag_eval/bench_v0/corpus/fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md",
+  "bytes": 34236,
+  "sha256": "2af843f09c31f79930a41c56badd85db4970b18977447bf9ee4aa465ecf19c2c",
+  "benchmark_registration_seconds": 0.255,
+  "app_startup_and_login_seconds": 5.261,
+  "upload_service_seconds": 0.114,
+  "processing_after_upload_seconds": 33.147,
+  "upload_to_tree_active_seconds": 33.261,
+  "collection_setup_to_tree_active_seconds": 35.488,
+  "service_start_to_tree_active_seconds": 41.664,
+  "poll_interval_seconds": 0.5,
+  "readiness_polls": 61,
+  "documents_ready": 1,
+  "knowledge_units": 274,
+  "foundation_job_count": 1,
+  "foundation_job_seconds_total": 2.125,
+  "graph_cpu_seconds_total": 2.695,
+  "graph_persistence_seconds_total": 3.17,
+  "tree_rebuild_seconds_total": 15.311,
+  "ingestion_stages": {
+    "receive": {
+      "count": 1,
+      "total_seconds": 0.01,
+      "mean_seconds": 0.01
+    },
+    "PARSE": {
+      "count": 1,
+      "total_seconds": 0.015,
+      "mean_seconds": 0.015
+    },
+    "DEDUP_TEMPORAL": {
+      "count": 1,
+      "total_seconds": 2.44,
+      "mean_seconds": 2.44
+    },
+    "INDEX_SEARCH": {
+      "count": 1,
+      "total_seconds": 10.891,
+      "mean_seconds": 10.891
+    }
+  },
+  "ingestion_stage_details": [
+    {
+      "ingestion_run_id": "5ff344d8-a60e-46f3-a3d2-a9cc0bf5305e",
+      "ingestion_status": "SUCCEEDED",
+      "stage": "receive",
+      "stage_status": "SUCCESS",
+      "duration_ms": 10.0
+    },
+    {
+      "ingestion_run_id": "5ff344d8-a60e-46f3-a3d2-a9cc0bf5305e",
+      "ingestion_status": "SUCCEEDED",
+      "stage": "PARSE",
+      "stage_status": "SUCCESS",
+      "duration_ms": 15.000000013969839
+    },
+    {
+      "ingestion_run_id": "5ff344d8-a60e-46f3-a3d2-a9cc0bf5305e",
+      "ingestion_status": "SUCCEEDED",
+      "stage": "DEDUP_TEMPORAL",
+      "stage_status": "SUCCESS",
+      "duration_ms": 2440.2400000000002
+    },
+    {
+      "ingestion_run_id": "5ff344d8-a60e-46f3-a3d2-a9cc0bf5305e",
+      "ingestion_status": "SUCCEEDED",
+      "stage": "INDEX_SEARCH",
+      "stage_status": "SUCCESS",
+      "duration_ms": 10890.677
+    }
+  ],
+  "final_state": {
+    "ready_versions": [
+      {
+        "id": "a3c55cf8-ebbb-5679-bdae-f01e53f53ff4",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      }
+    ],
+    "jobs": [
+      {
+        "kind": "FOUNDATION",
+        "status": "SUCCEEDED",
+        "error_code": null,
+        "count": 1,
+        "attempts": 1
+      }
+    ],
+    "units": {
+      "total": 274,
+      "e2_selected": 8
+    },
+    "evidence": {
+      "E0": 947,
+      "E1": 121
+    },
+    "tree": [
+      {
+        "status": "ACTIVE",
+        "tree_version": "tree-98579e1d01b9376c7ea88ad0"
+      }
+    ],
+    "tree_jobs": [
+      {
+        "status": "succeeded",
+        "attempts": 1,
+        "error": null
+      }
+    ],
+    "ingestion": {
+      "READY": 1
+    }
+  }
+}

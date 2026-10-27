@@ -1,0 +1,5 @@
+{"operation": "minhash", "entry_absolute": 717364.1534819, "import_seconds": 0.61, "calculate_seconds": 0.375, "routing_substeps": {}}
+{"operation": "dedup_candidates", "entry_absolute": 717365.4993594, "import_seconds": 0.656, "calculate_seconds": 0.001, "routing_substeps": {}}
+{"operation": "graph", "entry_absolute": 717382.0225861, "import_seconds": 0.892, "calculate_seconds": 1.743, "routing_substeps": {}}
+{"operation": "routing", "entry_absolute": 717385.2621605, "import_seconds": 0.92, "calculate_seconds": 2.623, "routing_substeps": {"partition": {"calls": 9, "seconds": 0.2933207001769915}, "profiles": {"calls": 49, "seconds": 1.6271205997327343}}}
+{"operation": "prepare_tree", "entry_absolute": 717390.5141255, "import_seconds": 0.001, "calculate_seconds": 0.603, "routing_substeps": {}}

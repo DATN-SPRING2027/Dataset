@@ -1,0 +1,480 @@
+{
+  "uploads": [
+    {
+      "filename": "fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md",
+      "bytes": 34236,
+      "seconds": 0.058
+    }
+  ],
+  "knowledge_jobs": [
+    {
+      "job_id": "cf8ec3f8-383d-5c10-92d0-9521a9469d03",
+      "kind": "FOUNDATION",
+      "document_version_id": "422586ae-4ebb-5df3-a3ae-25bb877f505f",
+      "seconds": 2.039
+    }
+  ],
+  "graph_cpu": [
+    {
+      "units": 274,
+      "edges": 2156,
+      "semantic_edges": 2156,
+      "seconds": 2.946
+    }
+  ],
+  "graph_persistence": [
+    {
+      "units": 274,
+      "edges": 2156,
+      "seconds": 3.381
+    }
+  ],
+  "tree_rebuilds": [
+    {
+      "project_id": "6b7c0cf7645d4d00a837d9f3",
+      "seconds": 15.46
+    }
+  ],
+  "qdrant_cleanup": [
+    {
+      "status": 200
+    }
+  ],
+  "search_embedding_batches": [
+    {
+      "texts": 285,
+      "vectors": 285,
+      "seconds": 6.101
+    }
+  ],
+  "knowledge_embedding_batches": [
+    {
+      "blocks": 274,
+      "vectors": 274,
+      "seconds": 0.008
+    }
+  ],
+  "qdrant_collection_setup": [
+    {
+      "phase": "qdrant_preflight",
+      "seconds": 2.432
+    },
+    {
+      "phase": "document_ingest",
+      "seconds": 1.46
+    }
+  ],
+  "spans": [
+    {
+      "name": "cpu.minhash",
+      "start_seconds": 0.199,
+      "duration_seconds": 1.382
+    },
+    {
+      "name": "cpu.dedup_candidates",
+      "start_seconds": 1.586,
+      "duration_seconds": 0.884
+    },
+    {
+      "name": "ingest.dedup_temporal",
+      "start_seconds": 0.189,
+      "duration_seconds": 2.281
+    },
+    {
+      "name": "index.search_embeddings",
+      "start_seconds": 3.299,
+      "duration_seconds": 6.101
+    },
+    {
+      "name": "index.ensure_qdrant",
+      "start_seconds": 9.408,
+      "duration_seconds": 1.46
+    },
+    {
+      "name": "ingest.index_search",
+      "start_seconds": 2.66,
+      "duration_seconds": 9.665
+    },
+    {
+      "name": "foundation.knowledge_embeddings",
+      "start_seconds": 13.194,
+      "duration_seconds": 0.008
+    },
+    {
+      "name": "foundation.rebuild_units",
+      "start_seconds": 13.24,
+      "duration_seconds": 1.932
+    },
+    {
+      "name": "snapshot.current_units",
+      "start_seconds": 15.268,
+      "duration_seconds": 0.539
+    },
+    {
+      "name": "cpu.graph",
+      "start_seconds": 16.017,
+      "duration_seconds": 2.946
+    },
+    {
+      "name": "snapshot.persist_graph",
+      "start_seconds": 15.807,
+      "duration_seconds": 3.381
+    },
+    {
+      "name": "cpu.routing",
+      "start_seconds": 19.193,
+      "duration_seconds": 4.121
+    },
+    {
+      "name": "snapshot.current_units",
+      "start_seconds": 23.314,
+      "duration_seconds": 0.325
+    },
+    {
+      "name": "tree.snapshot",
+      "start_seconds": 15.231,
+      "duration_seconds": 8.412
+    },
+    {
+      "name": "tree.assignments",
+      "start_seconds": 23.643,
+      "duration_seconds": 0.013
+    },
+    {
+      "name": "cpu.prepare_tree",
+      "start_seconds": 23.663,
+      "duration_seconds": 1.889
+    },
+    {
+      "name": "publish.stage_db",
+      "start_seconds": 25.553,
+      "duration_seconds": 1.287
+    },
+    {
+      "name": "publish.verify_db_units",
+      "start_seconds": 26.84,
+      "duration_seconds": 0.008
+    },
+    {
+      "name": "publish.clear_qdrant_slot",
+      "start_seconds": 26.848,
+      "duration_seconds": 0.564
+    },
+    {
+      "name": "publish.write_qdrant_payloads",
+      "start_seconds": 27.412,
+      "duration_seconds": 1.948
+    },
+    {
+      "name": "publish.verify_staged_db",
+      "start_seconds": 29.36,
+      "duration_seconds": 0.377
+    },
+    {
+      "name": "publish.qdrant_count",
+      "start_seconds": 29.737,
+      "duration_seconds": 0.175
+    },
+    {
+      "name": "publish.qdrant_count",
+      "start_seconds": 29.912,
+      "duration_seconds": 0.185
+    },
+    {
+      "name": "publish.verify_qdrant_points",
+      "start_seconds": 30.097,
+      "duration_seconds": 0.179
+    },
+    {
+      "name": "publish.verify_qdrant_slot",
+      "start_seconds": 29.737,
+      "duration_seconds": 0.539
+    },
+    {
+      "name": "publish.atomic_switch",
+      "start_seconds": 30.277,
+      "duration_seconds": 0.408
+    },
+    {
+      "name": "tree.publish",
+      "start_seconds": 23.663,
+      "duration_seconds": 7.024
+    },
+    {
+      "name": "tree.rebuild",
+      "start_seconds": 15.231,
+      "duration_seconds": 15.46
+    }
+  ],
+  "timeline": [
+    {
+      "elapsed_seconds": 0.113,
+      "ingestion": {
+        "PENDING": 1
+      },
+      "versions": [
+        [
+          "PENDING",
+          "NOT_STARTED"
+        ]
+      ],
+      "jobs": [],
+      "tree": [],
+      "tree_jobs": []
+    },
+    {
+      "elapsed_seconds": 12.701,
+      "ingestion": {
+        "READY": 1
+      },
+      "versions": [
+        [
+          "SEARCH_READY",
+          "NOT_STARTED"
+        ]
+      ],
+      "jobs": [],
+      "tree": [],
+      "tree_jobs": []
+    },
+    {
+      "elapsed_seconds": 13.22,
+      "ingestion": {
+        "READY": 1
+      },
+      "versions": [
+        [
+          "SEARCH_READY",
+          "QUEUED"
+        ]
+      ],
+      "jobs": [
+        [
+          "FOUNDATION",
+          "RUNNING",
+          1
+        ]
+      ],
+      "tree": [],
+      "tree_jobs": []
+    },
+    {
+      "elapsed_seconds": 15.247,
+      "ingestion": {
+        "READY": 1
+      },
+      "versions": [
+        [
+          "SEARCH_READY",
+          "DATA_READY"
+        ]
+      ],
+      "jobs": [
+        [
+          "FOUNDATION",
+          "SUCCEEDED",
+          1
+        ]
+      ],
+      "tree": [],
+      "tree_jobs": [
+        "running"
+      ]
+    },
+    {
+      "elapsed_seconds": 27.13,
+      "ingestion": {
+        "READY": 1
+      },
+      "versions": [
+        [
+          "SEARCH_READY",
+          "DATA_READY"
+        ]
+      ],
+      "jobs": [
+        [
+          "FOUNDATION",
+          "SUCCEEDED",
+          1
+        ]
+      ],
+      "tree": [
+        "INACTIVE"
+      ],
+      "tree_jobs": [
+        "running"
+      ]
+    },
+    {
+      "elapsed_seconds": 30.894,
+      "ingestion": {
+        "READY": 1
+      },
+      "versions": [
+        [
+          "SEARCH_READY",
+          "DATA_READY"
+        ]
+      ],
+      "jobs": [
+        [
+          "FOUNDATION",
+          "SUCCEEDED",
+          1
+        ]
+      ],
+      "tree": [
+        "ACTIVE"
+      ],
+      "tree_jobs": [
+        "succeeded"
+      ]
+    }
+  ],
+  "qdrant_preflight_seconds": 2.432,
+  "cpu_child_timings": [
+    {
+      "operation": "dedup_candidates",
+      "import_seconds": 0.562,
+      "calculate_seconds": 0.001,
+      "send_seconds": 0.0,
+      "entry_seconds": 1.899
+    },
+    {
+      "operation": "graph",
+      "import_seconds": 0.986,
+      "calculate_seconds": 1.635,
+      "send_seconds": 0.002,
+      "entry_seconds": 16.327
+    },
+    {
+      "operation": "routing",
+      "import_seconds": 0.916,
+      "calculate_seconds": 2.791,
+      "send_seconds": 0.014,
+      "entry_seconds": 19.571
+    },
+    {
+      "operation": "prepare_tree",
+      "import_seconds": 0.001,
+      "calculate_seconds": 0.429,
+      "send_seconds": 0.01,
+      "entry_seconds": 25.094
+    }
+  ],
+  "file": "examples/rag_eval/bench_v0/corpus/fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md",
+  "bytes": 34236,
+  "sha256": "2af843f09c31f79930a41c56badd85db4970b18977447bf9ee4aa465ecf19c2c",
+  "benchmark_registration_seconds": 0.253,
+  "app_startup_and_login_seconds": 5.133,
+  "upload_service_seconds": 0.08,
+  "processing_after_upload_seconds": 30.815,
+  "upload_to_tree_active_seconds": 30.894,
+  "collection_setup_to_tree_active_seconds": 33.326,
+  "service_start_to_tree_active_seconds": 39.292,
+  "poll_interval_seconds": 0.5,
+  "readiness_polls": 58,
+  "documents_ready": 1,
+  "knowledge_units": 274,
+  "foundation_job_count": 1,
+  "foundation_job_seconds_total": 2.039,
+  "graph_cpu_seconds_total": 2.946,
+  "graph_persistence_seconds_total": 3.381,
+  "tree_rebuild_seconds_total": 15.46,
+  "ingestion_stages": {
+    "receive": {
+      "count": 1,
+      "total_seconds": 0.01,
+      "mean_seconds": 0.01
+    },
+    "PARSE": {
+      "count": 1,
+      "total_seconds": 0.016,
+      "mean_seconds": 0.016
+    },
+    "DEDUP_TEMPORAL": {
+      "count": 1,
+      "total_seconds": 2.281,
+      "mean_seconds": 2.281
+    },
+    "INDEX_SEARCH": {
+      "count": 1,
+      "total_seconds": 9.664,
+      "mean_seconds": 9.664
+    }
+  },
+  "ingestion_stage_details": [
+    {
+      "ingestion_run_id": "e41dc5ef-c6dd-45cc-a48d-812c7c86a97b",
+      "ingestion_status": "SUCCEEDED",
+      "stage": "receive",
+      "stage_status": "SUCCESS",
+      "duration_ms": 10.0
+    },
+    {
+      "ingestion_run_id": "e41dc5ef-c6dd-45cc-a48d-812c7c86a97b",
+      "ingestion_status": "SUCCEEDED",
+      "stage": "PARSE",
+      "stage_status": "SUCCESS",
+      "duration_ms": 16.00000006146729
+    },
+    {
+      "ingestion_run_id": "e41dc5ef-c6dd-45cc-a48d-812c7c86a97b",
+      "ingestion_status": "SUCCEEDED",
+      "stage": "DEDUP_TEMPORAL",
+      "stage_status": "SUCCESS",
+      "duration_ms": 2281.379
+    },
+    {
+      "ingestion_run_id": "e41dc5ef-c6dd-45cc-a48d-812c7c86a97b",
+      "ingestion_status": "SUCCEEDED",
+      "stage": "INDEX_SEARCH",
+      "stage_status": "SUCCESS",
+      "duration_ms": 9663.775
+    }
+  ],
+  "final_state": {
+    "ready_versions": [
+      {
+        "id": "af739567-e5d9-5ff8-9022-3690ddf83f29",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      }
+    ],
+    "jobs": [
+      {
+        "kind": "FOUNDATION",
+        "status": "SUCCEEDED",
+        "error_code": null,
+        "count": 1,
+        "attempts": 1
+      }
+    ],
+    "units": {
+      "total": 274,
+      "e2_selected": 8
+    },
+    "evidence": {
+      "E0": 947,
+      "E1": 121
+    },
+    "tree": [
+      {
+        "status": "ACTIVE",
+        "tree_version": "tree-3f8a94f6622a01b209a74df5"
+      }
+    ],
+    "tree_jobs": [
+      {
+        "status": "succeeded",
+        "attempts": 1,
+        "error": null
+      }
+    ],
+    "ingestion": {
+      "READY": 1
+    }
+  }
+}

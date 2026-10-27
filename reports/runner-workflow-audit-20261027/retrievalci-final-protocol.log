@@ -1,0 +1,102 @@
+BENCH_OUTPUT=D:\DoAnTotnghiep\Dataset\reports\retrievalci-fixed-20261027074439
+warning: in the working copy of 'SAG/apps/api/sag_api/core/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/sag/engine_manager.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/evidence_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/knowledge_service.py', LF will be replaced by CRLF the next time Git touches it
+RUN_ID=20261027T074440Z-b7357e OWNER=6acc9a5425f02c9d92a01012 PROJECT=25ea0fd0b8be4081b6ffe9f4 SCHEMA=sag_bench_retrievalci_20261027070959
+14:44:53  INFO     [-]  sag.jobs  任务队列已启动（并发=4）
+14:44:53  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager started
+14:44:53  INFO     [-]  sag.runtime  MCP 端点已就绪 · /mcp/（全库）· 可选 ?source_id=<信源 id>
+14:44:53  INFO     [-]  sag.runtime  sag-api 知识运行时已启动 · env=dev · llm_configured=True · vector=qdrant
+14:44:54  INFO     [-]  zleap.sag.ai.embedding  Embedding客户端初始化完成
+14:44:54  INFO     [-]  zleap.sag.ai.factory  ✅ 创建Embedding客户端
+Pipeline: [{"READY": 81}, {"total": 3585, "e2_selected": 258}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 81, "attempts": 1}], [{"status": "ACTIVE", "tree_version": "tree-2cd3afa881cdd8fc3f0eba29"}]]
+14:45:12  INFO     [aa40fbe61a524aa8]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:45:14  WARNING  [aa40fbe61a524aa8]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 1/50 qst_0001: status=answered error=None
+14:45:25  INFO     [9891f01d2616461b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+14:45:26  WARNING  [9891f01d2616461b]  sag_api.services.query_routing_service  request tree snapshot unavailable error_type=TimeoutError
+Asked 2/50 qst_0002: status=answered error=None
+14:45:42  INFO     [26e1cf0a9c29431f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 3/50 qst_0003: status=answered error=None
+14:45:56  INFO     [d63b593288434f37]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 4/50 qst_0004: status=answered error=None
+14:46:08  INFO     [5715278fafc0444a]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 5/50 qst_0005: status=answered error=None
+14:46:44  INFO     [e472073ee18a49b2]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 6/50 qst_0006: status=answered error=None
+14:46:54  INFO     [e8ca1313f21b4e8e]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 7/50 qst_0007: status=answered error=None
+14:47:24  INFO     [fde8d7caa0ca41d4]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 8/50 qst_0008: status=answered error=None
+14:47:33  INFO     [da1beafd4ecb41b4]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 9/50 qst_0009: status=answered error=None
+14:48:04  INFO     [f07fd3877607432f]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 10/50 qst_0010: status=answered error=None
+14:48:21  INFO     [e4ac649ca95540a9]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 11/50 qst_0011: status=answered error=None
+14:48:29  INFO     [87b583945b444e02]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 12/50 qst_0012: status=answered error=None
+14:48:39  INFO     [e92b49bd338b475c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 13/50 qst_0013: status=answered error=None
+14:50:23  INFO     [2ca53f3400314d9e]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 14/50 qst_0014: status=answered error=None
+14:50:48  INFO     [1634566191a847d7]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 15/50 qst_0015: status=answered error=None
+14:54:25  INFO     [d78d3e6db7054466]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 16/50 qst_0016: status=answered error=None
+14:54:53  INFO     [81a216362de84720]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 17/50 qst_0017: status=answered error=None
+14:55:26  INFO     [455391495e294e8d]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 18/50 qst_0018: status=answered error=None
+14:55:36  INFO     [a281dce704304fa0]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 19/50 qst_0019: status=no_answer error=None
+14:55:42  INFO     [98db87e2e7f240a9]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 20/50 qst_0020: status=answered error=None
+14:55:52  INFO     [84112e5468a44ae1]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 21/50 qst_0021: status=answered error=None
+14:56:09  INFO     [eaea536076484f11]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 22/50 qst_0022: status=answered error=None
+14:56:21  INFO     [bd07f42cbb084767]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 23/50 qst_0023: status=answered error=None
+14:56:33  INFO     [226cfef78e984cc1]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 24/50 qst_0024: status=answered error=None
+14:57:17  INFO     [1883efb4fb0a4351]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 25/50 qst_0025: status=answered error=None
+14:57:54  INFO     [9e01c3f6198f4cee]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 26/50 qst_0341: status=answered error=None
+15:00:22  INFO     [6f51f133f37e4986]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 27/50 qst_0342: status=answered error=None
+15:01:12  INFO     [92679635528f422b]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 28/50 qst_0343: status=answered error=None
+15:02:11  INFO     [09197b5530ef4041]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 29/50 qst_0344: status=answered error=None
+15:03:25  INFO     [f3e15f4d1f23412c]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 30/50 qst_0345: status=answered error=None
+15:04:05  INFO     [828998bdaf3749f7]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 31/50 qst_0346: status=answered error=None
+15:04:52  INFO     [808811d68df04bd5]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 32/50 qst_0347: status=answered error=None
+15:05:19  INFO     [a035546936ad41e4]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 33/50 qst_0348: status=answered error=None
+15:06:15  INFO     [f831079c5884476a]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 34/50 qst_0349: status=answered error=None
+15:07:00  INFO     [20b4f406f7d74113]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+15:07:23  WARNING  [20b4f406f7d74113]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Asked 35/50 qst_0350: status=answered error=None
+15:07:24  INFO     [bd0859384ae545a0]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 36/50 qst_0351: status=answered error=None
+15:08:13  INFO     [477b54d8c55a41c4]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+
+[1;31mGive Feedback / Get Help: https://github.com/BerriAI/litellm/issues/new[0m
+LiteLLM.Info: If you need to debug this error, use `litellm._turn_on_debug()'.
+
+15:08:36  WARNING  [477b54d8c55a41c4]  sag.retrieval  搜索答案流生成失败，回退证据摘要：模型调用暂时失败（RateLimitError），请稍后重试：litellm.RateLimitError: RateLimitError: OpenAIException - Request was rejected due to rate limiting. Details: TPM limit reached. LiteLLM Retried: 2 times
+Asked 37/50 qst_0352: status=answered error=None
+15:08:38  INFO     [790b4d01f7f54ed0]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+Asked 38/50 qst_0353: status=answered error=None
+15:09:00  INFO     [43afc806695b4719]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1

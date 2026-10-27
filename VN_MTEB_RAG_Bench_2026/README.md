@@ -1,3 +1,5 @@
+> **Lưu ý protocol:** Các kết quả và mô tả “Full AI Pipeline” bên dưới là lịch sử của runner cũ, không đại diện cho cấu hình SAG hiện tại. Lượt mới dùng pipeline SAG thật, judge riêng và ba lượt latency; xem `../BENCHMARK_RUNS.md` và `reports/<run_id>/`. Kết quả subset local không so trực tiếp với full leaderboard. Dấu citation không phải điểm grounding độc lập. `bge-multilingual-Gemma2` là checkpoint BAAI dùng backbone Gemma; không phải dịch vụ Google được đo ở đây.
+
 # VN-MTEB / MMTEB Vietnamese RAG Benchmark (2026) — SAG Engine (Full AI Pipeline) vs. Same-Corpus & BigTech Baselines
 
 Bộ dữ liệu đánh giá truy xuất và tổng hợp RAG tiếng Việt chuẩn quốc tế (**VN-MTEB** / **MMTEB**, công bố tại `arXiv:2507.21500` và Hugging Face `GreenNode`) kết hợp 2 tập kiểm thử đại diện cho 2 bài toán cốt lõi của RAG tiếng Việt:

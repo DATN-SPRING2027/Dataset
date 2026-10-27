@@ -1,0 +1,110 @@
+{
+  "run_id": "20261027T020554Z-acaad7",
+  "benchmark": "architecture_smoke",
+  "user_id": "6acc9a5425f02c9d92a01012",
+  "user_name": "Tai Phan Thanhh",
+  "organization_id": "ORG-NSC",
+  "project_id": "5848b935cc354c36a023d517",
+  "source_id": "32a9c57597b44c7b915e165f7f66dde0",
+  "schema": "sag_smoke_20261027014045",
+  "source_config_id": "tp_3a4bbddb992d61660212c32d5a2aceeb",
+  "collection": "search_units_5848b935cc354c36a023d517",
+  "documents": 2,
+  "questions": 1,
+  "questions_sha256": "2f7b77614c2618c7fecca0bed6ed4a102723eb6402627fc020e474777e307064",
+  "corpus_sha256": {
+    "upload-policy.md": "360030309efb91e55334f80fe5651a0f5764453311acd6bd786fba5a023d1d86",
+    "search-policy.md": "1682f08bbe550513a0a03dca5fbf1e0a2b4712f34c98b37848554900650e3ba7"
+  },
+  "started_at_utc": "2026-10-27T02:05:54.597234+00:00",
+  "models": {
+    "mode": "real_sag_application"
+  },
+  "status": "COMPLETED",
+  "output_dir": "D:\\DoAnTotnghiep\\Dataset\\reports\\verified-architecture-smoke-20261027T020554Z\\reports\\20261027T020554Z-acaad7",
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cpu_count": 16,
+    "network": "loopback API; remote model/Qdrant providers"
+  },
+  "harness_sha256": {
+    "D:\\DoAnTotnghiep\\Dataset\\benchmark_support.py": "a5a0cfe45b0eeb1d8d700c56c7e7b669304e38f3d40a33157ae48db14f389bc0",
+    "D:\\DoAnTotnghiep\\Dataset\\sag_benchmark_runtime.py": "37850a55c71313c8f351f84a25f1973118e8083b0ecbdcb12148ec36098539a9",
+    "D:\\DoAnTotnghiep\\Dataset\\benchmark_quality.py": "918a1c5ce12f3938cf344b60f136aa4f4588c6a34eb58ded7fb7d32fe8a81412",
+    "D:\\DoAnTotnghiep\\Dataset\\international_references.json": "5f5706a349b6773d4afce2c5525e97410a534f0b5df2d96058dbab41f421ea0d"
+  },
+  "git_commit": "65f256772a50f82ce64c01e480579c665f288e11",
+  "git_worktree_diff_sha256": "50b6ec73bcd6b507865780e9900dfc3e9f0a7b4151ee2db35c2f681f42c481d3",
+  "execution": {
+    "ingestion": "sag_api.services.document_service.handle_document_upload",
+    "transport": "loopback HTTP /api/v1/search/stream",
+    "runtime": "sag_api.main.lifespan (unmodified)",
+    "authentication": "real Continuum login and scoped SAG session; no dependency overrides",
+    "query_replays": 0,
+    "frontend": {
+      "top_k": null,
+      "load_more_step": 12,
+      "first_result_seconds": 30.0,
+      "stream_idle_seconds": 45.0
+    },
+    "knowledge_queue": {
+      "concurrency": 4,
+      "capacity": 256,
+      "daily_tokens": 0,
+      "max_attempts": 3,
+      "max_age_seconds": 86400,
+      "timeout_seconds": 60,
+      "retry_seconds": 30,
+      "max_input_chars": 6000,
+      "max_output_tokens": 1000,
+      "poll_seconds": 2.0
+    },
+    "e2_enabled": false,
+    "embedding_timeout_seconds": 120,
+    "llm_timeout_seconds": 120.0,
+    "llm_max_retries": 2,
+    "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+    "document_event_extraction_enabled": false,
+    "llm_model": "Qwen/Qwen3-8B"
+  },
+  "document_paths": {
+    "4bebb5d1-e84f-5c8a-8ed1-d65b157cd026": "upload-policy.md",
+    "c290c23d-bca5-5db4-8d43-e9fbc2060d0a": "search-policy.md"
+  },
+  "pipeline": {
+    "ready_versions": [
+      {
+        "id": "c290c23d-bca5-5db4-8d43-e9fbc2060d0a",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "4bebb5d1-e84f-5c8a-8ed1-d65b157cd026",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      }
+    ],
+    "jobs": [],
+    "units": {
+      "total": 2,
+      "e2_selected": 1
+    },
+    "evidence": {
+      "E0": 4,
+      "E1": 2
+    },
+    "tree": [
+      {
+        "status": "ACTIVE",
+        "tree_version": "tree-ecacf1e2d41ac9c30ec941b7"
+      }
+    ],
+    "ingestion": {
+      "READY": 2
+    }
+  },
+  "finished_at_utc": "2026-10-27T02:06:38.740318+00:00"
+}

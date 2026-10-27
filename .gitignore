@@ -10,6 +10,11 @@ __pycache__/
 venv/
 .pytest_cache/
 
+# Benchmark runtime state; reports retain metrics/manifests, never connection tokens.
+reports/**/private-connection.json
+reports/**/engine/
+reports/**/uploads/
+
 # OS metadata
 .DS_Store
 Thumbs.db

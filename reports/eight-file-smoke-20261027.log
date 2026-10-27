@@ -1,0 +1,52 @@
+warning: in the working copy of 'SAG/apps/api/sag_api/core/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/sag/engine_manager.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/evidence_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/knowledge_service.py', LF will be replaced by CRLF the next time Git touches it
+RUN_ID=20261027T132343Z-07ff89 OWNER=6acc9a5425f02c9d92a01012 PROJECT=d0384cb1e12240cb9df393f2 SCHEMA=sag
+20:23:52  INFO     [-]  sag.jobs  任务队列已启动（并发=4）
+20:23:52  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager started
+20:23:52  INFO     [-]  sag.runtime  MCP 端点已就绪 · /mcp/（全库）· 可选 ?source_id=<信源 id>
+20:23:52  INFO     [-]  sag.runtime  sag-api 知识运行时已启动 · env=dev · llm_configured=True · vector=qdrant
+20:23:52  INFO     [-]  zleap.sag.ai.embedding  Embedding客户端初始化完成
+20:23:52  INFO     [-]  zleap.sag.ai.factory  ✅ 创建Embedding客户端
+Uploaded 8/8 through SAG upload API
+Pipeline: [{"PENDING": 8}, {"total": 0, "e2_selected": 0}, [], [], [], false]
+20:24:01  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+20:24:04  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=496cdca4-0f60-5d0c-8c39-f44edcdf538d parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"PENDING": 7, "READY": 1}, {"total": 0, "e2_selected": 0}, [], [], [], false]
+20:24:05  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 7, "READY": 1}, {"total": 2, "e2_selected": 1}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 1, "attempts": 1}], [], [{"status": "queued", "attempts": 0, "error": null}], false]
+20:24:07  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=0e23637b-511b-5dfa-a957-7b6d24e7bd0b parser=original cached=False chunks=18 events=0 tokens=0
+20:24:08  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 6, "READY": 2}, {"total": 2, "e2_selected": 1}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 1, "attempts": 1}], [], [{"status": "queued", "attempts": 0, "error": null}], false]
+20:24:10  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=14738157-8642-57d7-9fd2-b675c1b50fe9 parser=original cached=False chunks=22 events=0 tokens=0
+20:24:10  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 5, "READY": 3}, {"total": 43, "e2_selected": 3}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 2, "attempts": 1}], [], [{"status": "queued", "attempts": 0, "error": null}], false]
+Pipeline: [{"PENDING": 5, "READY": 3}, {"total": 156, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 3, "attempts": 1}], [], [{"status": "queued", "attempts": 0, "error": null}], false]
+20:24:13  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+20:24:16  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=7d266559-f0df-5215-8e31-e94b89d90b38 parser=original cached=False chunks=43 events=0 tokens=0
+Pipeline: [{"PENDING": 4, "READY": 4}, {"total": 156, "e2_selected": 5}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 3, "attempts": 1}], [], [{"status": "queued", "attempts": 0, "error": null}], false]
+20:24:17  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+20:24:17  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=785c7a52-86bc-5155-b0b3-becf77096ed8 parser=original cached=False chunks=37 events=0 tokens=0
+Pipeline: [{"PENDING": 3, "READY": 5}, {"total": 219, "e2_selected": 28}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 4, "attempts": 1}], [], [{"status": "queued", "attempts": 0, "error": null}], false]
+20:24:20  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=3f9e79c3-1d02-54f3-b815-d175e0557738 parser=original cached=False chunks=46 events=0 tokens=0
+20:24:21  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 2, "READY": 6}, {"total": 345, "e2_selected": 31}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 5, "attempts": 1}], [], [{"status": "queued", "attempts": 0, "error": null}], false]
+20:24:23  DEBUG    [-]  zleap.sag.ai.embedding  批量生成embedding成功
+Pipeline: [{"PENDING": 2, "READY": 6}, {"total": 464, "e2_selected": 52}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 6, "attempts": 1}], [], [{"status": "queued", "attempts": 0, "error": null}], false]
+20:24:23  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=eed0bfbb-c6e4-5cca-8ff7-489a5e4b259c parser=original cached=False chunks=34 events=0 tokens=0
+Pipeline: [{"PENDING": 1, "READY": 7}, {"total": 464, "e2_selected": 52}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 6, "attempts": 1}], [], [{"status": "queued", "attempts": 0, "error": null}], false]
+20:24:26  INFO     [-]  sag.jobs  Xử lý tài liệu hoàn thành doc=81953ac2-eb87-50b8-9fcb-c68b89c266f4 parser=original cached=False chunks=3 events=0 tokens=0
+Pipeline: [{"READY": 8}, {"total": 574, "e2_selected": 55}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 7, "attempts": 1}], [], [{"status": "queued", "attempts": 0, "error": null}], false]
+Pipeline: [{"READY": 8}, {"total": 574, "e2_selected": 55}, [{"kind": "FOUNDATION", "status": "RUNNING", "error_code": null, "count": 1, "attempts": 1}, {"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 7, "attempts": 1}], [], [{"status": "queued", "attempts": 0, "error": null}], false]
+Pipeline: [{"READY": 8}, {"total": 614, "e2_selected": 55}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 8, "attempts": 1}], [], [{"status": "running", "attempts": 1, "error": null}, {"status": "queued", "attempts": 0, "error": null}], false]
+Pipeline: [{"READY": 8}, {"total": 614, "e2_selected": 55}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 8, "attempts": 1}], [{"status": "INACTIVE", "tree_version": "tree-50e9040ac9c30e1a3b2c8c5d"}], [{"status": "running", "attempts": 1, "error": null}, {"status": "queued", "attempts": 0, "error": null}], false]
+Pipeline: [{"READY": 8}, {"total": 614, "e2_selected": 55}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 8, "attempts": 1}], [{"status": "INACTIVE", "tree_version": "tree-50e9040ac9c30e1a3b2c8c5d"}], [{"status": "succeeded", "attempts": 1, "error": null}, {"status": "running", "attempts": 1, "error": null}], false]
+Pipeline: [{"READY": 8}, {"total": 614, "e2_selected": 55}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 8, "attempts": 1}], [{"status": "ACTIVE", "tree_version": "tree-50e9040ac9c30e1a3b2c8c5d"}], [{"status": "succeeded", "attempts": 1, "error": null}, {"status": "running", "attempts": 1, "error": null}], true]
+Pipeline: [{"READY": 8}, {"total": 614, "e2_selected": 55}, [{"kind": "FOUNDATION", "status": "SUCCEEDED", "error_code": null, "count": 8, "attempts": 1}], [{"status": "ACTIVE", "tree_version": "tree-50e9040ac9c30e1a3b2c8c5d"}], [{"status": "succeeded", "attempts": 1, "error": null}, {"status": "succeeded", "attempts": 1, "error": null}], true]
+20:26:26  WARNING  [7ec989cddfa048d5]  sag.decision_router  SiliconFlow Decision request failed (ReadTimeout)
+20:26:26  INFO     [7ec989cddfa048d5]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+20:26:28  DEBUG    [7ec989cddfa048d5]  zleap.sag.ai.embedding  生成embedding成功
+SMOKE_COMPLETE D:\DoAnTotnghiep\Dataset\RetrievalCI_Bench_v0_2026\reports\20261027T132343Z-07ff89
+20:26:41  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager shutting down
+20:26:41  DEBUG    [-]  asyncio  Using proactor: IocpProactor

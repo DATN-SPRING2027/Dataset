@@ -1,0 +1,1729 @@
+{
+  "protocol": {
+    "judge_model": "deepseek-ai/DeepSeek-V3.2",
+    "judge_scale": "1–5",
+    "judge_rubric": "RetrievalCI faithfulness/relevance",
+    "latency_repetitions": 3,
+    "concurrency": 1,
+    "first_pass_cache": "not explicitly prewarmed; physical cold cache not verified",
+    "judge_latency_included": false
+  },
+  "quality": {
+    "vn_zalo_001": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 3.0,
+        "rationale": "SCORE: 3\nRATIONALE: The answer correctly cites the relevant evidence allowing the use of public assets for charity, but includes irrelevant and potentially misleading citations from other legal provisions."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly cites a legal provision permitting the use of public assets for charitable donations under specific conditions."
+      }
+    },
+    "vn_zalo_002": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer accurately reflects the evidence, stating that the Ministry of Finance is the issuing entity and can authorize the State Treasury for domestic issuance."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly identifies the subject and details its roles as stipulated by law."
+      }
+    },
+    "vn_zalo_003": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer accurately reflects the evidence that the original file is retained by the old agency and only transferred upon written request."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly states that the original file is not transferred, only a copy is provided."
+      }
+    },
+    "vn_zalo_004": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: Every claim in the candidate answer is directly supported by and consistent with the provided evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly and comprehensively lists the types of reports as required by the question."
+      }
+    },
+    "vn_zalo_005": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer accurately summarizes the evidence, listing the specific criminal cases under the jurisdiction of the Family and Juvenile Court as defined in the provided legal articles."
+      },
+      "relevance": {
+        "score": 4.0,
+        "rationale": "SCORE: 4\nRATIONALE: The answer cites relevant legal provisions but does not explicitly list the specific criminal cases under the court's jurisdiction."
+      }
+    },
+    "vn_zalo_006": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly identifies the minimum fine of 2,000,000 VND for the lowest alcohol concentration level as specified in point c, clause 6 of the provided evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly provides the exact minimum fine amount and its legal reference."
+      }
+    },
+    "vn_zalo_007": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly extracts the exact information from the evidence, stating the 50% adjustment and 36-month duration."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly provides the exact requested adjustment rate of 50% with a supporting citation."
+      }
+    },
+    "vn_zalo_008": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The candidate answer incorrectly cites the fine amount and provision, as the evidence specifies the behavior is penalized under point b, clause 5, not clause 6."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly provides the specific fine amount and legal citation for the violation."
+      }
+    },
+    "vn_zalo_009": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly identifies the fine range and its location in the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly provides the specific fine amount and legal citation for the violation."
+      }
+    },
+    "vn_zalo_010": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 2.0,
+        "rationale": "SCORE: 2\nRATIONALE: The candidate answer incorrectly cites the penalty clause and amount, as the evidence specifies the violation is under point d, clause 1, with a fine of 100,000–200,000 VND."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly provides the specific fine amount and legal basis for the violation."
+      }
+    },
+    "vn_zalo_011": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer accurately reflects the provisions in the evidence regarding the requirement for consent from the National Assembly or its Standing Committee for the arrest or detention of a National Assembly delegate."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly confirms the requirement for parliamentary approval and provides specific legal details."
+      }
+    },
+    "vn_zalo_012": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer accurately and completely reflects the definition provided in the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly lists the types of establishments included in the basis for telecommunications service business."
+      }
+    },
+    "vn_zalo_013": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The evidence does not list a fine for \"không đóng cửa lên xuống khi xe đang chạy\" in the specified range or clause."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly provides the exact fine amount and legal citation."
+      }
+    },
+    "vn_zalo_014": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The candidate answer includes irrelevant and fabricated information not supported by the evidence."
+      },
+      "relevance": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The candidate answer contains irrelevant and fragmented information not addressing the central bank's responsibilities."
+      }
+    },
+    "vn_zalo_015": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 2.0,
+        "rationale": "SCORE: 2\nRATIONALE: The candidate answer includes some relevant evidence but also introduces irrelevant information and fails to address the specific question about suspension due to professional errors in the military."
+      },
+      "relevance": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The answer cites irrelevant evidence about general professional errors and unrelated suspension types, not the specific military regulations asked."
+      }
+    },
+    "vn_zalo_016": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 2.0,
+        "rationale": "SCORE: 2\nRATIONALE: The candidate answer includes some relevant information from the evidence but also contains irrelevant and incorrectly attributed details not directly answering the question."
+      },
+      "relevance": {
+        "score": 2.0,
+        "rationale": "SCORE: 2\nRATIONALE: The answer includes one relevant point but is mostly filled with off-topic information about education and general reporting systems."
+      }
+    },
+    "vn_zalo_017": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer accurately reflects the content of the evidence, stating the condition and method for withdrawal as specified in the provided legal text."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly addresses the question by stating the condition under which the promisor can withdraw the reward offer."
+      }
+    },
+    "vn_zalo_018": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly states the fine range of 15-20 million VND for the violation as specified in the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly provides the specific fine range for the violation as requested."
+      }
+    },
+    "vn_zalo_019": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The candidate answer includes irrelevant and fabricated information not found in the evidence."
+      },
+      "relevance": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The answer is off-topic, citing irrelevant evidence about military engineering, road construction, and document handling instead of the required specifications for state administrative agency infrastructure."
+      }
+    },
+    "vn_zalo_020": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The candidate answer includes irrelevant and fabricated information not found in the evidence."
+      },
+      "relevance": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The cited evidence is entirely unrelated to sports training and competition in schools."
+      }
+    },
+    "vn_zalo_021": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly identifies the fine range and legal basis from the provided evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly provides the specific penalty amount and legal basis for the violation in 2020."
+      }
+    },
+    "vn_zalo_022": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer correctly states that public preschools can sign labor contracts with up to two security guards, which is directly supported by the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly cites evidence stating that a preschool can sign labor contracts with up to two security personnel."
+      }
+    },
+    "vn_zalo_023": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The candidate answer cites irrelevant evidence and does not address the specific violation and penalty for not registering a personal contract for overseas work as stipulated in the provided evidence."
+      },
+      "relevance": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The answer provides irrelevant evidence about fines and administrative procedures not directly related to the specific query about regulations for individuals failing to register personal contracts for overseas work."
+      }
+    },
+    "vn_zalo_024": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer accurately reflects the evidence, including the specific salary table, conditions, and relevant legal documents."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly and specifically explains the salary classification for equipment staff according to relevant Vietnamese regulations."
+      }
+    },
+    "vn_zalo_025": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer accurately summarizes the definition, forms, and licensing requirements from the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly defines the term and provides key characteristics and legal requirements."
+      }
+    },
+    "vn_zalo_026": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer accurately and completely reflects the information provided in the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly defines the medal and explains its purpose and characteristics."
+      }
+    },
+    "vn_zalo_027": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer accurately summarizes the evidence, stating that the competent state agency issues the certificate for the land fund area corresponding to the completed project value."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly addresses the question by outlining the specific regulation for issuing land use certificates for cleared land used as BT project payment."
+      }
+    },
+    "vn_zalo_028": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer correctly identifies the relevant regulation and specific clauses for both the fine and additional penalty, which are fully supported by the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly and correctly specifies the fines and penalties for the violation."
+      }
+    },
+    "vn_zalo_029": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly states the fine range and cites the exact provision from the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly provides the specific fine range and legal citation for the exact violation described in the question."
+      }
+    },
+    "vn_zalo_030": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly cites the specific evidence (Văn bản 64/2020/QH14, Điều 97) and accurately summarizes the provision that disputes between the contracting authority and a domestic investor are resolved by Vietnamese Arbitration or Vietnamese Courts."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly specifies the authorities (Vietnamese Arbitration or Vietnamese Court) and cites the relevant legal provision."
+      }
+    },
+    "vn_hotpot_001": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly identifies the Yoruba people as the group using the Ida language, which is fully supported by the evidence."
+      },
+      "relevance": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The answer incorrectly identifies the group as Yoruba, which does not match the Ida language group in the specified countries."
+      }
+    },
+    "vn_hotpot_002": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly states that the Scanian dialect is spoken in Scania and that \"spiddekaga\" is the local name for Spettekaka, which is fully supported by the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly identifies the Scanian dialect as the one spoken in Scania that uses the term \"spiddekaga.\""
+      }
+    },
+    "vn_hotpot_003": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The evidence states that Northwestern University has a campus in Doha, Qatar, not Johns Hopkins University."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly states which university has a campus outside the U.S. and provides a specific location."
+      }
+    },
+    "vn_hotpot_004": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly states the origins of both breeds as described in the evidence, and the conclusion that Bull Terrier has origins from more distinct breeds is directly supported by the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly compares the breed origins and concludes which one has more diverse ancestry."
+      }
+    },
+    "vn_hotpot_005": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly identifies the work as Sonata Violin số 5, which is fully supported by the evidence stating it was published in 1801 and dedicated to Count Moritz von Fries."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly identifies the correct work with specific details."
+      }
+    },
+    "vn_hotpot_006": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly identifies Eliot Cutler as the independent candidate who finished ahead of Libby Mitchell, which is fully supported by the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer correctly identifies Eliot Cutler as the independent candidate who finished ahead of Libby Mitchell."
+      }
+    },
+    "vn_hotpot_007": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly identifies Gian Carlo Menotti as the Italian-American composer and librettist of the opera Maria Golovin, which is fully supported by the provided evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer correctly identifies Gian Carlo Menotti as the Italian-American composer and librettist of the opera Maria Golovin."
+      }
+    },
+    "vn_hotpot_008": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 2.0,
+        "rationale": "SCORE: 2\nRATIONALE: The answer correctly identifies the renamed car but incorrectly states the prize information is absent when the evidence mentions a prize."
+      },
+      "relevance": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The answer does not address the prize car for the first season winner."
+      }
+    },
+    "vn_hotpot_009": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly identifies Essence as a monthly magazine and Alt for Damerne as a weekly magazine, which is fully supported by the evidence."
+      },
+      "relevance": {
+        "score": 2.0,
+        "rationale": "SCORE: 2\nRATIONALE: The answer provides some relevant publication frequencies but includes irrelevant information."
+      }
+    },
+    "vn_hotpot_010": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly identifies Kareena Kapoor based on the evidence, which states she won the Filmfare Best Female Debut award for \"Refugee\" and starred in \"Kabhi Khushi Kabhie Gham...\" (K3G)."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer correctly names the actress and confirms her role in K3G."
+      }
+    },
+    "vn_hotpot_011": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The candidate answer incorrectly claims both are frozen drinks, while evidence shows Finding Kraftland is a documentary film, not a beverage."
+      },
+      "relevance": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The answer provides irrelevant information about a documentary and a mountain, not addressing whether both are frozen drinks."
+      }
+    },
+    "vn_hotpot_012": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly states that Khunyang Chhish is higher than Masherbrum, with elevations of 7823 m and 7821 m respectively, which are directly supported by the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly states which mountain is taller and provides specific heights to support the comparison."
+      }
+    },
+    "vn_hotpot_013": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly states that the Second Battle of Bull Run occurred before the Battle of Cold Harbor, which is fully supported by the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly states which battle came first."
+      }
+    },
+    "vn_hotpot_014": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly identifies David Dunn as the character played by Bruce Willis in Unbreakable, which is explicitly stated in the provided evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly provides the requested character name."
+      }
+    },
+    "vn_hotpot_015": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly identifies Shamrock Rovers as the club Sean Robert Francis played for and accurately states it is the most successful in the Republic of Ireland, both claims being directly supported by the evidence."
+      },
+      "relevance": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The question asks for a city, but the answer names a club."
+      }
+    },
+    "vn_hotpot_016": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly identifies Scott Treleaven as working in both film and photography based on the evidence, and correctly notes that Edmund Mortimer is only mentioned as an actor and film director."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly identifies Scott Treleaven as the person recorded as working in both film and photography."
+      }
+    },
+    "vn_hotpot_017": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly identifies Dan Bilzerian as the American professional poker player who appears in the 2015 film \"Extraction,\" which is fully supported by the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer correctly identifies Dan Bilzerian as the American professional poker player who appeared in the 2015 film \"Extraction.\""
+      }
+    },
+    "vn_hotpot_018": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly identifies the defense lawyer as Erich Schmidt-Leichner, which is directly supported by the evidence."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly names the defense lawyer for the specified German woman."
+      }
+    },
+    "vn_hotpot_019": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The candidate answer correctly extracts the population figure of 2,615 from the evidence about Searsport, Maine, which is the city where the museum is located."
+      },
+      "relevance": {
+        "score": 5.0,
+        "rationale": "SCORE: 5\nRATIONALE: The answer directly provides the requested population figure with a specific reference."
+      }
+    },
+    "vn_hotpot_020": {
+      "status": "scored",
+      "judge_model": "deepseek-ai/DeepSeek-V3.2",
+      "reference_available": false,
+      "faithfulness": {
+        "score": 3.0,
+        "rationale": "SCORE: 3\nRATIONALE: The candidate answer correctly identifies Lupita Nyong'o as the actress and the film \"Star Wars: Thần Lực Thức Tỉnh\" from 2015, which is supported by the evidence, but it incorrectly states she played a leading role, while the evidence only lists her among the cast."
+      },
+      "relevance": {
+        "score": 1.0,
+        "rationale": "SCORE: 1\nRATIONALE: The answer incorrectly identifies the actress and film, failing to address the question's specifics about a Kenyan-Mexican actress from Hampshire College."
+      }
+    }
+  },
+  "latency": {
+    "first_pass": {
+      "requests": 50,
+      "errors": 0,
+      "successful": {
+        "retrieval_latency_ms": {
+          "n": 50,
+          "p50_ms": 4634.27215005504,
+          "p95_ms": 9162.62940003071
+        },
+        "first_token_ms": {
+          "n": 50,
+          "p50_ms": 23782.188900047913,
+          "p95_ms": 47245.129699935205
+        },
+        "latency_ms": {
+          "n": 50,
+          "p50_ms": 23783.41250005178,
+          "p95_ms": 47248.633999959566
+        }
+      },
+      "all_attempts": {
+        "retrieval_latency_ms": {
+          "n": 50,
+          "p50_ms": 4634.27215005504,
+          "p95_ms": 9162.62940003071
+        },
+        "first_token_ms": {
+          "n": 50,
+          "p50_ms": 23782.188900047913,
+          "p95_ms": 47245.129699935205
+        },
+        "latency_ms": {
+          "n": 50,
+          "p50_ms": 23783.41250005178,
+          "p95_ms": 47248.633999959566
+        }
+      }
+    },
+    "warm_1": {
+      "requests": 50,
+      "errors": 0,
+      "successful": {
+        "retrieval_latency_ms": {
+          "n": 50,
+          "p50_ms": 3599.5398000231944,
+          "p95_ms": 6289.276099996641
+        },
+        "first_token_ms": {
+          "n": 48,
+          "p50_ms": 17400.28694999637,
+          "p95_ms": 37581.56240009703
+        },
+        "latency_ms": {
+          "n": 50,
+          "p50_ms": 17003.396500018425,
+          "p95_ms": 37583.794800098985
+        }
+      },
+      "all_attempts": {
+        "retrieval_latency_ms": {
+          "n": 50,
+          "p50_ms": 3599.5398000231944,
+          "p95_ms": 6289.276099996641
+        },
+        "first_token_ms": {
+          "n": 48,
+          "p50_ms": 17400.28694999637,
+          "p95_ms": 37581.56240009703
+        },
+        "latency_ms": {
+          "n": 50,
+          "p50_ms": 17003.396500018425,
+          "p95_ms": 37583.794800098985
+        }
+      }
+    },
+    "warm_2": {
+      "requests": 50,
+      "errors": 0,
+      "successful": {
+        "retrieval_latency_ms": {
+          "n": 50,
+          "p50_ms": 3519.390400033444,
+          "p95_ms": 6380.647799931467
+        },
+        "first_token_ms": {
+          "n": 43,
+          "p50_ms": 16641.160700004548,
+          "p95_ms": 40056.33549997583
+        },
+        "latency_ms": {
+          "n": 50,
+          "p50_ms": 16275.377000041772,
+          "p95_ms": 40056.79230007809
+        }
+      },
+      "all_attempts": {
+        "retrieval_latency_ms": {
+          "n": 50,
+          "p50_ms": 3519.390400033444,
+          "p95_ms": 6380.647799931467
+        },
+        "first_token_ms": {
+          "n": 43,
+          "p50_ms": 16641.160700004548,
+          "p95_ms": 40056.33549997583
+        },
+        "latency_ms": {
+          "n": 50,
+          "p50_ms": 16275.377000041772,
+          "p95_ms": 40056.79230007809
+        }
+      }
+    },
+    "warm_combined": {
+      "requests": 100,
+      "errors": 0,
+      "successful": {
+        "retrieval_latency_ms": {
+          "n": 100,
+          "p50_ms": 3563.5521999793127,
+          "p95_ms": 6289.276099996641
+        },
+        "first_token_ms": {
+          "n": 91,
+          "p50_ms": 17121.433299966156,
+          "p95_ms": 40056.33549997583
+        },
+        "latency_ms": {
+          "n": 100,
+          "p50_ms": 16483.003549976274,
+          "p95_ms": 37921.91879998427
+        }
+      },
+      "all_attempts": {
+        "retrieval_latency_ms": {
+          "n": 100,
+          "p50_ms": 3563.5521999793127,
+          "p95_ms": 6289.276099996641
+        },
+        "first_token_ms": {
+          "n": 91,
+          "p50_ms": 17121.433299966156,
+          "p95_ms": 40056.33549997583
+        },
+        "latency_ms": {
+          "n": 100,
+          "p50_ms": 16483.003549976274,
+          "p95_ms": 37921.91879998427
+        }
+      }
+    }
+  },
+  "warm_attempts": [
+    {
+      "retrieval_latency_ms": 3475.27659998741,
+      "latency_ms": 15650.057499995455,
+      "first_token_ms": 15632.509600021876,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_002",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3587.6165999798104,
+      "latency_ms": 27104.276899946854,
+      "first_token_ms": 27103.651399957016,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_003",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3264.2701000440866,
+      "latency_ms": 35510.7977000298,
+      "first_token_ms": 35508.36730003357,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_004",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3895.0610000174493,
+      "latency_ms": 55311.11370003782,
+      "first_token_ms": 55309.5768999774,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_005",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 4175.298599991947,
+      "latency_ms": 40880.979000008665,
+      "first_token_ms": 40880.09099999908,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_006",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 4795.394300017506,
+      "latency_ms": 26596.669199992903,
+      "first_token_ms": 26593.51959999185,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_007",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3941.7784999823198,
+      "latency_ms": 26163.280999986455,
+      "first_token_ms": 26162.134399986826,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_008",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3189.56219998654,
+      "latency_ms": 16129.118099925108,
+      "first_token_ms": 16128.13319999259,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_009",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3529.1279999073595,
+      "latency_ms": 9020.555899944156,
+      "first_token_ms": 9019.497599918395,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_010",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3305.0429000286385,
+      "latency_ms": 8680.251899990253,
+      "first_token_ms": 8679.075899999589,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_011",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 4656.443500076421,
+      "latency_ms": 22670.041600009426,
+      "first_token_ms": 22668.187799979933,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_012",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3010.6427000137046,
+      "latency_ms": 23057.030100026168,
+      "first_token_ms": 23056.284899939783,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_013",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 6169.791200081818,
+      "latency_ms": 21644.640600075945,
+      "first_token_ms": 21642.542300047353,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_014",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3069.9978000484407,
+      "latency_ms": 14267.241999972612,
+      "first_token_ms": 14264.750099973753,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_015",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3191.128799924627,
+      "latency_ms": 29227.589599904604,
+      "first_token_ms": 29226.078999927267,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_016",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3988.4432000108063,
+      "latency_ms": 10504.756000009365,
+      "first_token_ms": 10503.250999958254,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_017",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3548.530300031416,
+      "latency_ms": 7020.283999969251,
+      "first_token_ms": 7019.532899954356,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_018",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 4015.2387000853196,
+      "latency_ms": 9134.665600024164,
+      "first_token_ms": 9133.595600025728,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_019",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3284.4768000068143,
+      "latency_ms": 26849.33229989838,
+      "first_token_ms": 26848.349199979566,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_020",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3210.616199998185,
+      "latency_ms": 17122.730100061744,
+      "first_token_ms": 17121.433299966156,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_021",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3526.5643999446183,
+      "latency_ms": 25395.590499974787,
+      "first_token_ms": 25394.24059994053,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_022",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 6315.770799992606,
+      "latency_ms": 17684.807099984027,
+      "first_token_ms": 17679.140600026585,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_023",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3565.2141999453306,
+      "latency_ms": 12847.02320001088,
+      "first_token_ms": 12845.691199996509,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_024",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3337.6827999018133,
+      "latency_ms": 24788.02259999793,
+      "first_token_ms": 24786.936199991032,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_025",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3673.943700036034,
+      "latency_ms": 21039.518399978988,
+      "first_token_ms": 21038.025700021535,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_026",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3029.6760000055656,
+      "latency_ms": 24167.673400021158,
+      "first_token_ms": 24166.3882000139,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_027",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3561.890200013295,
+      "latency_ms": 23394.91139992606,
+      "first_token_ms": 23393.995499936864,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_028",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 4170.666399993934,
+      "latency_ms": 21185.88110001292,
+      "first_token_ms": 21184.667199966498,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_029",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 4123.612500028685,
+      "latency_ms": 25265.419900068082,
+      "first_token_ms": 25261.6696000332,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_030",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3611.4630000665784,
+      "latency_ms": 10083.030999987386,
+      "first_token_ms": 10082.010800018907,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_001",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3819.12540004123,
+      "latency_ms": 6951.3996000168845,
+      "first_token_ms": 6950.072400039062,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_002",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 4070.916000055149,
+      "latency_ms": 10806.394800078124,
+      "first_token_ms": 10805.453600012697,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_003",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3459.9074000725523,
+      "latency_ms": 15787.248700042255,
+      "first_token_ms": 15785.605699988082,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_004",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3211.3492999924347,
+      "latency_ms": 15123.677300056443,
+      "first_token_ms": 15121.29320006352,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_005",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3949.045900022611,
+      "latency_ms": 14524.037599912845,
+      "first_token_ms": 14522.864799946547,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_006",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3078.4446999896318,
+      "latency_ms": 13517.019400023855,
+      "first_token_ms": 13515.797900035977,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_007",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3877.2971000289544,
+      "latency_ms": 8356.606799992733,
+      "first_token_ms": 8355.639899964444,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_008",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3565.7395999878645,
+      "latency_ms": 13728.143200045452,
+      "first_token_ms": 13724.648599978536,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_009",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 4103.358100051992,
+      "latency_ms": 37583.794800098985,
+      "first_token_ms": 37581.56240009703,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_010",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3397.5876000477,
+      "latency_ms": 11333.797900006175,
+      "first_token_ms": 11331.92849997431,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_011",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3106.5629000077024,
+      "latency_ms": 16884.062899975106,
+      "first_token_ms": 16881.900499924086,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_012",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3770.0009000254795,
+      "latency_ms": 10163.640100043267,
+      "first_token_ms": 10162.43070003111,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_013",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3546.5391000034288,
+      "latency_ms": 8726.244700024836,
+      "first_token_ms": 8724.867400014773,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_014",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3444.6024000644684,
+      "latency_ms": 8613.049000035971,
+      "first_token_ms": 8611.989099998027,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_015",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3876.0906000388786,
+      "latency_ms": 18223.990999977104,
+      "first_token_ms": 18222.625600057654,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_016",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3994.6496000047773,
+      "latency_ms": 31089.69509997405,
+      "first_token_ms": 31088.578999973834,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_017",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3781.266300007701,
+      "latency_ms": 21010.47789992299,
+      "first_token_ms": 21008.72389995493,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_018",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 4006.328699993901,
+      "latency_ms": 18872.441199957393,
+      "first_token_ms": 18871.24240002595,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_019",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 6289.276099996641,
+      "latency_ms": 9556.096100015566,
+      "first_token_ms": null,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_020",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 7032.388199935667,
+      "latency_ms": 9106.445699930191,
+      "first_token_ms": null,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_001",
+      "repetition": 1
+    },
+    {
+      "retrieval_latency_ms": 3015.771899954416,
+      "latency_ms": 44519.43380001467,
+      "first_token_ms": 44518.86700000614,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_003",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3288.6406999314204,
+      "latency_ms": 21432.73240001872,
+      "first_token_ms": 21431.598900002427,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_004",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3548.91370004043,
+      "latency_ms": 32073.49580002483,
+      "first_token_ms": 32071.88900001347,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_005",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3599.6897000586614,
+      "latency_ms": 34350.03339999821,
+      "first_token_ms": 34349.04240001924,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_006",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 4827.407700009644,
+      "latency_ms": 37921.91879998427,
+      "first_token_ms": 37919.1765000578,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_007",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3821.15860003978,
+      "latency_ms": 21684.736100025475,
+      "first_token_ms": 21684.117200085893,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_008",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3579.3486000038683,
+      "latency_ms": 21975.764599977992,
+      "first_token_ms": 21974.961299914867,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_009",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3074.025599984452,
+      "latency_ms": 29411.602000007406,
+      "first_token_ms": 29410.413799923845,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_010",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3521.354400087148,
+      "latency_ms": 10611.120500019751,
+      "first_token_ms": 10610.065800021403,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_011",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 6872.5727999117225,
+      "latency_ms": 25004.613199969754,
+      "first_token_ms": 25002.96289997641,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_012",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3810.624000034295,
+      "latency_ms": 8003.749700030312,
+      "first_token_ms": 8002.779699978419,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_013",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 7011.985499993898,
+      "latency_ms": 61782.465799944475,
+      "first_token_ms": 61780.44179989956,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_014",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3463.388300035149,
+      "latency_ms": 21824.790099984966,
+      "first_token_ms": 21823.702799971215,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_015",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3453.866000054404,
+      "latency_ms": 21586.717700003646,
+      "first_token_ms": 21585.710300016217,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_016",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3754.517800058238,
+      "latency_ms": 16641.985499998555,
+      "first_token_ms": 16641.160700004548,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_017",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 4219.33559991885,
+      "latency_ms": 8016.391499899328,
+      "first_token_ms": 8015.599399921484,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_018",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3703.769699903205,
+      "latency_ms": 15231.333599891514,
+      "first_token_ms": 15230.4557999596,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_019",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3925.019299960695,
+      "latency_ms": 14345.349099952728,
+      "first_token_ms": 14344.49309995398,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_020",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 2988.7077000457793,
+      "latency_ms": 12788.468900020234,
+      "first_token_ms": 12787.769600050524,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_021",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3325.283799902536,
+      "latency_ms": 12752.234100014903,
+      "first_token_ms": 12751.18229992222,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_022",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 6380.647799931467,
+      "latency_ms": 27850.979499984533,
+      "first_token_ms": 27848.13919989392,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_023",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 2922.974699991755,
+      "latency_ms": 23244.302499922924,
+      "first_token_ms": 23243.358899955638,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_024",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3269.6532999398187,
+      "latency_ms": 26254.347599926405,
+      "first_token_ms": 26253.646399942227,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_025",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3101.430800044909,
+      "latency_ms": 21777.67139999196,
+      "first_token_ms": 21776.898400043137,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_026",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3230.3458000533283,
+      "latency_ms": 40056.79230007809,
+      "first_token_ms": 40056.33549997583,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_027",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3197.887000045739,
+      "latency_ms": 10404.273900086991,
+      "first_token_ms": 10403.653700021096,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_028",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3256.1380000552163,
+      "latency_ms": 16091.798200039193,
+      "first_token_ms": 16091.136600007303,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_029",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3753.4907000372186,
+      "latency_ms": 11921.476799994707,
+      "first_token_ms": 11919.577499968,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_030",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 2967.01049990952,
+      "latency_ms": 5962.957299896516,
+      "first_token_ms": 5962.361699901521,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_001",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3942.0168000506237,
+      "latency_ms": 13262.177900061943,
+      "first_token_ms": 13261.367100058123,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_002",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3892.7150000818074,
+      "latency_ms": 26056.712600053288,
+      "first_token_ms": 26056.18450010661,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_003",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3554.309600032866,
+      "latency_ms": 8657.911299960688,
+      "first_token_ms": 8656.762599945068,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_004",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3107.5423998991027,
+      "latency_ms": 18735.023099929094,
+      "first_token_ms": 18731.862299959175,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_005",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3646.022000000812,
+      "latency_ms": 14930.192400002852,
+      "first_token_ms": 14929.25909999758,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_006",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3353.747099987231,
+      "latency_ms": 20062.5013000099,
+      "first_token_ms": 20061.36150006205,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_007",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3390.9450999926776,
+      "latency_ms": 16458.95580004435,
+      "first_token_ms": 16457.675900077447,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_008",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3600.6196999223903,
+      "latency_ms": 11425.434899982065,
+      "first_token_ms": 11424.124899902381,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_009",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3983.3390000276268,
+      "latency_ms": 16508.143500075676,
+      "first_token_ms": 16506.299300002865,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_010",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3517.4263999797404,
+      "latency_ms": 13043.650499894284,
+      "first_token_ms": 13042.57129994221,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_011",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3244.664500001818,
+      "latency_ms": 16507.0512999082,
+      "first_token_ms": 16506.005799979903,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_012",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3486.439000000246,
+      "latency_ms": 5536.643799976446,
+      "first_token_ms": null,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_013",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 2844.2343999631703,
+      "latency_ms": 5278.850500006229,
+      "first_token_ms": null,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_014",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3014.5634000655264,
+      "latency_ms": 9063.807900063694,
+      "first_token_ms": 9062.835899996571,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_015",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3716.474499902688,
+      "latency_ms": 15795.491199940443,
+      "first_token_ms": 15793.719099950977,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_016",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3332.879099994898,
+      "latency_ms": 6372.394200065173,
+      "first_token_ms": null,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_017",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 4486.45139997825,
+      "latency_ms": 6740.561799961142,
+      "first_token_ms": null,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_018",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3443.657699972391,
+      "latency_ms": 5695.481000002474,
+      "first_token_ms": null,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_019",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 5561.671299976297,
+      "latency_ms": 18736.105900024995,
+      "first_token_ms": 18734.445299953222,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_hotpot_020",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 6094.942199997604,
+      "latency_ms": 9713.730000075884,
+      "first_token_ms": null,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_001",
+      "repetition": 2
+    },
+    {
+      "retrieval_latency_ms": 3225.733399973251,
+      "latency_ms": 5364.752299967222,
+      "first_token_ms": null,
+      "error": null,
+      "http_client_pid": 23200,
+      "question_id": "vn_zalo_002",
+      "repetition": 2
+    }
+  ],
+  "quality_summary": {
+    "faithfulness": {
+      "n_scored": 50,
+      "mean": 4.04
+    },
+    "relevance": {
+      "n_scored": 50,
+      "mean": 4.06
+    }
+  }
+}

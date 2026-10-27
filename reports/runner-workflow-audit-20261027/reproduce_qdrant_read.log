@@ -1,0 +1,5 @@
+{"mode": "idle_baseline", "http_status": 200, "count": 252, "seconds": 0.7553966999985278}
+graph completed 0
+graph completed 1
+{"mode": "during_two_graph_tasks", "http_status": 200, "count": 252, "seconds": 49.12186259997543}
+{"mode": "idle_after", "http_status": 200, "count": 252, "seconds": 0.17857039999216795}

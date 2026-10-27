@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RetrievalCI Bench-v0 (2026) — SAG application (Top-K from UI) and historical hosted references</title>
+  <style>
+:root {
+  color-scheme: light;
+  --bg: oklch(0.975 0.006 245);
+  --surface: oklch(0.995 0.004 245);
+  --surface-2: oklch(0.948 0.009 245);
+  --text: oklch(0.235 0.018 245);
+  --muted: oklch(0.47 0.022 245);
+  --line: oklch(0.855 0.014 245);
+  --accent: oklch(0.50 0.14 245);
+  --good: oklch(0.43 0.12 155);
+  --warn: oklch(0.58 0.12 70);
+  --bad: oklch(0.50 0.15 25);
+  --shadow: 0 18px 50px oklch(0.42 0.03 245 / 0.10);
+}
+* { box-sizing: border-box; }
+html, body { max-width: 100%; overflow-x: hidden; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+main { width: min(1180px, calc(100% - 32px)); margin: 0 auto 56px; }
+header {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.header-inner {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 30px 0 28px;
+  min-width: 0;
+}
+h1, h2, h3, h4, p { margin-top: 0; }
+h1 { margin-bottom: 8px; font-size: 28px; line-height: 1.15; letter-spacing: 0; }
+h2 { margin-bottom: 0; font-size: 21px; line-height: 1.2; letter-spacing: 0; }
+h3 { margin: 26px 0 10px; font-size: 15px; letter-spacing: 0; }
+h4 { margin: 0 0 10px; font-size: 13px; letter-spacing: 0; }
+p { max-width: 74ch; }
+h1, h2, h3, h4, p { overflow-wrap: anywhere; }
+code {
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 1px 5px;
+  background: var(--surface-2);
+  font-size: 0.92em;
+}
+.muted { color: var(--muted); }
+.eyebrow {
+  margin: 0 0 5px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin-top: 22px;
+}
+.summary-item {
+  min-height: 78px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-2);
+  padding: 14px;
+  min-width: 0;
+}
+.summary-item span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+.summary-item strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 18px;
+  line-height: 1.2;
+  word-break: break-word;
+}
+.band {
+  margin-top: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 22px;
+  box-shadow: 0 10px 32px oklch(0.42 0.03 245 / 0.07);
+  min-width: 0;
+  max-width: 100%;
+}
+.section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  min-width: 0;
+}
+.section-head > div { min-width: 0; }
+.status, .severity {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  border-radius: 999px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.good { color: var(--good); }
+.warn, .warning { color: var(--warn); }
+.bad, .critical { color: var(--bad); }
+.info, .neutral { color: var(--accent); }
+.diagnosis {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(320px, 1.2fr);
+  gap: 18px;
+  margin-top: 18px;
+  min-width: 0;
+}
+.facts {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+.facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  border-bottom: 1px solid var(--line);
+  padding: 7px 0;
+  min-width: 0;
+}
+.facts dt { color: var(--muted); }
+.facts dd {
+  margin: 0;
+  font-weight: 650;
+  text-align: right;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.finding-list {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.finding-list li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-2);
+  padding: 10px 12px;
+}
+.table-wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+  background: var(--surface);
+}
+th, td {
+  border-bottom: 1px solid var(--line);
+  padding: 9px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+th button {
+  all: unset;
+  cursor: pointer;
+}
+th button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+tr:last-child td { border-bottom: 0; }
+td { max-width: 320px; word-break: break-word; }
+td:first-child { white-space: nowrap; word-break: normal; }
+.example-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+.example-block {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+.empty {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-2);
+  padding: 14px;
+  color: var(--muted);
+}
+@media (max-width: 760px) {
+  main, .header-inner { width: calc(100vw - 20px); max-width: 1180px; }
+  .header-inner { padding: 22px 0; }
+  h1 { font-size: 22px; }
+  .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .band { padding: 16px; }
+  .section-head, .diagnosis { display: grid; grid-template-columns: 1fr; }
+  .status { justify-self: start; }
+  h1, h2, h3, p, .summary-item strong { overflow-wrap: anywhere; }
+  .facts div { display: grid; grid-template-columns: 1fr; gap: 2px; }
+  .facts dd { text-align: left; }
+}
+@media (max-width: 520px) {
+  main, .header-inner { width: calc(100vw - 20px); max-width: 360px; }
+  main { margin: 0 10px 56px; }
+  .header-inner { margin: 0 10px; }
+  .summary-grid { grid-template-columns: 1fr; }
+}
+@media print {
+  body { background: var(--surface); }
+  header, .band { box-shadow: none; }
+  th { position: static; }
+}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <p class="eyebrow">RetrievalCI</p>
+      <h1>RetrievalCI Bench-v0 (2026) — SAG application (Top-K from UI) and historical hosted references</h1>
+      <p class="muted">
+        Generated 2026-10-27 09:58 UTC. Static artifact for RAG architecture and retrieval-state
+        review.
+      </p>
+      <div class="summary-grid"><div class="summary-item"><span>RAG systems</span><strong>10</strong></div><div class="summary-item"><span>Questions</span><strong>50</strong></div><div class="summary-item"><span>RAG leader</span><strong>sag_engine</strong></div></div>
+    </div>
+  </header>
+  <main>
+    
+<section class="band">
+  <div class="section-head">
+    <div>
+      <p class="eyebrow">RAG architecture</p>
+      <h2>What changed in the answer pipeline</h2>
+    </div>
+    <span class="status neutral">Leader: sag_engine</span>
+  </div>
+  <div class="diagnosis">
+    <div>
+      <h3>Diagnosis</h3>
+      <dl class="facts">
+        <div><dt>Primary metric</dt><dd>retrieval_source_recall</dd></div>
+        <div><dt>Bottleneck</dt><dd>generation_limited</dd></div>
+        <div><dt>Weakest tier</dt><dd>single_hop</dd></div>
+      </dl>
+    </div>
+    <div>
+      <h3>Recommended next experiment</h3>
+      <p>Keep `sag_engine` as the retrieval candidate and improve answer synthesis.</p>
+      <p class="muted">Test stricter grounding prompts, context formatting, and answer verification.</p>
+    </div>
+  </div>
+  <ul class="finding-list"><li><span class="severity warning">warning</span><code>PAIRWISE_UNAVAILABLE</code> No paired bootstrap CI was available for `sag_engine` vs `vertex_ai_rag` on `retrieval_source_recall`.</li><li><span class="severity warning">warning</span><code>GENERATION_GAP</code> Retrieved sources are strong, but answer content lags.</li></ul>
+  <h3>System metrics</h3>
+  <div class="table-wrap"><table data-sortable="true"><thead><tr><th><button type="button">system</button></th><th><button type="button">retrieval source recall</button></th><th><button type="button">retrieval source precision</button></th><th><button type="button">must include match</button></th><th><button type="button">answer citation recall</button></th><th><button type="button">answer citation precision</button></th><th><button type="button">faithfulness</button></th><th><button type="button">relevance</button></th><th><button type="button">refusal rate</button></th><th><button type="button">latency ms p50</button></th><th><button type="button">tokens used total</button></th><th><button type="button">abstention correctness</button></th><th><button type="button">answer length chars</button></th><th><button type="button">retrieval latency ms p50</button></th></tr></thead><tbody><tr><td data-sort-value="sag_engine">sag_engine</td><td class="good" data-sort-value="1.0">1.000</td><td class="warn" data-sort-value="0.48236173463709975">0.482</td><td class="bad" data-sort-value="0.0">0.000</td><td class="good" data-sort-value="0.8722222222222222">0.872</td><td class="warn" data-sort-value="0.7677083333333333">0.768</td><td class="good" data-sort-value="3.82">3.820</td><td class="good" data-sort-value="3.76">3.760</td><td class="good" data-sort-value="0.04">0.040</td><td class="bad" data-sort-value="23224.224100005813">23,224</td><td class="good" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="0.16666666666666666">0.167</td><td class="good" data-sort-value="679.34">679</td><td class="good" data-sort-value="11101.906099938788">11,102</td></tr><tr><td data-sort-value="bm25_lexical">bm25_lexical</td><td class="warn" data-sort-value="0.4768518518518518">0.477</td><td class="warn" data-sort-value="0.41">0.410</td><td class="bad" data-sort-value="0.0">0.000</td><td class="warn" data-sort-value="0.4666666666666667">0.467</td><td class="warn" data-sort-value="0.7154471544715447">0.715</td><td class="good" data-sort-value="2.7736">2.774</td><td class="good" data-sort-value="4.0996">4.100</td><td class="good" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="2998.016618657857">2,998</td><td class="bad" data-sort-value="106957.0">106,957</td><td class="bad" data-sort-value="0.0">0.000</td><td class="good" data-sort-value="959.86">960</td><td data-sort-value="n/a">n/a</td></tr><tr><td data-sort-value="dense_rag">dense_rag</td><td class="warn" data-sort-value="0.48518518518518516">0.485</td><td class="bad" data-sort-value="0.38833333333333336">0.388</td><td class="bad" data-sort-value="0.0">0.000</td><td class="warn" data-sort-value="0.42777777777777776">0.428</td><td class="warn" data-sort-value="0.65">0.650</td><td class="good" data-sort-value="2.8376">2.838</td><td class="good" data-sort-value="4.0406">4.041</td><td class="good" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="3059.1885417234153">3,059</td><td class="bad" data-sort-value="101427.0">101,427</td><td class="bad" data-sort-value="0.0">0.000</td><td class="good" data-sort-value="965.24">965</td><td data-sort-value="n/a">n/a</td></tr><tr><td data-sort-value="hybrid_rrf">hybrid_rrf</td><td class="warn" data-sort-value="0.4768518518518518">0.477</td><td class="warn" data-sort-value="0.429">0.429</td><td class="bad" data-sort-value="0.0">0.000</td><td class="warn" data-sort-value="0.4629629629629629">0.463</td><td class="warn" data-sort-value="0.6746031746031745">0.675</td><td class="good" data-sort-value="2.8318">2.832</td><td class="good" data-sort-value="4.1284">4.128</td><td class="good" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="3323.5521751921624">3,324</td><td class="bad" data-sort-value="104866.0">104,866</td><td class="bad" data-sort-value="0.0">0.000</td><td class="good" data-sort-value="978.58">979</td><td data-sort-value="n/a">n/a</td></tr><tr><td data-sort-value="dense_rerank">dense_rerank</td><td class="warn" data-sort-value="0.4824074074074074">0.482</td><td class="warn" data-sort-value="0.41666666666666663">0.417</td><td class="bad" data-sort-value="0.0">0.000</td><td class="warn" data-sort-value="0.46574074074074073">0.466</td><td class="warn" data-sort-value="0.7564102564102564">0.756</td><td class="good" data-sort-value="2.8722">2.872</td><td class="good" data-sort-value="4.197">4.197</td><td class="good" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="3000.8858188521117">3,001</td><td class="bad" data-sort-value="102578.0">102,578</td><td class="bad" data-sort-value="0.0">0.000</td><td class="good" data-sort-value="935.62">936</td><td data-sort-value="n/a">n/a</td></tr><tr><td data-sort-value="chunk_summary_rag">chunk_summary_rag</td><td class="warn" data-sort-value="0.4583333333333333">0.458</td><td class="bad" data-sort-value="0.37066666666666664">0.371</td><td class="bad" data-sort-value="0.0">0.000</td><td class="warn" data-sort-value="0.4388888888888889">0.439</td><td class="warn" data-sort-value="0.6507936507936508">0.651</td><td class="good" data-sort-value="2.7862">2.786</td><td class="good" data-sort-value="4.1457999999999995">4.146</td><td class="good" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="3200.098400004208">3,200</td><td class="bad" data-sort-value="104543.0">104,543</td><td class="bad" data-sort-value="0.0">0.000</td><td class="good" data-sort-value="982.16">982</td><td data-sort-value="n/a">n/a</td></tr><tr><td data-sort-value="vertex_ai_rag">vertex_ai_rag</td><td class="good" data-sort-value="0.9453703703703703">0.945</td><td class="warn" data-sort-value="0.5466666666666666">0.547</td><td class="bad" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="0.0">0.000</td><td data-sort-value="n/a">n/a</td><td data-sort-value="n/a">n/a</td><td data-sort-value="n/a">n/a</td><td class="good" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="358.4406082518399">358</td><td class="good" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="0.0">0.000</td><td data-sort-value="n/a">n/a</td></tr><tr><td data-sort-value="bedrock_kb">bedrock_kb</td><td class="good" data-sort-value="0.8787037037037037">0.879</td><td class="warn" data-sort-value="0.7013333333333334">0.701</td><td class="bad" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="0.0">0.000</td><td data-sort-value="n/a">n/a</td><td data-sort-value="n/a">n/a</td><td data-sort-value="n/a">n/a</td><td class="good" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="408.05232198908925">408</td><td class="good" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="0.0">0.000</td><td data-sort-value="n/a">n/a</td></tr><tr><td data-sort-value="openai_file_search">openai_file_search</td><td class="good" data-sort-value="0.8925925925925925">0.893</td><td class="warn" data-sort-value="0.534">0.534</td><td class="bad" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="0.0">0.000</td><td data-sort-value="n/a">n/a</td><td data-sort-value="n/a">n/a</td><td data-sort-value="n/a">n/a</td><td class="good" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="1358.3251866512">1,358</td><td class="good" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="0.0">0.000</td><td data-sort-value="n/a">n/a</td></tr><tr><td data-sort-value="azure_ai_search">azure_ai_search</td><td class="good" data-sort-value="0.9092592592592592">0.909</td><td class="warn" data-sort-value="0.6783333333333332">0.678</td><td class="bad" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="0.0">0.000</td><td data-sort-value="n/a">n/a</td><td data-sort-value="n/a">n/a</td><td data-sort-value="n/a">n/a</td><td class="good" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="408.3551864605397">408</td><td class="good" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="0.0">0.000</td><td class="bad" data-sort-value="0.0">0.000</td><td data-sort-value="n/a">n/a</td></tr></tbody></table></div>
+  <h3>Failure examples</h3>
+  <div class="table-wrap"><table data-sortable="true"><thead><tr><th><button type="button">system</button></th><th><button type="button">question</button></th><th><button type="button">tier</button></th><th><button type="button">issue</button></th><th><button type="button">source recall</button></th><th><button type="button">citation recall</button></th><th><button type="button">term match</button></th><th><button type="button">sources</button></th></tr></thead><tbody><tr><td data-sort-value="sag_engine">sag_engine</td><td data-sort-value="qst_0019">qst_0019</td><td data-sort-value="single_hop">single_hop</td><td data-sort-value="130.0">refused: weak_evidence</td><td data-sort-value="1.0">1.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="n/a">n/a</td></tr><tr><td data-sort-value="sag_engine">sag_engine</td><td data-sort-value="qst_0485">qst_0485</td><td data-sort-value="single_hop">single_hop</td><td data-sort-value="120.0">refused: weak_evidence</td><td data-sort-value="n/a">n/a</td><td data-sort-value="n/a">n/a</td><td data-sort-value="0.0">0.000</td><td data-sort-value="n/a">n/a</td></tr><tr><td data-sort-value="bm25_lexical">bm25_lexical</td><td data-sort-value="qst_0003">qst_0003</td><td data-sort-value="single_hop">single_hop</td><td data-sort-value="75.0">zero source recall</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="examples/rag_eval/bench_v0/corpus/confluence__dsid_377cdf4e378f40bebd7196e3a0ff1c38.md, examples/rag_eval/bench_v0/corpus/fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md, examples/rag_eval/bench_v0/corpus/gmail__dsid_5611f05242ae4e6b9ae68d3c3e91bd54.md, +2 more">examples/rag_eval/bench_v0/corpus/confluence__dsid_377cdf4e378f40bebd7196e3a0ff1c38.md, examples/rag_eval/bench_v0/corpus/fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md, examples/rag_eval/bench_v0/corpus/gmail__dsid_5611f05242ae4e6b9ae68d3c3e91bd54.md, +2 more</td></tr><tr><td data-sort-value="dense_rag">dense_rag</td><td data-sort-value="qst_0003">qst_0003</td><td data-sort-value="single_hop">single_hop</td><td data-sort-value="75.0">zero source recall</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="examples/rag_eval/bench_v0/corpus/confluence__dsid_a2983978ba0d4d70a795eb7e13de8670.md, examples/rag_eval/bench_v0/corpus/fireflies__dsid_6c4c1c875e704f09b4d791d64d7bc7e5.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_377cdf4e378f40bebd7196e3a0ff1c38.md, +2 more">examples/rag_eval/bench_v0/corpus/confluence__dsid_a2983978ba0d4d70a795eb7e13de8670.md, examples/rag_eval/bench_v0/corpus/fireflies__dsid_6c4c1c875e704f09b4d791d64d7bc7e5.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_377cdf4e378f40bebd7196e3a0ff1c38.md, +2 more</td></tr><tr><td data-sort-value="hybrid_rrf">hybrid_rrf</td><td data-sort-value="qst_0003">qst_0003</td><td data-sort-value="single_hop">single_hop</td><td data-sort-value="75.0">zero source recall</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="examples/rag_eval/bench_v0/corpus/fireflies__dsid_6c4c1c875e704f09b4d791d64d7bc7e5.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_e33c122264214846a8b7df7701d31482.md, examples/rag_eval/bench_v0/corpus/fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md, +2 more">examples/rag_eval/bench_v0/corpus/fireflies__dsid_6c4c1c875e704f09b4d791d64d7bc7e5.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_e33c122264214846a8b7df7701d31482.md, examples/rag_eval/bench_v0/corpus/fireflies__dsid_9ed01291d81947f49500df5fb28ab724.md, +2 more</td></tr><tr><td data-sort-value="dense_rerank">dense_rerank</td><td data-sort-value="qst_0003">qst_0003</td><td data-sort-value="single_hop">single_hop</td><td data-sort-value="75.0">zero source recall</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="examples/rag_eval/bench_v0/corpus/confluence__dsid_46a4cb87db414e769f2df86f01626948.md, examples/rag_eval/bench_v0/corpus/fireflies__dsid_6c4c1c875e704f09b4d791d64d7bc7e5.md, examples/rag_eval/bench_v0/corpus/fireflies__dsid_6c4c1c875e704f09b4d791d64d7bc7e5.md, +2 more">examples/rag_eval/bench_v0/corpus/confluence__dsid_46a4cb87db414e769f2df86f01626948.md, examples/rag_eval/bench_v0/corpus/fireflies__dsid_6c4c1c875e704f09b4d791d64d7bc7e5.md, examples/rag_eval/bench_v0/corpus/fireflies__dsid_6c4c1c875e704f09b4d791d64d7bc7e5.md, +2 more</td></tr><tr><td data-sort-value="chunk_summary_rag">chunk_summary_rag</td><td data-sort-value="qst_0003">qst_0003</td><td data-sort-value="single_hop">single_hop</td><td data-sort-value="75.0">zero source recall</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="examples/rag_eval/bench_v0/corpus/confluence__dsid_e33c122264214846a8b7df7701d31482.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_a2983978ba0d4d70a795eb7e13de8670.md, examples/rag_eval/bench_v0/corpus/fireflies__dsid_6c4c1c875e704f09b4d791d64d7bc7e5.md, +2 more">examples/rag_eval/bench_v0/corpus/confluence__dsid_e33c122264214846a8b7df7701d31482.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_a2983978ba0d4d70a795eb7e13de8670.md, examples/rag_eval/bench_v0/corpus/fireflies__dsid_6c4c1c875e704f09b4d791d64d7bc7e5.md, +2 more</td></tr><tr><td data-sort-value="bm25_lexical">bm25_lexical</td><td data-sort-value="qst_0005">qst_0005</td><td data-sort-value="single_hop">single_hop</td><td data-sort-value="75.0">zero source recall</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="examples/rag_eval/bench_v0/corpus/confluence__dsid_ca42a8f18d784c879c5a6fcfe3a484c0.md, examples/rag_eval/bench_v0/corpus/gmail__dsid_6fc6a90cd2d044e5add05493803e64d1.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_49fa5cfd95624dbeb6eaa535f9959470.md, +2 more">examples/rag_eval/bench_v0/corpus/confluence__dsid_ca42a8f18d784c879c5a6fcfe3a484c0.md, examples/rag_eval/bench_v0/corpus/gmail__dsid_6fc6a90cd2d044e5add05493803e64d1.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_49fa5cfd95624dbeb6eaa535f9959470.md, +2 more</td></tr><tr><td data-sort-value="dense_rag">dense_rag</td><td data-sort-value="qst_0005">qst_0005</td><td data-sort-value="single_hop">single_hop</td><td data-sort-value="75.0">zero source recall</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="examples/rag_eval/bench_v0/corpus/confluence__dsid_150b485e7fd54251b937ab3d08a850dc.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_ca42a8f18d784c879c5a6fcfe3a484c0.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_ca42a8f18d784c879c5a6fcfe3a484c0.md, +2 more">examples/rag_eval/bench_v0/corpus/confluence__dsid_150b485e7fd54251b937ab3d08a850dc.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_ca42a8f18d784c879c5a6fcfe3a484c0.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_ca42a8f18d784c879c5a6fcfe3a484c0.md, +2 more</td></tr><tr><td data-sort-value="hybrid_rrf">hybrid_rrf</td><td data-sort-value="qst_0005">qst_0005</td><td data-sort-value="single_hop">single_hop</td><td data-sort-value="75.0">zero source recall</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="examples/rag_eval/bench_v0/corpus/confluence__dsid_ca42a8f18d784c879c5a6fcfe3a484c0.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_409618a3958944f9b78362ed7e01bb33.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_ca42a8f18d784c879c5a6fcfe3a484c0.md, +2 more">examples/rag_eval/bench_v0/corpus/confluence__dsid_ca42a8f18d784c879c5a6fcfe3a484c0.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_409618a3958944f9b78362ed7e01bb33.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_ca42a8f18d784c879c5a6fcfe3a484c0.md, +2 more</td></tr><tr><td data-sort-value="dense_rerank">dense_rerank</td><td data-sort-value="qst_0005">qst_0005</td><td data-sort-value="single_hop">single_hop</td><td data-sort-value="75.0">zero source recall</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="examples/rag_eval/bench_v0/corpus/confluence__dsid_150b485e7fd54251b937ab3d08a850dc.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_409618a3958944f9b78362ed7e01bb33.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_ca42a8f18d784c879c5a6fcfe3a484c0.md, +2 more">examples/rag_eval/bench_v0/corpus/confluence__dsid_150b485e7fd54251b937ab3d08a850dc.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_409618a3958944f9b78362ed7e01bb33.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_ca42a8f18d784c879c5a6fcfe3a484c0.md, +2 more</td></tr><tr><td data-sort-value="chunk_summary_rag">chunk_summary_rag</td><td data-sort-value="qst_0005">qst_0005</td><td data-sort-value="single_hop">single_hop</td><td data-sort-value="75.0">zero source recall</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="0.0">0.000</td><td data-sort-value="examples/rag_eval/bench_v0/corpus/confluence__dsid_409618a3958944f9b78362ed7e01bb33.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_9c8cb10d65324c03a8ededbd98c1b058.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_150b485e7fd54251b937ab3d08a850dc.md, +2 more">examples/rag_eval/bench_v0/corpus/confluence__dsid_409618a3958944f9b78362ed7e01bb33.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_9c8cb10d65324c03a8ededbd98c1b058.md, examples/rag_eval/bench_v0/corpus/confluence__dsid_150b485e7fd54251b937ab3d08a850dc.md, +2 more</td></tr></tbody></table></div>
+</section>
+
+  </main>
+  <script>
+(() => {
+  const coerce = value => {
+    const n = Number(String(value).replace(/,/g, ""));
+    return Number.isNaN(n) ? String(value).toLowerCase() : n;
+  };
+  document.querySelectorAll("table[data-sortable]").forEach(table => {
+    table.querySelectorAll("th").forEach((th, index) => {
+      th.addEventListener("click", () => {
+        const body = table.tBodies[0];
+        const rows = Array.from(body.rows);
+        const dir = th.dataset.dir === "asc" ? "desc" : "asc";
+        table.querySelectorAll("th").forEach(item => delete item.dataset.dir);
+        th.dataset.dir = dir;
+        rows.sort((a, b) => {
+          const av = coerce(a.cells[index]?.dataset.sortValue || "");
+          const bv = coerce(b.cells[index]?.dataset.sortValue || "");
+          if (av < bv) return dir === "asc" ? -1 : 1;
+          if (av > bv) return dir === "asc" ? 1 : -1;
+          return 0;
+        });
+        rows.forEach(row => body.appendChild(row));
+      });
+    });
+  });
+})();
+  </script>
+</body>
+</html>

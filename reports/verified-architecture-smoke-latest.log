@@ -1,0 +1,442 @@
+warning: in the working copy of 'SAG/apps/api/sag_api/core/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/jobs/knowledge.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/jobs/tasks.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/sag/engine_manager.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/evidence_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/search_unit_retrieval_service.py', LF will be replaced by CRLF the next time Git touches it
+RUN_ID=20261027T020554Z-acaad7 OWNER=6acc9a5425f02c9d92a01012 PROJECT=5848b935cc354c36a023d517 SCHEMA=sag_smoke_20261027014045
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\logging\__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Program Files\Python312\Lib\encodings\cp1258.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 34-43: character maps to <undefined>
+Call stack:
+  File "<stdin>", line 57, in <module>
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "<stdin>", line 32, in main
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep/Dataset\sag_benchmark_runtime.py", line 53, in serve
+    async with app.router.lifespan_context(app):
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\fastapi\routing.py", line 240, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\main.py", line 67, in lifespan
+    await runtime.start(app)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\runtime.py", line 148, in start
+    await self._job_queue.start()
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\inproc.py", line 648, in start
+    log.info("\u4efb\u52a1\u961f\u5217\u5df2\u542f\u52a8\uff08\u5e76\u53d1=%d\uff09", self._concurrency)
+Message: '\u4efb\u52a1\u961f\u5217\u5df2\u542f\u52a8\uff08\u5e76\u53d1=%d\uff09'
+Arguments: (4,)
+09:06:01  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager started
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\logging\__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Program Files\Python312\Lib\encodings\cp1258.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 41-45: character maps to <undefined>
+Call stack:
+  File "<stdin>", line 57, in <module>
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "<stdin>", line 32, in main
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep/Dataset\sag_benchmark_runtime.py", line 53, in serve
+    async with app.router.lifespan_context(app):
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\fastapi\routing.py", line 240, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\main.py", line 67, in lifespan
+    await runtime.start(app)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\runtime.py", line 151, in start
+    self._mcp_handle = await self._factory.start_mcp(app)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\runtime.py", line 83, in start_mcp
+    log.info("MCP \u7aef\u70b9\u5df2\u5c31\u7eea � /mcp/\uff08\u5168\u5e93\uff09� \u53ef\u9009 ?source_id=<\u4fe1\u6e90 id>")
+Message: 'MCP \u7aef\u70b9\u5df2\u5c31\u7eea � /mcp/\uff08\u5168\u5e93\uff09� \u53ef\u9009 ?source_id=<\u4fe1\u6e90 id>'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\logging\__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Program Files\Python312\Lib\encodings\cp1258.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 45-52: character maps to <undefined>
+Call stack:
+  File "<stdin>", line 57, in <module>
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "<stdin>", line 32, in main
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep/Dataset\sag_benchmark_runtime.py", line 53, in serve
+    async with app.router.lifespan_context(app):
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\fastapi\routing.py", line 240, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\main.py", line 67, in lifespan
+    await runtime.start(app)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\runtime.py", line 161, in start
+    log.info(
+Message: 'sag-api \u77e5\u8bc6\u8fd0\u884c\u65f6\u5df2\u542f\u52a8 � env=%s � llm_configured=%s � vector=%s'
+Arguments: ('dev', True, 'qdrant')
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\logging\__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Program Files\Python312\Lib\encodings\cp1258.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 57-64: character maps to <undefined>
+Call stack:
+  File "<stdin>", line 57, in <module>
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "<stdin>", line 32, in main
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep/Dataset\sag_benchmark_runtime.py", line 53, in serve
+    async with app.router.lifespan_context(app):
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\fastapi\routing.py", line 240, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\main.py", line 71, in lifespan
+    knowledge_worker.embed = await app.state.engine_manager.get_sag_embedding()
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\sag\engine_manager.py", line 360, in get_sag_embedding
+    client = await create_embedding_client(embedding_config=config.embedding.model_dump())
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\zleap\sag\core\ai\factory.py", line 292, in create_embedding_client
+    client = resolved.create_client()
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\zleap\sag\core\ai\factory.py", line 31, in create_client
+    return EmbeddingClient(
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\zleap\sag\core\ai\embedding.py", line 123, in __init__
+    logger.info(
+Message: 'Embedding\u5ba2\u6237\u7aef\u521d\u59cb\u5316\u5b8c\u6210'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\logging\__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Program Files\Python312\Lib\encodings\cp1258.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 46: character maps to <undefined>
+Call stack:
+  File "<stdin>", line 57, in <module>
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "<stdin>", line 32, in main
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep/Dataset\sag_benchmark_runtime.py", line 53, in serve
+    async with app.router.lifespan_context(app):
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\fastapi\routing.py", line 240, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\main.py", line 71, in lifespan
+    knowledge_worker.embed = await app.state.engine_manager.get_sag_embedding()
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\sag\engine_manager.py", line 360, in get_sag_embedding
+    client = await create_embedding_client(embedding_config=config.embedding.model_dump())
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\zleap\sag\core\ai\factory.py", line 294, in create_embedding_client
+    logger.info(
+Message: '\u2705 \u521b\u5efaEmbedding\u5ba2\u6237\u7aef'
+Arguments: ()
+Uploaded 2/2 through SAG upload service
+Pipeline: [{"PENDING": 2}, {"total": 0, "e2_selected": 0}, [], []]
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\logging\__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Program Files\Python312\Lib\encodings\cp1258.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 48-51: character maps to <undefined>
+Call stack:
+  File "<stdin>", line 57, in <module>
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\inproc.py", line 963, in _run
+    await self._run_job(job_id)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\inproc.py", line 1018, in _run_job
+    await handler(session, job, engine_manager=self._engine_manager, job_queue=self)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\tasks.py", line 228, in process_document
+    await _process_document_unlocked(
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\tasks.py", line 474, in _process_document_unlocked
+    search_units = await run_search_indexing_stage(
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\search_index_service.py", line 757, in run_search_indexing_stage
+    indexed_count = await index_search_units_to_qdrant(
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\search_index_service.py", line 501, in index_search_units_to_qdrant
+    all_vectors = await compute_unit_embeddings(embedder, combined_batch)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\search_index_service.py", line 441, in compute_unit_embeddings
+    vectors = await embedder.batch_generate(list(texts))
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\sag\engine_manager.py", line 629, in _cached_batch_generate
+    fetched = await orig_batch_generate(missing_texts)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\zleap\sag\core\adapters\limited.py", line 69, in batch_generate
+    return await self.inner.batch_generate(texts)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\zleap\sag\core\ai\embedding.py", line 247, in batch_generate
+    logger.debug(
+Message: '\u6279\u91cf\u751f\u6210embedding\u6210\u529f'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\logging\__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Program Files\Python312\Lib\encodings\cp1258.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 48-51: character maps to <undefined>
+Call stack:
+  File "<stdin>", line 57, in <module>
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\inproc.py", line 963, in _run
+    await self._run_job(job_id)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\inproc.py", line 1018, in _run_job
+    await handler(session, job, engine_manager=self._engine_manager, job_queue=self)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\tasks.py", line 228, in process_document
+    await _process_document_unlocked(
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\tasks.py", line 474, in _process_document_unlocked
+    search_units = await run_search_indexing_stage(
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\search_index_service.py", line 757, in run_search_indexing_stage
+    indexed_count = await index_search_units_to_qdrant(
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\search_index_service.py", line 501, in index_search_units_to_qdrant
+    all_vectors = await compute_unit_embeddings(embedder, combined_batch)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\search_index_service.py", line 441, in compute_unit_embeddings
+    vectors = await embedder.batch_generate(list(texts))
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\sag\engine_manager.py", line 629, in _cached_batch_generate
+    fetched = await orig_batch_generate(missing_texts)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\zleap\sag\core\adapters\limited.py", line 69, in batch_generate
+    return await self.inner.batch_generate(texts)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\zleap\sag\core\ai\embedding.py", line 247, in batch_generate
+    logger.debug(
+Message: '\u6279\u91cf\u751f\u6210embedding\u6210\u529f'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\logging\__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Program Files\Python312\Lib\encodings\cp1258.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u1eed' in position 35: character maps to <undefined>
+Call stack:
+  File "<stdin>", line 57, in <module>
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\inproc.py", line 963, in _run
+    await self._run_job(job_id)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\inproc.py", line 1018, in _run_job
+    await handler(session, job, engine_manager=self._engine_manager, job_queue=self)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\tasks.py", line 228, in process_document
+    await _process_document_unlocked(
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\tasks.py", line 737, in _process_document_unlocked
+    log.info(
+Message: 'X\u1eed l\xfd t�i li\u1ec7u ho�n th�nh doc=%s parser=%s cached=%s chunks=%d events=%d tokens=%d'
+Arguments: ('4bebb5d1-e84f-5c8a-8ed1-d65b157cd026', 'original', False, 1, 0, 0)
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\logging\__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Program Files\Python312\Lib\encodings\cp1258.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u1eed' in position 35: character maps to <undefined>
+Call stack:
+  File "<stdin>", line 57, in <module>
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\inproc.py", line 963, in _run
+    await self._run_job(job_id)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\inproc.py", line 1018, in _run_job
+    await handler(session, job, engine_manager=self._engine_manager, job_queue=self)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\tasks.py", line 228, in process_document
+    await _process_document_unlocked(
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\jobs\tasks.py", line 737, in _process_document_unlocked
+    log.info(
+Message: 'X\u1eed l\xfd t�i li\u1ec7u ho�n th�nh doc=%s parser=%s cached=%s chunks=%d events=%d tokens=%d'
+Arguments: ('c290c23d-bca5-5db4-8d43-e9fbc2060d0a', 'original', False, 1, 0, 0)
+Pipeline: [{"READY": 2}, {"total": 2, "e2_selected": 1}, [], [{"status": "INACTIVE", "tree_version": "tree-ecacf1e2d41ac9c30ec941b7"}]]
+Pipeline: [{"READY": 2}, {"total": 2, "e2_selected": 1}, [], [{"status": "ACTIVE", "tree_version": "tree-ecacf1e2d41ac9c30ec941b7"}]]
+09:06:23  INFO     [84a85a52b53642ec]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\logging\__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+  File "C:\Program Files\Python312\Lib\encodings\cp1258.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 63-64: character maps to <undefined>
+Call stack:
+  File "<stdin>", line 57, in <module>
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\services\search_unit_retrieval_service.py", line 604, in _query_vector
+    vector = [float(value) for value in await embedding.generate(embed_query)]
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\sag_api\sag\engine_manager.py", line 610, in _cached_generate
+    vec = await orig_generate(text)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\zleap\sag\core\adapters\limited.py", line 65, in generate
+    return await self.inner.generate(text)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\zleap\sag\core\ai\embedding.py", line 210, in generate
+    logger.debug(
+Message: '\u751f\u6210embedding\u6210\u529f'
+Arguments: ()
+09:06:26  DEBUG    [84a85a52b53642ec]  sse_starlette.sse  chunk: b'event: result\r\ndata: {"query": "What is the default size limit for an individual uploaded file?", "sections": [{"chunk_id": "910c3797-db65-57fa-9644-73b15b623667", "search_unit_id": "910c3797-db65-57fa-9644-73b15b623667", "block_from_id": "1906d23f-fb5e-5ecf-98b3-8525ef9d4ce3", "block_to_id": "e767bac8-a9b6-5e67-ac24-a92c76a3f6e4", "section_path": "Upload policy", "document_id": "4bebb5d1-e84f-5c8a-8ed1-d65b157cd026", "document_version_id": "6f3cea30-123e-59cb-ab7b-f806bb6dd132", "document_name": "upload-policy.md", "version_no": 1, "page_from": 1, "page_to": 1, "anchor": "h1-0", "heading": "Upload policy", "content": "Upload policy\\n\\nThe default size limit for an individual uploaded file is 10 MiB. Larger files require a separate administrator-approved upload policy.", "score": 0.893568, "rank": 0, "source_id": "32a9c57597b44c7b915e165f7f66dde0", "source_name": "Project 5848b935cc354c36a023d517"}], "events": [], "entities": [], "relations": [], "source_hits": [], "summary": "", "citations": [], "answer_status": "pending", "no_answer_reason": null, "exploration_id": null, "stats": {"canonical_index": true, "ready_versions": 2, "requested_top_k": null, "candidate_top_k": 32, "candidate_unit_pool_limit": 1024, "candidate_pool_saturated": false, "candidate_units_before_cap": 2, "candidate_units_after_cap": 2, "candidate_units_truncated": 0, "semantic_candidates": 2, "lexical_candidates": 1, "candidates": 2, "relevant": 1, "filtered_irrelevant": 1, "fusion_method": "rrf", "selection_method": "authorized_content_dedup_mmr", "cross_scope_merge": "rank_interleave", "coverage": {"candidate_count": 1, "deduplicated_count": 0, "diversity_weight": 0.5, "near_duplicate_similarity": 0.98, "required_anchor_count": 0, "covered_anchor_count": 0, "anchor_coverage": "not_required", "status": "unknown", "canonical_locator_verified": true, "semantic_answerability": "unknown"}, "routing": {"planner": {"planner_version": "qsp-v1", "requested_strategy": "AUTO", "effective_strategy": "LOCAL_FACTUAL", "modifiers": [], "reason_codes": ["DEFAULT_LOCAL_FACTUAL"], "multi_hop_eligible": false}, "request_snapshot_id": "1cd7c642-9266-4457-955e-fb3c1e6946ac", "groups": [{"project_id": "5848b935cc354c36a023d517", "source_id": "32a9c57597b44c7b915e165f7f66dde0", "partition_id": "5848b935cc354c36a023d517", "snapshot_id": "25d6e070-3789-43ce-9e69-558f145c6ab7", "request_snapshot_id": "1cd7c642-9266-4457-955e-fb3c1e6946ac", "acl_scope_fingerprint": "7801e66c266a1140a90b7cfafff36b07af16d6f5c6e4e943af62213211fc9374", "tree_version": "tree-ecacf1e2d41ac9c30ec941b7", "routing_slot": "SLOT_A", "search_epoch": 2, "selected_nodes": ["eee531d915d7abf7a5229f83d5be29e3"], "membership_count": 1, "entropy": 0.0, "margin": 1.0, "broad_route": false, "reason_code": "ROUTE_DESCENDED", "fallback_reason": null, "branch_local_candidates": 1, "global_candidates": 2, "escape_recovered_candidates": 1, "escape_attempted": true, "escape_trigger": "reserved_parallel_global_escape", "local_failure": null, "escape_failure": null, "blackhole_detected": false}], "coverage": {"candidate_count": 1, "deduplicated_count": 0, "diversity_weight": 0.5, "near_duplicate_similarity": 0.98, "required_anchor_count": 0, "covered_anchor_count": 0, "anchor_coverage": "not_required", "status": "unknown", "canonical_locator_verified": true, "semantic_answerability": "unknown"}, "selection_fallback_reason": null, "multi_hop": {"eligible": false, "effective": "LOCAL_FACTUAL", "graph_expansion_attempted": false, "graph_expanded_candidates": 0, "graph_expansion_skip_reason": null}, "fallback_used": true}, "selection_fallback_reason": null, "stage_latencies_ms": {"auth_scope": 20.93, "tree_route": 15.15, "candidate_retrieval": 2178.03, "evidence_hydration": 19.8, "rank_fusion": 0.7, "graph_expansion": 0.0, "diversity_selection": 159.79, "total_retrieval": 2400.48}, "latency_total_ms": 2400.48, "automatic_top_k": true, "effective_top_k": 1, "adaptive_waves": 1, "retrieval_stop_reason": "corpus_exhausted", "budget_exhausted": false, "has_more": false, "acl_filtered_candidates": 0, "query_route": {"version": "query-flow-v1", "query_original": "What is the default size limit for an individual uploaded file?", "scope_source_ids": ["32a9c57597b44c7b915e165f7f66dde0"], "coarse_intent": "KNOWLEDGE", "confidence": 0.9534, "model": "Kev-4b", "suggested_strategy": "vector", "requested_strategy": "auto", "effective_strategy": "vector", "retrieval": "required", "fallback_used": false, "fallback_reason": null, "reason_codes": ["KNOWLEDGE_INTENT"], "query_analysis": {"normalized_phrase": "whatisthedefaultsizelimitforanindividualuploadedfile", "lookup_terms": ["default", "size", "limit", "individual", "uploaded", "file", "whatisthedefaultsizelimitforanindividualuploadedfile"], "features": {"exact_terms": [], "identifier_terms": [], "path_terms": [], "temporal_cues": [], "relation_cues": [], "global_cues": [], "multi_hop": false}}, "strategy_plan": {"planner_version": "qsp-v1", "requested_strategy": "AUTO", "effective_strategy": "LOCAL_FACTUAL", "modifiers": [], "reason_codes": ["DEFAULT_LOCAL_FACTUAL"], "multi_hop_eligible": false}, "retrieval_fallback_used": false}}}\r\n\r\n'
+09:06:30  DEBUG    [84a85a52b53642ec]  sse_starlette.sse  chunk: b'event: summary.delta\r\ndata: {"delta": "The default size limit for an individual uploaded file is 10 MiB [1]."}\r\n\r\n'
+09:06:30  DEBUG    [84a85a52b53642ec]  sse_starlette.sse  chunk: b'event: completed\r\ndata: {"query": "What is the default size limit for an individual uploaded file?", "sections": [{"chunk_id": "910c3797-db65-57fa-9644-73b15b623667", "search_unit_id": "910c3797-db65-57fa-9644-73b15b623667", "block_from_id": "1906d23f-fb5e-5ecf-98b3-8525ef9d4ce3", "block_to_id": "e767bac8-a9b6-5e67-ac24-a92c76a3f6e4", "section_path": "Upload policy", "document_id": "4bebb5d1-e84f-5c8a-8ed1-d65b157cd026", "document_version_id": "6f3cea30-123e-59cb-ab7b-f806bb6dd132", "document_name": "upload-policy.md", "version_no": 1, "page_from": 1, "page_to": 1, "anchor": "h1-0", "heading": "Upload policy", "content": "Upload policy\\n\\nThe default size limit for an individual uploaded file is 10 MiB. Larger files require a separate administrator-approved upload policy.", "score": 0.893568, "rank": 0, "source_id": "32a9c57597b44c7b915e165f7f66dde0", "source_name": "Project 5848b935cc354c36a023d517"}], "events": [], "entities": [], "relations": [], "source_hits": [], "summary": "The default size limit for an individual uploaded file is 10 MiB [1].", "citations": [{"kind": "internal", "n": 1, "document_id": "4bebb5d1-e84f-5c8a-8ed1-d65b157cd026", "document_version_id": "6f3cea30-123e-59cb-ab7b-f806bb6dd132", "document_name": "upload-policy.md", "version_no": 1, "chunk_id": "910c3797-db65-57fa-9644-73b15b623667", "search_unit_id": "910c3797-db65-57fa-9644-73b15b623667", "block_from_id": "1906d23f-fb5e-5ecf-98b3-8525ef9d4ce3", "block_to_id": "e767bac8-a9b6-5e67-ac24-a92c76a3f6e4", "section_path": "Upload policy", "page_from": 1, "page_to": 1, "anchor": "h1-0", "heading": "Upload policy", "snippet": "Upload policy The default size limit for an individual uploaded file is 10 MiB. Larger files require a separate administrator-approved upload policy.", "score": 0.8936, "source_id": "32a9c57597b44c7b915e165f7f66dde0", "source_name": "Project 5848b935cc354c36a023d517"}], "answer_status": "answered", "no_answer_reason": null, "exploration_id": null, "stats": {"canonical_index": true, "ready_versions": 2, "requested_top_k": null, "candidate_top_k": 32, "candidate_unit_pool_limit": 1024, "candidate_pool_saturated": false, "candidate_units_before_cap": 2, "candidate_units_after_cap": 2, "candidate_units_truncated": 0, "semantic_candidates": 2, "lexical_candidates": 1, "candidates": 2, "relevant": 1, "filtered_irrelevant": 1, "fusion_method": "rrf", "selection_method": "authorized_content_dedup_mmr", "cross_scope_merge": "rank_interleave", "coverage": {"candidate_count": 1, "deduplicated_count": 0, "diversity_weight": 0.5, "near_duplicate_similarity": 0.98, "required_anchor_count": 0, "covered_anchor_count": 0, "anchor_coverage": "not_required", "status": "unknown", "canonical_locator_verified": true, "semantic_answerability": "unknown"}, "routing": {"planner": {"planner_version": "qsp-v1", "requested_strategy": "AUTO", "effective_strategy": "LOCAL_FACTUAL", "modifiers": [], "reason_codes": ["DEFAULT_LOCAL_FACTUAL"], "multi_hop_eligible": false}, "request_snapshot_id": "1cd7c642-9266-4457-955e-fb3c1e6946ac", "groups": [{"project_id": "5848b935cc354c36a023d517", "source_id": "32a9c57597b44c7b915e165f7f66dde0", "partition_id": "5848b935cc354c36a023d517", "snapshot_id": "25d6e070-3789-43ce-9e69-558f145c6ab7", "request_snapshot_id": "1cd7c642-9266-4457-955e-fb3c1e6946ac", "acl_scope_fingerprint": "7801e66c266a1140a90b7cfafff36b07af16d6f5c6e4e943af62213211fc9374", "tree_version": "tree-ecacf1e2d41ac9c30ec941b7", "routing_slot": "SLOT_A", "search_epoch": 2, "selected_nodes": ["eee531d915d7abf7a5229f83d5be29e3"], "membership_count": 1, "entropy": 0.0, "margin": 1.0, "broad_route": false, "reason_code": "ROUTE_DESCENDED", "fallback_reason": null, "branch_local_candidates": 1, "global_candidates": 2, "escape_recovered_candidates": 1, "escape_attempted": true, "escape_trigger": "reserved_parallel_global_escape", "local_failure": null, "escape_failure": null, "blackhole_detected": false}], "coverage": {"candidate_count": 1, "deduplicated_count": 0, "diversity_weight": 0.5, "near_duplicate_similarity": 0.98, "required_anchor_count": 0, "covered_anchor_count": 0, "anchor_coverage": "not_required", "status": "unknown", "canonical_locator_verified": true, "semantic_answerability": "unknown"}, "selection_fallback_reason": null, "multi_hop": {"eligible": false, "effective": "LOCAL_FACTUAL", "graph_expansion_attempted": false, "graph_expanded_candidates": 0, "graph_expansion_skip_reason": null}, "fallback_used": true}, "selection_fallback_reason": null, "stage_latencies_ms": {"auth_scope": 20.93, "tree_route": 15.15, "candidate_retrieval": 2178.03, "evidence_hydration": 19.8, "rank_fusion": 0.7, "graph_expansion": 0.0, "diversity_selection": 159.79, "total_retrieval": 2400.48}, "latency_total_ms": 2400.48, "automatic_top_k": true, "effective_top_k": 1, "adaptive_waves": 1, "retrieval_stop_reason": "corpus_exhausted", "budget_exhausted": false, "has_more": false, "acl_filtered_candidates": 0, "query_route": {"version": "query-flow-v1", "query_original": "What is the default size limit for an individual uploaded file?", "scope_source_ids": ["32a9c57597b44c7b915e165f7f66dde0"], "coarse_intent": "KNOWLEDGE", "confidence": 0.9534, "model": "Kev-4b", "suggested_strategy": "vector", "requested_strategy": "auto", "effective_strategy": "vector", "retrieval": "required", "fallback_used": false, "fallback_reason": null, "reason_codes": ["KNOWLEDGE_INTENT"], "query_analysis": {"normalized_phrase": "whatisthedefaultsizelimitforanindividualuploadedfile", "lookup_terms": ["default", "size", "limit", "individual", "uploaded", "file", "whatisthedefaultsizelimitforanindividualuploadedfile"], "features": {"exact_terms": [], "identifier_terms": [], "path_terms": [], "temporal_cues": [], "relation_cues": [], "global_cues": [], "multi_hop": false}}, "strategy_plan": {"planner_version": "qsp-v1", "requested_strategy": "AUTO", "effective_strategy": "LOCAL_FACTUAL", "modifiers": [], "reason_codes": ["DEFAULT_LOCAL_FACTUAL"], "multi_hop_eligible": false}, "retrieval_fallback_used": false}}}\r\n\r\n'
+09:06:30  ERROR    [-]  asyncio  Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Program Files\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Program Files\Python312\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+09:06:32  INFO     [fa2e7846bacd41a2]  sag.services.source  source scope resolved authorized_project_count=1 requested_source_count=1 effective_source_count=1
+09:06:33  DEBUG    [fa2e7846bacd41a2]  sse_starlette.sse  chunk: b'event: result\r\ndata: {"query": "What is the default size limit for an individual uploaded file?", "sections": [{"chunk_id": "910c3797-db65-57fa-9644-73b15b623667", "search_unit_id": "910c3797-db65-57fa-9644-73b15b623667", "block_from_id": "1906d23f-fb5e-5ecf-98b3-8525ef9d4ce3", "block_to_id": "e767bac8-a9b6-5e67-ac24-a92c76a3f6e4", "section_path": "Upload policy", "document_id": "4bebb5d1-e84f-5c8a-8ed1-d65b157cd026", "document_version_id": "6f3cea30-123e-59cb-ab7b-f806bb6dd132", "document_name": "upload-policy.md", "version_no": 1, "page_from": 1, "page_to": 1, "anchor": "h1-0", "heading": "Upload policy", "content": "Upload policy\\n\\nThe default size limit for an individual uploaded file is 10 MiB. Larger files require a separate administrator-approved upload policy.", "score": 0.893568, "rank": 0, "source_id": "32a9c57597b44c7b915e165f7f66dde0", "source_name": "Project 5848b935cc354c36a023d517"}], "events": [], "entities": [], "relations": [], "source_hits": [], "summary": "", "citations": [], "answer_status": "pending", "no_answer_reason": null, "exploration_id": null, "stats": {"canonical_index": true, "ready_versions": 2, "requested_top_k": 128, "candidate_top_k": 512, "candidate_unit_pool_limit": 1024, "candidate_pool_saturated": false, "candidate_units_before_cap": 2, "candidate_units_after_cap": 2, "candidate_units_truncated": 0, "semantic_candidates": 2, "lexical_candidates": 1, "candidates": 2, "relevant": 1, "filtered_irrelevant": 1, "fusion_method": "rrf", "selection_method": "authorized_content_dedup_mmr", "cross_scope_merge": "rank_interleave", "coverage": {"candidate_count": 1, "deduplicated_count": 0, "diversity_weight": 0.5, "near_duplicate_similarity": 0.98, "required_anchor_count": 0, "covered_anchor_count": 0, "anchor_coverage": "not_required", "status": "unknown", "canonical_locator_verified": true, "semantic_answerability": "unknown"}, "routing": {"planner": {"planner_version": "qsp-v1", "requested_strategy": "AUTO", "effective_strategy": "LOCAL_FACTUAL", "modifiers": [], "reason_codes": ["DEFAULT_LOCAL_FACTUAL"], "multi_hop_eligible": false}, "request_snapshot_id": "26c23873-e81a-4fe8-86b7-a5f2549c0d9a", "groups": [{"project_id": "5848b935cc354c36a023d517", "source_id": "32a9c57597b44c7b915e165f7f66dde0", "partition_id": "5848b935cc354c36a023d517", "snapshot_id": "0c203e1b-84e7-4e3f-9f5a-10f9b9398a9c", "request_snapshot_id": "26c23873-e81a-4fe8-86b7-a5f2549c0d9a", "acl_scope_fingerprint": "7801e66c266a1140a90b7cfafff36b07af16d6f5c6e4e943af62213211fc9374", "tree_version": "tree-ecacf1e2d41ac9c30ec941b7", "routing_slot": "SLOT_A", "search_epoch": 2, "selected_nodes": ["eee531d915d7abf7a5229f83d5be29e3"], "membership_count": 1, "entropy": 0.0, "margin": 1.0, "broad_route": false, "reason_code": "ROUTE_DESCENDED", "fallback_reason": null, "branch_local_candidates": 1, "global_candidates": 2, "escape_recovered_candidates": 1, "escape_attempted": true, "escape_trigger": "reserved_parallel_global_escape", "local_failure": null, "escape_failure": null, "blackhole_detected": false}], "coverage": {"candidate_count": 1, "deduplicated_count": 0, "diversity_weight": 0.5, "near_duplicate_similarity": 0.98, "required_anchor_count": 0, "covered_anchor_count": 0, "anchor_coverage": "not_required", "status": "unknown", "canonical_locator_verified": true, "semantic_answerability": "unknown"}, "selection_fallback_reason": null, "multi_hop": {"eligible": false, "effective": "LOCAL_FACTUAL", "graph_expansion_attempted": false, "graph_expanded_candidates": 0, "graph_expansion_skip_reason": null}, "fallback_used": true}, "selection_fallback_reason": null, "stage_latencies_ms": {"auth_scope": 14.35, "tree_route": 27.97, "candidate_retrieval": 1176.13, "evidence_hydration": 27.05, "rank_fusion": 0.89, "graph_expansion": 0.0, "diversity_selection": 0.72, "total_retrieval": 1252.23}, "latency_total_ms": 1252.23, "automatic_top_k": false, "effective_top_k": 1, "adaptive_waves": 1, "retrieval_stop_reason": "corpus_exhausted", "budget_exhausted": false, "has_more": false, "acl_filtered_candidates": 0, "query_route": {"version": "query-flow-v1", "query_original": "What is the default size limit for an individual uploaded file?", "scope_source_ids": ["32a9c57597b44c7b915e165f7f66dde0"], "coarse_intent": "KNOWLEDGE", "confidence": 0.9534, "model": "Kev-4b", "suggested_strategy": "vector", "requested_strategy": "auto", "effective_strategy": "vector", "retrieval": "required", "fallback_used": false, "fallback_reason": null, "reason_codes": ["KNOWLEDGE_INTENT"], "query_analysis": {"normalized_phrase": "whatisthedefaultsizelimitforanindividualuploadedfile", "lookup_terms": ["default", "size", "limit", "individual", "uploaded", "file", "whatisthedefaultsizelimitforanindividualuploadedfile"], "features": {"exact_terms": [], "identifier_terms": [], "path_terms": [], "temporal_cues": [], "relation_cues": [], "global_cues": [], "multi_hop": false}}, "strategy_plan": {"planner_version": "qsp-v1", "requested_strategy": "AUTO", "effective_strategy": "LOCAL_FACTUAL", "modifiers": [], "reason_codes": ["DEFAULT_LOCAL_FACTUAL"], "multi_hop_eligible": false}, "retrieval_fallback_used": false}}}\r\n\r\n'
+09:06:33  DEBUG    [fa2e7846bacd41a2]  sse_starlette.sse  Got event: http.disconnect. Stop streaming.
+ERROR:    Cancel 0 running task(s), timeout graceful shutdown exceeded
+09:06:38  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager shutting down
+{"output": "D:\\DoAnTotnghiep\\Dataset\\reports\\verified-architecture-smoke-20261027T020554Z\\reports\\20261027T020554Z-acaad7", "ready_seconds": 20.471, "automatic_k": 1, "retrieval_ms": 3861.6935999598354, "answer": "The default size limit for an individual uploaded file is 10 MiB [1].", "shutdown_completed": true}
+09:06:38  DEBUG    [-]  asyncio  Using proactor: IocpProactor

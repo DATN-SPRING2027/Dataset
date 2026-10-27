@@ -1,0 +1,4 @@
+graph 0 24.668817700003274
+graph 1 25.217396500054747
+graph 2 24.710376199916936
+{"units": 677, "database_writes": 0, "provider_calls": 0, "graph_tasks": [{"task": 0, "seconds": 24.668817700003274}, {"task": 1, "seconds": 25.217396500054747}, {"task": 2, "seconds": 24.710376199916936}], "timers": [{"deadline_seconds": 30, "intended_wait_seconds": 0.1, "actual_seconds": 74.62010609998833, "status": "TimeoutError"}, {"deadline_seconds": 60, "intended_wait_seconds": 0.1, "actual_seconds": 74.6200401999522, "status": "TimeoutError"}]}

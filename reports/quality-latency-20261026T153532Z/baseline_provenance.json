@@ -1,0 +1,72 @@
+{
+  "hosted_corpus_hash_matches": true,
+  "current_chunk_corpus_sha256": "c931e5f02a23176bb8c6d06707c92e8b40e83fef5584f7f224e9612e5ac0bbe5",
+  "reference_hashes": [
+    "c931e5f02a23176bb8c6d06707c92e8b40e83fef5584f7f224e9612e5ac0bbe5"
+  ],
+  "references": {
+    "protocol": "Published/full-dataset references only. Not fresh runs, not the local 130-document fixture; no speed or superiority claims against local SAG results.",
+    "primary_source": "https://arxiv.org/html/2507.21500v1#A8",
+    "dataset_readme": "VN_MTEB_RAG_Bench_2026/README.md",
+    "hotpotqa_vn": [
+      {
+        "model": "Vietnamese_Embedding",
+        "reported_retrieval_score": 70.07
+      },
+      {
+        "model": "gte-Qwen2-7B-instruct",
+        "reported_retrieval_score": 67.99
+      },
+      {
+        "model": "multilingual-e5-large",
+        "reported_retrieval_score": 65.11
+      },
+      {
+        "model": "e5-Mistral-7B-instruct",
+        "reported_retrieval_score": 64.54
+      },
+      {
+        "model": "bge-m3",
+        "reported_retrieval_score": 63.76
+      },
+      {
+        "model": "bge-multilingual-Gemma2",
+        "reported_retrieval_score": 29.72
+      },
+      {
+        "model": "LaBSE",
+        "reported_retrieval_score": 17.0
+      }
+    ],
+    "legal_readme_references_unverified": [
+      {
+        "model": "M3-GN-VN-Mixed",
+        "status": "README reference; primary scoring artifact not verified"
+      },
+      {
+        "model": "M3-Embedding (bge-m3)",
+        "status": "README reference; primary scoring artifact not verified"
+      },
+      {
+        "model": "multilingual-e5-large",
+        "status": "README reference; primary scoring artifact not verified"
+      },
+      {
+        "model": "vietnamese-bi-encoder",
+        "status": "README reference; primary scoring artifact not verified"
+      },
+      {
+        "model": "text-embedding-3",
+        "status": "README does not identify small/large, dimensions or version; not a reproducible model specification"
+      }
+    ],
+    "latency": null,
+    "latency_reason": "No comparable per-query latency with shared hardware, network, concurrency and cache conditions is provided by these reference tables.",
+    "live_hosted_access": {
+      "vertex_ai_rag": "not configured",
+      "bedrock_kb": "not configured",
+      "openai_file_search": "not configured",
+      "azure_ai_search": "not configured"
+    }
+  }
+}

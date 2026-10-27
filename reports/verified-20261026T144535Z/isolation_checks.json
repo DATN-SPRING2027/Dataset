@@ -1,0 +1,26 @@
+[
+  {
+    "run_id": "20261026T141834Z-3e858c",
+    "project_id": "08c89c865e2c481fb5ebbe02",
+    "source_id": "c8ef1d37c8f04b09bab85c01",
+    "user_id": "6acc9a5425f02c9d92a01012",
+    "documents_ready": 81,
+    "fresh_queries": 50,
+    "file_equals_db": true,
+    "dataset_hashes_verified": true,
+    "cross_project_read_blocked": true,
+    "foreign_project_points": 0
+  },
+  {
+    "run_id": "20261026T142931Z-35460f",
+    "project_id": "9f1dfc0aab484447a0b1e5c1",
+    "source_id": "bd63b1bbd247451ea99845c4",
+    "user_id": "6acc9a5425f02c9d92a01012",
+    "documents_ready": 130,
+    "fresh_queries": 50,
+    "file_equals_db": true,
+    "dataset_hashes_verified": true,
+    "cross_project_read_blocked": true,
+    "foreign_project_points": 0
+  }
+]

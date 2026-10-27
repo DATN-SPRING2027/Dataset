@@ -1,0 +1,77 @@
+{
+  "run_id": "20261027T013334Z-c97950",
+  "benchmark": "architecture_smoke",
+  "user_id": "6acc9a5425f02c9d92a01012",
+  "user_name": "Tai Phan Thanhh",
+  "organization_id": "ORG-NSC",
+  "project_id": "378fda811a8c4d60aa257747",
+  "source_id": "9d2be6d1ccfe4633b5d2f1eb7b67c0c7",
+  "schema": "sag",
+  "source_config_id": "tp_132132116720ff7d79036898334890f5",
+  "collection": "search_units_378fda811a8c4d60aa257747",
+  "documents": 2,
+  "questions": 1,
+  "questions_sha256": "757e5cd70cdc35a5269d848ad91b74165053a84c08e5530f47db266fa5cdebec",
+  "corpus_sha256": {
+    "readiness.md": "06c5f9d92281a11832f3384ae360a88f16b5eb9c697e9c1f3077003c53467e51",
+    "upload.md": "5e2d07bb1ce300ea7c41c5c075157a12628a8a0aecf37474a46c4d7a5ea42b9d"
+  },
+  "started_at_utc": "2026-10-27T01:33:34.617571+00:00",
+  "models": {
+    "validation": "canonical ingestion and automatic retrieval"
+  },
+  "status": "FAILED",
+  "output_dir": "D:\\DoAnTotnghiep\\Dataset\\reports\\architecture-smoke-20261027T013333Z\\reports\\20261027T013334Z-c97950",
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cpu_count": 16,
+    "network": "loopback API; remote model/Qdrant providers"
+  },
+  "harness_sha256": {
+    "D:\\DoAnTotnghiep\\Dataset\\benchmark_support.py": "6fe48f75d7e20b57436e13c768d5fe9e48f3543b6783ca679d56f7d318b85356",
+    "D:\\DoAnTotnghiep\\Dataset\\sag_benchmark_runtime.py": "ff54f9735f14e39ef2130941bbea5862b26f7bbf3dc1f73072cf144bc40b2fa7",
+    "D:\\DoAnTotnghiep\\Dataset\\benchmark_quality.py": "918a1c5ce12f3938cf344b60f136aa4f4588c6a34eb58ded7fb7d32fe8a81412",
+    "D:\\DoAnTotnghiep\\Dataset\\international_references.json": "5f5706a349b6773d4afce2c5525e97410a534f0b5df2d96058dbab41f421ea0d"
+  },
+  "git_commit": "65f256772a50f82ce64c01e480579c665f288e11",
+  "git_worktree_diff_sha256": "eb0c7d3f59d1354763476dbe5c533ab8467d64a25aec5e43573cbb0537036672",
+  "execution": {
+    "ingestion": "sag_api.services.document_service.handle_document_upload",
+    "transport": "loopback HTTP /api/v1/search/stream",
+    "runtime": "sag_api.main.lifespan (unmodified)",
+    "authentication": "real Continuum login and scoped SAG session; no dependency overrides",
+    "query_replays": 0,
+    "frontend": {
+      "top_k": null,
+      "load_more_step": 12,
+      "first_result_seconds": 30.0,
+      "stream_idle_seconds": 45.0
+    },
+    "knowledge_queue": {
+      "concurrency": 4,
+      "capacity": 256,
+      "daily_tokens": 0,
+      "max_attempts": 3,
+      "max_age_seconds": 86400,
+      "timeout_seconds": 60,
+      "retry_seconds": 30,
+      "max_input_chars": 6000,
+      "max_output_tokens": 1000,
+      "poll_seconds": 2.0
+    },
+    "e2_enabled": false,
+    "embedding_timeout_seconds": 120,
+    "llm_timeout_seconds": 120.0,
+    "llm_max_retries": 2,
+    "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+    "document_event_extraction_enabled": false,
+    "llm_model": "Qwen/Qwen3-8B"
+  },
+  "document_paths": {
+    "cd790eac-454e-5f74-92a4-a3509780bcb0": "readiness.md",
+    "9db7f4bc-34b0-5eaf-a550-5aa948877dfd": "upload.md"
+  },
+  "error_type": "TimeoutError",
+  "finished_at_utc": "2026-10-27T01:38:35.912687+00:00"
+}

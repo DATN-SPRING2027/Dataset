@@ -1,0 +1,126 @@
+Downloading py-spy (1.8MiB)
+ Downloaded py-spy
+Installed 1 package in 653ms
+Process 16980: "C:\Program Files\Python312\python.exe" -u run_isolated_benchmark.py retrievalci
+Python v3.12.10 (C:\Program Files\Python312\python.exe)
+
+Thread 22680 (active+gil): "MainThread"
+    compute_minhash_signature (sag_api\services\dedup_and_temporal_service.py:67)
+    run_dedup_and_temporal_stage (sag_api\services\dedup_and_temporal_service.py:486)
+    _process_document_unlocked (sag_api\jobs\tasks.py:446)
+    process_document (sag_api\jobs\tasks.py:228)
+    _run_job (sag_api\jobs\inproc.py:1025)
+    _run (sag_api\jobs\inproc.py:970)
+    _run (asyncio\events.py:88)
+    _run_once (asyncio\base_events.py:1999)
+    run_forever (asyncio\base_events.py:645)
+    run_forever (asyncio\windows_events.py:322)
+    run_until_complete (asyncio\base_events.py:678)
+    run (asyncio\runners.py:118)
+    run (asyncio\runners.py:195)
+    <module> (run_bench_v0_sag.py:271)
+    _run_code (<frozen runpy>:88)
+    _run_module_code (<frozen runpy>:98)
+    run_path (<frozen runpy>:287)
+    main (run_isolated_benchmark.py:72)
+    <module> (run_isolated_benchmark.py:78)
+Thread 12680 (idle): "asyncio_0"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 35512 (idle): "asyncio_1"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 28152 (idle): "asyncio_2"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 42268 (idle): "asyncio_3"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 23204 (idle): "asyncio_4"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 32564 (idle): "asyncio_5"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 16320 (idle): "asyncio_6"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 17756 (idle): "asyncio_7"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 32140 (idle): "asyncio_8"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 14908 (idle): "asyncio_9"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 37600 (idle): "asyncio_10"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 36012 (idle): "asyncio_11"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 36868 (idle): "asyncio_12"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 39812 (idle): "asyncio_13"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 5684 (idle): "asyncio_14"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 32916 (idle): "asyncio_15"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 10672 (idle): "asyncio_16"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 20620 (idle): "asyncio_17"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 7428 (idle): "asyncio_18"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)
+Thread 37180 (idle): "asyncio_19"
+    _worker (concurrent\futures\thread.py:90)
+    run (threading.py:1012)
+    _bootstrap_inner (threading.py:1075)
+    _bootstrap (threading.py:1032)

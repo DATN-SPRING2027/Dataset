@@ -1,0 +1,61 @@
+{
+  "mmr": [
+    {
+      "query": "Upload policy",
+      "limit": null,
+      "equal": true,
+      "old_seconds": 31.26835100003518,
+      "new_seconds": 1.9874853999353945
+    },
+    {
+      "query": "Compare all policies PR-12345",
+      "limit": 30,
+      "equal": true,
+      "old_seconds": 7.297503599897027,
+      "new_seconds": 1.3696175999939442
+    },
+    {
+      "query": "policy",
+      "limit": 5,
+      "equal": true,
+      "old_seconds": 1.0825499000493437,
+      "new_seconds": 1.110998799907975
+    }
+  ],
+  "routing": {
+    "equal": true,
+    "units": 96,
+    "old_seconds": 0.36119440000038594,
+    "new_seconds": 0.0583895999006927
+  },
+  "dedup": {
+    "equal": true,
+    "result": {
+      "exact_duplicate_found": false,
+      "exact_duplicate_of": null,
+      "exact_block_matches": 1,
+      "near_duplicate_candidates": [
+        {
+          "source_block_id": "contrast",
+          "target_block_id": "p9",
+          "source_version_id": "new",
+          "target_version_id": "old",
+          "block_type": "paragraph",
+          "threshold": 0.85,
+          "similarity_score": 1.0,
+          "similarity": 1.0,
+          "relation": "CONTRADICTS",
+          "relation_type": "CONTRADICTS",
+          "is_contradiction": true,
+          "is_support": false,
+          "is_supersede": false,
+          "auto_merged": false,
+          "evidence": "Tier 4 Cosine similarity 1.000 >= 0.90 on paragraph [relation=CONTRADICTS]"
+        }
+      ],
+      "temporal_action": "PENDING_INDEX",
+      "action": "PENDING_INDEX",
+      "active_version_id": null
+    }
+  }
+}

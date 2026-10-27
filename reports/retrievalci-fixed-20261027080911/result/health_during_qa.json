@@ -1,0 +1,404 @@
+{
+  "samples": [
+    {
+      "ms": 26.75,
+      "error": null
+    },
+    {
+      "ms": 5.0,
+      "error": null
+    },
+    {
+      "ms": 3.83,
+      "error": null
+    },
+    {
+      "ms": 2.58,
+      "error": null
+    },
+    {
+      "ms": 3.66,
+      "error": null
+    },
+    {
+      "ms": 39.23,
+      "error": null
+    },
+    {
+      "ms": 3.81,
+      "error": null
+    },
+    {
+      "ms": 2.67,
+      "error": null
+    },
+    {
+      "ms": 5.11,
+      "error": null
+    },
+    {
+      "ms": 3.96,
+      "error": null
+    },
+    {
+      "ms": 3.69,
+      "error": null
+    },
+    {
+      "ms": 3.93,
+      "error": null
+    },
+    {
+      "ms": 3.75,
+      "error": null
+    },
+    {
+      "ms": 3.8,
+      "error": null
+    },
+    {
+      "ms": 3.03,
+      "error": null
+    },
+    {
+      "ms": 126.37,
+      "error": null
+    },
+    {
+      "ms": 7.04,
+      "error": null
+    },
+    {
+      "ms": 3.63,
+      "error": null
+    },
+    {
+      "ms": 3.15,
+      "error": null
+    },
+    {
+      "ms": 3.85,
+      "error": null
+    },
+    {
+      "ms": 2.52,
+      "error": null
+    },
+    {
+      "ms": 2.76,
+      "error": null
+    },
+    {
+      "ms": 3.56,
+      "error": null
+    },
+    {
+      "ms": 4.89,
+      "error": null
+    },
+    {
+      "ms": 5.08,
+      "error": null
+    },
+    {
+      "ms": 2.81,
+      "error": null
+    },
+    {
+      "ms": 3.44,
+      "error": null
+    },
+    {
+      "ms": 3.79,
+      "error": null
+    },
+    {
+      "ms": 4.03,
+      "error": null
+    },
+    {
+      "ms": 2.05,
+      "error": null
+    },
+    {
+      "ms": 5.13,
+      "error": null
+    },
+    {
+      "ms": 2.53,
+      "error": null
+    },
+    {
+      "ms": 1.92,
+      "error": null
+    },
+    {
+      "ms": 3.6,
+      "error": null
+    },
+    {
+      "ms": 2.36,
+      "error": null
+    },
+    {
+      "ms": 2.13,
+      "error": null
+    },
+    {
+      "ms": 2.13,
+      "error": null
+    },
+    {
+      "ms": 2.06,
+      "error": null
+    },
+    {
+      "ms": 3.36,
+      "error": null
+    },
+    {
+      "ms": 2.76,
+      "error": null
+    },
+    {
+      "ms": 3.13,
+      "error": null
+    },
+    {
+      "ms": 4.98,
+      "error": null
+    },
+    {
+      "ms": 4.79,
+      "error": null
+    },
+    {
+      "ms": 1.81,
+      "error": null
+    },
+    {
+      "ms": 1.94,
+      "error": null
+    },
+    {
+      "ms": 2.08,
+      "error": null
+    },
+    {
+      "ms": 1.89,
+      "error": null
+    },
+    {
+      "ms": 1.84,
+      "error": null
+    },
+    {
+      "ms": 2.37,
+      "error": null
+    },
+    {
+      "ms": 62.65,
+      "error": null
+    },
+    {
+      "ms": 6.16,
+      "error": null
+    },
+    {
+      "ms": 15.13,
+      "error": null
+    },
+    {
+      "ms": 3.77,
+      "error": null
+    },
+    {
+      "ms": 3.4,
+      "error": null
+    },
+    {
+      "ms": 26.98,
+      "error": null
+    },
+    {
+      "ms": 3.65,
+      "error": null
+    },
+    {
+      "ms": 1.96,
+      "error": null
+    },
+    {
+      "ms": 4.18,
+      "error": null
+    },
+    {
+      "ms": 4.07,
+      "error": null
+    },
+    {
+      "ms": 3.68,
+      "error": null
+    },
+    {
+      "ms": 3.91,
+      "error": null
+    },
+    {
+      "ms": 1.78,
+      "error": null
+    },
+    {
+      "ms": 5.47,
+      "error": null
+    },
+    {
+      "ms": 3.84,
+      "error": null
+    },
+    {
+      "ms": 3.45,
+      "error": null
+    },
+    {
+      "ms": 2.7,
+      "error": null
+    },
+    {
+      "ms": 1.85,
+      "error": null
+    },
+    {
+      "ms": 2.39,
+      "error": null
+    },
+    {
+      "ms": 3.56,
+      "error": null
+    },
+    {
+      "ms": 2.22,
+      "error": null
+    },
+    {
+      "ms": 3.42,
+      "error": null
+    },
+    {
+      "ms": 2.13,
+      "error": null
+    },
+    {
+      "ms": 1.96,
+      "error": null
+    },
+    {
+      "ms": 1.52,
+      "error": null
+    },
+    {
+      "ms": 3.56,
+      "error": null
+    },
+    {
+      "ms": 2.18,
+      "error": null
+    },
+    {
+      "ms": 2.13,
+      "error": null
+    },
+    {
+      "ms": 5.13,
+      "error": null
+    },
+    {
+      "ms": 6.82,
+      "error": null
+    },
+    {
+      "ms": 3.26,
+      "error": null
+    },
+    {
+      "ms": 1.8,
+      "error": null
+    },
+    {
+      "ms": 3.15,
+      "error": null
+    },
+    {
+      "ms": 4.83,
+      "error": null
+    },
+    {
+      "ms": 2.44,
+      "error": null
+    },
+    {
+      "ms": 219.28,
+      "error": null
+    },
+    {
+      "ms": 1.99,
+      "error": null
+    },
+    {
+      "ms": 1.92,
+      "error": null
+    },
+    {
+      "ms": 3.96,
+      "error": null
+    },
+    {
+      "ms": 3.54,
+      "error": null
+    },
+    {
+      "ms": 1.97,
+      "error": null
+    },
+    {
+      "ms": 2.54,
+      "error": null
+    },
+    {
+      "ms": 2034.61,
+      "error": "ConnectError"
+    },
+    {
+      "ms": 2034.54,
+      "error": "ConnectError"
+    },
+    {
+      "ms": 2053.95,
+      "error": "ConnectError"
+    },
+    {
+      "ms": 2030.57,
+      "error": "ConnectError"
+    },
+    {
+      "ms": 2029.47,
+      "error": "ConnectError"
+    },
+    {
+      "ms": 2046.27,
+      "error": "ConnectError"
+    },
+    {
+      "ms": 2016.45,
+      "error": "ConnectError"
+    },
+    {
+      "ms": 2022.74,
+      "error": "ConnectError"
+    },
+    {
+      "ms": 2047.06,
+      "error": "ConnectError"
+    }
+  ]
+}

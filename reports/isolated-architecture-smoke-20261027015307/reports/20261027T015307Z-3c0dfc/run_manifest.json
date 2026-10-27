@@ -1,0 +1,110 @@
+{
+  "run_id": "20261027T015307Z-3c0dfc",
+  "benchmark": "architecture_smoke",
+  "user_id": "6acc9a5425f02c9d92a01012",
+  "user_name": "Tai Phan Thanhh",
+  "organization_id": "ORG-NSC",
+  "project_id": "11f07d5b49ad403fa547ad70",
+  "source_id": "f66fdd46af3642e982f406e75f710fa4",
+  "schema": "sag_smoke_20261027014045",
+  "source_config_id": "tp_9fb59ec393e7e1cf6ba74e2c007783fc",
+  "collection": "search_units_11f07d5b49ad403fa547ad70",
+  "documents": 2,
+  "questions": 1,
+  "questions_sha256": "757e5cd70cdc35a5269d848ad91b74165053a84c08e5530f47db266fa5cdebec",
+  "corpus_sha256": {
+    "readiness.md": "06c5f9d92281a11832f3384ae360a88f16b5eb9c697e9c1f3077003c53467e51",
+    "upload.md": "5e2d07bb1ce300ea7c41c5c075157a12628a8a0aecf37474a46c4d7a5ea42b9d"
+  },
+  "started_at_utc": "2026-10-27T01:53:08.180370+00:00",
+  "models": {
+    "validation": "isolated schema, real runtime and providers, standalone SDK embeddings"
+  },
+  "status": "FAILED",
+  "output_dir": "D:\\DoAnTotnghiep\\Dataset\\reports\\isolated-architecture-smoke-20261027015307\\reports\\20261027T015307Z-3c0dfc",
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cpu_count": 16,
+    "network": "loopback API; remote model/Qdrant providers"
+  },
+  "harness_sha256": {
+    "D:\\DoAnTotnghiep\\Dataset\\benchmark_support.py": "6fe48f75d7e20b57436e13c768d5fe9e48f3543b6783ca679d56f7d318b85356",
+    "D:\\DoAnTotnghiep\\Dataset\\sag_benchmark_runtime.py": "ff54f9735f14e39ef2130941bbea5862b26f7bbf3dc1f73072cf144bc40b2fa7",
+    "D:\\DoAnTotnghiep\\Dataset\\benchmark_quality.py": "918a1c5ce12f3938cf344b60f136aa4f4588c6a34eb58ded7fb7d32fe8a81412",
+    "D:\\DoAnTotnghiep\\Dataset\\international_references.json": "5f5706a349b6773d4afce2c5525e97410a534f0b5df2d96058dbab41f421ea0d"
+  },
+  "git_commit": "65f256772a50f82ce64c01e480579c665f288e11",
+  "git_worktree_diff_sha256": "7ecfb4614eb10cef854d3431572cc7116a33ffe80ac2f1ec6e2ca40c12e493ab",
+  "execution": {
+    "ingestion": "sag_api.services.document_service.handle_document_upload",
+    "transport": "loopback HTTP /api/v1/search/stream",
+    "runtime": "sag_api.main.lifespan (unmodified)",
+    "authentication": "real Continuum login and scoped SAG session; no dependency overrides",
+    "query_replays": 0,
+    "frontend": {
+      "top_k": null,
+      "load_more_step": 12,
+      "first_result_seconds": 30.0,
+      "stream_idle_seconds": 45.0
+    },
+    "knowledge_queue": {
+      "concurrency": 4,
+      "capacity": 256,
+      "daily_tokens": 0,
+      "max_attempts": 3,
+      "max_age_seconds": 86400,
+      "timeout_seconds": 60,
+      "retry_seconds": 30,
+      "max_input_chars": 6000,
+      "max_output_tokens": 1000,
+      "poll_seconds": 2.0
+    },
+    "e2_enabled": false,
+    "embedding_timeout_seconds": 120,
+    "llm_timeout_seconds": 120.0,
+    "llm_max_retries": 2,
+    "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+    "document_event_extraction_enabled": false,
+    "llm_model": "Qwen/Qwen3-8B"
+  },
+  "document_paths": {
+    "9252d010-dc93-5981-b4ce-e6f5d47c0795": "readiness.md",
+    "86a432fe-e3d1-5c58-98cf-f5db639b1d6d": "upload.md"
+  },
+  "pipeline": {
+    "ready_versions": [
+      {
+        "id": "9252d010-dc93-5981-b4ce-e6f5d47c0795",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "86a432fe-e3d1-5c58-98cf-f5db639b1d6d",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      }
+    ],
+    "jobs": [],
+    "units": {
+      "total": 2,
+      "e2_selected": 1
+    },
+    "evidence": {
+      "E0": 4
+    },
+    "tree": [
+      {
+        "status": "ACTIVE",
+        "tree_version": "tree-ef4c2721339cdedaf8f8354a"
+      }
+    ],
+    "ingestion": {
+      "READY": 2
+    }
+  },
+  "finished_at_utc": "2026-10-27T01:57:08.563487+00:00",
+  "error_type": "TimeoutError"
+}

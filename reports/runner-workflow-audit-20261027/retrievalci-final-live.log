@@ -1,0 +1,146 @@
+BENCH_OUTPUT=D:\DoAnTotnghiep\Dataset\reports\retrievalci-fixed-20261027070912
+warning: in the working copy of 'SAG/apps/api/sag_api/core/config.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/sag/engine_manager.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/evidence_service.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'SAG/apps/api/sag_api/services/knowledge_service.py', LF will be replaced by CRLF the next time Git touches it
+RUN_ID=20261027T070914Z-06cf8f OWNER=6acc9a5425f02c9d92a01012 PROJECT=4b52ae32d1614ef185039efa SCHEMA=sag_bench_retrievalci_20261027070912
+14:09:22  INFO     [-]  sag.jobs  任务队列已启动（并发=4）
+14:09:22  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager started
+14:09:22  INFO     [-]  sag.runtime  MCP 端点已就绪 · /mcp/（全库）· 可选 ?source_id=<信源 id>
+14:09:22  INFO     [-]  sag.runtime  sag-api 知识运行时已启动 · env=dev · llm_configured=True · vector=qdrant
+14:09:22  INFO     [-]  zleap.sag.ai.embedding  Embedding客户端初始化完成
+14:09:22  INFO     [-]  zleap.sag.ai.factory  ✅ 创建Embedding客户端
+Uploaded 10/81 through SAG upload service
+Uploaded 20/81 through SAG upload service
+Uploaded 30/81 through SAG upload service
+Uploaded 40/81 through SAG upload service
+Uploaded 50/81 through SAG upload service
+Uploaded 60/81 through SAG upload service
+Uploaded 70/81 through SAG upload service
+Uploaded 80/81 through SAG upload service
+Uploaded 81/81 through SAG upload service
+14:09:25  INFO     [-]  mcp.server.streamable_http_manager  StreamableHTTP session manager shutting down
+Traceback (most recent call last):
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 526, in _prepare_and_execute
+    prepared_stmt, attributes = await adapt_connection._prepare(
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 773, in _prepare
+    prepared_stmt = await self._connection.prepare(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\asyncpg\connection.py", line 638, in prepare
+    return await self._prepare(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\asyncpg\connection.py", line 657, in _prepare
+    stmt = await self._get_statement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\asyncpg\connection.py", line 443, in _get_statement
+    statement = await self._protocol.prepare(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 165, in prepare
+    return await waiter
+asyncpg.exceptions.UndefinedColumnError: column "payload" does not exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 585, in execute
+    self._adapt_connection.await_(
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 563, in _prepare_and_execute
+    self._handle_exception(error)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 513, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 797, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.ProgrammingError: <class 'asyncpg.exceptions.UndefinedColumnError'>: column "payload" does not exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\DoAnTotnghiep\Dataset\run_isolated_benchmark.py", line 78, in <module>
+    main()
+  File "D:\DoAnTotnghiep\Dataset\run_isolated_benchmark.py", line 72, in main
+    runpy.run_path(str(script), run_name='__main__')
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "D:\DoAnTotnghiep\Dataset\RetrievalCI_Bench_v0_2026\scripts\run_bench_v0_sag.py", line 271, in <module>
+    asyncio.run(async_main())
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\asyncio\base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\Dataset\RetrievalCI_Bench_v0_2026\scripts\run_bench_v0_sag.py", line 200, in async_main
+    await runtime.wait_ready()
+  File "D:\DoAnTotnghiep\Dataset\sag_benchmark_runtime.py", line 209, in wait_ready
+    state = await self.state()
+            ^^^^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\Dataset\sag_benchmark_runtime.py", line 197, in state
+    tree_jobs = (await session.execute(text('''SELECT status,attempts,error FROM jobs
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\ext\asyncio\session.py", line 449, in execute
+    result = await greenlet_spawn(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 201, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2373, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2280, in _execute_internal
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1421, in execute
+    return meth(
+           ^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1643, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2365, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 585, in execute
+    self._adapt_connection.await_(
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\util\_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+            ^^^^^^^^^^^^
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 563, in _prepare_and_execute
+    self._handle_exception(error)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 513, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "D:\DoAnTotnghiep\sag-laya-integration\SAG\apps\api\.venv\Lib\site-packages\sqlalchemy\dialects\postgresql\asyncpg.py", line 797, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.ProgrammingError: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column "payload" does not exist
+[SQL: SELECT status,attempts,error FROM jobs
+                WHERE type='REBUILD_UNIVERSE_TREE' AND payload->>'tenant_id'=$1
+                AND (payload->'project_ids') @> CAST($2 AS jsonb)]
+[parameters: ('ORG-NSC', '["4b52ae32d1614ef185039efa"]')]
+(Background on this error at: https://sqlalche.me/e/20/f405)
