@@ -12,6 +12,9 @@ status: "Approved"
 classification: "Internal"
 access_groups: ["GRP-CATALOG"]
 source_issue_keys: ["CAT-001", "CAT-002", "CAT-004"]
+canonical_document_id: "DOC-CAT-PRD-004"
+rendition_paths: []
+requirement_ids: []
 file_path: "documents/markdown/formal/Catalog_Merchandising_PRD_v4.md"
 format: "markdown"
 synthetic: true

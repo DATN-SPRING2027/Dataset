@@ -12,6 +12,9 @@ status: "Approved"
 classification: "Restricted"
 access_groups: ["GRP-CHECKOUT", "GRP-SECURITY"]
 source_issue_keys: ["CHKO-012", "CHKO-015"]
+canonical_document_id: "DOC-CHKO-RCA-008"
+rendition_paths: []
+requirement_ids: []
 file_path: "documents/markdown/formal/Incident_RCA_Checkout_Idempotency_Conflict.md"
 format: "markdown"
 synthetic: true

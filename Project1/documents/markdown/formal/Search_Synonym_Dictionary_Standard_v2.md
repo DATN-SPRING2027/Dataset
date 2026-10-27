@@ -5,13 +5,16 @@ project_id: "NSC-SRCH"
 organization_id: "ORG-NSC"
 scope: "project"
 owner_id: "M-021"
-created_at: "2026-07-19"
-updated_at: "2026-07-19"
+created_at: "2026-07-17"
+updated_at: "2026-07-17"
 version: "2.0"
 status: "Approved"
 classification: "Internal"
 access_groups: ["GRP-ALL-STAFF"]
 source_issue_keys: ["SRCH-002", "SRCH-005"]
+canonical_document_id: "DOC-SRCH-STD-005"
+rendition_paths: []
+requirement_ids: []
 file_path: "documents/markdown/formal/Search_Synonym_Dictionary_Standard_v2.md"
 format: "markdown"
 synthetic: true

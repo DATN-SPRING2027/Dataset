@@ -10,8 +10,11 @@ updated_at: "2026-08-19"
 version: "3.0"
 status: "Approved"
 classification: "Restricted"
-access_groups: ["GRP-CHECKOUT", "GRP-PULSEPAY"]
+access_groups: ["GRP-PAYMENT", "GRP-PULSEPAY"]
 source_issue_keys: ["PAY-001", "PAY-002", "PAY-003"]
+canonical_document_id: "DOC-PAY-ADR-003"
+rendition_paths: []
+requirement_ids: []
 file_path: "documents/markdown/formal/Payment_Orchestration_ADR_v3.md"
 format: "markdown"
 synthetic: true

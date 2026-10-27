@@ -12,6 +12,9 @@ status: "Approved"
 classification: "Internal"
 access_groups: ["GRP-ALL-STAFF", "GRP-MERIDIAN"]
 source_issue_keys: ["ORD-001", "ORD-002", "PAY-004"]
+canonical_document_id: "DOC-ORD-POL-005"
+rendition_paths: []
+requirement_ids: []
 file_path: "documents/markdown/formal/Refund_and_Cancellation_Policy_v5.md"
 format: "markdown"
 synthetic: true

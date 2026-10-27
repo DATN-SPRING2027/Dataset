@@ -12,6 +12,9 @@ status: "Approved"
 classification: "Customer Restricted"
 access_groups: ["GRP-MERIDIAN"]
 source_issue_keys: ["CAT-008"]
+canonical_document_id: "DOC-INT-MERIDIAN-001"
+rendition_paths: []
+requirement_ids: []
 file_path: "documents/markdown/formal/Merchant_Integration_Guide_Meridian.md"
 format: "markdown"
 synthetic: true

@@ -10,8 +10,11 @@ updated_at: "2026-05-22"
 version: "2.2"
 status: "Approved"
 classification: "Restricted"
-access_groups: ["GRP-PULSEPAY", "GRP-CHECKOUT"]
+access_groups: ["GRP-PULSEPAY", "GRP-PAYMENT"]
 source_issue_keys: ["PAY-008", "PAY-010"]
+canonical_document_id: "DOC-INT-PULSEPAY-002"
+rendition_paths: []
+requirement_ids: []
 file_path: "documents/markdown/formal/Partner_Webhook_Specification_PulsePay.md"
 format: "markdown"
 synthetic: true

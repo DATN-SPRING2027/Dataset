@@ -12,6 +12,9 @@ status: "Approved"
 classification: "Internal"
 access_groups: ["GRP-PLATFORM"]
 source_issue_keys: ["PLAT-007", "PLAT-009"]
+canonical_document_id: "DOC-PLAT-MIG-010"
+rendition_paths: []
+requirement_ids: []
 file_path: "documents/markdown/formal/Multi_Tenant_Database_Migration_Plan.md"
 format: "markdown"
 synthetic: true

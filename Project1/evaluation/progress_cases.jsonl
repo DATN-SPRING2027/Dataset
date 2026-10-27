@@ -1,0 +1,19 @@
+{"case_id": "PRG-001", "expected_unit": "issues", "expected_value": 61, "metric": "blocked_issue_count", "note": "Blocked issues in payment orchestration.", "project_id": "NSC-PAY"}
+{"case_id": "PRG-002", "expected_unit": "ratio", "expected_value": 0.393, "metric": "completion_ratio", "note": "Completion ratio calculated as Done / Total.", "project_id": "NSC-CHKO"}
+{"case_id": "PRG-003", "expected_unit": "issues", "expected_value": 64, "metric": "overdue_open_issue_count", "note": "Open issues past due date at snapshot date.", "project_id": "NSC-PAY"}
+{"case_id": "PRG-004", "expected_unit": "issues", "expected_value": 235, "metric": "done_issue_count", "note": "Done issues in Catalog project.", "project_id": "NSC-CAT"}
+{"case_id": "PRG-005", "expected_unit": "issues", "expected_value": 223, "metric": "total_blocked_issues", "note": "Total blocked issues across all 8 projects.", "project_id": "ALL"}
+{"case_id": "PRG-006", "expected_unit": "ratio", "expected_value": 0.642, "metric": "completion_ratio", "note": "Search & Discovery completion ratio.", "project_id": "NSC-SRCH"}
+{"case_id": "PRG-007", "expected_unit": "ratio", "expected_value": 0.692, "metric": "completion_ratio", "note": "Cart & Promotions completion ratio.", "project_id": "NSC-CART"}
+{"case_id": "PRG-008", "expected_unit": "ratio", "expected_value": 0.596, "metric": "completion_ratio", "note": "Inventory completion ratio.", "project_id": "NSC-INV"}
+{"case_id": "PRG-009", "expected_unit": "ratio", "expected_value": 0.596, "metric": "completion_ratio", "note": "Orders completion ratio.", "project_id": "NSC-ORD"}
+{"case_id": "PRG-010", "expected_unit": "ratio", "expected_value": 0.551, "metric": "completion_ratio", "note": "Platform completion ratio.", "project_id": "NSC-PLAT"}
+{"case_id": "PRG-011", "expected_unit": "story_points", "expected_value": 497, "metric": "active_sprint_wip_points", "note": "WIP story points in active Sprint 13 for Payment (In Progress + In Review).", "project_id": "NSC-PAY"}
+{"case_id": "PRG-012", "expected_unit": "story_points", "expected_value": 430, "metric": "active_sprint_wip_points", "note": "WIP story points in active Sprint 13 for Checkout (In Progress + In Review).", "project_id": "NSC-CHKO"}
+{"case_id": "PRG-013", "expected_unit": "project_ids", "expected_value": [], "metric": "stale_project_detection_7d", "note": "Projects without updates within 7 calendar days before 2026-10-12 (all 8 projects have active updates on 2026-10-12).", "project_id": "ALL"}
+{"case_id": "PRG-014", "expected_unit": "date", "expected_value": "2026-10-23", "metric": "target_launch_date", "note": "Payment milestone target date.", "project_id": "NSC-PAY"}
+{"case_id": "PRG-015", "expected_unit": "date", "expected_value": "2026-12-04", "metric": "target_launch_date", "note": "Platform foundation target date.", "project_id": "NSC-PLAT"}
+{"case_id": "PRG-016", "expected_unit": "hours", "expected_value": 295.5, "metric": "overtime_hours_sum", "note": "Total logged overtime hours in At-Risk Checkout project (17:00-22:00 ICT).", "project_id": "NSC-CHKO"}
+{"case_id": "PRG-017", "expected_unit": "hours", "expected_value": 371.0, "metric": "overtime_hours_sum", "note": "Total logged overtime hours in At-Risk Payment project (17:00-22:00 ICT).", "project_id": "NSC-PAY"}
+{"case_id": "PRG-018", "expected_unit": "issues", "expected_value": 189, "metric": "spillover_issue_count", "note": "Open issues carried over from closed Sprints 1..12 into active Sprint 13 in NSC-PAY.", "project_id": "NSC-PAY"}
+{"case_id": "PRG-019", "expected_unit": "issues", "expected_value": 0, "metric": "open_issues_in_closed_sprints", "note": "Zero open issues remain in closed Sprints 1..12 after Agile sprint rollover.", "project_id": "ALL"}

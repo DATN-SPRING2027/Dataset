@@ -1,0 +1,4 @@
+provider_event_id,event_type,merchant_ref,delivery_attempt,timestamp
+EVT-SYN-1001,payment.succeeded,ORDER-SYN-501,1,2026-09-22T09:14:02Z
+EVT-SYN-1001,payment.succeeded,ORDER-SYN-501,2,2026-09-22T09:15:10Z
+EVT-SYN-1002,payment.failed,ORDER-SYN-502,1,2026-09-23T11:20:00Z
