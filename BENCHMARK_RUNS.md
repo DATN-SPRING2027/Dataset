@@ -1,6 +1,6 @@
 # Chạy và lưu hai benchmark SAG theo project
 
-> **Cập nhật 2026-10-27:** Runner đã chuyển sang API upload và schema `sag`; chỉ xác thực upload và xác nhận mapping scope được bypass cho benchmark. Thay đổi này chưa được xác minh bằng lượt E2E mới. Kết quả cũ không chứng minh protocol mới; xem [kiểm tra trước khi sửa](reports/e2e-realism-audit-20261027.md).
+> **Cập nhật 2026-10-27:** Runner dùng API upload và schema `sag`; chỉ xác thực upload và xác nhận mapping scope được bypass cho benchmark. Một lượt smoke 8 file đã hoàn tất ingest, graph/tree và một câu hỏi; xem [kết quả](RetrievalCI_Bench_v0_2026/reports/20261027T132343Z-07ff89/smoke_result.json). Kết quả cũ không chứng minh protocol mới; xem [kiểm tra trước khi sửa](reports/e2e-realism-audit-20261027.md).
 
 Hai entrypoint chính thức trong dataset dùng chung `sag_benchmark_runtime.py`:
 
