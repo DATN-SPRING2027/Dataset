@@ -1,0 +1,394 @@
+{
+  "as_of_date": "2026-10-16",
+  "canonical_counts": {
+    "active_users": 22,
+    "continuum_id_mappings": 356,
+    "disruption_events": 3,
+    "document_versions": 28,
+    "docx_renditions": 8,
+    "evaluation_cases": 56,
+    "extra_structured_counts": {
+      "structured/change_requests.jsonl": 1,
+      "structured/waterfall_phase_gates.jsonl": 6
+    },
+    "file_inventory_entries": 60,
+    "negative_fixtures": 8,
+    "organization_memberships": 23,
+    "organizations": 2,
+    "physical_files_total": 61,
+    "project_documents": 24,
+    "project_memberships": 32,
+    "projects": 4,
+    "role_assignments": 55,
+    "sprints": 0,
+    "subtasks": 7,
+    "suspended_or_offboarded_users": 1,
+    "task_comments": 120,
+    "task_events": 569,
+    "task_notes": 84,
+    "task_worklogs": 115,
+    "tasks": 128,
+    "users": 23,
+    "work_report_settings": 8,
+    "work_reports": 36
+  },
+  "confirmed_product_scope": {
+    "ai_chat_history_included": false,
+    "evaluation_review_status": "unreviewed (chưa duyệt)",
+    "fourth_notebook_entity_included": false,
+    "group_note_forms": [
+      "TASK_NOTE",
+      "PROJECT_DOCUMENT",
+      "WORK_REPORT"
+    ],
+    "synthetic_data_only": true,
+    "team_entity_included": false
+  },
+  "dataset_id": "continuum-org2-nova-waterfall-v1",
+  "file_inventory": [
+    {
+      "path": "Dataset_Catalog.xlsx",
+      "sha256": "bbabae0b23e80d12425c23f03e716557888f56b1fcea448d1d0fc175d63b738b",
+      "size_bytes": 60314
+    },
+    {
+      "path": "INGESTION_CONTRACT.md",
+      "sha256": "fa3b59ceb7916bfd4d67e9f4da17cb63645a3fcd82aed671b6dd36f51e79329c",
+      "size_bytes": 1869
+    },
+    {
+      "path": "README.md",
+      "sha256": "09fc3ff28017253992a22e4654295cf542fc0583ac874f8cc0a02ac6f81fb180",
+      "size_bytes": 3642
+    },
+    {
+      "path": "documents/docx/DOC-NVATD-API-003.docx",
+      "sha256": "7820226879ae9e2062af0b97b2418606b01c3a8e9aa6fa9e04aac8a3744a1bef",
+      "size_bytes": 37792
+    },
+    {
+      "path": "documents/docx/DOC-NVATD-REQ-001.docx",
+      "sha256": "4bbf34b79bea0dc717707b63959eb4df0697992b2de644a972a17fb80ce8e8b5",
+      "size_bytes": 37607
+    },
+    {
+      "path": "documents/docx/DOC-NVDMG-CR-003.docx",
+      "sha256": "780ecc8559fb2572273630e24c0b15c7f747b7c2248133a374afbaf52b7db93c",
+      "size_bytes": 38137
+    },
+    {
+      "path": "documents/docx/DOC-NVDMG-UAT-004.docx",
+      "sha256": "1409e7856dbb197356b7f12edf1e791832bbde2639e73e000282e194ac7a1363",
+      "size_bytes": 37628
+    },
+    {
+      "path": "documents/docx/DOC-NVHR-ARC-002.docx",
+      "sha256": "cccda5b92f9cce67e8404c8fdaeb2cbdb4ec474e2168dbd8cc7688dc18a251d1",
+      "size_bytes": 37586
+    },
+    {
+      "path": "documents/docx/DOC-NVHR-REQ-001.docx",
+      "sha256": "6e845d582cbee3c523f626ecf88819f692d01d0f604a2d22ca5466c4fd071042",
+      "size_bytes": 38209
+    },
+    {
+      "path": "documents/docx/DOC-NVLEV-DB-002.docx",
+      "sha256": "c185e1640f427603f77c03e970fed85db35bfaf57c9c30f3a5cf54bafb2eee33",
+      "size_bytes": 38012
+    },
+    {
+      "path": "documents/docx/DOC-NVLEV-REQ-001.docx",
+      "sha256": "2138dd9cf2e570b1c2dab727117d445a5cda3f0669879d81036842ef432d4af7",
+      "size_bytes": 37772
+    },
+    {
+      "path": "documents/markdown/DOC-NVATD-API-003.md",
+      "sha256": "0f765efd1bb65e52bf9da2399c5fafa5fe73c676322a13901531d703b4126089",
+      "size_bytes": 1853
+    },
+    {
+      "path": "documents/markdown/DOC-NVATD-ARC-004.md",
+      "sha256": "faf90ad238d9ce7567c5e2210d76307c8225374d16f1eea2f06f8552d31d1ee7",
+      "size_bytes": 1098
+    },
+    {
+      "path": "documents/markdown/DOC-NVATD-DB-002.md",
+      "sha256": "683f44a1b1e95c02ac3ba9e6c524c824ee3b4ea9b7ceff043ec7ba00ef4d1b0f",
+      "size_bytes": 1082
+    },
+    {
+      "path": "documents/markdown/DOC-NVATD-DES-006.md",
+      "sha256": "6bb125040ed970610e8f8597131c5be591c58dde9c8d00742036519cc574c566",
+      "size_bytes": 1122
+    },
+    {
+      "path": "documents/markdown/DOC-NVATD-REQ-001.md",
+      "sha256": "d9825d86e98fc0dceb9284c7dbaeb36aae016ad8e6b885aa8d50c3b1ff30743e",
+      "size_bytes": 1294
+    },
+    {
+      "path": "documents/markdown/DOC-NVATD-RUN-005.md",
+      "sha256": "9db7df8e429f77099e77bf1e33428d6f3c6c924ae5a663e9889d2a6ec18cc6d5",
+      "size_bytes": 1060
+    },
+    {
+      "path": "documents/markdown/DOC-NVDMG-ARC-005.md",
+      "sha256": "9f02e004addead37e2f403aee171f22e62166c593658e36ab880d25c134ae17e",
+      "size_bytes": 1084
+    },
+    {
+      "path": "documents/markdown/DOC-NVDMG-CR-003.md",
+      "sha256": "e3d1f10ba91c829a4b4445339546779522e94ce4eb52d58acac323895ff4c597",
+      "size_bytes": 2339
+    },
+    {
+      "path": "documents/markdown/DOC-NVDMG-DB-002.md",
+      "sha256": "b59a1905c8558b10a7009699e4cf4e458daa0b9f92b7596204718ec2c8e3179d",
+      "size_bytes": 1030
+    },
+    {
+      "path": "documents/markdown/DOC-NVDMG-HND-006.md",
+      "sha256": "052c4e6560aa5eb731be84389fb3b9a486f1835c8b4efdad1f1c8248374f6837",
+      "size_bytes": 1072
+    },
+    {
+      "path": "documents/markdown/DOC-NVDMG-REQ-001.md",
+      "sha256": "7398a20f9b30c88ef9947eec3ec6eb6efd344480462ddb8e387951d6d92a9f4a",
+      "size_bytes": 1130
+    },
+    {
+      "path": "documents/markdown/DOC-NVDMG-UAT-004.md",
+      "sha256": "46d86f5c920a8891e1b2f057510ff56f7025a7ae7d37185b188ae47a21447ed2",
+      "size_bytes": 1298
+    },
+    {
+      "path": "documents/markdown/DOC-NVHR-API-004.md",
+      "sha256": "6220f2136287cfc491e4213ebcffc3299b87fb3f0b6c51bdcd9cd3e5c565e28c",
+      "size_bytes": 1078
+    },
+    {
+      "path": "documents/markdown/DOC-NVHR-ARC-002.md",
+      "sha256": "5565b004ec3da8ab929818c341c78878c35f4eba58be5ce8f90a63f283ab24d4",
+      "size_bytes": 1300
+    },
+    {
+      "path": "documents/markdown/DOC-NVHR-DB-003.md",
+      "sha256": "0602cceb33a0548b8843431d4b4e1480ad51cb01ad251e01bb1572d138dc1cc2",
+      "size_bytes": 1170
+    },
+    {
+      "path": "documents/markdown/DOC-NVHR-DES-005.md",
+      "sha256": "a386e6f5434d2fd7371a93d7d09386d044e06f6f79b3d9eb5a86230ee804eb16",
+      "size_bytes": 1267
+    },
+    {
+      "path": "documents/markdown/DOC-NVHR-REQ-001.md",
+      "sha256": "a91160fd2fcd3c7a05753a95a665ccebae8f2dca036c5aa624720813540d52dd",
+      "size_bytes": 2525
+    },
+    {
+      "path": "documents/markdown/DOC-NVHR-TST-006.md",
+      "sha256": "632d5d2cb4289bba376b93db296c37e4355567ce225c5c865ef546a14d64ddd5",
+      "size_bytes": 1071
+    },
+    {
+      "path": "documents/markdown/DOC-NVLEV-API-003.md",
+      "sha256": "13a2aba3b25fef00f3ed377e3454bbf9d002f25272bd224687965d7b2bc51c5a",
+      "size_bytes": 1155
+    },
+    {
+      "path": "documents/markdown/DOC-NVLEV-ARC-004.md",
+      "sha256": "181a340e5c90c3079862c298d1baf8b676bb349d9b835a581be369eae0fffdcc",
+      "size_bytes": 1072
+    },
+    {
+      "path": "documents/markdown/DOC-NVLEV-DB-001-LEGACY.md",
+      "sha256": "d330e49c040d487bd5257e4b623081efd2655f332cd41b683a650e6efd8d5d2a",
+      "size_bytes": 1149
+    },
+    {
+      "path": "documents/markdown/DOC-NVLEV-DB-002.md",
+      "sha256": "98ae9450bd2c4fa87813ff6e72d330078b01aa1c221cdd3332c0196f2a8c208b",
+      "size_bytes": 2252
+    },
+    {
+      "path": "documents/markdown/DOC-NVLEV-REQ-001.md",
+      "sha256": "b313a79f3ce4b20060ab2a9c4ea1db00e14305811795b721f3014a45d53212de",
+      "size_bytes": 1616
+    },
+    {
+      "path": "documents/markdown/DOC-NVLEV-TST-006.md",
+      "sha256": "574377fb4ed40d127680f73b55499daa6d22e2aa8306400697957c8e4c55b45a",
+      "size_bytes": 1076
+    },
+    {
+      "path": "evaluation/benchmark_cases.jsonl",
+      "sha256": "5a64ef604f2be6df5aa7aefb5df8a40bc664136e5256bc5dd65e4fc7b9e01ea1",
+      "size_bytes": 60105
+    },
+    {
+      "path": "fixtures/negative_cases.json",
+      "sha256": "98b6017e37f20e85866d936aa905469570689e709f140d14ed2a729e07f40831",
+      "size_bytes": 2344
+    },
+    {
+      "path": "structured/change_requests.jsonl",
+      "sha256": "489f20a0e46d508a3addb5ef35e1c3b441947c4c994f82a6163d4b7997577051",
+      "size_bytes": 840
+    },
+    {
+      "path": "structured/continuum_id_mapping.jsonl",
+      "sha256": "0bfe5490823e95d5c469ee1952279487b76ca93ec6a563ed72f910927a588256",
+      "size_bytes": 148818
+    },
+    {
+      "path": "structured/disruption_events.jsonl",
+      "sha256": "0429783bac9c16eff72991c6217e0520af4e303622aadf135cb7ab83e0a1101f",
+      "size_bytes": 2175
+    },
+    {
+      "path": "structured/document_versions.jsonl",
+      "sha256": "3a055a13ba9c3866f64df886a27975d75c409da2127e271c8fb44ba26f72bee6",
+      "size_bytes": 26953
+    },
+    {
+      "path": "structured/organization_memberships.jsonl",
+      "sha256": "bf2c0ff69a170feba1077ad434c6bea4d2328d654d571379db9536cc3ca47541",
+      "size_bytes": 4066
+    },
+    {
+      "path": "structured/organizations.jsonl",
+      "sha256": "4ac14d743e29a4d2e5377d749dd702021f98c8be46f00c9489bd6ae19d9005b2",
+      "size_bytes": 544
+    },
+    {
+      "path": "structured/project_documents.jsonl",
+      "sha256": "a21920d97587f9e7227c493f0f1d274bcc4707b1638ca92fcd430707fc2b8845",
+      "size_bytes": 26644
+    },
+    {
+      "path": "structured/project_memberships.jsonl",
+      "sha256": "e607e215ad65b0abd20ab7cb6f0acb5889c00b7d6130f9756adca712d8cdaeeb",
+      "size_bytes": 6446
+    },
+    {
+      "path": "structured/projects.jsonl",
+      "sha256": "8c94018cf8dcd9dabd389ece28cc12e8ede9c9f156c349d64b948901ef7ebd4e",
+      "size_bytes": 2571
+    },
+    {
+      "path": "structured/role_assignments.jsonl",
+      "sha256": "64e47a2d783aad1b9d3af6f0bac356c3ae6fd87661590e294746ee97125de2ca",
+      "size_bytes": 12462
+    },
+    {
+      "path": "structured/sprints.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "structured/task_comments.jsonl",
+      "sha256": "af6bb4e3ed674c24161a6105d9c60df4a1773720160d6b77ce309843e875836d",
+      "size_bytes": 52019
+    },
+    {
+      "path": "structured/task_events.jsonl",
+      "sha256": "fd37e34c254c8a66679911337c66e956e5e0cef34f209f27f46001cd431335ba",
+      "size_bytes": 213848
+    },
+    {
+      "path": "structured/task_notes.jsonl",
+      "sha256": "993fcbc8edb993f48a03e11cad3369c3b78d711d129068ff07e66a438aea9ab3",
+      "size_bytes": 106519
+    },
+    {
+      "path": "structured/task_worklogs.jsonl",
+      "sha256": "0f888f716db3831199beba794e176c3a263f491bc30d08207ffa3512ebede8d0",
+      "size_bytes": 57807
+    },
+    {
+      "path": "structured/tasks.jsonl",
+      "sha256": "947b5782a723d515b8f48226fd1969c81df8d1021b05647d4fda98c88fa16638",
+      "size_bytes": 237356
+    },
+    {
+      "path": "structured/users.jsonl",
+      "sha256": "3ba1b9369cb2cf8bd29b14565f819ab30a85ebadc6e0e654b3711e565d8dfbae",
+      "size_bytes": 8073
+    },
+    {
+      "path": "structured/waterfall_phase_gates.jsonl",
+      "sha256": "65753de06e5ae498c30476c96aff382e7fdc448abf16a06255412c3540e51d0e",
+      "size_bytes": 2310
+    },
+    {
+      "path": "structured/work_report_settings.jsonl",
+      "sha256": "756df1704c71b4946adee12ea5fc5d3d23e545dcf82ded142fd04514f373560a",
+      "size_bytes": 2136
+    },
+    {
+      "path": "structured/work_reports.jsonl",
+      "sha256": "372d3e5aac4bccf22fcc6be74b2018af3522af9f3e0078f61191875b00533839",
+      "size_bytes": 51128
+    },
+    {
+      "path": "tools/generate_org.py",
+      "sha256": "1c47ab072f4cf0532fdefa234e12517cf6e4ebcddef3a9b2b1d2e55ba42da61e",
+      "size_bytes": 42910
+    },
+    {
+      "path": "tools/nova_docs_and_eval.py",
+      "sha256": "20d65b0639ce4525d69e18cd8f3999d80a3378ba510ffc6b2288db9a9ee387c6",
+      "size_bytes": 87781
+    },
+    {
+      "path": "tools/nova_specs.py",
+      "sha256": "5911991372045f8afee9a440bef2bb6b420eb178b9f239dda72742d0d714cef1",
+      "size_bytes": 14445
+    }
+  ],
+  "implementation_assumptions": [
+    "Giả định triển khai (Implementation Assumption): Quy mô 4 project Waterfall (NOVA-HR, NOVA-ATD, NOVA-LEV, NOVA-DMG), 23 tài khoản người dùng (19 Nova + 4 khách hàng Minh Phát) và cửa sổ mô phỏng 2026-04-16 .. 2026-10-16 được chọn để bao phủ trọn 6 cổng giai đoạn Waterfall mà Thang chưa chốt cứng con số tuyệt đối.",
+    "Giả định triển khai (Implementation Assumption): Toàn bộ 4 project của Nova đều dùng Waterfall thuần túy (sprints = [], sprint_id = null trên mọi task) để tạo đối trọng rõ rệt với Agile Sprint (Northstar), Kanban (CloudOps) và Hybrid (MediFlow).",
+    "Giả định triển khai (Implementation Assumption): Phạm vi nghiệp vụ dừng ở Hồ sơ nhân sự, Ca chấm công và Nghỉ phép cho ~300 nhân viên; không bao gồm tính lương (Payroll), BHXH hay thuế TNCN."
+  ],
+  "methodology": "WATERFALL",
+  "organization_name": "Nova Solutions (HR, Attendance & Leave)",
+  "primary_org_id": "ORG-NOVA",
+  "simulation_window": {
+    "end": "2026-10-16",
+    "overtime_hours": "17:00-22:00",
+    "regular_hours": "08:00-12:00, 13:00-17:00",
+    "start": "2026-04-16",
+    "timezone": "Asia/Ho_Chi_Minh (+07:00)",
+    "vn_holidays_observed": [
+      "2026-04-27",
+      "2026-04-30",
+      "2026-05-01",
+      "2026-09-01",
+      "2026-09-02"
+    ],
+    "working_days": 127
+  },
+  "source_attribution": [
+    {
+      "accessed_at": "2026-10-28T08:17:08+07:00",
+      "commit_sha": "56e23b3b09e7af29317a0943523b825843fff527",
+      "inspected_artifacts": [
+        "LICENSE",
+        "README.md",
+        "src/composer.json",
+        "src/plugins/orangehrmPimPlugin/entity/ (Employee, EmpContract, EmpLocations, EmployeeTerminationRecord, ReportTo)",
+        "src/plugins/orangehrmLeavePlugin/entity/ (LeaveRequest, Leave, LeaveEntitlement, LeaveType, Holiday, WorkWeek)",
+        "src/plugins/orangehrmAttendancePlugin/entity/ (AttendanceRecord)",
+        "Public GitHub issues #1964 (Supervisor/Org Chart), #1965 & #1966 (partial/half-day leave cancellation balance edge cases)"
+      ],
+      "license": "GPL-3.0-or-later",
+      "repo_name": "orangehrm/orangehrm",
+      "repo_url": "https://github.com/orangehrm/orangehrm",
+      "selected_release_or_tag": "v5.9",
+      "usage_boundary": "Chỉ tham khảo khái niệm nghiệp vụ HR/Chấm công/Nghỉ phép và tình huống lỗi biên nửa ngày để tự thiết kế dữ liệu giả lập độc lập cho Nova Solutions. Tuyệt đối không sao chép mã nguồn, schema Doctrine, tài liệu hay tài sản GPL-3.0 của OrangeHRM; không khẳng định OrangeHRM phát triển theo Waterfall."
+    }
+  ],
+  "version": "1.0.0"
+}

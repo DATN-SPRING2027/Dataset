@@ -1,0 +1,19 @@
+# Default deterministic LF line endings across dataset packages, tools, tests, and docs
+*.jsonl text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.csv text eol=lf
+
+# Preserve Project1 v1.x text CRLF byte hashes while keeping Project1 JSONL files as LF
+Project1/*.md text eol=crlf
+Project1/*.json text eol=crlf
+Project1/documents/markdown/** text eol=crlf
+Project1/fixtures/** text eol=crlf
+Project1/tools/*.py text eol=crlf
+Project1/structured/*.jsonl text eol=lf
+Project1/evaluation/*.jsonl text eol=lf
+
+# Binary document and workbook artifacts
+*.docx binary
+*.xlsx binary

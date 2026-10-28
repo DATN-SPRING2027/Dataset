@@ -1,0 +1,2 @@
+{"continuum_org_id": "2419273a258997712fd9aace", "domain": "novasolutions.invalid", "is_primary_continuum_tenant": true, "name": "Nova Solutions Co., Ltd.", "org_id": "ORG-NOVA", "org_type": "software_outsourcing_vendor", "plan": "ENTERPRISE", "synthetic": true}
+{"continuum_org_id": "5747281be0d48d6ee7c794dc", "domain": "minhphatcorp.invalid", "is_primary_continuum_tenant": false, "name": "Minh Phát Manufacturing & Distribution Corp", "org_id": "ORG-MINHPHAT", "org_type": "client_enterprise_300_staff", "plan": "FREE", "synthetic": true}
