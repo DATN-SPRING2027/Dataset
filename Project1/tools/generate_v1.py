@@ -24,7 +24,17 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
 import completion_specs as completion
-from workflows_v13 import build_workflows, reconcile_document_snapshots, validate_workflows
+from workflows_v13 import (
+    NORTHSTAR_DISRUPTION_WINDOWS,
+    ORG_NSC_MANAGERS,
+    PROJECT_TEAM_LEADERS,
+    _dual_review_meta,
+    build_workflows,
+    project_code,
+    reconcile_document_snapshots,
+    stable_id,
+    validate_workflows,
+)
 
 # -------------------------------------------------------------
 # Configuration & Constants (Phase 1: Deterministic & Reproducible)
@@ -220,6 +230,13 @@ def write_jsonl(rel_path, rows):
 def file_hash(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
+def is_package_file(path):
+    return (
+        path.is_file()
+        and "__pycache__" not in path.parts
+        and not path.name.endswith((".pyc", ".pyo"))
+    )
+
 def compute_section_sha256(text):
     """Canonical section SHA-256: normalized \\n line endings, trimmed trailing whitespace."""
     canonical = text.strip().replace("\r\n", "\n")
@@ -229,9 +246,9 @@ def compute_section_sha256(text):
 # 1. Organizations (3)
 # -------------------------------------------------------------
 orgs = [
-    {"org_id": "ORG-NSC", "name": "Northstar Commerce Systems", "org_type": "software_company", "domain": "northstar.invalid", "synthetic": True},
-    {"org_id": "ORG-MERIDIAN", "name": "Meridian Outfitters", "org_type": "customer_merchant", "domain": "meridianoutfitters.invalid", "synthetic": True},
-    {"org_id": "ORG-PULSEPAY", "name": "PulsePay Network", "org_type": "integration_partner", "domain": "pulsepay.invalid", "synthetic": True}
+    {"org_id": "ORG-NSC", "continuum_org_id": stable_id("org", "ORG-NSC"), "continuum_import_scope": "primary_tenant", "name": "Northstar Commerce Systems", "org_type": "software_company", "domain": "northstar.invalid", "synthetic": True},
+    {"org_id": "ORG-MERIDIAN", "continuum_org_id": stable_id("org", "ORG-MERIDIAN"), "continuum_import_scope": "external_counterparty_excluded", "name": "Meridian Outfitters", "org_type": "customer_merchant", "domain": "meridianoutfitters.invalid", "synthetic": True},
+    {"org_id": "ORG-PULSEPAY", "continuum_org_id": stable_id("org", "ORG-PULSEPAY"), "continuum_import_scope": "external_counterparty_excluded", "name": "PulsePay Network", "org_type": "integration_partner", "domain": "pulsepay.invalid", "synthetic": True}
 ]
 
 # -------------------------------------------------------------
@@ -404,6 +421,28 @@ for mid, name, dept, title in pulsepay_additional_names:
     })
 
 assert len(members) == 74
+member_leave_windows = {}
+for _dis_pid, _dis in NORTHSTAR_DISRUPTION_WINDOWS.items():
+    member_leave_windows.setdefault(_dis["affected_member_id"], []).append({
+        "disruption_id": _dis["disruption_id"],
+        "project_id": _dis_pid,
+        "kind": _dis["kind"],
+        "start": _dis["unavailable_from"],
+        "end": _dis["unavailable_to"],
+        "backup_member_id": _dis["backup_member_id"],
+        "reason": _dis["summary_vi_en"],
+    })
+for _m in members:
+    _mid = _m["member_id"]
+    _org = _m["org_id"]
+    _inactive = _m["account_status"] == "inactive"
+    _m["continuum_user_id"] = stable_id("user", _mid)
+    _m["continuum_org_id"] = stable_id("org", _org)
+    _m["continuum_org_membership_id"] = stable_id("org-member", f"{_org}:{_mid}")
+    _m["continuum_org_role"] = "ADMIN" if (_org == "ORG-NSC" and _mid in ORG_NSC_MANAGERS) else "MEMBER"
+    _m["continuum_membership_status"] = "REMOVED" if _inactive else "ACTIVE"
+    _m["continuum_import_eligible"] = (_org == "ORG-NSC")
+    _m["leave_windows"] = member_leave_windows.get(_mid, [])
 
 # -------------------------------------------------------------
 # 4. Access Groups (15) & Memberships
@@ -511,6 +550,10 @@ for pid, p_name, _, _, _, _, _ in project_raw:
 
         sp_rec = {
             "sprint_id": s_id,
+            "continuum_sprint_id": stable_id("sprint", s_id),
+            "continuum_project_id": stable_id("project", pid),
+            "continuum_org_id": stable_id("org", "ORG-NSC"),
+            "continuum_status": "ACTIVE" if s_status == "active" else "COMPLETED",
             "project_id": pid,
             "sprint_number": s_idx,
             "name": f"{p_name} Sprint {s_idx}",
@@ -524,6 +567,14 @@ for pid, p_name, _, _, _, _, _ in project_raw:
 
 projects = [{
     "project_id": p[0],
+    "continuum_project_id": stable_id("project", p[0]),
+    "continuum_org_id": stable_id("org", "ORG-NSC"),
+    "continuum_code": project_code(p[0]),
+    "continuum_status": "ACTIVE",
+    "methodology": "AGILE_SPRINT",
+    "created_by": p[3],
+    "continuum_created_by_user_id": stable_id("user", p[3]),
+    "team_leader_id": PROJECT_TEAM_LEADERS[p[0]],
     "name": p[1],
     "status": p[2],
     "owner_id": p[3],
@@ -628,6 +679,26 @@ for p in projects:
             "status": "revoked",
             "synthetic": True
         })
+
+for _pm in project_memberships:
+    _pid = _pm["project_id"]
+    _mid = _pm["member_id"]
+    _mem = member_by_id[_mid]
+    _is_nsc = (_mem["org_id"] == "ORG-NSC")
+    _pm["continuum_project_member_id"] = stable_id("project-member", f"{_pid}:{_mid}")
+    _pm["continuum_project_id"] = stable_id("project", _pid)
+    _pm["continuum_user_id"] = stable_id("user", _mid)
+    _pm["is_org_manager"] = (_is_nsc and _mid in ORG_NSC_MANAGERS)
+    if not _is_nsc:
+        _pm["continuum_role_code"] = None
+        _pm["continuum_membership_status"] = "EXCLUDED_EXTERNAL"
+        _pm["continuum_import_eligible"] = False
+        _pm["continuum_exclusion_reason"] = "external_counterparty_tenant"
+    else:
+        _pm["continuum_role_code"] = "TEAM_LEADER" if PROJECT_TEAM_LEADERS[_pid] == _mid else "MEMBER"
+        _pm["continuum_membership_status"] = "REMOVED" if _pm["status"] == "revoked" else "ACTIVE"
+        _pm["continuum_import_eligible"] = True
+        _pm["continuum_exclusion_reason"] = None
 
 # -------------------------------------------------------------
 # 6. Jira-like Issues (2,500) (Phase 2 & Phase 4: Lifecycle, Ownership, Quality)
@@ -2575,12 +2646,157 @@ validate_workflows(
     work_tasks, task_notes, document_reviews, work_reports, workflow_cases,
     issues, canonical_documents, members, project_memberships, TODAY.isoformat()
 )
+continuum_id_mappings = []
+for _o in orgs:
+    continuum_id_mappings.append({
+        "mapping_id": f"MAP-ORG-{_o['org_id']}",
+        "entity_kind": "organization",
+        "source_file": "structured/organizations.jsonl",
+        "source_id": _o["org_id"],
+        "continuum_id": _o["continuum_org_id"],
+        "target_service": "iam",
+        "target_collection": "organizations",
+        "organization_id": _o["org_id"],
+        "project_id": None,
+        "import_eligible": _o["org_id"] == "ORG-NSC",
+        "support_status": "IMPORTER_REQUIRED" if _o["org_id"] == "ORG-NSC" else "DATASET_METADATA_ONLY",
+        "notes": "Primary Continuum tenant ORG-NSC" if _o["org_id"] == "ORG-NSC" else "External counterparty tenant kept out of ORG-NSC import",
+    })
+for _m in members:
+    continuum_id_mappings.append({
+        "mapping_id": f"MAP-USR-{_m['member_id']}",
+        "entity_kind": "user_and_org_member",
+        "source_file": "structured/members.jsonl",
+        "source_id": _m["member_id"],
+        "continuum_id": _m["continuum_user_id"],
+        "secondary_continuum_id": _m["continuum_org_membership_id"],
+        "target_service": "iam",
+        "target_collection": "users+organization_members",
+        "organization_id": _m["org_id"],
+        "project_id": None,
+        "continuum_role": _m["continuum_org_role"],
+        "import_eligible": _m["continuum_import_eligible"],
+        "support_status": "IMPORTER_REQUIRED" if _m["continuum_import_eligible"] else "DATASET_METADATA_ONLY",
+        "notes": f"status={_m['continuum_membership_status']}",
+    })
+for _p in projects:
+    continuum_id_mappings.append({
+        "mapping_id": f"MAP-PRJ-{_p['project_id']}",
+        "entity_kind": "project",
+        "source_file": "structured/projects.jsonl",
+        "source_id": _p["project_id"],
+        "continuum_id": _p["continuum_project_id"],
+        "continuum_code": _p["continuum_code"],
+        "target_service": "iam",
+        "target_collection": "projects",
+        "organization_id": "ORG-NSC",
+        "project_id": _p["project_id"],
+        "import_eligible": True,
+        "support_status": "API_SUPPORTED",
+        "notes": f"created_by={_p['created_by']} team_leader={_p['team_leader_id']}",
+    })
+for _pm in project_memberships:
+    continuum_id_mappings.append({
+        "mapping_id": f"MAP-PM-{_pm['membership_id']}",
+        "entity_kind": "project_membership",
+        "source_file": "structured/project_memberships.jsonl",
+        "source_id": _pm["membership_id"],
+        "continuum_id": _pm["continuum_project_member_id"],
+        "target_service": "iam",
+        "target_collection": "project_members+project_member_roles",
+        "organization_id": member_by_id[_pm["member_id"]]["org_id"],
+        "project_id": _pm["project_id"],
+        "continuum_role": _pm["continuum_role_code"],
+        "import_eligible": _pm["continuum_import_eligible"],
+        "support_status": "API_SUPPORTED" if (_pm["continuum_import_eligible"] and _pm["continuum_membership_status"] == "ACTIVE") else ("IMPORTER_REQUIRED" if _pm["continuum_import_eligible"] else "DATASET_METADATA_ONLY"),
+        "notes": f"status={_pm['continuum_membership_status']}",
+    })
+for _sp in sprints:
+    continuum_id_mappings.append({
+        "mapping_id": f"MAP-SPR-{_sp['sprint_id']}",
+        "entity_kind": "sprint",
+        "source_file": "structured/sprints.jsonl",
+        "source_id": _sp["sprint_id"],
+        "continuum_id": _sp["continuum_sprint_id"],
+        "target_service": "task",
+        "target_collection": "sprints",
+        "organization_id": "ORG-NSC",
+        "project_id": _sp["project_id"],
+        "import_eligible": True,
+        "support_status": "IMPORTER_REQUIRED",
+        "notes": f"status={_sp['continuum_status']} ({_sp['start_date']}..{_sp['end_date']})",
+    })
+for _t in work_tasks:
+    continuum_id_mappings.append({
+        "mapping_id": f"MAP-TSK-{_t['key']}",
+        "entity_kind": "work_task",
+        "source_file": "structured/work_tasks.jsonl",
+        "source_id": _t["task_id"],
+        "continuum_id": _t["task_id"],
+        "continuum_code": _t["key"],
+        "target_service": "task",
+        "target_collection": "tasks+steps+worklogs+comments+task_events",
+        "organization_id": "ORG-NSC",
+        "project_id": _t["project_id"],
+        "import_eligible": True,
+        "support_status": "IMPORTER_REQUIRED",
+        "notes": f"source_issue_key={_t['source_issue_key']} status={_t['status']}",
+    })
+for _n in task_notes:
+    continuum_id_mappings.append({
+        "mapping_id": f"MAP-TNT-{_n['note_id']}",
+        "entity_kind": "task_note",
+        "source_file": "structured/task_notes.jsonl",
+        "source_id": _n["note_id"],
+        "continuum_id": _n["note_id"],
+        "target_service": "capture",
+        "target_collection": "work_notes",
+        "organization_id": "ORG-NSC",
+        "project_id": _n["project_id"],
+        "import_eligible": True,
+        "support_status": "IMPORTER_REQUIRED",
+        "notes": "noteType=TASK_NOTE status=CONFIRMED knowledge_eligible=false",
+    })
+_reviewed_doc_ids = {ev["document_id"] for ev in document_reviews}
+for _d in canonical_documents:
+    if _d["document_id"] in _reviewed_doc_ids and not _d.get("test_only"):
+        continuum_id_mappings.append({
+            "mapping_id": f"MAP-DOC-{_d['document_id']}",
+            "entity_kind": "project_document",
+            "source_file": "structured/documents.jsonl",
+            "source_id": _d["document_id"],
+            "continuum_id": stable_id("project-document", _d["document_id"]),
+            "target_service": "capture",
+            "target_collection": "work_notes+work_note_versions",
+            "organization_id": _d["organization_id"],
+            "project_id": _d["project_id"],
+            "import_eligible": True,
+            "support_status": "IMPORTER_REQUIRED",
+            "notes": f"noteType=PROJECT_DOCUMENT status={_d['status']} version={_d['version']}",
+        })
+for _r in work_reports:
+    continuum_id_mappings.append({
+        "mapping_id": f"MAP-RPT-{_r['report_id']}",
+        "entity_kind": "work_report",
+        "source_file": "structured/work_reports.jsonl",
+        "source_id": _r["report_id"],
+        "continuum_id": _r["report_id"],
+        "target_service": "capture",
+        "target_collection": "work_notes+work_note_versions",
+        "organization_id": "ORG-NSC",
+        "project_id": _r["project_id"],
+        "import_eligible": True,
+        "support_status": "IMPORTER_REQUIRED",
+        "notes": f"noteType=WORK_REPORT scope={_r['report_scope']} type={_r['report_type']} status={_r['status']}",
+    })
+
 write_jsonl("structured/documents.jsonl", canonical_documents)
 write_jsonl("structured/work_tasks.jsonl", work_tasks)
 write_jsonl("structured/task_notes.jsonl", task_notes)
 write_jsonl("structured/document_reviews.jsonl", document_reviews)
 write_jsonl("structured/work_reports.jsonl", work_reports)
-print("Wrote all structured entities, requirements, functional tests, and execution results.")
+write_jsonl("structured/continuum_id_mapping.jsonl", continuum_id_mappings)
+print("Wrote all structured entities, Continuum ID mappings, requirements, functional tests, and execution results.")
 
 # -------------------------------------------------------------
 # 11. Dataset/RAG Evaluation Test Suites (158 cases)
@@ -2777,6 +2993,22 @@ edge_cases = [
     {"scenario_id": "EDGE-AGILE-02", "category": "agile", "case": "Non-linear code review and blocker loop", "expected": "Handle multi-hop status transitions (In Review -> In Progress rework, Blocked -> In Progress unblock) without assuming monotonic status order."}
 ]
 
+for _idx, _c in enumerate(rag_cases, 1):
+    _cat = "abstention" if "calibrated_abstention" in _c.get("tags", []) else ("conflict" if "conflict" in _c.get("tags", []) else "normal")
+    _c.update(_dual_review_meta(_idx, category=_cat))
+for _idx, _c in enumerate(acl_cases, 1):
+    _cat = "acl_deny" if _c["expected_decision"] == "deny" else "normal"
+    _c.update(_dual_review_meta(_idx, category=_cat))
+for _idx, _c in enumerate(analytics_cases, 1):
+    _c.update(_dual_review_meta(_idx, category="analytics"))
+for _idx, _c in enumerate(progress_cases, 1):
+    _pid = None if _c["project_id"] == "ALL" else _c["project_id"]
+    _c.update(_dual_review_meta(_idx, project_id=_pid, category="progress"))
+for _idx, _c in enumerate(ingestion_cases, 1):
+    _c.update(_dual_review_meta(_idx, category="ingestion_integrity"))
+for _idx, _c in enumerate(edge_cases, 1):
+    _c.update(_dual_review_meta(_idx, category=f"edge_{_c['category']}"))
+
 write_jsonl("evaluation/rag_cases.jsonl", rag_cases)
 write_jsonl("evaluation/acl_cases.jsonl", acl_cases)
 write_jsonl("evaluation/analytics_cases.jsonl", analytics_cases)
@@ -2786,12 +3018,13 @@ write_jsonl("evaluation/edge_case_matrix.jsonl", edge_cases)
 write_jsonl("evaluation/workflow_cases.jsonl", workflow_cases)
 
 total_eval_cases = len(rag_cases) + len(acl_cases) + len(analytics_cases) + len(progress_cases) + len(ingestion_cases) + len(edge_cases) + len(workflow_cases)
-assert total_eval_cases == 179, f"Expected 179 eval cases, got {total_eval_cases}"
+assert total_eval_cases == 190, f"Expected 190 eval cases, got {total_eval_cases}"
 
 # -------------------------------------------------------------
 # 12. Create Excel Catalog (Dataset_Catalog.xlsx) (Phase 7: Sprints tab added)
 # -------------------------------------------------------------
-physical_package_count = sum(1 for path in ROOT.rglob("*") if path.is_file())
+_existing_rel_files = {path.relative_to(ROOT).as_posix() for path in ROOT.rglob("*") if is_package_file(path)}
+physical_package_count = len(_existing_rel_files | {"Dataset_Catalog.xlsx", "INGESTION_CONTRACT.md", "00_START_HERE.md", "manifest.json"})
 wb = openpyxl.Workbook()
 
 NAVY = "16324F"; TEAL = "16697A"; LIGHT_BG = "F8FAFC"; ZEBRA = "F1F5F8"; WHITE = "FFFFFF"; DARK_TEXT = "24364B"; GRAY_TEXT = "64748B"; BORDER_COLOR = "CBD5E1"
@@ -2818,7 +3051,7 @@ ws_over = wb.active
 ws_over.title = "Overview"
 ws_over.views.sheetView[0].showGridLines = True
 
-ws_over.cell(2, 2, "Northstar Commerce — Enterprise Synthetic Dataset Catalog (v1.3)").font = font_title
+ws_over.cell(2, 2, "Northstar Commerce — Enterprise Synthetic Dataset Catalog (v1.4)").font = font_title
 ws_over.cell(3, 2, f"Snapshot Date: {TODAY.isoformat()}  •  180-Day Window ({START.isoformat()} to {TODAY.isoformat()}, {TOTAL_WORKING_DAYS} Working Days + 5 VN Holidays, UTC+07:00 & Overtime 17:00-22:00)").font = font_subtitle
 
 ws_over.merge_cells("B5:K5")
@@ -2957,25 +3190,25 @@ ws_mem.auto_filter.ref = f"A1:{get_column_letter(len(mem_cols))}{len(members)+1}
 
 # Tab 8: RAG, ACL, ingestion, progress, and analytics evaluation cases
 ws_tc = wb.create_sheet(title="Evaluation Cases"); ws_tc.views.sheetView[0].showGridLines = True
-tc_cols = ["case_id", "suite", "scenario_or_query", "expected_result", "source_or_reason", "target_resource_ids", "must_not_cite", "tags"]
+tc_cols = ["case_id", "suite", "scenario_or_query", "expected_result", "source_or_reason", "target_resource_ids", "must_not_cite", "review_status", "tags"]
 for c_idx, col in enumerate(tc_cols, 1):
     c = ws_tc.cell(1, c_idx, col); c.font = font_header; c.fill = fill_header; c.alignment = align_center
 
 all_eval_flat = []
 for c in rag_cases:
-    all_eval_flat.append({"case_id": c["case_id"], "suite": "RAG", "scenario_or_query": c["query"], "expected_result": c["expected"], "source_or_reason": ", ".join(c["gold_document_ids"]), "tags": ", ".join(c["tags"])})
+    all_eval_flat.append({"case_id": c["case_id"], "suite": "RAG", "scenario_or_query": c["query"], "expected_result": c["expected"], "source_or_reason": ", ".join(c["gold_document_ids"]), "review_status": c["review_status"], "tags": ", ".join(c["tags"])})
 for c in acl_cases:
-    all_eval_flat.append({"case_id": c["case_id"], "suite": "ACL", "scenario_or_query": f"Principal {c['principal_id']} accesses {c['resource_id']}", "expected_result": c["expected_decision"], "source_or_reason": c["reason"], "tags": "acl, permissions"})
+    all_eval_flat.append({"case_id": c["case_id"], "suite": "ACL", "scenario_or_query": f"Principal {c['principal_id']} accesses {c['resource_id']}", "expected_result": c["expected_decision"], "source_or_reason": c["reason"], "review_status": c["review_status"], "tags": "acl, permissions"})
 for c in analytics_cases:
-    all_eval_flat.append({"case_id": c["case_id"], "suite": "Analytics", "scenario_or_query": c["question"], "expected_result": str(c["expected_value"]), "source_or_reason": c["metric"], "tags": "analytics, kpi"})
+    all_eval_flat.append({"case_id": c["case_id"], "suite": "Analytics", "scenario_or_query": c["question"], "expected_result": str(c["expected_value"]), "source_or_reason": c["metric"], "review_status": c["review_status"], "tags": "analytics, kpi"})
 for c in progress_cases:
-    all_eval_flat.append({"case_id": c["case_id"], "suite": "Progress", "scenario_or_query": f"Metric {c['metric']} for {c['project_id']}", "expected_result": str(c["expected_value"]), "source_or_reason": c.get("note", ""), "tags": "progress, timeline"})
+    all_eval_flat.append({"case_id": c["case_id"], "suite": "Progress", "scenario_or_query": f"Metric {c['metric']} for {c['project_id']}", "expected_result": str(c["expected_value"]), "source_or_reason": c.get("note", ""), "review_status": c["review_status"], "tags": "progress, timeline"})
 for c in ingestion_cases:
-    all_eval_flat.append({"case_id": c["case_id"], "suite": "Ingestion", "scenario_or_query": c["scenario"], "expected_result": c["expected"], "source_or_reason": c["fixture"], "tags": ", ".join(c["tags"])})
+    all_eval_flat.append({"case_id": c["case_id"], "suite": "Ingestion", "scenario_or_query": c["scenario"], "expected_result": c["expected"], "source_or_reason": c["fixture"], "review_status": c["review_status"], "tags": ", ".join(c["tags"])})
 for c in edge_cases:
-    all_eval_flat.append({"case_id": c["scenario_id"], "suite": "EdgeCase", "scenario_or_query": c["case"], "expected_result": c["expected"], "source_or_reason": c["category"], "tags": f"edge_case, {c['category']}"})
+    all_eval_flat.append({"case_id": c["scenario_id"], "suite": "EdgeCase", "scenario_or_query": c["case"], "expected_result": c["expected"], "source_or_reason": c["category"], "review_status": c["review_status"], "tags": f"edge_case, {c['category']}"})
 for c in workflow_cases:
-    all_eval_flat.append({"case_id": c["case_id"], "suite": c["suite"], "scenario_or_query": c["query"], "expected_result": c["expected"], "source_or_reason": ", ".join(c["source_ids"]), "target_resource_ids": ", ".join(c["target_resource_ids"]), "must_not_cite": ", ".join(c["must_not_cite"]), "tags": ", ".join(c["tags"])})
+    all_eval_flat.append({"case_id": c["case_id"], "suite": c["suite"], "scenario_or_query": c["query"], "expected_result": c["expected"], "source_or_reason": ", ".join(c["source_ids"]), "target_resource_ids": ", ".join(c["target_resource_ids"]), "must_not_cite": ", ".join(c["must_not_cite"]), "review_status": c["review_status"], "tags": ", ".join(c["tags"])})
 
 for r_idx, tc in enumerate(all_eval_flat, 2):
     for c_idx, col in enumerate(tc_cols, 1):
@@ -3007,10 +3240,10 @@ ws_ft.auto_filter.ref = f"A1:{get_column_letter(len(ft_cols))}{len(functional_te
 
 workflow_sheets = []
 for sheet_name, rows, columns in [
-    ("Work Tasks", work_tasks, ["task_id", "key", "project_id", "source_issue_key", "type", "status", "priority", "assignee_id", "sprint_id", "title"]),
+    ("Work Tasks", work_tasks, ["task_id", "key", "legacy_key", "parent_task_id", "project_id", "source_issue_key", "type", "status", "priority", "assignee_id", "sprint_id", "subtask_count", "worklog_minutes_total", "comment_count", "title"]),
     ("Task Notes", task_notes, ["note_id", "task_id", "project_id", "author_id", "title", "accomplishments", "approach", "reason", "created_at"]),
     ("Document Reviews", document_reviews, ["event_id", "document_id", "version", "project_id", "action", "actor_id", "at"]),
-    ("Work Reports", work_reports, ["report_id", "project_id", "member_id", "period_start", "period_end", "status", "document_ids", "source_task_ids", "reviewed_by"]),
+    ("Work Reports", work_reports, ["report_id", "project_id", "member_id", "report_type", "report_scope", "period_key", "period_start", "period_end", "status", "document_ids", "source_task_ids", "reviewed_by"]),
 ]:
     sheet = wb.create_sheet(title=sheet_name)
     workflow_sheets.append(sheet)
@@ -3046,7 +3279,7 @@ print(f"Created professional filterable workbook at {excel_path}.")
 # -------------------------------------------------------------
 manifest = {
     "dataset_id": "northstar-commerce-demo-v1",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "as_of_date": TODAY.isoformat(),
     "simulation_window": {
         "start": START.isoformat(),
@@ -3092,6 +3325,7 @@ manifest = {
         "task_notes": len(task_notes),
         "document_review_events": len(document_reviews),
         "work_reports": len(work_reports),
+        "continuum_id_mappings": len(continuum_id_mappings),
         "physical_files_in_v1": physical_package_count,
         "physical_files_total_dataset": physical_package_count,
         "physical_breakdown": {
@@ -3117,7 +3351,7 @@ manifest = {
             "workflow_cases": len(workflow_cases)
         }
     },
-    "packaging_model": "Canonical Markdown with linked DOCX renditions and project-month bundles (Project1 package remains below 160 physical files)",
+    "packaging_model": "Canonical Markdown with linked DOCX renditions and project-month bundles (Project1 package stays within the <= 160 physical file hard cap)",
     "primary_formats": [".md", ".docx", ".xlsx", ".jsonl", ".csv"],
     "structured_format": "JSONL UTF-8, one entity per line",
     "synthetic_data_only": True,
@@ -3136,7 +3370,7 @@ manifest = {
     ]
 }
 
-ingestion_contract_text = f"""# Ingestion Contract — Northstar Commerce Dataset v1.3
+ingestion_contract_text = f"""# Ingestion Contract — Northstar Commerce Dataset v1.4
 
 ## 1. Định dạng nội dung, Lịch làm việc & Quy cách đóng gói
 - **Canonical Content Formats**: Markdown (.md) và Word (.docx).
@@ -3187,20 +3421,20 @@ ingestion_contract_text = f"""# Ingestion Contract — Northstar Commerce Datase
 - Nạp `evaluation/` ({total_eval_cases} test cases) vào namespace benchmark riêng; không đưa gold answer, expected value hoặc expected ACL decision vào index demo.
 - `fixtures/` chứa test-only duplicate, thiếu metadata, broken link, timestamp/policy conflict, cross-tenant canary, offboarded author và attachment.
 
-## 8. Work Task, Task Note và vòng đời review (v1.3)
-- `structured/work_tasks.jsonl` có {len(work_tasks)} Work Task synthetic; `task_id` là định danh 24 hex ổn định cho benchmark, **không phải ID MongoDB đang tồn tại**. `source_issue_key` ánh xạ về Jira-like issue; không nạp đè `issues.jsonl`.
-- `structured/task_notes.jsonl` có {len(task_notes)} ghi nhận công việc trỏ đến `task_id` cùng project. `TASK_NOTE` luôn `CONFIRMED` nhưng `knowledge_eligible=false`: không đưa note vào index tri thức chính thức.
-- `structured/document_reviews.jsonl` có {len(document_reviews)} event review. Chỉ phiên bản `APPROVED` mới đủ điều kiện làm nguồn; bản `DRAFT_SAVED` tiếp theo không thay thế phiên bản đã duyệt. Đây là dữ liệu mô phỏng, không phải event outbox runtime.
-- `structured/documents.jsonl` là snapshot tại `as_of_date`: `recorded_at` giữ mốc ghi nội dung; `updated_at` không sớm hơn event review cuối cùng và `status` phản ánh sự kiện duyệt/lưu trữ cuối cùng của tài liệu.
-- Fixture `FIX-CONFLICT-POLICY` là test-only và có event `ARCHIVED`; nó không trở thành nguồn chính thức. ADR cũ `DOC-PAY-ADR-001` vẫn mang trạng thái legacy `Superseded`, không bị giả lập thành một sự kiện review hợp lệ vì tác giả không có Project Membership trong NSC-PAY.
-- `structured/work_reports.jsonl` có {len(work_reports)} báo cáo kỳ với `document_ids` và `source_task_ids` làm provenance. `source_task_ids` là metadata dataset, không nằm trong DTO Work Report của ứng dụng.
-- `evaluation/workflow_cases.jsonl` có {len(workflow_cases)} ca gold theo kênh `workspace`, `access` và `knowledge`; chỉ dùng trong namespace evaluation. Không khẳng định AI ingestion runtime hiện đã tiêu thụ Work Note events.
-- Trong workflow cases, `target_resource_ids` là tài nguyên đang kiểm tra, `source_ids` chỉ chứa nguồn được phép dùng làm đáp án, `must_not_cite` là nguồn bị cấm trích dẫn. Ba trường không được đánh đồng; ca `DENY` luôn có `source_ids: []`.
-- Kiểm tra project/tenant membership trước khi trả tiêu đề, snippet hoặc tín hiệu tồn tại; thành viên đã offboard không có quyền hiện tại.
+## 8. Continuum Task Workspace, Group Note & ID Mapping (v1.4)
+- **Không tạo Team / Không tạo lịch sử AI Chat**: Phù hợp phạm vi Continuum đã chốt, dataset không sinh thực thể Team/Team Membership và không seed lịch sử AI Chat. Quyền truy cập được quyết định tường minh bởi `continuum_org_role` (`ADMIN`, `MEMBER`) và `continuum_role_code` cấp dự án (`TEAM_LEADER`, `MEMBER`), tuyệt đối không suy diễn từ chức danh hay phòng ban.
+- `structured/work_tasks.jsonl` có {len(work_tasks)} Continuum Work Task synthetic (bao phủ đủ 8 dự án, khóa chuẩn regex `^[A-Z0-9]{{2,10}}-[1-9][0-9]*$` như `NSCCAT-1..8` kèm `legacy_key` bảo toàn tương thích ngược, subtask 1 cấp, trạng thái `CANCELLED`, vòng lặp rework, checklist `steps`, `worklogs`, `comments`, và `task_events` có `reason >= 5` ký tự khi `BLOCKED`/`CANCELLED`/reopen). `task_id` là định danh 24 hex ổn định cho benchmark, **không phải ID MongoDB đang tồn tại**. `source_issue_key` ánh xạ về 2.500 Jira-like issues lịch sử; không đánh đồng toàn bộ 2.500 Jira issues là Continuum Task.
+- **Ba dạng Group Note bắt buộc (không tạo entity Notebook thứ tư)**:
+  1. `structured/task_notes.jsonl`: {len(task_notes)} `TASK_NOTE` trỏ đến `task_id` cùng project, luôn `status="CONFIRMED"` và `knowledge_eligible=false` (không đưa vào chỉ mục tri thức chính thức).
+  2. `structured/documents.jsonl` + `structured/document_reviews.jsonl`: {len(document_reviews)} event review trên các `PROJECT_DOCUMENT` chính thức (bao gồm `SUBMITTED`, `CHANGES_REQUESTED`, `REJECTED`, `APPROVED`, `DRAFT_SAVED`, `ARCHIVED`). Chỉ phiên bản `APPROVED` chưa bị `ARCHIVED` mới đủ điều kiện làm nguồn tri thức; bản `DRAFT_SAVED` hoặc `REJECTED` tiếp theo không ghi đè phiên bản đã duyệt.
+  3. `structured/work_reports.jsonl`: {len(work_reports)} `WORK_REPORT` bao phủ đầy đủ cả hai kỳ (`DAILY` và `WEEKLY`), cả hai luồng (`MEMBER` → `TEAM_LEADER`/`ADMIN` và `LEADER` → chỉ Organization `ADMIN` Manager phê duyệt theo đúng `ProjectReportRosterService`), và đủ trạng thái (`DRAFT`, `PENDING_REVIEW`, `CHANGES_REQUESTED`, `APPROVED`, `REJECTED`, kèm `is_overdue`).
+- **Gián đoạn đời thực & bàn giao (Disruption Windows)**: Các khoảng nghỉ ốm (`M-019` ngày `2026-08-19..20`), mất mạng do bão (`M-027` ngày `2026-09-14..15`) và nghỉ phép năm (`M-029` ngày `2026-08-26..27`) được ghi nhận tường minh trong `leave_windows`, không phát sinh hoạt động của người vắng mặt trong khung giờ nghỉ và có đầy đủ sự kiện bàn giao sang nhân sự dự phòng.
+- `structured/continuum_id_mapping.jsonl` ({len(continuum_id_mappings)} bản ghi) ánh xạ tường minh từng thực thể Northstar sang ID ứng viên 24-hex của Continuum, collection đích và trạng thái hỗ trợ (`API_SUPPORTED`, `IMPORTER_REQUIRED`, `DATASET_METADATA_ONLY`).
+- `evaluation/` ({total_eval_cases} ca kiểm thử, gồm {len(workflow_cases)} `workflow_cases`) nằm hoàn toàn trong namespace benchmark riêng, gắn trạng thái kiểm duyệt kép `review_status: "unreviewed"` (`"chưa duyệt"`). Không khẳng định AI ingestion runtime hiện đã tiêu thụ outbox events của Capture.
 """
 (ROOT / "INGESTION_CONTRACT.md").write_text(ingestion_contract_text, encoding="utf-8")
 
-readme_vi = f"""# Bộ Dữ Liệu Northstar Commerce v1.3 — Hướng Dẫn Vận Hành & Khai Thác
+readme_vi = f"""# Bộ Dữ Liệu Northstar Commerce v1.4 — Hướng Dẫn Vận Hành & Khai Thác
 
 ## 1. Bối cảnh kịch bản (Dataset Scenario)
 Bộ dữ liệu mô phỏng công ty công nghệ hư cấu **Northstar Commerce Systems**, đang xây dựng nền tảng thương mại điện tử đa tenant (multi-tenant ecommerce platform) cho khách hàng merchant pilot là **Meridian Outfitters**, tích hợp với đối tác cổng thanh toán **PulsePay Network**.
@@ -3221,11 +3455,11 @@ Bộ dữ liệu mô phỏng công ty công nghệ hư cấu **Northstar Commerc
 - **180 Ngày giả lập (Simulation Window)**: Từ `2026-04-16` đến `2026-10-12` (128 weekdays = **123 ngày làm việc chính thức** + 5 ngày lễ Việt Nam).
 - **{len(canonical_documents):,} Bản ghi tài liệu logic (Logical Documents)**: Được đăng ký đầy đủ trong `structured/documents.jsonl`; DOCX rendition dùng chung canonical ID với Markdown.
 - **Đúng 2.500 Jira-like Issues**: Có cấu trúc phân cấp `parent_key` (Epic -> Story/Task/Bug), vòng lặp review/rework/unblock phi tuyến tính, `{len(comments):,}` bình luận đa lượt (gồm cả nhân sự, đối tác và 4 bot hệ thống) và `{len(changelog):,}` bản ghi lịch sử chuyển đổi trạng thái/sprint/assignee.
-- **Work Task/Note v1.3**: {len(work_tasks)} task bản địa ánh xạ từ issue, {len(task_notes)} Task Note, {len(document_reviews)} event review tài liệu và {len(work_reports)} Work Report; tất cả là synthetic, không phải seed MongoDB.
+- **Continuum Task Workspace & Group Note v1.4**: {len(work_tasks)} Continuum Work Task (có checklist, worklog, comment, task_events, subtask 1 cấp, CANCELLED & bàn giao nghỉ ốm/mưa bão/PTO), {len(task_notes)} Task Note, {len(document_reviews)} event review tài liệu, {len(work_reports)} Work Report (`DAILY` & `WEEKLY`, luồng `MEMBER` & `LEADER`) và {len(continuum_id_mappings)} bản ghi `continuum_id_mapping`; tất cả là synthetic, không phải seed MongoDB.
 - **{total_eval_cases} Evaluation Cases** và **{len(functional_test_cases)} Functional Test Cases**: Đầy đủ các kịch bản RAG, ACL đa tenant, Analytics OT/Spillover, Ingestion và Edge Cases.
 
 ## 3. Kiến trúc đóng gói: File vật lý vs Bản ghi logic
-Package `Project1` giữ dưới giới hạn **160 file vật lý** ({physical_package_count} files):
+Package `Project1` tuân thủ giới hạn cứng **<= 160 file vật lý** ({physical_package_count} / 160 files):
 - **56 Monthly Markdown Bundles**: 8 dự án × 7 tháng lưu trữ 1.373 bản ghi cập nhật kỹ thuật trên **123 ngày làm việc chính thức** (20 ngày đầu có 12 docs/ngày, 103 ngày sau có 11 docs/ngày) sử dụng 12 mẫu cấu trúc tài liệu khác nhau.
 - **{len(docx_specs)} DOCX canonical sources** và **{len(completion_docx_specs)} DOCX renditions**.
 - **{len(md_specs)} Tài liệu Markdown formal** và **{len(registered_fixtures)} Fixture records**.
@@ -3260,7 +3494,7 @@ Package `Project1` giữ dưới giới hạn **160 file vật lý** ({physical_
 # Write the manifest last so it can inventory every other generated file.
 manifest_path = ROOT / "manifest.json"
 file_inventory = []
-for file_path in sorted(p for p in ROOT.rglob("*") if p.is_file() and p != manifest_path):
+for file_path in sorted(p for p in ROOT.rglob("*") if is_package_file(p) and p != manifest_path):
     relative_path = file_path.relative_to(ROOT).as_posix()
     raw_bytes = file_path.read_bytes()
     file_inventory.append({
@@ -3296,7 +3530,7 @@ manifest_path = ROOT / "manifest.json"
 actual_inventory_paths = sorted(
     p.relative_to(ROOT).as_posix()
     for p in ROOT.rglob("*")
-    if p.is_file() and p != manifest_path
+    if is_package_file(p) and p != manifest_path
 )
 if len(inventory) != len(inventory_by_path):
     validation_errors.append("Manifest file inventory contains duplicate paths")
@@ -3667,8 +3901,8 @@ if total_weekend_ot_changelog <= 0:
     validation_errors.append(f"Expected positive weekend_incident_ot changelog count, got {total_weekend_ot_changelog}")
 
 # 5. Check physical file counts
-v1_files = [f for f in ROOT.rglob("*") if f.is_file()]
-total_dataset_files = [f for f in ROOT.rglob("*") if f.is_file()]
+v1_files = [f for f in ROOT.rglob("*") if is_package_file(f)]
+total_dataset_files = [f for f in ROOT.rglob("*") if is_package_file(f)]
 print(f"Physical Files in Project1 package: {len(v1_files)}")
 print(f"Total Physical Files in Dataset: {len(total_dataset_files)} (Hard Cap: 160)")
 

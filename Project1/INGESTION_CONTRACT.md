@@ -1,4 +1,4 @@
-# Ingestion Contract — Northstar Commerce Dataset v1.3
+# Ingestion Contract — Northstar Commerce Dataset v1.4
 
 ## 1. Định dạng nội dung, Lịch làm việc & Quy cách đóng gói
 - **Canonical Content Formats**: Markdown (.md) và Word (.docx).
@@ -46,16 +46,16 @@
 - Inventory được sắp xếp theo đường dẫn và bao gồm toàn bộ file trong package `Project1`, ngoại trừ chính `manifest.json` để tránh checksum tự tham chiếu. `physical_files_in_v1` vẫn tính cả manifest.
 
 ## 7. Namespace và dữ liệu test
-- Nạp `evaluation/` (179 test cases) vào namespace benchmark riêng; không đưa gold answer, expected value hoặc expected ACL decision vào index demo.
+- Nạp `evaluation/` (190 test cases) vào namespace benchmark riêng; không đưa gold answer, expected value hoặc expected ACL decision vào index demo.
 - `fixtures/` chứa test-only duplicate, thiếu metadata, broken link, timestamp/policy conflict, cross-tenant canary, offboarded author và attachment.
 
-## 8. Work Task, Task Note và vòng đời review (v1.3)
-- `structured/work_tasks.jsonl` có 48 Work Task synthetic; `task_id` là định danh 24 hex ổn định cho benchmark, **không phải ID MongoDB đang tồn tại**. `source_issue_key` ánh xạ về Jira-like issue; không nạp đè `issues.jsonl`.
-- `structured/task_notes.jsonl` có 48 ghi nhận công việc trỏ đến `task_id` cùng project. `TASK_NOTE` luôn `CONFIRMED` nhưng `knowledge_eligible=false`: không đưa note vào index tri thức chính thức.
-- `structured/document_reviews.jsonl` có 58 event review. Chỉ phiên bản `APPROVED` mới đủ điều kiện làm nguồn; bản `DRAFT_SAVED` tiếp theo không thay thế phiên bản đã duyệt. Đây là dữ liệu mô phỏng, không phải event outbox runtime.
-- `structured/documents.jsonl` là snapshot tại `as_of_date`: `recorded_at` giữ mốc ghi nội dung; `updated_at` không sớm hơn event review cuối cùng và `status` phản ánh sự kiện duyệt/lưu trữ cuối cùng của tài liệu.
-- Fixture `FIX-CONFLICT-POLICY` là test-only và có event `ARCHIVED`; nó không trở thành nguồn chính thức. ADR cũ `DOC-PAY-ADR-001` vẫn mang trạng thái legacy `Superseded`, không bị giả lập thành một sự kiện review hợp lệ vì tác giả không có Project Membership trong NSC-PAY.
-- `structured/work_reports.jsonl` có 8 báo cáo kỳ với `document_ids` và `source_task_ids` làm provenance. `source_task_ids` là metadata dataset, không nằm trong DTO Work Report của ứng dụng.
-- `evaluation/workflow_cases.jsonl` có 21 ca gold theo kênh `workspace`, `access` và `knowledge`; chỉ dùng trong namespace evaluation. Không khẳng định AI ingestion runtime hiện đã tiêu thụ Work Note events.
-- Trong workflow cases, `target_resource_ids` là tài nguyên đang kiểm tra, `source_ids` chỉ chứa nguồn được phép dùng làm đáp án, `must_not_cite` là nguồn bị cấm trích dẫn. Ba trường không được đánh đồng; ca `DENY` luôn có `source_ids: []`.
-- Kiểm tra project/tenant membership trước khi trả tiêu đề, snippet hoặc tín hiệu tồn tại; thành viên đã offboard không có quyền hiện tại.
+## 8. Continuum Task Workspace, Group Note & ID Mapping (v1.4)
+- **Không tạo Team / Không tạo lịch sử AI Chat**: Phù hợp phạm vi Continuum đã chốt, dataset không sinh thực thể Team/Team Membership và không seed lịch sử AI Chat. Quyền truy cập được quyết định tường minh bởi `continuum_org_role` (`ADMIN`, `MEMBER`) và `continuum_role_code` cấp dự án (`TEAM_LEADER`, `MEMBER`), tuyệt đối không suy diễn từ chức danh hay phòng ban.
+- `structured/work_tasks.jsonl` có 64 Continuum Work Task synthetic (bao phủ đủ 8 dự án, khóa chuẩn regex `^[A-Z0-9]{2,10}-[1-9][0-9]*$` như `NSCCAT-1..8` kèm `legacy_key` bảo toàn tương thích ngược, subtask 1 cấp, trạng thái `CANCELLED`, vòng lặp rework, checklist `steps`, `worklogs`, `comments`, và `task_events` có `reason >= 5` ký tự khi `BLOCKED`/`CANCELLED`/reopen). `task_id` là định danh 24 hex ổn định cho benchmark, **không phải ID MongoDB đang tồn tại**. `source_issue_key` ánh xạ về 2.500 Jira-like issues lịch sử; không đánh đồng toàn bộ 2.500 Jira issues là Continuum Task.
+- **Ba dạng Group Note bắt buộc (không tạo entity Notebook thứ tư)**:
+  1. `structured/task_notes.jsonl`: 64 `TASK_NOTE` trỏ đến `task_id` cùng project, luôn `status="CONFIRMED"` và `knowledge_eligible=false` (không đưa vào chỉ mục tri thức chính thức).
+  2. `structured/documents.jsonl` + `structured/document_reviews.jsonl`: 60 event review trên các `PROJECT_DOCUMENT` chính thức (bao gồm `SUBMITTED`, `CHANGES_REQUESTED`, `REJECTED`, `APPROVED`, `DRAFT_SAVED`, `ARCHIVED`). Chỉ phiên bản `APPROVED` chưa bị `ARCHIVED` mới đủ điều kiện làm nguồn tri thức; bản `DRAFT_SAVED` hoặc `REJECTED` tiếp theo không ghi đè phiên bản đã duyệt.
+  3. `structured/work_reports.jsonl`: 24 `WORK_REPORT` bao phủ đầy đủ cả hai kỳ (`DAILY` và `WEEKLY`), cả hai luồng (`MEMBER` → `TEAM_LEADER`/`ADMIN` và `LEADER` → chỉ Organization `ADMIN` Manager phê duyệt theo đúng `ProjectReportRosterService`), và đủ trạng thái (`DRAFT`, `PENDING_REVIEW`, `CHANGES_REQUESTED`, `APPROVED`, `REJECTED`, kèm `is_overdue`).
+- **Gián đoạn đời thực & bàn giao (Disruption Windows)**: Các khoảng nghỉ ốm (`M-019` ngày `2026-08-19..20`), mất mạng do bão (`M-027` ngày `2026-09-14..15`) và nghỉ phép năm (`M-029` ngày `2026-08-26..27`) được ghi nhận tường minh trong `leave_windows`, không phát sinh hoạt động của người vắng mặt trong khung giờ nghỉ và có đầy đủ sự kiện bàn giao sang nhân sự dự phòng.
+- `structured/continuum_id_mapping.jsonl` (449 bản ghi) ánh xạ tường minh từng thực thể Northstar sang ID ứng viên 24-hex của Continuum, collection đích và trạng thái hỗ trợ (`API_SUPPORTED`, `IMPORTER_REQUIRED`, `DATASET_METADATA_ONLY`).
+- `evaluation/` (190 ca kiểm thử, gồm 32 `workflow_cases`) nằm hoàn toàn trong namespace benchmark riêng, gắn trạng thái kiểm duyệt kép `review_status: "unreviewed"` (`"chưa duyệt"`). Không khẳng định AI ingestion runtime hiện đã tiêu thụ outbox events của Capture.

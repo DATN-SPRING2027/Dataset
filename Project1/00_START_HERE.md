@@ -1,4 +1,4 @@
-# Bộ Dữ Liệu Northstar Commerce v1.3 — Hướng Dẫn Vận Hành & Khai Thác
+# Bộ Dữ Liệu Northstar Commerce v1.4 — Hướng Dẫn Vận Hành & Khai Thác
 
 ## 1. Bối cảnh kịch bản (Dataset Scenario)
 Bộ dữ liệu mô phỏng công ty công nghệ hư cấu **Northstar Commerce Systems**, đang xây dựng nền tảng thương mại điện tử đa tenant (multi-tenant ecommerce platform) cho khách hàng merchant pilot là **Meridian Outfitters**, tích hợp với đối tác cổng thanh toán **PulsePay Network**.
@@ -19,11 +19,11 @@ Bộ dữ liệu mô phỏng công ty công nghệ hư cấu **Northstar Commerc
 - **180 Ngày giả lập (Simulation Window)**: Từ `2026-04-16` đến `2026-10-12` (128 weekdays = **123 ngày làm việc chính thức** + 5 ngày lễ Việt Nam).
 - **1,434 Bản ghi tài liệu logic (Logical Documents)**: Được đăng ký đầy đủ trong `structured/documents.jsonl`; DOCX rendition dùng chung canonical ID với Markdown.
 - **Đúng 2.500 Jira-like Issues**: Có cấu trúc phân cấp `parent_key` (Epic -> Story/Task/Bug), vòng lặp review/rework/unblock phi tuyến tính, `2,814` bình luận đa lượt (gồm cả nhân sự, đối tác và 4 bot hệ thống) và `8,377` bản ghi lịch sử chuyển đổi trạng thái/sprint/assignee.
-- **Work Task/Note v1.3**: 48 task bản địa ánh xạ từ issue, 48 Task Note, 58 event review tài liệu và 8 Work Report; tất cả là synthetic, không phải seed MongoDB.
-- **179 Evaluation Cases** và **84 Functional Test Cases**: Đầy đủ các kịch bản RAG, ACL đa tenant, Analytics OT/Spillover, Ingestion và Edge Cases.
+- **Continuum Task Workspace & Group Note v1.4**: 64 Continuum Work Task (có checklist, worklog, comment, task_events, subtask 1 cấp, CANCELLED & bàn giao nghỉ ốm/mưa bão/PTO), 64 Task Note, 60 event review tài liệu, 24 Work Report (`DAILY` & `WEEKLY`, luồng `MEMBER` & `LEADER`) và 449 bản ghi `continuum_id_mapping`; tất cả là synthetic, không phải seed MongoDB.
+- **190 Evaluation Cases** và **84 Functional Test Cases**: Đầy đủ các kịch bản RAG, ACL đa tenant, Analytics OT/Spillover, Ingestion và Edge Cases.
 
 ## 3. Kiến trúc đóng gói: File vật lý vs Bản ghi logic
-Package `Project1` giữ dưới giới hạn **160 file vật lý** (159 files):
+Package `Project1` tuân thủ giới hạn cứng **<= 160 file vật lý** (160 / 160 files):
 - **56 Monthly Markdown Bundles**: 8 dự án × 7 tháng lưu trữ 1.373 bản ghi cập nhật kỹ thuật trên **123 ngày làm việc chính thức** (20 ngày đầu có 12 docs/ngày, 103 ngày sau có 11 docs/ngày) sử dụng 12 mẫu cấu trúc tài liệu khác nhau.
 - **10 DOCX canonical sources** và **8 DOCX renditions**.
 - **43 Tài liệu Markdown formal** và **8 Fixture records**.
@@ -49,6 +49,6 @@ Package `Project1` giữ dưới giới hạn **160 file vật lý** (159 files)
 3. **Tab Sprints**: Tra cứu 104 sprint của 8 dự án, xem mục tiêu sprint và trạng thái active/closed.
 4. **Tab Documents**: Sử dụng bộ lọc (AutoFilter) theo `project_id`, `scope`, `is_overtime`, `work_mode`, `classification`, `status` hoặc `format`.
 5. **Tab Issues**: Tra cứu 2.500 ticket theo `status`, `sprint_id`, `parent_key`, `is_overtime`, `overtime_hours`, `spillover_count`, `assignee_id`, hoặc `priority`.
-6. **Tab Evaluation Cases**: Xem 179 kịch bản RAG, ACL, ingestion, tiến độ, analytics và workflow.
+6. **Tab Evaluation Cases**: Xem 190 kịch bản RAG, ACL, ingestion, tiến độ, analytics và workflow.
 7. **Tab Functional Tests**: Lọc 84 test theo project, requirement, actor, priority và kết quả kỳ chạy.
 8. **Tab Work Tasks / Task Notes / Document Reviews / Work Reports**: Tra chuỗi nguồn việc làm, ghi nhận, phê duyệt và báo cáo theo ID/project.

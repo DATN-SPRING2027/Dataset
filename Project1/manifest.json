@@ -1,6 +1,6 @@
 {
   "dataset_id": "northstar-commerce-demo-v1",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "as_of_date": "2026-10-12",
   "simulation_window": {
     "start": "2026-04-16",
@@ -42,25 +42,26 @@
     "requirements": 74,
     "functional_test_cases": 84,
     "test_execution_results": 84,
-    "work_tasks": 48,
-    "task_notes": 48,
-    "document_review_events": 58,
-    "work_reports": 8,
-    "physical_files_in_v1": 159,
-    "physical_files_total_dataset": 159,
+    "work_tasks": 64,
+    "task_notes": 64,
+    "document_review_events": 60,
+    "work_reports": 24,
+    "continuum_id_mappings": 449,
+    "physical_files_in_v1": 160,
+    "physical_files_total_dataset": 160,
     "physical_breakdown": {
       "markdown_bundles": 56,
       "docx_canonical_sources": 10,
       "docx_renditions": 8,
       "markdown_formal_sources": 43,
       "fixtures_and_attachments": 9,
-      "structured_jsonl": 19,
+      "structured_jsonl": 20,
       "evaluation_jsonl": 7,
       "documentation_and_catalog": 4,
       "generator_tools": 3
     },
     "evaluation_cases": {
-      "total": 179,
+      "total": 190,
       "functional_cases": 84,
       "rag_cases": 34,
       "acl_cases": 30,
@@ -68,11 +69,11 @@
       "progress_cases": 19,
       "ingestion_cases": 19,
       "edge_scenarios": 36,
-      "workflow_cases": 21
+      "workflow_cases": 32
     },
-    "file_inventory_entries": 158
+    "file_inventory_entries": 159
   },
-  "packaging_model": "Canonical Markdown with linked DOCX renditions and project-month bundles (Project1 package remains below 160 physical files)",
+  "packaging_model": "Canonical Markdown with linked DOCX renditions and project-month bundles (Project1 package stays within the <= 160 physical file hard cap)",
   "primary_formats": [
     ".md",
     ".docx",
@@ -98,13 +99,13 @@
   "file_inventory": [
     {
       "path": "00_START_HERE.md",
-      "size_bytes": 7537,
-      "sha256": "5c882e1ddf50bdb1a2a413024c9562354b21f4db9fbada3faa80140fd04ea6aa"
+      "size_bytes": 7757,
+      "sha256": "f4c7ac5036d3a38a54dbde0694698d8c2fe641c1453a5b809412a613c20c4ead"
     },
     {
       "path": "Dataset_Catalog.xlsx",
-      "size_bytes": 5853858,
-      "sha256": "0d2778791512cb85ceee75091d159c5a319dd97fbcebc25f6acb2c87e65517a9"
+      "size_bytes": 5936969,
+      "sha256": "1be68c3862268bc64b05a9f7bb8e343d17c11b6aa425720fe686f977e0aeea68"
     },
     {
       "path": "documents/docx/API_Specification.docx",
@@ -693,38 +694,38 @@
     },
     {
       "path": "evaluation/acl_cases.jsonl",
-      "size_bytes": 5892,
-      "sha256": "86bafa5ed1537623003e6039e8764525fa1a96673bf9f81a0bfcb11c0a2e9d08"
+      "size_bytes": 16637,
+      "sha256": "10ca055e22283761f4a2b2535b70b25b6ab635e34c99aea794731d935197f9e7"
     },
     {
       "path": "evaluation/analytics_cases.jsonl",
-      "size_bytes": 4813,
-      "sha256": "a360af52a9a377aa5a219e63513027dc681d05a000eefc7c9e9e9cf432203176"
+      "size_bytes": 12018,
+      "sha256": "ee2706e5ecc7c76749cd07a3f646579589e74368447773eff30a6687bec6dcc7"
     },
     {
       "path": "evaluation/edge_case_matrix.jsonl",
-      "size_bytes": 8128,
-      "sha256": "4e152037b8ac42d6b8c42a1e52e2f040337721ac1f6945b74f37b5016e293126"
+      "size_bytes": 21289,
+      "sha256": "92b8c49c399e1187410e1434ee5186c4a100c682214dfcfcd48fa9651f16f8dd"
     },
     {
       "path": "evaluation/ingestion_cases.jsonl",
-      "size_bytes": 6063,
-      "sha256": "6b956fc35347cf3bb1862af56b89820eaa7fd2c85c75426043a44f9b94cbb0a0"
+      "size_bytes": 13097,
+      "sha256": "6d0bef4ffdbbb05b5574ff16ddc8b06f9a7d8edaa2bcfa96302e3cb6a100d201"
     },
     {
       "path": "evaluation/progress_cases.jsonl",
-      "size_bytes": 3742,
-      "sha256": "5a877265c9b67e6e35c6529acc80e4df88d9586a32a2262963d061deae62906e"
+      "size_bytes": 10184,
+      "sha256": "74845ee352d3cc33140350dcd475109425b02c48b7b486d60b06f469153c2b86"
     },
     {
       "path": "evaluation/rag_cases.jsonl",
-      "size_bytes": 11023,
-      "sha256": "68507bcd8658ee802e6962f5b4886790fca00bdcff239fa50cee7850e6315442"
+      "size_bytes": 23183,
+      "sha256": "aafcb6049ba9ec81de6c5d216176999628c71870ebf336dcc1d020a39a69ed78"
     },
     {
       "path": "evaluation/workflow_cases.jsonl",
-      "size_bytes": 10288,
-      "sha256": "93e6f0b815504624a06bfcdc8d364d4ec6403bb992eb4b3451ccda10b7eceb9b"
+      "size_bytes": 30990,
+      "sha256": "08b708cebfa43aba28efb0d6fb4946a6d0e859ab423b701161503b6af0c7e4c4"
     },
     {
       "path": "fixtures/attachments/payment_webhook_sample.csv",
@@ -773,13 +774,18 @@
     },
     {
       "path": "INGESTION_CONTRACT.md",
-      "size_bytes": 10638,
-      "sha256": "1211985fb781a4edebc987eb5f02a22d50f8d40f2e99f7ef28d5a39b5af52234"
+      "size_bytes": 11652,
+      "sha256": "d3dabebecfadc5f79d6f848e6296c190cf21cc81b1fec3e1e956946cf2e5950b"
     },
     {
       "path": "structured/access_groups.jsonl",
       "size_bytes": 1235,
       "sha256": "47e7d3757c8927b8f26f3cd3de2cc63433e040f6b1061d68c2350ec3202244f1"
+    },
+    {
+      "path": "structured/continuum_id_mapping.jsonl",
+      "size_bytes": 207151,
+      "sha256": "bdb014ed1534c96c96a0df46e6b5d14ee37564f85219071b5bad4a1469db12e7"
     },
     {
       "path": "structured/departments.jsonl",
@@ -788,13 +794,13 @@
     },
     {
       "path": "structured/document_reviews.jsonl",
-      "size_bytes": 15995,
-      "sha256": "1ce5eb8416593cca7b088dbd42b6d0830c2eae3d23443ed450e2101b7f0ba3d3"
+      "size_bytes": 16681,
+      "sha256": "b7177816fae4be2e91b748cf183b93c9646f9cbfe6b693b110bdaa91b1a86823"
     },
     {
       "path": "structured/documents.jsonl",
-      "size_bytes": 1480711,
-      "sha256": "b6d60ccd306b76a9fce31bf2241c06f19ec68dbd21b889fa1924a7a301f665d5"
+      "size_bytes": 1700167,
+      "sha256": "27ee5fc4a2495e84453ae3b1d4e003869c98c4650e108044506f514af8c12895"
     },
     {
       "path": "structured/functional_test_cases.jsonl",
@@ -823,23 +829,23 @@
     },
     {
       "path": "structured/members.jsonl",
-      "size_bytes": 20487,
-      "sha256": "ae87244ea9ce784e9bd141190027c2494812950ba7d5bd6406e36e4428f238f5"
+      "size_bytes": 42647,
+      "sha256": "9ffdf06ed8b5c4a7d355ec02aec9b0793b3391b47b2592ab7b2d6a687677ad58"
     },
     {
       "path": "structured/organizations.jsonl",
-      "size_bytes": 431,
-      "sha256": "39656dd9b7c61e623472c2f5f549c5128cf2a4592ce29d5c40f4f857c633252d"
+      "size_bytes": 739,
+      "sha256": "b7762b788352a3416827a9222dec6851b8223b0062342298b20e22399e0b8fb8"
     },
     {
       "path": "structured/project_memberships.jsonl",
-      "size_bytes": 13605,
-      "sha256": "b8468d858bbf5550bf5f2bd8baffa290495225a665ae1a9659068dfbe067ed73"
+      "size_bytes": 44286,
+      "sha256": "ca15e5afd5acbac1314d91a97f98aae76169867b56e0d4c22f5467c3f9c003b7"
     },
     {
       "path": "structured/projects.jsonl",
-      "size_bytes": 2457,
-      "sha256": "fdd9e7a7a5f23c11ea446d61dd87489d0c9851ed532c23797e5bfe04374d0dbb"
+      "size_bytes": 4853,
+      "sha256": "1e1a32e2ac345c77f0ebe7bf4f5e117e4b5ee2d25d25d82218ffb4e88097020c"
     },
     {
       "path": "structured/requirements.jsonl",
@@ -848,13 +854,13 @@
     },
     {
       "path": "structured/sprints.jsonl",
-      "size_bytes": 31374,
-      "sha256": "034fcb74321032564ad050feb0fc022109d8da35c754bf250e7bdd935243f479"
+      "size_bytes": 50486,
+      "sha256": "cc9d80499e61bb207242dba43e3da627eeb0b6dc546f933ab223e8a78cff5c1f"
     },
     {
       "path": "structured/task_notes.jsonl",
-      "size_bytes": 42350,
-      "sha256": "9c6f1bf976fa243326138251b9f6fffda89562c6f0f4136071a382b55baebf45"
+      "size_bytes": 58510,
+      "sha256": "2c0ef0d23be1172c0fd84513e477d3691f63a888aa9661badb70f653eedf2993"
     },
     {
       "path": "structured/test_execution_results.jsonl",
@@ -863,13 +869,13 @@
     },
     {
       "path": "structured/work_reports.jsonl",
-      "size_bytes": 9825,
-      "sha256": "c96c0cd2194b589155b04b79399eadcfb57ac65b108210f5928c8ecb6920952a"
+      "size_bytes": 34310,
+      "sha256": "349a345e852bee5aa87749f0906bb1906dbc523cd7a1edf167a068d35c39ff97"
     },
     {
       "path": "structured/work_tasks.jsonl",
-      "size_bytes": 40367,
-      "sha256": "85e4a30ba6475b855b98b195eff777e92c24e8bd5d3e37dcc93ffe403563873e"
+      "size_bytes": 239735,
+      "sha256": "80b919381b1289d9777501b33acfba607e27ad9eb5655368d711dfac0f85947b"
     },
     {
       "path": "tools/completion_specs.py",
@@ -878,13 +884,13 @@
     },
     {
       "path": "tools/generate_v1.py",
-      "size_bytes": 271542,
-      "sha256": "848aeaa1b3bf937df54892688aa333090a52e2ca8e202a2fc00ea8b8c801b918"
+      "size_bytes": 284757,
+      "sha256": "0fcb2beb4ccd271e3847f1fa56e50530010196a286c8428d2f9792a434f6119b"
     },
     {
       "path": "tools/workflows_v13.py",
-      "size_bytes": 29347,
-      "sha256": "4e4b85606cad2c9b0dab393bf3ad93e7715cdeedec273a7411705013f711f050"
+      "size_bytes": 78792,
+      "sha256": "49d1799416ce0b7ef512f12f6a301e64182d381b512832d9cf92a665e432c174"
     }
   ]
 }

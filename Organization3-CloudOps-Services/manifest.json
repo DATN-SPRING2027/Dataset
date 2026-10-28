@@ -1,0 +1,410 @@
+{
+  "as_of_date": "2026-10-16",
+  "canonical_counts": {
+    "active_users": 22,
+    "continuum_id_mappings": 348,
+    "disruption_events": 3,
+    "document_versions": 28,
+    "docx_renditions": 6,
+    "evaluation_cases": 56,
+    "extra_structured_counts": {
+      "structured/incidents.jsonl": 3,
+      "structured/kanban_wip_policies.jsonl": 4,
+      "structured/oncall_schedules.jsonl": 3,
+      "structured/system_bots.jsonl": 3
+    },
+    "file_inventory_entries": 61,
+    "negative_fixtures": 8,
+    "organization_memberships": 23,
+    "organizations": 3,
+    "physical_files_total": 62,
+    "project_documents": 24,
+    "project_memberships": 26,
+    "projects": 4,
+    "role_assignments": 49,
+    "sprints": 0,
+    "subtasks": 5,
+    "suspended_or_offboarded_users": 1,
+    "task_comments": 124,
+    "task_events": 574,
+    "task_notes": 81,
+    "task_worklogs": 116,
+    "tasks": 128,
+    "users": 23,
+    "work_report_settings": 8,
+    "work_reports": 36
+  },
+  "confirmed_product_scope": {
+    "ai_chat_history_included": false,
+    "evaluation_review_status": "unreviewed (chưa duyệt)",
+    "fourth_notebook_entity_included": false,
+    "group_note_forms": [
+      "TASK_NOTE",
+      "PROJECT_DOCUMENT",
+      "WORK_REPORT"
+    ],
+    "synthetic_data_only": true,
+    "team_entity_included": false
+  },
+  "dataset_id": "continuum-org3-cloudops-kanban-v1",
+  "file_inventory": [
+    {
+      "path": "Dataset_Catalog.xlsx",
+      "sha256": "c67974b52b5449e502298b911d1b3d6d789be5e316fabd632335ded5e057818c",
+      "size_bytes": 61309
+    },
+    {
+      "path": "INGESTION_CONTRACT.md",
+      "sha256": "a22d08a021010dfac1e8ec733cc67741f96604819db4e796bb86d733c4abe71b",
+      "size_bytes": 1797
+    },
+    {
+      "path": "README.md",
+      "sha256": "9eff60cd2744090a112037b14a7c74aab45ada6c301b8452d0bd9cec82c66961",
+      "size_bytes": 3663
+    },
+    {
+      "path": "documents/docx/DOC-CLDINC-RCA-002.docx",
+      "sha256": "59b8eb4cca4b906f016c8e42ab6977c54edb50a31571ebfdfd0c2f4e233a3843",
+      "size_bytes": 38263
+    },
+    {
+      "path": "documents/docx/DOC-CLDINC-REQ-001.docx",
+      "sha256": "31cc8a1f6a8afaeb19c32623e64c624746586d9190ea2544c0f4314d11925c66",
+      "size_bytes": 38104
+    },
+    {
+      "path": "documents/docx/DOC-CLDINF-ARC-001.docx",
+      "sha256": "0e61c7da140b5d61c0d398a6acd2013ac4ffcca900fb7149d5bf05f25b9b5a84",
+      "size_bytes": 37706
+    },
+    {
+      "path": "documents/docx/DOC-CLDINF-DB-002.docx",
+      "sha256": "b16393cbd7879bed34a885e7d1db32c531c0863fcf99e4475e312d4adff61697",
+      "size_bytes": 38140
+    },
+    {
+      "path": "documents/docx/DOC-CLDOBS-REQ-001.docx",
+      "sha256": "4a2de37d1f98722edcabc3832ddb437b9f3ff6a0fa1bb554a83b3fc538ae7d0f",
+      "size_bytes": 37523
+    },
+    {
+      "path": "documents/docx/DOC-CLDSUP-REQ-001.docx",
+      "sha256": "54471f15289a62d0cd051ad73063c4b1bcd3952722955602bc5e1e9d9083d3dc",
+      "size_bytes": 37726
+    },
+    {
+      "path": "documents/markdown/DOC-CLDINC-API-004.md",
+      "sha256": "8044f8655803c08a5b498c7c61f210dfa9a599f96483a796a0f11a1c7a49be8d",
+      "size_bytes": 1091
+    },
+    {
+      "path": "documents/markdown/DOC-CLDINC-ARC-003.md",
+      "sha256": "ada7d1f6f75002faede745fad533d4577a73f63a5e14770f467f14a45e356ae0",
+      "size_bytes": 1178
+    },
+    {
+      "path": "documents/markdown/DOC-CLDINC-DES-005.md",
+      "sha256": "506a0b024b0d039eec4179b4e69bb89b306bf5aa50c0c6f510ec9f3f6dbc77c2",
+      "size_bytes": 1360
+    },
+    {
+      "path": "documents/markdown/DOC-CLDINC-RCA-002.md",
+      "sha256": "3a7accb0e87cee6c54a92d78f6d27d14c27f0591e51f3eb7697e62dfd7b98fd8",
+      "size_bytes": 2622
+    },
+    {
+      "path": "documents/markdown/DOC-CLDINC-REQ-001.md",
+      "sha256": "1547d48aa2604798d095ea25c31be3466815a6f016a7e3ee825dc2b93f7957b6",
+      "size_bytes": 2156
+    },
+    {
+      "path": "documents/markdown/DOC-CLDINC-RUN-006.md",
+      "sha256": "684ebaac79ac6e128a3905b4393412da0b89caba0acf4a8dec8f5aded91b6cd4",
+      "size_bytes": 1133
+    },
+    {
+      "path": "documents/markdown/DOC-CLDINF-API-003.md",
+      "sha256": "0cc4be4483753676925e266587a9a9df776ae1d64c46f133b3853d640450218e",
+      "size_bytes": 1093
+    },
+    {
+      "path": "documents/markdown/DOC-CLDINF-ARC-001.md",
+      "sha256": "47a1a3cc2983baeaaea8e83ac3253a46ebb45af803ca9ea07bbf5e0e47d63765",
+      "size_bytes": 1719
+    },
+    {
+      "path": "documents/markdown/DOC-CLDINF-DB-002.md",
+      "sha256": "9562dfa3297b0e5a0ad970bad6e66a642ff52c8e54666058c5cf29937e80f01d",
+      "size_bytes": 2508
+    },
+    {
+      "path": "documents/markdown/DOC-CLDINF-REQ-004.md",
+      "sha256": "6347a6fb904e48e44e35f458b1cc61007c4a9b73e6ae986f63593d4fc3cc1b5f",
+      "size_bytes": 1084
+    },
+    {
+      "path": "documents/markdown/DOC-CLDINF-RUN-006-LEGACY.md",
+      "sha256": "7ee90f8adcdf4d8e9d2a179fb4e0e36170efed584abecdeb40f5c081e443808a",
+      "size_bytes": 1163
+    },
+    {
+      "path": "documents/markdown/DOC-CLDINF-TST-005.md",
+      "sha256": "5d8c117d7c3e21d4a5f186701c9b3b6be35248e47c518bbee66dc55b404ff2d4",
+      "size_bytes": 1152
+    },
+    {
+      "path": "documents/markdown/DOC-CLDOBS-API-004.md",
+      "sha256": "5607dda73ccce3946192d1c374aa7f8acbb5193a4beb2607e4813cb5e029550e",
+      "size_bytes": 1131
+    },
+    {
+      "path": "documents/markdown/DOC-CLDOBS-ARC-002.md",
+      "sha256": "1ccd6c9e5391080007d6e7cbc136cbd496c34985e06cda0e55dbc1f4378bb6e6",
+      "size_bytes": 1147
+    },
+    {
+      "path": "documents/markdown/DOC-CLDOBS-DB-003.md",
+      "sha256": "24ce93694ff746fe2c45b8f7b9a3cbba3b4b91547b8e2ea5d380ab7ffd4a1395",
+      "size_bytes": 1108
+    },
+    {
+      "path": "documents/markdown/DOC-CLDOBS-REQ-001.md",
+      "sha256": "5d04171014d5d9122dbe47d2403706a9de4fc34a16b85e6b8a43d16a443127a5",
+      "size_bytes": 1173
+    },
+    {
+      "path": "documents/markdown/DOC-CLDOBS-RUN-005.md",
+      "sha256": "62a71ab823cfdcae467b97bc5cc81c46a1a36667dfa95cc32e6b1618272b31ec",
+      "size_bytes": 1143
+    },
+    {
+      "path": "documents/markdown/DOC-CLDOBS-SLI-006.md",
+      "sha256": "067ebd6b4264e734587943bd647f90f06bf9954b3f7caa1f7b1c4a5dbb15f1d0",
+      "size_bytes": 1093
+    },
+    {
+      "path": "documents/markdown/DOC-CLDSUP-API-003.md",
+      "sha256": "b35b5f7bfa594f885d67bef9915d73900f623737475fee900c5df8e6928b9409",
+      "size_bytes": 1157
+    },
+    {
+      "path": "documents/markdown/DOC-CLDSUP-ARC-002.md",
+      "sha256": "73abc0c92279fa0446ccc8148aa0632a526f172b71972dac31e8cd979fbf914a",
+      "size_bytes": 1161
+    },
+    {
+      "path": "documents/markdown/DOC-CLDSUP-COM-006.md",
+      "sha256": "2fd736014cc7d7073541a0df596ba264f97843e82da679543f7e9864955cd207",
+      "size_bytes": 1023
+    },
+    {
+      "path": "documents/markdown/DOC-CLDSUP-DB-004.md",
+      "sha256": "650a8db44a3f44d14b56c7e47e75119c978190ac16b2b61149334d4627b1cbec",
+      "size_bytes": 1164
+    },
+    {
+      "path": "documents/markdown/DOC-CLDSUP-REQ-001.md",
+      "sha256": "bc1183e892be352910b7de4d9d7a3d3fd5c85d8c6cd01851a0009ca952422262",
+      "size_bytes": 1628
+    },
+    {
+      "path": "documents/markdown/DOC-CLDSUP-RUN-005.md",
+      "sha256": "a84ec9107005c70620e67cd898c394b76caae34fbb0031a430bb832355fd78dd",
+      "size_bytes": 1126
+    },
+    {
+      "path": "evaluation/benchmark_cases.jsonl",
+      "sha256": "326a86739acd17abf2c6dcee96b4ae27d23e075bc9cde675fdb6292457a65a67",
+      "size_bytes": 61794
+    },
+    {
+      "path": "fixtures/negative_cases.json",
+      "sha256": "c65400c4e156af8f989abaceaa0a62d5c5b25362bd17ac5093fe5f20d2401d8a",
+      "size_bytes": 2377
+    },
+    {
+      "path": "structured/continuum_id_mapping.jsonl",
+      "sha256": "119a340e02be9ee9c69f94894cc25a125d8a277d1785399199f3f4da1eb7491e",
+      "size_bytes": 144966
+    },
+    {
+      "path": "structured/disruption_events.jsonl",
+      "sha256": "e698d6e4a7555ee62a7a6d72975d23d50059830d86465c5f2eb9fb109bfee99c",
+      "size_bytes": 2054
+    },
+    {
+      "path": "structured/document_versions.jsonl",
+      "sha256": "248dc50ca880abbd6b5ae98834fd510fc891337ab2af41c77da0948f272d8d36",
+      "size_bytes": 28321
+    },
+    {
+      "path": "structured/incidents.jsonl",
+      "sha256": "b651635c5dc6d3e9c19d20820e09199741bda1c4fd710e8fbff16adb9bd04928",
+      "size_bytes": 2015
+    },
+    {
+      "path": "structured/kanban_wip_policies.jsonl",
+      "sha256": "4c505243ebfd53e9467ea806387c91c8dcc5c8d6e07131b9ba51668ef714dbf3",
+      "size_bytes": 1645
+    },
+    {
+      "path": "structured/oncall_schedules.jsonl",
+      "sha256": "fd6e3c3ba53afde32239c12d43c83c88b561ea49eb2360ac13d8c25007eba6f0",
+      "size_bytes": 1263
+    },
+    {
+      "path": "structured/organization_memberships.jsonl",
+      "sha256": "4ff52cf8d5701b4276a9b4b62a6f1ced96d705d784ab5d1fb8711635fbd06ac5",
+      "size_bytes": 4084
+    },
+    {
+      "path": "structured/organizations.jsonl",
+      "sha256": "e5596e84e478172bf5e16caa829fb2f52b9e1ed26931faeb351cd368cef5ce6f",
+      "size_bytes": 795
+    },
+    {
+      "path": "structured/project_documents.jsonl",
+      "sha256": "10d980630005a51ec2d1b7d4cf3c2c9586dd66f4eacc540210d0ac07a187673d",
+      "size_bytes": 26667
+    },
+    {
+      "path": "structured/project_memberships.jsonl",
+      "sha256": "cc226b0137ff563bca0789ee423a4c6c366b7a53d5e8e5ecd814e92b620812e3",
+      "size_bytes": 5220
+    },
+    {
+      "path": "structured/projects.jsonl",
+      "sha256": "84eaa1bf4ee04ba856e9c604550d1370e6f455dee1ffb70ce0a038ed89d09ca8",
+      "size_bytes": 2453
+    },
+    {
+      "path": "structured/role_assignments.jsonl",
+      "sha256": "7842e7819876c490df0fc2e6e4f56dd4616f2c463269b2c56b6cdb98822756d9",
+      "size_bytes": 11192
+    },
+    {
+      "path": "structured/sprints.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "path": "structured/system_bots.jsonl",
+      "sha256": "993f5a0445e720b90e9555a6c7050fc0d722d52e582e52a855b9d889797480ed",
+      "size_bytes": 428
+    },
+    {
+      "path": "structured/task_comments.jsonl",
+      "sha256": "4df2e108e570e20206b17fc6b7c516ad691b30032f85dc9e55b94734d1fb1e29",
+      "size_bytes": 53845
+    },
+    {
+      "path": "structured/task_events.jsonl",
+      "sha256": "316e9f655583061c3dfa95df5fc177a304f12533d5de6d3a1e82163aa949f79d",
+      "size_bytes": 215124
+    },
+    {
+      "path": "structured/task_notes.jsonl",
+      "sha256": "0ded6704ef0b201c71e743dfef8dafc951530b4f61c153d526bf4a262abcf9ff",
+      "size_bytes": 102693
+    },
+    {
+      "path": "structured/task_worklogs.jsonl",
+      "sha256": "5c74b1148e0a493cf23ca187e109307963001b0967f2851c1875abd8a70465ad",
+      "size_bytes": 58257
+    },
+    {
+      "path": "structured/tasks.jsonl",
+      "sha256": "1dd56842901c792e163760e9556305711ceef74b4fffb0d5b4fe3674dc0f27c2",
+      "size_bytes": 236832
+    },
+    {
+      "path": "structured/users.jsonl",
+      "sha256": "bbcf8e32ea765a0f9bcfd15660d5f390ca96512a960230edfb5720bdd9634df9",
+      "size_bytes": 8165
+    },
+    {
+      "path": "structured/work_report_settings.jsonl",
+      "sha256": "c0b64c0b2f77f5b2085b600e1955a2457cacc1f29206df2e24ba4aa5968782b8",
+      "size_bytes": 2116
+    },
+    {
+      "path": "structured/work_reports.jsonl",
+      "sha256": "0fccd98542cf4ba8742ff7af19ad9581399d9788f58c7f0a4c384a1992d93612",
+      "size_bytes": 52745
+    },
+    {
+      "path": "tools/cloudops_docs.py",
+      "sha256": "49cd25ff6bfe8a8f22f14e7896e99bfc946314de8a1e6b7ec738ab0e5b632244",
+      "size_bytes": 55411
+    },
+    {
+      "path": "tools/cloudops_eval.py",
+      "sha256": "ae61df5d5ffbeb30db51816a2b782b145c16328f39870fd34ad8ad1cc1b50a23",
+      "size_bytes": 35138
+    },
+    {
+      "path": "tools/cloudops_specs.py",
+      "sha256": "b8d8721ef095ff379a4ef501e8c452c3aad29e2cf4d1f2098b7b30bff7448446",
+      "size_bytes": 17689
+    },
+    {
+      "path": "tools/generate_org.py",
+      "sha256": "86330ce5c87839020a98e0ffc98b76209abed8f647b47142c748f94e8621fe02",
+      "size_bytes": 46112
+    }
+  ],
+  "implementation_assumptions": [
+    "Giả định triển khai (Implementation Assumption): Quy mô 4 luồng vận hành Kanban (CLD-INC, CLD-OBS, CLD-INF, CLD-SUP), 23 nhân sự người dùng + 3 bot tự động 24/7 và cửa sổ 2026-04-16 .. 2026-10-16 được thiết lập để kiểm chứng rõ sự khác biệt giữa ca hành chính, OT buổi tối, ca trực lễ/cuối tuần có lịch trực và bot chạy 24/7.",
+    "Giả định triển khai (Implementation Assumption): Toàn bộ 4 project vận hành theo Kanban liên tục không chia Sprint (sprints = [], sprint_id = null), kiểm soát bằng giới hạn WIP và Class of Service trong structured/kanban_wip_policies.jsonl."
+  ],
+  "methodology": "KANBAN",
+  "organization_name": "CloudOps Services (24/7 SaaS Operations & Incident Relay)",
+  "primary_org_id": "ORG-CLD",
+  "simulation_window": {
+    "end": "2026-10-16",
+    "overtime_hours": "17:00-22:00 (plus scheduled 24/7 On-Call & System Bots)",
+    "regular_hours": "08:00-12:00, 13:00-17:00",
+    "start": "2026-04-16",
+    "timezone": "Asia/Ho_Chi_Minh (+07:00)",
+    "vn_holidays_observed": [
+      "2026-04-27",
+      "2026-04-30",
+      "2026-05-01",
+      "2026-09-01",
+      "2026-09-02"
+    ],
+    "working_days": 127
+  },
+  "source_attribution": [
+    {
+      "accessed_at": "2026-10-28T08:17:08+07:00",
+      "commit_sha": "21ea27d92927242ed499b7584a276f47cb1c68cd",
+      "inspected_artifacts": [
+        "LICENSE & LICENSING.md (verified Elastic License 2.0 terms)",
+        "README.md",
+        "app/modules/, app/services/, app/scheduler_worker.py",
+        "docs/incidents/ & docs/scheduling/ (AlertGroup deduplication, temporary shelving with auto-expiry, escalation steps, on-call overrides, heartbeat monitors)",
+        "Public GitHub issues #127, #128, #130"
+      ],
+      "license": "Elastic-2.0 (Elastic License 2.0 — source-available, NOT OSI open-source)",
+      "repo_name": "roxy-wi/IncidentRelay",
+      "repo_url": "https://github.com/roxy-wi/IncidentRelay",
+      "selected_release_or_tag": "v2.4.0",
+      "usage_boundary": "Chỉ khảo sát mô hình nghiệp vụ điều phối cảnh báo, gom nhóm AlertGroup, shelve có thời hạn, lịch trực và heartbeat để tự thiết kế kịch bản synthetic độc lập cho CloudOps Services. Tuyệt đối không sao chép mã nguồn, tài liệu hay thành phần nào chịu điều khoản Elastic-2.0; không khẳng định IncidentRelay dùng Kanban."
+    },
+    {
+      "accessed_at": "2026-10-28T08:17:08+07:00",
+      "commit_sha": "630562e55281ff28961704e8042a7dc9569a96e7",
+      "inspected_artifacts": [
+        "README.md index structure and failure mode categories (deployment schema incompatibility, configuration/WAF drift, cascading connection pool saturation)"
+      ],
+      "license": "No repository LICENSE file (license: null; curated directory of external third-party postmortem links, each governed by its own publisher terms)",
+      "repo_name": "danluu/post-mortems",
+      "repo_url": "https://github.com/danluu/post-mortems",
+      "selected_release_or_tag": "master",
+      "usage_boundary": "Chỉ tham khảo cấu trúc phân tích sự cố (phát hiện → giảm nhẹ tạm thời → nguyên nhân gốc → hành động phòng ngừa); 100% văn bản RCA, số liệu và nhân vật trong CloudOps là giả lập độc lập, không chép bất kỳ bài postmortem bên thứ ba nào."
+    }
+  ],
+  "version": "1.0.0"
+}

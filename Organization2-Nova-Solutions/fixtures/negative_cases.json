@@ -1,0 +1,66 @@
+{
+  "cases": [
+    {
+      "expected_error_substring": "Cross-organization project_membership forbidden",
+      "fixture_id": "NOVA-NEG-01",
+      "mutation_type": "cross_tenant_project_membership",
+      "payload": {
+        "membership_id": "PM-ILLEGAL-MP-U01",
+        "organization_id": "ORG-NOVA",
+        "project_id": "NOVA-HR",
+        "status": "ACTIVE",
+        "user_id": "MP-U01"
+      }
+    },
+    {
+      "author_id": "NV-U07",
+      "expected_error_substring": "Invalid or self document review",
+      "fixture_id": "NOVA-NEG-02",
+      "mutation_type": "document_self_review",
+      "target_version_id": "8a3ea5e994e0421a4fa88e5f"
+    },
+    {
+      "expected_error_substring": "LEADER report",
+      "fixture_id": "NOVA-NEG-03",
+      "invalid_reviewer_id": "NV-U04",
+      "mutation_type": "leader_report_non_admin_reviewer",
+      "target_report_id": "NOVA-HR-WR-W40-L1"
+    },
+    {
+      "expected_error_substring": "1-level max subtask nesting",
+      "fixture_id": "NOVA-NEG-04",
+      "mutation_type": "nested_subtask_depth_2",
+      "new_parent_id": "406511fdc95b399476c31537",
+      "target_task_id": "945c8dbf84a25d58ff6b263d"
+    },
+    {
+      "expected_error_substring": "mandatory lunch break 12:00-13:00",
+      "fixture_id": "NOVA-NEG-05",
+      "invalid_timestamp": "2026-10-13T12:30:00+07:00",
+      "mutation_type": "lunch_break_human_action",
+      "target_comment_id": "f10214b2194e17606643518d"
+    },
+    {
+      "affected_user_id": "NV-U19",
+      "expected_error_substring": "during unavailable window",
+      "fixture_id": "NOVA-NEG-06",
+      "invalid_timestamp": "2026-08-15T10:15:00+07:00",
+      "mutation_type": "unavailable_window_activity",
+      "target_worklog_id": "bf2f403abcb82aac5b54ee7c"
+    },
+    {
+      "expected_error_substring": "must NEVER have knowledge_eligible=True",
+      "fixture_id": "NOVA-NEG-07",
+      "mutation_type": "task_note_marked_knowledge_eligible",
+      "target_note_id": "fc5f6f3bfd696d418741b663"
+    },
+    {
+      "expected_error_substring": "review_status='unreviewed'",
+      "fixture_id": "NOVA-NEG-08",
+      "mutation_type": "unreviewed_eval_marked_approved",
+      "target_case_id": "NOVA-EVAL-001"
+    }
+  ],
+  "description": "Deliberately invalid Continuum mutations verified to fail validate_continuum_organization_bundle.",
+  "test_only": true
+}

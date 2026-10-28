@@ -1,0 +1,3 @@
+{"bot_id": "CLD-BOT-HEARTBEAT", "name": "Dead-Man-Switch Heartbeat Watchdog", "organization_id": "ORG-CLD", "schedule": "24x7_every_60s"}
+{"bot_id": "CLD-BOT-ALERTGROUP", "name": "AlertGroup Deduplication & Auto-Unshelve Worker", "organization_id": "ORG-CLD", "schedule": "24x7_continuous"}
+{"bot_id": "CLD-BOT-TF-DRIFT", "name": "Hourly Terraform & WAF Drift Detector", "organization_id": "ORG-CLD", "schedule": "24x7_hourly"}

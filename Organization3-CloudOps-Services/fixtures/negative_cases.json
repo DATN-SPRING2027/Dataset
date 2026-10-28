@@ -1,0 +1,66 @@
+{
+  "cases": [
+    {
+      "expected_error_substring": "Cross-organization project_membership forbidden",
+      "fixture_id": "CLOUDOPS-NEG-01",
+      "mutation_type": "cross_tenant_project_membership",
+      "payload": {
+        "membership_id": "PM-ILLEGAL-FL-U01",
+        "organization_id": "ORG-CLD",
+        "project_id": "CLD-INC",
+        "status": "ACTIVE",
+        "user_id": "FL-U01"
+      }
+    },
+    {
+      "author_id": "CLD-U03",
+      "expected_error_substring": "Invalid or self document review",
+      "fixture_id": "CLOUDOPS-NEG-02",
+      "mutation_type": "document_self_review",
+      "target_version_id": "7ce3a3de1a968ac93c273cf3"
+    },
+    {
+      "expected_error_substring": "LEADER report",
+      "fixture_id": "CLOUDOPS-NEG-03",
+      "invalid_reviewer_id": "CLD-U04",
+      "mutation_type": "leader_report_non_admin_reviewer",
+      "target_report_id": "CLD-INC-WR-W40-L1"
+    },
+    {
+      "expected_error_substring": "1-level max subtask nesting",
+      "fixture_id": "CLOUDOPS-NEG-04",
+      "mutation_type": "nested_subtask_depth_2",
+      "new_parent_id": "fb0c33087522f404fe526ac2",
+      "target_task_id": "851ee6e968973c2403f2dfc6"
+    },
+    {
+      "expected_error_substring": "mandatory lunch break 12:00-13:00",
+      "fixture_id": "CLOUDOPS-NEG-05",
+      "invalid_timestamp": "2026-10-13T12:30:00+07:00",
+      "mutation_type": "lunch_break_human_action",
+      "target_comment_id": "0ebfb362ae4c049a89c0ab82"
+    },
+    {
+      "affected_user_id": "CLD-U18",
+      "expected_error_substring": "during unavailable window",
+      "fixture_id": "CLOUDOPS-NEG-06",
+      "invalid_timestamp": "2026-08-29T10:15:00+07:00",
+      "mutation_type": "unavailable_window_activity",
+      "target_worklog_id": "8b4f39288265be1ad4d22ec0"
+    },
+    {
+      "expected_error_substring": "must NEVER have knowledge_eligible=True",
+      "fixture_id": "CLOUDOPS-NEG-07",
+      "mutation_type": "task_note_marked_knowledge_eligible",
+      "target_note_id": "af6395021e750aa155b15af4"
+    },
+    {
+      "expected_error_substring": "review_status='unreviewed'",
+      "fixture_id": "CLOUDOPS-NEG-08",
+      "mutation_type": "unreviewed_eval_marked_approved",
+      "target_case_id": "CLD-EVAL-001"
+    }
+  ],
+  "description": "Deliberately invalid Continuum mutations verified to fail validate_continuum_organization_bundle.",
+  "test_only": true
+}

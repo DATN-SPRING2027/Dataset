@@ -1,0 +1,66 @@
+{
+  "cases": [
+    {
+      "expected_error_substring": "Cross-organization project_membership forbidden",
+      "fixture_id": "MEDIFLOW-NEG-01",
+      "mutation_type": "cross_tenant_project_membership",
+      "payload": {
+        "membership_id": "PM-ILLEGAL-AK-U01",
+        "organization_id": "ORG-MED",
+        "project_id": "MED-REG",
+        "status": "ACTIVE",
+        "user_id": "AK-U01"
+      }
+    },
+    {
+      "author_id": "MED-U07",
+      "expected_error_substring": "Invalid or self document review",
+      "fixture_id": "MEDIFLOW-NEG-02",
+      "mutation_type": "document_self_review",
+      "target_version_id": "245ad034b10a16d2e4533154"
+    },
+    {
+      "expected_error_substring": "LEADER report",
+      "fixture_id": "MEDIFLOW-NEG-03",
+      "invalid_reviewer_id": "MED-U04",
+      "mutation_type": "leader_report_non_admin_reviewer",
+      "target_report_id": "MED-REG-WR-W40-L1"
+    },
+    {
+      "expected_error_substring": "1-level max subtask nesting",
+      "fixture_id": "MEDIFLOW-NEG-04",
+      "mutation_type": "nested_subtask_depth_2",
+      "new_parent_id": "d6ae5b313103b8bec4c49cb2",
+      "target_task_id": "2f4151d49e40a23d31dd1d84"
+    },
+    {
+      "expected_error_substring": "mandatory lunch break 12:00-13:00",
+      "fixture_id": "MEDIFLOW-NEG-05",
+      "invalid_timestamp": "2026-10-13T12:30:00+07:00",
+      "mutation_type": "lunch_break_human_action",
+      "target_comment_id": "ac3298e1fa6422eface2c410"
+    },
+    {
+      "affected_user_id": "MED-U18",
+      "expected_error_substring": "during unavailable window",
+      "fixture_id": "MEDIFLOW-NEG-06",
+      "invalid_timestamp": "2026-08-22T10:15:00+07:00",
+      "mutation_type": "unavailable_window_activity",
+      "target_worklog_id": "aada2e434990f38f1a701edc"
+    },
+    {
+      "expected_error_substring": "must NEVER have knowledge_eligible=True",
+      "fixture_id": "MEDIFLOW-NEG-07",
+      "mutation_type": "task_note_marked_knowledge_eligible",
+      "target_note_id": "6911609f80c18eae4431f829"
+    },
+    {
+      "expected_error_substring": "review_status='unreviewed'",
+      "fixture_id": "MEDIFLOW-NEG-08",
+      "mutation_type": "unreviewed_eval_marked_approved",
+      "target_case_id": "MED-EVAL-001"
+    }
+  ],
+  "description": "Deliberately invalid Continuum mutations verified to fail validate_continuum_organization_bundle.",
+  "test_only": true
+}

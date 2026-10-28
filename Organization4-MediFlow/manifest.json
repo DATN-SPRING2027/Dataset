@@ -1,0 +1,409 @@
+{
+  "as_of_date": "2026-10-16",
+  "canonical_counts": {
+    "active_users": 21,
+    "continuum_id_mappings": 363,
+    "disruption_events": 3,
+    "document_versions": 28,
+    "docx_renditions": 6,
+    "evaluation_cases": 56,
+    "extra_structured_counts": {
+      "structured/clinic_feedback_log.jsonl": 3,
+      "structured/milestones.jsonl": 4,
+      "structured/oncall_schedules.jsonl": 1,
+      "structured/system_bots.jsonl": 1
+    },
+    "file_inventory_entries": 61,
+    "negative_fixtures": 8,
+    "organization_memberships": 22,
+    "organizations": 3,
+    "physical_files_total": 62,
+    "project_documents": 24,
+    "project_memberships": 27,
+    "projects": 4,
+    "role_assignments": 49,
+    "sprints": 15,
+    "subtasks": 5,
+    "suspended_or_offboarded_users": 1,
+    "task_comments": 122,
+    "task_events": 578,
+    "task_notes": 82,
+    "task_worklogs": 117,
+    "tasks": 128,
+    "users": 22,
+    "work_report_settings": 8,
+    "work_reports": 36
+  },
+  "confirmed_product_scope": {
+    "ai_chat_history_included": false,
+    "evaluation_review_status": "unreviewed (chưa duyệt)",
+    "fourth_notebook_entity_included": false,
+    "group_note_forms": [
+      "TASK_NOTE",
+      "PROJECT_DOCUMENT",
+      "WORK_REPORT"
+    ],
+    "synthetic_data_only": true,
+    "team_entity_included": false
+  },
+  "dataset_id": "continuum-org4-mediflow-hybrid-v1",
+  "file_inventory": [
+    {
+      "path": "Dataset_Catalog.xlsx",
+      "sha256": "3bf8d5ac24e2a69ce1d0beb3d3aa97f44183638a92e958484b8ee06ff4bbc089",
+      "size_bytes": 61743
+    },
+    {
+      "path": "INGESTION_CONTRACT.md",
+      "sha256": "2d67eccc3448ef53849f1dd1203b52689ec375b1a9c262102beda96d10f7840f",
+      "size_bytes": 1496
+    },
+    {
+      "path": "README.md",
+      "sha256": "a285207b649d68f80f6a046429e661a3a58b79ee37cf2584fbdee0fcca9e4352",
+      "size_bytes": 4126
+    },
+    {
+      "path": "documents/docx/DOC-MEDADM-REQ-001.docx",
+      "sha256": "3279b7090754a6ce2ad0eebc0cd34700a143d7ea95394ab82457f41947d116d1",
+      "size_bytes": 37703
+    },
+    {
+      "path": "documents/docx/DOC-MEDAPT-API-003.docx",
+      "sha256": "602b4c82f5981b13397cd9d25a37476111f18f5743e045a919739e7dc74ccb3f",
+      "size_bytes": 37551
+    },
+    {
+      "path": "documents/docx/DOC-MEDAPT-DB-002.docx",
+      "sha256": "aca5444929ff0caaf9b3c1ddfa2244cc2e5ffa53f37b7bc61c559ac02b0c76d2",
+      "size_bytes": 37652
+    },
+    {
+      "path": "documents/docx/DOC-MEDAPT-REQ-001.docx",
+      "sha256": "1faffa5190272deafdcbc75cce2e16dab51c8612c91227d8bfb6c23c0420720c",
+      "size_bytes": 38078
+    },
+    {
+      "path": "documents/docx/DOC-MEDPIL-REQ-001.docx",
+      "sha256": "8e935b319551670baefc2dd4ff380042e98602674b86e4b08c15326dfc7d2d2f",
+      "size_bytes": 37746
+    },
+    {
+      "path": "documents/docx/DOC-MEDREG-REQ-001.docx",
+      "sha256": "5037986c2a2143ba21c77fdef193ea75574a164dfe1d8f692daa8926713937b5",
+      "size_bytes": 38096
+    },
+    {
+      "path": "documents/markdown/DOC-MEDADM-API-004.md",
+      "sha256": "93cba5846d1c578db7ca0762a13fc492d0b59a365ee2ba3cf6d37c10a3b0fab6",
+      "size_bytes": 1079
+    },
+    {
+      "path": "documents/markdown/DOC-MEDADM-ARC-002.md",
+      "sha256": "ac89add0d98a32981ddf366e60c6430ebc0bc5899b9e1035431be8401945df3f",
+      "size_bytes": 1119
+    },
+    {
+      "path": "documents/markdown/DOC-MEDADM-DB-003.md",
+      "sha256": "6cabdf5366908a2c7ac80a0288fa5441e847ba3e2eebecc3acf0d8331001c24c",
+      "size_bytes": 1129
+    },
+    {
+      "path": "documents/markdown/DOC-MEDADM-EXPORT-006.md",
+      "sha256": "d98bb1d6e9fcadc493fe423c6e978b5d7bd259c31389345bccfa8bed365c5a23",
+      "size_bytes": 1118
+    },
+    {
+      "path": "documents/markdown/DOC-MEDADM-REQ-001.md",
+      "sha256": "cbd3b41664d61a5b3e9c0c4a259cf9dfa6f1daf199d8c96456ba6c5cfbab85b4",
+      "size_bytes": 1478
+    },
+    {
+      "path": "documents/markdown/DOC-MEDADM-TST-005.md",
+      "sha256": "a856dd5a1935709c2b7499b15fb7687deb149e2f9bce38970c5bc82414b860d0",
+      "size_bytes": 1104
+    },
+    {
+      "path": "documents/markdown/DOC-MEDAPT-API-003.md",
+      "sha256": "7306ad3c90703c8e2d35b36f80bab739638454f077522ee065ff7ed8d97d0b1c",
+      "size_bytes": 1386
+    },
+    {
+      "path": "documents/markdown/DOC-MEDAPT-ARC-004.md",
+      "sha256": "ac5f2bfea4c026f7059c5efacdc7b98976dc8dda219be7956cc5a707e4cb858c",
+      "size_bytes": 1132
+    },
+    {
+      "path": "documents/markdown/DOC-MEDAPT-DB-001-LEGACY.md",
+      "sha256": "1f27d9231f067f4ea72f232f2d66f4d53f1d9b835afdcdb71db90d7d3842398c",
+      "size_bytes": 1176
+    },
+    {
+      "path": "documents/markdown/DOC-MEDAPT-DB-002.md",
+      "sha256": "1d4a7c974dabab7e2f64cc6ca6117451e6295a6c4bf526764614a90d913432b0",
+      "size_bytes": 1609
+    },
+    {
+      "path": "documents/markdown/DOC-MEDAPT-DES-005.md",
+      "sha256": "de2148ecc87244a571f9d5bfba5d9df2a45a4f0e1605f4c8aca0262e60895251",
+      "size_bytes": 1381
+    },
+    {
+      "path": "documents/markdown/DOC-MEDAPT-REQ-001.md",
+      "sha256": "32a1e00832296e97334b220dec4ae3a6ec8d6ffba7c954ae7e1f71b91eb6c36e",
+      "size_bytes": 2379
+    },
+    {
+      "path": "documents/markdown/DOC-MEDPIL-API-003.md",
+      "sha256": "58441463f08e692b49aca455239fcfa30ad1f56a9daaa615aed01acbd61be3f6",
+      "size_bytes": 1060
+    },
+    {
+      "path": "documents/markdown/DOC-MEDPIL-ARC-002.md",
+      "sha256": "45968bd1e2a5f770974b10dff28372247c416a6dc3c1c597ff003347301a4432",
+      "size_bytes": 1055
+    },
+    {
+      "path": "documents/markdown/DOC-MEDPIL-DB-004.md",
+      "sha256": "c8ee245b8a74cd0af439ed83c9634b880a27846f256f34e70a8a60d5b3c2cb99",
+      "size_bytes": 1160
+    },
+    {
+      "path": "documents/markdown/DOC-MEDPIL-REQ-001.md",
+      "sha256": "a4a571da11b86478b0ffc30b9aa326633e0598a1501113a831dfebf06ed8d45d",
+      "size_bytes": 1598
+    },
+    {
+      "path": "documents/markdown/DOC-MEDPIL-RUN-005.md",
+      "sha256": "ca6f47920e9106f7bfb0c73ee06c1800a1d9b1f3e45fa59bd393481859cbcbca",
+      "size_bytes": 1307
+    },
+    {
+      "path": "documents/markdown/DOC-MEDPIL-SIGN-006.md",
+      "sha256": "a6a63069d9459c79d38989e294aac5f959dbe9c9dd7f0ec3acf8d378d850badd",
+      "size_bytes": 1172
+    },
+    {
+      "path": "documents/markdown/DOC-MEDREG-API-004.md",
+      "sha256": "624aea7827fbd7e26d4a79c3702c947760b39dd578cd7dc42a184024d5686538",
+      "size_bytes": 1101
+    },
+    {
+      "path": "documents/markdown/DOC-MEDREG-ARC-002.md",
+      "sha256": "eb93d8950d175440ed3684994c2454f9a674a238f33c54b68016c7013b129c94",
+      "size_bytes": 1126
+    },
+    {
+      "path": "documents/markdown/DOC-MEDREG-DB-003.md",
+      "sha256": "5bba27953972e38c539276468f83a0c74c17438ba095108f9caea11997e30ef7",
+      "size_bytes": 1100
+    },
+    {
+      "path": "documents/markdown/DOC-MEDREG-DES-005.md",
+      "sha256": "3fe9b8cf1adc0c92f3420321eaf3a0e91d64d7760865b2a550e0f82b29f7f2d9",
+      "size_bytes": 1095
+    },
+    {
+      "path": "documents/markdown/DOC-MEDREG-REQ-001.md",
+      "sha256": "8d9edd560d2a794af32cdebc4a567c6d07e62a6082977506cb3e96c361788987",
+      "size_bytes": 2075
+    },
+    {
+      "path": "documents/markdown/DOC-MEDREG-TST-006.md",
+      "sha256": "7ae02d0745cdc58e96f97f69f793b38ffe01cc1268e47c8ab5a15ac792978bcc",
+      "size_bytes": 1111
+    },
+    {
+      "path": "evaluation/benchmark_cases.jsonl",
+      "sha256": "bfc1bf85224d32c7cf39ac3d402ece579e0a8c755b78cea066df36a568229ad7",
+      "size_bytes": 62216
+    },
+    {
+      "path": "fixtures/negative_cases.json",
+      "sha256": "44f414b0d67af525470ea94e070edebeb76d1a1a260a3d87af5bcbf6d5d4b1d4",
+      "size_bytes": 2377
+    },
+    {
+      "path": "structured/clinic_feedback_log.jsonl",
+      "sha256": "9b7c7b28bcc76ef35d4e37b8adafb4792f8f92ff7aaac9d523e5f8a240525613",
+      "size_bytes": 1995
+    },
+    {
+      "path": "structured/continuum_id_mapping.jsonl",
+      "sha256": "7b74f4d9a5d012f0c15187c2a7a8f39b973af38a09f72a301af89b6364d61579",
+      "size_bytes": 150432
+    },
+    {
+      "path": "structured/disruption_events.jsonl",
+      "sha256": "b44561666b10cd4e9e019d14e0b98072ebf8c3a79b56deaa48676b7050acaf96",
+      "size_bytes": 2214
+    },
+    {
+      "path": "structured/document_versions.jsonl",
+      "sha256": "c55af54fea30761157cda0c930a7a9313075bffcfc4c9fda77efbe17070dca00",
+      "size_bytes": 28126
+    },
+    {
+      "path": "structured/milestones.jsonl",
+      "sha256": "1b52075bd1f6e2db658cae73cb692eb990c793da73d5875d1337ea83344fb431",
+      "size_bytes": 1823
+    },
+    {
+      "path": "structured/oncall_schedules.jsonl",
+      "sha256": "d7bf43fab4d53e087defc32f8c35c9c45a3c803e360e1dc05946f8f9170e4328",
+      "size_bytes": 440
+    },
+    {
+      "path": "structured/organization_memberships.jsonl",
+      "sha256": "e1c076007291e195255afaf93ad1e54ca3f9b9e30731f31090cda9856da1cc6b",
+      "size_bytes": 3889
+    },
+    {
+      "path": "structured/organizations.jsonl",
+      "sha256": "5b0de03e56cd74697e296a4c2625b8a94455da250ab46af11e61a7147aed5ef9",
+      "size_bytes": 824
+    },
+    {
+      "path": "structured/project_documents.jsonl",
+      "sha256": "ca2316dd348eb3aceb5a68af59335cc258cac326db69d287096af0277221a29a",
+      "size_bytes": 26761
+    },
+    {
+      "path": "structured/project_memberships.jsonl",
+      "sha256": "ae90a6f44d1f0935fa9f722c8ac2375e16f4dc40c76dc086296e3a8d5acb441e",
+      "size_bytes": 5420
+    },
+    {
+      "path": "structured/projects.jsonl",
+      "sha256": "676706e9b46600c0edb554dede49a16a035a2d1c54a0c11d3185edda19129697",
+      "size_bytes": 2470
+    },
+    {
+      "path": "structured/role_assignments.jsonl",
+      "sha256": "34de07841d545fcaede536f5c4ba16b6c527bbfea9e1aa02f2f09e37913311bf",
+      "size_bytes": 11140
+    },
+    {
+      "path": "structured/sprints.jsonl",
+      "sha256": "fb90de33adf8fdfb6a29d068f6b50712af9955f7a17cdc12b70722bf89485aec",
+      "size_bytes": 7233
+    },
+    {
+      "path": "structured/system_bots.jsonl",
+      "sha256": "71b72ad2816722d8e1e79cd7bbaea7d290e0278ccf83278bc6c4f8e1468b8482",
+      "size_bytes": 152
+    },
+    {
+      "path": "structured/task_comments.jsonl",
+      "sha256": "9a12ef6575027e290cc9ece6ca4b8848ccf23a07123d5c23193fe4db0ffc5d75",
+      "size_bytes": 52887
+    },
+    {
+      "path": "structured/task_events.jsonl",
+      "sha256": "e54631b10cc1ac6c968d3a20ea1a1dfd8bd4069e4eb04c00cad8a03386b8f7c7",
+      "size_bytes": 216833
+    },
+    {
+      "path": "structured/task_notes.jsonl",
+      "sha256": "9e4e5983c3dad6f114b413332db3fa79dbbc8ec43f2384fb34c14cfa388d1e1e",
+      "size_bytes": 102817
+    },
+    {
+      "path": "structured/task_worklogs.jsonl",
+      "sha256": "f60e21bf03123b07e3510bf4014460425784fe5b3b23158aba509478811be246",
+      "size_bytes": 58859
+    },
+    {
+      "path": "structured/tasks.jsonl",
+      "sha256": "19d59d1abcf6d959e450d26699ba55d40cf0612bf5461c2c95c34f53e7c8ef3e",
+      "size_bytes": 230843
+    },
+    {
+      "path": "structured/users.jsonl",
+      "sha256": "b101aa29dcb94aea4b4f8a005f9f62d7f82c5993f9d42e1f0f64ac7ce455d9e6",
+      "size_bytes": 7948
+    },
+    {
+      "path": "structured/work_report_settings.jsonl",
+      "sha256": "4fba202d410636900179f44f3562dfe7b7168c298a3177ff45609eb865779cda",
+      "size_bytes": 2116
+    },
+    {
+      "path": "structured/work_reports.jsonl",
+      "sha256": "bb574d303194e521ac7494422b29c858f239b205339d5fb61aa6f8671e1e2566",
+      "size_bytes": 53845
+    },
+    {
+      "path": "tools/generate_org.py",
+      "sha256": "cabdec04ddab4252cc270efd7671d69f2f183ce07f3f107a7320a42366213478",
+      "size_bytes": 46254
+    },
+    {
+      "path": "tools/mediflow_docs.py",
+      "sha256": "0dd53819d98d2090043ad9d7a6d928673af3d1e8598d9131cb06ff27c5525c94",
+      "size_bytes": 54461
+    },
+    {
+      "path": "tools/mediflow_eval.py",
+      "sha256": "339aeda8382c8a3af3b44946ecdb7c95271e27d2b21976296cf9d931ed053773",
+      "size_bytes": 35635
+    },
+    {
+      "path": "tools/mediflow_specs.py",
+      "sha256": "85ab0af7be27be7a2ef4cc5875321d649b4e159a31beed0a4577e87e7869b561",
+      "size_bytes": 17535
+    }
+  ],
+  "implementation_assumptions": [
+    "Giả định triển khai (Implementation Assumption): MediFlow gồm 3 dự án sản phẩm vận hành theo Hybrid (MED-REG, MED-APT, MED-ADM: kết hợp 4 cổng Milestone MS-MED-01..04 với 5 Sprint 2 tuần) và 1 dự án triển khai thực địa vận hành theo Milestone không dùng Sprint (MED-PIL, methodology=WATERFALL, sprint_id=null), thể hiện đúng nguyên tắc phương pháp quản lý thuộc về từng project.",
+    "Giả định triển khai (Implementation Assumption): 100% dữ liệu trong MediFlow và phòng khám đối tác An Khang là dữ liệu hành chính giả lập (lịch hẹn, ca bác sĩ, hàng đợi tiếp đón); không chứa bất kỳ thông tin lâm sàng, chẩn đoán, xét nghiệm hay đơn thuốc nào."
+  ],
+  "methodology": "HYBRID",
+  "organization_name": "MediFlow (Clinic Appointment Scheduling & Admin Registration)",
+  "primary_org_id": "ORG-MED",
+  "simulation_window": {
+    "end": "2026-10-16",
+    "overtime_hours": "17:00-22:00 (plus scheduled Saturday Pilot Cutover Duty OC-MED-PILOT-SAT-1010)",
+    "regular_hours": "08:00-12:00, 13:00-17:00",
+    "start": "2026-04-20",
+    "timezone": "Asia/Ho_Chi_Minh (+07:00)",
+    "vn_holidays_observed": [
+      "2026-04-27",
+      "2026-04-30",
+      "2026-05-01",
+      "2026-09-01",
+      "2026-09-02"
+    ],
+    "working_days": 125
+  },
+  "source_attribution": [
+    {
+      "accessed_at": "2026-10-28T08:17:08+07:00",
+      "commit_sha": "0755f785f7d237a7a2e9d9f4e76aff43b7613ad3",
+      "inspected_artifacts": [
+        "LICENSE & README.md (verified MPL-2.0 + Healthcare Disclaimer)",
+        "api/src/main/java/org/openmrs/ (administrative domain boundaries: Person, PatientIdentifier, Provider, Location, Visit, Role, Privilege)",
+        "Public PR/issue activity (#6758)"
+      ],
+      "license": "MPL-2.0 with OpenMRS Public License Exhibit B (Healthcare Disclaimer)",
+      "repo_name": "openmrs/openmrs-core",
+      "repo_url": "https://github.com/openmrs/openmrs-core",
+      "selected_release_or_tag": "2.8.10 (master reference)",
+      "usage_boundary": "Chỉ tham khảo cách tách biệt định danh hành chính, địa điểm phòng khám, ca làm việc và phân quyền vai trò; loại trừ hoàn toàn các thực thể lâm sàng và tuyệt đối không sao chép mã nguồn Java/XML hay dữ liệu của OpenMRS. Không khẳng định OpenMRS dùng mô hình Hybrid."
+    },
+    {
+      "accessed_at": "2026-10-28T08:17:08+07:00",
+      "commit_sha": "3a0da981e31e224a467a4432df2a65cb8dfdfe7b",
+      "inspected_artifacts": [
+        "LICENSE",
+        "content/en-US/docs/configure-o3/configure-patient-management.mdx (configurable registration sections, appointment lifecycle statuses Scheduled/CheckedIn/Completed/Cancelled/Missed, reception queues, and privacy option includePhoneNumberInExcelSpreadsheet: false)"
+      ],
+      "license": "MPL-2.0",
+      "repo_name": "openmrs/openmrs-contrib-o3-docs",
+      "repo_url": "https://github.com/openmrs/openmrs-contrib-o3-docs/blob/main/content/en-US/docs/configure-o3/configure-patient-management.mdx",
+      "selected_release_or_tag": "main",
+      "usage_boundary": "Tham khảo khái niệm vòng đời trạng thái lịch hẹn hành chính và ý tưởng cấu hình ẩn số điện thoại khi xuất bảng tính để tự thiết kế kịch bản synthetic CFB-2026-02 độc lập bằng tiếng Việt."
+    }
+  ],
+  "version": "1.0.0"
+}
