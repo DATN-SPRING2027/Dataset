@@ -1,0 +1,837 @@
+{
+  "elapsed_seconds": 61.02,
+  "file_count": 8,
+  "cleanup": {
+    "local_db": {
+      "projects": [
+        "db06a2fc373766adbe24ce04"
+      ],
+      "exclusive_sources": [],
+      "exclusive_source_configs": [],
+      "deleted_rows": {}
+    },
+    "qdrant_deleted_collections": [
+      "search_units_db06a2fc373766adbe24ce04",
+      "session_units_db06a2fc373766adbe24ce04"
+    ],
+    "qdrant_verified_absent": true,
+    "upload_dirs_removed": [],
+    "qdrant_checked_collections": [
+      "search_units_db06a2fc373766adbe24ce04",
+      "session_units_db06a2fc373766adbe24ce04"
+    ]
+  },
+  "pipeline": {
+    "ready_versions": [
+      {
+        "id": "5176b571-03b2-548c-bdf7-fc09db9aac00",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "aaa5e2b1-5df9-57bb-9813-55adfa6d4dc3",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "bc3147a6-2669-5981-a308-be4ef075ee43",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "262da8f9-32c9-5469-a388-76a1c39ce846",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "52f397c5-955e-54e1-8206-1dc4ee952c21",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "dff84dd5-beb0-59c6-b6f5-d7f55ffa1109",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "bffd1cfe-f703-595a-be2e-928060cedc83",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "cc1059a7-bd15-5bd0-8634-05538e504bc8",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      }
+    ],
+    "jobs": [
+      {
+        "kind": "FOUNDATION",
+        "status": "SUCCEEDED",
+        "error_code": null,
+        "count": 8,
+        "attempts": 1
+      }
+    ],
+    "units": {
+      "total": 614,
+      "with_dense": 614
+    },
+    "evidence": {
+      "E0": 1838,
+      "E1": 903
+    },
+    "dense_graph": {
+      "build_id": "graph-fc87ff3a00e2e02e44af6d04",
+      "total_edges": 7040,
+      "semantic_dense_edges": 7040
+    },
+    "tree": [
+      {
+        "status": "ACTIVE",
+        "tree_version": "tree-182672eb93fbb106cd53d117"
+      }
+    ],
+    "tree_matches_current": true,
+    "tree_jobs": [
+      {
+        "status": "succeeded",
+        "attempts": 1,
+        "error": null
+      }
+    ],
+    "ingestion": {
+      "READY": 8
+    }
+  },
+  "query": {
+    "response": {
+      "query": "What are the default size limits for file uploads and total request size for the new multipart upload support on the OpenAI-compatible API endpoints?",
+      "sections": [
+        {
+          "chunk_id": "d4a43548-8d6b-502d-8374-cc5ee3c3b4a0",
+          "search_unit_id": "d4a43548-8d6b-502d-8374-cc5ee3c3b4a0",
+          "block_from_id": "74637c3e-6f53-5637-8f05-b77f6d135c41",
+          "block_to_id": "74637c3e-6f53-5637-8f05-b77f6d135c41",
+          "section_path": "Pr 18421 Multipart File Validation Limits",
+          "document_id": "cc1059a7-bd15-5bd0-8634-05538e504bc8",
+          "document_version_id": "71c7ae7b-c7e0-5d4f-bf35-98f672510fe4",
+          "document_name": "github__dsid_ae068ee4aa9640159427cd941bef0238.md",
+          "version_no": 1,
+          "page_from": 1,
+          "page_to": 1,
+          "anchor": "p-2",
+          "heading": "Pr 18421 Multipart File Validation Limits",
+          "content": "Motivation: users integrating tool/function calling and file uploads via the OpenAI-compatibility endpoints were sending a wide variety of content-types and very large multipart requests which caused inconsistent runtime behavior, high memory pressure, and unexpected acceptance of unsupported payloads. This PR introduces a focused, backwards-compatible implementation for multipart/form-data parsing on the OpenAI-compatibility path, strict Content-Type validation for tool/file inputs, and deterministic payload limits both per-file and per-request. Summary of changes: 1) Add a streaming-safe multipart parser that yields parts rather than buffering entire requests; 2) Validate Content-Type of each part (whitelist: text/*, image/*, application/json, application/octet-stream with explicit size checks); 3) Enforce configurable limits: max_file_size (default 10MiB), max_total_request_size (default 50MiB), max_parts_count (default 20). These defaults are conservative and documented; they can be overridden at tenant or route level via API config. 4) Hook validation into the OpenAI-compat layer so existing client integrations get predictable errors (400/413) with structured error bodies when inputs are rejected. 5) Add detailed unit and integration tests and end-to-end tests for streaming uploads and for the dedicated Dedicated/Private ingress paths. Backwards compatibility notes: this does not change the non-multipart JSON body semantics. Existing users who relied on accepting arbitrary large file uploads should update their tenant config or use Redwood Dedicated with higher quotas. Rollout plan: feature-flagged behind feature.enable_multipart_input (off by default); staged rollout to internal dogfood tenants, then gradual roll to 10%, 50%, 100% via config rollout. Checklist: - [x] Streaming-safe multipart parser implemented - [x] Content-Type whitelist + validation errors - [x] Per-file and per-request size enforcement + configurable defaults - [x] OpenAI-compat error mapping and structured error shapes - [x] Tests: unit, integration, e2e - [x] Docs: compatibility notes and config guide - [x] Telemetry: counters for rejected parts and throttled requests - [x] Migration & rollout plan included Testing notes: the multipart parser uses a small constant memory footprint for each active part and yields part metadata to the handler; large parts trigger a streaming drain with early termination (413 response) to avoid OOM. Integration tests exercise combination of binary and text parts, wrong content-types, and boundary cases around the configured limits. Telemetry: added metrics api.multipart.rejected_content_type, api.multipart.rejected_size, api.multipart.accepted_parts and a hist for part sizes. Implementation details: - parser: runtime/multipart/stream_parser.py - validator: api/validation/multipart_validator.py - compat layer: api/openai_compat/input_adapter.py - config: config/defaults/multipart.yaml - docs: docs/openai-compat/multipart.md - tests: tests/unit/test_multipart_parser.py, tests/integration/test_openai_compat_multipart.py Error shape examples (structured output): when a part is rejected we return 413 with a JSON body {\"error\":{\"type\":\"request_too_large\",\"message\":\"part exceeds max_file_size\",\"meta\":{\"part_name\":\"file\",\"limit_bytes\":10485760}}} and 400 for unsupported content-types with type unsupported_media_type. Observability: trace spans added around parse->validate->route dispatch to help pinpoint latency regressions. Related items: Linear ENG-2728 (multipart uploader stability), PM-146 (OpenAI compat feature parity).\nLiam Chen: key question — do we need to special-case application/pdf? many partners send PDFs as application/pdf; current whitelist would block it. Suggest adding application/pdf or making whitelist configurable per-tenant.\nAisha Patel: replied — agreed, added application/pdf to tenant_whitelist in config and made default conservative. Added test case + note in docs explaining why binary blobs should be limited.",
+          "score": 0.852932,
+          "rank": 0,
+          "source_id": "03c7d2c1966e43be80f942e7b7119a04",
+          "source_name": "Project db06a2fc373766adbe24ce04"
+        },
+        {
+          "chunk_id": "1ec2d277-dfe1-5c3e-8018-83428076a005",
+          "search_unit_id": "1ec2d277-dfe1-5c3e-8018-83428076a005",
+          "block_from_id": "74637c3e-6f53-5637-8f05-b77f6d135c41",
+          "block_to_id": "74637c3e-6f53-5637-8f05-b77f6d135c41",
+          "section_path": "Pr 18421 Multipart File Validation Limits",
+          "document_id": "cc1059a7-bd15-5bd0-8634-05538e504bc8",
+          "document_version_id": "71c7ae7b-c7e0-5d4f-bf35-98f672510fe4",
+          "document_name": "github__dsid_ae068ee4aa9640159427cd941bef0238.md",
+          "version_no": 1,
+          "page_from": 1,
+          "page_to": 1,
+          "anchor": "p-2",
+          "heading": "Pr 18421 Multipart File Validation Limits",
+          "content": "Ravi Singh: please ensure the validator surfaces clear errors for multipart boundary parsing failures; I saw a flaky crash in an initial run.\nAisha Patel: replied — parser now catches malformed boundary exceptions and returns a 400 with error.type=malformed_multipart and includes low-signal debug id for tracing; updated tests.\nSofia Alvarez: approved — addressed my comments about metrics naming and added a suggestion to include counter tags for tenant_id and route_id.\nCI Bot: integration-tests failed on first run due to test harness timeout; rerun completed successfully.\nQA: noted an edge case where client SDK retries might double-submit large files; added a recommendation in docs and an optional idempotency header support in adapter.\nAdded multipart/form-data support on OpenAI-compat API paths with strict content-type validation and configurable per-file and per-request size limits. Default limits: 10MiB per file, 50MiB per request. Feature is behind a feature flag and can be enabled per-tenant. See docs/openai-compat/multipart.md for migration steps.",
+          "score": 0.771691,
+          "rank": 1,
+          "source_id": "03c7d2c1966e43be80f942e7b7119a04",
+          "source_name": "Project db06a2fc373766adbe24ce04"
+        },
+        {
+          "chunk_id": "658590ae-42a2-5e79-aa01-20f8a3c01c98",
+          "search_unit_id": "658590ae-42a2-5e79-aa01-20f8a3c01c98",
+          "block_from_id": "9bc84146-3a7e-5454-81f1-b791b95e9f28",
+          "block_to_id": "2d52f683-cb54-515f-8185-8e15dbef36d1",
+          "section_path": "Pr 18421 Multipart File Validation Limits",
+          "document_id": "cc1059a7-bd15-5bd0-8634-05538e504bc8",
+          "document_version_id": "71c7ae7b-c7e0-5d4f-bf35-98f672510fe4",
+          "document_name": "github__dsid_ae068ee4aa9640159427cd941bef0238.md",
+          "version_no": 1,
+          "page_from": 1,
+          "page_to": 1,
+          "anchor": "h1-0",
+          "heading": "Pr 18421 Multipart File Validation Limits",
+          "content": "Pr 18421 Multipart File Validation Limits\n\nSource type: github\nDocument ID: dsid_ae068ee4aa9640159427cd941bef0238\nRelease: v1.0.0\nBenchmark: EnterpriseRAG-Bench synthetic upstream data\nadd multipart/form-data handling, strict content-type validation, and payload limit enforcement for API tool/file inputs",
+          "score": 0.707561,
+          "rank": 2,
+          "source_id": "03c7d2c1966e43be80f942e7b7119a04",
+          "source_name": "Project db06a2fc373766adbe24ce04"
+        }
+      ],
+      "events": [],
+      "entities": [],
+      "relations": [],
+      "source_hits": [],
+      "summary": "The default size limits for file uploads and total request size for the new multipart upload support on the OpenAI-compatible API endpoints are 10MiB per file and 50MiB per request [2].",
+      "citations": [
+        {
+          "kind": "internal",
+          "n": 2,
+          "document_id": "cc1059a7-bd15-5bd0-8634-05538e504bc8",
+          "document_version_id": "71c7ae7b-c7e0-5d4f-bf35-98f672510fe4",
+          "document_name": "github__dsid_ae068ee4aa9640159427cd941bef0238.md",
+          "version_no": 1,
+          "chunk_id": "1ec2d277-dfe1-5c3e-8018-83428076a005",
+          "search_unit_id": "1ec2d277-dfe1-5c3e-8018-83428076a005",
+          "block_from_id": "74637c3e-6f53-5637-8f05-b77f6d135c41",
+          "block_to_id": "74637c3e-6f53-5637-8f05-b77f6d135c41",
+          "section_path": "Pr 18421 Multipart File Validation Limits",
+          "page_from": 1,
+          "page_to": 1,
+          "anchor": "p-2",
+          "heading": "Pr 18421 Multipart File Validation Limits",
+          "snippet": "Ravi Singh: please ensure the validator surfaces clear errors for multipart boundary parsing failures; I saw a flaky crash in an initial run. Aisha Patel: replied — parser now catches malformed boundary exceptions and returns a 400 with error.type=malformed_multipart and includes low-signal debug id for tracing; updated tests. Sofia Alvarez: approved — addressed my comments about metrics naming and added a suggestion to include counter tags for tenant_id and route_id. CI Bot: integration-tests failed on first run due to test harness timeout; rerun completed successfully. QA: noted an edge case where client SDK retries might double-submit large files; added a recommendation in docs and an optional idempotency he…",
+          "score": 0.7717,
+          "source_id": "03c7d2c1966e43be80f942e7b7119a04",
+          "source_name": "Project db06a2fc373766adbe24ce04"
+        }
+      ],
+      "answer_status": "answered",
+      "no_answer_reason": null,
+      "exploration_id": null,
+      "stats": {
+        "canonical_index": true,
+        "ready_versions": 8,
+        "requested_top_k": 5,
+        "candidate_top_k": 32,
+        "candidate_unit_pool_limit": 1024,
+        "candidate_pool_saturated": true,
+        "candidate_units_before_cap": 66,
+        "candidate_units_after_cap": 66,
+        "candidate_units_truncated": 0,
+        "semantic_candidates": 43,
+        "lexical_candidates": 42,
+        "candidates": 66,
+        "relevant": 42,
+        "filtered_irrelevant": 24,
+        "fusion_method": "rrf",
+        "selection_method": "authorized_content_dedup_mmr",
+        "cross_scope_merge": "rank_interleave",
+        "coverage": {
+          "candidate_count": 47,
+          "deduplicated_count": 0,
+          "diversity_weight": 0.5,
+          "near_duplicate_similarity": 0.98,
+          "required_anchor_count": 0,
+          "covered_anchor_count": 0,
+          "anchor_coverage": "not_required",
+          "status": "unknown",
+          "canonical_locator_verified": true,
+          "semantic_answerability": "unknown"
+        },
+        "routing": {
+          "planner": {
+            "planner_version": "qsp-v2",
+            "requested_strategy": "AUTO",
+            "effective_strategy": "LOCAL_FACTUAL",
+            "modifiers": [],
+            "reason_codes": [
+              "DEFAULT_LOCAL_FACTUAL",
+              "CARDINALITY_API"
+            ],
+            "multi_hop_eligible": false,
+            "retrieval_plan": {
+              "planner_version": "qsp-v2",
+              "target": "PASSAGE",
+              "selection": "RELEVANCE",
+              "constraints": [],
+              "cardinality": {
+                "mode": "N",
+                "requested_n": 5,
+                "effective_n": 5,
+                "max_cap": 20,
+                "count_source": "API",
+                "cursor": null
+              },
+              "order": "RELEVANCE",
+              "decomposition": {
+                "mode": "NONE",
+                "subqueries": []
+              },
+              "output": "ANSWER",
+              "per_document_limit": null,
+              "fallback_used": false,
+              "unsupported_reason": null
+            }
+          },
+          "request_snapshot_id": "d24bcc37-fe98-4fb3-9aaa-5779645e347e",
+          "groups": [
+            {
+              "project_id": "db06a2fc373766adbe24ce04",
+              "source_id": "03c7d2c1966e43be80f942e7b7119a04",
+              "partition_id": "db06a2fc373766adbe24ce04",
+              "snapshot_id": "9430e1fb-cd66-4b40-ad9c-12f6500ac282",
+              "request_snapshot_id": "d24bcc37-fe98-4fb3-9aaa-5779645e347e",
+              "acl_scope_fingerprint": "bc64a53e2423533f99de9bfcda492e0c130b9d9b75512125aad1ff06b4181ece",
+              "tree_version": "tree-182672eb93fbb106cd53d117",
+              "routing_slot": "SLOT_A",
+              "search_epoch": 2,
+              "selected_nodes": [
+                "26ea3205f59add52cebf06221d679ef4",
+                "37191999c00777421a64205220b6e312",
+                "c90d2662313c283530b8f898e2126cd3"
+              ],
+              "membership_count": 124,
+              "entropy": 0.9977555397276693,
+              "margin": 0.11644376474972051,
+              "broad_route": true,
+              "reason_code": "ROUTE_UNCERTAIN_BROADENED",
+              "fallback_reason": null,
+              "branch_local_candidates": 47,
+              "global_candidates": 52,
+              "escape_recovered_candidates": 19,
+              "escape_attempted": true,
+              "escape_trigger": "reserved_parallel_global_escape",
+              "local_failure": null,
+              "escape_failure": null,
+              "blackhole_detected": false
+            }
+          ],
+          "coverage": {
+            "candidate_count": 47,
+            "deduplicated_count": 0,
+            "diversity_weight": 0.5,
+            "near_duplicate_similarity": 0.98,
+            "required_anchor_count": 0,
+            "covered_anchor_count": 0,
+            "anchor_coverage": "not_required",
+            "status": "unknown",
+            "canonical_locator_verified": true,
+            "semantic_answerability": "unknown"
+          },
+          "selection_fallback_reason": null,
+          "multi_hop": {
+            "eligible": false,
+            "effective": "LOCAL_FACTUAL",
+            "graph_expansion_attempted": false,
+            "graph_expanded_candidates": 0,
+            "graph_expansion_skip_reason": null
+          },
+          "fallback_used": true
+        },
+        "selection_fallback_reason": null,
+        "stage_latencies_ms": {
+          "auth_scope": 28.16,
+          "tree_route": 345.86,
+          "candidate_retrieval": 1524.24,
+          "evidence_hydration": 39.96,
+          "rank_fusion": 15.14,
+          "graph_expansion": 0.0,
+          "diversity_selection": 731.64,
+          "total_retrieval": 2714.15
+        },
+        "latency_total_ms": 2714.15,
+        "automatic_top_k": false,
+        "effective_top_k": 3,
+        "retrieval_plan": {
+          "planner_version": "qsp-v2",
+          "target": "PASSAGE",
+          "selection": "RELEVANCE",
+          "constraints": [],
+          "cardinality": {
+            "mode": "N",
+            "requested_n": 5,
+            "effective_n": 5,
+            "max_cap": 20,
+            "count_source": "API",
+            "cursor": null
+          },
+          "order": "RELEVANCE",
+          "decomposition": {
+            "mode": "NONE",
+            "subqueries": []
+          },
+          "output": "ANSWER",
+          "per_document_limit": null,
+          "fallback_used": false,
+          "unsupported_reason": null
+        },
+        "adaptive_waves": 1,
+        "retrieval_stop_reason": "requested_top_k_reached",
+        "budget_exhausted": false,
+        "has_more": false,
+        "acl_filtered_candidates": 0,
+        "query_route": {
+          "version": "query-flow-v1",
+          "query_original": "What are the default size limits for file uploads and total request size for the new multipart upload support on the OpenAI-compatible API endpoints?",
+          "scope_source_ids": [
+            "03c7d2c1966e43be80f942e7b7119a04"
+          ],
+          "coarse_intent": "KNOWLEDGE",
+          "confidence": 0.9371,
+          "model": "Kev-4b",
+          "suggested_strategy": "vector",
+          "requested_strategy": "auto",
+          "effective_strategy": "vector",
+          "retrieval": "required",
+          "fallback_used": false,
+          "fallback_reason": null,
+          "reason_codes": [
+            "KNOWLEDGE_INTENT"
+          ],
+          "query_analysis": {
+            "normalized_phrase": "whatarethedefaultsizelimitsforfileuploadsandtotalrequestsizeforthenewmultipartuploadsupportontheopenaicompatibleapiendpoints",
+            "lookup_terms": [
+              "default",
+              "size",
+              "limits",
+              "file",
+              "uploads",
+              "total",
+              "request",
+              "new",
+              "multipart",
+              "upload",
+              "support",
+              "openai-compatible",
+              "api",
+              "endpoints",
+              "whatarethedefaultsizelimitsforfileuploadsandtotalrequestsizeforthenewmultipartuploadsupportontheopenaicompatibleapiendpoints"
+            ],
+            "features": {
+              "exact_terms": [],
+              "identifier_terms": [],
+              "path_terms": [],
+              "temporal_cues": [],
+              "relation_cues": [],
+              "global_cues": [],
+              "clauses": [],
+              "multi_hop": false
+            }
+          },
+          "strategy_plan": {
+            "planner_version": "qsp-v2",
+            "requested_strategy": "AUTO",
+            "effective_strategy": "LOCAL_FACTUAL",
+            "modifiers": [],
+            "reason_codes": [
+              "DEFAULT_LOCAL_FACTUAL",
+              "CARDINALITY_API"
+            ],
+            "multi_hop_eligible": false,
+            "retrieval_plan": {
+              "planner_version": "qsp-v2",
+              "target": "PASSAGE",
+              "selection": "RELEVANCE",
+              "constraints": [],
+              "cardinality": {
+                "mode": "N",
+                "requested_n": 5,
+                "effective_n": 5,
+                "max_cap": 20,
+                "count_source": "API",
+                "cursor": null
+              },
+              "order": "RELEVANCE",
+              "decomposition": {
+                "mode": "NONE",
+                "subqueries": []
+              },
+              "output": "ANSWER",
+              "per_document_limit": null,
+              "fallback_used": false,
+              "unsupported_reason": null
+            }
+          },
+          "retrieval_fallback_used": false
+        },
+        "token_usage": {
+          "totals": {
+            "embedding_input_tokens": 47,
+            "llm_input_tokens": 2176,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 2176,
+            "llm_output_tokens": 43,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 2266,
+            "embedding_calls": 1,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00013361
+          },
+          "by_token_type": {
+            "embedding_input_tokens": 47,
+            "llm_input_tokens": 2176,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 2176,
+            "llm_output_tokens": 43,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 2266
+          },
+          "by_component": {
+            "answer_generation": {
+              "embedding_input_tokens": 0,
+              "llm_input_tokens": 2176,
+              "llm_cached_input_tokens": 0,
+              "llm_uncached_input_tokens": 2176,
+              "llm_output_tokens": 43,
+              "llm_reasoning_tokens": 0,
+              "total_tokens": 2219,
+              "embedding_calls": 0,
+              "llm_calls": 1,
+              "cache_hits": 0,
+              "estimated_calls": 0,
+              "cost_usd": 0.00013314
+            },
+            "query_embedding": {
+              "embedding_input_tokens": 47,
+              "llm_input_tokens": 0,
+              "llm_cached_input_tokens": 0,
+              "llm_uncached_input_tokens": 0,
+              "llm_output_tokens": 0,
+              "llm_reasoning_tokens": 0,
+              "total_tokens": 47,
+              "embedding_calls": 1,
+              "llm_calls": 0,
+              "cache_hits": 0,
+              "estimated_calls": 0,
+              "cost_usd": 4.7e-07
+            }
+          },
+          "by_model": {
+            "Qwen/Qwen3-8B": {
+              "embedding_input_tokens": 0,
+              "llm_input_tokens": 2176,
+              "llm_cached_input_tokens": 0,
+              "llm_uncached_input_tokens": 2176,
+              "llm_output_tokens": 43,
+              "llm_reasoning_tokens": 0,
+              "total_tokens": 2219,
+              "embedding_calls": 0,
+              "llm_calls": 1,
+              "cache_hits": 0,
+              "estimated_calls": 0,
+              "cost_usd": 0.00013314
+            },
+            "Qwen/Qwen3-Embedding-0.6B": {
+              "embedding_input_tokens": 47,
+              "llm_input_tokens": 0,
+              "llm_cached_input_tokens": 0,
+              "llm_uncached_input_tokens": 0,
+              "llm_output_tokens": 0,
+              "llm_reasoning_tokens": 0,
+              "total_tokens": 47,
+              "embedding_calls": 1,
+              "llm_calls": 0,
+              "cache_hits": 0,
+              "estimated_calls": 0,
+              "cost_usd": 4.7e-07
+            }
+          },
+          "cost_usd": 0.00013361
+        }
+      }
+    },
+    "retrieval_latency_ms": 4619.385099969804,
+    "latency_ms": 8220.124799991027,
+    "first_token_ms": 8219.573099981062,
+    "error": null,
+    "http_client_pid": 33368
+  },
+  "token_usage": {
+    "ingestion_and_knowledge": {
+      "totals": {
+        "embedding_input_tokens": 47122,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 47122,
+        "embedding_calls": 8,
+        "llm_calls": 0,
+        "cache_hits": 614,
+        "estimated_calls": 0,
+        "cost_usd": 0.00047122
+      },
+      "by_token_type": {
+        "embedding_input_tokens": 47122,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 47122
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 614,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 47122,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 47122,
+          "embedding_calls": 8,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00047122
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 47122,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 47122,
+          "embedding_calls": 8,
+          "llm_calls": 0,
+          "cache_hits": 614,
+          "estimated_calls": 0,
+          "cost_usd": 0.00047122
+        }
+      },
+      "cost_usd": 0.00047122,
+      "metadata": {
+        "search_unit_texts_count": 3,
+        "knowledge_block_preload_texts_count": 2,
+        "search_unit_estimated_tokens": 1110,
+        "knowledge_block_preload_estimated_tokens": 1080
+      }
+    },
+    "query_and_generation": {
+      "totals": {
+        "embedding_input_tokens": 47,
+        "llm_input_tokens": 2176,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 2176,
+        "llm_output_tokens": 43,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2266,
+        "embedding_calls": 1,
+        "llm_calls": 1,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.00013361
+      },
+      "by_token_type": {
+        "embedding_input_tokens": 47,
+        "llm_input_tokens": 2176,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 2176,
+        "llm_output_tokens": 43,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2266
+      },
+      "by_component": {
+        "answer_generation": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 2176,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 2176,
+          "llm_output_tokens": 43,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 2219,
+          "embedding_calls": 0,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00013314
+        },
+        "query_embedding": {
+          "embedding_input_tokens": 47,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 47,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 4.7e-07
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-8B": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 2176,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 2176,
+          "llm_output_tokens": 43,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 2219,
+          "embedding_calls": 0,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00013314
+        },
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 47,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 47,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 4.7e-07
+        }
+      },
+      "cost_usd": 0.00013361
+    },
+    "grand_total": {
+      "totals": {
+        "embedding_input_tokens": 47169,
+        "llm_input_tokens": 2176,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 2176,
+        "llm_output_tokens": 43,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 49388,
+        "embedding_calls": 9,
+        "llm_calls": 1,
+        "cache_hits": 614,
+        "estimated_calls": 0,
+        "cost_usd": 0.00060483
+      },
+      "by_token_type": {
+        "embedding_input_tokens": 47169,
+        "llm_input_tokens": 2176,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 2176,
+        "llm_output_tokens": 43,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 49388
+      },
+      "by_component": {
+        "answer_generation": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 2176,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 2176,
+          "llm_output_tokens": 43,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 2219,
+          "embedding_calls": 0,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00013314
+        },
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 614,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "query_embedding": {
+          "embedding_input_tokens": 47,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 47,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 4.7e-07
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 47122,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 47122,
+          "embedding_calls": 8,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00047122
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-8B": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 2176,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 2176,
+          "llm_output_tokens": 43,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 2219,
+          "embedding_calls": 0,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00013314
+        },
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 47169,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 47169,
+          "embedding_calls": 9,
+          "llm_calls": 0,
+          "cache_hits": 614,
+          "estimated_calls": 0,
+          "cost_usd": 0.00047169
+        }
+      },
+      "cost_usd": 0.00060483,
+      "metadata": {
+        "search_unit_texts_count": 3,
+        "knowledge_block_preload_texts_count": 2,
+        "search_unit_estimated_tokens": 1110,
+        "knowledge_block_preload_estimated_tokens": 1080
+      }
+    }
+  }
+}

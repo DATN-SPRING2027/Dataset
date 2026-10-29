@@ -1,0 +1,1013 @@
+{
+  "tenant_id": "ORG-NSC",
+  "project_id": "db06a2fc373766adbe24ce04",
+  "file_count": 8,
+  "pricing_per_1m_usd": {
+    "Qwen/Qwen3-8B": {
+      "llm_input_per_1m": 0.06,
+      "llm_cached_input_per_1m": 0.06,
+      "llm_output_per_1m": 0.06
+    },
+    "Qwen/Qwen3-Embedding-0.6B": {
+      "embedding_input_per_1m": 0.01
+    }
+  },
+  "ingestion_and_knowledge": {
+    "totals": {
+      "embedding_input_tokens": 47122,
+      "llm_input_tokens": 0,
+      "llm_cached_input_tokens": 0,
+      "llm_uncached_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 47122,
+      "embedding_calls": 8,
+      "llm_calls": 0,
+      "cache_hits": 614,
+      "estimated_calls": 0,
+      "cost_usd": 0.00047122
+    },
+    "by_token_type": {
+      "embedding_input_tokens": 47122,
+      "llm_input_tokens": 0,
+      "llm_cached_input_tokens": 0,
+      "llm_uncached_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 47122
+    },
+    "by_component": {
+      "knowledge_foundation_embedding": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 0,
+        "embedding_calls": 0,
+        "llm_calls": 0,
+        "cache_hits": 614,
+        "estimated_calls": 0,
+        "cost_usd": 0.0
+      },
+      "search_index_embedding": {
+        "embedding_input_tokens": 47122,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 47122,
+        "embedding_calls": 8,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.00047122
+      }
+    },
+    "by_model": {
+      "Qwen/Qwen3-Embedding-0.6B": {
+        "embedding_input_tokens": 47122,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 47122,
+        "embedding_calls": 8,
+        "llm_calls": 0,
+        "cache_hits": 614,
+        "estimated_calls": 0,
+        "cost_usd": 0.00047122
+      }
+    },
+    "cost_usd": 0.00047122,
+    "metadata": {
+      "search_unit_texts_count": 3,
+      "knowledge_block_preload_texts_count": 2,
+      "search_unit_estimated_tokens": 1110,
+      "knowledge_block_preload_estimated_tokens": 1080
+    }
+  },
+  "query_and_generation": {
+    "totals": {
+      "embedding_input_tokens": 47,
+      "llm_input_tokens": 2176,
+      "llm_cached_input_tokens": 0,
+      "llm_uncached_input_tokens": 2176,
+      "llm_output_tokens": 43,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 2266,
+      "embedding_calls": 1,
+      "llm_calls": 1,
+      "cache_hits": 0,
+      "estimated_calls": 0,
+      "cost_usd": 0.00013361
+    },
+    "by_token_type": {
+      "embedding_input_tokens": 47,
+      "llm_input_tokens": 2176,
+      "llm_cached_input_tokens": 0,
+      "llm_uncached_input_tokens": 2176,
+      "llm_output_tokens": 43,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 2266
+    },
+    "by_component": {
+      "answer_generation": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 2176,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 2176,
+        "llm_output_tokens": 43,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2219,
+        "embedding_calls": 0,
+        "llm_calls": 1,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.00013314
+      },
+      "query_embedding": {
+        "embedding_input_tokens": 47,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 47,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 4.7e-07
+      }
+    },
+    "by_model": {
+      "Qwen/Qwen3-8B": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 2176,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 2176,
+        "llm_output_tokens": 43,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2219,
+        "embedding_calls": 0,
+        "llm_calls": 1,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.00013314
+      },
+      "Qwen/Qwen3-Embedding-0.6B": {
+        "embedding_input_tokens": 47,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 47,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 4.7e-07
+      }
+    },
+    "cost_usd": 0.00013361
+  },
+  "grand_total": {
+    "totals": {
+      "embedding_input_tokens": 47169,
+      "llm_input_tokens": 2176,
+      "llm_cached_input_tokens": 0,
+      "llm_uncached_input_tokens": 2176,
+      "llm_output_tokens": 43,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 49388,
+      "embedding_calls": 9,
+      "llm_calls": 1,
+      "cache_hits": 614,
+      "estimated_calls": 0,
+      "cost_usd": 0.00060483
+    },
+    "by_token_type": {
+      "embedding_input_tokens": 47169,
+      "llm_input_tokens": 2176,
+      "llm_cached_input_tokens": 0,
+      "llm_uncached_input_tokens": 2176,
+      "llm_output_tokens": 43,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 49388
+    },
+    "by_component": {
+      "answer_generation": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 2176,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 2176,
+        "llm_output_tokens": 43,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2219,
+        "embedding_calls": 0,
+        "llm_calls": 1,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.00013314
+      },
+      "knowledge_foundation_embedding": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 0,
+        "embedding_calls": 0,
+        "llm_calls": 0,
+        "cache_hits": 614,
+        "estimated_calls": 0,
+        "cost_usd": 0.0
+      },
+      "query_embedding": {
+        "embedding_input_tokens": 47,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 47,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 4.7e-07
+      },
+      "search_index_embedding": {
+        "embedding_input_tokens": 47122,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 47122,
+        "embedding_calls": 8,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.00047122
+      }
+    },
+    "by_model": {
+      "Qwen/Qwen3-8B": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 2176,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 2176,
+        "llm_output_tokens": 43,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2219,
+        "embedding_calls": 0,
+        "llm_calls": 1,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.00013314
+      },
+      "Qwen/Qwen3-Embedding-0.6B": {
+        "embedding_input_tokens": 47169,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 47169,
+        "embedding_calls": 9,
+        "llm_calls": 0,
+        "cache_hits": 614,
+        "estimated_calls": 0,
+        "cost_usd": 0.00047169
+      }
+    },
+    "cost_usd": 0.00060483,
+    "metadata": {
+      "search_unit_texts_count": 3,
+      "knowledge_block_preload_texts_count": 2,
+      "search_unit_estimated_tokens": 1110,
+      "knowledge_block_preload_estimated_tokens": 1080
+    }
+  },
+  "files": [
+    {
+      "document_id": "5176b571-03b2-548c-bdf7-fc09db9aac00",
+      "document_version_id": "3b587624-c8d1-59a4-990c-1e3560ff9f0e",
+      "filename": "confluence__dsid_05841423a55e4c35abd276d9899b7134.md",
+      "logical_source_id": "examples/rag_eval/bench_v0/corpus/confluence__dsid_05841423a55e4c35abd276d9899b7134.md",
+      "size_bytes": 7914,
+      "search_units": 18,
+      "knowledge_units": 41,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 3734,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 3734
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 41,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 3734,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3734,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 3.734e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 3734,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3734,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 41,
+          "estimated_calls": 0,
+          "cost_usd": 3.734e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 3734,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 3734,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 41,
+        "estimated_calls": 0,
+        "cost_usd": 3.734e-05
+      },
+      "cost_usd": 3.734e-05,
+      "metadata": {
+        "search_unit_texts_count": 18,
+        "knowledge_block_preload_texts_count": 41,
+        "search_unit_estimated_tokens": 2025,
+        "knowledge_block_preload_estimated_tokens": 1564
+      }
+    },
+    {
+      "document_id": "aaa5e2b1-5df9-57bb-9813-55adfa6d4dc3",
+      "document_version_id": "3b693a78-64eb-5b4a-8aec-deb968c985d8",
+      "filename": "confluence__dsid_08585f025bd74d50bafd23843caae7bb.md",
+      "logical_source_id": "examples/rag_eval/bench_v0/corpus/confluence__dsid_08585f025bd74d50bafd23843caae7bb.md",
+      "size_bytes": 14137,
+      "search_units": 22,
+      "knowledge_units": 113,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 6221,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 6221
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 113,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 6221,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 6221,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 6.221e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 6221,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 6221,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 113,
+          "estimated_calls": 0,
+          "cost_usd": 6.221e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 6221,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 6221,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 113,
+        "estimated_calls": 0,
+        "cost_usd": 6.221e-05
+      },
+      "cost_usd": 6.221e-05,
+      "metadata": {
+        "search_unit_texts_count": 22,
+        "knowledge_block_preload_texts_count": 63,
+        "search_unit_estimated_tokens": 3543,
+        "knowledge_block_preload_estimated_tokens": 2521
+      }
+    },
+    {
+      "document_id": "bc3147a6-2669-5981-a308-be4ef075ee43",
+      "document_version_id": "7933d685-c2d2-54eb-a067-52c7bab1b262",
+      "filename": "confluence__dsid_150b485e7fd54251b937ab3d08a850dc.md",
+      "logical_source_id": "examples/rag_eval/bench_v0/corpus/confluence__dsid_150b485e7fd54251b937ab3d08a850dc.md",
+      "size_bytes": 16322,
+      "search_units": 37,
+      "knowledge_units": 126,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 7533,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 7533
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 126,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 7533,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 7533,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 7.533e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 7533,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 7533,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 126,
+          "estimated_calls": 0,
+          "cost_usd": 7.533e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 7533,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 7533,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 126,
+        "estimated_calls": 0,
+        "cost_usd": 7.533e-05
+      },
+      "cost_usd": 7.533e-05,
+      "metadata": {
+        "search_unit_texts_count": 37,
+        "knowledge_block_preload_texts_count": 97,
+        "search_unit_estimated_tokens": 4281,
+        "knowledge_block_preload_estimated_tokens": 3046
+      }
+    },
+    {
+      "document_id": "262da8f9-32c9-5469-a388-76a1c39ce846",
+      "document_version_id": "9a530f40-224b-54d0-9b86-2ec933ce3d61",
+      "filename": "confluence__dsid_377cdf4e378f40bebd7196e3a0ff1c38.md",
+      "logical_source_id": "examples/rag_eval/bench_v0/corpus/confluence__dsid_377cdf4e378f40bebd7196e3a0ff1c38.md",
+      "size_bytes": 16042,
+      "search_units": 43,
+      "knowledge_units": 63,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 7444,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 7444
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 63,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 7444,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 7444,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 7.444e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 7444,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 7444,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 63,
+          "estimated_calls": 0,
+          "cost_usd": 7.444e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 7444,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 7444,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 63,
+        "estimated_calls": 0,
+        "cost_usd": 7.444e-05
+      },
+      "cost_usd": 7.444e-05,
+      "metadata": {
+        "search_unit_texts_count": 43,
+        "knowledge_block_preload_texts_count": 63,
+        "search_unit_estimated_tokens": 4190,
+        "knowledge_block_preload_estimated_tokens": 3108
+      }
+    },
+    {
+      "document_id": "52f397c5-955e-54e1-8206-1dc4ee952c21",
+      "document_version_id": "ef4349c3-7186-58d0-a7fe-1f80c9e4b5a9",
+      "filename": "confluence__dsid_37befab212ae4ed9be7ebe612d942658.md",
+      "logical_source_id": "examples/rag_eval/bench_v0/corpus/confluence__dsid_37befab212ae4ed9be7ebe612d942658.md",
+      "size_bytes": 18472,
+      "search_units": 46,
+      "knowledge_units": 119,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 8991,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 8991
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 119,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 8991,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 8991,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 8.991e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 8991,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 8991,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 119,
+          "estimated_calls": 0,
+          "cost_usd": 8.991e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 8991,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 8991,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 119,
+        "estimated_calls": 0,
+        "cost_usd": 8.991e-05
+      },
+      "cost_usd": 8.991e-05,
+      "metadata": {
+        "search_unit_texts_count": 46,
+        "knowledge_block_preload_texts_count": 103,
+        "search_unit_estimated_tokens": 5220,
+        "knowledge_block_preload_estimated_tokens": 3468
+      }
+    },
+    {
+      "document_id": "dff84dd5-beb0-59c6-b6f5-d7f55ffa1109",
+      "document_version_id": "6c0d05b7-8b96-5f5f-9215-783f7148ee38",
+      "filename": "confluence__dsid_409618a3958944f9b78362ed7e01bb33.md",
+      "logical_source_id": "examples/rag_eval/bench_v0/corpus/confluence__dsid_409618a3958944f9b78362ed7e01bb33.md",
+      "size_bytes": 15786,
+      "search_units": 34,
+      "knowledge_units": 110,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 6935,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 6935
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 110,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 6935,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 6935,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 6.935e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 6935,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 6935,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 110,
+          "estimated_calls": 0,
+          "cost_usd": 6.935e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 6935,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 6935,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 110,
+        "estimated_calls": 0,
+        "cost_usd": 6.935e-05
+      },
+      "cost_usd": 6.935e-05,
+      "metadata": {
+        "search_unit_texts_count": 34,
+        "knowledge_block_preload_texts_count": 94,
+        "search_unit_estimated_tokens": 4021,
+        "knowledge_block_preload_estimated_tokens": 2748
+      }
+    },
+    {
+      "document_id": "bffd1cfe-f703-595a-be2e-928060cedc83",
+      "document_version_id": "f50046aa-18af-5d81-9290-ab7d9d8d207b",
+      "filename": "confluence__dsid_46a4cb87db414e769f2df86f01626948.md",
+      "logical_source_id": "examples/rag_eval/bench_v0/corpus/confluence__dsid_46a4cb87db414e769f2df86f01626948.md",
+      "size_bytes": 8184,
+      "search_units": 3,
+      "knowledge_units": 40,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 3976,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 3976
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 40,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 3976,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3976,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 3.976e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 3976,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3976,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 40,
+          "estimated_calls": 0,
+          "cost_usd": 3.976e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 3976,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 3976,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 40,
+        "estimated_calls": 0,
+        "cost_usd": 3.976e-05
+      },
+      "cost_usd": 3.976e-05,
+      "metadata": {
+        "search_unit_texts_count": 3,
+        "knowledge_block_preload_texts_count": 40,
+        "search_unit_estimated_tokens": 1936,
+        "knowledge_block_preload_estimated_tokens": 1881
+      }
+    },
+    {
+      "document_id": "cc1059a7-bd15-5bd0-8634-05538e504bc8",
+      "document_version_id": "71c7ae7b-c7e0-5d4f-bf35-98f672510fe4",
+      "filename": "github__dsid_ae068ee4aa9640159427cd941bef0238.md",
+      "logical_source_id": "examples/rag_eval/bench_v0/corpus/github__dsid_ae068ee4aa9640159427cd941bef0238.md",
+      "size_bytes": 5410,
+      "search_units": 3,
+      "knowledge_units": 2,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 2288,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2288
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 2,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 2288,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 2288,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 2.288e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 2288,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 2288,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 2,
+          "estimated_calls": 0,
+          "cost_usd": 2.288e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 2288,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2288,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 2,
+        "estimated_calls": 0,
+        "cost_usd": 2.288e-05
+      },
+      "cost_usd": 2.288e-05,
+      "metadata": {
+        "search_unit_texts_count": 3,
+        "knowledge_block_preload_texts_count": 2,
+        "search_unit_estimated_tokens": 1110,
+        "knowledge_block_preload_estimated_tokens": 1080
+      }
+    }
+  ]
+}
