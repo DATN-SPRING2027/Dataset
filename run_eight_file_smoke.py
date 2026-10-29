@@ -1,4 +1,4 @@
-"""Run eight fresh files and one full search through the real SAG application."""
+"""Run eight fresh files and one full search through the real SAG application (`FOUNDATION + DenseGraph`)."""
 import asyncio
 import json
 import os
@@ -27,16 +27,51 @@ async def main():
     settings.database_url = run.database_url
     started = time.perf_counter()
     try:
-        await run.start(files, questions, {'mode': 'eight_file_real_sag_e2e', 'top_k': 5})
-        runtime = SAGBenchmark(run, SAG)
+        await run.start(
+            files,
+            questions,
+            {
+                'mode': 'eight_file_real_sag_e2e',
+                'top_k': 5,
+                'dense_graph': True,
+                'e2_enrichment': False,
+            },
+        )
+        if run.cleaned_projects != [run.project_id]:
+            raise RuntimeError(
+                f'8-file E2E must clean only its own project {run.project_id}, got {run.cleaned_projects}'
+            )
+        runtime = SAGBenchmark(run, SAG, require_dense_graph=True)
         async with runtime.serve():
             qdrant = await runtime.app.state.engine_manager.get_search_unit_qdrant_client()
             await run.require_new_collection(qdrant)
             await runtime.ingest(files)
             state = await asyncio.wait_for(runtime.wait_ready(), timeout=900)
+            units = state['units']
+            evidence = state['evidence']
+            dense_graph = state['dense_graph']
+            if units['with_dense'] != units['total'] or dense_graph['semantic_dense_edges'] <= 0:
+                raise RuntimeError(f'DenseGraph incomplete in 8-file E2E: units={units}, graph={dense_graph}')
+            if evidence.get('E2', 0) != 0:
+                raise RuntimeError(f'Unexpected E2 enrichment evidence in FOUNDATION-only pipeline: evidence={evidence}')
             response = await runtime.ask(question['question'])
-            result = {'elapsed_seconds': round(time.perf_counter() - started, 3),
-                      'file_count': len(files), 'pipeline': state, 'query': response}
+            token_report = await runtime.token_usage_report()
+            (run.output_dir / 'token_usage_report.json').write_text(
+                json.dumps(token_report, ensure_ascii=False, indent=2), encoding='utf-8'
+            )
+            run.manifest['token_usage'] = {
+                'ingestion_and_knowledge': token_report.get('ingestion_and_knowledge'),
+                'query_and_generation': token_report.get('query_and_generation'),
+                'grand_total': token_report.get('grand_total'),
+            }
+            result = {
+                'elapsed_seconds': round(time.perf_counter() - started, 3),
+                'file_count': len(files),
+                'cleanup': run.manifest.get('cleanup'),
+                'pipeline': state,
+                'query': response,
+                'token_usage': run.manifest['token_usage'],
+            }
             (run.output_dir / 'smoke_result.json').write_text(
                 json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding='utf-8')
             if response['error'] is not None:

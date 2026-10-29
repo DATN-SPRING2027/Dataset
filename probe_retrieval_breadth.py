@@ -78,8 +78,10 @@ def main():
     args=parser.parse_args()
     source = args.reuse_manifest.resolve()
     old=json.loads(source.read_text(encoding='utf-8'))
-    if old['benchmark'] != 'retrievalci_v0' or not re.fullmatch(r'sag_bench_[a-z0-9_]+',old['schema']):
-        raise ValueError('Expected an isolated RetrievalCI run manifest')
+    if old['benchmark'] != 'retrievalci_v0' or (
+        old['schema'] != 'sag' and not re.fullmatch(r'sag_bench_[a-z0-9_]+', old['schema'])
+    ):
+        raise ValueError('Expected a RetrievalCI run manifest')
     stamp=datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')
     directory=ROOT/'reports'/f'retrievalci-paired-probe-{stamp}'
     directory.mkdir()

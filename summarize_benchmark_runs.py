@@ -116,7 +116,8 @@ async def main(run_ids: list[str]) -> None:
                       '- Các row provider khác là tham chiếu lịch sử, không chạy lại và không bảo đảm cùng protocol.']
         elif 'summary' in report:
             summary = report['summary']
-            lines += [f"- Recall@5: {100*summary['retrieval']['5']['recall']:.2f}%; nDCG@10: {100*summary['retrieval']['10']['ndcg']:.2f}%.",
+            ndcg_k = '10' if '10' in summary['retrieval'] else '5'
+            lines += [f"- Recall@5: {100*summary['retrieval']['5']['recall']:.2f}%; nDCG@{ndcg_k}: {100*summary['retrieval'][ndcg_k]['ndcg']:.2f}%.",
                       f"- Answered: {summary['answered']}/{summary['questions']}; execution errors: {summary['execution_errors']}.",
                       f"- P50 retrieval: {summary['retrieval_p50_ms']:.2f} ms; P50 Q&A: {summary['qa_p50_ms']:.2f} ms."]
         else:

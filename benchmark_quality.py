@@ -60,22 +60,35 @@ class QualityJudge:
 
 
 async def extended_evaluation(runtime, questions, measurements):
-    """No query repetitions are selected by score; every attempt remains in the report."""
-    judge = QualityJudge()
-    report = {'protocol': {'judge_model': judge.model, 'judge_scale': '1–5',
+    """No query repetitions are selected by score; every attempt remains in the report.
+    LLM judge and warm latency replays are disabled by default to save cost/time;
+    enable via SAG_BENCHMARK_ENABLE_LLM_JUDGE=1 and SAG_BENCHMARK_LATENCY_REPLAYS=2.
+    """
+    import os
+    enable_judge = os.getenv('SAG_BENCHMARK_ENABLE_LLM_JUDGE', '0').strip().lower() in ('1', 'true', 'yes')
+    latency_replays = int(os.getenv('SAG_BENCHMARK_LATENCY_REPLAYS', '0').strip() or '0')
+    judge = QualityJudge() if enable_judge else None
+    report = {'protocol': {'judge_model': QualityJudge.model if enable_judge else None,
+                           'judge_enabled': enable_judge,
+                           'judge_scale': '1–5',
                            'judge_rubric': 'RetrievalCI faithfulness/relevance',
-                           'latency_repetitions': 3, 'concurrency': 1,
+                           'latency_repetitions': 1 + latency_replays, 'concurrency': 1,
                            'first_pass_cache': 'not explicitly prewarmed; physical cold cache not verified',
                            'judge_latency_included': False}, 'quality': {},
               'latency': {'first_pass': latency_summary(list(measurements.values()))}, 'warm_attempts': []}
     output = runtime.run.output_dir / 'quality_latency.json'
     def save():
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
-    for index, q in enumerate(questions, 1):
-        report['quality'][q['id']] = await judge.score(q['question'], measurements[q['id']], q.get('reference', ''))
+    if judge is not None:
+        for index, q in enumerate(questions, 1):
+            report['quality'][q['id']] = await judge.score(q['question'], measurements[q['id']], q.get('reference', ''))
+            save()
+            print(f'Independent judge {index}/{len(questions)}: {q["id"]}', flush=True)
+    else:
+        for q in questions:
+            report['quality'][q['id']] = {'status': 'skipped_by_config', 'faithfulness': {'score': None}, 'relevance': {'score': None}}
         save()
-        print(f'Independent judge {index}/{len(questions)}: {q["id"]}', flush=True)
-    for repeat in (1, 2):
+    for repeat in range(1, latency_replays + 1):
         attempts = []
         # Rotate deterministically to avoid always timing the same query first.
         ordered = questions[repeat:] + questions[:repeat]

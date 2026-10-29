@@ -89,9 +89,13 @@ async def wait_until_ready(runtime, timeline: list, origin: float, poll_seconds:
         snapshot = {
             "ingestion": state["ingestion"],
             "versions": [[v["search_status"], v["knowledge_status"]] for v in state["ready_versions"]],
+            "units": state["units"],
+            "evidence": state["evidence"],
+            "dense_graph": state["dense_graph"],
             "jobs": [[j["kind"], j["status"], j["count"]] for j in state["jobs"]],
             "tree": [t["status"] for t in state["tree"]],
             "tree_jobs": [str(j["status"]) for j in state["tree_jobs"]],
+            "tree_matches_current": state["tree_matches_current"],
         }
         if snapshot != previous:
             timeline.append({"elapsed_seconds": round(time.perf_counter() - origin, 3), **snapshot})
@@ -102,20 +106,29 @@ async def wait_until_ready(runtime, timeline: list, origin: float, poll_seconds:
             and version["knowledge_status"] == "DATA_READY"
             for version in versions
         )
+        if any(
+            job.get("error_code") == "DAILY_BUDGET" and job["status"] in ("QUEUED", "RETRY")
+            for job in state["jobs"]
+        ):
+            raise RuntimeError("Knowledge work is deferred by the real SAG daily budget")
         active_jobs = any(
             job["status"] in ("QUEUED", "RUNNING", "RETRY")
-            and job["error_code"] != "DAILY_BUDGET"
             for job in state["jobs"]
         )
         if state["ingestion"].get("FAILED"):
             raise RuntimeError("SAG document ingestion failed; see the retained stage trace")
         if any(
-            job["kind"] == "FOUNDATION" and job["status"] in ("FAILED", "EXPIRED")
+            job["kind"] in ("FOUNDATION", "E2") and job["status"] in ("FAILED", "EXPIRED")
             for job in state["jobs"]
         ):
-            raise RuntimeError("SAG KnowledgeUnit foundation job failed")
-        tree_active = any(tree["status"] == "ACTIVE" for tree in state["tree"])
-        if ready and not active_jobs and tree_active:
+            raise RuntimeError("SAG KnowledgeUnit foundation or E2 job failed")
+        e2_pending = int(state["units"].get("e2_pending", 0) or 0)
+        tree_active_jobs = any(job["status"] in ("queued", "running") for job in state["tree_jobs"])
+        if ready and not active_jobs and e2_pending == 0 and not tree_active_jobs and state["tree_matches_current"]:
+            if state["units"]["with_dense"] != state["units"]["total"]:
+                raise RuntimeError("DenseGraph embeddings incomplete in ingest speed trace")
+            if state["units"].get("e2_selected", 0) > 0 and state["units"].get("e2_enriched", 0) <= 0:
+                raise RuntimeError("E2 enrichment incomplete in ingest speed trace")
             return state, polls
         await asyncio.sleep(poll_seconds)
 
@@ -179,11 +192,12 @@ async def main(identity_manifest: Path) -> None:
     try:
         run_dir = output_root / "result"
         os.environ["SAG_BENCHMARK_OUTPUT_DIR"] = str(run_dir)
-        run = BenchmarkRun("retrievalci_v0", BENCH, settings.database_url)
+        run = BenchmarkRun("ingest_speed_trace", BENCH, settings.database_url)
         registration_started = time.perf_counter()
         await run.start([file], QUESTIONS, {
             "mode": "single_file_full_ingest_speed_trace",
             "dense_graph": True,
+            "e2_enrichment": False,
             "top_k": 5,
         })
         registration_seconds = time.perf_counter() - registration_started

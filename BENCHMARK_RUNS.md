@@ -34,7 +34,7 @@ $env:PYTHONUTF8 = '1'
   'Dataset/VN_MTEB_RAG_Bench_2026/scripts/run_vn_mteb_sag.py'
 ```
 
-Mỗi lệnh tạo `run_id`, project ID, source ID và collection mới. Cùng một account có thể sở hữu cả hai lượt chạy. Tenant dùng organization ID; security partition dùng project ID. Không xoá schema, không xoá collection và không ghi đè báo cáo cũ. Dữ liệu tài liệu/index nằm ngay trong schema ứng dụng đã cấu hình, được tách bằng project/source; không phải chỉ đổi tên evaluator.
+Mỗi bài benchmark sở hữu một `project_id` riêng cố định theo `(organization_id, benchmark_key)` (hoặc theo `SAG_BENCHMARK_PROJECT_ID` nếu chỉ định tường minh) và tạo `run_id` / `source_id` mới cho mỗi lần chạy. Trước khi nạp mới, runner **chỉ clean đúng dữ liệu của duy nhất `project_id` mà bài benchmark đó dùng** (các dòng PostgreSQL gắn với `project_id`, collection Qdrant `search_units_<project_id>` / `session_units_<project_id>`, và thư mục upload riêng của source đó) — **tuyệt đối không clean toàn bộ DB và không đụng tới bất kỳ project nào khác** trong PostgreSQL hay Qdrant.
 
 Đây là các scope project của benchmark trong SAG. Runner không tạo entity Project/membership trong IAM của Continuum và không tự cấp quyền SSO. Muốn chọn project qua giao diện Continuum cần cấu hình Project/membership tương ứng ở IAM.
 
@@ -88,7 +88,7 @@ Mỗi dataset cũng lưu file ở `reports/<run_id>/`, gồm `run_manifest.json`
 - `international_references.json` lưu các mô hình đã nhắc trong dataset và nguồn kiểm chứng. Không có credential để chạy mới OpenAI/AWS/Azure/Vertex; không dùng mock làm số liệu chất lượng thật. Bảng VN full leaderboard không đủ thông tin để đối chiếu latency và khác corpus local.
 - `quality_latency.json` giữ điểm từng câu, rationale, mọi lần đo và các aggregate. Bản hoàn tất được ghi vào manifest JSONB của `benchmark_runs`; VN còn ghi trực tiếp trong report JSON.
 
-Luồng ingest mới mặc định không gọi LLM Event/Entity theo chunk. Embedding dùng client SDK độc lập với kho Event; FOUNDATION dựa trên SEARCH_READY và E2 vẫn chọn lọc. Xem `../sag-laya-integration/SAG/docs/canonical-ingestion-and-adaptive-search.md`.
+Luồng ingest mặc định không gọi LLM Event/Entity theo chunk và **đã loại bỏ hoàn toàn bước E2 LLM Enrichment** khỏi Phase 5 sau phép đo đối chứng A/B trên toàn bộ 81 file / 50 câu hỏi của RetrievalCI (`20261029T031043Z-bb191f` không E2 đạt **Score `93.64`**, `Recall 99.17%`, `Precision 80.73%`, `Abstention 100%`, phí ingest **`$0.003755`** so với `20261029T103921Z-183d1c` bật Full 258 E2 jobs chỉ đạt **Score `93.42`**, `Recall 99.17%`, `Precision 80.00%`, `Abstention 80%`, đốt thêm `151,435` LLM tokens = **`$0.012841`**, gấp `3.42x` phí ingest mà không tìm thêm được bất kỳ tài liệu Ground Truth nào). Phase 5 chỉ chạy `FOUNDATION` (`E0/E1` tất định + `DenseGraph` tái sử dụng 100% cache embedding từ Phase 2C + cây định tuyến `Leiden`). Xem chi tiết bằng chứng tại `../sag-laya-integration/SAG/docs/adr-remove-e2-llm-enrichment.md`.
 
 ## Launcher tương thích
 

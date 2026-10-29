@@ -10,7 +10,12 @@ from unittest.mock import AsyncMock, MagicMock, patch
 from types import SimpleNamespace
 from collections import namedtuple
 
-from sag_benchmark_runtime import SAGBenchmark, frontend_policy, parse_frame
+from sag_benchmark_runtime import (
+    SAGBenchmark,
+    configure_full_benchmark_settings,
+    frontend_policy,
+    parse_frame,
+)
 
 
 class RuntimeContractTests(unittest.IsolatedAsyncioTestCase):
@@ -94,19 +99,19 @@ class RuntimeContractTests(unittest.IsolatedAsyncioTestCase):
         with patch('sag_benchmark_runtime.asyncio.sleep', new_callable=AsyncMock):
             result = await runtime.wait_ready()
         self.assertTrue(result['tree_matches_current'])
-        self.assertEqual(runtime.state.await_count, 8)
+        self.assertEqual(runtime.state.await_count, 3)
 
-    async def test_budget_deferred_knowledge_work_is_not_marked_ready(self):
+    async def test_failed_foundation_job_fails_readiness_closed(self):
         runtime = SAGBenchmark.__new__(SAGBenchmark)
         runtime.documents = {'doc': 'path'}
         runtime.run = SimpleNamespace(checkpoint=AsyncMock())
         runtime.state = AsyncMock(return_value={
-            'ingestion': {'READY': 1}, 'units': {'total': 1},
-            'jobs': [{'kind': 'E2', 'status': 'RETRY', 'error_code': 'DAILY_BUDGET'}],
+            'ingestion': {'READY': 1}, 'units': {'total': 1, 'with_dense': 1},
+            'jobs': [{'kind': 'FOUNDATION', 'status': 'FAILED', 'error_code': 'TimeoutError'}],
             'tree': [{'status': 'ACTIVE'}], 'tree_jobs': [], 'tree_matches_current': True,
             'ready_versions': [{'search_status': 'SEARCH_READY', 'knowledge_status': 'DATA_READY'}],
         })
-        with self.assertRaisesRegex(RuntimeError, 'daily budget'):
+        with self.assertRaisesRegex(RuntimeError, 'foundation job exhausted'):
             await runtime.wait_ready()
 
     async def test_upload_uses_project_http_api(self):
@@ -235,6 +240,65 @@ class RuntimeContractTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(result['error']['code'], 'TimeoutError')
         self.assertIsNone(result['response'])
         self.assertLess(result['latency_ms'], 1000)
+
+    def test_configure_full_benchmark_settings_enforces_foundation_dense_graph_without_e2(self):
+        cfg = SimpleNamespace(
+            knowledge_worker_enabled=False,
+            knowledge_concurrency=4,
+            knowledge_queue_capacity=256,
+            embedding_api_key='emb-key',
+            embedding_model='Qwen/Qwen3-Embedding-0.6B',
+        )
+        configure_full_benchmark_settings(cfg)
+        self.assertTrue(cfg.knowledge_worker_enabled)
+        self.assertEqual(cfg.knowledge_concurrency, 8)
+        self.assertEqual(cfg.knowledge_queue_capacity, 512)
+        self.assertFalse(hasattr(cfg, 'knowledge_e2_url'))
+
+        missing_dense = SimpleNamespace(
+            knowledge_worker_enabled=True,
+            embedding_api_key='',
+            embedding_model='',
+        )
+        with self.assertRaisesRegex(RuntimeError, 'Full DenseGraph is required'):
+            configure_full_benchmark_settings(missing_dense)
+
+    async def test_full_dense_graph_readiness_gate_verifies_vectors_and_edges(self):
+        runtime = SAGBenchmark.__new__(SAGBenchmark)
+        runtime.require_dense_graph = True
+        runtime.documents = {f'doc-{i}': f'doc-{i}.md' for i in range(8)}
+        runtime.run = SimpleNamespace(checkpoint=AsyncMock(), manifest={}, _write_manifest=MagicMock())
+        versions = [{'search_status': 'SEARCH_READY', 'knowledge_status': 'DATA_READY'} for _ in range(8)]
+
+        running_foundation = {
+            'ingestion': {'READY': 8},
+            'units': {'total': 20, 'with_dense': 20},
+            'evidence': {'E0': 10, 'E1': 30},
+            'dense_graph': {'build_id': 'g1', 'total_edges': 50, 'semantic_dense_edges': 40},
+            'jobs': [{'kind': 'FOUNDATION', 'status': 'RUNNING', 'count': 1}],
+            'tree': [{'status': 'ACTIVE', 'tree_version': 't1'}],
+            'tree_jobs': [{'status': 'succeeded'}],
+            'tree_matches_current': True,
+            'ready_versions': versions,
+        }
+        ready_foundation = {
+            **running_foundation,
+            'jobs': [{'kind': 'FOUNDATION', 'status': 'SUCCEEDED', 'count': 8}],
+        }
+        runtime.state = AsyncMock(side_effect=[running_foundation, ready_foundation])
+        with patch('sag_benchmark_runtime.asyncio.sleep', new_callable=AsyncMock):
+            result = await runtime.wait_ready()
+        self.assertNotIn('E2', result['evidence'])
+        self.assertEqual(result['dense_graph']['semantic_dense_edges'], 40)
+        self.assertEqual(runtime.state.await_count, 2)
+
+        missing_dense_vectors = {
+            **ready_foundation,
+            'units': {'total': 20, 'with_dense': 18},
+        }
+        runtime.state = AsyncMock(return_value=missing_dense_vectors)
+        with self.assertRaisesRegex(RuntimeError, 'Full DenseGraph verification failed'):
+            await runtime.wait_ready()
 
 
 if __name__ == '__main__':

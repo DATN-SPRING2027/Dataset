@@ -275,14 +275,20 @@ async def main(identity_manifest: Path) -> None:
         }.items():
             setattr(settings, key.lower(), value)
         run_dir.parent.mkdir(parents=True, exist_ok=True)
-        run = BenchmarkRun("retrievalci_v0", BENCH, settings.database_url)
+        run = BenchmarkRun(f"graph_ingest_ablation_{mode}", BENCH, settings.database_url)
         runs.append(run)
         with redirect_stdout(StringIO()):
-            await run.start(files, QUESTIONS, {
-                "mode": "paired_8_file_graph_ingest_ablation",
-                "dense_graph": mode == "dense_on",
-                "top_k": 5,
-            })
+            await run.start(
+                files,
+                QUESTIONS,
+                {
+                    "mode": "paired_8_file_graph_ingest_ablation",
+                    "dense_graph": mode == "dense_on",
+                    "e2_enrichment": False,
+                    "top_k": 5,
+                },
+                preserve_project_ids=[r.project_id for r in runs[:-1]],
+            )
         active["project_ids"] = [run.project_id]
         run.manifest["probe_protocol"] = {
             "files": [{"path": path.relative_to(BENCH).as_posix(), "bytes": path.stat().st_size} for path in files],
@@ -339,7 +345,9 @@ async def main(identity_manifest: Path) -> None:
                     run = await start_run(mode)
                     runtime.run = run
                     runtime.documents = {}
+                    await run.clean_qdrant_and_uploads(qdrant_client, settings.upload_dir)
                     await runtime.login()
+                runtime.require_dense_graph = mode == "dense_on"
                 active["mode"] = mode
                 search_index_service._SHARED_TEXT_EMBEDDING_CACHE.clear()
                 started = time.perf_counter()
