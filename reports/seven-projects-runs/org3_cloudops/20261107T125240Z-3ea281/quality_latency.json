@@ -1,0 +1,668 @@
+{
+  "protocol": {
+    "judge_model": null,
+    "judge_enabled": false,
+    "judge_scale": "1–5",
+    "judge_rubric": "RetrievalCI faithfulness/relevance",
+    "latency_repetitions": 1,
+    "concurrency": 1,
+    "first_pass_cache": "not explicitly prewarmed; physical cold cache not verified",
+    "judge_latency_included": false
+  },
+  "quality": {
+    "CLD-EVAL-001": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-002": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-003": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-004": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-005": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-006": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-007": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-008": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-009": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-010": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-017": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-018": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-019": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-020": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-021": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-022": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-023": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-024": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-025": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-026": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-027": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-028": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-029": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-030": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-031": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-032": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-033": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-034": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-035": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-036": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-037": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-038": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-039": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-040": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-041": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-042": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-043": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-044": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-045": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-046": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-047": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-048": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-049": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-050": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-051": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-052": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-053": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-054": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-055": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "CLD-EVAL-056": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    }
+  },
+  "latency": {
+    "first_pass": {
+      "requests": 50,
+      "errors": 0,
+      "successful": {
+        "retrieval_latency_ms": {
+          "n": 50,
+          "mean_ms": 2605.7704900065437,
+          "p50_ms": 2173.9152499940246,
+          "p95_ms": 2979.3833000585437,
+          "p99_ms": 17881.679199868813
+        },
+        "first_token_ms": {
+          "n": 46,
+          "mean_ms": 13042.41646304929,
+          "p50_ms": 6686.925449990667,
+          "p95_ms": 25585.404200013727,
+          "p99_ms": 127083.05689995177
+        },
+        "latency_ms": {
+          "n": 50,
+          "mean_ms": 12649.217373994179,
+          "p50_ms": 6687.3655000235885,
+          "p95_ms": 25587.00029994361,
+          "p99_ms": 127083.77270004712
+        }
+      },
+      "all_attempts": {
+        "retrieval_latency_ms": {
+          "n": 50,
+          "mean_ms": 2605.7704900065437,
+          "p50_ms": 2173.9152499940246,
+          "p95_ms": 2979.3833000585437,
+          "p99_ms": 17881.679199868813
+        },
+        "first_token_ms": {
+          "n": 46,
+          "mean_ms": 13042.41646304929,
+          "p50_ms": 6686.925449990667,
+          "p95_ms": 25585.404200013727,
+          "p99_ms": 127083.05689995177
+        },
+        "latency_ms": {
+          "n": 50,
+          "mean_ms": 12649.217373994179,
+          "p50_ms": 6687.3655000235885,
+          "p95_ms": 25587.00029994361,
+          "p99_ms": 127083.77270004712
+        }
+      }
+    },
+    "warm_combined": {
+      "requests": 0,
+      "errors": 0,
+      "successful": {
+        "retrieval_latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "first_token_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        }
+      },
+      "all_attempts": {
+        "retrieval_latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "first_token_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        }
+      }
+    }
+  },
+  "warm_attempts": [],
+  "quality_summary": {
+    "faithfulness": {
+      "n_scored": 0,
+      "mean": null
+    },
+    "relevance": {
+      "n_scored": 0,
+      "mean": null
+    }
+  },
+  "acl_security_evaluation": {
+    "total_acl_cases": 6,
+    "deny_accuracy": 1.0,
+    "leaked_citations_count": 0,
+    "cases": [
+      {
+        "case_id": "CLD-EVAL-011",
+        "suite": "ACL_SECURITY",
+        "principal_id": "FL-U01",
+        "project_id": "CLD-INC",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "e386f026dcf9cb19253054d0"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "CLD-EVAL-012",
+        "suite": "ACL_SECURITY",
+        "principal_id": "VC-U01",
+        "project_id": "CLD-INF",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "DOC-CLDINF-DB-002"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "CLD-EVAL-013",
+        "suite": "ACL_SECURITY",
+        "principal_id": "CLD-U18",
+        "project_id": "CLD-INC",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "DOC-CLDINC-RCA-002"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "CLD-EVAL-014",
+        "suite": "ACL_SECURITY",
+        "principal_id": "CLD-U14",
+        "project_id": "CLD-INF",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "CLD-INF-WR-W40-M1"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "CLD-EVAL-015",
+        "suite": "ACL_SECURITY",
+        "principal_id": "FL-U03",
+        "project_id": "CLD-OBS",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "DOC-CLDOBS-ARC-002"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "CLD-EVAL-016",
+        "suite": "ACL_SECURITY",
+        "principal_id": "CLD-U09",
+        "project_id": "CLD-SUP",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "abdc6e7c7690a66eb8e9616d"
+        ],
+        "must_not_cite_violations": 0
+      }
+    ]
+  }
+}

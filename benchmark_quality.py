@@ -19,8 +19,13 @@ def parse_judge(text):
 def latency_summary(rows):
     def distribution(key, successful_only):
         samples = sorted(r[key] for r in rows if r.get(key) is not None and (not successful_only or not r.get('error')))
-        return {'n': len(samples), 'p50_ms': statistics.median(samples) if samples else None,
-                'p95_ms': samples[max(0, math.ceil(.95 * len(samples))-1)] if samples else None}
+        return {
+            'n': len(samples),
+            'mean_ms': statistics.fmean(samples) if samples else None,
+            'p50_ms': statistics.median(samples) if samples else None,
+            'p95_ms': samples[max(0, math.ceil(.95 * len(samples)) - 1)] if samples else None,
+            'p99_ms': samples[max(0, math.ceil(.99 * len(samples)) - 1)] if samples else None,
+        }
     return {'requests': len(rows), 'errors': sum(bool(r.get('error')) for r in rows),
             'successful': {k: distribution(k, True) for k in ('retrieval_latency_ms', 'first_token_ms', 'latency_ms')},
             'all_attempts': {k: distribution(k, False) for k in ('retrieval_latency_ms', 'first_token_ms', 'latency_ms')}}
@@ -113,14 +118,21 @@ async def extended_evaluation(runtime, questions, measurements):
     return report
 
 
-def ir_metrics(ranked_docs: list[str], relevant_docs: set[str], k: int) -> dict[str, float]:
+def ir_metrics(
+    ranked_docs: list[str],
+    relevant_docs: set[str],
+    k: int,
+    *,
+    flexible_k: bool = False,
+) -> dict[str, float]:
     if not relevant_docs:
         return {"recall": 0.0, "precision": 0.0, "mrr": 0.0, "map": 0.0, "ndcg": 0.0}
     top_k = ranked_docs[:k]
     hits = [1 if d in relevant_docs else 0 for d in top_k]
     num_rel = len(relevant_docs)
     recall = sum(hits) / num_rel
-    precision = sum(hits) / k
+    denom = len(top_k) if flexible_k else k
+    precision = (sum(hits) / denom) if denom > 0 else 0.0
 
     mrr = 0.0
     for idx, h in enumerate(hits, start=1):

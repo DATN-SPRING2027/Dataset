@@ -292,7 +292,10 @@ async def clean_projects_in_local_db(
     await run_delete('project_search_state', 'DELETE FROM project_search_state WHERE project_id = ANY(:projects)')
     await run_delete('tree_manifests', 'DELETE FROM tree_manifests WHERE project_id = ANY(:projects)')
 
-    # 4. Session context tables scoped to project.
+    # 4. Session context and AI Chat project-scoped tables.
+    await run_delete('project_mind_maps', 'DELETE FROM project_mind_maps WHERE project_id = ANY(:projects) AND tenant_id = :org')
+    await run_delete('answer_feedback', 'DELETE FROM answer_feedback WHERE project_id = ANY(:projects) AND tenant_id = :org')
+    await run_delete('answer_shares', 'DELETE FROM answer_shares WHERE project_id = ANY(:projects) AND tenant_id = :org')
     await run_delete('session_graph_edges', 'DELETE FROM session_graph_edges WHERE project_id = ANY(:projects) AND tenant_id = :org')
     await run_delete('session_decision_ledger', 'DELETE FROM session_decision_ledger WHERE project_id = ANY(:projects) AND tenant_id = :org')
     await run_delete('session_unit_messages', 'DELETE FROM session_unit_messages WHERE project_id = ANY(:projects) AND tenant_id = :org')
@@ -460,10 +463,30 @@ async def clean_projects_in_local_db(
     }
 
 
+DEFAULT_BENCHMARK_PROJECT_NAMES: dict[str, str] = {
+    'retrievalci_v0': '[Benchmark 01] RetrievalCI Bench-v0 — Enterprise Multi-Source RAG (EN)',
+    'vn_mteb': '[Benchmark 02] VN-MTEB RAG Bench 2026 — Vietnamese Legal & Multi-Hop QA (VI)',
+    'wixqa_enterprise': '[Benchmark 03] WixQA Enterprise Support KB Benchmark (EN)',
+    'org1_northstar': '[Dataset 04] Org 1: Northstar Commerce Systems — Agile Scrum E-Commerce',
+    'org2_nova': '[Dataset 05] Org 2: Nova Solutions — Waterfall HR, Attendance & Leave',
+    'org3_cloudops': '[Dataset 06] Org 3: CloudOps Services — Kanban 24/7 SRE & Incident Relay',
+    'org4_mediflow': '[Dataset 07] Org 4: MediFlow HealthTech — Hybrid Outpatient Administration',
+    'eight_file_e2e_smoke': '[Smoke Test] RetrievalCI 8-File End-to-End Architecture Smoke',
+}
+
+
 def default_benchmark_project_id(benchmark_key: str, organization_id: str = '') -> str:
     """Deterministic 24-hex project ID dedicated to a single benchmark within an organization."""
     scope = f"sag-benchmark-project:{organization_id.strip() or 'default'}:{benchmark_key.strip()}"
     return hashlib.sha256(scope.encode('utf-8')).hexdigest()[:24]
+
+
+def default_benchmark_project_name(benchmark_key: str, project_id: str = '') -> str:
+    """Human-readable full project name for a benchmark dataset."""
+    key = benchmark_key.strip()
+    if key in DEFAULT_BENCHMARK_PROJECT_NAMES:
+        return DEFAULT_BENCHMARK_PROJECT_NAMES[key]
+    return f'Project {project_id or key}'
 
 
 class BenchmarkRun:
@@ -480,6 +503,7 @@ class BenchmarkRun:
         self.project_id = os.getenv('SAG_BENCHMARK_PROJECT_ID') or default_benchmark_project_id(key, self.organization_id)
         if not _PROJECT_ID_RE.fullmatch(self.project_id):
             raise ValueError('Benchmark project ID must be a 24-character identifier')
+        self.project_name = os.getenv('SAG_BENCHMARK_PROJECT_NAME') or default_benchmark_project_name(key, self.project_id)
         self.source_id = os.getenv('SAG_BENCHMARK_SOURCE_ID') or uuid.uuid4().hex[:24]
         self.mapping_id = uuid.uuid4().hex[:24]
         self.source_config_id = os.getenv('SAG_BENCHMARK_SOURCE_CONFIG_ID') or f'bench-{key}-{uuid.uuid4().hex[:12]}'
@@ -605,7 +629,8 @@ class BenchmarkRun:
             self.manifest = {
                 'run_id': self.id, 'benchmark': self.key, 'user_id': self.user_id,
                 'user_name': account['name'], 'organization_id': self.organization_id,
-                'project_id': self.project_id, 'source_id': self.source_id, 'schema': self.schema,
+                'project_id': self.project_id, 'project_name': self.project_name,
+                'source_id': self.source_id, 'schema': self.schema,
                 'source_config_id': self.source_config_id,
                 'collection': self.collection, 'documents': len(corpus), 'questions': len(question_lines),
                 'questions_sha256': hashlib.sha256(questions.read_bytes()).hexdigest(),

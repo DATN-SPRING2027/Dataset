@@ -19,6 +19,8 @@ import os
 import re
 import socket
 import sys
+import time
+import unicodedata
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
@@ -54,18 +56,108 @@ def configure_full_benchmark_settings(
     *,
     require_dense_graph: bool = True,
 ) -> None:
-    """Ensure Phase 5A FOUNDATION (`E0/E1` + full `DenseGraph` + `Leiden` tree) is enabled."""
+    """Ensure Phase 5A FOUNDATION (`E0/E1` + full `DenseGraph` + `Leiden` tree) is enabled
+    and configure RPM/TPM rate-limit protection for benchmark runs."""
     settings.knowledge_worker_enabled = True
     if hasattr(settings, 'knowledge_concurrency'):
         settings.knowledge_concurrency = max(int(settings.knowledge_concurrency or 4), 8)
     if hasattr(settings, 'knowledge_queue_capacity'):
         settings.knowledge_queue_capacity = max(int(settings.knowledge_queue_capacity or 256), 512)
+    # Prevent extra SiliconFlow /systemone HTTP call per query (uses deterministic ECCE routing)
+    if hasattr(settings, 'decision_provider'):
+        settings.decision_provider = 'disabled'
+    # Prevent SiliconFlow TPM pre-reservation spikes (reserve 512 output tokens instead of 4096/20000)
+    if hasattr(settings, 'llm_max_tokens'):
+        settings.llm_max_tokens = min(int(getattr(settings, 'llm_max_tokens', 512) or 512), 512)
+    # Prevent LiteLLM internal burst retries from poisoning SiliconFlow's 60-second sliding RPM window
+    if hasattr(settings, 'llm_max_retries'):
+        settings.llm_max_retries = 0
     if require_dense_graph and not (
         getattr(settings, 'embedding_api_key', None) and getattr(settings, 'embedding_model', None)
     ):
         raise RuntimeError(
             'Full DenseGraph is required for SAG benchmarks; configure SAG_EMBEDDING_API_KEY and SAG_EMBEDDING_MODEL'
         )
+    install_dual_key_llm_rate_limit_guard(settings)
+
+
+def install_dual_key_llm_rate_limit_guard(settings) -> None:
+    """Install round-robin dual-key rotation + failover retry on LLMClient._create_completion."""
+    keys = [
+        k for k in dict.fromkeys([
+            getattr(settings, 'llm_api_key', None),
+            getattr(settings, 'embedding_api_key', None),
+            getattr(settings, 'siliconflow_api_key', None),
+        ])
+        if isinstance(k, str) and k.strip().startswith('sk-')
+    ]
+    if not keys:
+        return
+
+    try:
+        from sag_api.generation.llm import LLMClient
+    except ImportError:
+        api_dir = Path(__file__).resolve().parents[1] / 'sag-laya-integration/SAG/apps/api'
+        if api_dir.is_dir() and str(api_dir) not in sys.path:
+            sys.path.insert(0, str(api_dir))
+        try:
+            from sag_api.generation.llm import LLMClient
+        except ImportError:
+            return
+
+    if getattr(LLMClient._create_completion, '_sag_rate_limit_guarded', False):
+        return
+
+    orig_create = LLMClient._create_completion
+    state = {
+        'idx': 0,
+        'cooldown_until': {k: 0.0 for k in keys},
+        'lock': asyncio.Lock(),
+    }
+
+    async def _guarded_create_completion(self, messages, **kwargs):
+        self._settings.llm_max_tokens = min(int(getattr(self._settings, 'llm_max_tokens', 512) or 512), 512)
+        self._settings.llm_max_retries = 0
+        last_err = None
+        for attempt in range(1, 6):
+            async with state['lock']:
+                now = time.perf_counter()
+                # Pick next key not in cooldown, or the key whose cooldown expires soonest
+                chosen_key = None
+                for _ in range(len(keys)):
+                    candidate = keys[state['idx'] % len(keys)]
+                    state['idx'] += 1
+                    if state['cooldown_until'].get(candidate, 0.0) <= now:
+                        chosen_key = candidate
+                        break
+                if chosen_key is None:
+                    chosen_key = min(keys, key=lambda k: state['cooldown_until'].get(k, 0.0))
+                wait_s = max(0.0, state['cooldown_until'].get(chosen_key, 0.0) - now)
+            if wait_s > 0:
+                await asyncio.sleep(wait_s)
+            self._settings.llm_api_key = chosen_key
+            try:
+                return await orig_create(self, messages, **kwargs)
+            except Exception as err:
+                last_err = err
+                err_str = str(err).lower()
+                if any(tok in err_str for tok in ('ratelimit', 'rate limit', '429', 'rpm', 'tpm', 'timeout', '503')):
+                    cooldown = 8.0 * attempt
+                    async with state['lock']:
+                        state['cooldown_until'][chosen_key] = time.perf_counter() + cooldown
+                    print(
+                        f'[LLM-RateGuard] Transient {type(err).__name__} on key[{keys.index(chosen_key)}], '
+                        f'switching key & cooling {cooldown:.1f}s (attempt {attempt}/5)...',
+                        flush=True,
+                    )
+                    if attempt > 1:
+                        await asyncio.sleep(min(3.0 * attempt, 10.0))
+                    continue
+                raise
+        raise last_err
+
+    _guarded_create_completion._sag_rate_limit_guarded = True
+    LLMClient._create_completion = _guarded_create_completion
 
 
 def clear_in_memory_sag_caches() -> None:
@@ -188,25 +280,44 @@ class SAGBenchmark:
     async def login(self):
         from sag_api.core.config import settings
         from sag_api.core.principal_assertion import require_project_read_principal
+        raw_name = str(self.run.manifest.get('user_name') or 'Continuum User')
+        ascii_name = (
+            unicodedata.normalize('NFKD', raw_name)
+            .encode('ascii', 'ignore')
+            .decode('ascii')
+            .strip()
+            or 'Continuum User'
+        )
         response = await self.client.post('/api/v1/auth/continuum-login', headers={
             'X-SAG-BFF-Service-Token': settings.bff_service_token or '',
             'X-Continuum-User-Id': self.run.user_id,
-            'X-Continuum-Name': self.run.manifest['user_name'],
+            'X-Continuum-Name': ascii_name,
             'X-Continuum-Organization-Id': self.run.organization_id,
             'X-Continuum-Project-Id': self.run.project_id,
-        }, json={})
+        }, json={'displayName': raw_name})
         response.raise_for_status()
         self.authorization = f"Bearer {response.json()['access_token']}"
         request = Request({'type': 'http', 'headers': [(b'authorization', self.authorization.encode())]})
         self.principal = await require_project_read_principal(request)
 
-    async def ingest(self, files: list[Path]):
+    async def ingest(self, files: list[Path], *, logical_source_ids: dict[Path, str] | None = None):
         from sag_api.core.config import settings
         from sag_api.core.db import SessionLocal
         p = self.principal
         if self.run.project_id not in p.allowed_project_ids or self.run.project_id not in p.allowed_partition_ids:
             raise PermissionError('Benchmark project is outside the authenticated scope')
         for index, path in enumerate(files, 1):
+            suffix = path.suffix.lower()
+            content_type = (
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                if suffix == '.docx'
+                else 'text/markdown'
+            )
+            logical_id = (
+                logical_source_ids[path]
+                if logical_source_ids and path in logical_source_ids
+                else path.relative_to(self.run.root).as_posix()
+            )
             response = await self.client.post(
                 f'/api/v1/projects/{self.run.project_id}/documents/upload',
                 headers={
@@ -217,21 +328,38 @@ class SAGBenchmark:
                     'X-Continuum-Security-Partition': self.run.project_id,
                     'Idempotency-Key': f'{self.run.id}-{index}',
                 },
-                data={'logical_source_id': path.relative_to(self.run.root).as_posix()},
-                files={'file': (path.name, path.read_bytes(), 'text/markdown')},
+                data={'logical_source_id': logical_id},
+                files={'file': (path.name, path.read_bytes(), content_type)},
             )
             response.raise_for_status()
             uploaded = response.json()
             if response.status_code != 201 or uploaded.get('is_duplicate'):
                 raise RuntimeError('Fresh E2E ingestion unexpectedly reused a document')
             document_id = uploaded['document_id']
-            self.documents[document_id] = path.relative_to(self.run.root).as_posix()
+            self.documents[document_id] = logical_id
             if index == 1:
+                project_name = getattr(self.run, 'project_name', None) or f'Project {self.run.project_id}'
                 async with SessionLocal() as session:
                     source = (await session.execute(text('''SELECT s.id,s.sag_source_config_id FROM sources s
                         JOIN documents d ON d.source_id=s.id WHERE d.id=:id'''), {'id': document_id})).one()
+                    if project_name:
+                        await session.execute(
+                            text(
+                                'UPDATE sources SET name=:name, description=:desc WHERE id=:id'
+                            ),
+                            {
+                                'id': source.id,
+                                'name': project_name,
+                                'desc': f'{project_name} (project {self.run.project_id}, tenant {self.run.organization_id})',
+                            },
+                        )
+                        await session.commit()
                 self.run.source_id, self.run.source_config_id = source
-                self.run.manifest.update(source_id=source.id, source_config_id=source.sag_source_config_id)
+                self.run.manifest.update(
+                    source_id=source.id,
+                    source_config_id=source.sag_source_config_id,
+                    project_name=project_name,
+                )
                 async with self.run.registry.begin() as conn:
                     await conn.execute(text('UPDATE benchmark_runs SET source_id=:source WHERE id=:id'),
                                        {'source': source.id, 'id': self.run.id})
@@ -241,14 +369,32 @@ class SAGBenchmark:
                 await self.run.checkpoint({'stage': 'upload', 'uploaded': len(self.documents)})
                 print(f'Uploaded {index}/{len(files)} through SAG upload API', flush=True)
 
-    async def reuse_documents(self, files: list[Path]):
+    async def reuse_documents(self, files: list[Path], *, logical_source_ids: dict[Path, str] | None = None):
         from sag_api.core.db import SessionLocal
-        expected = {p.relative_to(self.run.root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
+        expected = {
+            (
+                logical_source_ids[p]
+                if logical_source_ids and p in logical_source_ids
+                else p.relative_to(self.run.root).as_posix()
+            ): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in files
+        }
+        project_name = getattr(self.run, 'project_name', None)
         async with SessionLocal() as session:
             rows = (await session.execute(text('''SELECT d.id,d.logical_source_id,v.file_hash
                 FROM documents d JOIN document_versions v ON v.document_id=d.id
                 WHERE d.project_id=:project AND d.tenant_id=:tenant AND d.source_id=:source'''),
                 {'project': self.run.project_id, 'tenant': self.run.organization_id, 'source': self.run.source_id})).all()
+            if project_name and self.run.source_id:
+                await session.execute(
+                    text('UPDATE sources SET name=:name, description=:desc WHERE id=:id'),
+                    {
+                        'id': self.run.source_id,
+                        'name': project_name,
+                        'desc': f'{project_name} (project {self.run.project_id}, tenant {self.run.organization_id})',
+                    },
+                )
+                await session.commit()
         actual = {r.logical_source_id: r.file_hash for r in rows}
         if actual != expected or len(rows) != len(files):
             raise ValueError('Reused corpus content/identity differs from the supplied dataset')
@@ -439,14 +585,51 @@ class SAGBenchmark:
         return response.json()
 
     async def ask(self, query: str, *, top_k: int | None = 5, retrieval_only: bool = False) -> dict:
-        await self.login()  # Short-lived SAG sessions must not expire during a full dataset run.
         from benchmark_http_client import measure_search
-        options = dict(authorization=self.authorization, source_id=self.run.source_id,
-                       policy=self.policy, query=query, top_k=top_k, retrieval_only=retrieval_only)
-        remote = getattr(self, 'query_client', None)
-        if remote is not None:
-            return await remote.ask(options)
-        return await measure_search(self.client, **options)
+
+        min_interval_s = float(getattr(self, 'inter_query_delay_s', 1.5))
+        last_ts = getattr(self, '_last_ask_completed_at', 0.0)
+        elapsed = time.perf_counter() - last_ts
+        if last_ts > 0 and elapsed < min_interval_s:
+            await asyncio.sleep(min_interval_s - elapsed)
+
+        default_attempts = 5 if float((getattr(self, 'policy', None) or {}).get('first_result_seconds', 30)) >= 1.0 else 1
+        max_attempts = int(getattr(self, 'ask_max_attempts', default_attempts))
+        base_backoff_s = float(getattr(self, 'retry_backoff_s', 10.0))
+
+        measured = None
+        for attempt in range(1, max_attempts + 1):
+            await self.login()  # Short-lived SAG sessions must not expire during a full dataset run.
+            options = dict(
+                authorization=self.authorization,
+                source_id=self.run.source_id,
+                policy=self.policy,
+                query=query,
+                top_k=top_k,
+                retrieval_only=retrieval_only,
+            )
+            remote = getattr(self, 'query_client', None)
+            if remote is not None:
+                measured = await remote.ask(options)
+            else:
+                measured = await measure_search(self.client, **options)
+            self._last_ask_completed_at = time.perf_counter()
+
+            resp = (measured or {}).get('response') or {}
+            summary = str(resp.get('summary') or '')
+            has_err = bool((measured or {}).get('error'))
+            is_fallback = (not retrieval_only) and summary.startswith('Based on directly relevant evidence:')
+            if not has_err and not is_fallback:
+                return measured
+            if attempt < max_attempts:
+                backoff_s = base_backoff_s * attempt
+                print(
+                    f'[SAGBenchmark.ask] Rate-limit fallback/error detected (error={measured.get("error")}, '
+                    f'fallback={is_fallback}); cooling {backoff_s:.1f}s before retry {attempt + 1}/{max_attempts}...',
+                    flush=True,
+                )
+                await asyncio.sleep(backoff_s)
+        return measured
 
 
 from benchmark_http_client import parse_frame

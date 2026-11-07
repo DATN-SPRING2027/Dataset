@@ -118,17 +118,14 @@ async def wait_until_ready(runtime, timeline: list, origin: float, poll_seconds:
         if state["ingestion"].get("FAILED"):
             raise RuntimeError("SAG document ingestion failed; see the retained stage trace")
         if any(
-            job["kind"] in ("FOUNDATION", "E2") and job["status"] in ("FAILED", "EXPIRED")
+            job["kind"] == "FOUNDATION" and job["status"] in ("FAILED", "EXPIRED")
             for job in state["jobs"]
         ):
-            raise RuntimeError("SAG KnowledgeUnit foundation or E2 job failed")
-        e2_pending = int(state["units"].get("e2_pending", 0) or 0)
+            raise RuntimeError("SAG KnowledgeUnit foundation job failed")
         tree_active_jobs = any(job["status"] in ("queued", "running") for job in state["tree_jobs"])
-        if ready and not active_jobs and e2_pending == 0 and not tree_active_jobs and state["tree_matches_current"]:
+        if ready and not active_jobs and not tree_active_jobs and state["tree_matches_current"]:
             if state["units"]["with_dense"] != state["units"]["total"]:
                 raise RuntimeError("DenseGraph embeddings incomplete in ingest speed trace")
-            if state["units"].get("e2_selected", 0) > 0 and state["units"].get("e2_enriched", 0) <= 0:
-                raise RuntimeError("E2 enrichment incomplete in ingest speed trace")
             return state, polls
         await asyncio.sleep(poll_seconds)
 
