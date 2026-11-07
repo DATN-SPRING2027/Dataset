@@ -246,6 +246,9 @@ class RuntimeContractTests(unittest.IsolatedAsyncioTestCase):
             knowledge_worker_enabled=False,
             knowledge_concurrency=4,
             knowledge_queue_capacity=256,
+            decision_provider='systemone',
+            llm_max_tokens=4096,
+            llm_max_retries=2,
             embedding_api_key='emb-key',
             embedding_model='Qwen/Qwen3-Embedding-0.6B',
         )
@@ -253,6 +256,9 @@ class RuntimeContractTests(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(cfg.knowledge_worker_enabled)
         self.assertEqual(cfg.knowledge_concurrency, 8)
         self.assertEqual(cfg.knowledge_queue_capacity, 512)
+        self.assertEqual(cfg.decision_provider, 'disabled')
+        self.assertEqual(cfg.llm_max_tokens, 512)
+        self.assertEqual(cfg.llm_max_retries, 0)
         self.assertFalse(hasattr(cfg, 'knowledge_e2_url'))
 
         missing_dense = SimpleNamespace(
@@ -262,6 +268,43 @@ class RuntimeContractTests(unittest.IsolatedAsyncioTestCase):
         )
         with self.assertRaisesRegex(RuntimeError, 'Full DenseGraph is required'):
             configure_full_benchmark_settings(missing_dense)
+
+    async def test_ask_retries_when_rate_limit_fallback_summary_is_returned(self):
+        runtime = SAGBenchmark.__new__(SAGBenchmark)
+        runtime.run = SimpleNamespace(source_id='source')
+        runtime.authorization = 'Bearer token'
+        runtime.login = AsyncMock()
+        runtime.policy = {'top_k': 5, 'first_result_seconds': 5.0, 'stream_idle_seconds': 5.0}
+        runtime.inter_query_delay_s = 0.0
+        runtime.retry_backoff_s = 0.01
+        runtime.ask_max_attempts = 3
+        runtime.query_client = SimpleNamespace(
+            ask=AsyncMock(
+                side_effect=[
+                    {
+                        'error': None,
+                        'latency_ms': 120,
+                        'response': {
+                            'answer_status': 'answered',
+                            'summary': 'Based on directly relevant evidence:\n- fallback bullet',
+                            'sections': [{'document_id': 'doc-1', 'citations': []}],
+                        },
+                    },
+                    {
+                        'error': None,
+                        'latency_ms': 140,
+                        'response': {
+                            'answer_status': 'answered',
+                            'summary': 'Synthesized grounded answer [1].',
+                            'sections': [{'document_id': 'doc-1', 'citations': [{'unit_id': 'u1'}]}],
+                        },
+                    },
+                ]
+            )
+        )
+        result = await runtime.ask('What is the policy?')
+        self.assertEqual(runtime.query_client.ask.await_count, 2)
+        self.assertEqual(result['response']['summary'], 'Synthesized grounded answer [1].')
 
     async def test_full_dense_graph_readiness_gate_verifies_vectors_and_edges(self):
         runtime = SAGBenchmark.__new__(SAGBenchmark)

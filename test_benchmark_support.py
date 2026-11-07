@@ -286,3 +286,27 @@ async def test_clean_project_scope_cleans_only_requested_project(monkeypatch, tm
     assert report['qdrant_verified_absent'] is True
     assert not (uploads / '675e9e4853aa4d81807e34878cbf56e4').exists()
     assert (uploads / 'keep_other_source').exists()
+
+
+def test_seven_datasets_share_one_account_with_distinct_named_projects(tmp_path):
+    from benchmark_support import DEFAULT_BENCHMARK_PROJECT_NAMES
+
+    seven_keys = (
+        'retrievalci_v0',
+        'vn_mteb',
+        'wixqa_enterprise',
+        'org1_northstar',
+        'org2_nova',
+        'org3_cloudops',
+        'org4_mediflow',
+    )
+    runs = [BenchmarkRun(k, tmp_path, URL) for k in seven_keys]
+    assert len({r.user_id for r in runs}) == 1
+    assert runs[0].user_id == '6acc9a5425f02c9d92a01012'
+    assert len({r.project_id for r in runs}) == 7
+    assert len({r.collection for r in runs}) == 7
+    assert len({r.project_name for r in runs}) == 7
+    for k, r in zip(seven_keys, runs, strict=True):
+        assert r.project_name == DEFAULT_BENCHMARK_PROJECT_NAMES[k]
+        assert len(r.project_id) == 24
+

@@ -1,0 +1,4813 @@
+{
+  "tenant_id": "ORG-NSC",
+  "project_id": "10b76665dc6ed1800aaab1b1",
+  "file_count": 30,
+  "pricing_per_1m_usd": {
+    "Qwen/Qwen3-8B": {
+      "llm_input_per_1m": 0.06,
+      "llm_cached_input_per_1m": 0.06,
+      "llm_output_per_1m": 0.06
+    },
+    "Qwen/Qwen3-Embedding-0.6B": {
+      "embedding_input_per_1m": 0.01
+    }
+  },
+  "ingestion_and_knowledge": {
+    "totals": {
+      "embedding_input_tokens": 55950,
+      "llm_input_tokens": 0,
+      "llm_cached_input_tokens": 0,
+      "llm_uncached_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 55950,
+      "embedding_calls": 30,
+      "llm_calls": 0,
+      "cache_hits": 102,
+      "estimated_calls": 0,
+      "cost_usd": 0.0005595
+    },
+    "by_token_type": {
+      "embedding_input_tokens": 55950,
+      "llm_input_tokens": 0,
+      "llm_cached_input_tokens": 0,
+      "llm_uncached_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 55950
+    },
+    "by_component": {
+      "knowledge_foundation_embedding": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 0,
+        "embedding_calls": 0,
+        "llm_calls": 0,
+        "cache_hits": 102,
+        "estimated_calls": 0,
+        "cost_usd": 0.0
+      },
+      "search_index_embedding": {
+        "embedding_input_tokens": 55950,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 55950,
+        "embedding_calls": 30,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.0005595
+      }
+    },
+    "by_model": {
+      "Qwen/Qwen3-Embedding-0.6B": {
+        "embedding_input_tokens": 55950,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 55950,
+        "embedding_calls": 30,
+        "llm_calls": 0,
+        "cache_hits": 102,
+        "estimated_calls": 0,
+        "cost_usd": 0.0005595
+      }
+    },
+    "cost_usd": 0.0005595,
+    "metadata": {
+      "search_unit_texts_count": 6,
+      "knowledge_block_preload_texts_count": 5,
+      "search_unit_estimated_tokens": 2803,
+      "knowledge_block_preload_estimated_tokens": 2761
+    }
+  },
+  "query_and_generation": {
+    "totals": {
+      "embedding_input_tokens": 953,
+      "llm_input_tokens": 79356,
+      "llm_cached_input_tokens": 960,
+      "llm_uncached_input_tokens": 78396,
+      "llm_output_tokens": 3139,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 83448,
+      "embedding_calls": 20,
+      "llm_calls": 20,
+      "cache_hits": 0,
+      "estimated_calls": 0,
+      "cost_usd": 0.00495923
+    },
+    "by_token_type": {
+      "embedding_input_tokens": 953,
+      "llm_input_tokens": 79356,
+      "llm_cached_input_tokens": 960,
+      "llm_uncached_input_tokens": 78396,
+      "llm_output_tokens": 3139,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 83448
+    },
+    "by_component": {
+      "answer_generation": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 79356,
+        "llm_cached_input_tokens": 960,
+        "llm_uncached_input_tokens": 78396,
+        "llm_output_tokens": 3139,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 82495,
+        "embedding_calls": 0,
+        "llm_calls": 20,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.0049497
+      },
+      "query_embedding": {
+        "embedding_input_tokens": 953,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 953,
+        "embedding_calls": 20,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 9.53e-06
+      }
+    },
+    "by_model": {
+      "Qwen/Qwen3-8B": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 79356,
+        "llm_cached_input_tokens": 960,
+        "llm_uncached_input_tokens": 78396,
+        "llm_output_tokens": 3139,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 82495,
+        "embedding_calls": 0,
+        "llm_calls": 20,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.0049497
+      },
+      "Qwen/Qwen3-Embedding-0.6B": {
+        "embedding_input_tokens": 953,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 953,
+        "embedding_calls": 20,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 9.53e-06
+      }
+    },
+    "cost_usd": 0.00495923
+  },
+  "grand_total": {
+    "totals": {
+      "embedding_input_tokens": 56903,
+      "llm_input_tokens": 79356,
+      "llm_cached_input_tokens": 960,
+      "llm_uncached_input_tokens": 78396,
+      "llm_output_tokens": 3139,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 139398,
+      "embedding_calls": 50,
+      "llm_calls": 20,
+      "cache_hits": 102,
+      "estimated_calls": 0,
+      "cost_usd": 0.00551873
+    },
+    "by_token_type": {
+      "embedding_input_tokens": 56903,
+      "llm_input_tokens": 79356,
+      "llm_cached_input_tokens": 960,
+      "llm_uncached_input_tokens": 78396,
+      "llm_output_tokens": 3139,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 139398
+    },
+    "by_component": {
+      "answer_generation": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 79356,
+        "llm_cached_input_tokens": 960,
+        "llm_uncached_input_tokens": 78396,
+        "llm_output_tokens": 3139,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 82495,
+        "embedding_calls": 0,
+        "llm_calls": 20,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.0049497
+      },
+      "knowledge_foundation_embedding": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 0,
+        "embedding_calls": 0,
+        "llm_calls": 0,
+        "cache_hits": 102,
+        "estimated_calls": 0,
+        "cost_usd": 0.0
+      },
+      "query_embedding": {
+        "embedding_input_tokens": 953,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 953,
+        "embedding_calls": 20,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 9.53e-06
+      },
+      "search_index_embedding": {
+        "embedding_input_tokens": 55950,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 55950,
+        "embedding_calls": 30,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.0005595
+      }
+    },
+    "by_model": {
+      "Qwen/Qwen3-8B": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 79356,
+        "llm_cached_input_tokens": 960,
+        "llm_uncached_input_tokens": 78396,
+        "llm_output_tokens": 3139,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 82495,
+        "embedding_calls": 0,
+        "llm_calls": 20,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.0049497
+      },
+      "Qwen/Qwen3-Embedding-0.6B": {
+        "embedding_input_tokens": 56903,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 56903,
+        "embedding_calls": 50,
+        "llm_calls": 0,
+        "cache_hits": 102,
+        "estimated_calls": 0,
+        "cost_usd": 0.00056903
+      }
+    },
+    "cost_usd": 0.00551873,
+    "metadata": {
+      "search_unit_texts_count": 6,
+      "knowledge_block_preload_texts_count": 5,
+      "search_unit_estimated_tokens": 2803,
+      "knowledge_block_preload_estimated_tokens": 2761
+    }
+  },
+  "files": [
+    {
+      "document_id": "554e44c9-5c0e-5a82-bc42-f1c1b3b03d9d",
+      "document_version_id": "c298fc8b-98a0-5689-b799-858546517e6f",
+      "filename": "04997ca3b0a1736557e6895e2eecc51ccd581a1982afa647b5ebf835e68d4deb.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/04997ca3b0a1736557e6895e2eecc51ccd581a1982afa647b5ebf835e68d4deb.md",
+      "size_bytes": 2855,
+      "search_units": 1,
+      "knowledge_units": 1,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 1250,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1250
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 1250,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1250,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 1.25e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 1250,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1250,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 1.25e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 1250,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1250,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 1,
+        "estimated_calls": 0,
+        "cost_usd": 1.25e-05
+      },
+      "cost_usd": 1.25e-05,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 1,
+        "search_unit_estimated_tokens": 609,
+        "knowledge_block_preload_estimated_tokens": 601
+      }
+    },
+    {
+      "document_id": "6c288575-eae4-5d46-82f6-3d958083e35b",
+      "document_version_id": "bcfe0b79-aec9-557e-bc16-1ac7fa770956",
+      "filename": "06535db983ea0ffe0214af14497a1d158f279d92c92f211e87b8820aa95dbe43.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/06535db983ea0ffe0214af14497a1d158f279d92c92f211e87b8820aa95dbe43.md",
+      "size_bytes": 3912,
+      "search_units": 2,
+      "knowledge_units": 2,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 1834,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1834
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 2,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 1834,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1834,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 1.834e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 1834,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1834,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 2,
+          "estimated_calls": 0,
+          "cost_usd": 1.834e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 1834,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1834,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 2,
+        "estimated_calls": 0,
+        "cost_usd": 1.834e-05
+      },
+      "cost_usd": 1.834e-05,
+      "metadata": {
+        "search_unit_texts_count": 2,
+        "knowledge_block_preload_texts_count": 2,
+        "search_unit_estimated_tokens": 902,
+        "knowledge_block_preload_estimated_tokens": 882
+      }
+    },
+    {
+      "document_id": "69eb890d-9e41-50aa-b4eb-4f1e6476e4dc",
+      "document_version_id": "9adc7450-e218-5dfa-8849-ed4291f86108",
+      "filename": "0edfb79224593e47a232c58687f04d0534cabe82e36a6af890f92830860b5b72.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/0edfb79224593e47a232c58687f04d0534cabe82e36a6af890f92830860b5b72.md",
+      "size_bytes": 2805,
+      "search_units": 1,
+      "knowledge_units": 4,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 1317,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1317
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 4,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 1317,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1317,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 1.317e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 1317,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1317,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 4,
+          "estimated_calls": 0,
+          "cost_usd": 1.317e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 1317,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1317,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 4,
+        "estimated_calls": 0,
+        "cost_usd": 1.317e-05
+      },
+      "cost_usd": 1.317e-05,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 4,
+        "search_unit_estimated_tokens": 639,
+        "knowledge_block_preload_estimated_tokens": 625
+      }
+    },
+    {
+      "document_id": "e586a862-6af1-5735-8c90-32dd9062a429",
+      "document_version_id": "506d70c5-e60c-5eaa-9934-f6944d4b6d6b",
+      "filename": "163d579af227160c8072dc465c81d8edea4b507d7e8789078b680f88633aefab.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/163d579af227160c8072dc465c81d8edea4b507d7e8789078b680f88633aefab.md",
+      "size_bytes": 7184,
+      "search_units": 4,
+      "knowledge_units": 3,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 3173,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 3173
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 3,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 3173,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3173,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 3.173e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 3173,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3173,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 3,
+          "estimated_calls": 0,
+          "cost_usd": 3.173e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 3173,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 3173,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 3,
+        "estimated_calls": 0,
+        "cost_usd": 3.173e-05
+      },
+      "cost_usd": 3.173e-05,
+      "metadata": {
+        "search_unit_texts_count": 4,
+        "knowledge_block_preload_texts_count": 3,
+        "search_unit_estimated_tokens": 1573,
+        "knowledge_block_preload_estimated_tokens": 1513
+      }
+    },
+    {
+      "document_id": "5c7c71a8-eb7a-574b-81d3-f246c380b5c7",
+      "document_version_id": "b52ac444-d780-5295-ac87-c996ead07684",
+      "filename": "2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+      "size_bytes": 9711,
+      "search_units": 4,
+      "knowledge_units": 5,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 4316,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 4316
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 5,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 4316,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4316,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 4.316e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 4316,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4316,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 5,
+          "estimated_calls": 0,
+          "cost_usd": 4.316e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 4316,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 4316,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 5,
+        "estimated_calls": 0,
+        "cost_usd": 4.316e-05
+      },
+      "cost_usd": 4.316e-05,
+      "metadata": {
+        "search_unit_texts_count": 4,
+        "knowledge_block_preload_texts_count": 5,
+        "search_unit_estimated_tokens": 2159,
+        "knowledge_block_preload_estimated_tokens": 2106
+      }
+    },
+    {
+      "document_id": "43aceae9-fefb-5584-865b-849d5d9af03d",
+      "document_version_id": "1b2f9e19-8f6b-59f1-8a68-480fe0ac5762",
+      "filename": "2df694686b70b35ed389ff590354cfaf19aafc07659b12b02078f2ebcf015ac8.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/2df694686b70b35ed389ff590354cfaf19aafc07659b12b02078f2ebcf015ac8.md",
+      "size_bytes": 4440,
+      "search_units": 2,
+      "knowledge_units": 4,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 1916,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1916
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 4,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 1916,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1916,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 1.916e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 1916,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1916,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 4,
+          "estimated_calls": 0,
+          "cost_usd": 1.916e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 1916,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1916,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 4,
+        "estimated_calls": 0,
+        "cost_usd": 1.916e-05
+      },
+      "cost_usd": 1.916e-05,
+      "metadata": {
+        "search_unit_texts_count": 2,
+        "knowledge_block_preload_texts_count": 4,
+        "search_unit_estimated_tokens": 951,
+        "knowledge_block_preload_estimated_tokens": 915
+      }
+    },
+    {
+      "document_id": "b1fc91d5-d87f-590c-9cdc-9078b1e53b6a",
+      "document_version_id": "fa50defe-ba9d-54ff-a090-9ec97d3ceb56",
+      "filename": "3407d197c71652bee58835ba148794a8be7e70cf9e25c599044b823c82db29fd.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/3407d197c71652bee58835ba148794a8be7e70cf9e25c599044b823c82db29fd.md",
+      "size_bytes": 8727,
+      "search_units": 4,
+      "knowledge_units": 14,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 3818,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 3818
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 14,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 3818,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3818,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 3.818e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 3818,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3818,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 14,
+          "estimated_calls": 0,
+          "cost_usd": 3.818e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 3818,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 3818,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 14,
+        "estimated_calls": 0,
+        "cost_usd": 3.818e-05
+      },
+      "cost_usd": 3.818e-05,
+      "metadata": {
+        "search_unit_texts_count": 4,
+        "knowledge_block_preload_texts_count": 14,
+        "search_unit_estimated_tokens": 1890,
+        "knowledge_block_preload_estimated_tokens": 1854
+      }
+    },
+    {
+      "document_id": "f7bcb725-3f59-57c5-9623-9b4a8be3ed18",
+      "document_version_id": "52577efc-72e0-5ecc-8b11-46f3be0f44c7",
+      "filename": "359dab9e725658fc9407e34714d19da1fda7a8cb8c85c5c141968dd3775de044.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/359dab9e725658fc9407e34714d19da1fda7a8cb8c85c5c141968dd3775de044.md",
+      "size_bytes": 2941,
+      "search_units": 1,
+      "knowledge_units": 1,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 1357,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1357
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 1357,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1357,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 1.357e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 1357,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1357,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 1.357e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 1357,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1357,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 1,
+        "estimated_calls": 0,
+        "cost_usd": 1.357e-05
+      },
+      "cost_usd": 1.357e-05,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 1,
+        "search_unit_estimated_tokens": 663,
+        "knowledge_block_preload_estimated_tokens": 650
+      }
+    },
+    {
+      "document_id": "5a5e59e8-151b-5b6f-b5bf-b46b8c6ed264",
+      "document_version_id": "41ae32e4-d156-57e4-bb03-6e5abc2c84ab",
+      "filename": "39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf.md",
+      "size_bytes": 3999,
+      "search_units": 3,
+      "knowledge_units": 1,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 1803,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1803
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 1803,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1803,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 1.803e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 1803,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1803,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 1.803e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 1803,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1803,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 1,
+        "estimated_calls": 0,
+        "cost_usd": 1.803e-05
+      },
+      "cost_usd": 1.803e-05,
+      "metadata": {
+        "search_unit_texts_count": 3,
+        "knowledge_block_preload_texts_count": 1,
+        "search_unit_estimated_tokens": 888,
+        "knowledge_block_preload_estimated_tokens": 875
+      }
+    },
+    {
+      "document_id": "db906c31-19c0-5e9e-a82d-7e051ad17a47",
+      "document_version_id": "24c0135d-a91a-580e-b3d5-6a3de75e7eb4",
+      "filename": "49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md",
+      "size_bytes": 9079,
+      "search_units": 3,
+      "knowledge_units": 10,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 3691,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 3691
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 10,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 3691,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3691,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 3.691e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 3691,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3691,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 10,
+          "estimated_calls": 0,
+          "cost_usd": 3.691e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 3691,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 3691,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 10,
+        "estimated_calls": 0,
+        "cost_usd": 3.691e-05
+      },
+      "cost_usd": 3.691e-05,
+      "metadata": {
+        "search_unit_texts_count": 3,
+        "knowledge_block_preload_texts_count": 10,
+        "search_unit_estimated_tokens": 1824,
+        "knowledge_block_preload_estimated_tokens": 1806
+      }
+    },
+    {
+      "document_id": "7b97c5e9-583f-56b0-9fdc-e66ef81b4379",
+      "document_version_id": "4c7ee3e2-2493-5374-9c5b-91e3595415ad",
+      "filename": "5f02fc2f8937d16a4d8cdca47da36ae34429e0b279fb0cc56af72e2d91991a28.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/5f02fc2f8937d16a4d8cdca47da36ae34429e0b279fb0cc56af72e2d91991a28.md",
+      "size_bytes": 1977,
+      "search_units": 1,
+      "knowledge_units": 1,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 917,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 917
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 917,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 917,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 9.17e-06
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 917,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 917,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 9.17e-06
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 917,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 917,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 1,
+        "estimated_calls": 0,
+        "cost_usd": 9.17e-06
+      },
+      "cost_usd": 9.17e-06,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 1,
+        "search_unit_estimated_tokens": 449,
+        "knowledge_block_preload_estimated_tokens": 432
+      }
+    },
+    {
+      "document_id": "b06e4c96-aae8-5b65-9df4-9523b023683a",
+      "document_version_id": "35437ca2-36ef-5dae-b2da-a6b0e0782784",
+      "filename": "65806b123ff355cef16c8abe4301f1df982e2c3bddcd33b81ed446b92a79e336.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/65806b123ff355cef16c8abe4301f1df982e2c3bddcd33b81ed446b92a79e336.md",
+      "size_bytes": 1890,
+      "search_units": 1,
+      "knowledge_units": 1,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 886,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 886
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 886,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 886,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 8.86e-06
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 886,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 886,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 8.86e-06
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 886,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 886,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 1,
+        "estimated_calls": 0,
+        "cost_usd": 8.86e-06
+      },
+      "cost_usd": 8.86e-06,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 1,
+        "search_unit_estimated_tokens": 427,
+        "knowledge_block_preload_estimated_tokens": 415
+      }
+    },
+    {
+      "document_id": "86b6359a-0a3f-5bce-b6a1-a6a9ee9a3e44",
+      "document_version_id": "004db545-4241-520d-9b15-9d0de6525f20",
+      "filename": "6b97c2a01f5c925927be970c1f768a4b628c6b52071dec733aa3a1719d17332e.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/6b97c2a01f5c925927be970c1f768a4b628c6b52071dec733aa3a1719d17332e.md",
+      "size_bytes": 3133,
+      "search_units": 1,
+      "knowledge_units": 3,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 1285,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1285
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 3,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 1285,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1285,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 1.285e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 1285,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1285,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 3,
+          "estimated_calls": 0,
+          "cost_usd": 1.285e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 1285,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1285,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 3,
+        "estimated_calls": 0,
+        "cost_usd": 1.285e-05
+      },
+      "cost_usd": 1.285e-05,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 3,
+        "search_unit_estimated_tokens": 623,
+        "knowledge_block_preload_estimated_tokens": 614
+      }
+    },
+    {
+      "document_id": "65a0f966-87e0-50fc-a411-3bbacf25dbc1",
+      "document_version_id": "64400bea-15fd-5e03-a784-e82546d6a249",
+      "filename": "7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af.md",
+      "size_bytes": 7172,
+      "search_units": 4,
+      "knowledge_units": 2,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 3000,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 3000
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 2,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 3000,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3000,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 3e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 3000,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3000,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 2,
+          "estimated_calls": 0,
+          "cost_usd": 3e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 3000,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 3000,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 2,
+        "estimated_calls": 0,
+        "cost_usd": 3e-05
+      },
+      "cost_usd": 3e-05,
+      "metadata": {
+        "search_unit_texts_count": 4,
+        "knowledge_block_preload_texts_count": 2,
+        "search_unit_estimated_tokens": 1473,
+        "knowledge_block_preload_estimated_tokens": 1453
+      }
+    },
+    {
+      "document_id": "bfd7423b-16b3-5201-8f10-f89b9c11b373",
+      "document_version_id": "de755753-3a7a-578c-a4a3-6658d029cf94",
+      "filename": "7f365d820565efdc168e39938b16e965ea0e70a394eaac7e926078ec3b562ceb.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/7f365d820565efdc168e39938b16e965ea0e70a394eaac7e926078ec3b562ceb.md",
+      "size_bytes": 1200,
+      "search_units": 1,
+      "knowledge_units": 1,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 580,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 580
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 580,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 580,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 5.8e-06
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 580,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 580,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 5.8e-06
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 580,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 580,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 1,
+        "estimated_calls": 0,
+        "cost_usd": 5.8e-06
+      },
+      "cost_usd": 5.8e-06,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 1,
+        "search_unit_estimated_tokens": 270,
+        "knowledge_block_preload_estimated_tokens": 262
+      }
+    },
+    {
+      "document_id": "3604808b-c58e-51f9-9e13-547aa8b78fea",
+      "document_version_id": "0acd3757-1e41-50d4-a9f5-335aa3dd7fdc",
+      "filename": "81815895cb357ab2acbf1da52c91beff481c88fe49d416c853b3fb88a4ae92ea.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/81815895cb357ab2acbf1da52c91beff481c88fe49d416c853b3fb88a4ae92ea.md",
+      "size_bytes": 2088,
+      "search_units": 1,
+      "knowledge_units": 1,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 932,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 932
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 932,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 932,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 9.32e-06
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 932,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 932,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 9.32e-06
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 932,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 932,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 1,
+        "estimated_calls": 0,
+        "cost_usd": 9.32e-06
+      },
+      "cost_usd": 9.32e-06,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 1,
+        "search_unit_estimated_tokens": 452,
+        "knowledge_block_preload_estimated_tokens": 440
+      }
+    },
+    {
+      "document_id": "0a0906dc-46f1-5e77-ab8e-0e653d99743c",
+      "document_version_id": "70368e47-c721-5fee-b913-d67ac2a9893b",
+      "filename": "8309620f90a06cbd6b28930591ae59e9f479687ecac060543c69b26214815aab.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/8309620f90a06cbd6b28930591ae59e9f479687ecac060543c69b26214815aab.md",
+      "size_bytes": 2033,
+      "search_units": 1,
+      "knowledge_units": 1,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 906,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 906
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 906,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 906,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 9.06e-06
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 906,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 906,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 9.06e-06
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 906,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 906,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 1,
+        "estimated_calls": 0,
+        "cost_usd": 9.06e-06
+      },
+      "cost_usd": 9.06e-06,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 1,
+        "search_unit_estimated_tokens": 432,
+        "knowledge_block_preload_estimated_tokens": 420
+      }
+    },
+    {
+      "document_id": "697806ec-deb5-506a-a51c-a98adb4b7a81",
+      "document_version_id": "999e193d-d641-5a60-b2e9-2404cc42e0dd",
+      "filename": "8c2e56296ddb7b441238ff06cfa9b38204aca9e27371386689b1fa4643cdfbff.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/8c2e56296ddb7b441238ff06cfa9b38204aca9e27371386689b1fa4643cdfbff.md",
+      "size_bytes": 2207,
+      "search_units": 1,
+      "knowledge_units": 2,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 995,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 995
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 2,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 995,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 995,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 9.95e-06
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 995,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 995,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 2,
+          "estimated_calls": 0,
+          "cost_usd": 9.95e-06
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 995,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 995,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 2,
+        "estimated_calls": 0,
+        "cost_usd": 9.95e-06
+      },
+      "cost_usd": 9.95e-06,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 2,
+        "search_unit_estimated_tokens": 478,
+        "knowledge_block_preload_estimated_tokens": 466
+      }
+    },
+    {
+      "document_id": "29be66b2-2241-5fcb-9089-6f4d2b06b089",
+      "document_version_id": "b0ae29cf-6272-59d6-836d-e02c4c474da3",
+      "filename": "8cc75fbcc571336d1ef1768e7727bd9d1e6c1333f22eeb5366232b9a1a066418.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/8cc75fbcc571336d1ef1768e7727bd9d1e6c1333f22eeb5366232b9a1a066418.md",
+      "size_bytes": 2510,
+      "search_units": 1,
+      "knowledge_units": 4,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 1139,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1139
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 4,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 1139,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1139,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 1.139e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 1139,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1139,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 4,
+          "estimated_calls": 0,
+          "cost_usd": 1.139e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 1139,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1139,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 4,
+        "estimated_calls": 0,
+        "cost_usd": 1.139e-05
+      },
+      "cost_usd": 1.139e-05,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 4,
+        "search_unit_estimated_tokens": 551,
+        "knowledge_block_preload_estimated_tokens": 543
+      }
+    },
+    {
+      "document_id": "36f76ad5-0c0c-5aa8-81d5-e8a92786dfe5",
+      "document_version_id": "ff0cad96-0d24-5841-8bea-93e8080941d3",
+      "filename": "9b71e0c1c1101d626c050e2209b382430c36eb91644c25dc9016802164ea769f.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/9b71e0c1c1101d626c050e2209b382430c36eb91644c25dc9016802164ea769f.md",
+      "size_bytes": 4650,
+      "search_units": 2,
+      "knowledge_units": 10,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 1994,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1994
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 10,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 1994,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1994,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 1.994e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 1994,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1994,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 10,
+          "estimated_calls": 0,
+          "cost_usd": 1.994e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 1994,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1994,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 10,
+        "estimated_calls": 0,
+        "cost_usd": 1.994e-05
+      },
+      "cost_usd": 1.994e-05,
+      "metadata": {
+        "search_unit_texts_count": 2,
+        "knowledge_block_preload_texts_count": 10,
+        "search_unit_estimated_tokens": 975,
+        "knowledge_block_preload_estimated_tokens": 955
+      }
+    },
+    {
+      "document_id": "271e849f-6876-516f-88b7-663eaff435d0",
+      "document_version_id": "4091141f-22bc-5fd0-89ed-5ec2327706b6",
+      "filename": "9dbf43e1a13c691c4ac016af067a723ca51613c639d878f7c556dd1a1fbc3018.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/9dbf43e1a13c691c4ac016af067a723ca51613c639d878f7c556dd1a1fbc3018.md",
+      "size_bytes": 6734,
+      "search_units": 3,
+      "knowledge_units": 6,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 2940,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2940
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 6,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 2940,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 2940,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 2.94e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 2940,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 2940,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 6,
+          "estimated_calls": 0,
+          "cost_usd": 2.94e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 2940,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2940,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 6,
+        "estimated_calls": 0,
+        "cost_usd": 2.94e-05
+      },
+      "cost_usd": 2.94e-05,
+      "metadata": {
+        "search_unit_texts_count": 3,
+        "knowledge_block_preload_texts_count": 6,
+        "search_unit_estimated_tokens": 1460,
+        "knowledge_block_preload_estimated_tokens": 1427
+      }
+    },
+    {
+      "document_id": "82d1d4a2-6620-5018-b41f-f83acf24c68b",
+      "document_version_id": "156fe21c-6d00-599b-b3da-aaaaec7172ae",
+      "filename": "a513a215c1798f329293330cb5f5e975a18978954b5ee27d84441e029f900d51.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/a513a215c1798f329293330cb5f5e975a18978954b5ee27d84441e029f900d51.md",
+      "size_bytes": 4335,
+      "search_units": 3,
+      "knowledge_units": 1,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 1857,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1857
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 1857,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1857,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 1.857e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 1857,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1857,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 1.857e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 1857,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1857,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 1,
+        "estimated_calls": 0,
+        "cost_usd": 1.857e-05
+      },
+      "cost_usd": 1.857e-05,
+      "metadata": {
+        "search_unit_texts_count": 3,
+        "knowledge_block_preload_texts_count": 1,
+        "search_unit_estimated_tokens": 906,
+        "knowledge_block_preload_estimated_tokens": 889
+      }
+    },
+    {
+      "document_id": "4d1d6b7c-a96e-5b68-bb4e-435319f3d052",
+      "document_version_id": "1d1efb04-fb90-5cf3-a96a-cd88c3631aba",
+      "filename": "b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb31027d7187f9.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb31027d7187f9.md",
+      "size_bytes": 6062,
+      "search_units": 2,
+      "knowledge_units": 9,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 2617,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2617
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 9,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 2617,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 2617,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 2.617e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 2617,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 2617,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 9,
+          "estimated_calls": 0,
+          "cost_usd": 2.617e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 2617,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2617,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 9,
+        "estimated_calls": 0,
+        "cost_usd": 2.617e-05
+      },
+      "cost_usd": 2.617e-05,
+      "metadata": {
+        "search_unit_texts_count": 2,
+        "knowledge_block_preload_texts_count": 9,
+        "search_unit_estimated_tokens": 1294,
+        "knowledge_block_preload_estimated_tokens": 1272
+      }
+    },
+    {
+      "document_id": "ca1d343f-7383-567a-9fdb-258af707b1ec",
+      "document_version_id": "eb553732-c071-506f-8ca3-0dc0356781cd",
+      "filename": "bec5870553814db329b6b83e73d059f0a42c2454b5bd4c4989b3b7110e29589c.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/bec5870553814db329b6b83e73d059f0a42c2454b5bd4c4989b3b7110e29589c.md",
+      "size_bytes": 1743,
+      "search_units": 1,
+      "knowledge_units": 1,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 835,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 835
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 835,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 835,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 8.35e-06
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 835,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 835,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 8.35e-06
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 835,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 835,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 1,
+        "estimated_calls": 0,
+        "cost_usd": 8.35e-06
+      },
+      "cost_usd": 8.35e-06,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 1,
+        "search_unit_estimated_tokens": 398,
+        "knowledge_block_preload_estimated_tokens": 389
+      }
+    },
+    {
+      "document_id": "9ae5d2e8-9343-550f-9f53-3a4fcc1ac1cb",
+      "document_version_id": "1d30025f-7f85-53b4-94db-bc07a6117139",
+      "filename": "c8a54de5b540e9832be6e6468b5e498d532df9ea6af16ae83fcdcd15647e4c73.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/c8a54de5b540e9832be6e6468b5e498d532df9ea6af16ae83fcdcd15647e4c73.md",
+      "size_bytes": 2367,
+      "search_units": 1,
+      "knowledge_units": 3,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 1137,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1137
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 3,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 1137,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1137,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 1.137e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 1137,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1137,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 3,
+          "estimated_calls": 0,
+          "cost_usd": 1.137e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 1137,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1137,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 3,
+        "estimated_calls": 0,
+        "cost_usd": 1.137e-05
+      },
+      "cost_usd": 1.137e-05,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 3,
+        "search_unit_estimated_tokens": 547,
+        "knowledge_block_preload_estimated_tokens": 534
+      }
+    },
+    {
+      "document_id": "6739a557-9cc8-5b92-af01-f888dcc74fbb",
+      "document_version_id": "769a24b0-cc21-5e23-b08c-2a513d983b2d",
+      "filename": "db6a6c4be5c11fae531b4fdd546601bab6d4a26b669a8a7ea6063c62a045e9d4.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/db6a6c4be5c11fae531b4fdd546601bab6d4a26b669a8a7ea6063c62a045e9d4.md",
+      "size_bytes": 1471,
+      "search_units": 1,
+      "knowledge_units": 1,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 794,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 794
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 794,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 794,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 7.94e-06
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 794,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 794,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 7.94e-06
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 794,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 794,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 1,
+        "estimated_calls": 0,
+        "cost_usd": 7.94e-06
+      },
+      "cost_usd": 7.94e-06,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 1,
+        "search_unit_estimated_tokens": 374,
+        "knowledge_block_preload_estimated_tokens": 358
+      }
+    },
+    {
+      "document_id": "f020c62d-61e4-50f2-8791-bc7cd153f8c9",
+      "document_version_id": "fa5b7993-6286-5811-8603-ce093b4a168b",
+      "filename": "dd6385654e2bc9cc5fcaf350bc944449291fa2377a61e06052035a2f0605c5b5.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/dd6385654e2bc9cc5fcaf350bc944449291fa2377a61e06052035a2f0605c5b5.md",
+      "size_bytes": 2307,
+      "search_units": 1,
+      "knowledge_units": 1,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 1005,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1005
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 1005,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1005,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 1.005e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 1005,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1005,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 1.005e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 1005,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1005,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 1,
+        "estimated_calls": 0,
+        "cost_usd": 1.005e-05
+      },
+      "cost_usd": 1.005e-05,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 1,
+        "search_unit_estimated_tokens": 484,
+        "knowledge_block_preload_estimated_tokens": 473
+      }
+    },
+    {
+      "document_id": "fe135ada-e493-5504-9a0d-07f4b76913b1",
+      "document_version_id": "a7034d4f-a9f1-521c-9214-0b8689849151",
+      "filename": "de6e96935f0b3321cf29416ec164482247b5035f1d2e12b36e203be8126ca8b8.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/de6e96935f0b3321cf29416ec164482247b5035f1d2e12b36e203be8126ca8b8.md",
+      "size_bytes": 845,
+      "search_units": 1,
+      "knowledge_units": 1,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 410,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 410
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 410,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 410,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 4.1e-06
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 410,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 410,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 1,
+          "estimated_calls": 0,
+          "cost_usd": 4.1e-06
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 410,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 410,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 1,
+        "estimated_calls": 0,
+        "cost_usd": 4.1e-06
+      },
+      "cost_usd": 4.1e-06,
+      "metadata": {
+        "search_unit_texts_count": 1,
+        "knowledge_block_preload_texts_count": 1,
+        "search_unit_estimated_tokens": 187,
+        "knowledge_block_preload_estimated_tokens": 177
+      }
+    },
+    {
+      "document_id": "7a23effa-b2cf-5dbe-8bf6-6f241449e34d",
+      "document_version_id": "abb2a790-742d-50a3-a3c8-530f60ebc4db",
+      "filename": "e9366441d1e037a1470c9bad57455dbadc24db0ca931791edd0f3b026ea6a58f.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/e9366441d1e037a1470c9bad57455dbadc24db0ca931791edd0f3b026ea6a58f.md",
+      "size_bytes": 3596,
+      "search_units": 2,
+      "knowledge_units": 3,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 1625,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1625
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 3,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 1625,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1625,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 1.625e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 1625,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 1625,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 3,
+          "estimated_calls": 0,
+          "cost_usd": 1.625e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 1625,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 1625,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 3,
+        "estimated_calls": 0,
+        "cost_usd": 1.625e-05
+      },
+      "cost_usd": 1.625e-05,
+      "metadata": {
+        "search_unit_texts_count": 2,
+        "knowledge_block_preload_texts_count": 3,
+        "search_unit_estimated_tokens": 801,
+        "knowledge_block_preload_estimated_tokens": 781
+      }
+    },
+    {
+      "document_id": "eb968de3-a848-5347-9f6f-c30725ce9b0c",
+      "document_version_id": "43cf95ad-c100-59bb-90ae-e08ebc2084c1",
+      "filename": "f346781bc6cf23c95342ce003927de9d985a99eeb7561c69f03e65da7c10f2fb.md",
+      "logical_source_id": "examples/third_party/wixqa/corpus/f346781bc6cf23c95342ce003927de9d985a99eeb7561c69f03e65da7c10f2fb.md",
+      "size_bytes": 13244,
+      "search_units": 6,
+      "knowledge_units": 5,
+      "e2_units_selected": 0,
+      "e2_units_enriched": 0,
+      "e2_jobs_total": 0,
+      "e2_jobs_succeeded": 0,
+      "by_token_type": {
+        "embedding_input_tokens": 5621,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 5621
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 5,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 5621,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 5621,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 5.621e-05
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 5621,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 5621,
+          "embedding_calls": 1,
+          "llm_calls": 0,
+          "cache_hits": 5,
+          "estimated_calls": 0,
+          "cost_usd": 5.621e-05
+        }
+      },
+      "totals": {
+        "embedding_input_tokens": 5621,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 5621,
+        "embedding_calls": 1,
+        "llm_calls": 0,
+        "cache_hits": 5,
+        "estimated_calls": 0,
+        "cost_usd": 5.621e-05
+      },
+      "cost_usd": 5.621e-05,
+      "metadata": {
+        "search_unit_texts_count": 6,
+        "knowledge_block_preload_texts_count": 5,
+        "search_unit_estimated_tokens": 2803,
+        "knowledge_block_preload_estimated_tokens": 2761
+      }
+    }
+  ],
+  "questions": [
+    {
+      "question_id": "wixqa-0001",
+      "tier": "single_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 39,
+          "llm_input_tokens": 4278,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4278,
+          "llm_output_tokens": 60,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4377,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00026067
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 39,
+          "llm_input_tokens": 4278,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4278,
+          "llm_output_tokens": 60,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4377
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4278,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4278,
+            "llm_output_tokens": 60,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4338,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00026028
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 39,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 39,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.9e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4278,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4278,
+            "llm_output_tokens": 60,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4338,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00026028
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 39,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 39,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.9e-07
+          }
+        },
+        "cost_usd": 0.00026067
+      }
+    },
+    {
+      "question_id": "wixqa-0002",
+      "tier": "single_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 77,
+          "llm_input_tokens": 3850,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 3850,
+          "llm_output_tokens": 150,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4077,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00024077
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 77,
+          "llm_input_tokens": 3850,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 3850,
+          "llm_output_tokens": 150,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4077
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 3850,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 3850,
+            "llm_output_tokens": 150,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4000,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00024
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 77,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 77,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 7.7e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 3850,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 3850,
+            "llm_output_tokens": 150,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4000,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00024
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 77,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 77,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 7.7e-07
+          }
+        },
+        "cost_usd": 0.00024077
+      }
+    },
+    {
+      "question_id": "wixqa-0003",
+      "tier": "single_hop",
+      "unanswerable": false,
+      "answer_status": "no_answer",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 36,
+          "llm_input_tokens": 4114,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4114,
+          "llm_output_tokens": 69,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4219,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00025134
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 36,
+          "llm_input_tokens": 4114,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4114,
+          "llm_output_tokens": 69,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4219
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4114,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4114,
+            "llm_output_tokens": 69,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4183,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00025098
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 36,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 36,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.6e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4114,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4114,
+            "llm_output_tokens": 69,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4183,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00025098
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 36,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 36,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.6e-07
+          }
+        },
+        "cost_usd": 0.00025134
+      }
+    },
+    {
+      "question_id": "wixqa-0004",
+      "tier": "multi_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 39,
+          "llm_input_tokens": 3790,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 3790,
+          "llm_output_tokens": 56,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3885,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00023115
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 39,
+          "llm_input_tokens": 3790,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 3790,
+          "llm_output_tokens": 56,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3885
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 3790,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 3790,
+            "llm_output_tokens": 56,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 3846,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00023076
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 39,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 39,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.9e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 3790,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 3790,
+            "llm_output_tokens": 56,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 3846,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00023076
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 39,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 39,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.9e-07
+          }
+        },
+        "cost_usd": 0.00023115
+      }
+    },
+    {
+      "question_id": "wixqa-0005",
+      "tier": "single_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 36,
+          "llm_input_tokens": 4512,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4512,
+          "llm_output_tokens": 211,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4759,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00028374
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 36,
+          "llm_input_tokens": 4512,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4512,
+          "llm_output_tokens": 211,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4759
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4512,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4512,
+            "llm_output_tokens": 211,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4723,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00028338
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 36,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 36,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.6e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4512,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4512,
+            "llm_output_tokens": 211,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4723,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00028338
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 36,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 36,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.6e-07
+          }
+        },
+        "cost_usd": 0.00028374
+      }
+    },
+    {
+      "question_id": "wixqa-0006",
+      "tier": "multi_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 50,
+          "llm_input_tokens": 4185,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4185,
+          "llm_output_tokens": 190,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4425,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.000263
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 50,
+          "llm_input_tokens": 4185,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4185,
+          "llm_output_tokens": 190,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4425
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4185,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4185,
+            "llm_output_tokens": 190,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4375,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.0002625
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 50,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 50,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 5e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4185,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4185,
+            "llm_output_tokens": 190,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4375,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.0002625
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 50,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 50,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 5e-07
+          }
+        },
+        "cost_usd": 0.000263
+      }
+    },
+    {
+      "question_id": "wixqa-0007",
+      "tier": "single_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 44,
+          "llm_input_tokens": 4245,
+          "llm_cached_input_tokens": 192,
+          "llm_uncached_input_tokens": 4053,
+          "llm_output_tokens": 146,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4435,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.0002639
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 44,
+          "llm_input_tokens": 4245,
+          "llm_cached_input_tokens": 192,
+          "llm_uncached_input_tokens": 4053,
+          "llm_output_tokens": 146,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4435
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4245,
+            "llm_cached_input_tokens": 192,
+            "llm_uncached_input_tokens": 4053,
+            "llm_output_tokens": 146,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4391,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00026346
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 44,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 44,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 4.4e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4245,
+            "llm_cached_input_tokens": 192,
+            "llm_uncached_input_tokens": 4053,
+            "llm_output_tokens": 146,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4391,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00026346
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 44,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 44,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 4.4e-07
+          }
+        },
+        "cost_usd": 0.0002639
+      }
+    },
+    {
+      "question_id": "wixqa-0008",
+      "tier": "multi_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 63,
+          "llm_input_tokens": 2461,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 2461,
+          "llm_output_tokens": 79,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 2603,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00015303
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 63,
+          "llm_input_tokens": 2461,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 2461,
+          "llm_output_tokens": 79,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 2603
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 2461,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 2461,
+            "llm_output_tokens": 79,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 2540,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.0001524
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 63,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 63,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 6.3e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 2461,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 2461,
+            "llm_output_tokens": 79,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 2540,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.0001524
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 63,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 63,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 6.3e-07
+          }
+        },
+        "cost_usd": 0.00015303
+      }
+    },
+    {
+      "question_id": "wixqa-0009",
+      "tier": "multi_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 45,
+          "llm_input_tokens": 3290,
+          "llm_cached_input_tokens": 192,
+          "llm_uncached_input_tokens": 3098,
+          "llm_output_tokens": 119,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3454,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00020499
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 45,
+          "llm_input_tokens": 3290,
+          "llm_cached_input_tokens": 192,
+          "llm_uncached_input_tokens": 3098,
+          "llm_output_tokens": 119,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3454
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 3290,
+            "llm_cached_input_tokens": 192,
+            "llm_uncached_input_tokens": 3098,
+            "llm_output_tokens": 119,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 3409,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00020454
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 45,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 45,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 4.5e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 3290,
+            "llm_cached_input_tokens": 192,
+            "llm_uncached_input_tokens": 3098,
+            "llm_output_tokens": 119,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 3409,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00020454
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 45,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 45,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 4.5e-07
+          }
+        },
+        "cost_usd": 0.00020499
+      }
+    },
+    {
+      "question_id": "wixqa-0010",
+      "tier": "multi_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 59,
+          "llm_input_tokens": 3733,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 3733,
+          "llm_output_tokens": 121,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3913,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00023183
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 59,
+          "llm_input_tokens": 3733,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 3733,
+          "llm_output_tokens": 121,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3913
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 3733,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 3733,
+            "llm_output_tokens": 121,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 3854,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00023124
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 59,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 59,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 5.9e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 3733,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 3733,
+            "llm_output_tokens": 121,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 3854,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00023124
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 59,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 59,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 5.9e-07
+          }
+        },
+        "cost_usd": 0.00023183
+      }
+    },
+    {
+      "question_id": "wixqa-0011",
+      "tier": "single_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 63,
+          "llm_input_tokens": 4014,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4014,
+          "llm_output_tokens": 205,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4282,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00025377
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 63,
+          "llm_input_tokens": 4014,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4014,
+          "llm_output_tokens": 205,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4282
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4014,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4014,
+            "llm_output_tokens": 205,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4219,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00025314
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 63,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 63,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 6.3e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4014,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4014,
+            "llm_output_tokens": 205,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4219,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00025314
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 63,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 63,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 6.3e-07
+          }
+        },
+        "cost_usd": 0.00025377
+      }
+    },
+    {
+      "question_id": "wixqa-0012",
+      "tier": "multi_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 73,
+          "llm_input_tokens": 2942,
+          "llm_cached_input_tokens": 192,
+          "llm_uncached_input_tokens": 2750,
+          "llm_output_tokens": 85,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3100,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00018235
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 73,
+          "llm_input_tokens": 2942,
+          "llm_cached_input_tokens": 192,
+          "llm_uncached_input_tokens": 2750,
+          "llm_output_tokens": 85,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3100
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 2942,
+            "llm_cached_input_tokens": 192,
+            "llm_uncached_input_tokens": 2750,
+            "llm_output_tokens": 85,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 3027,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00018162
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 73,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 73,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 7.3e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 2942,
+            "llm_cached_input_tokens": 192,
+            "llm_uncached_input_tokens": 2750,
+            "llm_output_tokens": 85,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 3027,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00018162
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 73,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 73,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 7.3e-07
+          }
+        },
+        "cost_usd": 0.00018235
+      }
+    },
+    {
+      "question_id": "wixqa-0013",
+      "tier": "multi_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 32,
+          "llm_input_tokens": 4311,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4311,
+          "llm_output_tokens": 163,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4506,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00026876
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 32,
+          "llm_input_tokens": 4311,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4311,
+          "llm_output_tokens": 163,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4506
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4311,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4311,
+            "llm_output_tokens": 163,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4474,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00026844
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 32,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 32,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.2e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4311,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4311,
+            "llm_output_tokens": 163,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4474,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00026844
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 32,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 32,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.2e-07
+          }
+        },
+        "cost_usd": 0.00026876
+      }
+    },
+    {
+      "question_id": "wixqa-0014",
+      "tier": "single_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 36,
+          "llm_input_tokens": 4216,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4216,
+          "llm_output_tokens": 265,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4517,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00026922
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 36,
+          "llm_input_tokens": 4216,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4216,
+          "llm_output_tokens": 265,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4517
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4216,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4216,
+            "llm_output_tokens": 265,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4481,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00026886
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 36,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 36,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.6e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4216,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4216,
+            "llm_output_tokens": 265,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4481,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00026886
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 36,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 36,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.6e-07
+          }
+        },
+        "cost_usd": 0.00026922
+      }
+    },
+    {
+      "question_id": "wixqa-0015",
+      "tier": "multi_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 38,
+          "llm_input_tokens": 4163,
+          "llm_cached_input_tokens": 192,
+          "llm_uncached_input_tokens": 3971,
+          "llm_output_tokens": 144,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4345,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.0002588
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 38,
+          "llm_input_tokens": 4163,
+          "llm_cached_input_tokens": 192,
+          "llm_uncached_input_tokens": 3971,
+          "llm_output_tokens": 144,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4345
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4163,
+            "llm_cached_input_tokens": 192,
+            "llm_uncached_input_tokens": 3971,
+            "llm_output_tokens": 144,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4307,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00025842
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 38,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 38,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.8e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4163,
+            "llm_cached_input_tokens": 192,
+            "llm_uncached_input_tokens": 3971,
+            "llm_output_tokens": 144,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4307,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00025842
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 38,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 38,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.8e-07
+          }
+        },
+        "cost_usd": 0.0002588
+      }
+    },
+    {
+      "question_id": "wixqa-0016",
+      "tier": "multi_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 37,
+          "llm_input_tokens": 4591,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4591,
+          "llm_output_tokens": 428,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 5056,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00030151
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 37,
+          "llm_input_tokens": 4591,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4591,
+          "llm_output_tokens": 428,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 5056
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4591,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4591,
+            "llm_output_tokens": 428,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 5019,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00030114
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 37,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 37,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.7e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4591,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4591,
+            "llm_output_tokens": 428,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 5019,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00030114
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 37,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 37,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.7e-07
+          }
+        },
+        "cost_usd": 0.00030151
+      }
+    },
+    {
+      "question_id": "wixqa-0017",
+      "tier": "single_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 37,
+          "llm_input_tokens": 4217,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4217,
+          "llm_output_tokens": 132,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4386,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00026131
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 37,
+          "llm_input_tokens": 4217,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4217,
+          "llm_output_tokens": 132,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4386
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4217,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4217,
+            "llm_output_tokens": 132,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4349,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00026094
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 37,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 37,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.7e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4217,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4217,
+            "llm_output_tokens": 132,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4349,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00026094
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 37,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 37,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3.7e-07
+          }
+        },
+        "cost_usd": 0.00026131
+      }
+    },
+    {
+      "question_id": "wixqa-0018",
+      "tier": "single_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 30,
+          "llm_input_tokens": 3773,
+          "llm_cached_input_tokens": 192,
+          "llm_uncached_input_tokens": 3581,
+          "llm_output_tokens": 138,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3941,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00023496
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 30,
+          "llm_input_tokens": 3773,
+          "llm_cached_input_tokens": 192,
+          "llm_uncached_input_tokens": 3581,
+          "llm_output_tokens": 138,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 3941
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 3773,
+            "llm_cached_input_tokens": 192,
+            "llm_uncached_input_tokens": 3581,
+            "llm_output_tokens": 138,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 3911,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00023466
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 30,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 30,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 3773,
+            "llm_cached_input_tokens": 192,
+            "llm_uncached_input_tokens": 3581,
+            "llm_output_tokens": 138,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 3911,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00023466
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 30,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 30,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 3e-07
+          }
+        },
+        "cost_usd": 0.00023496
+      }
+    },
+    {
+      "question_id": "wixqa-0019",
+      "tier": "single_hop",
+      "unanswerable": false,
+      "answer_status": "no_answer",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 71,
+          "llm_input_tokens": 4234,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4234,
+          "llm_output_tokens": 133,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4438,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.00026273
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 71,
+          "llm_input_tokens": 4234,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4234,
+          "llm_output_tokens": 133,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4438
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4234,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4234,
+            "llm_output_tokens": 133,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4367,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00026202
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 71,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 71,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 7.1e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4234,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4234,
+            "llm_output_tokens": 133,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4367,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00026202
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 71,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 71,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 7.1e-07
+          }
+        },
+        "cost_usd": 0.00026273
+      }
+    },
+    {
+      "question_id": "wixqa-0020",
+      "tier": "single_hop",
+      "unanswerable": false,
+      "answer_status": "answered",
+      "token_usage": {
+        "totals": {
+          "embedding_input_tokens": 48,
+          "llm_input_tokens": 4437,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4437,
+          "llm_output_tokens": 245,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4730,
+          "embedding_calls": 1,
+          "llm_calls": 1,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.0002814
+        },
+        "by_token_type": {
+          "embedding_input_tokens": 48,
+          "llm_input_tokens": 4437,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 4437,
+          "llm_output_tokens": 245,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 4730
+        },
+        "by_component": {
+          "answer_generation": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4437,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4437,
+            "llm_output_tokens": 245,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4682,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00028092
+          },
+          "query_embedding": {
+            "embedding_input_tokens": 48,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 48,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 4.8e-07
+          }
+        },
+        "by_model": {
+          "Qwen/Qwen3-8B": {
+            "embedding_input_tokens": 0,
+            "llm_input_tokens": 4437,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 4437,
+            "llm_output_tokens": 245,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 4682,
+            "embedding_calls": 0,
+            "llm_calls": 1,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 0.00028092
+          },
+          "Qwen/Qwen3-Embedding-0.6B": {
+            "embedding_input_tokens": 48,
+            "llm_input_tokens": 0,
+            "llm_cached_input_tokens": 0,
+            "llm_uncached_input_tokens": 0,
+            "llm_output_tokens": 0,
+            "llm_reasoning_tokens": 0,
+            "total_tokens": 48,
+            "embedding_calls": 1,
+            "llm_calls": 0,
+            "cache_hits": 0,
+            "estimated_calls": 0,
+            "cost_usd": 4.8e-07
+          }
+        },
+        "cost_usd": 0.0002814
+      }
+    }
+  ]
+}

@@ -28,3 +28,14 @@ def test_ir_metrics_use_fixed_k_and_rank_discount_with_multiple_relevant_docs():
     assert metrics['map'] == pytest.approx(1/6)
     assert 0 < metrics['ndcg'] < .5
     assert ir_metrics(['relevant'], {'relevant'}, 10)['precision'] == .1
+
+
+def test_ir_metrics_flexible_k_computes_precision_over_returned_set_size():
+    fixed = ir_metrics(['doc-a', 'doc-b'], {'doc-a', 'doc-b'}, 5, flexible_k=False)
+    flex = ir_metrics(['doc-a', 'doc-b'], {'doc-a', 'doc-b'}, 5, flexible_k=True)
+    assert fixed['precision'] == pytest.approx(2 / 5)
+    assert flex['precision'] == pytest.approx(1.0)
+    assert flex['recall'] == pytest.approx(1.0)
+    assert ir_metrics(['doc-a', 'noise'], {'doc-a'}, 5, flexible_k=True)['precision'] == pytest.approx(0.5)
+    assert ir_metrics([], {'doc-a'}, 5, flexible_k=True)['precision'] == 0.0
+

@@ -1,0 +1,668 @@
+{
+  "protocol": {
+    "judge_model": null,
+    "judge_enabled": false,
+    "judge_scale": "1–5",
+    "judge_rubric": "RetrievalCI faithfulness/relevance",
+    "latency_repetitions": 1,
+    "concurrency": 1,
+    "first_pass_cache": "not explicitly prewarmed; physical cold cache not verified",
+    "judge_latency_included": false
+  },
+  "quality": {
+    "NOVA-EVAL-001": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-002": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-003": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-004": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-005": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-006": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-007": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-008": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-009": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-010": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-017": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-018": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-019": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-020": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-021": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-022": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-023": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-024": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-025": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-026": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-027": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-028": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-029": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-030": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-031": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-032": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-033": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-034": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-035": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-036": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-037": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-038": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-039": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-040": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-041": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-042": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-043": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-044": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-045": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-046": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-047": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-048": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-049": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-050": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-051": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-052": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-053": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-054": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-055": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "NOVA-EVAL-056": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    }
+  },
+  "latency": {
+    "first_pass": {
+      "requests": 50,
+      "errors": 0,
+      "successful": {
+        "retrieval_latency_ms": {
+          "n": 50,
+          "mean_ms": 2614.0197679772973,
+          "p50_ms": 2079.443300026469,
+          "p95_ms": 5770.906399935484,
+          "p99_ms": 13621.3662000373
+        },
+        "first_token_ms": {
+          "n": 45,
+          "mean_ms": 7036.402162185146,
+          "p50_ms": 6410.359400091693,
+          "p95_ms": 9733.85570012033,
+          "p99_ms": 20493.544599972665
+        },
+        "latency_ms": {
+          "n": 50,
+          "mean_ms": 6921.128089991398,
+          "p50_ms": 6404.207349987701,
+          "p95_ms": 9734.441500157118,
+          "p99_ms": 20494.46259997785
+        }
+      },
+      "all_attempts": {
+        "retrieval_latency_ms": {
+          "n": 50,
+          "mean_ms": 2614.0197679772973,
+          "p50_ms": 2079.443300026469,
+          "p95_ms": 5770.906399935484,
+          "p99_ms": 13621.3662000373
+        },
+        "first_token_ms": {
+          "n": 45,
+          "mean_ms": 7036.402162185146,
+          "p50_ms": 6410.359400091693,
+          "p95_ms": 9733.85570012033,
+          "p99_ms": 20493.544599972665
+        },
+        "latency_ms": {
+          "n": 50,
+          "mean_ms": 6921.128089991398,
+          "p50_ms": 6404.207349987701,
+          "p95_ms": 9734.441500157118,
+          "p99_ms": 20494.46259997785
+        }
+      }
+    },
+    "warm_combined": {
+      "requests": 0,
+      "errors": 0,
+      "successful": {
+        "retrieval_latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "first_token_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        }
+      },
+      "all_attempts": {
+        "retrieval_latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "first_token_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        }
+      }
+    }
+  },
+  "warm_attempts": [],
+  "quality_summary": {
+    "faithfulness": {
+      "n_scored": 0,
+      "mean": null
+    },
+    "relevance": {
+      "n_scored": 0,
+      "mean": null
+    }
+  },
+  "acl_security_evaluation": {
+    "total_acl_cases": 6,
+    "deny_accuracy": 1.0,
+    "leaked_citations_count": 0,
+    "cases": [
+      {
+        "case_id": "NOVA-EVAL-011",
+        "suite": "ACL_SECURITY",
+        "principal_id": "MP-U01",
+        "project_id": "NOVA-DMG",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "NOVA-DMG-WR-W40-L1"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "NOVA-EVAL-012",
+        "suite": "ACL_SECURITY",
+        "principal_id": "NV-U19",
+        "project_id": "NOVA-LEV",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "DOC-NVLEV-DB-002"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "NOVA-EVAL-013",
+        "suite": "ACL_SECURITY",
+        "principal_id": "NV-U10",
+        "project_id": "NOVA-HR",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "782e6e0c8e7cd852de41cfd0"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "NOVA-EVAL-014",
+        "suite": "ACL_SECURITY",
+        "principal_id": "MP-U04",
+        "project_id": "NOVA-ATD",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "DOC-NVDMG-ARC-005"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "NOVA-EVAL-015",
+        "suite": "ACL_SECURITY",
+        "principal_id": "NV-U11",
+        "project_id": "NOVA-LEV",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "NOVA-LEV-WR-W40-M1"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "NOVA-EVAL-016",
+        "suite": "ACL_SECURITY",
+        "principal_id": "MP-U02",
+        "project_id": "NOVA-DMG",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "99c42858365e0a79baf43434"
+        ],
+        "must_not_cite_violations": 0
+      }
+    ]
+  }
+}

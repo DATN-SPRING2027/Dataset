@@ -1,0 +1,778 @@
+{
+  "protocol": {
+    "judge_model": null,
+    "judge_enabled": false,
+    "judge_scale": "1–5",
+    "judge_rubric": "RetrievalCI faithfulness/relevance",
+    "latency_repetitions": 1,
+    "concurrency": 1,
+    "first_pass_cache": "not explicitly prewarmed; physical cold cache not verified",
+    "judge_latency_included": false
+  },
+  "quality": {
+    "RAG-001": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-002": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-003": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-004": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-005": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-006": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-007": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-008": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-009": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-010": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-011": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-012": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-013": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-014": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-015": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-016": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-017": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-018": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-019": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-020": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-021": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-022": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-023": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-024": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-025": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-026": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-027": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-028": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-029": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-030": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-031": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-032": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-033": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "RAG-034": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-001": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-003": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-005": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-007": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-009": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-011": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-013": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-015": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-017": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-019": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-020": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-021": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-022": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-023": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-024": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-025": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-026": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-027": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-028": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-029": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-031": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "WF-032": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    }
+  },
+  "latency": {
+    "first_pass": {
+      "requests": 56,
+      "errors": 0,
+      "successful": {
+        "retrieval_latency_ms": {
+          "n": 56,
+          "mean_ms": 3041.7130892871814,
+          "p50_ms": 2440.3517501195893,
+          "p95_ms": 9164.777399972081,
+          "p99_ms": 11803.353799972683
+        },
+        "first_token_ms": {
+          "n": 51,
+          "mean_ms": 10696.994574521394,
+          "p50_ms": 6231.261800043285,
+          "p95_ms": 39920.50340003334,
+          "p99_ms": 127944.52000013553
+        },
+        "latency_ms": {
+          "n": 56,
+          "mean_ms": 10490.696710717331,
+          "p50_ms": 6284.680250100791,
+          "p95_ms": 39920.93230015598,
+          "p99_ms": 127945.32539998181
+        }
+      },
+      "all_attempts": {
+        "retrieval_latency_ms": {
+          "n": 56,
+          "mean_ms": 3041.7130892871814,
+          "p50_ms": 2440.3517501195893,
+          "p95_ms": 9164.777399972081,
+          "p99_ms": 11803.353799972683
+        },
+        "first_token_ms": {
+          "n": 51,
+          "mean_ms": 10696.994574521394,
+          "p50_ms": 6231.261800043285,
+          "p95_ms": 39920.50340003334,
+          "p99_ms": 127944.52000013553
+        },
+        "latency_ms": {
+          "n": 56,
+          "mean_ms": 10490.696710717331,
+          "p50_ms": 6284.680250100791,
+          "p95_ms": 39920.93230015598,
+          "p99_ms": 127945.32539998181
+        }
+      }
+    },
+    "warm_combined": {
+      "requests": 0,
+      "errors": 0,
+      "successful": {
+        "retrieval_latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "first_token_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        }
+      },
+      "all_attempts": {
+        "retrieval_latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "first_token_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        }
+      }
+    }
+  },
+  "warm_attempts": [],
+  "quality_summary": {
+    "faithfulness": {
+      "n_scored": 0,
+      "mean": null
+    },
+    "relevance": {
+      "n_scored": 0,
+      "mean": null
+    }
+  },
+  "acl_security_evaluation": {
+    "total_acl_cases": 10,
+    "deny_accuracy": 1.0,
+    "leaked_citations_count": 0,
+    "cases": [
+      {
+        "case_id": "WF-002",
+        "suite": "WORKFLOW_ACL",
+        "principal_id": "M-016",
+        "project_id": "NSC-CART",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "3aba81d1e3809af965bac18e"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "WF-004",
+        "suite": "WORKFLOW_ACL",
+        "principal_id": "M-017",
+        "project_id": "NSC-CAT",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "c22c25afb1018b292701bad6"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "WF-006",
+        "suite": "WORKFLOW_ACL",
+        "principal_id": "M-017",
+        "project_id": "NSC-CHKO",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "7aedd0115008cd5bb8ac3242"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "WF-008",
+        "suite": "WORKFLOW_ACL",
+        "principal_id": "M-016",
+        "project_id": "NSC-INV",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "800eae6a24bf303c4866ec2e"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "WF-010",
+        "suite": "WORKFLOW_ACL",
+        "principal_id": "M-016",
+        "project_id": "NSC-ORD",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "44112221c0544c9ab8367270"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "WF-012",
+        "suite": "WORKFLOW_ACL",
+        "principal_id": "M-016",
+        "project_id": "NSC-PAY",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "e4b30b6e60dcb415e0939aa7"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "WF-014",
+        "suite": "WORKFLOW_ACL",
+        "principal_id": "M-016",
+        "project_id": "NSC-PLAT",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "10d9cda0be13540913999006"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "WF-016",
+        "suite": "WORKFLOW_ACL",
+        "principal_id": "M-016",
+        "project_id": "NSC-SRCH",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "bfabb386a28187c897ae3392"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "WF-018",
+        "suite": "WORKFLOW_ACL",
+        "principal_id": "M-018",
+        "project_id": "NSC-CAT",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "DOC-CAT-PRD-004"
+        ],
+        "must_not_cite_violations": 0
+      },
+      {
+        "case_id": "WF-030",
+        "suite": "WORKFLOW_ACL",
+        "principal_id": "M-021",
+        "project_id": "NSC-PAY",
+        "expected_decision": "DENY",
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "must_not_cite": [
+          "8213abcbc883329f1bc47f3d"
+        ],
+        "must_not_cite_violations": 0
+      }
+    ]
+  }
+}
