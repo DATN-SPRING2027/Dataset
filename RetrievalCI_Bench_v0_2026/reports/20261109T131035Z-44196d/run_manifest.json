@@ -1,0 +1,1440 @@
+{
+  "run_id": "20261109T131035Z-44196d",
+  "benchmark": "wixqa_enterprise",
+  "user_id": "6acc9a5425f02c9d92a01012",
+  "user_name": "Tài Phan Thànhh",
+  "organization_id": "ORG-NSC",
+  "project_id": "10b76665dc6ed1800aaab1b1",
+  "project_name": "[Benchmark 03] WixQA Enterprise Support KB Benchmark (EN)",
+  "source_id": "2425c5d0d2fc4e069fa80cf02de45764",
+  "schema": "sag",
+  "source_config_id": "tp_6ec78e0760055443516fb7a64caf1b2a",
+  "collection": "search_units_10b76665dc6ed1800aaab1b1",
+  "documents": 30,
+  "questions": 20,
+  "questions_sha256": "6acb79fcb63e7729178a80e4e74507e63487ec9dc2d62c40abe47ed8532f37f2",
+  "corpus_sha256": {
+    "examples\\third_party\\wixqa\\corpus\\04997ca3b0a1736557e6895e2eecc51ccd581a1982afa647b5ebf835e68d4deb.md": "9ed29b430539fecc5b56c6195c7f066d9c42e529976b256ec9089695469695d4",
+    "examples\\third_party\\wixqa\\corpus\\06535db983ea0ffe0214af14497a1d158f279d92c92f211e87b8820aa95dbe43.md": "b3ef428e4fb5416391048d1e3fa2688f6dd5a08f0ffade57ae19b440839e6d36",
+    "examples\\third_party\\wixqa\\corpus\\0edfb79224593e47a232c58687f04d0534cabe82e36a6af890f92830860b5b72.md": "ce8f456ca7bab57f5f0a65fb751d0d3f8d978f6ddbc66cfc33f7c3482356371f",
+    "examples\\third_party\\wixqa\\corpus\\163d579af227160c8072dc465c81d8edea4b507d7e8789078b680f88633aefab.md": "22e96946cce6737889e32b9d75ed82c330e1d3b534db58c5808fab7e8102c41d",
+    "examples\\third_party\\wixqa\\corpus\\2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md": "09aadc8cff834fc70c88e1b39dbe9d7122c5181cdc5b6c068694d36cf43edb90",
+    "examples\\third_party\\wixqa\\corpus\\2df694686b70b35ed389ff590354cfaf19aafc07659b12b02078f2ebcf015ac8.md": "69d0cfc8e196098002393de043b695a137dc456805c9557a79b1cc4d8106282d",
+    "examples\\third_party\\wixqa\\corpus\\3407d197c71652bee58835ba148794a8be7e70cf9e25c599044b823c82db29fd.md": "f2cde9eb67b38316d989052cdec4c2ff853b0c088a1294fd0d75c374302b5583",
+    "examples\\third_party\\wixqa\\corpus\\359dab9e725658fc9407e34714d19da1fda7a8cb8c85c5c141968dd3775de044.md": "428a8de6ea6d0a8bf493642a01ddf1e2dbcf2f6bbdf80f5c8c2676337319e739",
+    "examples\\third_party\\wixqa\\corpus\\39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf.md": "430c19fcf2024b8ec81d11c9adc564206e210984e2e4740382b143bc143b70d6",
+    "examples\\third_party\\wixqa\\corpus\\49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md": "08e6a21982ae92993f5f3b1e4069517ef590d844c2d9e3904f4add1171184fc4",
+    "examples\\third_party\\wixqa\\corpus\\5f02fc2f8937d16a4d8cdca47da36ae34429e0b279fb0cc56af72e2d91991a28.md": "a59ff93cb95633d6304fba30691228ab803c1c416a6184d1bf7282f5796aad74",
+    "examples\\third_party\\wixqa\\corpus\\65806b123ff355cef16c8abe4301f1df982e2c3bddcd33b81ed446b92a79e336.md": "24526015b7cda3b5c1cf7ab2374dc24913c420a1836371f6185fe4257bde7616",
+    "examples\\third_party\\wixqa\\corpus\\6b97c2a01f5c925927be970c1f768a4b628c6b52071dec733aa3a1719d17332e.md": "83882597f1621118104c777ffbfdd8b98e6b6686fb6fe20e8572ffa4745d2b16",
+    "examples\\third_party\\wixqa\\corpus\\7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af.md": "a2e131cfafdf9bc75ec8affe0e5e6cdda2fd8c6a0c6cb538c254766d15fbb337",
+    "examples\\third_party\\wixqa\\corpus\\7f365d820565efdc168e39938b16e965ea0e70a394eaac7e926078ec3b562ceb.md": "e19de7d96fafd0213e74a99824df9e1efbc8a559310b4154fe0c30f0218af1f9",
+    "examples\\third_party\\wixqa\\corpus\\81815895cb357ab2acbf1da52c91beff481c88fe49d416c853b3fb88a4ae92ea.md": "5498b522178b670a54fc8d6467dedc3717f6f2ae92d87c34a91ecfa77a083af9",
+    "examples\\third_party\\wixqa\\corpus\\8309620f90a06cbd6b28930591ae59e9f479687ecac060543c69b26214815aab.md": "7d159860c968fff4febc07cc57cea9cd22ada099685866dcde40a21eaef2e53b",
+    "examples\\third_party\\wixqa\\corpus\\8c2e56296ddb7b441238ff06cfa9b38204aca9e27371386689b1fa4643cdfbff.md": "d3927d736e13342828ffd37eaa30e42b0561876129f50fe7b9cccb653803c347",
+    "examples\\third_party\\wixqa\\corpus\\8cc75fbcc571336d1ef1768e7727bd9d1e6c1333f22eeb5366232b9a1a066418.md": "1907e14aa8495f0dc7f52ae701c1b8888bb2203bd39538a40a37e71f856dc566",
+    "examples\\third_party\\wixqa\\corpus\\9b71e0c1c1101d626c050e2209b382430c36eb91644c25dc9016802164ea769f.md": "7d288af03610431cd7cb50f717df312b990029e03162598451ca29ed9b56db2e",
+    "examples\\third_party\\wixqa\\corpus\\9dbf43e1a13c691c4ac016af067a723ca51613c639d878f7c556dd1a1fbc3018.md": "ab53ad8826c1b4f6fd0df50dd8b03d3ffc21431b18b2c405b2f10136986b2bbb",
+    "examples\\third_party\\wixqa\\corpus\\a513a215c1798f329293330cb5f5e975a18978954b5ee27d84441e029f900d51.md": "b80e2616938db3fc5e348ba6f2041cd556d5660835673bc7150e1f08e197f8ef",
+    "examples\\third_party\\wixqa\\corpus\\b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb31027d7187f9.md": "dc2b17c6aa0cbfb7dcaf53dae66577b0184edc6c9d10ec683dc15291a913b27d",
+    "examples\\third_party\\wixqa\\corpus\\bec5870553814db329b6b83e73d059f0a42c2454b5bd4c4989b3b7110e29589c.md": "4a679e4cf3123ab9be7680bc0991585e3b3142bca8aa05f352066507ab593fe9",
+    "examples\\third_party\\wixqa\\corpus\\c8a54de5b540e9832be6e6468b5e498d532df9ea6af16ae83fcdcd15647e4c73.md": "79aea83e22b1e7338019ed98b545850ea970950c91648531bf2f468e74255380",
+    "examples\\third_party\\wixqa\\corpus\\db6a6c4be5c11fae531b4fdd546601bab6d4a26b669a8a7ea6063c62a045e9d4.md": "637a1a696a8c8fb1627ca8e3c5b09bc4414388eb8a2d332edd9787f8cf8465eb",
+    "examples\\third_party\\wixqa\\corpus\\dd6385654e2bc9cc5fcaf350bc944449291fa2377a61e06052035a2f0605c5b5.md": "2b561907020643d129bc742a4bb3325d84756c8e219d39570d39b1c17e040f06",
+    "examples\\third_party\\wixqa\\corpus\\de6e96935f0b3321cf29416ec164482247b5035f1d2e12b36e203be8126ca8b8.md": "ef233421365a8034c50d7d56b18e34f60064d6ced2013ed493c7161d312c82d1",
+    "examples\\third_party\\wixqa\\corpus\\e9366441d1e037a1470c9bad57455dbadc24db0ca931791edd0f3b026ea6a58f.md": "f28ff03e5d7a66164cb8be171a8501f1639e17e288b6181be22b18bee8351b8e",
+    "examples\\third_party\\wixqa\\corpus\\f346781bc6cf23c95342ce003927de9d985a99eeb7561c69f03e65da7c10f2fb.md": "9689631a343263b9f5edcaf99f27796ed74e2472daf0ae822a09f23f37c7c856"
+  },
+  "started_at_utc": "2026-11-09T13:10:36.110043+00:00",
+  "models": {
+    "mode": "real_sag_application",
+    "dense_graph": true,
+    "e2_enrichment": false,
+    "pre_retrieve": "full_kev4b_qsp_v2",
+    "project_name": "[Benchmark 03] WixQA Enterprise Support KB Benchmark (EN)",
+    "acl_deny_cases_count": 0
+  },
+  "status": "COMPLETED",
+  "output_dir": "D:\\DoAnTotnghiep\\Dataset\\RetrievalCI_Bench_v0_2026\\reports\\20261109T131035Z-44196d",
+  "cleanup": {
+    "skipped": true,
+    "reason": "--skip-index"
+  },
+  "environment": {
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cpu_count": 16,
+    "network": "loopback API; remote model/Qdrant providers"
+  },
+  "harness_sha256": {
+    "C:\\Users\\This PC\\.gemini\\antigravity\\brain\\ccf4c116-9b1e-4f09-90f4-50c8eec0775a\\scratch\\run_seven_projects_full_pre_retrieve.py": "9dec14b7f40c1d7f5efe20030d03d0f7ccd49fb641522fe702c4c7615ed6b63d",
+    "D:\\DoAnTotnghiep\\Dataset\\benchmark_support.py": "b56422e65cecfe8d849aef7a6f7e354d5f869aa3b4211976653c0dc30c49e356",
+    "D:\\DoAnTotnghiep\\Dataset\\sag_benchmark_runtime.py": "9cceec330c6a43f998742ffbb0f4e357269168269898439e853e745e4d69172a",
+    "D:\\DoAnTotnghiep\\Dataset\\benchmark_http_client.py": "da308e80c731db27503252278ec767990d08c7daaef5d8bcb76a2a23fd942b75",
+    "D:\\DoAnTotnghiep\\Dataset\\benchmark_quality.py": "49aa04f55149ed784c010cf8c3a9aecb77f21ae73eba07b966e0c6b75054c702",
+    "D:\\DoAnTotnghiep\\Dataset\\international_references.json": "5f5706a349b6773d4afce2c5525e97410a534f0b5df2d96058dbab41f421ea0d"
+  },
+  "git_commit": "29c3f9c688a99eb8160e4e72a7b71c5cb378a9c7",
+  "git_worktree_diff_sha256": "6851de19aa2b9862527b73ffcca4f7ca9dd78fee1793f11634f20ed46f518290",
+  "api_source_sha256": {
+    "SAG/apps/api/sag_api/__init__.py": "2580492f748d5c6580ac1cb17d12c499f19d4beb9786f762a70d167e1b7b57cc",
+    "SAG/apps/api/sag_api/api/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "SAG/apps/api/sag_api/api/v1/__init__.py": "85aa1c177cb925a92dfcb3b7439d5c4fb76c54af7885a43e57093145f68ebb71",
+    "SAG/apps/api/sag_api/api/v1/activity.py": "994a02133caf49196303162664fadc9e13071c08f8aab0490ee3bbf90c2f1f59",
+    "SAG/apps/api/sag_api/api/v1/agents.py": "e6983fa42d19dac40f4fb7a481a441026f39c5178b8c725ab94de2303a1808b5",
+    "SAG/apps/api/sag_api/api/v1/answer_actions.py": "5b6a11a36620c21cbba0ca0e82a4d8a357c10cf6fc934e53ed97fc965022f01b",
+    "SAG/apps/api/sag_api/api/v1/attachments.py": "440531a8cb92d5805d17e2649718e867d2f6f6da5609a03427f455fc59f94c3f",
+    "SAG/apps/api/sag_api/api/v1/auth.py": "b45302eb686c22f263a3ed9a8d8c680eaa3927670b3830788371341227df59ce",
+    "SAG/apps/api/sag_api/api/v1/decision.py": "edaad52339ba5d2de6da928c2a5f41ec698dd89fe2b9d3fb605c26ab8144ae57",
+    "SAG/apps/api/sag_api/api/v1/dify.py": "fac8c33d4b073e4f23e53e7b117e0d597ad124563231628a568d40e980d10d00",
+    "SAG/apps/api/sag_api/api/v1/documents.py": "0ac8036decf503ae37464a60b6158bd2da71fc6f8c8ee2cc1840f835ddcf3775",
+    "SAG/apps/api/sag_api/api/v1/handover.py": "0f046c748218136c53dff840c37ed0a7ab55914f11cba210753655415294871e",
+    "SAG/apps/api/sag_api/api/v1/insights.py": "36943bb36716098b7d6c390164a2c1cb19e0eaabae9949106580d5247064ea6a",
+    "SAG/apps/api/sag_api/api/v1/jobs.py": "052a947804bbfef1161d1edc5cdf021605093bfea630c2d29c482b646cefc682",
+    "SAG/apps/api/sag_api/api/v1/knowledge.py": "f4d26f72fed8d5981f3db6c0e956a8399df8bb349b356ec8c1bf088e5bf3bdf6",
+    "SAG/apps/api/sag_api/api/v1/mind_map.py": "05de9ea858ecd3fe3874795712c395a39e748a32904bab704d255e80ca28e774",
+    "SAG/apps/api/sag_api/api/v1/octx.py": "8ced958e5f53e386823d84c79b80e7a4a74eb81526536258c7ac892cf2a49144",
+    "SAG/apps/api/sag_api/api/v1/openai.py": "075421ccc42dc2c9650cd3c1f70a5f07cdbccc4ad46624db284cbdba655eba9d",
+    "SAG/apps/api/sag_api/api/v1/search.py": "cbfc3bec7bcc58dcb3368e563eaa53385c57d9f0a25fb65f0d7e267b5f9d8774",
+    "SAG/apps/api/sag_api/api/v1/sources.py": "5de45dfe45faf2041d584f7b20583b9f69cad681ac26bd7c85a77e76c50256de",
+    "SAG/apps/api/sag_api/api/v1/system.py": "d9da739aae6484c3f9bc9d3b3f874358cbcc5659659d85b24f9a5167f46b4e63",
+    "SAG/apps/api/sag_api/api/v1/universe.py": "d483dad703179bac0a016225d64f25976448fdbea5d6fbf69a9666cdcd140fbf",
+    "SAG/apps/api/sag_api/branding.py": "df3e28067774fd5499c2d4c6501aa649b04fc734724348cdfaa8e1e0817fff23",
+    "SAG/apps/api/sag_api/connectors/__init__.py": "8224b72a20eb26b57e57f0a33d6391592852242941e6dc85eb0de042f3e4b12f",
+    "SAG/apps/api/sag_api/connectors/base.py": "a0cbac2be7fbb8ccd73d55189d824bb363e6f40267b8cfb70fc45b5b8785ba25",
+    "SAG/apps/api/sag_api/connectors/file_upload.py": "ecb0a71a6a29134c3ae0b2708504bbc69117238e3ee60e10eb77deb00cf24224",
+    "SAG/apps/api/sag_api/connectors/registry.py": "d25c85c4740565c66e0ddd1729515b91e4e9182bf4b90f2376433b7ec7976d25",
+    "SAG/apps/api/sag_api/connectors/web.py": "de6a8ce8116dc953bd193656b03004f2096ffaf9e7654c10fbb6e07f4d79189c",
+    "SAG/apps/api/sag_api/core/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "SAG/apps/api/sag_api/core/config.py": "dc2adb9567ac8ee55719215f49c413ad7ad1e86c077d8ccb6b7897e9e4971245",
+    "SAG/apps/api/sag_api/core/conversation_ownership.py": "ed2fcf2f9efcaa49f7cb5e7c8da8f82e871689cd0ed5b59ea97a0716bfbe0138",
+    "SAG/apps/api/sag_api/core/db.py": "6c82026f404cf7ff322174089cb2ebd59b2c6def29d07595b5a4f386492de9c2",
+    "SAG/apps/api/sag_api/core/deps.py": "a4d8e49a522fec952f6f58046d03ac43e1bba2b00ccd1487c9136acf7f4c7626",
+    "SAG/apps/api/sag_api/core/error_taxonomy.py": "d8e38ca4622dea2d36dffa32db6401e3da497940310e846020aa0fe7152f3d57",
+    "SAG/apps/api/sag_api/core/errors.py": "61c0fb0b24687780b571f1dce382a89d0aa9d9e8d4763aaf3ab1e379258a5c40",
+    "SAG/apps/api/sag_api/core/identity.py": "7c8fe1aebb415b0429aa20e0ce772361a3bf4832db32c2656e46710da30bfd91",
+    "SAG/apps/api/sag_api/core/litellm_policy.py": "c3f75f249dbce0ad83cfec83c6c9e60ecd15686bbb54919ea116bbcc3bf56ec6",
+    "SAG/apps/api/sag_api/core/logging.py": "3a0fdb39f7f80a81d48fa5410e5c9fa3826593d716a495a31f562a4603161afc",
+    "SAG/apps/api/sag_api/core/model_providers.py": "08688fd93818413a76c3a32db9ac76946d99df47a49c8dae44dae3656093ae64",
+    "SAG/apps/api/sag_api/core/principal_assertion.py": "9fd49c692bba7b0c1f8ee8d093f72672a3c65d6af16fc87590501b21afa38d6c",
+    "SAG/apps/api/sag_api/core/sanitizer.py": "5b78ab9141780687fcb43bd3268f58f8a65a1f08803cd2a15a3f128ca57764f1",
+    "SAG/apps/api/sag_api/core/security.py": "fa772822955b1491b11b6829d345a81daf8d1fff2e1def294a5039c434eecf8b",
+    "SAG/apps/api/sag_api/core/token_usage.py": "0f450e9b1fc121fe9f287e06345a944a26492a9372a6f7bd7c8cb0c322044336",
+    "SAG/apps/api/sag_api/db/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "SAG/apps/api/sag_api/db/base.py": "aa8eefe6ef17625924036faae22decb48264ada50f6b3678173c35f895a261df",
+    "SAG/apps/api/sag_api/db/models/__init__.py": "5f88daebf7225df022f4e2bb9a2eeb04675ed96ae116166cd1116cb185aa0464",
+    "SAG/apps/api/sag_api/db/models/agent.py": "6e3f26adcf3797a7d44ac5681782e08c19f6a103b0153fd998ead336a5cc83f7",
+    "SAG/apps/api/sag_api/db/models/answer_actions.py": "dde57c25b4197088c7ef3e60e2a0a2ad4fade9e90a1c98ba939b5c26e3c7d9b7",
+    "SAG/apps/api/sag_api/db/models/document.py": "3fb3f0dd7b50383782c7722894665c823203c4d4911a724fdb1fceb851d4feab",
+    "SAG/apps/api/sag_api/db/models/job.py": "1b81ca3054f7ed179e99c82e2789b88a2f91f1b2e7dadee0350106bb5cab1660",
+    "SAG/apps/api/sag_api/db/models/knowledge.py": "90c4f0445ef477a6ca5817b1282c054f60f77cf034c58219c040df6f58035dc2",
+    "SAG/apps/api/sag_api/db/models/knowledge_quality.py": "6f4bb7839623445f58fed82503c560b610c46ee1844bf922f3ab7811d4db911c",
+    "SAG/apps/api/sag_api/db/models/mind_map.py": "2acd3fa125dee2d1c83ff90b1df867fe54ebb568470c635d477c71a61d51042e",
+    "SAG/apps/api/sag_api/db/models/octx.py": "a9617692a0df6ff2acd78d9a40e18d8b06d27fec54ec0a0d3d12e865fb8a7b29",
+    "SAG/apps/api/sag_api/db/models/research.py": "283d7d5c4784f49e5f50095ad61cb7d912028c4e0270e28f327433ba65d14a6c",
+    "SAG/apps/api/sag_api/db/models/routing_rag.py": "974df275902941a855d82e64b4fdf6caaa7329e8adf939c43bacf02e5fc4b6da",
+    "SAG/apps/api/sag_api/db/models/session_context.py": "d54421f92b6078ef2b58e7e7590512993a99e74cdea21ef61112804a86157f14",
+    "SAG/apps/api/sag_api/db/models/setting.py": "8feb1887de4c8b4796e27d0a53447af99bfbaf6335888a768dc3fe7797b63de0",
+    "SAG/apps/api/sag_api/db/models/source.py": "ad500df0f9f908870d5fdf568fcb9ca188d606ff477eab4b3af0bc392cc26b98",
+    "SAG/apps/api/sag_api/db/models/source_project_mapping.py": "bf34e55dc087d167219933ee2649599fc8e021e30c481a27ec17f5d0754401e0",
+    "SAG/apps/api/sag_api/db/models/universe.py": "dc317815ffdbb2e5ef2f7b42df7f34faf40c032a94efc5d015a482ecde4078df",
+    "SAG/apps/api/sag_api/db/models/user.py": "41fb90400775afab8e9607eb9c800ebd7587cbda629bfb0ce6cbeba46e665780",
+    "SAG/apps/api/sag_api/desktop.py": "b9397479050ed3cc870f8816da574f437a215421e121e32d7a025407122d0fe2",
+    "SAG/apps/api/sag_api/enums.py": "5417c0675d7d578acaa3b883a614dcf6afdcd3351d98f5c4b8c998de463c851f",
+    "SAG/apps/api/sag_api/generation/__init__.py": "6a85b331d18f7630a6a0dbe64d92a2b36cdf14cbdbe572b02ec9b903e08d4667",
+    "SAG/apps/api/sag_api/generation/llm.py": "246f81273d88a931de3ef462b47e492f3c57e131843ef1552e458a983f9ab0ac",
+    "SAG/apps/api/sag_api/generation/prompt.py": "ffaf6c57a4383f294e356ee063c9387a82a3acffc01674467ee07cfaa70a8296",
+    "SAG/apps/api/sag_api/jobs/__init__.py": "1ac9516214993e353d0ab0a34e369ee4f6293c147ed4c2092539e1ed01eed93c",
+    "SAG/apps/api/sag_api/jobs/control.py": "7764d2ecea2f6a238bcc9b97bac65b773eedb9f06445a71d539d2c963c554672",
+    "SAG/apps/api/sag_api/jobs/inproc.py": "dbd4429a693612c129e2af75042a97f9ac8553133cd3b2225a1913bfcd5ef995",
+    "SAG/apps/api/sag_api/jobs/knowledge.py": "08189728432302c6d045d7363701522c071a9d9fb2d8c7b239f2c6b2c686e6c7",
+    "SAG/apps/api/sag_api/jobs/octx_tasks.py": "a58aad041badfc456db0c63c795768fb57e51777f54344ba6fb05a89e728f621",
+    "SAG/apps/api/sag_api/jobs/queue.py": "7e819f21c1b8738eafaedace5c13bde61eebdccde4c7a18731d9d6e32a173ccb",
+    "SAG/apps/api/sag_api/jobs/scheduling.py": "f019d2eee0dd9c72af6b3b4618ec70cd694863b99751975ead8abb6324c18a7e",
+    "SAG/apps/api/sag_api/jobs/tasks.py": "17297d790ee1dec23eead64b71502e73efa6ac0fa4a0e66f6af9d0a6038c1010",
+    "SAG/apps/api/sag_api/main.py": "23d409c6506fb55b8ac97b571c83c97487c6dfd14c3694ce0b79ad97347bf03f",
+    "SAG/apps/api/sag_api/mcp/__init__.py": "a2bf13810628bcb8b8480be98bff71bf122f18ae8a70425f4cb594d3eda14734",
+    "SAG/apps/api/sag_api/mcp/mount.py": "93450eab5d88ed2cf525c0ce769cc6684f3f6167a35ea8f04e1975da4cba6cde",
+    "SAG/apps/api/sag_api/mcp/server.py": "2ce82dad56546888340c872f1f3abb9c640a1a4519b31607d816058091a1f950",
+    "SAG/apps/api/sag_api/octx/__init__.py": "169f060b58bd390445120a0ab77267a71544dcf36746c08f268bb36f1c7896a9",
+    "SAG/apps/api/sag_api/octx/_worker.py": "364d5fe6f2927f4fb20b53dc7606b6ec47e7c30295acd7cb7db0002aca75857d",
+    "SAG/apps/api/sag_api/octx/decision_token.py": "25d36dab6a7dc3eb8d108b6b6785547d8e1c0b5313668629a2c973bedfe3c9cd",
+    "SAG/apps/api/sag_api/octx/errors.py": "a31564d58a5c2ce3bae8d49761473deb521d7ae4439f2c82cd6010f77999d182",
+    "SAG/apps/api/sag_api/octx/limits.py": "09210acf5da24a9cbf7ffd7af311fecb41236c4feabeabe013c2cdc273893e57",
+    "SAG/apps/api/sag_api/octx/runner.py": "b9680c8d751cfb2cde303a8c2233541110bfea7f754635187b8aef9d4abb7444",
+    "SAG/apps/api/sag_api/octx/semver.py": "12271e602fedc5f5ba251e33f2e635668a3e91df9c4b94e0325058e946f99bc9",
+    "SAG/apps/api/sag_api/octx/storage.py": "11002b7f299a2ad81578061664e97530cecfe2e537b58b6387b73169c3493893",
+    "SAG/apps/api/sag_api/parsing/__init__.py": "ee5652c03c98834990d02d512c004cd514aa0508d6647d44f7b9876fc86e2c10",
+    "SAG/apps/api/sag_api/parsing/canonical.py": "d7e5c4fa166e16af74638090f20564088df27db45f7a39a6ec47e76db53cbf70",
+    "SAG/apps/api/sag_api/parsing/local_worker.py": "f6c50e8ddb4c306902984ca43b8f9a0da2ad2a5d0be8c7e9fa418d36a00e1070",
+    "SAG/apps/api/sag_api/parsing/mineru.py": "359f903e04646e03545ae4a3a00f415cd1517a45bc0adc92fa53f076d7ba2525",
+    "SAG/apps/api/sag_api/parsing/mineru_official.py": "5e9907113568da9408ce288ab2db8a262b8d39b2d635eda583d486348cbb1698",
+    "SAG/apps/api/sag_api/parsing/remote_object.py": "e9f54a31df90e249bfeaf70e2fa498043cb6aa10cb7aa5c94b256c357149a354",
+    "SAG/apps/api/sag_api/parsing/service.py": "9882bbb052ece03d1c4d0f8fd1d60a941ac624ae35f2bd0a84e4283173f1609b",
+    "SAG/apps/api/sag_api/parsing/text.py": "99d1c2249b013facdde413e3063846ddbf063fb67bf99f391156bb3ac689072b",
+    "SAG/apps/api/sag_api/runtime.py": "533cdc3f407adf9ee26613051f68a2d887d011c9bba38f6b22da9eb98d8f8c43",
+    "SAG/apps/api/sag_api/sag/__init__.py": "113cc0687b16d4b31cb706d7235e44d82c0c2686519a0ab60fb22b9c1befbedd",
+    "SAG/apps/api/sag_api/sag/_timings_probe.py": "eb58fbf148b61c8beda581d0513051d134fed9e54ef578074027533a71638aac",
+    "SAG/apps/api/sag_api/sag/chunk_heading_vectors.py": "4590050a4596a7be5e3297f9a80df8b32d072815ef5765864f18539c6ac581d3",
+    "SAG/apps/api/sag_api/sag/compat.py": "d23b3c915507a46b568787f75ca0e2f6d0696beb3fc9c6e59f0854706895b831",
+    "SAG/apps/api/sag_api/sag/config_builder.py": "3d9463973c47b758ed2cfad2787f373331fe766a6728b33b6ee5dbca591f1559",
+    "SAG/apps/api/sag_api/sag/document_cleanup.py": "f43ef97c56a55e33204b7c248768e79822bc3c3f835db31dc3927541704d6022",
+    "SAG/apps/api/sag_api/sag/dto.py": "72e00f96fd6d1507e2cb3b26918a24d8c76f27fdc9884689c565b67c8f9befcc",
+    "SAG/apps/api/sag_api/sag/engine_manager.py": "8760ab2e55145798e0f90a007c335b221484154bbcac689f70e3d106fae264ba",
+    "SAG/apps/api/sag_api/sag/errors.py": "7a1410db5e7cbc043313ad1e414e4805ea61da143086e596bbbe720d1981f4ef",
+    "SAG/apps/api/sag_api/sag/incremental_processor.py": "610eae279b2ca0736fb15f293b50f2fe497d69d9338d9175ed0a9347b8ca35e6",
+    "SAG/apps/api/sag_api/sag/octx_ids.py": "bdc659ad63fab206960a805d7f6fe62aa808dcb380cba77635959416e5e555fd",
+    "SAG/apps/api/sag_api/sag/octx_importer.py": "cdea645fc4d395cbac8dcc9b064e68820418585f77fda849ca76e42b0b527276",
+    "SAG/apps/api/sag_api/sag/octx_plan_store.py": "b3056ea67945c175d2a5ac66fb0324bb4bdcca27d8cb36864553d3517f60bc84",
+    "SAG/apps/api/sag_api/sag/octx_smoke_test.py": "3c39ed1ca6a611784120ced1e8c4f8959d540519000e0ccc5585230776de9368",
+    "SAG/apps/api/sag_api/sag/octx_snapshot.py": "91e0bcb30779b9e058dac9cd7f27f5856f47e5918875cf51baf632ebc4c685ce",
+    "SAG/apps/api/sag_api/sag/octx_vector_manifest.py": "fe0072e8eb430b28f44c484f8fda1505790e4632f3ac13ef68f42aff724b11fe",
+    "SAG/apps/api/sag_api/sag/octx_vector_protocol.py": "6adb4a674717a58f49a122dac0a30e4c88267e8df895fd96d45a81f59bc61a99",
+    "SAG/apps/api/sag_api/sag/octx_vector_rebuilder.py": "efa06bb2a8c7af38285d4d432db79d037eb5fc2529f3ff0e5c66a52b44f243b6",
+    "SAG/apps/api/sag_api/sag/octx_vector_reuse.py": "ea81be9cf07a97b7a9b5aa6451824e62ed3bbc89b25b7f6a401aa00de2082c1d",
+    "SAG/apps/api/sag_api/sag/qdrant_store.py": "e6983dad5cb59419c1c6f8ca30cce1db2bbb47b5362e7a24987c21cdf07350b6",
+    "SAG/apps/api/sag_api/sag/search_unit_store.py": "e66d9a1eb9453a6d3be0039ba321418e167b7755fb6fb5bd80ecd120dddea122",
+    "SAG/apps/api/sag_api/schemas/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "SAG/apps/api/sag_api/schemas/agent.py": "51d7cf8d9ddbd3231134dce2a78d79f303ccdf4a7592608a80e085d7665ad2a1",
+    "SAG/apps/api/sag_api/schemas/answer_actions.py": "a97a653c82d0ef550e42e1bbf3b142de044082b2242ed4399c7965cd9c728aff",
+    "SAG/apps/api/sag_api/schemas/auth.py": "9f1ef94d3c50a6938a1ad21acdccc3d463921066de0e0dbd2d1240274c2753ab",
+    "SAG/apps/api/sag_api/schemas/chunk.py": "8f0ea53f60955b4b60041478f3040e265f74e723c71fc8ae749980bfaf79de48",
+    "SAG/apps/api/sag_api/schemas/common.py": "043fdfede09cdb7cf137040bff90c10cbf0d0e4c3466cc499d9cb348c6a9c441",
+    "SAG/apps/api/sag_api/schemas/dify.py": "273a501158762fdd7ba227987e283897878d0b348b7624f967721050c56916a5",
+    "SAG/apps/api/sag_api/schemas/document.py": "07d9ee8f8ff3609e2f8a3fc96ee6184c6f98650cf884f0ac03bda95c778010ed",
+    "SAG/apps/api/sag_api/schemas/dsh_integration.py": "6d27520c1375dd4f372bfe444cfa3da8568b3dc5c0d8f5bb746d4d032d5ea870",
+    "SAG/apps/api/sag_api/schemas/handover_assist.py": "ef5158bbf7ff46ae9a892196e1d2f5131d575c3045e90fad44c9fb4c60c8d805",
+    "SAG/apps/api/sag_api/schemas/insight.py": "66a7ccd25f334bdd5e2bf4c8b1c475279f7eea20a8dd586a09a75502bec1f38d",
+    "SAG/apps/api/sag_api/schemas/job.py": "8458dcf15a90010bd8b1deefea8b0661ec982dfbceccc79f753b7e6652af7265",
+    "SAG/apps/api/sag_api/schemas/mind_map.py": "3d9bf7652b3e8504c9dbf165e86dda22692adf540d32b5a8eb1b8e4705795e7f",
+    "SAG/apps/api/sag_api/schemas/octx.py": "5f311efb9d87929da9249485016ad8727357e0e108f2b3e7419af71a590a4e34",
+    "SAG/apps/api/sag_api/schemas/routing_rag.py": "75497e699d81ac6fa5dbcd80d7548865ba0023e61004d775c5cd85dabb345561",
+    "SAG/apps/api/sag_api/schemas/search.py": "3ce1701edce65daf2e8f3f9edd839d88942c54eb51861395e95425a3d2a36e9e",
+    "SAG/apps/api/sag_api/schemas/source.py": "b8453236c259cefbef7295b9914e9f5be994f7f4b24fe6e45b3406f90f4f6890",
+    "SAG/apps/api/sag_api/schemas/system.py": "04665781466bf345efc0967b6b23c85d5136baece526be791b7bada15f732e0d",
+    "SAG/apps/api/sag_api/schemas/universe.py": "70658966437a838b1f334d2c105fd22af2ddd92bd69db2b61b3aff418044ad75",
+    "SAG/apps/api/sag_api/services/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "SAG/apps/api/sag_api/services/agent_domain.py": "0ab862c7dd4ad9475380fd4e8961d0932685e9a4d7075930a1bac6e13b99240e",
+    "SAG/apps/api/sag_api/services/agent_service.py": "81b8eef7bebb36dfad7a080c5753a5691b0808da9f38defc091d7353541510d3",
+    "SAG/apps/api/sag_api/services/answer_actions_service.py": "6438f71de00bdd9517c702ad2f7ecbfdec2fce6783177c7288c914dcc98c6f56",
+    "SAG/apps/api/sag_api/services/auth_service.py": "2277aad556587092ea747eaddfcbb00f8d584255c6b7d06bbd6d88c8a327d985",
+    "SAG/apps/api/sag_api/services/canonical_service.py": "469cd043dc08c03aaae1d9c437466865afddabbdce7a9c9e1becd708cd90cc7e",
+    "SAG/apps/api/sag_api/services/cpu_worker.py": "942b28a8017e7dab3f92424e8d96719cb2a22a20563560ac6c5ef8697644662a",
+    "SAG/apps/api/sag_api/services/decision_router.py": "7e9d6f61c9401fce0bd353af90426bef48a5bfa0117f43c5d065103a09a2d411",
+    "SAG/apps/api/sag_api/services/dedup_and_temporal_service.py": "386407802fe53367262ced53a7c0516877db0eff924c79e5c899a821add1fecd",
+    "SAG/apps/api/sag_api/services/document_service.py": "e3821bc7c9014f30f32e07db87bd379d26f42d6424a7c98677f832e474116d96",
+    "SAG/apps/api/sag_api/services/dsh_integration_service.py": "019e1fc105e44b15785f87368471f28e235591f4a2c4bcd5a1631ca345951a7e",
+    "SAG/apps/api/sag_api/services/eval/__init__.py": "ca725d0cdf1c0573fdbbb78af055fa4a8b64fbf78f3f00c12072f133f1250f4c",
+    "SAG/apps/api/sag_api/services/eval/llm_judge.py": "33b4e3237ded5b3229b0039761d331ce03a2757709295848c4b655eb583d8448",
+    "SAG/apps/api/sag_api/services/evidence_service.py": "1dae1d4a11342cf7f1f12192cceeb7b06076346d4ce7c4ce2f00de59629a033c",
+    "SAG/apps/api/sag_api/services/handover_assist_service.py": "c91c2756561d917e97a2cf682ba9da71fc39992959ab619a6dc522ec211c925a",
+    "SAG/apps/api/sag_api/services/incremental_tree_service.py": "0c5229eaaeb3d89fa9d95d3d7f4aa666aabeccb7730ef948faacfd2c6899d969",
+    "SAG/apps/api/sag_api/services/insight_service.py": "c37b7a6b089d1d8856908a0b56f2081b36e4a47a3d108b0d55ca950b657a593b",
+    "SAG/apps/api/sag_api/services/knowledge_candidate_service.py": "2b096f568e297607b0814ba7047cac10e59d63df36cc3d5de920c7e8bd1ad274",
+    "SAG/apps/api/sag_api/services/knowledge_gap_question_service.py": "5b3d358a827439d152fb7e6c9e2cde399b4ddbe3197abd02deff36e8e2decf13",
+    "SAG/apps/api/sag_api/services/knowledge_quality_persistence.py": "9b98fd5992998f72fdb04382cf04c5e7f316c4dc7b41137bd0c539e84339aace",
+    "SAG/apps/api/sag_api/services/knowledge_quality_repository.py": "a46cc8872263c2fc510adcce3311dc137f20e1fd43b80fbb2aca1ffdc132225d",
+    "SAG/apps/api/sag_api/services/knowledge_quality_service.py": "f6a18e18dcb2388b765bf421a5a1c675a003f59b36b567455d51767a7e6a3d2a",
+    "SAG/apps/api/sag_api/services/knowledge_service.py": "0e7163defd3d80f0f57d6ac02c05f137cddc90eb7d6b0e116cedc950de858427",
+    "SAG/apps/api/sag_api/services/mind_map_service.py": "a74a93e99913fb2052e47b7018b2e13f35f14f0e07e3105ed1855b7acbd43c63",
+    "SAG/apps/api/sag_api/services/octx_conflict_service.py": "b5f96faa6af8f360262d8f4ddcbc5be4201587b9e4bf2abe5fa361e806acf513",
+    "SAG/apps/api/sag_api/services/octx_diagnostics_service.py": "f9618e4da653c093364220a496c0406b1ad544d5b959d774aaf4c19f2950af78",
+    "SAG/apps/api/sag_api/services/octx_gc_service.py": "c5d7fdaf9e7208d00241c57669ac4fef72a02bf5a4efcbb960aab17c5ab77fc4",
+    "SAG/apps/api/sag_api/services/octx_recovery_service.py": "f01a69a6904b41242fba5eb6784b46f95dabd7b51ce5e8c7e30e64bbca127eb9",
+    "SAG/apps/api/sag_api/services/octx_transfer_service.py": "be6a17305e7cd501ccab07dba3abb9617c5a321f1761b94fdb6da21dcf7f01ca",
+    "SAG/apps/api/sag_api/services/query_analysis.py": "4ea79e4cae86307df810cec6da4d54a17572761947be95db6468b7161a4465a5",
+    "SAG/apps/api/sag_api/services/query_routing_service.py": "92b7fec752a963e1352eb0bca214c0cb593efccb99621cc83142b7c2840e1246",
+    "SAG/apps/api/sag_api/services/query_strategy_planner.py": "ec91442c3f997dd363363d4ec138d346f03443fa71907fed0381f3f954fc2c09",
+    "SAG/apps/api/sag_api/services/question_scope.py": "7c08291e5b947d9a8015218edcadf1d648434229fa46c3595aac63c72ca1d2e7",
+    "SAG/apps/api/sag_api/services/rebuild_service.py": "19cbef288d2c2142ddffca48c47ed3516e50c9be85e5c5d597a1d191ca203599",
+    "SAG/apps/api/sag_api/services/research_agent_service.py": "5be26a58bfaa152046f0c38e22e15ac34d691d96790ec1d6f88516c8633b2e65",
+    "SAG/apps/api/sag_api/services/research_planner_service.py": "166d089a3abd3bed40a575eb7b64d78b41b1358d4f6e1e32ff873ca8f7361e25",
+    "SAG/apps/api/sag_api/services/retrieval_plan.py": "766777e14d29edeb024cfd8290d35a57998464ad3f383c20ac54ccb5558f25bd",
+    "SAG/apps/api/sag_api/services/retrieval_service.py": "063afe40091073d8d12afc3856dd50fb72ceabc910086607dd6770c1b9ae3bcd",
+    "SAG/apps/api/sag_api/services/route_cache_service.py": "96972b45bd6b1923bfa13258dc0802dcba15949e6bb58a23a34cf9120bde90d7",
+    "SAG/apps/api/sag_api/services/routing_tree_service.py": "590129731da009f9229e7a28a576f39d0b508260f2e714c300124d1666882aec",
+    "SAG/apps/api/sag_api/services/search_index_service.py": "e84fd725a459929bfa81ba3e1d20d296bfffe02034a9c0d20d6d19d1b3f64354",
+    "SAG/apps/api/sag_api/services/search_unit_retrieval_service.py": "ddd3902baed8e00ccd423166053e664fd0418e963a8bfa6dc3482defba4d9009",
+    "SAG/apps/api/sag_api/services/session_context/__init__.py": "987122530b60dcc28740fcea0d4eeab4244cd497017f561269ade4f32f2af814",
+    "SAG/apps/api/sag_api/services/session_context/extractor.py": "d3bb166bd8c150f7fed952d5fc5af3b310b234ed0edc08c7c1bc99723dfe39ea",
+    "SAG/apps/api/sag_api/services/session_context/models.py": "7ecf4737115d9f535060a7af699c5b90f4cc8b6f66372d5ab8b44885bb73d28b",
+    "SAG/apps/api/sag_api/services/session_context/optimizer.py": "c41f7e91d97cf2d9e328d0b350d95482dfdcb9be260f6f589088f5f74163fb5b",
+    "SAG/apps/api/sag_api/services/session_context/persistence.py": "dcf8e500209447ea2496b817d5e4b1cf481ad99d498e86255e17a331382ae633",
+    "SAG/apps/api/sag_api/services/session_context/runtime.py": "ea2cf031f855e0579e34c540eb5ab318c3432ca6983b8baa6d4469c7f4ab04fb",
+    "SAG/apps/api/sag_api/services/session_context/substrate.py": "f5e8186f4c22c807c8839d37d85641f2969dac71f78df6ca669c99de3ceb9e16",
+    "SAG/apps/api/sag_api/services/settings_service.py": "2c5238635d659359ca8f06c7c4b43e42e0d3597611ceacf2fe51bc9308b6324a",
+    "SAG/apps/api/sag_api/services/source_operation_service.py": "56b9ca7dc338a25c06c577bc5ed147cd59fe33ca4b4c4ec18f814ae63bc2e5dc",
+    "SAG/apps/api/sag_api/services/source_service.py": "998cc879d73265c87477bbdb4e67ce9f5912abcd3871da0a0fc368bb45371b50",
+    "SAG/apps/api/sag_api/services/tree_publish_service.py": "60ee9ee319805d8686ba0f62ead5d64dc8617f28392cc477600ef5944e063f28",
+    "SAG/apps/api/sag_api/services/tree_query_snapshot_service.py": "f7ce12e6f71ca4a2b5e9a91c03bfad845380981c577be752229001b83e3a03e3",
+    "SAG/apps/api/sag_api/services/tree_rollback_service.py": "35497297c7d8755db2b24d8f88a95534e999eb74d7ac920a76b1d778674b2f52",
+    "SAG/apps/api/sag_api/services/universe_knowledge_service.py": "88ffe21cf076cd957f955b96b3fed4dc980b8f5a2496795d901abaacac250e9b",
+    "SAG/apps/api/sag_api/services/universe_service.py": "01a7da36b6cf59bed2cb6606c1bd3626ca354640bf1eacf8a74861dd50772f6a",
+    "SAG/apps/api/sag_api/services/universe_tree_service.py": "61396c3fc7b3118c694eb122066d8d2ab71828de30c76386d63632778736b12b",
+    "SAG/apps/api/sag_api/tools/__init__.py": "bca8da2c9489bd75867b72a21e17ad3877b497112a1aa9c268afecd7ece6b835",
+    "SAG/apps/api/sag_api/tools/base.py": "ab8b9c81857c27120f1a8982aaf2b2e655ec67537e9ccea16fde5dd0f634d291",
+    "SAG/apps/api/sag_api/tools/builtin.py": "11a5891557521099ae8235704c50ba13670cf10c3594ff469e21c0baaa62f14a",
+    "SAG/apps/api/sag_api/tools/mcp.py": "e153778cd46ce619b19d1e6be5cb2cfcea47cc91ba5e741a764b60bf605d43bf",
+    "SAG/apps/api/sag_api/tools/registry.py": "225dcbc72751df9bf8001258e6e13011f29bce782a48802807484277be86a2d2"
+  },
+  "execution": {
+    "ingestion": "HTTP POST /api/v1/projects/{project_id}/documents/upload",
+    "transport": "loopback HTTP /api/v1/search/stream; separate client process",
+    "http_client_pid": 11528,
+    "foundation_timeout_seconds": 633.5,
+    "runtime": "sag_api.main.lifespan (FOUNDATION E0/E1 + full DenseGraph + Leiden tree; E2 enrichment removed)",
+    "authentication": "Continuum BFF service context on project upload; scoped SAG session on search",
+    "query_replays": 0,
+    "frontend": {
+      "top_k": 5,
+      "load_more_step": 5,
+      "first_result_seconds": 30.0,
+      "stream_idle_seconds": 45.0,
+      "stream_idle_activity": "received data after result, including SSE ping comments"
+    },
+    "knowledge_queue": {
+      "concurrency": 8,
+      "capacity": 512,
+      "max_attempts": 3,
+      "max_age_seconds": 86400,
+      "timeout_seconds": 60,
+      "retry_seconds": 30,
+      "poll_seconds": 2.0
+    },
+    "dense_graph_enabled": true,
+    "require_dense_graph": true,
+    "e2_enabled": false,
+    "debug_logging": true,
+    "embedding_timeout_seconds": 120,
+    "llm_timeout_seconds": 120.0,
+    "llm_max_retries": 0,
+    "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+    "document_event_extraction_enabled": false,
+    "llm_model": "Qwen/Qwen3-8B",
+    "decision_provider": "siliconflow",
+    "decision_model": "Kev-4b"
+  },
+  "document_paths": {
+    "6739a557-9cc8-5b92-af01-f888dcc74fbb": "examples/third_party/wixqa/corpus/db6a6c4be5c11fae531b4fdd546601bab6d4a26b669a8a7ea6063c62a045e9d4.md",
+    "fe135ada-e493-5504-9a0d-07f4b76913b1": "examples/third_party/wixqa/corpus/de6e96935f0b3321cf29416ec164482247b5035f1d2e12b36e203be8126ca8b8.md",
+    "7a23effa-b2cf-5dbe-8bf6-6f241449e34d": "examples/third_party/wixqa/corpus/e9366441d1e037a1470c9bad57455dbadc24db0ca931791edd0f3b026ea6a58f.md",
+    "554e44c9-5c0e-5a82-bc42-f1c1b3b03d9d": "examples/third_party/wixqa/corpus/04997ca3b0a1736557e6895e2eecc51ccd581a1982afa647b5ebf835e68d4deb.md",
+    "db906c31-19c0-5e9e-a82d-7e051ad17a47": "examples/third_party/wixqa/corpus/49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md",
+    "eb968de3-a848-5347-9f6f-c30725ce9b0c": "examples/third_party/wixqa/corpus/f346781bc6cf23c95342ce003927de9d985a99eeb7561c69f03e65da7c10f2fb.md",
+    "43aceae9-fefb-5584-865b-849d5d9af03d": "examples/third_party/wixqa/corpus/2df694686b70b35ed389ff590354cfaf19aafc07659b12b02078f2ebcf015ac8.md",
+    "e586a862-6af1-5735-8c90-32dd9062a429": "examples/third_party/wixqa/corpus/163d579af227160c8072dc465c81d8edea4b507d7e8789078b680f88633aefab.md",
+    "5c7c71a8-eb7a-574b-81d3-f246c380b5c7": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+    "6c288575-eae4-5d46-82f6-3d958083e35b": "examples/third_party/wixqa/corpus/06535db983ea0ffe0214af14497a1d158f279d92c92f211e87b8820aa95dbe43.md",
+    "f7bcb725-3f59-57c5-9623-9b4a8be3ed18": "examples/third_party/wixqa/corpus/359dab9e725658fc9407e34714d19da1fda7a8cb8c85c5c141968dd3775de044.md",
+    "69eb890d-9e41-50aa-b4eb-4f1e6476e4dc": "examples/third_party/wixqa/corpus/0edfb79224593e47a232c58687f04d0534cabe82e36a6af890f92830860b5b72.md",
+    "b1fc91d5-d87f-590c-9cdc-9078b1e53b6a": "examples/third_party/wixqa/corpus/3407d197c71652bee58835ba148794a8be7e70cf9e25c599044b823c82db29fd.md",
+    "5a5e59e8-151b-5b6f-b5bf-b46b8c6ed264": "examples/third_party/wixqa/corpus/39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf.md",
+    "7b97c5e9-583f-56b0-9fdc-e66ef81b4379": "examples/third_party/wixqa/corpus/5f02fc2f8937d16a4d8cdca47da36ae34429e0b279fb0cc56af72e2d91991a28.md",
+    "b06e4c96-aae8-5b65-9df4-9523b023683a": "examples/third_party/wixqa/corpus/65806b123ff355cef16c8abe4301f1df982e2c3bddcd33b81ed446b92a79e336.md",
+    "86b6359a-0a3f-5bce-b6a1-a6a9ee9a3e44": "examples/third_party/wixqa/corpus/6b97c2a01f5c925927be970c1f768a4b628c6b52071dec733aa3a1719d17332e.md",
+    "bfd7423b-16b3-5201-8f10-f89b9c11b373": "examples/third_party/wixqa/corpus/7f365d820565efdc168e39938b16e965ea0e70a394eaac7e926078ec3b562ceb.md",
+    "65a0f966-87e0-50fc-a411-3bbacf25dbc1": "examples/third_party/wixqa/corpus/7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af.md",
+    "3604808b-c58e-51f9-9e13-547aa8b78fea": "examples/third_party/wixqa/corpus/81815895cb357ab2acbf1da52c91beff481c88fe49d416c853b3fb88a4ae92ea.md",
+    "0a0906dc-46f1-5e77-ab8e-0e653d99743c": "examples/third_party/wixqa/corpus/8309620f90a06cbd6b28930591ae59e9f479687ecac060543c69b26214815aab.md",
+    "697806ec-deb5-506a-a51c-a98adb4b7a81": "examples/third_party/wixqa/corpus/8c2e56296ddb7b441238ff06cfa9b38204aca9e27371386689b1fa4643cdfbff.md",
+    "36f76ad5-0c0c-5aa8-81d5-e8a92786dfe5": "examples/third_party/wixqa/corpus/9b71e0c1c1101d626c050e2209b382430c36eb91644c25dc9016802164ea769f.md",
+    "271e849f-6876-516f-88b7-663eaff435d0": "examples/third_party/wixqa/corpus/9dbf43e1a13c691c4ac016af067a723ca51613c639d878f7c556dd1a1fbc3018.md",
+    "29be66b2-2241-5fcb-9089-6f4d2b06b089": "examples/third_party/wixqa/corpus/8cc75fbcc571336d1ef1768e7727bd9d1e6c1333f22eeb5366232b9a1a066418.md",
+    "82d1d4a2-6620-5018-b41f-f83acf24c68b": "examples/third_party/wixqa/corpus/a513a215c1798f329293330cb5f5e975a18978954b5ee27d84441e029f900d51.md",
+    "ca1d343f-7383-567a-9fdb-258af707b1ec": "examples/third_party/wixqa/corpus/bec5870553814db329b6b83e73d059f0a42c2454b5bd4c4989b3b7110e29589c.md",
+    "4d1d6b7c-a96e-5b68-bb4e-435319f3d052": "examples/third_party/wixqa/corpus/b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb31027d7187f9.md",
+    "f020c62d-61e4-50f2-8791-bc7cd153f8c9": "examples/third_party/wixqa/corpus/dd6385654e2bc9cc5fcaf350bc944449291fa2377a61e06052035a2f0605c5b5.md",
+    "9ae5d2e8-9343-550f-9f53-3a4fcc1ac1cb": "examples/third_party/wixqa/corpus/c8a54de5b540e9832be6e6468b5e498d532df9ea6af16ae83fcdcd15647e4c73.md"
+  },
+  "ingestion_reused": true,
+  "pipeline": {
+    "ready_versions": [
+      {
+        "id": "554e44c9-5c0e-5a82-bc42-f1c1b3b03d9d",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "6c288575-eae4-5d46-82f6-3d958083e35b",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "69eb890d-9e41-50aa-b4eb-4f1e6476e4dc",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "e586a862-6af1-5735-8c90-32dd9062a429",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "5c7c71a8-eb7a-574b-81d3-f246c380b5c7",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "43aceae9-fefb-5584-865b-849d5d9af03d",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "b1fc91d5-d87f-590c-9cdc-9078b1e53b6a",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "f7bcb725-3f59-57c5-9623-9b4a8be3ed18",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "5a5e59e8-151b-5b6f-b5bf-b46b8c6ed264",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "db906c31-19c0-5e9e-a82d-7e051ad17a47",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "7b97c5e9-583f-56b0-9fdc-e66ef81b4379",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "b06e4c96-aae8-5b65-9df4-9523b023683a",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "86b6359a-0a3f-5bce-b6a1-a6a9ee9a3e44",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "65a0f966-87e0-50fc-a411-3bbacf25dbc1",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "bfd7423b-16b3-5201-8f10-f89b9c11b373",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "3604808b-c58e-51f9-9e13-547aa8b78fea",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "0a0906dc-46f1-5e77-ab8e-0e653d99743c",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "697806ec-deb5-506a-a51c-a98adb4b7a81",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "29be66b2-2241-5fcb-9089-6f4d2b06b089",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "36f76ad5-0c0c-5aa8-81d5-e8a92786dfe5",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "271e849f-6876-516f-88b7-663eaff435d0",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "82d1d4a2-6620-5018-b41f-f83acf24c68b",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "4d1d6b7c-a96e-5b68-bb4e-435319f3d052",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "ca1d343f-7383-567a-9fdb-258af707b1ec",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "9ae5d2e8-9343-550f-9f53-3a4fcc1ac1cb",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "6739a557-9cc8-5b92-af01-f888dcc74fbb",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "f020c62d-61e4-50f2-8791-bc7cd153f8c9",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "fe135ada-e493-5504-9a0d-07f4b76913b1",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "7a23effa-b2cf-5dbe-8bf6-6f241449e34d",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "eb968de3-a848-5347-9f6f-c30725ce9b0c",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      }
+    ],
+    "jobs": [
+      {
+        "kind": "FOUNDATION",
+        "status": "SUCCEEDED",
+        "error_code": null,
+        "count": 30,
+        "attempts": 1
+      }
+    ],
+    "units": {
+      "total": 102,
+      "with_dense": 102
+    },
+    "evidence": {
+      "E0": 2494,
+      "E1": 826
+    },
+    "dense_graph": {
+      "build_id": "graph-3afdbc91e48e49830b6d5c1e",
+      "total_edges": 857,
+      "semantic_dense_edges": 857
+    },
+    "tree": [
+      {
+        "status": "ACTIVE",
+        "tree_version": "tree-a4c5e5b89e6fc1ce4e78ec95"
+      }
+    ],
+    "tree_matches_current": true,
+    "tree_jobs": [
+      {
+        "status": "succeeded",
+        "attempts": 1,
+        "error": null
+      }
+    ],
+    "ingestion": {
+      "READY": 30
+    }
+  },
+  "quality_latency": {
+    "protocol": {
+      "judge_model": null,
+      "judge_enabled": false,
+      "judge_scale": "1–5",
+      "judge_rubric": "RetrievalCI faithfulness/relevance",
+      "latency_repetitions": 1,
+      "concurrency": 1,
+      "first_pass_cache": "not explicitly prewarmed; physical cold cache not verified",
+      "judge_latency_included": false
+    },
+    "quality": {
+      "wixqa-0001": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0002": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0003": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0004": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0005": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0006": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0007": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0008": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0009": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0010": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0011": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0012": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0013": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0014": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0015": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0016": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0017": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0018": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0019": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      },
+      "wixqa-0020": {
+        "status": "skipped_by_config",
+        "faithfulness": {
+          "score": null
+        },
+        "relevance": {
+          "score": null
+        }
+      }
+    },
+    "latency": {
+      "first_pass": {
+        "requests": 20,
+        "errors": 0,
+        "successful": {
+          "retrieval_latency_ms": {
+            "n": 20,
+            "mean_ms": 5004.675499999999,
+            "p50_ms": 4763.3099999999995,
+            "p95_ms": 6188.11,
+            "p99_ms": 6474.04
+          },
+          "first_token_ms": {
+            "n": 18,
+            "mean_ms": 17766.27388888889,
+            "p50_ms": 13074.380000000001,
+            "p95_ms": 81582.88,
+            "p99_ms": 81582.88
+          },
+          "latency_ms": {
+            "n": 20,
+            "mean_ms": 17332.7105,
+            "p50_ms": 13075.425,
+            "p95_ms": 20795.96,
+            "p99_ms": 81583.9
+          }
+        },
+        "all_attempts": {
+          "retrieval_latency_ms": {
+            "n": 20,
+            "mean_ms": 5004.675499999999,
+            "p50_ms": 4763.3099999999995,
+            "p95_ms": 6188.11,
+            "p99_ms": 6474.04
+          },
+          "first_token_ms": {
+            "n": 18,
+            "mean_ms": 17766.27388888889,
+            "p50_ms": 13074.380000000001,
+            "p95_ms": 81582.88,
+            "p99_ms": 81582.88
+          },
+          "latency_ms": {
+            "n": 20,
+            "mean_ms": 17332.7105,
+            "p50_ms": 13075.425,
+            "p95_ms": 20795.96,
+            "p99_ms": 81583.9
+          }
+        }
+      },
+      "warm_combined": {
+        "requests": 0,
+        "errors": 0,
+        "successful": {
+          "retrieval_latency_ms": {
+            "n": 0,
+            "mean_ms": null,
+            "p50_ms": null,
+            "p95_ms": null,
+            "p99_ms": null
+          },
+          "first_token_ms": {
+            "n": 0,
+            "mean_ms": null,
+            "p50_ms": null,
+            "p95_ms": null,
+            "p99_ms": null
+          },
+          "latency_ms": {
+            "n": 0,
+            "mean_ms": null,
+            "p50_ms": null,
+            "p95_ms": null,
+            "p99_ms": null
+          }
+        },
+        "all_attempts": {
+          "retrieval_latency_ms": {
+            "n": 0,
+            "mean_ms": null,
+            "p50_ms": null,
+            "p95_ms": null,
+            "p99_ms": null
+          },
+          "first_token_ms": {
+            "n": 0,
+            "mean_ms": null,
+            "p50_ms": null,
+            "p95_ms": null,
+            "p99_ms": null
+          },
+          "latency_ms": {
+            "n": 0,
+            "mean_ms": null,
+            "p50_ms": null,
+            "p95_ms": null,
+            "p99_ms": null
+          }
+        }
+      }
+    },
+    "warm_attempts": [],
+    "quality_summary": {
+      "faithfulness": {
+        "n_scored": 0,
+        "mean": null
+      },
+      "relevance": {
+        "n_scored": 0,
+        "mean": null
+      }
+    },
+    "acl_security_evaluation": {
+      "cases": [],
+      "deny_accuracy": null,
+      "total_acl_cases": 0,
+      "leaked_citations_count": 0
+    }
+  },
+  "token_usage": {
+    "ingestion_and_knowledge": {
+      "totals": {
+        "embedding_input_tokens": 55950,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 55950,
+        "embedding_calls": 30,
+        "llm_calls": 0,
+        "cache_hits": 102,
+        "estimated_calls": 0,
+        "cost_usd": 0.0005595
+      },
+      "by_token_type": {
+        "embedding_input_tokens": 55950,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 55950
+      },
+      "by_component": {
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 102,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 55950,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 55950,
+          "embedding_calls": 30,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.0005595
+        }
+      },
+      "by_model": {
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 55950,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 55950,
+          "embedding_calls": 30,
+          "llm_calls": 0,
+          "cache_hits": 102,
+          "estimated_calls": 0,
+          "cost_usd": 0.0005595
+        }
+      },
+      "cost_usd": 0.0005595,
+      "metadata": {
+        "search_unit_texts_count": 6,
+        "knowledge_block_preload_texts_count": 5,
+        "search_unit_estimated_tokens": 2803,
+        "knowledge_block_preload_estimated_tokens": 2761
+      }
+    },
+    "query_and_generation": {
+      "totals": {
+        "embedding_input_tokens": 953,
+        "llm_input_tokens": 89929,
+        "llm_cached_input_tokens": 960,
+        "llm_uncached_input_tokens": 88969,
+        "llm_output_tokens": 11581,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 102463,
+        "embedding_calls": 20,
+        "llm_calls": 40,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.00571983
+      },
+      "by_token_type": {
+        "embedding_input_tokens": 953,
+        "llm_input_tokens": 89929,
+        "llm_cached_input_tokens": 960,
+        "llm_uncached_input_tokens": 88969,
+        "llm_output_tokens": 11581,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 102463
+      },
+      "by_component": {
+        "answer_generation": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 79356,
+          "llm_cached_input_tokens": 960,
+          "llm_uncached_input_tokens": 78396,
+          "llm_output_tokens": 3139,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 82495,
+          "embedding_calls": 0,
+          "llm_calls": 20,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.0049497
+        },
+        "decision_router": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 10573,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 10573,
+          "llm_output_tokens": 8442,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 19015,
+          "embedding_calls": 0,
+          "llm_calls": 20,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.0007606
+        },
+        "query_embedding": {
+          "embedding_input_tokens": 953,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 953,
+          "embedding_calls": 20,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 9.53e-06
+        }
+      },
+      "by_model": {
+        "Kev-4b": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 10573,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 10573,
+          "llm_output_tokens": 8442,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 19015,
+          "embedding_calls": 0,
+          "llm_calls": 20,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.0007606
+        },
+        "Qwen/Qwen3-8B": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 79356,
+          "llm_cached_input_tokens": 960,
+          "llm_uncached_input_tokens": 78396,
+          "llm_output_tokens": 3139,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 82495,
+          "embedding_calls": 0,
+          "llm_calls": 20,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.0049497
+        }
+      },
+      "cost_usd": 0.00571983
+    },
+    "grand_total": {
+      "totals": {
+        "embedding_input_tokens": 56903,
+        "llm_input_tokens": 89929,
+        "llm_cached_input_tokens": 960,
+        "llm_uncached_input_tokens": 88969,
+        "llm_output_tokens": 11581,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 158413,
+        "embedding_calls": 50,
+        "llm_calls": 40,
+        "cache_hits": 102,
+        "estimated_calls": 0,
+        "cost_usd": 0.00627933
+      },
+      "by_token_type": {
+        "embedding_input_tokens": 56903,
+        "llm_input_tokens": 89929,
+        "llm_cached_input_tokens": 960,
+        "llm_uncached_input_tokens": 88969,
+        "llm_output_tokens": 11581,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 158413
+      },
+      "by_component": {
+        "answer_generation": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 79356,
+          "llm_cached_input_tokens": 960,
+          "llm_uncached_input_tokens": 78396,
+          "llm_output_tokens": 3139,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 82495,
+          "embedding_calls": 0,
+          "llm_calls": 20,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.0049497
+        },
+        "decision_router": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 10573,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 10573,
+          "llm_output_tokens": 8442,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 19015,
+          "embedding_calls": 0,
+          "llm_calls": 20,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.0007606
+        },
+        "knowledge_foundation_embedding": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 0,
+          "embedding_calls": 0,
+          "llm_calls": 0,
+          "cache_hits": 102,
+          "estimated_calls": 0,
+          "cost_usd": 0.0
+        },
+        "query_embedding": {
+          "embedding_input_tokens": 953,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 953,
+          "embedding_calls": 20,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 9.53e-06
+        },
+        "search_index_embedding": {
+          "embedding_input_tokens": 55950,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 55950,
+          "embedding_calls": 30,
+          "llm_calls": 0,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.0005595
+        }
+      },
+      "by_model": {
+        "Kev-4b": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 10573,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 10573,
+          "llm_output_tokens": 8442,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 19015,
+          "embedding_calls": 0,
+          "llm_calls": 20,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.0007606
+        },
+        "Qwen/Qwen3-8B": {
+          "embedding_input_tokens": 0,
+          "llm_input_tokens": 79356,
+          "llm_cached_input_tokens": 960,
+          "llm_uncached_input_tokens": 78396,
+          "llm_output_tokens": 3139,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 82495,
+          "embedding_calls": 0,
+          "llm_calls": 20,
+          "cache_hits": 0,
+          "estimated_calls": 0,
+          "cost_usd": 0.0049497
+        },
+        "Qwen/Qwen3-Embedding-0.6B": {
+          "embedding_input_tokens": 55950,
+          "llm_input_tokens": 0,
+          "llm_cached_input_tokens": 0,
+          "llm_uncached_input_tokens": 0,
+          "llm_output_tokens": 0,
+          "llm_reasoning_tokens": 0,
+          "total_tokens": 55950,
+          "embedding_calls": 30,
+          "llm_calls": 0,
+          "cache_hits": 102,
+          "estimated_calls": 0,
+          "cost_usd": 0.0005595
+        }
+      },
+      "cost_usd": 0.00627933,
+      "metadata": {
+        "search_unit_texts_count": 6,
+        "knowledge_block_preload_texts_count": 5,
+        "search_unit_estimated_tokens": 2803,
+        "knowledge_block_preload_estimated_tokens": 2761
+      }
+    },
+    "report_file": "token_usage_report.json"
+  },
+  "pipeline_after_questions": {
+    "ready_versions": [
+      {
+        "id": "554e44c9-5c0e-5a82-bc42-f1c1b3b03d9d",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "6c288575-eae4-5d46-82f6-3d958083e35b",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "69eb890d-9e41-50aa-b4eb-4f1e6476e4dc",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "e586a862-6af1-5735-8c90-32dd9062a429",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "5c7c71a8-eb7a-574b-81d3-f246c380b5c7",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "43aceae9-fefb-5584-865b-849d5d9af03d",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "b1fc91d5-d87f-590c-9cdc-9078b1e53b6a",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "f7bcb725-3f59-57c5-9623-9b4a8be3ed18",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "5a5e59e8-151b-5b6f-b5bf-b46b8c6ed264",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "db906c31-19c0-5e9e-a82d-7e051ad17a47",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "7b97c5e9-583f-56b0-9fdc-e66ef81b4379",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "b06e4c96-aae8-5b65-9df4-9523b023683a",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "86b6359a-0a3f-5bce-b6a1-a6a9ee9a3e44",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "65a0f966-87e0-50fc-a411-3bbacf25dbc1",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "bfd7423b-16b3-5201-8f10-f89b9c11b373",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "3604808b-c58e-51f9-9e13-547aa8b78fea",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "0a0906dc-46f1-5e77-ab8e-0e653d99743c",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "697806ec-deb5-506a-a51c-a98adb4b7a81",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "29be66b2-2241-5fcb-9089-6f4d2b06b089",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "36f76ad5-0c0c-5aa8-81d5-e8a92786dfe5",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "271e849f-6876-516f-88b7-663eaff435d0",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "82d1d4a2-6620-5018-b41f-f83acf24c68b",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "4d1d6b7c-a96e-5b68-bb4e-435319f3d052",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "ca1d343f-7383-567a-9fdb-258af707b1ec",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "9ae5d2e8-9343-550f-9f53-3a4fcc1ac1cb",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "6739a557-9cc8-5b92-af01-f888dcc74fbb",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "f020c62d-61e4-50f2-8791-bc7cd153f8c9",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "fe135ada-e493-5504-9a0d-07f4b76913b1",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "7a23effa-b2cf-5dbe-8bf6-6f241449e34d",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      },
+      {
+        "id": "eb968de3-a848-5347-9f6f-c30725ce9b0c",
+        "status": "READY",
+        "search_status": "SEARCH_READY",
+        "knowledge_status": "DATA_READY"
+      }
+    ],
+    "jobs": [
+      {
+        "kind": "FOUNDATION",
+        "status": "SUCCEEDED",
+        "error_code": null,
+        "count": 30,
+        "attempts": 1
+      }
+    ],
+    "units": {
+      "total": 102,
+      "with_dense": 102
+    },
+    "evidence": {
+      "E0": 2494,
+      "E1": 826
+    },
+    "dense_graph": {
+      "build_id": "graph-3afdbc91e48e49830b6d5c1e",
+      "total_edges": 857,
+      "semantic_dense_edges": 857
+    },
+    "tree": [
+      {
+        "status": "ACTIVE",
+        "tree_version": "tree-a4c5e5b89e6fc1ce4e78ec95"
+      }
+    ],
+    "tree_matches_current": true,
+    "tree_jobs": [
+      {
+        "status": "succeeded",
+        "attempts": 1,
+        "error": null
+      }
+    ],
+    "ingestion": {
+      "READY": 30
+    }
+  },
+  "execution_errors": 0,
+  "finished_at_utc": "2026-11-09T13:10:47.415314+00:00"
+}

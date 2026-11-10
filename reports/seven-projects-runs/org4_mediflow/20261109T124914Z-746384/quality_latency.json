@@ -1,0 +1,668 @@
+{
+  "protocol": {
+    "judge_model": null,
+    "judge_enabled": false,
+    "judge_scale": "1–5",
+    "judge_rubric": "RetrievalCI faithfulness/relevance",
+    "latency_repetitions": 1,
+    "concurrency": 1,
+    "first_pass_cache": "not explicitly prewarmed; physical cold cache not verified",
+    "judge_latency_included": false
+  },
+  "quality": {
+    "MED-EVAL-001": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-002": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-003": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-004": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-005": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-006": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-007": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-008": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-009": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-010": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-017": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-018": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-019": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-020": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-021": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-022": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-023": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-024": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-025": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-026": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-027": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-028": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-029": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-030": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-031": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-032": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-033": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-034": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-035": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-036": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-037": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-038": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-039": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-040": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-041": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-042": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-043": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-044": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-045": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-046": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-047": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-048": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-049": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-050": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-051": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-052": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-053": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-054": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-055": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "MED-EVAL-056": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    }
+  },
+  "latency": {
+    "first_pass": {
+      "requests": 50,
+      "errors": 0,
+      "successful": {
+        "retrieval_latency_ms": {
+          "n": 50,
+          "mean_ms": 4845.1808,
+          "p50_ms": 4301.57,
+          "p95_ms": 9106.62,
+          "p99_ms": 13461.7
+        },
+        "first_token_ms": {
+          "n": 45,
+          "mean_ms": 12366.591333333334,
+          "p50_ms": 8481.72,
+          "p95_ms": 27259.83,
+          "p99_ms": 49070.98
+        },
+        "latency_ms": {
+          "n": 50,
+          "mean_ms": 13004.5072,
+          "p50_ms": 8779.805,
+          "p95_ms": 29304.26,
+          "p99_ms": 51622.81
+        }
+      },
+      "all_attempts": {
+        "retrieval_latency_ms": {
+          "n": 50,
+          "mean_ms": 4845.1808,
+          "p50_ms": 4301.57,
+          "p95_ms": 9106.62,
+          "p99_ms": 13461.7
+        },
+        "first_token_ms": {
+          "n": 45,
+          "mean_ms": 12366.591333333334,
+          "p50_ms": 8481.72,
+          "p95_ms": 27259.83,
+          "p99_ms": 49070.98
+        },
+        "latency_ms": {
+          "n": 50,
+          "mean_ms": 13004.5072,
+          "p50_ms": 8779.805,
+          "p95_ms": 29304.26,
+          "p99_ms": 51622.81
+        }
+      }
+    },
+    "warm_combined": {
+      "requests": 0,
+      "errors": 0,
+      "successful": {
+        "retrieval_latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "first_token_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        }
+      },
+      "all_attempts": {
+        "retrieval_latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "first_token_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        }
+      }
+    }
+  },
+  "warm_attempts": [],
+  "quality_summary": {
+    "faithfulness": {
+      "n_scored": 0,
+      "mean": null
+    },
+    "relevance": {
+      "n_scored": 0,
+      "mean": null
+    }
+  },
+  "acl_security_evaluation": {
+    "cases": [
+      {
+        "suite": "ACL_SECURITY",
+        "case_id": "MED-EVAL-011",
+        "project_id": "MED-APT",
+        "principal_id": "AK-U01",
+        "must_not_cite": [
+          "MED-APT-WR-W40-L1"
+        ],
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "expected_decision": "DENY",
+        "must_not_cite_violations": 0
+      },
+      {
+        "suite": "ACL_SECURITY",
+        "case_id": "MED-EVAL-012",
+        "project_id": "MED-PIL",
+        "principal_id": "VN-U01",
+        "must_not_cite": [
+          "DOC-MEDPIL-ARC-002"
+        ],
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "expected_decision": "DENY",
+        "must_not_cite_violations": 0
+      },
+      {
+        "suite": "ACL_SECURITY",
+        "case_id": "MED-EVAL-013",
+        "project_id": "MED-ADM",
+        "principal_id": "MED-U18",
+        "must_not_cite": [
+          "DOC-MEDADM-TST-005"
+        ],
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "expected_decision": "DENY",
+        "must_not_cite_violations": 0
+      },
+      {
+        "suite": "ACL_SECURITY",
+        "case_id": "MED-EVAL-014",
+        "project_id": "MED-REG",
+        "principal_id": "MED-U10",
+        "must_not_cite": [
+          "b52115c82ee552a221652dc9"
+        ],
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "expected_decision": "DENY",
+        "must_not_cite_violations": 0
+      },
+      {
+        "suite": "ACL_SECURITY",
+        "case_id": "MED-EVAL-015",
+        "project_id": "MED-ADM",
+        "principal_id": "AK-U02",
+        "must_not_cite": [
+          "e22e598318bb0125b217eeed"
+        ],
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "expected_decision": "DENY",
+        "must_not_cite_violations": 0
+      },
+      {
+        "suite": "ACL_SECURITY",
+        "case_id": "MED-EVAL-016",
+        "project_id": "MED-PIL",
+        "principal_id": "MED-U08",
+        "must_not_cite": [
+          "MED-PIL-WR-W40-M1"
+        ],
+        "actual_decision": "DENY",
+        "decision_correct": true,
+        "leaked_citations": [],
+        "expected_decision": "DENY",
+        "must_not_cite_violations": 0
+      }
+    ],
+    "deny_accuracy": 1.0,
+    "total_acl_cases": 6,
+    "leaked_citations_count": 0
+  }
+}

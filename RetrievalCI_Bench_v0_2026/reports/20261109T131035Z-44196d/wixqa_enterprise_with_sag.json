@@ -1,0 +1,1334 @@
+{
+  "systems": [
+    "sag_engine"
+  ],
+  "n_questions": 20,
+  "n_per_tier": {
+    "single_hop": 11,
+    "multi_hop": 9
+  },
+  "rows": [
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0001",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "You can start accepting payments on your site using Wix Payments almost immediately, but your account must be verified before it can be fully activated. However, if your Wix Payments account is still under verification, you may not be able to receive payouts or have full access to all features. [1]",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md",
+            "span": "Wix Payments Verification Process\n\nUpstream URL: https://support.wix.com/en/article/wix-payments-verification-process\nArticle ID: 49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465\nWix Payments Verification Process\nImportant:Wix Payments is not yet available to all users.You can start accepting payments on your site using Wix Payments almost immediately. However,  we need to verify your identity before your account can be fully activated. To verify your identity:\nFor an individual account: You must complete your Wix Payments account setup within the same country as your bank is located.  For a business account: The country where your company is registered must match the country where your company's bank is located. This must be the same country in which you complete your Wix Payments account setup. For a sole proprietor (United Kingdom): The country where your company is registered must match the country where your company's bank is located. This must be the same country in which you complete your Wix Payments account setup. For a sole proprietor (Italy): The country where your company is registered must match the country where your company's bank is located. This mus…"
+          }
+        ],
+        "latency_ms": 20066.4,
+        "tokens_used": 5321,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md",
+            "span": "Wix Payments Verification Process\n\nUpstream URL: https://support.wix.com/en/article/wix-payments-verification-process\nArticle ID: 49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f5"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md",
+            "span": "Use the dropdown menu to select your Business Type Use the text box to add a short description of your products / services   Upload a color copy of your photo ID and bank statement"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md",
+            "span": "Enter your Doing Business As name (The operating name of your business) Use the dropdown menu to select your Business Type Use the text box to add a short description of your produ"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af.md",
+            "span": "You need to have your account successfully verified to receive payouts.Is my currency supported?Be aware that payments will fail If you are using an unsupported currency.\nThe curre"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/9dbf43e1a13c691c4ac016af067a723ca51613c639d878f7c556dd1a1fbc3018.md",
+            "span": "Use the drop-down menu to select a day.      Click Save. Receiving your first payoutYour first payout can only be scheduled once your Wix Payments account is successfully verified."
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md",
+            "span": "Wix Payments Verification Process\n\nUpstream URL: https://support.wix.com/en/article/wix-payments-verification-process\nArticle ID: 49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465\nWix Payments Verification Process\nImportant:Wix Payments is not yet available to all users.You can start accepting payments on your site using Wix Payments almost immediately. However,  we need to verify your identity before your account can be fully activated. To verify your identity:\nFor an individual account: You must complete your Wix Payments account setup within the same country as your bank is located.  For a business account: The country where your company is registered must match the country where your company's bank is located. This must be the same country in which you complete your Wix Payments account setup. For a sole proprietor (United Kingdom): The country where your company is registered must match the country where your company's bank is located. This must be the same country in which you complete your Wix Payments account setup. For a sole proprietor (Italy): The country where your company is registered must match the country where your company's bank is located. This mus…"
+          }
+        ],
+        "cost_usd": 0.00029843,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 5850.27
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 1.0,
+      "retrieval_source_precision": 0.3333333333333333,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 299,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0002",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "The voucher for the free 1 year domain is provided with the initial purchase of selected yearly or multi-year Premium or Studio site plans. It must be redeemed within 2 months of purchasing the plan [1]. The voucher is applied automatically when you select the registration extension period for the domain in your Wix account during the transfer process [2]. If the voucher does not show up at checkout, it may not have been applied correctly or may be expired. You should check the Premium Vouchers section of your account to confirm the voucher's status and expiration date [1]. If the voucher is valid, it should be applied in the summary section during checkout. If it still does not appear, you may need to contact Wix support for further assistance.",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/06535db983ea0ffe0214af14497a1d158f279d92c92f211e87b8820aa95dbe43.md",
+            "span": "Using Your Free 1 Year Domain Voucher\n\nUpstream URL: https://support.wix.com/en/article/using-your-free-1-year-domain-voucher\nArticle ID: 06535db983ea0ffe0214af14497a1d158f279d92c92f211e87b8820aa95dbe43\nUsing Your Free 1 Year Domain Voucher\nYou receive the 1 year free domain voucher with the initial purchase of selected yearly or multi-year Premium or Studio site plans. This voucher enables you to register a domain for free for one year. You can renew the domain the following year for the regular price. In this article, learn more about:\nUsing your voucher Frequently asked questions (FAQs)Using your voucherYour voucher must be redeemed within 2 months of purchasing your plan. You can check the expiration date of your voucher in the Premium Vouchers section of your account.You will need to enter your payment information when claiming your voucher, but you won't be charged. This allows us to process your renewal after the first year to make sure your domain stays live.To use your voucher:\nGo to Domains in your Wix account. Click Buy a Domain or Get a New Domain. Type the domain you'd like to claim, including the domain extensions (e.g. .com) and click Search. Click Get It if the doma…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/06535db983ea0ffe0214af14497a1d158f279d92c92f211e87b8820aa95dbe43.md",
+            "span": "Full privacy protection: Your contact details won't appear in the WHOIS domain information records. The voucher does not cover the cost of Private Registration. Basic Protection: Some personal information will be public, but your name, address, phone number and email will be kept private. If someone wishes to contact you, they are redirected to a contact form that protects you from receiving spam. You can only change this option to full privacy protection when manually extending a domain subscription.   Click Continue. Select your payment method.\nNote: You'll see the voucher discount applied before submitting your purchase. Click Submit Purchase. Assign the domain to your site.FAQsClick a question below to learn more about your domain voucher.What domain extensions can I use my voucher for?The voucher is valid for the following extensions: .art, .at, .be, .biz, .blog, .ca, .ch, .club, .co.at, .co.in, .co.uk, .coach, .com, .com.au, .com.br, .de (Germany only), .firm.in, .fit, .fitness, .fr, .fun, .gen.in, .in, .ind.in, .info, .live, .net, .net.in, .nl, .online, .or.at, .org, .org.in, .pictures, .rocks, .shop, .site, .space, .store, .studio, .training, .work, .xyz, .yogaCan I apply t…"
+          }
+        ],
+        "latency_ms": 81583.9,
+        "tokens_used": 5054,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/06535db983ea0ffe0214af14497a1d158f279d92c92f211e87b8820aa95dbe43.md",
+            "span": "Using Your Free 1 Year Domain Voucher\n\nUpstream URL: https://support.wix.com/en/article/using-your-free-1-year-domain-voucher\nArticle ID: 06535db983ea0ffe0214af14497a1d158f279d92c9"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/06535db983ea0ffe0214af14497a1d158f279d92c92f211e87b8820aa95dbe43.md",
+            "span": "Full privacy protection: Your contact details won't appear in the WHOIS domain information records. The voucher does not cover the cost of Private Registration. Basic Protection: S"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/3407d197c71652bee58835ba148794a8be7e70cf9e25c599044b823c82db29fd.md",
+            "span": "Pricing Plans: Creating a Free Plan\n\nUpstream URL: https://support.wix.com/en/article/pricing-plans-creating-a-free-plan\nArticle ID: 3407d197c71652bee58835ba148794a8be7e70cf9e25c59"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/8309620f90a06cbd6b28930591ae59e9f479687ecac060543c69b26214815aab.md",
+            "span": "Pricing Plans: Allowing Guest Checkout on Your Site\n\nUpstream URL: https://support.wix.com/en/article/pricing-plans-allowing-guest-checkout-on-your-site\nArticle ID: 8309620f90a06cb"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/3407d197c71652bee58835ba148794a8be7e70cf9e25c599044b823c82db29fd.md",
+            "span": "Home Page: Customers go straight to your home page after completing their purchase.  Other page: Enter the URL of the page.    Tap Save.      Tap Save at the top right.Notes:\nWhen "
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/06535db983ea0ffe0214af14497a1d158f279d92c92f211e87b8820aa95dbe43.md",
+            "span": "Using Your Free 1 Year Domain Voucher\n\nUpstream URL: https://support.wix.com/en/article/using-your-free-1-year-domain-voucher\nArticle ID: 06535db983ea0ffe0214af14497a1d158f279d92c92f211e87b8820aa95dbe43\nUsing Your Free 1 Year Domain Voucher\nYou receive the 1 year free domain voucher with the initial purchase of selected yearly or multi-year Premium or Studio site plans. This voucher enables you to register a domain for free for one year. You can renew the domain the following year for the regular price. In this article, learn more about:\nUsing your voucher Frequently asked questions (FAQs)Using your voucherYour voucher must be redeemed within 2 months of purchasing your plan. You can check the expiration date of your voucher in the Premium Vouchers section of your account.You will need to enter your payment information when claiming your voucher, but you won't be charged. This allows us to process your renewal after the first year to make sure your domain stays live.To use your voucher:\nGo to Domains in your Wix account. Click Buy a Domain or Get a New Domain. Type the domain you'd like to claim, including the domain extensions (e.g. .com) and click Search. Click Get It if the doma…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/06535db983ea0ffe0214af14497a1d158f279d92c92f211e87b8820aa95dbe43.md",
+            "span": "Full privacy protection: Your contact details won't appear in the WHOIS domain information records. The voucher does not cover the cost of Private Registration. Basic Protection: Some personal information will be public, but your name, address, phone number and email will be kept private. If someone wishes to contact you, they are redirected to a contact form that protects you from receiving spam. You can only change this option to full privacy protection when manually extending a domain subscription.   Click Continue. Select your payment method.\nNote: You'll see the voucher discount applied before submitting your purchase. Click Submit Purchase. Assign the domain to your site.FAQsClick a question below to learn more about your domain voucher.What domain extensions can I use my voucher for?The voucher is valid for the following extensions: .art, .at, .be, .biz, .blog, .ca, .ch, .club, .co.at, .co.in, .co.uk, .coach, .com, .com.au, .com.br, .de (Germany only), .firm.in, .fit, .fitness, .fr, .fun, .gen.in, .in, .ind.in, .info, .live, .net, .net.in, .nl, .online, .or.at, .org, .org.in, .pictures, .rocks, .shop, .site, .space, .store, .studio, .training, .work, .xyz, .yogaCan I apply t…"
+          }
+        ],
+        "cost_usd": 0.00027985,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 5040.5
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 1.0,
+      "retrieval_source_precision": 0.3333333333333333,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 755,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0003",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "The available knowledge base does not contain enough traceable evidence to answer this question.",
+        "citations": [],
+        "latency_ms": 14690.77,
+        "tokens_used": 5158,
+        "refused": true,
+        "refusal_reason": "insufficient_evidence",
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/de6e96935f0b3321cf29416ec164482247b5035f1d2e12b36e203be8126ca8b8.md",
+            "span": "Email Marketing: Upgrading Your Email Marketing Plan\n\nUpstream URL: https://support.wix.com/en/article/email-marketing-upgrading-your-email-marketing-plan\nArticle ID: de6e96935f0b3"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/3407d197c71652bee58835ba148794a8be7e70cf9e25c599044b823c82db29fd.md",
+            "span": "Pricing Plans: Creating a Free Plan\n\nUpstream URL: https://support.wix.com/en/article/pricing-plans-creating-a-free-plan\nArticle ID: 3407d197c71652bee58835ba148794a8be7e70cf9e25c59"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/e9366441d1e037a1470c9bad57455dbadc24db0ca931791edd0f3b026ea6a58f.md",
+            "span": "Changing the email address of your accountYou can change your Wix account email address in your Account Settings. Important:\nMake sure that your new email address is a real address"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/8c2e56296ddb7b441238ff06cfa9b38204aca9e27371386689b1fa4643cdfbff.md",
+            "span": "Google Workspace: Setting Up Additional Workspace Users from Wix\n\nUpstream URL: https://support.wix.com/en/article/google-workspace-setting-up-additional-workspace-users-from-wix\nA"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/06535db983ea0ffe0214af14497a1d158f279d92c92f211e87b8820aa95dbe43.md",
+            "span": "Full privacy protection: Your contact details won't appear in the WHOIS domain information records. The voucher does not cover the cost of Private Registration. Basic Protection: S"
+          }
+        ],
+        "answer_citations": [],
+        "cost_usd": 0.0002889,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 6188.11
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": 0.0,
+      "answer_length_chars": 96,
+      "refused": true
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0004",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "Wix Stores is designed for selling physical and digital products, and it does not support selling services directly. However, if you want to sell services, you can use Wix Bookings, which is a separate tool that allows you to manage and sell services online. [4]",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb31027d7187f9.md",
+            "span": "Wix Bookings: About Wix Bookings\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-about-wix-bookings\nArticle ID: b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb31027d7187f9\nWix Bookings: About Wix Bookings\nWix Bookings is an easy-to-use scheduling system that lets your members book and pay for services online, so you can focus on managing your business.Whether you offer services like workshops, courses, or private sessions, online or in-person, Wix Bookings has you covered. Important:You can add Wix Bookings to your site for free, but you must upgrade your site to accept bookings. Some Wix templates come with Wix Bookings included. In this article, learn more about:\nAdding Wix Bookings to your site Accepting online and offline payments Selling membership plans and packages Offer services in multiple locations  Managing your calendars Creating a customized booking form Sending automatic reminder emails or SMS messages Viewing clients' past bookingsAdding Wix Bookings to your siteAdd Wix Bookings to your site from the Wix App Market. Then complete the setup in your site's editor. To add Wix Bookings to your site:\nGo to the Wix Bookings app in the App Market. Click…"
+          }
+        ],
+        "latency_ms": 12247.57,
+        "tokens_used": 4827,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/a513a215c1798f329293330cb5f5e975a18978954b5ee27d84441e029f900d51.md",
+            "span": "Upstream URL: https://support.wix.com/en/article/wix-stores-about-wix-stores\nArticle ID: a513a215c1798f329293330cb5f5e975a18978954b5ee27d84441e029f900d51\nWix Stores: About Wix Stor"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/a513a215c1798f329293330cb5f5e975a18978954b5ee27d84441e029f900d51.md",
+            "span": "Free Shipping Learn more Flat Rate Learn more Rate by Weight  Learn more Rate by Price Learn more Rate by Product Learn more Real time shipping (not available everywhere) Learn mor"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/a513a215c1798f329293330cb5f5e975a18978954b5ee27d84441e029f900d51.md",
+            "span": "Wix Stores: About Wix Stores"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb31027d7187f9.md",
+            "span": "Wix Bookings: About Wix Bookings\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-about-wix-bookings\nArticle ID: b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb3"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md",
+            "span": "Use the dropdown menu to select your Business Type Use the text box to add a short description of your products / services   Upload a color copy of your photo ID and bank statement"
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb31027d7187f9.md",
+            "span": "Wix Bookings: About Wix Bookings\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-about-wix-bookings\nArticle ID: b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb31027d7187f9\nWix Bookings: About Wix Bookings\nWix Bookings is an easy-to-use scheduling system that lets your members book and pay for services online, so you can focus on managing your business.Whether you offer services like workshops, courses, or private sessions, online or in-person, Wix Bookings has you covered. Important:You can add Wix Bookings to your site for free, but you must upgrade your site to accept bookings. Some Wix templates come with Wix Bookings included. In this article, learn more about:\nAdding Wix Bookings to your site Accepting online and offline payments Selling membership plans and packages Offer services in multiple locations  Managing your calendars Creating a customized booking form Sending automatic reminder emails or SMS messages Viewing clients' past bookingsAdding Wix Bookings to your siteAdd Wix Bookings to your site from the Wix App Market. Then complete the setup in your site's editor. To add Wix Bookings to your site:\nGo to the Wix Bookings app in the App Market. Click…"
+          }
+        ],
+        "cost_usd": 0.00026883,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 5545.79
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 0.5,
+      "retrieval_source_precision": 0.6666666666666666,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 262,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0005",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "To add discounts to your service prices when customers pay for a plan, you can create discount coupons through the Pricing Plans section in your Wix site's dashboard. Here's how:\n\n1. Go to Pricing Plans in your site's dashboard.\n2. Click the More Actions icon at the top.\n3. Click Create a coupon.\n4. Select the type of coupon you want to offer: $ Discount (fixed monetary discount) or % Discount (percentage discount).\n5. Enter the Coupon code and Coupon name.\n6. Click the Apply to drop-down and choose the relevant pricing plan(s) (All plans or Specific plan).\n7. Choose how the coupon works with your pricing plans: First billing cycle, All billing cycles, or Custom.\n8. Select the dates the coupon is valid between.\n9. Optionally, set limits on the number of uses or limit to one use per customer.\n10. Click Create Coupon.\n\nAfter creating the coupon, you can share it with clients via an email campaign or directly from your Wix Inbox. [1]",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/8cc75fbcc571336d1ef1768e7727bd9d1e6c1333f22eeb5366232b9a1a066418.md",
+            "span": "Pricing Plans: Creating Discount Coupons\n\nUpstream URL: https://support.wix.com/en/article/pricing-plans-creating-discount-coupons\nArticle ID: 8cc75fbcc571336d1ef1768e7727bd9d1e6c1333f22eeb5366232b9a1a066418\nPricing Plans: Creating Discount Coupons\nDiscount coupons are a great way to encourage your clients to buy one of your pricing plans. You can choose to offer a price discount or a percentage discount coupon.You can also choose whether your discount coupons apply to a specific plan or to all your pricing plans. Your clients redeem the coupon at checkout to take advantage of the discounted plans. Note:Discount coupons for Pricing Plans cover the plans themselves, but not any setup fees you may have enabled. To create discount coupons for your pricing plans:\nGo to Pricing Plans in your site's dashboard.  Click the More Actions icon   at the top.  Click Create a coupon.  Select the type of coupon you want to offer:\n\n$ Discount: Offer a fixed monetary discount amount. % Discount: Offer a percentage discount.   Enter the Coupon code clients use to redeem the coupon. Enter the Coupon name for your own records.  Click the  Apply to drop-down and choose the relevant pricing plan(s):\n\nAl…"
+          }
+        ],
+        "latency_ms": 15466.3,
+        "tokens_used": 5696,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/8cc75fbcc571336d1ef1768e7727bd9d1e6c1333f22eeb5366232b9a1a066418.md",
+            "span": "Pricing Plans: Creating Discount Coupons\n\nUpstream URL: https://support.wix.com/en/article/pricing-plans-creating-discount-coupons\nArticle ID: 8cc75fbcc571336d1ef1768e7727bd9d1e6c1"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af.md",
+            "span": "You need to have your account successfully verified to receive payouts.Is my currency supported?Be aware that payments will fail If you are using an unsupported currency.\nThe curre"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/3407d197c71652bee58835ba148794a8be7e70cf9e25c599044b823c82db29fd.md",
+            "span": "Pricing Plans: Creating a Free Plan\n\nUpstream URL: https://support.wix.com/en/article/pricing-plans-creating-a-free-plan\nArticle ID: 3407d197c71652bee58835ba148794a8be7e70cf9e25c59"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb31027d7187f9.md",
+            "span": "Wix Bookings: About Wix Bookings\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-about-wix-bookings\nArticle ID: b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb3"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/a513a215c1798f329293330cb5f5e975a18978954b5ee27d84441e029f900d51.md",
+            "span": "Upstream URL: https://support.wix.com/en/article/wix-stores-about-wix-stores\nArticle ID: a513a215c1798f329293330cb5f5e975a18978954b5ee27d84441e029f900d51\nWix Stores: About Wix Stor"
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/8cc75fbcc571336d1ef1768e7727bd9d1e6c1333f22eeb5366232b9a1a066418.md",
+            "span": "Pricing Plans: Creating Discount Coupons\n\nUpstream URL: https://support.wix.com/en/article/pricing-plans-creating-discount-coupons\nArticle ID: 8cc75fbcc571336d1ef1768e7727bd9d1e6c1333f22eeb5366232b9a1a066418\nPricing Plans: Creating Discount Coupons\nDiscount coupons are a great way to encourage your clients to buy one of your pricing plans. You can choose to offer a price discount or a percentage discount coupon.You can also choose whether your discount coupons apply to a specific plan or to all your pricing plans. Your clients redeem the coupon at checkout to take advantage of the discounted plans. Note:Discount coupons for Pricing Plans cover the plans themselves, but not any setup fees you may have enabled. To create discount coupons for your pricing plans:\nGo to Pricing Plans in your site's dashboard.  Click the More Actions icon   at the top.  Click Create a coupon.  Select the type of coupon you want to offer:\n\n$ Discount: Offer a fixed monetary discount amount. % Discount: Offer a percentage discount.   Enter the Coupon code clients use to redeem the coupon. Enter the Coupon name for your own records.  Click the  Apply to drop-down and choose the relevant pricing plan(s):\n\nAl…"
+          }
+        ],
+        "cost_usd": 0.00032122,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 4773.83
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 1.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 944,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0006",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "To change the order of items within a CMS collection on your Wix site, follow these steps:\n\n1. Go to CMS in your site's dashboard or click CMS in your editor, then click Your Collections.\n2. Click the relevant collection.\n3. Make sure the Table layout type is selected at the top of the collection.\n4. Click the Reorder icon next to the relevant item.\n5. Drag the item up or down to reorder it in the list.\n6. Repeat these steps to finish reordering the items.\n7. Click Mirror on Site at the top of the collection.\n8. Enable the toggle next to Mirror item order on the site [1]. \n\nIf the steps did not work for you, ensure that you are using the correct layout type (Table) and that the \"Mirror on Site\" feature is enabled. Also, check if there are any sort conditions applied to datasets that might be overriding the order [3].",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2df694686b70b35ed389ff590354cfaf19aafc07659b12b02078f2ebcf015ac8.md",
+            "span": "Make sure Table is selected as the layout type at the top of the collection. Click the Reorder icon  next to the relevant item.  Drag the item up or down to reorder it in the list. Repeat these steps to finish reordering the items.      Click Mirror on Site at the top of the collection.  Enable the toggle next to Mirror item order on the site. FAQsClick below for answers to common questions about sorting, filtering and mirroring live site content. Do filters I add in my collection apply to my live site content?If you add filters in your collection view, these filters only apply to the view itself. They do not affect your live site content. You can, however, add filters to datasets to include or exclude certain items from appearing on your live site. When mirroring is on, what happens if I import a CSV file?When you import a CSV file to your collection, the newly imported items are added to the top of your collection. Can I mirror the order of collection items with my live site in all collection types?You can enable the \"Mirror on Site\" feature with any collections you've created that have content appearing on your site, including Wix app collections. Currently, it is not possible t…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2df694686b70b35ed389ff590354cfaf19aafc07659b12b02078f2ebcf015ac8.md",
+            "span": "CMS: Mirroring the Order of Items in Your Collection to Your Site's Connected Elements\n\nUpstream URL: https://support.wix.com/en/article/cms-mirroring-the-order-of-items-in-your-collection-to-your-sites-connected-elements\nArticle ID: 2df694686b70b35ed389ff590354cfaf19aafc07659b12b02078f2ebcf015ac8\nCMS: Mirroring the Order of Items in Your Collection to Your Site's Connected Elements\nControl the order in which items display in their connected elements directly from your CMS collection. When you enable \"Mirror on Site\" in your collection view, connected page elements inherit the same item ordering as your view. This allows you and site collaborators to rearrange the items that appear in connected repeaters, galleries, and other elements from a saved collection view. Since you can connect the same collection to multiple elements and pages, you may want to order the items differently across your site. This is where dataset sorts are useful. If you add a sort condition to a dataset, this sort overrides the order set in your mirrored collection view. When you enable \"Mirror on Site\", any existing sorts in your datasets remain and apply to their connected elements instead of the mirrored…"
+          }
+        ],
+        "latency_ms": 15867.68,
+        "tokens_used": 5379,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2df694686b70b35ed389ff590354cfaf19aafc07659b12b02078f2ebcf015ac8.md",
+            "span": "Make sure Table is selected as the layout type at the top of the collection. Click the Reorder icon  next to the relevant item.  Drag the item up or down to reorder it in the list."
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/f346781bc6cf23c95342ce003927de9d985a99eeb7561c69f03e65da7c10f2fb.md",
+            "span": "CMS: Managing Your Collection Content\n\nUpstream URL: https://support.wix.com/en/article/cms-formerly-content-manager-managing-your-collections\nArticle ID: f346781bc6cf23c95342ce003"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2df694686b70b35ed389ff590354cfaf19aafc07659b12b02078f2ebcf015ac8.md",
+            "span": "CMS: Mirroring the Order of Items in Your Collection to Your Site's Connected Elements\n\nUpstream URL: https://support.wix.com/en/article/cms-mirroring-the-order-of-items-in-your-co"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/f346781bc6cf23c95342ce003927de9d985a99eeb7561c69f03e65da7c10f2fb.md",
+            "span": "Click Mirror on Site at the top of the collection.  Enable the toggle next to Mirror item order on the site.  More actionsClick More Actions at the top right and choose an option:\n"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/f346781bc6cf23c95342ce003927de9d985a99eeb7561c69f03e65da7c10f2fb.md",
+            "span": "Image source to an image field type in your collection.  Alt text source to a text field type in your collection.  Tooltip to a text field type in your collection.  Link (when clic"
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2df694686b70b35ed389ff590354cfaf19aafc07659b12b02078f2ebcf015ac8.md",
+            "span": "Make sure Table is selected as the layout type at the top of the collection. Click the Reorder icon  next to the relevant item.  Drag the item up or down to reorder it in the list. Repeat these steps to finish reordering the items.      Click Mirror on Site at the top of the collection.  Enable the toggle next to Mirror item order on the site. FAQsClick below for answers to common questions about sorting, filtering and mirroring live site content. Do filters I add in my collection apply to my live site content?If you add filters in your collection view, these filters only apply to the view itself. They do not affect your live site content. You can, however, add filters to datasets to include or exclude certain items from appearing on your live site. When mirroring is on, what happens if I import a CSV file?When you import a CSV file to your collection, the newly imported items are added to the top of your collection. Can I mirror the order of collection items with my live site in all collection types?You can enable the \"Mirror on Site\" feature with any collections you've created that have content appearing on your site, including Wix app collections. Currently, it is not possible t…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2df694686b70b35ed389ff590354cfaf19aafc07659b12b02078f2ebcf015ac8.md",
+            "span": "CMS: Mirroring the Order of Items in Your Collection to Your Site's Connected Elements\n\nUpstream URL: https://support.wix.com/en/article/cms-mirroring-the-order-of-items-in-your-collection-to-your-sites-connected-elements\nArticle ID: 2df694686b70b35ed389ff590354cfaf19aafc07659b12b02078f2ebcf015ac8\nCMS: Mirroring the Order of Items in Your Collection to Your Site's Connected Elements\nControl the order in which items display in their connected elements directly from your CMS collection. When you enable \"Mirror on Site\" in your collection view, connected page elements inherit the same item ordering as your view. This allows you and site collaborators to rearrange the items that appear in connected repeaters, galleries, and other elements from a saved collection view. Since you can connect the same collection to multiple elements and pages, you may want to order the items differently across your site. This is where dataset sorts are useful. If you add a sort condition to a dataset, this sort overrides the order set in your mirrored collection view. When you enable \"Mirror on Site\", any existing sorts in your datasets remain and apply to their connected elements instead of the mirrored…"
+          }
+        ],
+        "cost_usd": 0.00030116,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 6474.04
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 0.3333333333333333,
+      "retrieval_source_precision": 1.0,
+      "retrieval_source_recall": 0.6666666666666666,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 828,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0007",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "To sync the hotel app with your calendars iCal link to allow visitors to book available dates on your site, follow these steps:\n\n1. Locate your iCal URL. This is typically found in the settings of the external calendar service (e.g., Airbnb, HomeAway, VRBO).\n2. Go to your Wix Hotels dashboard. Click the Hotels tab, then expand the Reservations tab.\n3. Select iCal from the options. Click the Choose Type drop-down menu and select a room type.\n4. Paste your iCal URL into the URL field. (Optional) Click Add Calendar to add another room type and paste the corresponding iCal URL.\n5. Click Save to complete the import process. [1]",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/5f02fc2f8937d16a4d8cdca47da36ae34429e0b279fb0cc56af72e2d91991a28.md",
+            "span": "Importing Reservations from an External Calendar (iCal) to Wix Hotels\n\nUpstream URL: https://support.wix.com/en/article/importing-reservations-from-an-external-calendar-ical-to-wix-hotels\nArticle ID: 5f02fc2f8937d16a4d8cdca47da36ae34429e0b279fb0cc56af72e2d91991a28\nImporting Reservations from an External Calendar (iCal) to Wix Hotels\nImportant:This article refers to the original Wix Hotels. If you are using the new Wix Hotels by HotelRunner, which is not yet available to all users, please read the information here. Learn how to check which version of Wix Hotels you are using. Import your reservations from popular external services including Airbnb, HomeAway, and VRBO  to your Wix Hotels reservation calendar.Once you import your calendar, your Wix Hotels reservation calendar stays up to date.Notes:\nYou can only import from services that allow you to export your calendar in iCal format. The sync is one way only, from iCal to the Wix Calendar. Imported rates do not appear in the calendar. Rates can be viewed by clicking on the reservation in the calendar and scrolling down to the Payment Details section. This feature is not compatible with the Wix Hotels Channel Manager. If you want to…"
+          }
+        ],
+        "latency_ms": 12915.24,
+        "tokens_used": 5383,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/5f02fc2f8937d16a4d8cdca47da36ae34429e0b279fb0cc56af72e2d91991a28.md",
+            "span": "Importing Reservations from an External Calendar (iCal) to Wix Hotels\n\nUpstream URL: https://support.wix.com/en/article/importing-reservations-from-an-external-calendar-ical-to-wix"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "Now: The change in shift takes effect immediately. This is useful for last-minute changes.  Schedule for later: Decide when the change in working hours takes place. This is useful "
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "(Optional) Repeat steps 3-10 to create additional custom work hours for the same staff member. \nTip: This is useful if your staff member is available in different hours / locations"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "Tap the checkmarks next to the relevant staff members. Tap Apply.  Making one-time changes to staff working hoursClick any staff member's hours on a given day in the Work Schedule "
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "Wix Bookings: Editing Your Staff Members' Working Hours\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-editing-your-staff-members-working-hours\nArticle ID: 2de6c169"
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/5f02fc2f8937d16a4d8cdca47da36ae34429e0b279fb0cc56af72e2d91991a28.md",
+            "span": "Importing Reservations from an External Calendar (iCal) to Wix Hotels\n\nUpstream URL: https://support.wix.com/en/article/importing-reservations-from-an-external-calendar-ical-to-wix-hotels\nArticle ID: 5f02fc2f8937d16a4d8cdca47da36ae34429e0b279fb0cc56af72e2d91991a28\nImporting Reservations from an External Calendar (iCal) to Wix Hotels\nImportant:This article refers to the original Wix Hotels. If you are using the new Wix Hotels by HotelRunner, which is not yet available to all users, please read the information here. Learn how to check which version of Wix Hotels you are using. Import your reservations from popular external services including Airbnb, HomeAway, and VRBO  to your Wix Hotels reservation calendar.Once you import your calendar, your Wix Hotels reservation calendar stays up to date.Notes:\nYou can only import from services that allow you to export your calendar in iCal format. The sync is one way only, from iCal to the Wix Calendar. Imported rates do not appear in the calendar. Rates can be viewed by clicking on the reservation in the calendar and scrolling down to the Payment Details section. This feature is not compatible with the Wix Hotels Channel Manager. If you want to…"
+          }
+        ],
+        "cost_usd": 0.00030182,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 5380.49
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 1.0,
+      "retrieval_source_precision": 0.5,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 630,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0008",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "To verify your domain with Google Workspace, you need to add the TXT record to your domain's DNS settings. However, since your domain is connected to Wix via pointing, your domain host is in control of your domain records. Therefore, you should contact your domain host and ask them to add the TXT record on their end. This is the recommended step as per the instructions provided [1].",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/65806b123ff355cef16c8abe4301f1df982e2c3bddcd33b81ed446b92a79e336.md",
+            "span": "Google Workspace: Manually Verifying Your Domain with Google\n\nUpstream URL: https://support.wix.com/en/article/manually-verifying-your-domain-with-google-workspace-formerly-g-suite\nArticle ID: 65806b123ff355cef16c8abe4301f1df982e2c3bddcd33b81ed446b92a79e336\nGoogle Workspace: Manually Verifying Your Domain with Google\nIf your domain was once associated with a different owner, either in Google Workspace or in a Google Workspace reseller account, you may receive an error message similar to this in your Wix Account:In order to resolve this issue you must verify the ownership of your domain using a TXT record. To verify your domain using a TXT record:\nSign into your Google Admin Console. Click Domains.\nNote: (If hidden) Click More Controls at the bottom of your Admin console and select Domains.  Click Manage Domains. Click Set up Admin Console next to the domain you would like to verify.\nNote: If you domain isn't listed, click Add a Domain to add a new domain. Click Next and then Continue to choose TXT verification. Copy the TXT record. Add the TXT record to your domain's DNS records in the TXT Value field.  Click Verify.\nNote: If you receive a message that your domain couldn't be verif…"
+          }
+        ],
+        "latency_ms": 10473.32,
+        "tokens_used": 3567,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/65806b123ff355cef16c8abe4301f1df982e2c3bddcd33b81ed446b92a79e336.md",
+            "span": "Google Workspace: Manually Verifying Your Domain with Google\n\nUpstream URL: https://support.wix.com/en/article/manually-verifying-your-domain-with-google-workspace-formerly-g-suite"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/db6a6c4be5c11fae531b4fdd546601bab6d4a26b669a8a7ea6063c62a045e9d4.md",
+            "span": "Google Workspace: Connecting a Business Email for a Domain Pointing to Wix\n\nUpstream URL: https://support.wix.com/en/article/google-workspace-connecting-a-business-email-for-a-doma"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/8c2e56296ddb7b441238ff06cfa9b38204aca9e27371386689b1fa4643cdfbff.md",
+            "span": "Google Workspace: Setting Up Additional Workspace Users from Wix\n\nUpstream URL: https://support.wix.com/en/article/google-workspace-setting-up-additional-workspace-users-from-wix\nA"
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/65806b123ff355cef16c8abe4301f1df982e2c3bddcd33b81ed446b92a79e336.md",
+            "span": "Google Workspace: Manually Verifying Your Domain with Google\n\nUpstream URL: https://support.wix.com/en/article/manually-verifying-your-domain-with-google-workspace-formerly-g-suite\nArticle ID: 65806b123ff355cef16c8abe4301f1df982e2c3bddcd33b81ed446b92a79e336\nGoogle Workspace: Manually Verifying Your Domain with Google\nIf your domain was once associated with a different owner, either in Google Workspace or in a Google Workspace reseller account, you may receive an error message similar to this in your Wix Account:In order to resolve this issue you must verify the ownership of your domain using a TXT record. To verify your domain using a TXT record:\nSign into your Google Admin Console. Click Domains.\nNote: (If hidden) Click More Controls at the bottom of your Admin console and select Domains.  Click Manage Domains. Click Set up Admin Console next to the domain you would like to verify.\nNote: If you domain isn't listed, click Add a Domain to add a new domain. Click Next and then Continue to choose TXT verification. Copy the TXT record. Add the TXT record to your domain's DNS records in the TXT Value field.  Click Verify.\nNote: If you receive a message that your domain couldn't be verif…"
+          }
+        ],
+        "cost_usd": 0.00019159,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 4680.7
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 0.5,
+      "retrieval_source_precision": 0.6666666666666666,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 385,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0009",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "If you cannot access your old email address to change your password but have a recovery phone number added to your Wix account, you can recover your account using the recovery phone number. To do this, go to the Wix Log In page, click \"Forgot Email?\", select \"Can't access my login email,\" and enter the email address associated with your Wix account. Then, select \"Send me a code to my phone number ending with XXXX\" and enter the one-time verification code sent to your phone. After verifying, you can enter a new password and save it [1].",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf.md",
+            "span": "Upstream URL: https://support.wix.com/en/article/recovering-your-wix-account\nArticle ID: 39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf\nRecovering Your Wix Account\nYou can recover your Wix account if you've lost access to it. Follow the steps below if you can't access the email address that you use to sign in, or you can't sign into your Wix account for some other reason. Don't know your login email address?You can find your login email address on the Wix Log In page. Note:If you use an SSO Login, contact your IT administrator to recover your account.Recovering your account using your Recovery Phone NumberIf you've previously added a Recovery Phone Number to your Wix account, you can get a one-time SMS code sent to your mobile phone to recover your Wix account.To recover your account:\nGo to the Wix Log In page. Click Forgot Email?.\nSelect Can't access my login email. Click Next. Enter the email address associated with your Wix account.  Click Next. Select Send me a code to my phone number ending with XXXX and click Next. Enter the one-time verification code sent to your phone under Enter code here. Click Verify. Enter a new password and retype it. Click Save New P…"
+          }
+        ],
+        "latency_ms": 10124.61,
+        "tokens_used": 4404,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf.md",
+            "span": "Upstream URL: https://support.wix.com/en/article/recovering-your-wix-account\nArticle ID: 39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf\nRecovering Your Wix Accoun"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/e9366441d1e037a1470c9bad57455dbadc24db0ca931791edd0f3b026ea6a58f.md",
+            "span": "Changing the email address of your accountYou can change your Wix account email address in your Account Settings. Important:\nMake sure that your new email address is a real address"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf.md",
+            "span": "Go to the Wix Account Recovery form. Select whether your site is a Premium site or a Free site. Follow the steps below depending on the type of site you have.Premium site\nClick Nex"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/e9366441d1e037a1470c9bad57455dbadc24db0ca931791edd0f3b026ea6a58f.md",
+            "span": "Changing the Email Address of Your Wix Account\n\nUpstream URL: https://support.wix.com/en/article/changing-the-email-address-of-your-wix-account\nArticle ID: e9366441d1e037a1470c9bad"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf.md",
+            "span": "Recovering Your Wix Account"
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf.md",
+            "span": "Upstream URL: https://support.wix.com/en/article/recovering-your-wix-account\nArticle ID: 39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf\nRecovering Your Wix Account\nYou can recover your Wix account if you've lost access to it. Follow the steps below if you can't access the email address that you use to sign in, or you can't sign into your Wix account for some other reason. Don't know your login email address?You can find your login email address on the Wix Log In page. Note:If you use an SSO Login, contact your IT administrator to recover your account.Recovering your account using your Recovery Phone NumberIf you've previously added a Recovery Phone Number to your Wix account, you can get a one-time SMS code sent to your mobile phone to recover your Wix account.To recover your account:\nGo to the Wix Log In page. Click Forgot Email?.\nSelect Can't access my login email. Click Next. Enter the email address associated with your Wix account.  Click Next. Select Send me a code to my phone number ending with XXXX and click Next. Enter the one-time verification code sent to your phone under Enter code here. Click Verify. Enter a new password and retype it. Click Save New P…"
+          }
+        ],
+        "cost_usd": 0.00024299,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 4351.2
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 0.5,
+      "retrieval_source_precision": 1.0,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 541,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0010",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "The option to connect PayPal may not be available if your business location is not supported by PayPal. According to the evidence, PayPal is not available for businesses based in Russia [1]. Additionally, if you are in a location where PayPal is available, ensure that your business location in the Wix dashboard is correctly set [1]. If the issue persists, you may need to check if there are any holds or restrictions on your PayPal account, or if your currency settings match between your Wix site and PayPal account [5]. If you are still unable to connect, contact Wix Customer Care for further assistance.",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af.md",
+            "span": "Upstream URL: https://support.wix.com/en/article/connecting-paypal-as-a-payment-provider\nArticle ID: 7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af\nConnecting PayPal as a Payment Provider\nImportant:As of March 7 2022, Wix no longer supports PayPal payments for any businesses, both new and existing, based in Russia.A PayPal business account is a great alternative to opening a credit card merchant account. Using PayPal you can accept PayPal payments, credit cards and debit cards. Customers are directed to PayPal when making the payment.General InformationSupported countriesOver 200 countries. For more information, visit PayPalAccepted currenciesCAD, EUR, GBP, JPY, AUD, NZD, CHF, HKD, SGD, SEK, DKK, PLN, NOK, HUF, CZK, ILS, MXN, BRL (for Brazil only), MYR (for Malaysia only), PHP, TWD, THB and USDTransaction feesVary by location. Contact PayPal for more information.Payment methods available with Smart buttons\nPayPal Checkout Pay Later (BNPL) PayPal Credit VenmoAccount activation timeInstantNotes\nSupports recurring payments (i.e. for Wix Video subscriptions) You must have a Paypal Business accountManaging your accountFor information on receiving payouts, refunding cus…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/6b97c2a01f5c925927be970c1f768a4b628c6b52071dec733aa3a1719d17332e.md",
+            "span": "Troubleshooting Third Party Provider Connection Issues\n\nUpstream URL: https://support.wix.com/en/article/troubleshooting-third-party-provider-connection-issues\nArticle ID: 6b97c2a01f5c925927be970c1f768a4b628c6b52071dec733aa3a1719d17332e\nTroubleshooting Third Party Provider Connection Issues\nIf you're experiencing difficulties connecting a third-party payment provider, you may be able to fix the issue by addressing the most common reasons.Click the issue you are having below: I can't see the provider I want in the Accept Payments tabThere are 2 main reasons for payment providers not appearing in the Accept Payments tab:\nDifferent payment providers are available in different locations. Check our list of available providers to make sure your desired provider is available in your location.\nTip: Change your business location in the Accept Payments tab, by using the dropdown menu.\n\nIf you began onboarding with Wix Payments, you may have selected a prohibited product or service. If so, this may remove the option to onboard with other payment providers who prohibit similar items.  For more information, please see our checklist for restricted products & services when setting up your payment…"
+          }
+        ],
+        "latency_ms": 11277.78,
+        "tokens_used": 4877,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af.md",
+            "span": "Upstream URL: https://support.wix.com/en/article/connecting-paypal-as-a-payment-provider\nArticle ID: 7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af\nConnecting Pay"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af.md",
+            "span": "Venmo is currently available to select US users only. At present, Venmo is unavailable for customers using IOS devices.Venmo is a mobile payment app operated by PayPal. If you've c"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af.md",
+            "span": "You need to have your account successfully verified to receive payouts.Is my currency supported?Be aware that payments will fail If you are using an unsupported currency.\nThe curre"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af.md",
+            "span": "Connecting PayPal as a Payment Provider"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/6b97c2a01f5c925927be970c1f768a4b628c6b52071dec733aa3a1719d17332e.md",
+            "span": "Troubleshooting Third Party Provider Connection Issues\n\nUpstream URL: https://support.wix.com/en/article/troubleshooting-third-party-provider-connection-issues\nArticle ID: 6b97c2a0"
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af.md",
+            "span": "Upstream URL: https://support.wix.com/en/article/connecting-paypal-as-a-payment-provider\nArticle ID: 7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af\nConnecting PayPal as a Payment Provider\nImportant:As of March 7 2022, Wix no longer supports PayPal payments for any businesses, both new and existing, based in Russia.A PayPal business account is a great alternative to opening a credit card merchant account. Using PayPal you can accept PayPal payments, credit cards and debit cards. Customers are directed to PayPal when making the payment.General InformationSupported countriesOver 200 countries. For more information, visit PayPalAccepted currenciesCAD, EUR, GBP, JPY, AUD, NZD, CHF, HKD, SGD, SEK, DKK, PLN, NOK, HUF, CZK, ILS, MXN, BRL (for Brazil only), MYR (for Malaysia only), PHP, TWD, THB and USDTransaction feesVary by location. Contact PayPal for more information.Payment methods available with Smart buttons\nPayPal Checkout Pay Later (BNPL) PayPal Credit VenmoAccount activation timeInstantNotes\nSupports recurring payments (i.e. for Wix Video subscriptions) You must have a Paypal Business accountManaging your accountFor information on receiving payouts, refunding cus…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/6b97c2a01f5c925927be970c1f768a4b628c6b52071dec733aa3a1719d17332e.md",
+            "span": "Troubleshooting Third Party Provider Connection Issues\n\nUpstream URL: https://support.wix.com/en/article/troubleshooting-third-party-provider-connection-issues\nArticle ID: 6b97c2a01f5c925927be970c1f768a4b628c6b52071dec733aa3a1719d17332e\nTroubleshooting Third Party Provider Connection Issues\nIf you're experiencing difficulties connecting a third-party payment provider, you may be able to fix the issue by addressing the most common reasons.Click the issue you are having below: I can't see the provider I want in the Accept Payments tabThere are 2 main reasons for payment providers not appearing in the Accept Payments tab:\nDifferent payment providers are available in different locations. Check our list of available providers to make sure your desired provider is available in your location.\nTip: Change your business location in the Accept Payments tab, by using the dropdown menu.\n\nIf you began onboarding with Wix Payments, you may have selected a prohibited product or service. If so, this may remove the option to onboard with other payment providers who prohibit similar items.  For more information, please see our checklist for restricted products & services when setting up your payment…"
+          }
+        ],
+        "cost_usd": 0.00027039,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 4341.21
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 1.0,
+      "retrieval_source_precision": 1.0,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 609,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0011",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "To reset the password for your second Gmail account (business account), you can follow these steps:\n\n1. If you are the admin of the Google Workspace account, sign in to your Google Admin account.\n2. Navigate to the \"Users\" section and select the user associated with the second Gmail account.\n3. Click on \"Password\" and choose \"Reset Password.\"\n4. You can either automatically generate a password or enter a custom one.\n5. Optionally, you can require the user to change the password at the next sign-in.\n6. Click \"Reset\" to apply the new password [2]. \n\nIf you are unable to log in to the business account and need to reset the password, you can also temporarily disable login challenges by turning them off for 10 minutes, which may allow the user to sign in [2]. \n\nIf you still cannot reset the password, you may need to use the Wix Account Recovery process, which involves providing detailed information about your account and case to verify ownership [4].",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/bec5870553814db329b6b83e73d059f0a42c2454b5bd4c4989b3b7110e29589c.md",
+            "span": "Google Workspace: Troubleshooting Login Issues\n\nUpstream URL: https://support.wix.com/en/article/google-workspace-troubleshooting-login-issues\nArticle ID: bec5870553814db329b6b83e73d059f0a42c2454b5bd4c4989b3b7110e29589c\nGoogle Workspace: Troubleshooting Login Issues\nIf you're the owner of a Google Workspace Admin account, and your users are experiencing issues accessing Google Workspace, you can manage security settings to help them log in.In this article, learn how to:\nReset a user's password Temporarily disable login challengesResetting a user's passwordIf a user needs a new password to log in to their business email, you can create a new password to enable access. To reset a user's password:\nSign in to your Google Admin account. Click Password, then Reset Password. Choose to automatically generate the password or enter a password.\nNote: By default, password minimum length is 8 characters. You can change password requirements for your organization. (Optional) To view the password, click Preview  . (Optional) To require the user to change the password, enable the Ask for a password change at the next sign-in toggle. Click Reset. (Optional) To paste the password somewhere, such as…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf.md",
+            "span": "Upstream URL: https://support.wix.com/en/article/recovering-your-wix-account\nArticle ID: 39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf\nRecovering Your Wix Account\nYou can recover your Wix account if you've lost access to it. Follow the steps below if you can't access the email address that you use to sign in, or you can't sign into your Wix account for some other reason. Don't know your login email address?You can find your login email address on the Wix Log In page. Note:If you use an SSO Login, contact your IT administrator to recover your account.Recovering your account using your Recovery Phone NumberIf you've previously added a Recovery Phone Number to your Wix account, you can get a one-time SMS code sent to your mobile phone to recover your Wix account.To recover your account:\nGo to the Wix Log In page. Click Forgot Email?.\nSelect Can't access my login email. Click Next. Enter the email address associated with your Wix account.  Click Next. Select Send me a code to my phone number ending with XXXX and click Next. Enter the one-time verification code sent to your phone under Enter code here. Click Verify. Enter a new password and retype it. Click Save New P…"
+          }
+        ],
+        "latency_ms": 13235.61,
+        "tokens_used": 5246,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/e9366441d1e037a1470c9bad57455dbadc24db0ca931791edd0f3b026ea6a58f.md",
+            "span": "Changing the email address of your accountYou can change your Wix account email address in your Account Settings. Important:\nMake sure that your new email address is a real address"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/bec5870553814db329b6b83e73d059f0a42c2454b5bd4c4989b3b7110e29589c.md",
+            "span": "Google Workspace: Troubleshooting Login Issues\n\nUpstream URL: https://support.wix.com/en/article/google-workspace-troubleshooting-login-issues\nArticle ID: bec5870553814db329b6b83e7"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/e9366441d1e037a1470c9bad57455dbadc24db0ca931791edd0f3b026ea6a58f.md",
+            "span": "Changing the Email Address of Your Wix Account\n\nUpstream URL: https://support.wix.com/en/article/changing-the-email-address-of-your-wix-account\nArticle ID: e9366441d1e037a1470c9bad"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf.md",
+            "span": "Upstream URL: https://support.wix.com/en/article/recovering-your-wix-account\nArticle ID: 39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf\nRecovering Your Wix Accoun"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/8c2e56296ddb7b441238ff06cfa9b38204aca9e27371386689b1fa4643cdfbff.md",
+            "span": "Google Workspace: Setting Up Additional Workspace Users from Wix\n\nUpstream URL: https://support.wix.com/en/article/google-workspace-setting-up-additional-workspace-users-from-wix\nA"
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/bec5870553814db329b6b83e73d059f0a42c2454b5bd4c4989b3b7110e29589c.md",
+            "span": "Google Workspace: Troubleshooting Login Issues\n\nUpstream URL: https://support.wix.com/en/article/google-workspace-troubleshooting-login-issues\nArticle ID: bec5870553814db329b6b83e73d059f0a42c2454b5bd4c4989b3b7110e29589c\nGoogle Workspace: Troubleshooting Login Issues\nIf you're the owner of a Google Workspace Admin account, and your users are experiencing issues accessing Google Workspace, you can manage security settings to help them log in.In this article, learn how to:\nReset a user's password Temporarily disable login challengesResetting a user's passwordIf a user needs a new password to log in to their business email, you can create a new password to enable access. To reset a user's password:\nSign in to your Google Admin account. Click Password, then Reset Password. Choose to automatically generate the password or enter a password.\nNote: By default, password minimum length is 8 characters. You can change password requirements for your organization. (Optional) To view the password, click Preview  . (Optional) To require the user to change the password, enable the Ask for a password change at the next sign-in toggle. Click Reset. (Optional) To paste the password somewhere, such as…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf.md",
+            "span": "Upstream URL: https://support.wix.com/en/article/recovering-your-wix-account\nArticle ID: 39158650c97235d1f9b98a71be41c5222ddb3ee3e497cfb1d10ef3bd0bc166cf\nRecovering Your Wix Account\nYou can recover your Wix account if you've lost access to it. Follow the steps below if you can't access the email address that you use to sign in, or you can't sign into your Wix account for some other reason. Don't know your login email address?You can find your login email address on the Wix Log In page. Note:If you use an SSO Login, contact your IT administrator to recover your account.Recovering your account using your Recovery Phone NumberIf you've previously added a Recovery Phone Number to your Wix account, you can get a one-time SMS code sent to your mobile phone to recover your Wix account.To recover your account:\nGo to the Wix Log In page. Click Forgot Email?.\nSelect Can't access my login email. Click Next. Enter the email address associated with your Wix account.  Click Next. Select Send me a code to my phone number ending with XXXX and click Next. Enter the one-time verification code sent to your phone under Enter code here. Click Verify. Enter a new password and retype it. Click Save New P…"
+          }
+        ],
+        "cost_usd": 0.00029233,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 4367.77
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 0.5,
+      "answer_citation_recall": 1.0,
+      "retrieval_source_precision": 0.25,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 959,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0012",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "Ensure that you have clicked Publish in the Wix Editor and that your browser is supported. If the issue persists, try clearing your browser's cache and cookies, and check if there are any errors related to the connection of third-party providers that might be affecting the display of your pages [1]. Additionally, verify that your currency settings are correctly matched between your Wix site and the payment provider account, if applicable [3].",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/dd6385654e2bc9cc5fcaf350bc944449291fa2377a61e06052035a2f0605c5b5.md",
+            "span": "Wix Editor: Differences in Live Site and Editor\n\nUpstream URL: https://support.wix.com/en/article/wix-editor-differences-in-live-site-and-editor\nArticle ID: dd6385654e2bc9cc5fcaf350bc944449291fa2377a61e06052035a2f0605c5b5\nWix Editor: Differences in Live Site and Editor\nYou may notice differences between your live site and the editor. In most cases, this occurs when you have saved changes in the editor but not yet published them. Make sure to click Publish in your editor to check if this is the reason for the differences. If you are still unable to see the changes on your live site, follow the steps below.Important:Make sure you're also using a supported browser. Outdated browsers such as Internet Explorer 10 may display rendering issues between your editor and the live site. Changes in the editor missing on the live siteIf you've made changes in your editor that do not appear on your live site:\nClick Publish in your editor, then check your live site to see if it has updated.  If you're receiving an error when publishing, click here.  Follow the steps in the Wix Technical Assistant to resolve the issue. Changes on the live site missing in the EditorIf you notice changes that appear…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/6b97c2a01f5c925927be970c1f768a4b628c6b52071dec733aa3a1719d17332e.md",
+            "span": "Troubleshooting Third Party Provider Connection Issues\n\nUpstream URL: https://support.wix.com/en/article/troubleshooting-third-party-provider-connection-issues\nArticle ID: 6b97c2a01f5c925927be970c1f768a4b628c6b52071dec733aa3a1719d17332e\nTroubleshooting Third Party Provider Connection Issues\nIf you're experiencing difficulties connecting a third-party payment provider, you may be able to fix the issue by addressing the most common reasons.Click the issue you are having below: I can't see the provider I want in the Accept Payments tabThere are 2 main reasons for payment providers not appearing in the Accept Payments tab:\nDifferent payment providers are available in different locations. Check our list of available providers to make sure your desired provider is available in your location.\nTip: Change your business location in the Accept Payments tab, by using the dropdown menu.\n\nIf you began onboarding with Wix Payments, you may have selected a prohibited product or service. If so, this may remove the option to onboard with other payment providers who prohibit similar items.  For more information, please see our checklist for restricted products & services when setting up your payment…"
+          }
+        ],
+        "latency_ms": 9819.23,
+        "tokens_used": 4076,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/dd6385654e2bc9cc5fcaf350bc944449291fa2377a61e06052035a2f0605c5b5.md",
+            "span": "Wix Editor: Differences in Live Site and Editor\n\nUpstream URL: https://support.wix.com/en/article/wix-editor-differences-in-live-site-and-editor\nArticle ID: dd6385654e2bc9cc5fcaf35"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/359dab9e725658fc9407e34714d19da1fda7a8cb8c85c5c141968dd3775de044.md",
+            "span": "Wix Editor: Saving, Previewing and Publishing Your Site\n\nUpstream URL: https://support.wix.com/en/article/wix-editor-saving-previewing-and-publishing-your-site\nArticle ID: 359dab9e"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/6b97c2a01f5c925927be970c1f768a4b628c6b52071dec733aa3a1719d17332e.md",
+            "span": "Troubleshooting Third Party Provider Connection Issues\n\nUpstream URL: https://support.wix.com/en/article/troubleshooting-third-party-provider-connection-issues\nArticle ID: 6b97c2a0"
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/dd6385654e2bc9cc5fcaf350bc944449291fa2377a61e06052035a2f0605c5b5.md",
+            "span": "Wix Editor: Differences in Live Site and Editor\n\nUpstream URL: https://support.wix.com/en/article/wix-editor-differences-in-live-site-and-editor\nArticle ID: dd6385654e2bc9cc5fcaf350bc944449291fa2377a61e06052035a2f0605c5b5\nWix Editor: Differences in Live Site and Editor\nYou may notice differences between your live site and the editor. In most cases, this occurs when you have saved changes in the editor but not yet published them. Make sure to click Publish in your editor to check if this is the reason for the differences. If you are still unable to see the changes on your live site, follow the steps below.Important:Make sure you're also using a supported browser. Outdated browsers such as Internet Explorer 10 may display rendering issues between your editor and the live site. Changes in the editor missing on the live siteIf you've made changes in your editor that do not appear on your live site:\nClick Publish in your editor, then check your live site to see if it has updated.  If you're receiving an error when publishing, click here.  Follow the steps in the Wix Technical Assistant to resolve the issue. Changes on the live site missing in the EditorIf you notice changes that appear…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/6b97c2a01f5c925927be970c1f768a4b628c6b52071dec733aa3a1719d17332e.md",
+            "span": "Troubleshooting Third Party Provider Connection Issues\n\nUpstream URL: https://support.wix.com/en/article/troubleshooting-third-party-provider-connection-issues\nArticle ID: 6b97c2a01f5c925927be970c1f768a4b628c6b52071dec733aa3a1719d17332e\nTroubleshooting Third Party Provider Connection Issues\nIf you're experiencing difficulties connecting a third-party payment provider, you may be able to fix the issue by addressing the most common reasons.Click the issue you are having below: I can't see the provider I want in the Accept Payments tabThere are 2 main reasons for payment providers not appearing in the Accept Payments tab:\nDifferent payment providers are available in different locations. Check our list of available providers to make sure your desired provider is available in your location.\nTip: Change your business location in the Accept Payments tab, by using the dropdown menu.\n\nIf you began onboarding with Wix Payments, you may have selected a prohibited product or service. If so, this may remove the option to onboard with other payment providers who prohibit similar items.  For more information, please see our checklist for restricted products & services when setting up your payment…"
+          }
+        ],
+        "cost_usd": 0.00022139,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 4791.59
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 0.5,
+      "answer_citation_recall": 0.5,
+      "retrieval_source_precision": 0.6666666666666666,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 446,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0013",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "If you have not received your payment in your bank account yet, it may be due to the payout processing stages. Payouts are sent from Wix Payments to your bank account once there is an available balance of at least $1, and the payout typically takes 3-5 business days to arrive [1]. Additionally, your Wix Payments account must be successfully verified and active to receive payouts [1]. If your account is not verified, you may need to complete the verification process, which can take up to 7 business days [4]. If the payout has been scheduled but not yet sent, it may be in the pending period, which usually lasts between 2-5 business days [1]. If the issue persists beyond these timeframes, you should contact Wix Customer Care for further assistance.",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/9dbf43e1a13c691c4ac016af067a723ca51613c639d878f7c556dd1a1fbc3018.md",
+            "span": "Receiving Your Payouts from Wix Payments\n\nUpstream URL: https://support.wix.com/en/article/receiving-your-payouts-from-wix-payments\nArticle ID: 9dbf43e1a13c691c4ac016af067a723ca51613c639d878f7c556dd1a1fbc3018\nReceiving Your Payouts from Wix Payments\nPayouts are funds transferred from Wix Payments to your bank account.Important:\nTo receive payouts, your Wix Payments account must be successfully verified. In order to receive payouts to your bank account, your account status must be Active.  Payouts are only made once there's an available balance of at least $1.Payout stagesEach payment from your customer goes through 3 stages before it reaches your bank account. These are:\nProcessing payment: After your customer makes a successful payment, the payment is processed. Processing usually takes 2-5 business days and is comprised of 2 parts, which happen simultaneously:\n\nThe settlement period, which usually takes 1-2 days, but can take longer depending on your customer’s payment method. At the same time that the payment is settling, it also goes through a pending period in Wix Payments. The pending period usually lasts between 2-5 business days, and exists to protect your business, your cu…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md",
+            "span": "Use the dropdown menu to select your Business Type Use the text box to add a short description of your products / services   Upload a color copy of your photo ID and bank statement to verify your identity. Learn more.  Allow 7 business days for the account to be verified. If 7 business days have already passed and you've verified the information is correct and matches your bank account details, contact Wix Customer Care. We will be happy to investigate this issue further. Sole proprietor account (Italy)\nMake sure you've written your personal and company information correctly.\n\nYour first / middle / last name and your date of birth, must match those listed in your photo ID.\nDouble check that you've entered your bank account number(s) correctly. Your company's name and its codice fiscale number must match the company's registered information. Your Doing Business As name should match what appears on your customers' statements. Enter a physical address to verify your account. PO Boxes are not accepted as a valid address. Upload an address verification document, such as a utility bill, to confirm your address. The document must have been issued within the last 6 months. Upload a documen…"
+          }
+        ],
+        "latency_ms": 17256.68,
+        "tokens_used": 5441,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/9dbf43e1a13c691c4ac016af067a723ca51613c639d878f7c556dd1a1fbc3018.md",
+            "span": "Receiving Your Payouts from Wix Payments\n\nUpstream URL: https://support.wix.com/en/article/receiving-your-payouts-from-wix-payments\nArticle ID: 9dbf43e1a13c691c4ac016af067a723ca516"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md",
+            "span": "Wix Payments Verification Process\n\nUpstream URL: https://support.wix.com/en/article/wix-payments-verification-process\nArticle ID: 49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f5"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/9dbf43e1a13c691c4ac016af067a723ca51613c639d878f7c556dd1a1fbc3018.md",
+            "span": "Refunds: Any refunds made to your customers.  Refund Reversal Fee: The fee for processing the reversal transaction. Chargebacks: Any chargebacks called by your customer's card issu"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md",
+            "span": "Use the dropdown menu to select your Business Type Use the text box to add a short description of your products / services   Upload a color copy of your photo ID and bank statement"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/9dbf43e1a13c691c4ac016af067a723ca51613c639d878f7c556dd1a1fbc3018.md",
+            "span": "Use the drop-down menu to select a day.      Click Save. Receiving your first payoutYour first payout can only be scheduled once your Wix Payments account is successfully verified."
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/9dbf43e1a13c691c4ac016af067a723ca51613c639d878f7c556dd1a1fbc3018.md",
+            "span": "Receiving Your Payouts from Wix Payments\n\nUpstream URL: https://support.wix.com/en/article/receiving-your-payouts-from-wix-payments\nArticle ID: 9dbf43e1a13c691c4ac016af067a723ca51613c639d878f7c556dd1a1fbc3018\nReceiving Your Payouts from Wix Payments\nPayouts are funds transferred from Wix Payments to your bank account.Important:\nTo receive payouts, your Wix Payments account must be successfully verified. In order to receive payouts to your bank account, your account status must be Active.  Payouts are only made once there's an available balance of at least $1.Payout stagesEach payment from your customer goes through 3 stages before it reaches your bank account. These are:\nProcessing payment: After your customer makes a successful payment, the payment is processed. Processing usually takes 2-5 business days and is comprised of 2 parts, which happen simultaneously:\n\nThe settlement period, which usually takes 1-2 days, but can take longer depending on your customer’s payment method. At the same time that the payment is settling, it also goes through a pending period in Wix Payments. The pending period usually lasts between 2-5 business days, and exists to protect your business, your cu…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md",
+            "span": "Use the dropdown menu to select your Business Type Use the text box to add a short description of your products / services   Upload a color copy of your photo ID and bank statement to verify your identity. Learn more.  Allow 7 business days for the account to be verified. If 7 business days have already passed and you've verified the information is correct and matches your bank account details, contact Wix Customer Care. We will be happy to investigate this issue further. Sole proprietor account (Italy)\nMake sure you've written your personal and company information correctly.\n\nYour first / middle / last name and your date of birth, must match those listed in your photo ID.\nDouble check that you've entered your bank account number(s) correctly. Your company's name and its codice fiscale number must match the company's registered information. Your Doing Business As name should match what appears on your customers' statements. Enter a physical address to verify your account. PO Boxes are not accepted as a valid address. Upload an address verification document, such as a utility bill, to confirm your address. The document must have been issued within the last 6 months. Upload a documen…"
+          }
+        ],
+        "cost_usd": 0.00030616,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 4545.38
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 0.5,
+      "answer_citation_recall": 0.5,
+      "retrieval_source_precision": 0.5,
+      "retrieval_source_recall": 0.5,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 755,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0014",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "To create custom hours for a staff member in Wix Bookings, follow these steps:\n\n1. Go to the Staff tab in your site's dashboard or open your site in the Wix app and tap Manage, then Booking Calendar.\n2. Tap the Staff tab and select an existing staff member.\n3. Tap Add Hours next to Working Hours and follow the prompts to set the Start Date (optional: + Set end date for temporary changes).\n4. Choose how often the custom hours repeat (e.g., Weekly, Every 2 weeks, etc.).\n5. Select the relevant days of the week the custom hours apply to.\n6. Enter the start and end times for the custom hours.\n7. Choose the relevant location for the staff member's availability.\n8. Tap Save to apply the custom hours [1]. \n\nIf you need to make one-time changes to a staff member's working hours, you can do so by clicking on their hours in the Work Schedule tab, adjusting the Time and Location, and tapping Save [2]. \n\nFor recurring changes, you can select the \"Schedule for later\" option, choose a Start Date, and set the repeat frequency [4]. \n\nNote: Custom hours override the default hours for that staff member, and changes to default hours do not affect custom hours [1].",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "Wix Bookings: Editing Your Staff Members' Working Hours\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-editing-your-staff-members-working-hours\nArticle ID: 2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06\nWix Bookings: Editing Your Staff Members' Working Hours\nWhen setting up your site, you set default work hours that apply to all staff members. You can then customize the default hours for specific staff members, which is useful for part-time staff or staff working shifts. It also helps when you have seasonal work or maternity leave cover. In this article, learn more about:\nCreating custom hours for a staff member Viewing your work schedule Making one-time changes to staff working hours Editing and removing a staff member's hours Frequently asked questions (FAQs)Creating custom hours for a staff memberYou can change a staff members' working hours from the Staff tab in your site's dashboard, or from the Wix app on your mobile device. This is useful for creating recurring changes to a staff member's hours now, or in the future.When you create custom hours, it overrides your default hours for that staff member. Any changes you make to your default hours…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "(Optional) Repeat steps 3-10 to create additional custom work hours for the same staff member.\nTip: This is useful if your staff member is available in different hours / locations on different days, or if they change location during the day. Click Save.\nGo to your site in the Wix app. Tap Manage  at the bottom. Tap Booking Calendar. Tap the Staff tab. Tap to select an existing staff member. Tap Add Hours next to Working Hours. Tap Continue. Tap to select the Start Date for the staff member's new work schedule. (Optional) Tap + Set end date to make the change to the staff member's work schedule temporary. This works great for busy holiday periods or maternity leave cover.  Tap the Repeats drop-down to select how often your staff member works these hours: Weekly, Every 2 weeks, Every 3 weeks or every 4 weeks. Select the days the staff member is available to book. Tap to select the Start Time. Tap to select the End Time. Tap to select the Location your staff member is available in.\nNote: A summary of the staff member's custom hours appears at the bottom of the screen. Tap Save at the top. (Optional) Repeat steps 6-14 to create additional custom work hours for the same staff member.\nTi…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "Now: The change in shift takes effect immediately. This is useful for last-minute changes.  Schedule for later: Decide when the change in working hours takes place. This is useful for future planning. Click to select the Start Date.    (Optional) Click + Set end date and choose an end date if this is a temporary change. Click the Repeats drop-down to select how often your staff member works these hours. (Optional) Select a different day this change is relevant for. Select the relevant Start Time and End Time for the change.  Select the relevant location for the one-time change.  Click Save. Note: These changes don't cancel or reschedule existing appointments automatically. If needed, go to the Booking Calendar to reschedule or reassign the appointments.Remove staff working hours\nHover over the relevant working hours and click the Remove icon  . Click Continue to confirm.\nNote: Sessions that were already scheduled with the staff member remain on the calendar. You can reassign the class to a new staff member manually.\nGo to your site in the Wix app. Tap Manage  at the bottom. Tap Booking Calendar. Tap the Staff tab. Tap to select an existing staff member. Tap the More Actions icon…"
+          }
+        ],
+        "latency_ms": 19379.52,
+        "tokens_used": 5458,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "Wix Bookings: Editing Your Staff Members' Working Hours\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-editing-your-staff-members-working-hours\nArticle ID: 2de6c169"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "(Optional) Repeat steps 3-10 to create additional custom work hours for the same staff member. \nTip: This is useful if your staff member is available in different hours / locations"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "Tap the checkmarks next to the relevant staff members. Tap Apply.  Making one-time changes to staff working hoursClick any staff member's hours on a given day in the Work Schedule "
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "Now: The change in shift takes effect immediately. This is useful for last-minute changes.  Schedule for later: Decide when the change in working hours takes place. This is useful "
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/81815895cb357ab2acbf1da52c91beff481c88fe49d416c853b3fb88a4ae92ea.md",
+            "span": "Wix Bookings: Blocking Off Time in Your Calendar\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-blocking-off-time-in-your-calendar\nArticle ID: 81815895cb357ab2acbf1"
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "Wix Bookings: Editing Your Staff Members' Working Hours\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-editing-your-staff-members-working-hours\nArticle ID: 2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06\nWix Bookings: Editing Your Staff Members' Working Hours\nWhen setting up your site, you set default work hours that apply to all staff members. You can then customize the default hours for specific staff members, which is useful for part-time staff or staff working shifts. It also helps when you have seasonal work or maternity leave cover. In this article, learn more about:\nCreating custom hours for a staff member Viewing your work schedule Making one-time changes to staff working hours Editing and removing a staff member's hours Frequently asked questions (FAQs)Creating custom hours for a staff memberYou can change a staff members' working hours from the Staff tab in your site's dashboard, or from the Wix app on your mobile device. This is useful for creating recurring changes to a staff member's hours now, or in the future.When you create custom hours, it overrides your default hours for that staff member. Any changes you make to your default hours…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "(Optional) Repeat steps 3-10 to create additional custom work hours for the same staff member.\nTip: This is useful if your staff member is available in different hours / locations on different days, or if they change location during the day. Click Save.\nGo to your site in the Wix app. Tap Manage  at the bottom. Tap Booking Calendar. Tap the Staff tab. Tap to select an existing staff member. Tap Add Hours next to Working Hours. Tap Continue. Tap to select the Start Date for the staff member's new work schedule. (Optional) Tap + Set end date to make the change to the staff member's work schedule temporary. This works great for busy holiday periods or maternity leave cover.  Tap the Repeats drop-down to select how often your staff member works these hours: Weekly, Every 2 weeks, Every 3 weeks or every 4 weeks. Select the days the staff member is available to book. Tap to select the Start Time. Tap to select the End Time. Tap to select the Location your staff member is available in.\nNote: A summary of the staff member's custom hours appears at the bottom of the screen. Tap Save at the top. (Optional) Repeat steps 6-14 to create additional custom work hours for the same staff member.\nTi…"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "Now: The change in shift takes effect immediately. This is useful for last-minute changes.  Schedule for later: Decide when the change in working hours takes place. This is useful for future planning. Click to select the Start Date.    (Optional) Click + Set end date and choose an end date if this is a temporary change. Click the Repeats drop-down to select how often your staff member works these hours. (Optional) Select a different day this change is relevant for. Select the relevant Start Time and End Time for the change.  Select the relevant location for the one-time change.  Click Save. Note: These changes don't cancel or reschedule existing appointments automatically. If needed, go to the Booking Calendar to reschedule or reassign the appointments.Remove staff working hours\nHover over the relevant working hours and click the Remove icon  . Click Continue to confirm.\nNote: Sessions that were already scheduled with the staff member remain on the calendar. You can reassign the class to a new staff member manually.\nGo to your site in the Wix app. Tap Manage  at the bottom. Tap Booking Calendar. Tap the Staff tab. Tap to select an existing staff member. Tap the More Actions icon…"
+          }
+        ],
+        "cost_usd": 0.00030686,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 4771.34
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 1.0,
+      "retrieval_source_precision": 0.5,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 1162,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0015",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "To enable guest checkout for your pricing plans on Wix, follow these steps:\n\n1. Go to Pricing Plans Settings in your site's dashboard. [1]\n2. Click the Checkout tab. [1]\n3. Click to enable the Guest checkout toggle. [1]\n\nOnce enabled, visitors can buy your pricing plans without signing up or logging in. They will begin by choosing the plan they want to buy, then have the option of logging in or continuing as a guest. They will enter their payment details as normal and continue. When payment is complete, they receive an email with the details of their purchase, which contains a link to create a new password and sign up as members of your site. [1]",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/8309620f90a06cbd6b28930591ae59e9f479687ecac060543c69b26214815aab.md",
+            "span": "Pricing Plans: Allowing Guest Checkout on Your Site\n\nUpstream URL: https://support.wix.com/en/article/pricing-plans-allowing-guest-checkout-on-your-site\nArticle ID: 8309620f90a06cbd6b28930591ae59e9f479687ecac060543c69b26214815aab\nPricing Plans: Allowing Guest Checkout on Your Site\nLet visitors to your site buy your pricing plans without having to sign up or log in. Enabling guest checkout makes it easier for site visitors to become loyal customers. In this article, learn more about:\nEnabling guest checkout How guest checkout looks on your siteEnabling guest checkout for pricing plansEnable guest checkout to let visitors sample your pricing plans, without becoming full members of your site right away. Visitors who go through guest checkout automatically become contacts. They also receive an email with a link to create a member profile on your site, so they can access the Members Area.Notes:\nFor plans that include online content and services, visitors need to create their member profile up to gain access.  Guest checkout is only available to customers on the Plans & Pricing page on your site. To enable guest checkout:\nGo to Pricing Plans Settings in your site's dashboard. Click the C…"
+          }
+        ],
+        "latency_ms": 12414.53,
+        "tokens_used": 5287,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/8309620f90a06cbd6b28930591ae59e9f479687ecac060543c69b26214815aab.md",
+            "span": "Pricing Plans: Allowing Guest Checkout on Your Site\n\nUpstream URL: https://support.wix.com/en/article/pricing-plans-allowing-guest-checkout-on-your-site\nArticle ID: 8309620f90a06cb"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/3407d197c71652bee58835ba148794a8be7e70cf9e25c599044b823c82db29fd.md",
+            "span": "Pricing Plans: Creating a Free Plan\n\nUpstream URL: https://support.wix.com/en/article/pricing-plans-creating-a-free-plan\nArticle ID: 3407d197c71652bee58835ba148794a8be7e70cf9e25c59"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/8cc75fbcc571336d1ef1768e7727bd9d1e6c1333f22eeb5366232b9a1a066418.md",
+            "span": "Pricing Plans: Creating Discount Coupons\n\nUpstream URL: https://support.wix.com/en/article/pricing-plans-creating-discount-coupons\nArticle ID: 8cc75fbcc571336d1ef1768e7727bd9d1e6c1"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb31027d7187f9.md",
+            "span": "Wix Bookings: About Wix Bookings\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-about-wix-bookings\nArticle ID: b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb3"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/3407d197c71652bee58835ba148794a8be7e70cf9e25c599044b823c82db29fd.md",
+            "span": "Home Page: Customers go straight to your home page after completing their purchase.  Other page: Enter the URL of the page.    Tap Save.      Tap Save at the top right.Notes:\nWhen "
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/8309620f90a06cbd6b28930591ae59e9f479687ecac060543c69b26214815aab.md",
+            "span": "Pricing Plans: Allowing Guest Checkout on Your Site\n\nUpstream URL: https://support.wix.com/en/article/pricing-plans-allowing-guest-checkout-on-your-site\nArticle ID: 8309620f90a06cbd6b28930591ae59e9f479687ecac060543c69b26214815aab\nPricing Plans: Allowing Guest Checkout on Your Site\nLet visitors to your site buy your pricing plans without having to sign up or log in. Enabling guest checkout makes it easier for site visitors to become loyal customers. In this article, learn more about:\nEnabling guest checkout How guest checkout looks on your siteEnabling guest checkout for pricing plansEnable guest checkout to let visitors sample your pricing plans, without becoming full members of your site right away. Visitors who go through guest checkout automatically become contacts. They also receive an email with a link to create a member profile on your site, so they can access the Members Area.Notes:\nFor plans that include online content and services, visitors need to create their member profile up to gain access.  Guest checkout is only available to customers on the Plans & Pricing page on your site. To enable guest checkout:\nGo to Pricing Plans Settings in your site's dashboard. Click the C…"
+          }
+        ],
+        "cost_usd": 0.00029648,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 4578.51
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 0.5,
+      "retrieval_source_precision": 0.5,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 654,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0016",
+      "tier": "multi_hop",
+      "answer": {
+        "answer": "To manage the categories of your booking services on your Wix website, follow these steps:\n\n1. **Creating Categories**: \n   - Go to Booking Services in your site's dashboard.\n   - Click \"Manage Categories.\"\n   - Click \"+ Add New Category.\"\n   - Enter the category name and click \"Add\" to save [1].\n\n2. **Assigning Services to Categories**:\n   - Go to Booking Services in your site's dashboard.\n   - Select the service you want to assign to a category.\n   - Click the \"Service category\" drop-down and choose the relevant category.\n   - Click \"Save\" to assign the service [1].\n\n3. **Reordering Categories and Services**:\n   - To reorder categories:\n     - Go to Booking Services in your site's dashboard.\n     - Click \"Manage Categories\" at the top.\n     - Click and hold the drag handle next to the categories to rearrange them.\n     - (Optional) Hover over a category to rename or delete it.\n     - Click \"+ Add New Category\" at the bottom to create new categories [1].\n   - To reorder services within a category:\n     - Go to Booking Services in your site's dashboard.\n     - Select a category from the drop-down at the top.\n     - Click and hold the drag handle next to the services to rearrange them [1].\n\n4. **Renaming Categories**:\n   - Go to Booking Services in your site's dashboard.\n   - Click \"Manage Categories.\"\n   - Hover over the category you want to rename.\n   - Click \"Edit Name.\"\n   - Enter the new category name and click \"Save\" [1].\n\n5. **Deleting a Category**:\n   - Go to Booking Services in your site's dashboard.\n   - Click \"Manage Categories.\"\n   - Hover over the relevant category and click \"Delete.\"\n   - Choose to move the services to another category or permanently delete the category.\n   - If you choose to delete, click \"Delete\" to confirm. Note that this action cannot be undone, and you will need to recreate the services manually if they are deleted [1].",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/9b71e0c1c1101d626c050e2209b382430c36eb91644c25dc9016802164ea769f.md",
+            "span": "Wix Bookings: Managing Services and Categories\n\nUpstream URL: https://support.wix.com/en/article/about-service-categories-in-wix-bookings\nArticle ID: 9b71e0c1c1101d626c050e2209b382430c36eb91644c25dc9016802164ea769f\nWix Bookings: Managing Services and Categories\nThe Services tab in your site's dashboard displays all your offerings in one location. Search the list by service, filter by category, and reorder your services to suit your needs. You can also customize this table to show as many details as you like.Group similar services into categories to make it easier for clients to find and book them on your site. In this article, learn more about:\nCreating categories Assigning a service to a category Reordering your services and categories Renaming categories Deleting a category Changing the view and filters on your Service ListCreating categoriesAdding categories is a great way of keeping your site organized and helping your clients find the services they need. To create a category:\nGo to Booking Services in your site's dashboard. Click Manage Categories. Click + Add New Category. Enter the Category Name. Click Add to save.Assigning a service to a new categoryWhen you create a new se…"
+          }
+        ],
+        "latency_ms": 20795.96,
+        "tokens_used": 5992,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/9b71e0c1c1101d626c050e2209b382430c36eb91644c25dc9016802164ea769f.md",
+            "span": "Wix Bookings: Managing Services and Categories\n\nUpstream URL: https://support.wix.com/en/article/about-service-categories-in-wix-bookings\nArticle ID: 9b71e0c1c1101d626c050e2209b382"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/9b71e0c1c1101d626c050e2209b382430c36eb91644c25dc9016802164ea769f.md",
+            "span": "Tip:You can also rearrange your categories by clicking Manage categories in the More Actions drop-down at the top of the page. Renaming categoriesYou can change the name of a categ"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/0edfb79224593e47a232c58687f04d0534cabe82e36a6af890f92830860b5b72.md",
+            "span": "Wix Stores: Creating and Managing Categories Using the Wix App\n\nUpstream URL: https://support.wix.com/en/article/wix-stores-creating-and-managing-categories-using-the-wix-owner-app"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb31027d7187f9.md",
+            "span": "Learn more about creating membership plans and packages.  Offering services in multiple locationsAs your business grows, add additional locations where you offer your services whil"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb31027d7187f9.md",
+            "span": "Wix Bookings: About Wix Bookings\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-about-wix-bookings\nArticle ID: b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb3"
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/9b71e0c1c1101d626c050e2209b382430c36eb91644c25dc9016802164ea769f.md",
+            "span": "Wix Bookings: Managing Services and Categories\n\nUpstream URL: https://support.wix.com/en/article/about-service-categories-in-wix-bookings\nArticle ID: 9b71e0c1c1101d626c050e2209b382430c36eb91644c25dc9016802164ea769f\nWix Bookings: Managing Services and Categories\nThe Services tab in your site's dashboard displays all your offerings in one location. Search the list by service, filter by category, and reorder your services to suit your needs. You can also customize this table to show as many details as you like.Group similar services into categories to make it easier for clients to find and book them on your site. In this article, learn more about:\nCreating categories Assigning a service to a category Reordering your services and categories Renaming categories Deleting a category Changing the view and filters on your Service ListCreating categoriesAdding categories is a great way of keeping your site organized and helping your clients find the services they need. To create a category:\nGo to Booking Services in your site's dashboard. Click Manage Categories. Click + Add New Category. Enter the Category Name. Click Add to save.Assigning a service to a new categoryWhen you create a new se…"
+          }
+        ],
+        "cost_usd": 0.00033895,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 4396.45
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 0.5,
+      "retrieval_source_precision": 0.6666666666666666,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 1886,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0017",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "To block off time slots in a staff schedule for a single staff member, follow these steps:\n\n1. Go to the Booking Calendar in your site's dashboard.\n2. Click \"Add\" or click the time slot you wish to block off on the calendar.\n3. Select \"Blocked Time.\"\n4. Choose the staff member whose time you want to block from the Staff drop-down.\n5. (Optional) Enter a Title to explain the reason for the blocked time.\n6. Select a start date and time.\n7. Select an end date and time.\n8. (Optional) Add a note for yourself.\n9. Click \"Block\" [1].",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/81815895cb357ab2acbf1da52c91beff481c88fe49d416c853b3fb88a4ae92ea.md",
+            "span": "Wix Bookings: Blocking Off Time in Your Calendar\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-blocking-off-time-in-your-calendar\nArticle ID: 81815895cb357ab2acbf1da52c91beff481c88fe49d416c853b3fb88a4ae92ea\nWix Bookings: Blocking Off Time in Your Calendar\nTaking a vacation? Unavailable to perform a service because you're at a personal event?  You can block off hours - for yourself or for staff members - on your Wix Bookings calendar. During those blocked time slots, customers will not be able to book appointments.In this article, learn more about:\nBlocking off time in your calendar Frequently asked questions (FAQs)Blocking off time in your calendarBlocking off time in your Bookings calendar is a great way to keep your schedule free for admin tasks, staff training or personal errands. To block off hours:\nGo to Booking Calendar in your site's dashboard. Click Add or click the time slot you wish to block off on the calendar. Select Blocked Time. Choose the staff member whose time you want to block from the Staff drop-down. (Optional) Enter a Title to explain the reason for the blocked time.  Select a start date and time. Select an end date and time. (Optional) Add a n…"
+          }
+        ],
+        "latency_ms": 11596.58,
+        "tokens_used": 5327,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/81815895cb357ab2acbf1da52c91beff481c88fe49d416c853b3fb88a4ae92ea.md",
+            "span": "Wix Bookings: Blocking Off Time in Your Calendar\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-blocking-off-time-in-your-calendar\nArticle ID: 81815895cb357ab2acbf1"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "(Optional) Repeat steps 3-10 to create additional custom work hours for the same staff member. \nTip: This is useful if your staff member is available in different hours / locations"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "Tap the checkmarks next to the relevant staff members. Tap Apply.  Making one-time changes to staff working hoursClick any staff member's hours on a given day in the Work Schedule "
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "Wix Bookings: Editing Your Staff Members' Working Hours\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-editing-your-staff-members-working-hours\nArticle ID: 2de6c169"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2de6c16958d89aee79f3d5e8f44686b80d74cfccf56b02bd14fecf96663e3c06.md",
+            "span": "Now: The change in shift takes effect immediately. This is useful for last-minute changes.  Schedule for later: Decide when the change in working hours takes place. This is useful "
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/81815895cb357ab2acbf1da52c91beff481c88fe49d416c853b3fb88a4ae92ea.md",
+            "span": "Wix Bookings: Blocking Off Time in Your Calendar\n\nUpstream URL: https://support.wix.com/en/article/wix-bookings-blocking-off-time-in-your-calendar\nArticle ID: 81815895cb357ab2acbf1da52c91beff481c88fe49d416c853b3fb88a4ae92ea\nWix Bookings: Blocking Off Time in Your Calendar\nTaking a vacation? Unavailable to perform a service because you're at a personal event?  You can block off hours - for yourself or for staff members - on your Wix Bookings calendar. During those blocked time slots, customers will not be able to book appointments.In this article, learn more about:\nBlocking off time in your calendar Frequently asked questions (FAQs)Blocking off time in your calendarBlocking off time in your Bookings calendar is a great way to keep your schedule free for admin tasks, staff training or personal errands. To block off hours:\nGo to Booking Calendar in your site's dashboard. Click Add or click the time slot you wish to block off on the calendar. Select Blocked Time. Choose the staff member whose time you want to block from the Staff drop-down. (Optional) Enter a Title to explain the reason for the blocked time.  Select a start date and time. Select an end date and time. (Optional) Add a n…"
+          }
+        ],
+        "cost_usd": 0.00029895,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 4703.99
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 1.0,
+      "retrieval_source_precision": 0.5,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 530,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0018",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "To delete items from a CMS collection, follow these steps:\n\n1. Go to CMS in your site's dashboard.\n2. Click the relevant collection.\n3. Select the checkbox next to the item you want to delete. To select multiple items at once, select the first item you want to delete, hold down the Shift key on your keyboard, and select the last item you want to delete.\n4. Click Delete at the top right.\n5. Click Delete again to confirm [1]. \n\nNote: Before deleting an item, make sure you don't have any dynamic pages or references in another collection connected to it, as once the item is deleted, these links or references will break.",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/7f365d820565efdc168e39938b16e965ea0e70a394eaac7e926078ec3b562ceb.md",
+            "span": "CMS: Deleting Items in a Collection\n\nUpstream URL: https://support.wix.com/en/article/cms-formerly-content-manager-deleting-items-in-a-collection\nArticle ID: 7f365d820565efdc168e39938b16e965ea0e70a394eaac7e926078ec3b562ceb\nCMS: Deleting Items in a Collection\nYou can remove an item from your CMS (Content Management System) collection whenever you like. If the content is in both the optional Sandbox and Live collection, you need to delete the item in both locations. You can learn more about the Sandbox feature here.Important:If you have the optional Sandbox enabled, syncing your Sandbox collection does not remove the item from the Live collection.Note:Before deleting an item, make sure you don't have any dynamic pages or references in another collection connected to it, as once the item is deleted, these links or references will break.To delete an item:\nGo to CMS in your site's dashboard. Click the relevant collection. Select the checkbox next to the item you want to delete.\nTip: To select multiple items at once, select the first item you want to delete, hold down the Shift key on your keyboard and select the last item you want to delete. Click Delete. Click Delete to confirm."
+          }
+        ],
+        "latency_ms": 11990.84,
+        "tokens_used": 4875,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/7f365d820565efdc168e39938b16e965ea0e70a394eaac7e926078ec3b562ceb.md",
+            "span": "CMS: Deleting Items in a Collection\n\nUpstream URL: https://support.wix.com/en/article/cms-formerly-content-manager-deleting-items-in-a-collection\nArticle ID: 7f365d820565efdc168e39"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/f346781bc6cf23c95342ce003927de9d985a99eeb7561c69f03e65da7c10f2fb.md",
+            "span": "Duplicate field: Create a copy of the field without any values in the fields.  Duplicate field with content: Create a copy of the field with all the same values.   Make primary: Ho"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/2df694686b70b35ed389ff590354cfaf19aafc07659b12b02078f2ebcf015ac8.md",
+            "span": "Make sure Table is selected as the layout type at the top of the collection. Click the Reorder icon  next to the relevant item.  Drag the item up or down to reorder it in the list."
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/163d579af227160c8072dc465c81d8edea4b507d7e8789078b680f88633aefab.md",
+            "span": "Click Mirror on Site at the top of the collection.  Enable the toggle next to Mirror item order on the site.   Tips:\nFrom the Table layout, you can manually sort the items too. Cli"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/f346781bc6cf23c95342ce003927de9d985a99eeb7561c69f03e65da7c10f2fb.md",
+            "span": "Click Mirror on Site at the top of the collection.  Enable the toggle next to Mirror item order on the site.  More actionsClick More Actions at the top right and choose an option:\n"
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/7f365d820565efdc168e39938b16e965ea0e70a394eaac7e926078ec3b562ceb.md",
+            "span": "CMS: Deleting Items in a Collection\n\nUpstream URL: https://support.wix.com/en/article/cms-formerly-content-manager-deleting-items-in-a-collection\nArticle ID: 7f365d820565efdc168e39938b16e965ea0e70a394eaac7e926078ec3b562ceb\nCMS: Deleting Items in a Collection\nYou can remove an item from your CMS (Content Management System) collection whenever you like. If the content is in both the optional Sandbox and Live collection, you need to delete the item in both locations. You can learn more about the Sandbox feature here.Important:If you have the optional Sandbox enabled, syncing your Sandbox collection does not remove the item from the Live collection.Note:Before deleting an item, make sure you don't have any dynamic pages or references in another collection connected to it, as once the item is deleted, these links or references will break.To delete an item:\nGo to CMS in your site's dashboard. Click the relevant collection. Select the checkbox next to the item you want to delete.\nTip: To select multiple items at once, select the first item you want to delete, hold down the Shift key on your keyboard and select the last item you want to delete. Click Delete. Click Delete to confirm."
+          }
+        ],
+        "cost_usd": 0.00027232,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 5931.45
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 1.0,
+      "retrieval_source_precision": 0.25,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 623,
+      "refused": false
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0019",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "The available knowledge base does not contain enough traceable evidence to answer this question.",
+        "citations": [],
+        "latency_ms": 12150.43,
+        "tokens_used": 5413,
+        "refused": true,
+        "refusal_reason": "insufficient_evidence",
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/8c2e56296ddb7b441238ff06cfa9b38204aca9e27371386689b1fa4643cdfbff.md",
+            "span": "Google Workspace: Setting Up Additional Workspace Users from Wix\n\nUpstream URL: https://support.wix.com/en/article/google-workspace-setting-up-additional-workspace-users-from-wix\nA"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/e9366441d1e037a1470c9bad57455dbadc24db0ca931791edd0f3b026ea6a58f.md",
+            "span": "Changing the email address of your accountYou can change your Wix account email address in your Account Settings. Important:\nMake sure that your new email address is a real address"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/e9366441d1e037a1470c9bad57455dbadc24db0ca931791edd0f3b026ea6a58f.md",
+            "span": "Changing the Email Address of Your Wix Account\n\nUpstream URL: https://support.wix.com/en/article/changing-the-email-address-of-your-wix-account\nArticle ID: e9366441d1e037a1470c9bad"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/b9ba8c318ee75f49eaa89c1d5b8d461fa2b4c27167381b869aeb31027d7187f9.md",
+            "span": "Learn more about creating membership plans and packages.  Offering services in multiple locationsAs your business grows, add additional locations where you offer your services whil"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af.md",
+            "span": "Upstream URL: https://support.wix.com/en/article/connecting-paypal-as-a-payment-provider\nArticle ID: 7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af\nConnecting Pay"
+          }
+        ],
+        "answer_citations": [],
+        "cost_usd": 0.00030173,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 4625.61
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": null,
+      "answer_citation_recall": 0.0,
+      "retrieval_source_precision": 0.25,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": 0.0,
+      "answer_length_chars": 96,
+      "refused": true
+    },
+    {
+      "system": "sag_engine",
+      "question_id": "wixqa-0020",
+      "tier": "single_hop",
+      "answer": {
+        "answer": "To add funds to your Wix Payments account to issue a refund, follow these steps:\n\n1. Issue the refund from your Wix Payments account on desktop or from the Wix app on your mobile device.\n2. If you need to add funds to cover the refund:\n   - On desktop: Go to Payments in your site's dashboard, select the payment to refund, click Refund, enter the amount you wish to refund, and click Refund and confirm by clicking Yes, Refund. If you need to add funds, click Add Funds & Complete Refund, enter your credit / debit card details, and click Add Funds & Complete Refund.\n   - On mobile: Go to Payments in the Wix app, tap on the payment to refund, tap Refund, enter the amount to refund, and tap Issue Refund. If you need to add funds, tap Add Funds & Complete Refund, enter the amount of funds to be added, and tap Continue. Then enter your payment details and tap Add Funds.\n\nOnce the funds are processed, we'll automatically refund the relevant customer. It may take up to 3-5 business days for the refund to appear in your customer's statement [1].",
+        "citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/c8a54de5b540e9832be6e6468b5e498d532df9ea6af16ae83fcdcd15647e4c73.md",
+            "span": "Adding Funds to Cover Refunds in Your Wix Payments Account\n\nUpstream URL: https://support.wix.com/en/article/adding-funds-to-cover-refunds-in-your-wix-payments-account\nArticle ID: c8a54de5b540e9832be6e6468b5e498d532df9ea6af16ae83fcdcd15647e4c73\nAdding Funds to Cover Refunds in Your Wix Payments Account\nYou may need to refund a customer and currently don't have enough funds in your Wix Payments account to cover the return. If your current balance can't cover a specific refund, you'll need to add funds to your Wix Payments account.See how refund top-ups are calculatedIf you have scheduled payouts, processing payments and / or reserve funds in your account, they are used to offset the amount required for top-up. For example:$100 Refund amountMinus -$20 Scheduled payout$20 Processing payment$10 Reserve funds ---------------------------$50 Top-up neededTo issue a refund and add funds:Issue refunds from your Wix Payments account on desktop or from the Wix app on your mobile device.DesktopWix app\nGo to Payments in your site's dashboard. Select the payment to refund. Click Refund.\n Enter the amount you wish to refund. (Optional) Add a note. Click Refund and confirm by clicking Yes, Refund.…"
+          }
+        ],
+        "latency_ms": 13301.26,
+        "tokens_used": 5682,
+        "refused": false,
+        "refusal_reason": null,
+        "retrieved_sources": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/c8a54de5b540e9832be6e6468b5e498d532df9ea6af16ae83fcdcd15647e4c73.md",
+            "span": "Adding Funds to Cover Refunds in Your Wix Payments Account\n\nUpstream URL: https://support.wix.com/en/article/adding-funds-to-cover-refunds-in-your-wix-payments-account\nArticle ID: "
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/9dbf43e1a13c691c4ac016af067a723ca51613c639d878f7c556dd1a1fbc3018.md",
+            "span": "Receiving Your Payouts from Wix Payments\n\nUpstream URL: https://support.wix.com/en/article/receiving-your-payouts-from-wix-payments\nArticle ID: 9dbf43e1a13c691c4ac016af067a723ca516"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/04997ca3b0a1736557e6895e2eecc51ccd581a1982afa647b5ebf835e68d4deb.md",
+            "span": "Wix Payments: Failed Payout\n\nUpstream URL: https://support.wix.com/en/article/failed-payout-in-wix-payments\nArticle ID: 04997ca3b0a1736557e6895e2eecc51ccd581a1982afa647b5ebf835e68d"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f504f53ca4aca465.md",
+            "span": "Wix Payments Verification Process\n\nUpstream URL: https://support.wix.com/en/article/wix-payments-verification-process\nArticle ID: 49d9e88fadbf11fa4e685c847590078ff9394c2fe7566094f5"
+          },
+          {
+            "source_path": "examples/third_party/wixqa/corpus/7a49619f637ed0508bca64c0995e2726276d8faba2907d97350e0f01384709af.md",
+            "span": "You need to have your account successfully verified to receive payouts.Is my currency supported?Be aware that payments will fail If you are using an unsupported currency.\nThe curre"
+          }
+        ],
+        "answer_citations": [
+          {
+            "source_path": "examples/third_party/wixqa/corpus/c8a54de5b540e9832be6e6468b5e498d532df9ea6af16ae83fcdcd15647e4c73.md",
+            "span": "Adding Funds to Cover Refunds in Your Wix Payments Account\n\nUpstream URL: https://support.wix.com/en/article/adding-funds-to-cover-refunds-in-your-wix-payments-account\nArticle ID: c8a54de5b540e9832be6e6468b5e498d532df9ea6af16ae83fcdcd15647e4c73\nAdding Funds to Cover Refunds in Your Wix Payments Account\nYou may need to refund a customer and currently don't have enough funds in your Wix Payments account to cover the return. If your current balance can't cover a specific refund, you'll need to add funds to your Wix Payments account.See how refund top-ups are calculatedIf you have scheduled payouts, processing payments and / or reserve funds in your account, they are used to offset the amount required for top-up. For example:$100 Refund amountMinus -$20 Scheduled payout$20 Processing payment$10 Reserve funds ---------------------------$50 Top-up neededTo issue a refund and add funds:Issue refunds from your Wix Payments account on desktop or from the Wix app on your mobile device.DesktopWix app\nGo to Payments in your site's dashboard. Select the payment to refund. Click Refund.\n Enter the amount you wish to refund. (Optional) Add a note. Click Refund and confirm by clicking Yes, Refund.…"
+          }
+        ],
+        "cost_usd": 0.00031948,
+        "corpus_version_hash": "d71eceb4566dd4cd0088eead388ff2c5f487b383e43a1e57d69a0633372e5344",
+        "index_build_id": "sag://sag/10b76665dc6ed1800aaab1b1",
+        "generator_model_id": "Qwen/Qwen3-8B",
+        "meta": {},
+        "retrieval_latency_ms": 4755.28
+      },
+      "must_include_match": null,
+      "must_not_include_violations": null,
+      "answer_citation_precision": 1.0,
+      "answer_citation_recall": 1.0,
+      "retrieval_source_precision": 0.2,
+      "retrieval_source_recall": 1.0,
+      "faithfulness": null,
+      "relevance": null,
+      "abstention_correctness": null,
+      "answer_length_chars": 1050,
+      "refused": false
+    }
+  ],
+  "by_system_metric": {
+    "sag_engine": {
+      "answer_citation_precision": 0.9166666666666666,
+      "answer_citation_recall": 0.6916666666666667,
+      "retrieval_source_precision": 0.5091666666666667,
+      "retrieval_source_recall": 0.9583333333333334,
+      "abstention_correctness": 0.0,
+      "answer_length_chars": 675.5,
+      "latency_ms_p50": 13075.425,
+      "retrieval_latency_ms_p50": 4763.3099999999995,
+      "tokens_used_total": 102463.0,
+      "refusal_rate": 0.1
+    }
+  },
+  "by_system_tier_metric": {
+    "sag_engine": {
+      "multi_hop": {
+        "answer_citation_precision": 0.8888888888888888,
+        "answer_citation_recall": 0.537037037037037,
+        "retrieval_source_precision": 0.7407407407407407,
+        "retrieval_source_recall": 0.9074074074074073,
+        "answer_length_chars": 707.3333333333334
+      },
+      "single_hop": {
+        "answer_citation_precision": 0.9444444444444444,
+        "answer_citation_recall": 0.8181818181818182,
+        "retrieval_source_precision": 0.3196969696969697,
+        "retrieval_source_recall": 1.0,
+        "abstention_correctness": 0.0,
+        "answer_length_chars": 649.4545454545455
+      }
+    }
+  },
+  "pairwise": []
+}

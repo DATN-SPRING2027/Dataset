@@ -1,0 +1,361 @@
+{
+  "tenant_id": "ORG-NSC",
+  "project_id": "0d24633a5a21d393af9239c0",
+  "file_count": 0,
+  "pricing_per_1m_usd": {
+    "Kev-4b": {
+      "llm_input_per_1m": 0.04,
+      "llm_cached_input_per_1m": 0.04,
+      "llm_output_per_1m": 0.04
+    },
+    "Qwen/Qwen3-8B": {
+      "llm_input_per_1m": 0.06,
+      "llm_cached_input_per_1m": 0.06,
+      "llm_output_per_1m": 0.06
+    },
+    "Qwen/Qwen3-Embedding-0.6B": {
+      "embedding_input_per_1m": 0.01
+    }
+  },
+  "ingestion_and_knowledge": {
+    "totals": {
+      "cost_usd": 0.00083175,
+      "llm_calls": 0,
+      "cache_hits": 368,
+      "total_tokens": 83175,
+      "embedding_calls": 130,
+      "estimated_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "llm_reasoning_tokens": 0,
+      "embedding_input_tokens": 83175,
+      "llm_cached_input_tokens": 0,
+      "llm_uncached_input_tokens": 0
+    },
+    "by_model": {
+      "Qwen/Qwen3-Embedding-0.6B": {
+        "cost_usd": 0.00083175,
+        "llm_calls": 0,
+        "cache_hits": 368,
+        "total_tokens": 83175,
+        "embedding_calls": 130,
+        "estimated_calls": 0,
+        "llm_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "embedding_input_tokens": 83175,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0
+      }
+    },
+    "cost_usd": 0.00083175,
+    "metadata": {
+      "search_unit_texts_count": 1,
+      "search_unit_estimated_tokens": 263,
+      "knowledge_block_preload_texts_count": 2,
+      "knowledge_block_preload_estimated_tokens": 217
+    },
+    "by_component": {
+      "search_index_embedding": {
+        "cost_usd": 0.00083175,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "total_tokens": 83175,
+        "embedding_calls": 130,
+        "estimated_calls": 0,
+        "llm_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "embedding_input_tokens": 83175,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0
+      },
+      "knowledge_foundation_embedding": {
+        "cost_usd": 0.0,
+        "llm_calls": 0,
+        "cache_hits": 368,
+        "total_tokens": 0,
+        "embedding_calls": 0,
+        "estimated_calls": 0,
+        "llm_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "embedding_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0
+      }
+    },
+    "by_token_type": {
+      "total_tokens": 83175,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "llm_reasoning_tokens": 0,
+      "embedding_input_tokens": 83175,
+      "llm_cached_input_tokens": 0,
+      "llm_uncached_input_tokens": 0
+    }
+  },
+  "query_and_generation": {
+    "totals": {
+      "embedding_input_tokens": 2241,
+      "llm_input_tokens": 100872,
+      "llm_cached_input_tokens": 3456,
+      "llm_uncached_input_tokens": 97416,
+      "llm_output_tokens": 25138,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 128251,
+      "embedding_calls": 50,
+      "llm_calls": 100,
+      "cache_hits": 0,
+      "estimated_calls": 0,
+      "cost_usd": 0.00663771
+    },
+    "by_token_type": {
+      "embedding_input_tokens": 2241,
+      "llm_input_tokens": 100872,
+      "llm_cached_input_tokens": 3456,
+      "llm_uncached_input_tokens": 97416,
+      "llm_output_tokens": 25138,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 128251
+    },
+    "by_component": {
+      "answer_generation": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 74675,
+        "llm_cached_input_tokens": 3456,
+        "llm_uncached_input_tokens": 71219,
+        "llm_output_tokens": 4070,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 78745,
+        "embedding_calls": 0,
+        "llm_calls": 50,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.0047247
+      },
+      "decision_router": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 26197,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 26197,
+        "llm_output_tokens": 21068,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 47265,
+        "embedding_calls": 0,
+        "llm_calls": 50,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.0018906
+      },
+      "query_embedding": {
+        "embedding_input_tokens": 2241,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2241,
+        "embedding_calls": 50,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 2.241e-05
+      }
+    },
+    "by_model": {
+      "Kev-4b": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 26197,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 26197,
+        "llm_output_tokens": 21068,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 47265,
+        "embedding_calls": 0,
+        "llm_calls": 50,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.0018906
+      },
+      "Qwen/Qwen3-8B": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 74675,
+        "llm_cached_input_tokens": 3456,
+        "llm_uncached_input_tokens": 71219,
+        "llm_output_tokens": 4070,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 78745,
+        "embedding_calls": 0,
+        "llm_calls": 50,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.0047247
+      },
+      "Qwen/Qwen3-Embedding-0.6B": {
+        "embedding_input_tokens": 2241,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2241,
+        "embedding_calls": 50,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 2.241e-05
+      }
+    },
+    "cost_usd": 0.00663771
+  },
+  "grand_total": {
+    "totals": {
+      "embedding_input_tokens": 85416,
+      "llm_input_tokens": 100872,
+      "llm_cached_input_tokens": 3456,
+      "llm_uncached_input_tokens": 97416,
+      "llm_output_tokens": 25138,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 211426,
+      "embedding_calls": 180,
+      "llm_calls": 100,
+      "cache_hits": 368,
+      "estimated_calls": 0,
+      "cost_usd": 0.00746946
+    },
+    "by_token_type": {
+      "embedding_input_tokens": 85416,
+      "llm_input_tokens": 100872,
+      "llm_cached_input_tokens": 3456,
+      "llm_uncached_input_tokens": 97416,
+      "llm_output_tokens": 25138,
+      "llm_reasoning_tokens": 0,
+      "total_tokens": 211426
+    },
+    "by_component": {
+      "answer_generation": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 74675,
+        "llm_cached_input_tokens": 3456,
+        "llm_uncached_input_tokens": 71219,
+        "llm_output_tokens": 4070,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 78745,
+        "embedding_calls": 0,
+        "llm_calls": 50,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.0047247
+      },
+      "decision_router": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 26197,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 26197,
+        "llm_output_tokens": 21068,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 47265,
+        "embedding_calls": 0,
+        "llm_calls": 50,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.0018906
+      },
+      "knowledge_foundation_embedding": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 0,
+        "embedding_calls": 0,
+        "llm_calls": 0,
+        "cache_hits": 368,
+        "estimated_calls": 0,
+        "cost_usd": 0.0
+      },
+      "query_embedding": {
+        "embedding_input_tokens": 2241,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 2241,
+        "embedding_calls": 50,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 2.241e-05
+      },
+      "search_index_embedding": {
+        "embedding_input_tokens": 83175,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 83175,
+        "embedding_calls": 130,
+        "llm_calls": 0,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.00083175
+      }
+    },
+    "by_model": {
+      "Kev-4b": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 26197,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 26197,
+        "llm_output_tokens": 21068,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 47265,
+        "embedding_calls": 0,
+        "llm_calls": 50,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.0018906
+      },
+      "Qwen/Qwen3-8B": {
+        "embedding_input_tokens": 0,
+        "llm_input_tokens": 74675,
+        "llm_cached_input_tokens": 3456,
+        "llm_uncached_input_tokens": 71219,
+        "llm_output_tokens": 4070,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 78745,
+        "embedding_calls": 0,
+        "llm_calls": 50,
+        "cache_hits": 0,
+        "estimated_calls": 0,
+        "cost_usd": 0.0047247
+      },
+      "Qwen/Qwen3-Embedding-0.6B": {
+        "embedding_input_tokens": 85416,
+        "llm_input_tokens": 0,
+        "llm_cached_input_tokens": 0,
+        "llm_uncached_input_tokens": 0,
+        "llm_output_tokens": 0,
+        "llm_reasoning_tokens": 0,
+        "total_tokens": 85416,
+        "embedding_calls": 180,
+        "llm_calls": 0,
+        "cache_hits": 368,
+        "estimated_calls": 0,
+        "cost_usd": 0.00085416
+      }
+    },
+    "cost_usd": 0.00746946,
+    "metadata": {
+      "search_unit_texts_count": 1,
+      "search_unit_estimated_tokens": 263,
+      "knowledge_block_preload_texts_count": 2,
+      "knowledge_block_preload_estimated_tokens": 217
+    }
+  },
+  "files": []
+}
