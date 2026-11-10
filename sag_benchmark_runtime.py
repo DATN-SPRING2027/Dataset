@@ -63,9 +63,9 @@ def configure_full_benchmark_settings(
         settings.knowledge_concurrency = max(int(settings.knowledge_concurrency or 4), 8)
     if hasattr(settings, 'knowledge_queue_capacity'):
         settings.knowledge_queue_capacity = max(int(settings.knowledge_queue_capacity or 256), 512)
-    # Prevent extra SiliconFlow /systemone HTTP call per query (uses deterministic ECCE routing)
+    # Enable Full Pre-Retrieve (SiliconFlow SystemOne Kev-4b Decision Router + qsp-v2) by default
     if hasattr(settings, 'decision_provider'):
-        settings.decision_provider = 'disabled'
+        settings.decision_provider = os.getenv('SAG_BENCHMARK_DECISION_PROVIDER', 'siliconflow')
     # Prevent SiliconFlow TPM pre-reservation spikes (reserve 512 output tokens instead of 4096/20000)
     if hasattr(settings, 'llm_max_tokens'):
         settings.llm_max_tokens = min(int(getattr(settings, 'llm_max_tokens', 512) or 512), 512)
@@ -266,6 +266,8 @@ class SAGBenchmark:
                             'embedding_model': settings.embedding_model,
                             'document_event_extraction_enabled': settings.document_event_extraction_enabled,
                             'llm_model': settings.llm_model,
+                            'decision_provider': getattr(settings, 'decision_provider', 'disabled'),
+                            'decision_model': getattr(settings, 'decision_model', None),
                         }
                         self.run._write_manifest()
                         yield self
@@ -371,14 +373,21 @@ class SAGBenchmark:
 
     async def reuse_documents(self, files: list[Path], *, logical_source_ids: dict[Path, str] | None = None):
         from sag_api.core.db import SessionLocal
-        expected = {
-            (
+        expected: dict[str, set[str]] = {}
+        for p in files:
+            lid = (
                 logical_source_ids[p]
                 if logical_source_ids and p in logical_source_ids
                 else p.relative_to(self.run.root).as_posix()
-            ): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in files
-        }
+            )
+            raw_b = p.read_bytes()
+            lf_b = raw_b.replace(b'\r\n', b'\n')
+            crlf_b = lf_b.replace(b'\n', b'\r\n')
+            expected[lid] = {
+                hashlib.sha256(raw_b).hexdigest(),
+                hashlib.sha256(lf_b).hexdigest(),
+                hashlib.sha256(crlf_b).hexdigest(),
+            }
         project_name = getattr(self.run, 'project_name', None)
         async with SessionLocal() as session:
             rows = (await session.execute(text('''SELECT d.id,d.logical_source_id,v.file_hash
@@ -396,7 +405,11 @@ class SAGBenchmark:
                 )
                 await session.commit()
         actual = {r.logical_source_id: r.file_hash for r in rows}
-        if actual != expected or len(rows) != len(files):
+        if (
+            set(actual.keys()) != set(expected.keys())
+            or len(rows) != len(files)
+            or any(actual[lid] not in expected[lid] for lid in expected)
+        ):
             raise ValueError('Reused corpus content/identity differs from the supplied dataset')
         self.documents = {r.id: r.logical_source_id for r in rows}
         self.run.manifest['document_paths'] = self.documents
@@ -584,7 +597,7 @@ class SAGBenchmark:
         response.raise_for_status()
         return response.json()
 
-    async def ask(self, query: str, *, top_k: int | None = 5, retrieval_only: bool = False) -> dict:
+    async def ask(self, query: str, *, top_k: int | None = None, retrieval_only: bool = False) -> dict:
         from benchmark_http_client import measure_search
 
         min_interval_s = float(getattr(self, 'inter_query_delay_s', 1.5))

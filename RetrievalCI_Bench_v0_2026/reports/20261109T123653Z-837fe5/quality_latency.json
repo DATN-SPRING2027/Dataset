@@ -1,0 +1,577 @@
+{
+  "protocol": {
+    "judge_model": null,
+    "judge_enabled": false,
+    "judge_scale": "1–5",
+    "judge_rubric": "RetrievalCI faithfulness/relevance",
+    "latency_repetitions": 1,
+    "concurrency": 1,
+    "first_pass_cache": "not explicitly prewarmed; physical cold cache not verified",
+    "judge_latency_included": false
+  },
+  "quality": {
+    "qst_0001": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0002": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0003": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0004": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0005": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0006": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0007": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0008": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0009": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0010": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0011": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0012": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0013": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0014": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0015": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0016": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0017": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0018": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0019": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0020": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0021": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0022": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0023": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0024": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0025": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0341": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0342": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0343": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0344": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0345": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0346": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0347": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0348": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0349": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0350": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0351": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0352": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0353": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0354": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0355": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0411": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0412": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0413": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0414": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0415": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0481": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0482": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0483": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0484": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    },
+    "qst_0485": {
+      "status": "skipped_by_config",
+      "faithfulness": {
+        "score": null
+      },
+      "relevance": {
+        "score": null
+      }
+    }
+  },
+  "latency": {
+    "first_pass": {
+      "requests": 50,
+      "errors": 0,
+      "successful": {
+        "retrieval_latency_ms": {
+          "n": 50,
+          "mean_ms": 8721.8634,
+          "p50_ms": 8428.98,
+          "p95_ms": 10582.79,
+          "p99_ms": 18666.44
+        },
+        "first_token_ms": {
+          "n": 46,
+          "mean_ms": 15821.583478260869,
+          "p50_ms": 15308.735,
+          "p95_ms": 24394.37,
+          "p99_ms": 29543.98
+        },
+        "latency_ms": {
+          "n": 50,
+          "mean_ms": 15422.541399999998,
+          "p50_ms": 15023.474999999999,
+          "p95_ms": 24395.0,
+          "p99_ms": 29544.52
+        }
+      },
+      "all_attempts": {
+        "retrieval_latency_ms": {
+          "n": 50,
+          "mean_ms": 8721.8634,
+          "p50_ms": 8428.98,
+          "p95_ms": 10582.79,
+          "p99_ms": 18666.44
+        },
+        "first_token_ms": {
+          "n": 46,
+          "mean_ms": 15821.583478260869,
+          "p50_ms": 15308.735,
+          "p95_ms": 24394.37,
+          "p99_ms": 29543.98
+        },
+        "latency_ms": {
+          "n": 50,
+          "mean_ms": 15422.541399999998,
+          "p50_ms": 15023.474999999999,
+          "p95_ms": 24395.0,
+          "p99_ms": 29544.52
+        }
+      }
+    },
+    "warm_combined": {
+      "requests": 0,
+      "errors": 0,
+      "successful": {
+        "retrieval_latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "first_token_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        }
+      },
+      "all_attempts": {
+        "retrieval_latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "first_token_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        },
+        "latency_ms": {
+          "n": 0,
+          "mean_ms": null,
+          "p50_ms": null,
+          "p95_ms": null,
+          "p99_ms": null
+        }
+      }
+    }
+  },
+  "warm_attempts": [],
+  "quality_summary": {
+    "faithfulness": {
+      "n_scored": 0,
+      "mean": null
+    },
+    "relevance": {
+      "n_scored": 0,
+      "mean": null
+    }
+  }
+}

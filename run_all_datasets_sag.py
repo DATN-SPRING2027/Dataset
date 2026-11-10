@@ -1325,8 +1325,12 @@ async def build_seven_projects_summary() -> dict[str, Any]:
 
         ing_tok = (tok.get("ingestion_and_knowledge") or {}).get("totals") or {}
         ing_cost = float((tok.get("ingestion_and_knowledge") or {}).get("cost_usd", 0.0) or 0.0)
-        qry_tok = (tok.get("query_and_generation") or {}).get("totals") or {}
-        qry_cost = float((tok.get("query_and_generation") or {}).get("cost_usd", 0.0) or 0.0)
+        qry_sec = tok.get("query_and_generation") or {}
+        qry_tok = qry_sec.get("totals") or {}
+        qry_cost = float(qry_sec.get("cost_usd", 0.0) or 0.0)
+        dec_bucket = (qry_sec.get("by_component") or {}).get("decision_router") or {}
+        dec_tok = int(dec_bucket.get("total_tokens", 0) or 0)
+        dec_cost = float(dec_bucket.get("cost_usd", 0.0) or 0.0)
         grd_tok = (tok.get("grand_total") or {}).get("totals") or {}
         grd_cost = float((tok.get("grand_total") or {}).get("cost_usd", 0.0) or 0.0)
 
@@ -1376,6 +1380,8 @@ async def build_seven_projects_summary() -> dict[str, Any]:
             "tokens_and_cost": {
                 "ingestion_tokens": int(ing_tok.get("total_tokens", 0) or 0),
                 "ingestion_cost_usd": round(ing_cost, 6),
+                "decision_router_tokens": dec_tok,
+                "decision_router_cost_usd": round(dec_cost, 6),
                 "query_tokens": int(qry_tok.get("total_tokens", 0) or 0),
                 "query_cost_usd": round(qry_cost, 6),
                 "grand_total_tokens": int(grd_tok.get("total_tokens", 0) or 0),
