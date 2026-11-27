@@ -159,9 +159,19 @@ def test_manifest_gate_blocks_cache_replay_and_zero_acl_cases() -> None:
         "cached_reused_count": 0,
         "acl_deny_cases_count": 6,
         "git_commit": "2e4bc3c65971847085c12ff6212040a47b513c11",
-        "quality_latency": {"latency": {"first_pass": {"invariant_violations": []}}},
+        "quality_latency": {
+            "latency": {"first_pass": {"invariant_violations": []}},
+            "acl_security_evaluation": {
+                "cases": [{"actual_decision": "DENY", "decision_correct": True} for _ in range(6)],
+            },
+        },
     }
     assert validate_live_benchmark_manifest(good_manifest) == []
+    cases = good_manifest["quality_latency"]["acl_security_evaluation"]["cases"]
+    cases[0] = {"actual_decision": "NOT_EVALUATED", "decision_correct": False}
+    assert "unmeasured" in validate_live_benchmark_manifest(good_manifest)[0]
+    cases.pop()
+    assert "missing" in validate_live_benchmark_manifest(good_manifest)[0]
 
 
 def test_seven_projects_pre_retrieve_disables_cache_replay_by_default() -> None:

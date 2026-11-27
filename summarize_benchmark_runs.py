@@ -104,6 +104,8 @@ async def main(run_ids: list[str]) -> None:
             manifest_errors = validate_live_benchmark_manifest(
                 manifest, require_live_only=True, require_acl_deny=True, require_judge_scored=False
             )
+            if manifest_errors:
+                raise ValueError(f"Benchmark {row['id']} failed credibility gates: {'; '.join(manifest_errors)}")
             diag_rows = (
                 list((row.get('diagnostics_json') or {}).values())
                 if ci

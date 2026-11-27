@@ -755,7 +755,7 @@ class SAGBenchmark:
         """Execute a live negative ACL probe against `/api/v1/search/stream` using an
         unauthorized foreign-project / foreign-organization SAG session JWT.
 
-        A check passes ONLY if SAG rejects the request (HTTP 403/404) OR returns zero
+        A check passes only after a session is issued, and the search returns HTTP 403 or zero
         sections and zero citations referencing any protected document (`leaked_citations == []`).
         """
         from sag_api.core.config import settings
@@ -778,11 +778,12 @@ class SAGBenchmark:
             },
             json={'displayName': 'Unauthorized ACL Probe'},
         )
-        if login_resp.status_code in (401, 403, 404):
+        if not login_resp.is_success:
             return {
                 'expected_decision': 'DENY',
-                'actual_decision': 'DENY',
-                'decision_correct': True,
+                'actual_decision': 'NOT_EVALUATED',
+                'decision_correct': False,
+                'stage': 'session_setup',
                 'http_status': login_resp.status_code,
                 'leaked_citations': [],
                 'leaked_sections_count': 0,
@@ -812,11 +813,18 @@ class SAGBenchmark:
                 if item.get('document_id')
             )
         )
-        denied = bool(err) or (len(sections) == 0 and len(citations) == 0)
+        if sections or citations:
+            decision = 'ALLOW_LEAK'
+        elif err:
+            decision = 'DENY' if err.get('http_status') == 403 else 'ERROR'
+        elif isinstance(resp.get('sections'), list) and isinstance(resp.get('citations'), list):
+            decision = 'DENY'
+        else:
+            decision = 'ERROR'
         return {
             'expected_decision': 'DENY',
-            'actual_decision': 'DENY' if denied else 'ALLOW_LEAK',
-            'decision_correct': denied and len(leaked_docs) == 0,
+            'actual_decision': decision,
+            'decision_correct': decision == 'DENY',
             'error': err,
             'leaked_citations': leaked_docs,
             'leaked_sections_count': len(sections),

@@ -417,6 +417,18 @@ def validate_live_benchmark_manifest(
     )
     if require_acl_deny and acl_count <= 0:
         errors.append("acl_deny_cases_count == 0 (negative ACL test cases required)")
+    elif require_acl_deny:
+        evaluation = (manifest.get("quality_latency") or {}).get("acl_security_evaluation") or {}
+        cases = evaluation.get("cases") or []
+        if len(cases) != acl_count:
+            errors.append("ACL results are missing for one or more required cases")
+        elif any(
+            case.get("actual_decision") != "DENY"
+            or case.get("decision_correct") is not True
+            or bool(case.get("leaked_citations"))
+            for case in cases
+        ):
+            errors.append("ACL cases contain leaks, errors, or unmeasured decisions")
 
     if not manifest.get("git_commit"):
         errors.append("missing git_commit provenance hash")
