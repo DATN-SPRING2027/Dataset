@@ -62,7 +62,7 @@ jobs:
 
       - name: Run standalone unit & credibility tests
         run: |
-          pytest test_benchmark_quality.py test_benchmark_support.py tests/test_workflows_v13.py tests/test_four_organizations.py -q
+          pytest test_benchmark_quality.py test_benchmark_support.py test_benchmark_credibility_gates.py tests/test_workflows_v13.py tests/test_four_organizations.py -q
 
       - name: Run dependency vulnerability audit (pip-audit)
         continue-on-error: true

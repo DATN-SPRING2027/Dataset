@@ -123,6 +123,7 @@ def test_enterprise_datasets_have_zero_dev_test_overlap_and_honest_review_status
 
 
 def test_all_seven_datasets_have_non_zero_acl_deny_cases() -> None:
+    pytest.importorskip("sag_api")
     from run_all_datasets_sag import ALL_SEVEN_KEYS, load_acl_deny_cases
 
     for key in ALL_SEVEN_KEYS:
@@ -164,6 +165,7 @@ def test_manifest_gate_blocks_cache_replay_and_zero_acl_cases() -> None:
 
 
 def test_seven_projects_pre_retrieve_disables_cache_replay_by_default() -> None:
+    pytest.importorskip("sag_api")
     from run_seven_projects_full_pre_retrieve import _build_arg_parser, _needs_live_rerun
 
     args = _build_arg_parser().parse_args([])
