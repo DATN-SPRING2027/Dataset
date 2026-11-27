@@ -47,7 +47,16 @@ sys.path[:0] = [
 os.chdir(SAG_ROOT)
 
 from sag_api.core.config import settings
-from benchmark_quality import extended_evaluation, ir_metrics
+from benchmark_quality import (
+    build_four_axis_scorecard,
+    compute_mandatory_coverage,
+    evaluate_must_not_cite,
+    extended_evaluation,
+    ir_metrics,
+    latency_summary,
+    validate_dataset_splits_and_provenance,
+    validate_latency_row,
+)
 from benchmark_support import (
     DEFAULT_BENCHMARK_PROJECT_NAMES,
     BenchmarkRun,
@@ -142,9 +151,61 @@ def _bootstrap_mean_ci(values: list[float], n_resamples: int = 2000, seed: int =
 
 
 # ---------------------------------------------------------------------------
-# 1. Materialize Dataset 3: wixqa_enterprise
+# 1. Materialize Dataset 3: wixqa_enterprise + Negative ACL Fixture Loader
 # ---------------------------------------------------------------------------
-def materialize_wixqa_enterprise() -> tuple[list[Path], dict[Path, str], Path, list[QAItem], list[dict[str, Any]], list[dict[str, Any]]]:
+ACL_DENY_FIXTURE_MAP: dict[str, Path] = {
+    "retrievalci_v0": BENCH_V0_ROOT / "examples" / "rag_eval" / "bench_v0" / "acl_deny_cases.jsonl",
+    "wixqa_enterprise": BENCH_V0_ROOT / "examples" / "third_party" / "wixqa" / "acl_deny_cases.jsonl",
+    "vn_mteb": DATASET_ROOT / "VN_MTEB_RAG_Bench_2026" / "data" / "acl_deny_cases.jsonl",
+}
+
+
+def load_acl_deny_cases(benchmark_key: str) -> list[dict[str, Any]]:
+    """Load negative ACL-deny test cases for any of the 7 benchmark datasets."""
+    if benchmark_key in ACL_DENY_FIXTURE_MAP:
+        return _read_jsonl(ACL_DENY_FIXTURE_MAP[benchmark_key])
+    if benchmark_key == "org1_northstar":
+        wf_cases = _read_jsonl(DATASET_ROOT / "Project1" / "evaluation" / "workflow_cases.jsonl")
+        return [
+            {
+                "case_id": wc["case_id"],
+                "suite": wc.get("suite", "WORKFLOW_ACL"),
+                "split": wc.get("split", "unsplit"),
+                "review_status": wc.get("review_status", "unreviewed"),
+                "synthetic": wc.get("synthetic", True),
+                "principal_id": wc.get("principal_id"),
+                "project_id": wc.get("project_id"),
+                "question": wc["query"],
+                "expected_decision": "DENY",
+                "expected_answer": wc["expected"],
+                "must_not_cite": list(wc.get("must_not_cite") or []),
+            }
+            for wc in wf_cases
+            if wc.get("answer_channel") == "access" or wc.get("case_category") == "access_denied"
+        ]
+    if benchmark_key in ORG_DIR_MAP:
+        cases = _read_jsonl(ORG_DIR_MAP[benchmark_key] / "evaluation" / "benchmark_cases.jsonl")
+        return [
+            {
+                "case_id": c["case_id"],
+                "suite": c.get("suite", "ACL_SECURITY"),
+                "split": c.get("split", "unsplit"),
+                "review_status": c.get("review_status", "unreviewed"),
+                "synthetic": c.get("synthetic", True),
+                "principal_id": c.get("principal_id"),
+                "project_id": c.get("project_id"),
+                "question": c["question"],
+                "expected_decision": "DENY",
+                "expected_answer": c["expected_answer"],
+                "must_not_cite": list(c.get("must_not_cite") or []),
+            }
+            for c in cases
+            if c.get("answer_channel") == "access" or c.get("case_category") == "access_denied"
+        ]
+    return []
+
+
+def materialize_wixqa_enterprise() -> tuple[list[Path], dict[Path, str], set[str], Path, list[QAItem], list[dict[str, Any]], list[dict[str, Any]]]:
     wix_root = BENCH_V0_ROOT / "examples" / "third_party" / "wixqa"
     corpus_dir = wix_root / "corpus"
     files = sorted(corpus_dir.glob("*.md"))
@@ -155,7 +216,8 @@ def materialize_wixqa_enterprise() -> tuple[list[Path], dict[Path, str], Path, l
     question_path = wix_root / "questions.jsonl"
     questions = load_questions(question_path)
     raw_cases = _read_jsonl(question_path)
-    return files, logical_ids, set(), question_path, questions, raw_cases, []
+    deny_acl_cases = load_acl_deny_cases("wixqa_enterprise")
+    return files, logical_ids, set(), question_path, questions, raw_cases, deny_acl_cases
 
 
 # ---------------------------------------------------------------------------
@@ -218,7 +280,7 @@ def _flatten_md_headings(text: str) -> str:
     return "\n".join(out)
 
 
-def materialize_org1_northstar() -> tuple[list[Path], dict[Path, str], set[str], Path, list[QAItem], list[dict[str, Any]], list[dict[str, Any]]]:
+def materialize_org1_northstar(*, split: str = "all") -> tuple[list[Path], dict[Path, str], set[str], Path, list[QAItem], list[dict[str, Any]], list[dict[str, Any]]]:
     root = DATASET_ROOT / "Project1"
     out_dir = MATERIALIZED_ROOT / "org1_northstar"
     corpus_dir = out_dir / "corpus"
@@ -231,8 +293,11 @@ def materialize_org1_northstar() -> tuple[list[Path], dict[Path, str], set[str],
     tasks = _read_jsonl(root / "structured" / "work_tasks.jsonl")
     notes = _read_jsonl(root / "structured" / "task_notes.jsonl")
     members = _read_jsonl(root / "structured" / "members.jsonl")
-    rag_cases = _read_jsonl(root / "evaluation" / "rag_cases.jsonl")
-    wf_cases = _read_jsonl(root / "evaluation" / "workflow_cases.jsonl")
+    rag_cases_all = _read_jsonl(root / "evaluation" / "rag_cases.jsonl")
+    wf_cases_all = _read_jsonl(root / "evaluation" / "workflow_cases.jsonl")
+    validate_dataset_splits_and_provenance(rag_cases_all + wf_cases_all, required_split=split, allow_unreviewed=True)
+    rag_cases = [r for r in rag_cases_all if split == "all" or str(r.get("split", "")).lower() == split]
+    wf_cases = [w for w in wf_cases_all if split == "all" or str(w.get("split", "")).lower() == split]
 
     member_by_id = {m["member_id"]: m for m in members}
     task_by_id = {t["task_id"]: t for t in tasks}
@@ -281,6 +346,10 @@ def materialize_org1_northstar() -> tuple[list[Path], dict[Path, str], set[str],
         allow_raw_cases.append({
             "case_id": rc["case_id"],
             "suite": "RAG",
+            "split": rc.get("split", "unsplit"),
+            "review_status": rc.get("review_status", "unreviewed"),
+            "reviewer_1": rc.get("reviewer_1"),
+            "synthetic": rc.get("synthetic", True),
             "case_category": rc.get("case_category", "normal"),
             "question": rc["query"],
             "expected_answer": rc["expected"],
@@ -294,6 +363,10 @@ def materialize_org1_northstar() -> tuple[list[Path], dict[Path, str], set[str],
             deny_acl_cases.append({
                 "case_id": wc["case_id"],
                 "suite": wc.get("suite", "WORKFLOW_ACL"),
+                "split": wc.get("split", "unsplit"),
+                "review_status": wc.get("review_status", "unreviewed"),
+                "reviewer_1": wc.get("reviewer_1"),
+                "synthetic": wc.get("synthetic", True),
                 "principal_id": wc.get("principal_id"),
                 "project_id": wc.get("project_id"),
                 "question": wc["query"],
@@ -344,6 +417,10 @@ def materialize_org1_northstar() -> tuple[list[Path], dict[Path, str], set[str],
         allow_raw_cases.append({
             "case_id": cid,
             "suite": wc.get("suite", "WORKFLOW"),
+            "split": wc.get("split", "unsplit"),
+            "review_status": wc.get("review_status", "unreviewed"),
+            "reviewer_1": wc.get("reviewer_1"),
+            "synthetic": wc.get("synthetic", True),
             "case_category": wc.get("case_category", "normal"),
             "question": wc["query"],
             "expected_answer": wc["expected"],
@@ -529,6 +606,8 @@ def materialize_org1_northstar() -> tuple[list[Path], dict[Path, str], set[str],
 # ---------------------------------------------------------------------------
 def materialize_enterprise_org(
     benchmark_key: str,
+    *,
+    split: str = "all",
 ) -> tuple[list[Path], dict[Path, str], set[str], Path, list[QAItem], list[dict[str, Any]], list[dict[str, Any]]]:
     root = ORG_DIR_MAP[benchmark_key]
     out_dir = MATERIALIZED_ROOT / benchmark_key
@@ -544,7 +623,9 @@ def materialize_enterprise_org(
     notes = _read_jsonl(root / "structured" / "task_notes.jsonl")
     users = _read_jsonl(root / "structured" / "users.jsonl")
     roles = _read_jsonl(root / "structured" / "role_assignments.jsonl")
-    cases = _read_jsonl(root / "evaluation" / "benchmark_cases.jsonl")
+    cases_all = _read_jsonl(root / "evaluation" / "benchmark_cases.jsonl")
+    validate_dataset_splits_and_provenance(cases_all, required_split=split, allow_unreviewed=True)
+    cases = [c for c in cases_all if split == "all" or str(c.get("split", "")).lower() == split]
 
     user_by_id = {u["user_id"]: u for u in users}
     doc_by_id = {d["document_id"]: d for d in docs}
@@ -573,6 +654,10 @@ def materialize_enterprise_org(
             deny_acl_cases.append({
                 "case_id": c["case_id"],
                 "suite": c.get("suite", "ACL_SECURITY"),
+                "split": c.get("split", "unsplit"),
+                "review_status": c.get("review_status", "unreviewed"),
+                "reviewer_1": c.get("reviewer_1"),
+                "synthetic": c.get("synthetic", True),
                 "principal_id": c.get("principal_id"),
                 "project_id": c.get("project_id"),
                 "question": c["question"],
@@ -623,6 +708,10 @@ def materialize_enterprise_org(
         allow_raw_cases.append({
             "case_id": cid,
             "suite": c.get("suite", "DOMAIN_RAG"),
+            "split": c.get("split", "unsplit"),
+            "review_status": c.get("review_status", "unreviewed"),
+            "reviewer_1": c.get("reviewer_1"),
+            "synthetic": c.get("synthetic", True),
             "case_category": cat,
             "question": c["question"],
             "expected_answer": c["expected_answer"],
@@ -766,13 +855,15 @@ def materialize_enterprise_org(
 
 def materialize_dataset(
     benchmark_key: str,
+    *,
+    split: str = "all",
 ) -> tuple[list[Path], dict[Path, str], set[str], Path, list[QAItem], list[dict[str, Any]], list[dict[str, Any]]]:
     if benchmark_key == "wixqa_enterprise":
         return materialize_wixqa_enterprise()
     if benchmark_key == "org1_northstar":
-        return materialize_org1_northstar()
+        return materialize_org1_northstar(split=split)
     if benchmark_key in ORG_DIR_MAP:
-        return materialize_enterprise_org(benchmark_key)
+        return materialize_enterprise_org(benchmark_key, split=split)
     raise ValueError(f"Unsupported benchmark_key for materialization: {benchmark_key}")
 
 
@@ -852,8 +943,17 @@ async def _resolve_existing_indexed_source(
         await eng.dispose()
 
 
-async def run_single_dataset(benchmark_key: str, *, skip_index: bool = False) -> dict[str, Any]:
-    files, logical_ids, ineligible_lids, question_path, questions, allow_raw_cases, deny_acl_cases = materialize_dataset(benchmark_key)
+async def run_single_dataset(
+    benchmark_key: str,
+    *,
+    skip_index: bool = False,
+    split: str = "all",
+    enable_llm_judge: bool | None = None,
+) -> dict[str, Any]:
+    files, logical_ids, ineligible_lids, question_path, questions, allow_raw_cases, deny_acl_cases = materialize_dataset(
+        benchmark_key, split=split
+    )
+    provenance = validate_dataset_splits_and_provenance(allow_raw_cases + deny_acl_cases, allow_unreviewed=True)
     raw_by_id = {(c.get("case_id") or c.get("id")): c for c in allow_raw_cases}
 
     target_project_id = default_benchmark_project_id(benchmark_key, DEFAULT_BENCHMARK_ORGANIZATION_ID)
@@ -902,9 +1002,15 @@ async def run_single_dataset(benchmark_key: str, *, skip_index: bool = False) ->
                 "dense_graph": True,
                 "e2_enrichment": False,
                 "project_name": bench_run.project_name,
+                "split": split,
                 "acl_deny_cases_count": len(deny_acl_cases),
             },
         )
+        bench_run.manifest["split"] = split
+        bench_run.manifest["dataset_provenance"] = provenance
+        bench_run.manifest["acl_deny_cases_count"] = len(deny_acl_cases)
+        bench_run.manifest["cached_reused_count"] = 0
+        bench_run.manifest["measurement_mode"] = "live"
         async with runtime.serve():
             if skip_index:
                 await runtime.reuse_documents(files, logical_source_ids=logical_ids)
@@ -919,6 +1025,8 @@ async def run_single_dataset(benchmark_key: str, *, skip_index: bool = False) ->
 
             for index, q in enumerate(questions, 1):
                 measured = await runtime.ask(q.question)
+                measured["measurement_mode"] = "live"
+                validate_latency_row({"question_id": q.id, **measured}, strict=True)
                 result = measured["response"] or {}
                 raw_sections = result.get("sections", []) or []
                 elig_sections = [
@@ -947,8 +1055,6 @@ async def run_single_dataset(benchmark_key: str, *, skip_index: bool = False) ->
                     for c in result.get("citations", [])
                     if runtime.documents.get(c["document_id"], c["document_id"]) in elig_doc_lids
                 )
-                if not cited and result.get("answer_status") == "answered" and retrieved:
-                    cited = (retrieved[0],)
                 q_token_usage = ((result.get("stats") or {}).get("token_usage")) if isinstance(result, dict) else None
                 q_totals = (q_token_usage.get("totals") or {}) if isinstance(q_token_usage, dict) else {}
                 q_tokens_used = int(q_totals.get("total_tokens", 0) or 0)
@@ -984,26 +1090,24 @@ async def run_single_dataset(benchmark_key: str, *, skip_index: bool = False) ->
                 ir10 = ir_metrics(retrieved_unique_docs, truth_set, 10, flexible_k=True)
 
                 raw_meta = raw_by_id.get(q.id, {})
-                must_not_cite = set(raw_meta.get("must_not_cite") or [])
-                must_not_cite_base = {m.split("@")[0] for m in must_not_cite if "@" not in m}
-                forbidden_cited = [
-                    doc_id for doc_id in cited_unique_docs
-                    if doc_id in must_not_cite or doc_id in must_not_cite_base
-                ]
-                mandatory_pts = raw_meta.get("mandatory_points") or []
+                must_not_cite = list(raw_meta.get("must_not_cite") or [])
+                cit_eval = evaluate_must_not_cite(
+                    cited_unique_docs,
+                    must_not_cite,
+                    answer_status=result.get("answer_status"),
+                )
+                mandatory_pts = raw_meta.get("mandatory_points") or list(q.must_include_terms or ())
                 evidence_and_answer = (
                     (result.get("summary") or "")
                     + "\n"
                     + "\n".join(s.get("content") or "" for s in result.get("sections", []))
-                ).lower()
-                mandatory_hits = (
-                    sum(1 for pt in mandatory_pts if str(pt).lower() in evidence_and_answer) / len(mandatory_pts)
-                    if mandatory_pts
-                    else None
                 )
+                mand_eval = compute_mandatory_coverage(evidence_and_answer, mandatory_pts)
 
                 diagnostics[q.id] = {
                     "question_id": q.id,
+                    "split": raw_meta.get("split", "unsplit"),
+                    "review_status": raw_meta.get("review_status", "unrecorded"),
                     "question": q.question,
                     "tier": q.tier,
                     "unanswerable": q.unanswerable,
@@ -1015,11 +1119,14 @@ async def run_single_dataset(benchmark_key: str, *, skip_index: bool = False) ->
                     "retrieval_source_precision": row.retrieval_source_precision,
                     "answer_citation_recall": row.answer_citation_recall,
                     "answer_citation_precision": row.answer_citation_precision,
+                    "has_valid_citation": cit_eval["has_valid_citation"],
                     "abstention_correctness": row.abstention_correctness,
                     "must_include_match": row.must_include_match,
-                    "mandatory_points_coverage": mandatory_hits,
-                    "must_not_cite": list(must_not_cite),
-                    "must_not_cite_violations": len(forbidden_cited),
+                    "mandatory_points_coverage": mand_eval["coverage"],
+                    "mandatory_coverage_mode": mand_eval["mode"],
+                    "must_not_cite": must_not_cite,
+                    "must_not_cite_violations": cit_eval["violation_count"],
+                    "must_not_cite_violating_docs": cit_eval["violations"],
                     "ir_at_5": ir5,
                     "ir_at_10": ir10,
                     "token_usage": q_token_usage,
@@ -1049,27 +1156,35 @@ async def run_single_dataset(benchmark_key: str, *, skip_index: bool = False) ->
                     }
                     for qid, d in diagnostics.items()
                 },
+                enable_judge=enable_llm_judge,
             )
 
-            # Evaluate ACL DENY gate cases (deterministic Continuum RBAC pre-filter verification)
+            # Evaluate ACL DENY gate cases live against SAG's real scoped HTTP search endpoint
             acl_results = []
+            leaked_total = 0
             for ac in deny_acl_cases:
+                probe = await runtime.ask_unauthorized_acl_check(
+                    ac["question"],
+                    foreign_project_id=ac.get("foreign_project_id") or ac.get("project_id"),
+                    foreign_organization_id=ac.get("foreign_organization_id"),
+                    principal_id=ac.get("principal_id"),
+                    must_not_cite=ac.get("must_not_cite"),
+                )
+                leaked_total += int(probe.get("must_not_cite_violations", 0) or 0)
                 acl_results.append({
                     "case_id": ac["case_id"],
                     "suite": ac["suite"],
-                    "principal_id": ac["principal_id"],
-                    "project_id": ac["project_id"],
-                    "expected_decision": "DENY",
-                    "actual_decision": "DENY",
-                    "decision_correct": True,
-                    "leaked_citations": [],
-                    "must_not_cite": ac["must_not_cite"],
-                    "must_not_cite_violations": 0,
+                    "split": ac.get("split", "unsplit"),
+                    "principal_id": ac.get("principal_id"),
+                    "project_id": ac.get("project_id") or ac.get("foreign_project_id"),
+                    **probe,
                 })
+            acl_ok = sum(1 for r in acl_results if r.get("decision_correct"))
             extended["acl_security_evaluation"] = {
                 "total_acl_cases": len(acl_results),
-                "deny_accuracy": 1.0 if acl_results else None,
-                "leaked_citations_count": 0,
+                "deny_accuracy": round(acl_ok / len(acl_results), 4) if acl_results else None,
+                "leaked_citations_count": leaked_total,
+                "enforcement_mode": "live_sag_http_acl" if acl_results else "untested",
                 "cases": acl_results,
             }
             (bench_run.output_dir / "quality_latency.json").write_text(
@@ -1287,21 +1402,26 @@ async def build_seven_projects_summary() -> dict[str, Any]:
 
             must_not_violations += int(d.get("must_not_cite_violations", 0) or 0)
 
-        # Compute latencies (mean, p50, p95, p99) directly from diagnostics so even older runs have mean & p99
-        def _lat_dist(field: str) -> dict[str, Any]:
-            vals = sorted(
-                float(d[field])
-                for d in diagnostics.values()
-                if d.get(field) is not None and not d.get("error")
-            )
-            if not vals:
-                return {"n": 0, "mean_ms": None, "p50_ms": None, "p95_ms": None, "p99_ms": None}
-            return {
-                "n": len(vals),
-                "mean_ms": round(statistics.fmean(vals), 2),
-                "p50_ms": round(statistics.median(vals), 2),
-                "p95_ms": round(vals[max(0, math.ceil(0.95 * len(vals)) - 1)], 2),
-                "p99_ms": round(vals[max(0, math.ceil(0.99 * len(vals)) - 1)], 2),
+        # Compute matched-sample latency distributions (`matched_answered`) so TTFT quantiles
+        # never exceed E2E quantiles due to excluding abstentions from TTFT only (`SAG-BENCH-004`).
+        diag_list = list(diagnostics.values())
+        lat_report = latency_summary(diag_list, strict_invariants=False)
+        matched_lat = lat_report["matched_answered"]
+
+        # Separate `dev` vs held-out `test` split Recall@5 whenever split tags are present (`SAG-BENCH-001`)
+        split_breakdown: dict[str, dict[str, Any]] = {}
+        for sp_name in ("dev", "test", "unsplit"):
+            sp_rows = [d for d in diag_list if str(d.get("split") or "unsplit").lower() == sp_name]
+            if not sp_rows:
+                continue
+            sp_r5 = []
+            for d in sp_rows:
+                truth = set(d.get("ground_truth_citations") or [])
+                if truth and not d.get("unanswerable"):
+                    sp_r5.append(ir_metrics(list(d.get("retrieved_unique_docs") or []), truth, 5, flexible_k=True)["recall"])
+            split_breakdown[sp_name] = {
+                "n_questions": len(sp_rows),
+                "recall_at_5": round(statistics.fmean(sp_r5), 4) if sp_r5 else None,
             }
 
         recall5 = statistics.fmean(r5_list) if r5_list else 0.0
@@ -1321,7 +1441,41 @@ async def build_seven_projects_summary() -> dict[str, Any]:
             "total_acl_cases": 0,
             "deny_accuracy": None,
             "leaked_citations_count": 0,
+            "enforcement_mode": "untested",
         }
+        measurement_mode = manifest.get("measurement_mode") or (
+            "cached_replay" if int(manifest.get("cached_reused_count") or 0) > 0 else "live"
+        )
+        ir_block = {
+            "recall_at_5": round(recall5, 4),
+            "recall_at_5_ci95": [round(rec5_ci_lo, 4), round(rec5_ci_hi, 4)],
+            "precision_at_5": round(precision5, 4),
+            "mrr_at_5": round(mrr5, 4),
+            "map_at_5": round(map5, 4),
+            "ndcg_at_5": round(ndcg5, 4),
+            "recall_at_10": round(statistics.fmean(r10_list), 4) if r10_list else 0.0,
+            "precision_at_10": round(statistics.fmean(p10_list), 4) if p10_list else 0.0,
+            "mrr_at_10": round(statistics.fmean(mrr10_list), 4) if mrr10_list else 0.0,
+            "map_at_10": round(statistics.fmean(map10_list), 4) if map10_list else 0.0,
+            "ndcg_at_10": round(statistics.fmean(ndcg10_list), 4) if ndcg10_list else 0.0,
+            "retrievalci_composite_score": round(composite_mean, 4),
+            "retrievalci_composite_ci95": [round(comp_ci_lo, 4), round(comp_ci_hi, 4)],
+        }
+        cg_block = {
+            "answer_citation_recall": round(statistics.fmean(ans_cit_r_list), 4) if ans_cit_r_list else None,
+            "answer_citation_precision": round(statistics.fmean(ans_cit_p_list), 4) if ans_cit_p_list else None,
+            "abstention_correctness": round(statistics.fmean(abst_list), 4) if abst_list else None,
+            "mandatory_points_coverage": round(statistics.fmean(mandatory_list), 4) if mandatory_list else None,
+            "must_not_cite_violations": must_not_violations,
+            "acl_deny_accuracy": acl_eval.get("deny_accuracy"),
+        }
+        four_axis = build_four_axis_scorecard(
+            retrieval_metrics=ir_block,
+            answer_quality=q_lat,
+            citation_metrics=cg_block,
+            acl_evaluation=acl_eval,
+            measurement_mode=measurement_mode,
+        )
 
         ing_tok = (tok.get("ingestion_and_knowledge") or {}).get("totals") or {}
         ing_cost = float((tok.get("ingestion_and_knowledge") or {}).get("cost_usd", 0.0) or 0.0)
@@ -1340,6 +1494,11 @@ async def build_seven_projects_summary() -> dict[str, Any]:
             "index": idx,
             "benchmark_key": key,
             "run_id": row["id"],
+            "git_commit": manifest.get("git_commit"),
+            "measurement_mode": measurement_mode,
+            "cached_reused_count": int(manifest.get("cached_reused_count") or 0),
+            "dataset_provenance": manifest.get("dataset_provenance"),
+            "split_breakdown": split_breakdown,
             "user_id": row["user_id"],
             "organization_id": row["organization_id"],
             "project_id": row["project_id"],
@@ -1349,33 +1508,16 @@ async def build_seven_projects_summary() -> dict[str, Any]:
             "knowledge_events": after_state.get("evidence"),
             "questions_evaluated": len(diagnostics),
             "acl_deny_cases": acl_eval.get("total_acl_cases", 0),
-            "ir_metrics": {
-                "recall_at_5": round(recall5, 4),
-                "recall_at_5_ci95": [round(rec5_ci_lo, 4), round(rec5_ci_hi, 4)],
-                "precision_at_5": round(precision5, 4),
-                "mrr_at_5": round(mrr5, 4),
-                "map_at_5": round(map5, 4),
-                "ndcg_at_5": round(ndcg5, 4),
-                "recall_at_10": round(statistics.fmean(r10_list), 4) if r10_list else 0.0,
-                "precision_at_10": round(statistics.fmean(p10_list), 4) if p10_list else 0.0,
-                "mrr_at_10": round(statistics.fmean(mrr10_list), 4) if mrr10_list else 0.0,
-                "map_at_10": round(statistics.fmean(map10_list), 4) if map10_list else 0.0,
-                "ndcg_at_10": round(statistics.fmean(ndcg10_list), 4) if ndcg10_list else 0.0,
-                "retrievalci_composite_score": round(composite_mean, 4),
-                "retrievalci_composite_ci95": [round(comp_ci_lo, 4), round(comp_ci_hi, 4)],
-            },
-            "citation_and_governance": {
-                "answer_citation_recall": round(statistics.fmean(ans_cit_r_list), 4) if ans_cit_r_list else None,
-                "answer_citation_precision": round(statistics.fmean(ans_cit_p_list), 4) if ans_cit_p_list else None,
-                "abstention_correctness": round(statistics.fmean(abst_list), 4) if abst_list else None,
-                "mandatory_points_coverage": round(statistics.fmean(mandatory_list), 4) if mandatory_list else None,
-                "must_not_cite_violations": must_not_violations,
-                "acl_deny_accuracy": acl_eval.get("deny_accuracy"),
-            },
+            "four_axis_scorecard": four_axis,
+            "ir_metrics": ir_block,
+            "citation_and_governance": cg_block,
             "latency_ms": {
-                "retrieval": _lat_dist("retrieval_latency_ms"),
-                "ttft": _lat_dist("first_token_ms"),
-                "end_to_end": _lat_dist("latency_ms"),
+                "retrieval": matched_lat["retrieval_latency_ms"],
+                "ttft": matched_lat["first_token_ms"],
+                "end_to_end": matched_lat["latency_ms"],
+                "all_successful_retrieval": lat_report["successful"]["retrieval_latency_ms"],
+                "all_successful_end_to_end": lat_report["successful"]["latency_ms"],
+                "invariant_violations": lat_report["invariant_violations"],
             },
             "tokens_and_cost": {
                 "ingestion_tokens": int(ing_tok.get("total_tokens", 0) or 0),
@@ -1487,6 +1629,18 @@ async def async_main() -> None:
         default=",".join(NEW_FIVE_KEYS),
         help="Comma-separated benchmark keys to run (default: the 5 new datasets)",
     )
+    parser.add_argument(
+        "--split",
+        choices=("all", "dev", "test"),
+        default="all",
+        help="Evaluation split selector (default: all; dev and test reported separately).",
+    )
+    parser.add_argument(
+        "--enable-llm-judge",
+        action="store_true",
+        default=False,
+        help="Enable independent LLM-as-Judge faithfulness/relevance grading.",
+    )
     parser.add_argument("--skip-index", action="store_true", help="Reuse already ingested project documents")
     parser.add_argument("--cleanup-smoke", action="store_true", help="Remove old eight_file_e2e_smoke project")
     parser.add_argument("--materialize-only", action="store_true", help="Only materialize corpus & questions")
@@ -1523,18 +1677,24 @@ async def async_main() -> None:
 
     if args.materialize_only:
         for key in NEW_FIVE_KEYS:
-            files, lids, inelig, q_path, qs, allow_raw, deny_acl = materialize_dataset(key)
+            files, lids, inelig, q_path, qs, allow_raw, deny_acl = materialize_dataset(key, split=args.split)
             print(
-                f"Materialized {key:18s} | project_id={default_benchmark_project_id(key, DEFAULT_BENCHMARK_ORGANIZATION_ID)} "
+                f"Materialized {key:18s} | split={args.split:4s} | project_id={default_benchmark_project_id(key, DEFAULT_BENCHMARK_ORGANIZATION_ID)} "
                 f"| files={len(files):3d} (ineligible={len(inelig):3d}) | allow_qs={len(qs):2d} | deny_acl={len(deny_acl):2d} "
                 f"| name={default_benchmark_project_name(key)}"
             )
         return
 
+    enable_judge = True if args.enable_llm_judge else None
     if not args.summary_only:
         target_keys = [k.strip() for k in args.datasets.split(",") if k.strip()]
         if len(target_keys) == 1:
-            await run_single_dataset(target_keys[0], skip_index=args.skip_index)
+            await run_single_dataset(
+                target_keys[0],
+                skip_index=args.skip_index,
+                split=args.split,
+                enable_llm_judge=enable_judge,
+            )
         else:
             import subprocess
             for key in target_keys:
@@ -1543,10 +1703,14 @@ async def async_main() -> None:
                     str(Path(__file__).resolve()),
                     "--datasets",
                     key,
+                    "--split",
+                    args.split,
                     "--no-summary",
                 ]
                 if args.skip_index:
                     cmd.append("--skip-index")
+                if args.enable_llm_judge:
+                    cmd.append("--enable-llm-judge")
                 subprocess.run(cmd, check=True)
 
     if args.no_summary:

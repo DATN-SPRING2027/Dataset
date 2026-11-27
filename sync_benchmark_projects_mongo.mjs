@@ -1,12 +1,20 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createRequire } from 'node:module';
 
-const require = createRequire('file:///D:/DoAnTotnghiep/DATN-BE/package.json');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const WORKSPACE_ROOT = path.resolve(__dirname, '..');
+const BE_ROOT = process.env.DATN_BE_ROOT || path.join(WORKSPACE_ROOT, 'DATN_BE');
+const require = createRequire(pathToFileURL(path.join(BE_ROOT, 'package.json')).href);
 const { MongoClient, ObjectId } = require('mongodb');
 
-const MANIFEST_PATH = 'D:/DoAnTotnghiep/Dataset/reports/sag-mongo-sync-manifest.json';
-const VAULT_ROOT = 'D:/DoAnTotnghiep/.data/continuum-vault';
+const MANIFEST_PATH =
+  process.env.BENCHMARK_MANIFEST_PATH ||
+  path.join(__dirname, 'reports', 'sag-mongo-sync-manifest.json');
+const VAULT_ROOT =
+  process.env.VAULT_ROOT || path.join(WORKSPACE_ROOT, '.data', 'continuum-vault');
 const MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017';
 
 async function ensureVaultFile(vaultKey, storagePath, contentType, updatedAtIso) {

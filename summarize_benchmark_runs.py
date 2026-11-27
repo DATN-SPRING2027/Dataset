@@ -15,12 +15,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 SAG = ROOT.parent / 'sag-laya-integration/SAG'
 os.chdir(SAG)
-sys.path.insert(0, str(SAG / 'apps/api'))
+sys.path[:0] = [str(SAG / 'apps/api'), str(ROOT)]
 
 import httpx
 from sqlalchemy import text
 from sqlalchemy.engine import make_url
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
+from benchmark_quality import latency_summary, validate_live_benchmark_manifest
 from sag_api.core.config import settings
 from sag_api.core.db import engine
 from sag_api.core.principal_assertion import VerifiedPrincipal
@@ -100,9 +101,23 @@ async def main(run_ids: list[str]) -> None:
             })
             response.raise_for_status()
             assert response.json()['result']['count'] == 0, 'Collection has points belonging to another project'
+            manifest_errors = validate_live_benchmark_manifest(
+                manifest, require_live_only=True, require_acl_deny=True, require_judge_scored=False
+            )
+            diag_rows = (
+                list((row.get('diagnostics_json') or {}).values())
+                if ci
+                else list(report.get('questions') or [])
+            )
+            lat_check = latency_summary(diag_rows, strict_invariants=True)
+            assert not lat_check['invariant_violations'], f"Latency invariant errors: {lat_check['invariant_violations']}"
             checks.append({'run_id':row['id'],'project_id':row['project_id'],'source_id':row['source_id'],
                            'user_id':row['user_id'],'documents_ready':len(ready),'fresh_queries':len(fresh),
-                           'file_equals_db':True,'dataset_hashes_verified':True,'cross_project_read_blocked':True,'foreign_project_points':0})
+                           'file_equals_db':True,'dataset_hashes_verified':True,'cross_project_read_blocked':True,
+                           'foreign_project_points':0,'latency_invariants_ok':True,
+                           'cached_reused_count':int(manifest.get('cached_reused_count') or 0),
+                           'acl_deny_cases_count':int(manifest.get('acl_deny_cases_count') or 0),
+                           'manifest_warnings':manifest_errors})
             lines.append(f"| {row['benchmark_key']} | `{row['project_id']}` | {len(ready)} | {len(fresh)} | COMPLETED |")
     for row in records:
         report = row['results_json']
@@ -134,14 +149,23 @@ async def main(run_ids: list[str]) -> None:
                       '| Metric | Mean | Số câu chấm được |', '|---|---:|---:|']
             for metric, value in extended.get('quality_summary', {}).items():
                 lines.append(f"| {metric} | {value['mean']} | {value['n_scored']} |")
-            lines += ['', '### Latency SAG', '',
-                      '| Lượt | Request | Lỗi | Retrieval p50/p95 ms | First validated answer p50/p95 ms | Q&A p50/p95 ms |',
-                      '|---|---:|---:|---|---|---|']
+            lines += ['', '### Latency SAG (Matched Answered Sample — `0 <= retrieval <= ttft <= e2e`)', '',
+                      '| Lượt | Request | Lỗi | Matched n | Retrieval p50/p95 ms | First validated answer p50/p95 ms | Q&A p50/p95 ms |',
+                      '|---|---:|---:|---:|---|---|---|']
             for phase, value in extended['latency'].items():
-                distributions = value['successful']
+                distributions = value.get('matched_answered') or value['successful']
+                matched_n = distributions['latency_ms'].get('n', 0)
                 cells = [f"{distributions[k]['p50_ms']} / {distributions[k]['p95_ms']}" for k in ('retrieval_latency_ms','first_token_ms','latency_ms')]
-                lines.append(f"| {phase} | {value['requests']} | {value['errors']} | " + ' | '.join(cells) + ' |')
-            lines += ['', 'Bảng latency trên dùng request thành công; JSON giữ cả phân phối tất cả attempts và lỗi. First pass không preload query; physical cold cache chưa xác minh. summary.delta chỉ được gửi sau kiểm chứng citation, nên first_token_ms không phải raw model TTFT.']
+                lines.append(f"| {phase} | {value['requests']} | {value['errors']} | {matched_n} | " + ' | '.join(cells) + ' |')
+            acl_eval = extended.get('acl_security_evaluation') or {}
+            lines += [
+                '',
+                f"- **ACL Safety (separate from IR):** `acl_deny_cases_count={acl_eval.get('total_acl_cases', 0)}`, "
+                f"`deny_accuracy={acl_eval.get('deny_accuracy')}`, `leaked_citations_count={acl_eval.get('leaked_citations_count', 0)}` "
+                f"(`enforcement_mode={acl_eval.get('enforcement_mode', 'unknown')}`).",
+                f"- **Measurement Mode:** `{manifest.get('measurement_mode', 'live')}` (`cached_reused_count={manifest.get('cached_reused_count', 0)}`).",
+                '- Bảng latency trên dùng tập câu trả lời khớp mẫu (`matched_answered`) bảo đảm `retrieval <= ttft <= e2e` và không gộp điểm IR Recall@5 thành Answer Accuracy.',
+            ]
             hosted = extended.get('hosted_top5_comparison')
             if hosted:
                 lines += ['', '### Top-5 retrieval so với hosted reference', '', hosted['protocol'], '',

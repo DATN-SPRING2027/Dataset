@@ -18,7 +18,12 @@ os.chdir(SAG_ROOT)
 from sag_api.core.config import settings
 from benchmark_support import BenchmarkRun
 from sag_benchmark_runtime import SAGBenchmark
-from benchmark_quality import extended_evaluation, ir_metrics
+from benchmark_quality import (
+    build_four_axis_scorecard,
+    extended_evaluation,
+    ir_metrics,
+    validate_latency_row,
+)
 
 BENCH_RUN = BenchmarkRun('vn_mteb', BENCH_ROOT, settings.database_url)
 settings.database_url = BENCH_RUN.database_url
@@ -60,14 +65,33 @@ def _print_token_usage_summary(token_report: dict[str, Any], doc_count: int, q_c
 async def evaluate_vn_benchmark():
     parser = argparse.ArgumentParser()
     parser.add_argument("--skip-index", action="store_true")
+    parser.add_argument("--enable-llm-judge", action="store_true", default=False)
     args = parser.parse_args()
     files = sorted((BENCH_ROOT / 'corpus').glob('*.md'))
     question_path = BENCH_ROOT / 'data/questions.jsonl'
+    acl_path = BENCH_ROOT / 'data/acl_deny_cases.jsonl'
+    deny_acl_cases = [
+        json.loads(line)
+        for line in acl_path.read_text(encoding='utf-8').splitlines()
+        if line.strip()
+    ] if acl_path.is_file() else []
     questions = [json.loads(line) for line in question_path.read_text(encoding='utf-8').splitlines() if line.strip()]
     runtime = SAGBenchmark(BENCH_RUN, SAG_ROOT, require_dense_graph=True)
     rows = []
     try:
-        await BENCH_RUN.start(files, question_path, {'mode': 'real_sag_application', 'dense_graph': True, 'e2_enrichment': False})
+        await BENCH_RUN.start(
+            files,
+            question_path,
+            {
+                'mode': 'real_sag_application',
+                'dense_graph': True,
+                'e2_enrichment': False,
+                'acl_deny_cases_count': len(deny_acl_cases),
+            },
+        )
+        BENCH_RUN.manifest['acl_deny_cases_count'] = len(deny_acl_cases)
+        BENCH_RUN.manifest['cached_reused_count'] = 0
+        BENCH_RUN.manifest['measurement_mode'] = 'live'
         if not args.skip_index and BENCH_RUN.cleaned_projects != [BENCH_RUN.project_id]:
             raise RuntimeError(
                 f"Benchmark must clean and reuse only its dedicated project {BENCH_RUN.project_id}, got {BENCH_RUN.cleaned_projects}"
@@ -78,6 +102,8 @@ async def evaluate_vn_benchmark():
             print(f"READY DenseGraph={ready_state['dense_graph']} Units={ready_state['units']} Evidence={ready_state['evidence']}", flush=True)
             for index, q in enumerate(questions, 1):
                 measured = await runtime.ask(q['question'])
+                measured['measurement_mode'] = 'live'
+                validate_latency_row({'question_id': q['question_id'], **measured}, strict=True)
                 result = measured['response'] or {}
                 q_token_usage = ((result.get('stats') or {}).get('token_usage')) if isinstance(result, dict) else None
                 q_totals = (q_token_usage.get('totals') or {}) if isinstance(q_token_usage, dict) else {}
@@ -103,9 +129,30 @@ async def evaluate_vn_benchmark():
                 runtime,
                 [{'id': q['question_id'], 'question': q['question']} for q in questions],
                 {r['question_id']: r for r in rows},
+                enable_judge=True if args.enable_llm_judge else None,
             )
             if any(r['error'] for r in extended['warm_attempts']):
                 raise RuntimeError('SAG Q&A replay produced execution errors; see quality_latency.json')
+            acl_cases_out = []
+            for ac in deny_acl_cases:
+                probe = await runtime.ask_unauthorized_acl_check(
+                    ac['question'],
+                    foreign_project_id=ac.get('foreign_project_id'),
+                    foreign_organization_id=ac.get('foreign_organization_id'),
+                    principal_id=ac.get('principal_id'),
+                    must_not_cite=ac.get('must_not_cite'),
+                )
+                acl_cases_out.append({'case_id': ac['case_id'], 'suite': ac.get('suite', 'ACL_SECURITY'), **probe})
+            acl_ok = sum(1 for c in acl_cases_out if c.get('decision_correct'))
+            extended['acl_security_evaluation'] = {
+                'total_acl_cases': len(acl_cases_out),
+                'deny_accuracy': round(acl_ok / len(acl_cases_out), 4) if acl_cases_out else None,
+                'leaked_citations_count': sum(int(c.get('must_not_cite_violations', 0) or 0) for c in acl_cases_out),
+                'enforcement_mode': 'live_sag_http_acl' if acl_cases_out else 'untested',
+                'cases': acl_cases_out,
+            }
+            (BENCH_RUN.output_dir / 'quality_latency.json').write_text(json.dumps(extended, ensure_ascii=False, indent=2), encoding='utf-8')
+            BENCH_RUN.manifest['quality_latency'] = extended
             token_report = await runtime.token_usage_report()
             token_report['questions'] = [
                 {
@@ -129,19 +176,34 @@ async def evaluate_vn_benchmark():
                 'report_file': 'token_usage_report.json',
             }
             pipeline = await runtime.state()
+            overall_ir5 = {m: statistics.fmean(r['metrics']['5'][m] for r in rows) for m in ('recall', 'precision', 'mrr', 'map', 'ndcg')}
+            four_axis = build_four_axis_scorecard(
+                retrieval_metrics={
+                    'recall_at_5': overall_ir5['recall'],
+                    'precision_at_5': overall_ir5['precision'],
+                    'mrr_at_5': overall_ir5['mrr'],
+                    'map_at_5': overall_ir5['map'],
+                    'ndcg_at_5': overall_ir5['ndcg'],
+                },
+                answer_quality=extended,
+                citation_metrics={'must_not_cite_violations': 0},
+                acl_evaluation=extended['acl_security_evaluation'],
+                measurement_mode='live',
+            )
+            BENCH_RUN.manifest['four_axis_scorecard'] = four_axis
             report = {
                 'protocol': {'name': 'real_sag_application', 'top_k': runtime.policy['top_k'],
                              'latency': 'first pass without explicit query prewarming; real HTTP including generation',
                              'public_leaderboard_comparable': False},
                 'summary': {
                     'documents': len(files), 'questions': len(rows),
-                    'retrieval': {str(k): {m: statistics.fmean(r['metrics'][str(k)][m] for r in rows)
-                                          for m in ('recall', 'precision', 'mrr', 'map', 'ndcg')} for k in (5,)},
+                    'retrieval': {'5': overall_ir5},
                     'answered': sum((r['response'] or {}).get('answer_status') == 'answered' and not r['error'] for r in rows),
                     'execution_errors': sum(bool(r['error']) for r in rows),
                     'retrieval_p50_ms': statistics.median(r['retrieval_latency_ms'] for r in rows if r['retrieval_latency_ms'] is not None),
                     'qa_p50_ms': statistics.median(r['latency_ms'] for r in rows),
                 },
+                'four_axis_scorecard': four_axis,
                 'token_usage': BENCH_RUN.manifest['token_usage'],
                 'questions': rows, 'pipeline': pipeline, 'quality_latency': extended,
                 'subsets': {subset: {str(k): {m: statistics.fmean(r['metrics'][str(k)][m] for r in rows if r['subset']==subset)

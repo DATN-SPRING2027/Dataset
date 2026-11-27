@@ -23,7 +23,7 @@ from pathlib import Path
 
 import pyarrow.parquet as pq
 
-BENCH_DIR = Path(r"d:\DoAnTotnghiep\Dataset\VN_MTEB_RAG_Bench_2026")
+BENCH_DIR = Path(__file__).resolve().parents[1]
 CORPUS_DIR = BENCH_DIR / "corpus"
 DATA_DIR = BENCH_DIR / "data"
 
