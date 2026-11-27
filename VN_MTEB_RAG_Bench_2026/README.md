@@ -11,7 +11,7 @@ Bộ dữ liệu đánh giá truy xuất và tổng hợp RAG tiếng Việt chu
 
 ## 1. Cấu hình Full AI Pipeline & Kiểm toán Lời gọi AI
 
-Toàn bộ các tầng AI trong kiến trúc **SAG Engine** đã được kích hoạt đầy đủ khi chạy [`scripts/run_vn_mteb_sag.py`](file:///d:/DoAnTotnghiep/Dataset/VN_MTEB_RAG_Bench_2026/scripts/run_vn_mteb_sag.py):
+Toàn bộ các tầng AI trong kiến trúc **SAG Engine** đã được kích hoạt đầy đủ khi chạy [`scripts/run_vn_mteb_sag.py`](./scripts/run_vn_mteb_sag.py):
 
 - **AI Stage 1 — Dense Embedding (`Qwen/Qwen3-Embedding-0.6B`, 1024 chiều):** Nhúng đồng thời toàn bộ `SearchUnit` trong Qdrant và `368/368 KnowledgeUnit` trong PostgreSQL để kích hoạt tín hiệu ngữ nghĩa (`semantic` weight = `0.40`) khi xây dựng đồ thị tri thức.
 - **AI Stage 2 — Tier E2 LLM Knowledge Extraction (`Qwen/Qwen3-8B`):** Gọi LLM trích xuất thực thể, bí danh, mệnh đề và quan hệ có đối chiếu span nguyên văn (`_align_e2_spans` + `apply_e2`), bổ sung `+109 entities`, `+49 claims`, `+58 relations` vào đồ thị.

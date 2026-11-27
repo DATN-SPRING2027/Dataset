@@ -1,0 +1,70 @@
+name: Dataset CI (Syntax, Credibility Gates & SCA)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Python 3.12 Syntax, Tests & Credibility Gates
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Dataset
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]" pip-audit
+
+      - name: AST syntax check on all Python scripts
+        run: |
+          python -c "
+          import ast, pathlib, sys
+          root = pathlib.Path('.')
+          errors = []
+          for p in sorted(root.rglob('*.py')):
+              if any(part in {'.git', '.serena', '__pycache__', '.materialized'} for part in p.parts):
+                  continue
+              try:
+                  ast.parse(p.read_text(encoding='utf-8'))
+              except SyntaxError as exc:
+                  errors.append(f'{p}: {exc}')
+          if errors:
+              print('\n'.join(errors))
+              sys.exit(1)
+          print('AST check OK')
+          "
+
+      - name: Validate JSON / JSONL / TOML syntax
+        run: |
+          python -c "
+          import json, pathlib, tomllib
+          tomllib.loads(pathlib.Path('pyproject.toml').read_text(encoding='utf-8'))
+          for p in sorted(pathlib.Path('.').rglob('*.jsonl')):
+              if any(part in {'.git', '.serena', '.materialized', 'reports'} for part in p.parts):
+                  continue
+              for idx, line in enumerate(p.read_text(encoding='utf-8').splitlines(), 1):
+                  if line.strip():
+                      json.loads(line)
+          print('TOML & JSONL check OK')
+          "
+
+      - name: Run standalone unit & credibility tests
+        run: |
+          pytest test_benchmark_quality.py test_benchmark_support.py test_benchmark_credibility_gates.py tests/test_workflows_v13.py tests/test_four_organizations.py -q
+
+      - name: Run dependency vulnerability audit (pip-audit)
+        continue-on-error: true
+        run: |
+          pip-audit --desc

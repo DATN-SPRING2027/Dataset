@@ -19,7 +19,13 @@ os.chdir(SAG_ROOT)
 from sag_api.core.config import settings
 from benchmark_support import BenchmarkRun
 from sag_benchmark_runtime import SAGBenchmark
-from benchmark_quality import extended_evaluation
+from benchmark_quality import (
+    build_four_axis_scorecard,
+    compute_mandatory_coverage,
+    evaluate_must_not_cite,
+    extended_evaluation,
+    validate_latency_row,
+)
 from retrievalci.rag_eval.metrics import _aligned_metric_values, compute_row, paired_bootstrap_ci
 from retrievalci.rag_eval.runner import _aggregate, load_questions
 from retrievalci.rag_eval.types import (
@@ -217,15 +223,35 @@ def merge_and_save_reports(
 
 async def async_main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--skip-index", action="store_true"); args = parser.parse_args()
+    parser.add_argument("--skip-index", action="store_true")
+    parser.add_argument("--enable-llm-judge", action="store_true", default=False)
+    args = parser.parse_args()
     files = sorted((BENCH_ROOT / 'examples/rag_eval/bench_v0/corpus').glob('*.md'))
     question_path = BENCH_ROOT / 'examples/rag_eval/bench_v0/questions.jsonl'
+    acl_path = BENCH_ROOT / 'examples/rag_eval/bench_v0/acl_deny_cases.jsonl'
+    deny_acl_cases = [
+        json.loads(line)
+        for line in acl_path.read_text(encoding='utf-8').splitlines()
+        if line.strip()
+    ] if acl_path.is_file() else []
     questions = load_questions(question_path)
     runtime = SAGBenchmark(BENCH_RUN, SAG_ROOT, require_dense_graph=True)
     rows, diagnostics, prev_diag, rerun_qids = [], {}, {}, {x.strip() for x in os.getenv('SAG_BENCHMARK_RERUN_QIDS', '').split(',') if x.strip()}
     corpus_hash = _compute_corpus_hash(files)
     try:
-        await BENCH_RUN.start(files, question_path, {'mode': 'real_sag_application', 'dense_graph': True, 'e2_enrichment': False})
+        await BENCH_RUN.start(
+            files,
+            question_path,
+            {
+                'mode': 'real_sag_application',
+                'dense_graph': True,
+                'e2_enrichment': False,
+                'acl_deny_cases_count': len(deny_acl_cases),
+            },
+        )
+        BENCH_RUN.manifest['acl_deny_cases_count'] = len(deny_acl_cases)
+        BENCH_RUN.manifest['cached_reused_count'] = 0
+        BENCH_RUN.manifest['measurement_mode'] = 'live'
         if not args.skip_index and BENCH_RUN.cleaned_projects != [BENCH_RUN.project_id]:
             raise RuntimeError(
                 f"Benchmark must clean and reuse only its dedicated project {BENCH_RUN.project_id}, got {BENCH_RUN.cleaned_projects}"
@@ -239,9 +265,15 @@ async def async_main():
                     from sqlalchemy import text as _sql_text
                     async with BENCH_RUN.registry.connect() as _conn:
                         prev_diag = (await _conn.scalar(_sql_text('SELECT diagnostics_json FROM benchmark_runs WHERE id=:id'), {'id': os.environ['SAG_BENCHMARK_RESUME_FROM_RUN_ID']})) or {}
-                measured = ({k: prev_diag[q.id][k] for k in ('response', 'retrieval_latency_ms', 'latency_ms', 'first_token_ms', 'error', 'http_client_pid') if k in prev_diag[q.id]}
-                            if q.id in prev_diag and not prev_diag[q.id].get('error') and q.id not in rerun_qids
-                            else await runtime.ask(q.question))
+                if q.id in prev_diag and not prev_diag[q.id].get('error') and q.id not in rerun_qids:
+                    measured = {k: prev_diag[q.id][k] for k in ('response', 'retrieval_latency_ms', 'latency_ms', 'first_token_ms', 'error', 'http_client_pid') if k in prev_diag[q.id]}
+                    measured['measurement_mode'] = 'cached_replay'
+                    BENCH_RUN.manifest['cached_reused_count'] += 1
+                    BENCH_RUN.manifest['measurement_mode'] = 'cached_replay'
+                else:
+                    measured = await runtime.ask(q.question)
+                    measured['measurement_mode'] = 'live'
+                    validate_latency_row({'question_id': q.id, **measured}, strict=True)
                 result = measured['response'] or {}
                 retrieved = tuple(Citation(source_path=runtime.documents[s['document_id']], span=s['content'][:180])
                                   for s in result.get('sections', []))
@@ -268,14 +300,28 @@ async def async_main():
                 )
                 row = compute_row('sag_engine', q, answer)
                 rows.append(row)
+                evidence_and_answer = (result.get('summary') or '') + '\n' + '\n'.join(s.get('content') or '' for s in result.get('sections', []))
+                mand_eval = compute_mandatory_coverage(evidence_and_answer, q.must_include_terms)
+                cit_eval = evaluate_must_not_cite(
+                    list(dict.fromkeys(c.source_path for c in cited)),
+                    (),
+                    answer_status=result.get('answer_status'),
+                )
                 diagnostics[q.id] = {
                     'question_id': q.id, 'question': q.question, 'tier': q.tier,
                     'unanswerable': q.unanswerable, 'expected_abstain': q.expected_abstain,
                     'ground_truth_citations': list(q.ground_truth_citations),
                     'retrieved_unique_docs': list(dict.fromkeys(c.source_path for c in retrieved)),
+                    'cited_unique_docs': list(dict.fromkeys(c.source_path for c in cited)),
                     'retrieval_source_recall': row.retrieval_source_recall,
                     'retrieval_source_precision': row.retrieval_source_precision,
+                    'answer_citation_recall': row.answer_citation_recall,
+                    'answer_citation_precision': row.answer_citation_precision,
+                    'has_valid_citation': cit_eval['has_valid_citation'],
                     'abstention_correctness': row.abstention_correctness,
+                    'mandatory_points_coverage': mand_eval['coverage'],
+                    'mandatory_coverage_mode': mand_eval['mode'],
+                    'must_not_cite_violations': cit_eval['violation_count'],
                     'token_usage': q_token_usage,
                     **measured,
                 }
@@ -287,12 +333,33 @@ async def async_main():
                 )
             if any(d['error'] for d in diagnostics.values()):
                 raise RuntimeError('SAG Q&A produced execution errors; see checkpoint diagnostics')
-            extended = await extended_evaluation(runtime,
+            extended = await extended_evaluation(
+                runtime,
                 [{'id': q.id, 'question': q.question, 'reference': q.ground_truth_answer} for q in questions],
                 {qid: {'response': d['response'], 'error': d['error'], 'retrieval_latency_ms': d['retrieval_latency_ms'],
-                       'first_token_ms': d['first_token_ms'], 'latency_ms': d['latency_ms']} for qid, d in diagnostics.items()})
+                       'first_token_ms': d['first_token_ms'], 'latency_ms': d['latency_ms']} for qid, d in diagnostics.items()},
+                enable_judge=True if args.enable_llm_judge else None,
+            )
             if any(r['error'] for r in extended['warm_attempts']):
                 raise RuntimeError('SAG Q&A replay produced execution errors; see quality_latency.json')
+            acl_cases_out = []
+            for ac in deny_acl_cases:
+                probe = await runtime.ask_unauthorized_acl_check(
+                    ac['question'],
+                    foreign_project_id=ac.get('foreign_project_id'),
+                    foreign_organization_id=ac.get('foreign_organization_id'),
+                    principal_id=ac.get('principal_id'),
+                    must_not_cite=ac.get('must_not_cite'),
+                )
+                acl_cases_out.append({'case_id': ac['case_id'], 'suite': ac.get('suite', 'ACL_SECURITY'), **probe})
+            acl_ok = sum(1 for c in acl_cases_out if c.get('decision_correct'))
+            extended['acl_security_evaluation'] = {
+                'total_acl_cases': len(acl_cases_out),
+                'deny_accuracy': round(acl_ok / len(acl_cases_out), 4) if acl_cases_out else None,
+                'leaked_citations_count': sum(int(c.get('must_not_cite_violations', 0) or 0) for c in acl_cases_out),
+                'enforcement_mode': 'live_sag_http_acl' if acl_cases_out else 'untested',
+                'cases': acl_cases_out,
+            }
             rows = [row.model_copy(update={name: extended['quality'][row.question_id].get(name, {}).get('score')
                                          for name in ('faithfulness', 'relevance')}) for row in rows]
             matched = [row.model_copy(update={'system': 'sag_engine_top5'}) for row in rows]
@@ -329,6 +396,25 @@ async def async_main():
                 'report_file': 'token_usage_report.json',
             }
             report = merge_and_save_reports(questions, rows, diagnostics)
+            sag_m = report.by_system_metric.get('sag_engine', {})
+            BENCH_RUN.manifest['four_axis_scorecard'] = build_four_axis_scorecard(
+                retrieval_metrics={
+                    'recall_at_5': sag_m.get('retrieval_source_recall'),
+                    'precision_at_5': sag_m.get('retrieval_source_precision'),
+                },
+                answer_quality=extended,
+                citation_metrics={
+                    'answer_citation_precision': sag_m.get('answer_citation_precision'),
+                    'answer_citation_recall': sag_m.get('answer_citation_recall'),
+                    'abstention_correctness': sag_m.get('abstention_correctness'),
+                    'mandatory_points_coverage': statistics.fmean(
+                        d['mandatory_points_coverage'] for d in diagnostics.values() if d['mandatory_points_coverage'] is not None
+                    ) if any(d['mandatory_points_coverage'] is not None for d in diagnostics.values()) else None,
+                    'must_not_cite_violations': sum(d['must_not_cite_violations'] for d in diagnostics.values()),
+                },
+                acl_evaluation=extended['acl_security_evaluation'],
+                measurement_mode=BENCH_RUN.manifest['measurement_mode'],
+            )
             _print_token_usage_summary(token_report)
             BENCH_RUN.manifest['pipeline_after_questions'] = await runtime.state()
             BENCH_RUN.manifest['execution_errors'] = sum(bool(d['error']) for d in diagnostics.values())

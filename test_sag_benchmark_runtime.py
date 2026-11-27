@@ -252,14 +252,23 @@ class RuntimeContractTests(unittest.IsolatedAsyncioTestCase):
             embedding_api_key='emb-key',
             embedding_model='Qwen/Qwen3-Embedding-0.6B',
         )
-        configure_full_benchmark_settings(cfg)
+        summary = configure_full_benchmark_settings(cfg)
         self.assertTrue(cfg.knowledge_worker_enabled)
         self.assertEqual(cfg.knowledge_concurrency, 8)
         self.assertEqual(cfg.knowledge_queue_capacity, 512)
         self.assertEqual(cfg.decision_provider, 'disabled')
+        # Production LLM settings preserved by default (no silent 512 clamp or monkey-patch)
+        self.assertEqual(cfg.llm_max_tokens, 4096)
+        self.assertEqual(cfg.llm_max_retries, 2)
+        self.assertFalse(summary['llm_max_tokens_clamped'])
+        self.assertFalse(summary['rate_limit_guard_installed'])
+        self.assertFalse(hasattr(cfg, 'knowledge_e2_url'))
+
+        # Explicit opt-in clamp is disclosed in returned summary
+        clamped = configure_full_benchmark_settings(cfg, max_tokens_override=512, max_retries_override=0)
         self.assertEqual(cfg.llm_max_tokens, 512)
         self.assertEqual(cfg.llm_max_retries, 0)
-        self.assertFalse(hasattr(cfg, 'knowledge_e2_url'))
+        self.assertTrue(clamped['llm_max_tokens_clamped'])
 
         missing_dense = SimpleNamespace(
             knowledge_worker_enabled=True,

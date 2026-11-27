@@ -51,38 +51,106 @@ def frontend_policy(sag_root: Path) -> dict:
     }
 
 
+def _compute_prompt_hash(sag_root: Path) -> str:
+    """Compute SHA-256 fingerprint of SAG prompt and router templates for manifest provenance."""
+    h = hashlib.sha256()
+    for rel in (
+        'apps/api/sag_api/generation/prompt.py',
+        'apps/api/sag_api/services/decision_router.py',
+    ):
+        p = sag_root / rel
+        if p.is_file():
+            h.update(rel.encode('utf-8'))
+            h.update(b'\0')
+            h.update(p.read_bytes())
+            h.update(b'\0')
+    return h.hexdigest()
+
+
 def configure_full_benchmark_settings(
     settings,
     *,
     require_dense_graph: bool = True,
-) -> None:
+    max_tokens_override: int | None = None,
+    max_retries_override: int | None = None,
+    enable_rate_limit_guard: bool | None = None,
+) -> dict[str, object]:
     """Ensure Phase 5A FOUNDATION (`E0/E1` + full `DenseGraph` + `Leiden` tree) is enabled
-    and configure RPM/TPM rate-limit protection for benchmark runs."""
+    while preserving production LLM settings by default (`SAG-BENCH-003`).
+
+    - Production `llm_max_tokens` and `llm_max_retries` are NOT silently clamped to 512 / 0
+      unless explicitly requested via `max_tokens_override` / `SAG_BENCHMARK_MAX_TOKENS`
+      or `max_retries_override` / `SAG_BENCHMARK_MAX_RETRIES`.
+    - `LLMClient._create_completion` is NOT monkey-patched unless explicitly enabled via
+      `enable_rate_limit_guard=True` or `SAG_BENCHMARK_ENABLE_RATE_LIMIT_GUARD=1`.
+    - Default `decision_provider` is `disabled` unless overridden via
+      `SAG_BENCHMARK_DECISION_PROVIDER` (aligned with `SAG-PERF-002`).
+    """
     settings.knowledge_worker_enabled = True
     if hasattr(settings, 'knowledge_concurrency'):
         settings.knowledge_concurrency = max(int(settings.knowledge_concurrency or 4), 8)
     if hasattr(settings, 'knowledge_queue_capacity'):
         settings.knowledge_queue_capacity = max(int(settings.knowledge_queue_capacity or 256), 512)
-    # Enable Full Pre-Retrieve (SiliconFlow SystemOne Kev-4b Decision Router + qsp-v2) by default
     if hasattr(settings, 'decision_provider'):
-        settings.decision_provider = os.getenv('SAG_BENCHMARK_DECISION_PROVIDER', 'siliconflow')
-    # Prevent SiliconFlow TPM pre-reservation spikes (reserve 512 output tokens instead of 4096/20000)
-    if hasattr(settings, 'llm_max_tokens'):
-        settings.llm_max_tokens = min(int(getattr(settings, 'llm_max_tokens', 512) or 512), 512)
-    # Prevent LiteLLM internal burst retries from poisoning SiliconFlow's 60-second sliding RPM window
-    if hasattr(settings, 'llm_max_retries'):
-        settings.llm_max_retries = 0
+        settings.decision_provider = os.getenv('SAG_BENCHMARK_DECISION_PROVIDER', 'disabled')
+
+    env_max_tokens = os.getenv('SAG_BENCHMARK_MAX_TOKENS', '').strip()
+    resolved_max_tokens = (
+        max_tokens_override
+        if max_tokens_override is not None
+        else (int(env_max_tokens) if env_max_tokens else None)
+    )
+    llm_max_tokens_clamped = False
+    if resolved_max_tokens is not None and hasattr(settings, 'llm_max_tokens'):
+        settings.llm_max_tokens = int(resolved_max_tokens)
+        llm_max_tokens_clamped = True
+
+    env_max_retries = os.getenv('SAG_BENCHMARK_MAX_RETRIES', '').strip()
+    resolved_max_retries = (
+        max_retries_override
+        if max_retries_override is not None
+        else (int(env_max_retries) if env_max_retries else None)
+    )
+    if resolved_max_retries is not None and hasattr(settings, 'llm_max_retries'):
+        settings.llm_max_retries = int(resolved_max_retries)
+
     if require_dense_graph and not (
         getattr(settings, 'embedding_api_key', None) and getattr(settings, 'embedding_model', None)
     ):
         raise RuntimeError(
             'Full DenseGraph is required for SAG benchmarks; configure SAG_EMBEDDING_API_KEY and SAG_EMBEDDING_MODEL'
         )
-    install_dual_key_llm_rate_limit_guard(settings)
+
+    if enable_rate_limit_guard is None:
+        enable_rate_limit_guard = (
+            os.getenv('SAG_BENCHMARK_ENABLE_RATE_LIMIT_GUARD', '0').strip().lower() in ('1', 'true', 'yes')
+        )
+    if enable_rate_limit_guard:
+        install_dual_key_llm_rate_limit_guard(
+            settings,
+            max_tokens_override=resolved_max_tokens,
+            max_retries_override=resolved_max_retries,
+        )
+
+    return {
+        'decision_provider': getattr(settings, 'decision_provider', 'disabled'),
+        'llm_max_tokens': getattr(settings, 'llm_max_tokens', None),
+        'llm_max_tokens_clamped': llm_max_tokens_clamped,
+        'llm_max_retries': getattr(settings, 'llm_max_retries', None),
+        'rate_limit_guard_installed': bool(enable_rate_limit_guard),
+    }
 
 
-def install_dual_key_llm_rate_limit_guard(settings) -> None:
-    """Install round-robin dual-key rotation + failover retry on LLMClient._create_completion."""
+def install_dual_key_llm_rate_limit_guard(
+    settings,
+    *,
+    max_tokens_override: int | None = None,
+    max_retries_override: int | None = None,
+) -> None:
+    """Opt-in round-robin dual-key rotation + failover retry on LLMClient._create_completion.
+
+    Preserves `settings.llm_max_tokens` unless `max_tokens_override` is explicitly provided.
+    """
     keys = [
         k for k in dict.fromkeys([
             getattr(settings, 'llm_api_key', None),
@@ -116,8 +184,10 @@ def install_dual_key_llm_rate_limit_guard(settings) -> None:
     }
 
     async def _guarded_create_completion(self, messages, **kwargs):
-        self._settings.llm_max_tokens = min(int(getattr(self._settings, 'llm_max_tokens', 512) or 512), 512)
-        self._settings.llm_max_retries = 0
+        if max_tokens_override is not None:
+            self._settings.llm_max_tokens = int(max_tokens_override)
+        if max_retries_override is not None:
+            self._settings.llm_max_retries = int(max_retries_override)
         last_err = None
         for attempt in range(1, 6):
             async with state['lock']:
@@ -191,11 +261,28 @@ class SAGBenchmark:
         sag_root: Path,
         *,
         require_dense_graph: bool = True,
+        continuum_api_base_url: str | None = None,
+        continuum_bearer_token: str | None = None,
     ):
         self.run = run
+        self.sag_root = sag_root
         self.policy = frontend_policy(sag_root)
         self.documents = {}
         self.require_dense_graph = require_dense_graph
+        self.continuum_api_base_url = (
+            continuum_api_base_url
+            if continuum_api_base_url is not None
+            else (os.getenv('SAG_BENCHMARK_CONTINUUM_API_URL') or '').strip() or None
+        )
+        self.continuum_bearer_token = (
+            continuum_bearer_token
+            if continuum_bearer_token is not None
+            else (os.getenv('SAG_BENCHMARK_CONTINUUM_TOKEN') or '').strip() or None
+        )
+
+    @property
+    def execution_mode(self) -> str:
+        return 'full_stack_http_iam' if self.continuum_api_base_url else 'sag_service_loopback'
 
     @asynccontextmanager
     async def serve(self):
@@ -205,7 +292,7 @@ class SAGBenchmark:
         from sag_api.main import app
 
         require_dense_graph = getattr(self, 'require_dense_graph', True)
-        configure_full_benchmark_settings(
+        runtime_cfg = configure_full_benchmark_settings(
             settings,
             require_dense_graph=require_dense_graph,
         )
@@ -220,7 +307,7 @@ class SAGBenchmark:
         try:
             async with app.router.lifespan_context(app):
                 self.app = app
-                configure_full_benchmark_settings(
+                runtime_cfg = configure_full_benchmark_settings(
                     settings,
                     require_dense_graph=require_dense_graph,
                 )
@@ -246,13 +333,21 @@ class SAGBenchmark:
                         dense_graph_enabled = bool(settings.embedding_api_key and settings.embedding_model)
                         if require_dense_graph and not dense_graph_enabled:
                             raise RuntimeError('Full DenseGraph embeddings are disabled in SAG benchmark runtime')
+                        sag_root = getattr(self, 'sag_root', Path(__file__).resolve().parents[1] / 'sag-laya-integration/SAG')
                         self.run.manifest['execution'] = {
+                            'execution_mode': self.execution_mode,
+                            'iam_acl_bypassed': self.execution_mode != 'full_stack_http_iam',
+                            'continuum_api_base_url': self.continuum_api_base_url,
                             'ingestion': 'HTTP POST /api/v1/projects/{project_id}/documents/upload',
                             'transport': 'loopback HTTP /api/v1/search/stream; separate client process',
                             'http_client_pid': self.query_client.process.pid,
                             'foundation_timeout_seconds': worker.foundation_timeout,
                             'runtime': 'sag_api.main.lifespan (FOUNDATION E0/E1 + full DenseGraph + Leiden tree; E2 enrichment removed)',
-                            'authentication': 'Continuum BFF service context on project upload; scoped SAG session on search',
+                            'authentication': (
+                                'Full-stack Continuum IAM + BE gateway token'
+                                if self.execution_mode == 'full_stack_http_iam'
+                                else 'Continuum BFF service context on project upload; scoped SAG session on search (IAM bypassed)'
+                            ),
                             'query_replays': 0,
                             'frontend': self.policy,
                             'knowledge_queue': worker.policy.model_dump(mode='json'),
@@ -262,12 +357,16 @@ class SAGBenchmark:
                             'debug_logging': settings.debug,
                             'embedding_timeout_seconds': settings.embedding_timeout,
                             'llm_timeout_seconds': settings.llm_timeout_ms / 1000,
+                            'llm_max_tokens': runtime_cfg['llm_max_tokens'],
+                            'llm_max_tokens_clamped': runtime_cfg['llm_max_tokens_clamped'],
                             'llm_max_retries': settings.llm_max_retries,
+                            'rate_limit_guard_installed': runtime_cfg['rate_limit_guard_installed'],
                             'embedding_model': settings.embedding_model,
                             'document_event_extraction_enabled': settings.document_event_extraction_enabled,
                             'llm_model': settings.llm_model,
                             'decision_provider': getattr(settings, 'decision_provider', 'disabled'),
                             'decision_model': getattr(settings, 'decision_model', None),
+                            'prompt_hash': _compute_prompt_hash(sag_root),
                         }
                         self.run._write_manifest()
                         yield self
@@ -643,6 +742,132 @@ class SAGBenchmark:
                 )
                 await asyncio.sleep(backoff_s)
         return measured
+
+    async def ask_unauthorized_acl_check(
+        self,
+        query: str,
+        *,
+        foreign_project_id: str | None = None,
+        foreign_organization_id: str | None = None,
+        principal_id: str | None = None,
+        must_not_cite: list[str] | None = None,
+        verify_positive_control: bool = True,
+        positive_control_ok: bool | None = None,
+    ) -> dict:
+        """Execute a live negative ACL probe against `/api/v1/search/stream` using an
+        unauthorized foreign-project / foreign-organization SAG session JWT.
+
+        A check passes only after a positive control confirms the target scope is
+        retrievable by an authorized member, a foreign session is issued, and the
+        foreign search returns HTTP 403 or zero sections and zero citations referencing
+        any protected document (`leaked_citations == []`).
+        """
+        from sag_api.core.config import settings
+        from benchmark_http_client import measure_search
+
+        if verify_positive_control and positive_control_ok is None:
+            pos_measured = await measure_search(
+                self.client,
+                authorization=self.auth_header,
+                source_id=self.run.source_id,
+                policy=self.policy,
+                query=query,
+                retrieval_only=True,
+            )
+            pos_resp = pos_measured.get('response') or {}
+            pos_sections = pos_resp.get('sections') or []
+            pos_citations = pos_resp.get('citations') or []
+            positive_control_ok = (
+                not pos_measured.get('error')
+                and (len(pos_sections) > 0 or len(pos_citations) > 0)
+            )
+        if verify_positive_control and positive_control_ok is False:
+            return {
+                'expected_decision': 'DENY',
+                'actual_decision': 'NOT_EVALUATED',
+                'decision_correct': False,
+                'positive_control_verified': False,
+                'stage': 'positive_control',
+                'leaked_citations': [],
+                'leaked_sections_count': 0,
+                'must_not_cite': list(must_not_cite or []),
+                'must_not_cite_violations': 0,
+                'enforcement_mode': 'live_sag_http_acl',
+            }
+
+        denied_project = foreign_project_id or ('f' * 24)
+        if denied_project == self.run.project_id:
+            denied_project = 'e' * 24
+        denied_org = foreign_organization_id or self.run.organization_id
+        actor_user = principal_id or self.run.user_id
+
+        login_resp = await self.client.post(
+            '/api/v1/auth/continuum-login',
+            headers={
+                'X-SAG-BFF-Service-Token': settings.bff_service_token or '',
+                'X-Continuum-User-Id': str(actor_user),
+                'X-Continuum-Name': 'Unauthorized ACL Probe',
+                'X-Continuum-Organization-Id': str(denied_org),
+                'X-Continuum-Project-Id': str(denied_project),
+            },
+            json={'displayName': 'Unauthorized ACL Probe'},
+        )
+        if not login_resp.is_success:
+            return {
+                'expected_decision': 'DENY',
+                'actual_decision': 'NOT_EVALUATED',
+                'decision_correct': False,
+                'positive_control_verified': bool(positive_control_ok) if verify_positive_control else True,
+                'stage': 'session_setup',
+                'http_status': login_resp.status_code,
+                'leaked_citations': [],
+                'leaked_sections_count': 0,
+                'must_not_cite': list(must_not_cite or []),
+                'must_not_cite_violations': 0,
+                'enforcement_mode': 'live_sag_http_acl',
+            }
+        login_resp.raise_for_status()
+        foreign_auth = f"Bearer {login_resp.json()['access_token']}"
+
+        measured = await measure_search(
+            self.client,
+            authorization=foreign_auth,
+            source_id=self.run.source_id,
+            policy=self.policy,
+            query=query,
+            retrieval_only=True,
+        )
+        err = measured.get('error')
+        resp = measured.get('response') or {}
+        sections = resp.get('sections') or []
+        citations = resp.get('citations') or []
+        leaked_docs = list(
+            dict.fromkeys(
+                self.documents.get(item.get('document_id'), item.get('document_id'))
+                for item in (*sections, *citations)
+                if item.get('document_id')
+            )
+        )
+        if sections or citations:
+            decision = 'ALLOW_LEAK'
+        elif err:
+            decision = 'DENY' if err.get('http_status') == 403 else 'ERROR'
+        elif isinstance(resp.get('sections'), list) and isinstance(resp.get('citations'), list):
+            decision = 'DENY'
+        else:
+            decision = 'ERROR'
+        return {
+            'expected_decision': 'DENY',
+            'actual_decision': decision,
+            'decision_correct': decision == 'DENY',
+            'positive_control_verified': bool(positive_control_ok) if verify_positive_control else True,
+            'error': err,
+            'leaked_citations': leaked_docs,
+            'leaked_sections_count': len(sections),
+            'must_not_cite': list(must_not_cite or []),
+            'must_not_cite_violations': len(leaked_docs),
+            'enforcement_mode': 'live_sag_http_acl',
+        }
 
 
 from benchmark_http_client import parse_frame

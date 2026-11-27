@@ -17,18 +17,18 @@ Compares 5 Pre-Retrieve configurations head-to-head:
 from __future__ import annotations
 
 import argparse
+import asyncio
 import concurrent.futures
 import json
 import re
 import statistics
+import subprocess
 import sys
 import time
 import unicodedata
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
-
-import httpx
 
 DATASET_ROOT = Path(__file__).resolve().parent
 BENCH_V0_ROOT = DATASET_ROOT / "RetrievalCI_Bench_v0_2026"
@@ -43,9 +43,8 @@ if str(API_ROOT) not in sys.path:
 from sag_api.core.config import settings
 from sag_api.services.decision_router import (
     CHAT_HIGH_CONFIDENCE,
-    _DECISION_QUESTIONS,
-    _fallback_route,
-    _route_from_answers,
+    _degraded_decision,
+    route_query_async,
 )
 from sag_api.services.query_analysis import QueryFeatures, analyze_query, extract_query_features
 from sag_api.services.query_strategy_planner import QueryStrategyPlan, plan_query
@@ -160,53 +159,385 @@ def _is_production_direct_chitchat(query: str) -> bool:
 # ---------------------------------------------------------------------------
 _LIVE_KEV4B_CACHE: dict[str, dict[str, Any]] = {}
 
+_FULL_AUDIT_RE = re.compile(
+    r"(?i)(?:(?:tổng\s+hợp|liệt\s+kê|điểm\s+lại|tóm\s+tắt|rút\s+ra)\s+(?:tất\s+cả|toàn\s+bộ|mọi)"
+    r".*(?:từ\s+đầu|cuộc\s+trò\s+chuyện|buổi\s+chat|phiên|quyết\s+định|công\s+việc)"
+    r"|(?:summarize|list|compile)\s+(?:all|every).*(?:from\s+the\s+start|entire\s+session|entire\s+conversation|decisions))"
+)
+_SESSION_CUE_RE = re.compile(
+    r"(?i)(?:\b(?:chúng\s+ta|chúng\s+mình|tụi\s+mình|mình\s+vừa|mình\s+đã|vừa\s+bàn|lúc\s+nãy|lúc\s+đầu|ban\s+đầu|"
+    r"buổi\s+họp|phiên\s+trước|cuộc\s+chat|chốt|thống\s+nhất|phương\s+án\s+(?:nào|đó|trên|mới|cũ)|"
+    r"tiếp\s+tục\s+công\s+việc|ai\s+(?:nhận|phụ\s+trách|làm|đảm\s+nhiệm)|anh\s+\w+|chị\s+\w+|"
+    r"we\s+(?:agreed|discussed|chose|decided)|earlier\s+in\s+chat|our\s+decision|"
+    r"continue\s+(?:yesterday|where\s+we\s+left))\b)"
+)
+_DOC_CUE_RE = re.compile(
+    r"(?i)(?:\b(?:tài\s+liệu|quy\s+định|quy\s+chuẩn|chính\s+sách|hợp\s+đồng|báo\s+cáo|biên\s+bản|"
+    r"điều\s+\d+|khoản\s+\d+|mục\s+\d+|adr[-_ ]?\d+|rfc[-_ ]?\d+|spec|specification|policy|document|contract)\b)"
+)
+_LINEAGE_CUE_RE = re.compile(
+    r"(?i)(?:(?:vì\s+sao|tại\s+sao|lý\s+do\s+(?:gì|nào)).*(?:chuyển|đổi|bỏ|thay|quay\s+lại)"
+    r"|(?:chuyển\s+từ|đổi\s+từ|thay\s+đổi\s+từ).*(?:sang|qua)"
+    r"|(?:lịch\s+sử\s+thay\s+đổi|quá\s+trình\s+thay\s+đổi|why\s+did\s+we\s+(?:switch|change|drop|revert)|"
+    r"switched\s+from\s+.+\s+to))"
+)
+_TEMPORAL_TARGET_RE = re.compile(
+    r"(?i)(?:\b(?:khi\s+nào|vào\s+ngày\s+nào|ngày\s+nào|ngày\s+mấy|lúc\s+mấy\s+giờ|bao\s+lâu|trước\s+hay\s+sau|"
+    r"thứ\s+tự\s+thời\s+gian|when\s+did|what\s+date|how\s+long|before\s+or\s+after)\b)"
+)
+_EFFECTIVE_STATE_RE = re.compile(
+    r"(?i)(?:\b(?:chốt|quyết\s+định\s+(?:cuối|hiện\s+tại|hiện\s+hành|chọn)|cuối\s+cùng\s+(?:chọn|dùng)|"
+    r"đang\s+dùng|hiện\s+tại|hiện\s+giờ|ai\s+(?:nhận|phụ\s+trách|đảm\s+nhiệm)|còn\s+lỗi\s+nào|"
+    r"việc\s+gì\s+đang\s+dở|tiếp\s+tục\s+công\s+việc|which\s+\w+\s+did\s+we\s+(?:choose|pick|select)|"
+    r"current\s+(?:decision|status|owner)|final\s+decision|who\s+(?:owns|is\s+responsible|took))\b)"
+)
+_PAST_ANCHOR_RE = re.compile(
+    r"(?i)(?:\b(?:hôm\s+qua|tuần\s+trước|tháng\s+trước|buổi\s+họp\s+trước|đầu\s+phiên|đầu\s+buổi|"
+    r"yesterday|last\s+week|last\s+meeting|earlier\s+session)\b)"
+)
+
+_DOC_UNIT_WORDS = (
+    r"file|files|tệp|tập\s+tin|tài\s+liệu|văn\s+bản|hồ\s+sơ|báo\s+cáo|"
+    r"chính\s+sách|quy\s+định|quy\s+trình|hợp\s+đồng|biên\s+bản|"
+    r"document|documents|doc|docs|report|reports|policy|policies|contract|contracts|paper|papers|runbook|runbooks|spec|specs"
+)
+_TOPIC_UNIT_WORDS = r"chủ\s+đề|vấn\s+đề\s+chính|nhóm\s+chủ\s+đề|topic|topics|theme|themes"
+_PASSAGE_UNIT_WORDS = (
+    r"đoạn|mục|phần|kết\s+quả|bằng\s+chứng|trích\s+đoạn|"
+    r"passage|passages|section|sections|chunk|chunks|result|results|snippet|snippets"
+)
+_EXPLICIT_DOC_COUNT_RE = re.compile(
+    rf"(?i)(?:(?:\b(?:top|mở|liệt\s+kê|tìm|lấy|hiển\s+thị|cho\s+tôi|xem|list|show|open|find|get|give\s+me|return)\s+(?:ra\s+|cho\s+tôi\s+)?(\d{{1,3}})\s+(?:các\s+|những\s+)?(?:{_DOC_UNIT_WORDS})\b)"
+    rf"|(?:\b(\d{{1,3}})\s+(?:{_DOC_UNIT_WORDS})\s+(?:liên\s+quan|gần\s+nhất|mới\s+nhất|đầu\s+tiên|quan\s+trọng|chính|khác\s+nhau|relevant|related|recent|latest|top|matching|distinct)\b)"
+    rf"|(?:\b(?:mở|liệt\s+kê|tìm|lấy|xem|list|show|open|find|get)\s+(?:đến\s+|tới\s+|khoảng\s+|tối\s+đa\s+|up\s+to\s+)?(\d{{1,3}})\s+(?:{_DOC_UNIT_WORDS})\b))"
+)
+_EXPLICIT_TOPIC_COUNT_RE = re.compile(
+    rf"(?i)\b(?:top|liệt\s+kê|tìm|lấy|cho\s+biết|list|show|find|get|identify)?\s*(\d{{1,3}})\s+(?:{_TOPIC_UNIT_WORDS})\b"
+)
+_EXPLICIT_PASSAGE_COUNT_RE = re.compile(
+    rf"(?i)\b(?:top|liệt\s+kê|tìm|lấy|hiển\s+thị|list|show|find|get|return)\s+(\d{{1,3}})\s+(?:{_PASSAGE_UNIT_WORDS})\b"
+)
+_DOC_COUNT_QUESTION_RE = re.compile(
+    rf"(?i)(?:\b(?:có\s+bao\s+nhiêu|tổng\s+số|đếm\s+số(?:\s+lượng)?|số\s+lượng)\s+(?:các\s+|những\s+)?(?:{_DOC_UNIT_WORDS})\b"
+    rf"|\bhow\s+many\s+(?:[a-z_-]+\s+){{0,2}}(?:{_DOC_UNIT_WORDS})\b)"
+)
+_DOC_ALL_RE = re.compile(
+    rf"(?i)(?:\b(?:tất\s+cả|toàn\s+bộ|mọi)\s+(?:các\s+|những\s+)?(?:{_DOC_UNIT_WORDS})\b"
+    rf"|\b(?:all|every)\s+(?:the\s+)?(?:[a-z_-]+\s+){{0,2}}(?:{_DOC_UNIT_WORDS})\b)"
+)
+_DOC_LIST_RE = re.compile(
+    rf"(?i)(?:\b(?:liệt\s+kê|danh\s+sách|kể\s+tên|cho\s+biết\s+các)\b.*\b(?:{_DOC_UNIT_WORDS})\b"
+    rf"|\b(?:những|các)\s+(?:{_DOC_UNIT_WORDS})(?:\s+[^\W\d_][\w-]*){{0,3}}\s+nào\b"
+    rf"|(?<!theo\s)(?<!trong\s)\b(?:hiện\s+có|gồm(?:\s+có)?|bao\s+gồm|có)\s+(?:những\s+|các\s+)?(?:{_DOC_UNIT_WORDS})(?:\s+[^\W\d_][\w-]*){{0,3}}\s+nào\b"
+    rf"|\b(?:liệt\s+kê|danh\s+sách|list|show\s+all|what\s+are\s+the|which)\s+(?:các\s+|những\s+|the\s+)?(?:[^\W\d_][\w-]*\s+){{0,2}}(?:{_DOC_UNIT_WORDS})\b)",
+    re.UNICODE,
+)
+_DOC_OPEN_RE = re.compile(
+    rf"(?i)^\s*(?:hãy\s+|vui\s+lòng\s+|please\s+)?(?:mở|xem\s+nội\s+dung|hiển\s+thị\s+toàn\s+bộ|open|view)\s+(?:{_DOC_UNIT_WORDS})\b"
+)
+_DOC_SUMMARIZE_RE = re.compile(
+    rf"(?i)\b(?:tóm\s+tắt|tổng\s+hợp|summarize|summary\s+of)\s+(?:tất\s+cả\s+|toàn\s+bộ\s+|mọi\s+|all\s+|every\s+)?(?:các\s+|những\s+|the\s+)?(?:{_DOC_UNIT_WORDS})\b"
+)
+_COMPARE_RE = re.compile(
+    r"(?i)\b(?:so\s+sánh|khác\s+nhau\s+giữa|khác\s+gì\s+giữa|điểm\s+khác\s+biệt\s+giữa|compare|comparison\s+between|difference\s+between|differences\s+between|versus|vs\.?)\b"
+)
+_TIME_DESC_RE = re.compile(
+    r"(?i)\b(?:mới\s+nhất|gần\s+đây\s+nhất|hiện\s+hành|latest|newest|most\s+recent)\b"
+)
+_TIME_ASC_RE = re.compile(
+    r"(?i)\b(?:cũ\s+nhất|đầu\s+tiên|theo\s+thứ\s+tự\s+thời\s+gian|oldest|earliest|chronological)\b"
+)
+_PARALLEL_SPLIT_RE = re.compile(
+    r"(?i)(?:,\s*(?:và|and)\s+(?=(?:ai|khi\s+nào|ở\s+đâu|bao\s+nhiêu|như\s+thế\s+nào|tại\s+sao|vì\s+sao|gì|nào|which|who|what|when|where|how|why)\b))"
+)
+
+_VALID_MEMORY_SCOPES = frozenset(
+    {"none", "session_history", "project_documents", "hybrid_both", "full_session_audit"}
+)
+_VALID_TEMPORAL_MODES = frozenset({"current_effective", "change_lineage", "past_point", "atemporal"})
+_VALID_ANSWER_SHAPES = frozenset(
+    {
+        "fact_answer",
+        "multi_facet_compare",
+        "document_list",
+        "exhaustive_count",
+        "summarize_set",
+        "open_document",
+    }
+)
+
+
+def _infer_legacy_ecce_routing_signals(query: str, *, coarse_intent: str = "AMBIGUOUS") -> tuple[str, str]:
+    cleaned = query.strip()
+    if not cleaned or coarse_intent == "CHAT":
+        return "none", "atemporal"
+
+    if _FULL_AUDIT_RE.search(cleaned):
+        memory_scope = "full_session_audit"
+    else:
+        has_session = bool(_SESSION_CUE_RE.search(cleaned))
+        has_doc = bool(_DOC_CUE_RE.search(cleaned))
+        if has_session and has_doc:
+            memory_scope = "hybrid_both"
+        elif has_session:
+            memory_scope = "session_history"
+        else:
+            memory_scope = "project_documents"
+
+    if _LINEAGE_CUE_RE.search(cleaned):
+        temporal_mode = "change_lineage"
+    elif _TEMPORAL_TARGET_RE.search(cleaned):
+        temporal_mode = "past_point"
+    elif _EFFECTIVE_STATE_RE.search(cleaned):
+        temporal_mode = "current_effective"
+    elif _PAST_ANCHOR_RE.search(cleaned):
+        temporal_mode = "past_point"
+    else:
+        temporal_mode = "atemporal"
+    return memory_scope, temporal_mode
+
+
+def _extract_legacy_query_signals(query: str) -> dict[str, Any]:
+    """Extract structured shape/cardinality/order/subquery signals compatible with SAG main's `plan_query`."""
+    cleaned = unicodedata.normalize("NFC", query or "").strip()
+    order_mode = "relevance"
+    if _TIME_DESC_RE.search(cleaned):
+        order_mode = "time_desc"
+    elif _TIME_ASC_RE.search(cleaned):
+        order_mode = "time_asc"
+
+    parts = [p.strip(" ?.,;") for p in _PARALLEL_SPLIT_RE.split(cleaned) if p.strip(" ?.,;")]
+    subqueries = tuple(parts) if len(parts) >= 2 else ()
+
+    doc_count_match = _EXPLICIT_DOC_COUNT_RE.search(cleaned)
+    if doc_count_match:
+        raw_num = next((g for g in doc_count_match.groups() if g is not None), None)
+        count_val = int(raw_num) if raw_num is not None else None
+        is_open = bool(re.search(r"(?i)\b(?:mở|open)\b", cleaned))
+        return {
+            "answer_shape": "open_document" if is_open else "document_list",
+            "target_unit": "document",
+            "explicit_count": count_val,
+            "is_catalog_query": False,
+            "order_mode": order_mode,
+            "subqueries": subqueries,
+        }
+
+    topic_count_match = _EXPLICIT_TOPIC_COUNT_RE.search(cleaned)
+    if topic_count_match:
+        return {
+            "answer_shape": "summarize_set",
+            "target_unit": "topic",
+            "explicit_count": int(topic_count_match.group(1)),
+            "is_catalog_query": False,
+            "order_mode": order_mode,
+            "subqueries": subqueries,
+        }
+
+    passage_count_match = _EXPLICIT_PASSAGE_COUNT_RE.search(cleaned)
+    if passage_count_match:
+        return {
+            "answer_shape": "fact_answer",
+            "target_unit": "passage",
+            "explicit_count": int(passage_count_match.group(1)),
+            "is_catalog_query": False,
+            "order_mode": order_mode,
+            "subqueries": subqueries,
+        }
+
+    if _DOC_COUNT_QUESTION_RE.search(cleaned):
+        return {
+            "answer_shape": "exhaustive_count",
+            "target_unit": "document",
+            "explicit_count": None,
+            "is_catalog_query": True,
+            "order_mode": order_mode,
+            "subqueries": subqueries,
+        }
+
+    if _DOC_SUMMARIZE_RE.search(cleaned):
+        return {
+            "answer_shape": "summarize_set",
+            "target_unit": "document",
+            "explicit_count": None,
+            "is_catalog_query": bool(_DOC_ALL_RE.search(cleaned)),
+            "order_mode": order_mode,
+            "subqueries": subqueries,
+        }
+
+    if _DOC_ALL_RE.search(cleaned) or _DOC_LIST_RE.search(cleaned):
+        return {
+            "answer_shape": "document_list",
+            "target_unit": "document",
+            "explicit_count": None,
+            "is_catalog_query": bool(_DOC_ALL_RE.search(cleaned)),
+            "order_mode": order_mode,
+            "subqueries": subqueries,
+        }
+
+    if _DOC_OPEN_RE.search(cleaned):
+        return {
+            "answer_shape": "open_document",
+            "target_unit": "document",
+            "explicit_count": 1,
+            "is_catalog_query": False,
+            "order_mode": order_mode,
+            "subqueries": subqueries,
+        }
+
+    if _COMPARE_RE.search(cleaned):
+        return {
+            "answer_shape": "multi_facet_compare",
+            "target_unit": "passage",
+            "explicit_count": None,
+            "is_catalog_query": False,
+            "order_mode": order_mode,
+            "subqueries": subqueries,
+        }
+
+    return {
+        "answer_shape": "fact_answer",
+        "target_unit": "passage",
+        "explicit_count": None,
+        "is_catalog_query": False,
+        "order_mode": order_mode,
+        "subqueries": subqueries,
+    }
+
+
+def _adapt_legacy_systemone_answers(
+    query: str,
+    answers: dict[str, Any],
+    model: str,
+    latency_ms: float,
+) -> dict[str, Any]:
+    """Translate historical `/v1/systemone` multiple-choice cache rows into SAG main's unified router dict."""
+    intent_res = answers.get("intent_type") or {}
+    intent_choice = str(intent_res.get("choice", "factual_lookup")).strip().lower()
+    intent_conf = float(intent_res.get("confidence", 0.5) or 0.0)
+    is_chat_intent = intent_choice in {"chit_chat", "chat", "greeting"}
+    if is_chat_intent and intent_conf >= CHAT_HIGH_CONFIDENCE:
+        coarse_intent = "CHAT"
+    elif is_chat_intent or intent_conf < CHAT_HIGH_CONFIDENCE:
+        coarse_intent = "AMBIGUOUS"
+    else:
+        coarse_intent = "KNOWLEDGE"
+
+    if coarse_intent == "CHAT":
+        return {
+            "query": query,
+            "coarse_intent": "CHAT",
+            "need_retrieval": False,
+            "suggested_strategy": "vector",
+            "answer_shape": "chit_chat",
+            "memory_scope": "none",
+            "temporal_mode": "atemporal",
+            "confidence": intent_conf,
+            "model": model,
+            "latency_ms": latency_ms,
+            "degraded": False,
+        }
+
+    inferred_scope, inferred_temporal = _infer_legacy_ecce_routing_signals(query, coarse_intent=coarse_intent)
+    scope_res = answers.get("memory_scope") or {}
+    scope_choice = str(scope_res.get("choice", "")).strip().lower() if isinstance(scope_res, dict) else ""
+    memory_scope = (
+        scope_choice
+        if scope_choice in _VALID_MEMORY_SCOPES and scope_choice != "none"
+        else inferred_scope
+    )
+    if inferred_scope in {"hybrid_both", "full_session_audit"} and memory_scope == "project_documents":
+        memory_scope = inferred_scope
+
+    temp_res = answers.get("temporal_mode") or {}
+    temp_choice = str(temp_res.get("choice", "")).strip().lower() if isinstance(temp_res, dict) else ""
+    temp_conf = float(temp_res.get("confidence", 0.5) or 0.0) if isinstance(temp_res, dict) else 0.0
+    if temp_choice in _VALID_TEMPORAL_MODES:
+        if temp_conf < 0.70 and inferred_temporal in {"change_lineage", "current_effective"}:
+            temporal_mode = inferred_temporal
+        else:
+            temporal_mode = temp_choice
+    else:
+        temporal_mode = inferred_temporal
+
+    shape_signals = _extract_legacy_query_signals(query)
+    shape_res = answers.get("answer_shape") or {}
+    shape_choice = str(shape_res.get("choice", "")).strip().lower() if isinstance(shape_res, dict) else ""
+    if shape_signals["explicit_count"] is not None or shape_signals["answer_shape"] != "fact_answer":
+        answer_shape = shape_signals["answer_shape"]
+    elif shape_choice in _VALID_ANSWER_SHAPES:
+        answer_shape = shape_choice
+    else:
+        answer_shape = shape_signals["answer_shape"]
+
+    strategy = (
+        "multi"
+        if (
+            intent_choice == "complex_reasoning"
+            or coarse_intent == "AMBIGUOUS"
+            or memory_scope in {"hybrid_both", "full_session_audit"}
+            or temporal_mode == "change_lineage"
+            or answer_shape in {"multi_facet_compare", "summarize_set"}
+        )
+        else "vector"
+    )
+    return {
+        "query": query,
+        "coarse_intent": coarse_intent,
+        "need_retrieval": True,
+        "suggested_strategy": strategy,
+        "answer_shape": answer_shape,
+        "target_unit": shape_signals["target_unit"],
+        "explicit_count": shape_signals["explicit_count"],
+        "is_catalog_query": shape_signals["is_catalog_query"],
+        "order_mode": shape_signals["order_mode"],
+        "subqueries": shape_signals["subqueries"],
+        "memory_scope": memory_scope,
+        "temporal_mode": temporal_mode,
+        "confidence": intent_conf,
+        "model": model,
+        "latency_ms": latency_ms,
+        "degraded": False,
+    }
+
 
 def _fetch_single_live_kev4b(case: IsolatedQueryCase) -> dict[str, Any]:
-    url = f"{settings.siliconflow_base_url.rstrip('/')}/systemone"
-    headers = {
-        "Authorization": f"Bearer {settings.siliconflow_api_key}",
-        "Content-Type": "application/json",
-    }
-    for attempt in range(3):
-        t0 = time.perf_counter()
-        try:
-            resp = httpx.post(
-                url,
-                headers=headers,
-                json={
-                    "model": settings.decision_model,
-                    "state": {"query": case.query},
-                    "questions": _DECISION_QUESTIONS,
-                },
-                timeout=25.0,
+    """Invoke SAG `main`'s current unified `route_query_async` router (no deleted `/systemone` imports)."""
+    t0 = time.perf_counter()
+    try:
+        decision = asyncio.run(
+            route_query_async(
+                case.query,
+                has_sources=True,
+                scoped=True,
+                use_cache=False,
             )
-            resp.raise_for_status()
-            ms = round((time.perf_counter() - t0) * 1000.0, 2)
-            payload = resp.json()
-            return {
-                "case_id": case.case_id,
-                "suite": case.suite,
-                "query": case.query,
-                "model": str(payload.get("model") or settings.decision_model),
-                "latency_ms": ms,
-                "answers": payload.get("answers") or {},
-                "usage": payload.get("usage") or {},
-                "error": None,
-            }
-        except Exception as exc:  # noqa: BLE001
-            if attempt == 2:
-                return {
-                    "case_id": case.case_id,
-                    "suite": case.suite,
-                    "query": case.query,
-                    "model": "error",
-                    "latency_ms": 0.0,
-                    "answers": {},
-                    "usage": {},
-                    "error": str(exc),
-                }
-            time.sleep(0.5)
-    raise RuntimeError("Unreachable")
+        )
+        ms = round((time.perf_counter() - t0) * 1000.0, 2)
+        payload = decision.to_dict()
+        return {
+            "case_id": case.case_id,
+            "suite": case.suite,
+            "query": case.query,
+            "schema": "unified_route_query_async",
+            "model": str(payload.get("model") or settings.decision_model),
+            "latency_ms": float(payload.get("latency_ms") or ms),
+            "decision": payload,
+            "usage": {},
+            "error": payload.get("degraded_reason") if payload.get("degraded") else None,
+        }
+    except Exception as exc:  # noqa: BLE001
+        return {
+            "case_id": case.case_id,
+            "suite": case.suite,
+            "query": case.query,
+            "schema": "unified_route_query_async",
+            "model": "error",
+            "latency_ms": 0.0,
+            "decision": {},
+            "usage": {},
+            "error": str(exc),
+        }
 
 
 def ensure_live_kev4b_cache(cases: list[IsolatedQueryCase], *, refresh_live: bool = False) -> dict[str, dict[str, Any]]:
@@ -370,13 +701,27 @@ def run_b2_local_regex_qsp_v2(query: str, case_id: str) -> PreRetrieveDecisionOu
             planner_cost_usd=0.0,
         )
 
-    fb_decision = _fallback_route(query, "decision_router_disabled")
+    fb_decision = _degraded_decision(query, "decision_router_disabled").to_dict()
+    inferred_scope, inferred_temporal = _infer_legacy_ecce_routing_signals(query, coarse_intent="AMBIGUOUS")
+    shape_signals = _extract_legacy_query_signals(query)
+    fb_decision.update(
+        {
+            "answer_shape": shape_signals["answer_shape"],
+            "target_unit": shape_signals["target_unit"],
+            "explicit_count": shape_signals["explicit_count"],
+            "is_catalog_query": shape_signals["is_catalog_query"],
+            "order_mode": shape_signals["order_mode"],
+            "subqueries": shape_signals["subqueries"],
+            "memory_scope": inferred_scope,
+            "temporal_mode": inferred_temporal,
+        }
+    )
     analysis = analyze_query(query, segmentation_enabled=False)
     features: QueryFeatures = analysis.features
     strat_plan: QueryStrategyPlan = plan_query(
         query,
         features=features,
-        answer_shape=str(fb_decision.get("answer_shape") or "") or None,
+        route_decision=fb_decision,
     )
     rplan = strat_plan.retrieval_plan
     subq_count = max(1, len(rplan.decomposition.subqueries))
@@ -426,6 +771,7 @@ def run_b3_live_kev4b_only(query: str, case_id: str) -> PreRetrieveDecisionOutpu
         raise RuntimeError(f"Missing live SiliconFlow Kev-4b cache entry for {case_id}")
 
     answers = live_entry.get("answers") or {}
+    unified_decision = live_entry.get("decision") if isinstance(live_entry.get("decision"), dict) else None
     usage = live_entry.get("usage") or {}
     in_tok = int(usage.get("input_tokens", 0) or 0)
     out_tok = int(usage.get("output_tokens", 0) or 0)
@@ -433,17 +779,24 @@ def run_b3_live_kev4b_only(query: str, case_id: str) -> PreRetrieveDecisionOutpu
     cost_usd = (tot_tok * SILICONFLOW_KEV4B_PRICE_PER_1M_USD) / 1_000_000.0
     http_latency_ms = float(live_entry.get("latency_ms", 0.0) or 0.0)
 
-    intent_res = answers.get("intent_type") or {}
-    intent_choice = str(intent_res.get("choice", "factual_lookup")).strip().lower()
-    intent_conf = float(intent_res.get("confidence", 0.5) or 0.0)
-    is_chat = intent_choice in {"chit_chat", "chat", "greeting"} and intent_conf >= CHAT_HIGH_CONFIDENCE
+    if unified_decision:
+        is_chat = not bool(unified_decision.get("need_retrieval", True))
+        raw_shape = str(unified_decision.get("answer_shape", "fact_answer")).strip().lower()
+        raw_scope = str(unified_decision.get("memory_scope", "project_documents")).strip().lower()
+        raw_temp = str(unified_decision.get("temporal_mode", "atemporal")).strip().lower()
+        intent_choice = "complex_reasoning" if unified_decision.get("suggested_strategy") == "multi" else "factual_lookup"
+    else:
+        intent_res = answers.get("intent_type") or {}
+        intent_choice = str(intent_res.get("choice", "factual_lookup")).strip().lower()
+        intent_conf = float(intent_res.get("confidence", 0.5) or 0.0)
+        is_chat = intent_choice in {"chit_chat", "chat", "greeting"} and intent_conf >= CHAT_HIGH_CONFIDENCE
 
-    shape_res = answers.get("answer_shape") or {}
-    raw_shape = str(shape_res.get("choice", "fact_answer")).strip().lower()
-    scope_res = answers.get("memory_scope") or {}
-    raw_scope = str(scope_res.get("choice", "project_documents")).strip().lower()
-    temp_res = answers.get("temporal_mode") or {}
-    raw_temp = str(temp_res.get("choice", "atemporal")).strip().lower()
+        shape_res = answers.get("answer_shape") or {}
+        raw_shape = str(shape_res.get("choice", "fact_answer")).strip().lower()
+        scope_res = answers.get("memory_scope") or {}
+        raw_scope = str(scope_res.get("choice", "project_documents")).strip().lower()
+        temp_res = answers.get("temporal_mode") or {}
+        raw_temp = str(temp_res.get("choice", "atemporal")).strip().lower()
 
     if is_chat:
         return PreRetrieveDecisionOutput(
@@ -539,13 +892,16 @@ def run_b4_sag_live_kev4b_plus_qsp_v2(query: str, case_id: str) -> PreRetrieveDe
     cost_usd = (tot_tok * SILICONFLOW_KEV4B_PRICE_PER_1M_USD) / 1_000_000.0
     http_latency_ms = float(live_entry.get("latency_ms", 0.0) or 0.0)
 
-    decision = _route_from_answers(
-        query,
-        answers,
-        str(live_entry.get("model") or settings.decision_model),
-        http_latency_ms,
-        "siliconflow",
-    )
+    unified_decision = live_entry.get("decision") if isinstance(live_entry.get("decision"), dict) else None
+    if unified_decision:
+        decision = unified_decision
+    else:
+        decision = _adapt_legacy_systemone_answers(
+            query,
+            answers,
+            str(live_entry.get("model") or settings.decision_model),
+            http_latency_ms,
+        )
     analysis = analyze_query(query, segmentation_enabled=False)
     features: QueryFeatures = analysis.features
     local_ms = (time.perf_counter_ns() - t0) / 1_000_000.0
@@ -585,7 +941,7 @@ def run_b4_sag_live_kev4b_plus_qsp_v2(query: str, case_id: str) -> PreRetrieveDe
     strat_plan: QueryStrategyPlan = plan_query(
         query,
         features=features,
-        answer_shape=str(decision.get("answer_shape") or "") or None,
+        route_decision=decision,
     )
     rplan = strat_plan.retrieval_plan
     subq_count = max(1, len(rplan.decomposition.subqueries))
@@ -816,7 +1172,9 @@ def build_crag_seven_axis_stress_suite() -> list[IsolatedQueryCase]:
             query="Show 12 passages about memory leak sanitization",
             gold_doc_count=3,
             expected_target="PASSAGE",
-            expected_output="LIST",
+            # SAG main `retrieval_plan._shape_to_target_output` reserves OutputMode.LIST for
+            # {DOCUMENT, TOPIC, FACT, TURN}; PASSAGE with explicit_count=12 uses ANSWER + effective_n=12.
+            expected_output="ANSWER",
             expected_effective_n=12,
             expected_per_doc_limit=None,
         ),
@@ -1254,14 +1612,28 @@ def run_isolated_pre_retrieve_benchmark(*, refresh_live: bool = False) -> dict[s
             },
         }
 
+    sag_repo = DATASET_ROOT.parent / "sag-laya-integration"
+    try:
+        git_sha = subprocess.check_output(
+            ["git", "-C", str(sag_repo), "rev-parse", "HEAD"],
+            text=True,
+        ).strip()
+    except Exception:
+        git_sha = None
+    cached_legacy_count = sum(
+        1 for c in all_cases if c.case_id in _LIVE_KEV4B_CACHE and not _LIVE_KEV4B_CACHE[c.case_id].get("decision")
+    )
     report = {
         "benchmark": "isolated_pre_retrieve_ablation_v2_live_kev4b",
+        "measurement_mode": "live_refreshed" if refresh_live else "cached_replay_isolated_ablation",
+        "cached_legacy_systemone_rows": cached_legacy_count,
+        "git_commit": git_sha,
         "protocol_references": [
             "Adaptive-RAG (NAACL 2024, arXiv:2403.14403) — Question Complexity & Budget Allocation",
             "RouterBench (ICLR / arXiv:2403.12031) — Routing Accuracy vs Cost/Latency Trade-off",
             "Meta CRAG (KDD Cup 2024, arXiv:2406.04744) — 7-Axis Question Shape & Temporal Routing",
             "EnterpriseRAG-Bench (RetrievalCI Bench-v0) & VN-MTEB RAG Bench 2026",
-            "Live SiliconFlow SystemOne API (/v1/systemone, model=Kev-4b) — 275 Real HTTP Calls",
+            "SAG Unified 1-Call Decision Router (route_query_async) — Isolated Pre-Retrieve Ablation",
         ],
         "total_queries_evaluated": len(all_cases),
         "suites": {k: len(v) for k, v in suite_map.items()},

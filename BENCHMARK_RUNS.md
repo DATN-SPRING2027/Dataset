@@ -19,7 +19,7 @@ Embedding/LLM dùng nguyên timeout và retry đang hiệu lực trong SAG sau s
 
 ## Chạy mới
 
-Từ `D:/DoAnTotnghiep`, dùng môi trường Python của SAG và account **đã có, đang active** trong bảng `users`:
+Từ thư mục gốc workspace (`<workspace-root>`, chứa `Dataset/` và `sag-laya-integration/`), dùng Python **3.12** (được khai báo tại `Dataset/pyproject.toml` và `.venv` của SAG API) và account **đã có, đang active** trong bảng `users`:
 
 ```powershell
 $env:SAG_BENCHMARK_USER_ID = '<existing-SAG-user-id>'
@@ -27,12 +27,30 @@ $env:SAG_BENCHMARK_ORGANIZATION_ID = '<organization-id>'
 $env:SAG_BENCHMARK_SCHEMA = 'sag'
 $env:PYTHONUTF8 = '1'
 
-& 'sag-laya-integration/SAG/apps/api/.venv/Scripts/python.exe' -u `
-  'Dataset/RetrievalCI_Bench_v0_2026/scripts/run_bench_v0_sag.py'
+# Bật LLM-as-Judge độc lập để chấm Answer Accuracy / Faithfulness tách biệt khỏi IR Recall@5:
+$env:SAG_BENCHMARK_ENABLE_LLM_JUDGE = '1'
+
+# (Tùy chọn) Chế độ Full-Stack HTTP+IAM qua DATN_BE thay vì loopback SAG service:
+# $env:SAG_BENCHMARK_CONTINUUM_API_URL = 'http://127.0.0.1:3001'
+# $env:SAG_BENCHMARK_CONTINUUM_TOKEN = '<bearer-token>'
 
 & 'sag-laya-integration/SAG/apps/api/.venv/Scripts/python.exe' -u `
-  'Dataset/VN_MTEB_RAG_Bench_2026/scripts/run_vn_mteb_sag.py'
+  'Dataset/RetrievalCI_Bench_v0_2026/scripts/run_bench_v0_sag.py' --enable-llm-judge
+
+& 'sag-laya-integration/SAG/apps/api/.venv/Scripts/python.exe' -u `
+  'Dataset/VN_MTEB_RAG_Bench_2026/scripts/run_vn_mteb_sag.py' --enable-llm-judge
+
+# Chạy bộ 7 project trên tập holdout `test` (mặc định live 100%, cấm cache replay trừ khi truyền --allow-cache-replay):
+& 'sag-laya-integration/SAG/apps/api/.venv/Scripts/python.exe' -u `
+  'Dataset/run_seven_projects_full_pre_retrieve.py' all --split test --enable-llm-judge
 ```
+
+### Quy tắc kiểm định độ tin cậy (Credibility Gates — cập nhật 2026-11-27)
+- **Không replay cache im lặng (`SAG-BENCH-002`):** `run_seven_projects_full_pre_retrieve.py` mặc định chạy live 100% (`cached_reused_count == 0`, `measurement_mode="live"`). Cờ `--allow-cache-replay` chỉ dùng cho thử nghiệm cục bộ và gắn nhãn tường minh `measurement_mode="cached_replay"`.
+- **Giữ nguyên cấu hình sản phẩm (`SAG-BENCH-003`):** `sag_benchmark_runtime.py` không còn tự ép `llm_max_tokens=512` hay monkey-patch `LLMClient._create_completion` mặc định; mọi override (nếu bật qua env) đều được ghi tường minh vào `manifest.execution`.
+- **Tách biệt 4 trục đánh giá (`four_axis_scorecard`):** (1) **Retrieval Accuracy (IR)**, (2) **Answer Accuracy / Faithfulness** (yêu cầu `n_scored > 0` từ LLM Judge, không bao giờ đánh đồng Recall@5 với Answer Accuracy), (3) **Citation Accuracy** (loại trừ abstention và kiểm tra `must_not_cite`), và (4) **ACL Safety** (`acl_deny_cases_count > 0` trên cả 7 benchmark qua probe HTTP `/api/v1/search/stream` thật với token dự án/tổ chức trái phép).
+- **Bất biến độ trễ (`SAG-BENCH-004`):** Mọi bản ghi và bảng phân vị `matched_answered` phải thỏa `0 <= retrieval_latency_ms <= first_token_ms <= latency_ms` trên cùng một tập mẫu khớp nhau.
+- **Tách `dev` / `test` & minh bạch nguồn synthetic (`SAG-BENCH-001`):** Kiểm tra không trùng ID giữa `dev` và `test`; mọi ca synthetic chưa có 2 người duyệt giữ trung thực `review_status="unreviewed"`.
 
 Mỗi bài benchmark sở hữu một `project_id` riêng cố định theo `(organization_id, benchmark_key)` (hoặc theo `SAG_BENCHMARK_PROJECT_ID` nếu chỉ định tường minh) và tạo `run_id` / `source_id` mới cho mỗi lần chạy. Trước khi nạp mới, runner **chỉ clean đúng dữ liệu của duy nhất `project_id` mà bài benchmark đó dùng** (các dòng PostgreSQL gắn với `project_id`, collection Qdrant `search_units_<project_id>` / `session_units_<project_id>`, và thư mục upload riêng của source đó) — **tuyệt đối không clean toàn bộ DB và không đụng tới bất kỳ project nào khác** trong PostgreSQL hay Qdrant.
 

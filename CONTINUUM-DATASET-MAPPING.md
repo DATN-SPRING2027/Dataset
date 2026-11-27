@@ -65,3 +65,24 @@ Nguồn đối chiếu: `../DATN_BE/docs/workspace/04-api-inventory.yaml`, `../D
 - **Đã chốt và hiện thực hóa trong dataset**: Quy mô, cửa sổ thời gian (`+07:00`), lịch nghỉ lễ 2026, đủ 3 dạng Group Note (`TASK_NOTE`, `PROJECT_DOCUMENT`, `WORK_REPORT`) và luồng phê duyệt `MEMBER -> TEAM_LEADER/ADMIN`, `LEADER -> Organization ADMIN` khớp `DATN_BE/src/services/capture/`.
 - **Khoảng trống runtime cần lưu ý cho giai đoạn sau**: Consumer tiêu thụ outbox từ `capture` sang kho vector/SAG và luồng handover runtime tự động hiện vẫn ở trạng thái `NOT_YET_AVAILABLE`; việc nạp giữ nguyên lịch sử thời gian (`created_at`, `reviewed_at`) và tác giả đã `SUSPENDED` cần công cụ `IMPORTER_REQUIRED` theo đúng thứ tự phụ thuộc tại [CONTINUUM_DATA_DICTIONARY.md](CONTINUUM_DATA_DICTIONARY.md).
 - **Quy trình con người tiếp theo**: Duyệt chéo 2 người độc lập (`reviewer_1`, `reviewer_2`) cho các ca benchmark đang mang `review_status = "unreviewed"` và chốt môi trường MongoDB đích trước khi xây dựng importer.
+
+## 7. Công bố nguồn gốc Synthetic, Tách tập `dev`/`test` & Quy trình Nghiệm thu Thủ công (`SAG-BENCH-001`, cập nhật 2026-11-27)
+
+### 7.1. Công bố trung thực nguồn gốc dữ liệu (Synthetic Provenance Disclosure)
+- Toàn bộ **358** ca đánh giá doanh nghiệp trải trên 4 organization (`Project1` Northstar: `190`, `Organization2-Nova-Solutions`: `56`, `Organization3-CloudOps-Services`: `56`, `Organization4-MediFlow`: `56`) hiện là **100% dữ liệu tổng hợp (`synthetic = true`)** với trạng thái `review_status = "unreviewed"` (`reviewer_1 = null`, `reviewer_2 = null`).
+- **Quy tắc chống ngụy tạo:** Tuyệt đối không được gán `review_status = "reviewed"` bằng script hoặc báo cáo các chỉ số synthetic này như độ chính xác doanh nghiệp đã qua thẩm định chuyên gia độc lập.
+- Toàn bộ các bài benchmark công bố phải chạy và báo cáo riêng hai tập **`dev` (`271` ca)** và **`test` holdout (`87` ca: `45` Northstar + `14` Nova + `14` CloudOps + `14` MediFlow)** với ràng buộc rời nhau tuyệt đối (`dev_ids ∩ test_ids = ∅`, được kiểm tra tự động qua `benchmark_quality.validate_dataset_splits_and_provenance`).
+
+### 7.2. Schema & Checklist Thẩm định Chéo 2 Người cho 87 ca `test` Holdout
+Trước khi sử dụng điểm `test` làm số liệu công bố chính thức (`allow_unreviewed=False`), hai người thẩm định độc lập (`reviewer_1` và `reviewer_2`) cần hoàn tất các trường sau cho tối thiểu toàn bộ **87 ca `split == "test"`**:
+
+| Trường JSONL | Kiểu | Yêu cầu nghiệm thu |
+| :--- | :--- | :--- |
+| `review_status` | `"unreviewed" \| "reviewed"` | Chỉ chuyển sang `"reviewed"` sau khi cả `reviewer_1` và (mẫu đối chứng `>= 30%` / toàn bộ ca bất đồng) `reviewer_2` ký xác nhận. |
+| `reviewer_1` | `string` (ID/tên người duyệt) | Không được rỗng khi `review_status == "reviewed"`. Xác minh câu hỏi tự nhiên (không chép nguyên văn câu trả lời), `gold_document_ids`/`source_ids` đầy đủ, `must_not_cite` không chứa tài liệu đã duyệt hợp lệ. |
+| `reviewer_2` | `string \| null` | Thẩm định độc lập để tính độ đồng thuận **Cohen's kappa ($\kappa \ge 0.80$)** trên nhãn hợp lệ, `expected_answer`, và quyết định ACL (`ALLOW`/`DENY`). |
+| `adjudication_status` | `"pending_dual_review" \| "adjudicated_pass" \| "adjudicated_revised"` | Ghi nhận kết quả hòa giải khi `reviewer_1` và `reviewer_2` bất đồng. |
+| `adjudication_notes` | `string \| null` | Ghi rõ lý do giữ nguyên hoặc chỉnh sửa câu hỏi / tài liệu đích / đáp án mẫu. |
+
+### 7.3. Kiểm tra phạm vi ACL âm (`acl_deny_cases_count > 0`)
+- Bên cạnh 28 ca `DENY` có sẵn trong 4 organization (`10 + 6 + 6 + 6`), 3 tập chuẩn ngoài đã được bổ sung fixture kiểm tra quyền âm riêng biệt (`RetrievalCI_Bench_v0_2026/examples/rag_eval/bench_v0/acl_deny_cases.jsonl`, `RetrievalCI_Bench_v0_2026/examples/third_party/wixqa/acl_deny_cases.jsonl`, `VN_MTEB_RAG_Bench_2026/data/acl_deny_cases.jsonl`) để mọi benchmark trong suite đều thực thi probe HTTP trái phép thật (`acl_deny_cases_count > 0`) và ghi rõ `enforcement_mode = "live_sag_http_acl"`.

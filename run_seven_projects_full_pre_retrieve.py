@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import asyncio
 import json
 import math
@@ -18,10 +19,10 @@ for _s in (sys.stdout, sys.stderr):
         except Exception:
             pass
 
-DATASET_ROOT = Path("D:/DoAnTotnghiep/Dataset")
+DATASET_ROOT = Path(__file__).resolve().parent
 BENCH_V0_ROOT = DATASET_ROOT / "RetrievalCI_Bench_v0_2026"
 VN_MTEB_ROOT = DATASET_ROOT / "VN_MTEB_RAG_Bench_2026"
-SAG_ROOT = Path("D:/DoAnTotnghiep/sag-laya-integration/SAG")
+SAG_ROOT = DATASET_ROOT.parent / "sag-laya-integration" / "SAG"
 sys.path[:0] = [
     str(SAG_ROOT / "apps" / "api"),
     str(BENCH_V0_ROOT),
@@ -39,7 +40,15 @@ from sag_api.core.token_usage import (
 from sag_api.services.decision_router import route_query
 from sag_api.services.query_analysis import analyze_query
 from sag_api.services.query_strategy_planner import plan_query
-from benchmark_quality import extended_evaluation, ir_metrics
+from benchmark_quality import (
+    build_four_axis_scorecard,
+    compute_mandatory_coverage,
+    evaluate_must_not_cite,
+    extended_evaluation,
+    ir_metrics,
+    validate_dataset_splits_and_provenance,
+    validate_latency_row,
+)
 from benchmark_support import BenchmarkRun, default_benchmark_project_id, default_benchmark_project_name
 from retrievalci.rag_eval.metrics import compute_row
 from retrievalci.rag_eval.runner import _aggregate, load_questions
@@ -53,6 +62,7 @@ from run_all_datasets_sag import (
     _compute_corpus_hash,
     _resolve_existing_indexed_source,
     build_seven_projects_summary,
+    load_acl_deny_cases,
     materialize_dataset,
 )
 
@@ -139,14 +149,53 @@ def _enrich_cached_measurement_with_pre_retrieve(
     q_route["fallback_reason"] = None
     q_route["strategy_plan"] = strategy_plan.as_trace()
     stats["retrieval_plan"] = strategy_plan.retrieval_plan.as_trace()
+    out["measurement_mode"] = "cached_replay"
+    out["synthetic_latency_adjusted"] = True
     return out
+
+
+async def _run_live_acl_deny_suite(
+    runtime: SAGBenchmark,
+    deny_acl_cases: list[dict[str, Any]],
+) -> dict[str, Any]:
+    """Execute negative ACL probes against SAG's real scoped HTTP search endpoint."""
+    acl_results: list[dict[str, Any]] = []
+    leaked_total = 0
+    for ac in deny_acl_cases:
+        probe = await runtime.ask_unauthorized_acl_check(
+            ac["question"],
+            foreign_project_id=ac.get("foreign_project_id") or ac.get("project_id"),
+            foreign_organization_id=ac.get("foreign_organization_id"),
+            principal_id=ac.get("principal_id"),
+            must_not_cite=ac.get("must_not_cite"),
+        )
+        leaked_total += int(probe.get("must_not_cite_violations", 0) or 0)
+        acl_results.append({
+            "case_id": ac["case_id"],
+            "suite": ac.get("suite", "ACL_SECURITY"),
+            "principal_id": ac.get("principal_id"),
+            "project_id": ac.get("project_id") or ac.get("foreign_project_id"),
+            **probe,
+        })
+    correct = sum(1 for r in acl_results if r.get("decision_correct"))
+    return {
+        "total_acl_cases": len(acl_results),
+        "deny_accuracy": round(correct / len(acl_results), 4) if acl_results else None,
+        "leaked_citations_count": leaked_total,
+        "enforcement_mode": "live_sag_http_acl" if acl_results else "untested",
+        "cases": acl_results,
+    }
 
 
 def _needs_live_rerun(
     query_text: str,
     prev_recall: float | None,
     has_prev: bool,
+    *,
+    allow_cache_replay: bool = False,
 ) -> tuple[bool, str]:
+    if not allow_cache_replay:
+        return True, "live_default_no_cache_replay"
     if not has_prev:
         return True, "no_prev"
     settings.decision_provider = "siliconflow"
@@ -230,14 +279,23 @@ async def _load_latest_completed_run(benchmark_key: str) -> dict[str, Any]:
         await eng.dispose()
 
 
-async def run_retrievalci_with_pre_retrieve() -> None:
+async def run_retrievalci_with_pre_retrieve(
+    *,
+    allow_cache_replay: bool = False,
+    enable_llm_judge: bool | None = None,
+) -> None:
     from RetrievalCI_Bench_v0_2026.scripts.run_bench_v0_sag import merge_and_save_reports
 
-    prev_run = await _load_latest_completed_run("retrievalci_v0")
+    os.environ["SAG_BENCHMARK_DECISION_PROVIDER"] = "siliconflow"
+    prev_run = await _load_latest_completed_run("retrievalci_v0") if allow_cache_replay else {}
     prev_diag = prev_run.get("diagnostics_json") or {}
     files = sorted((BENCH_V0_ROOT / "examples/rag_eval/bench_v0/corpus").glob("*.md"))
     question_path = BENCH_V0_ROOT / "examples/rag_eval/bench_v0/questions.jsonl"
     questions = load_questions(question_path)
+    deny_acl_cases = load_acl_deny_cases("retrievalci_v0")
+    provenance = validate_dataset_splits_and_provenance(
+        [q.model_dump(mode="json") for q in questions], allow_unreviewed=True
+    )
     skip_index = await _configure_skip_or_ingest("retrievalci_v0", len(files))
     bench_run = BenchmarkRun("retrievalci_v0", BENCH_V0_ROOT, settings.database_url)
     settings.database_url = bench_run.database_url
@@ -246,9 +304,25 @@ async def run_retrievalci_with_pre_retrieve() -> None:
     rows: list[RunResult] = []
     diagnostics: dict[str, dict[str, Any]] = {}
     corpus_hash = _compute_corpus_hash(files, {f: f.relative_to(BENCH_V0_ROOT).as_posix() for f in files})
+    live_executed_count = 0
+    cached_reused_count = 0
 
     try:
-        await bench_run.start(files, question_path, {"mode": "real_sag_application", "dense_graph": True, "e2_enrichment": False, "pre_retrieve": "full_kev4b_qsp_v2"})
+        await bench_run.start(
+            files,
+            question_path,
+            {
+                "mode": "real_sag_application",
+                "dense_graph": True,
+                "e2_enrichment": False,
+                "pre_retrieve": "full_kev4b_qsp_v2",
+                "allow_cache_replay": allow_cache_replay,
+                "acl_deny_cases_count": len(deny_acl_cases),
+            },
+        )
+        bench_run.manifest["acl_deny_cases_count"] = len(deny_acl_cases)
+        bench_run.manifest["allow_cache_replay"] = allow_cache_replay
+        bench_run.manifest["dataset_provenance"] = provenance
         async with runtime.serve():
             if skip_index:
                 await runtime.reuse_documents(files)
@@ -259,13 +333,17 @@ async def run_retrievalci_with_pre_retrieve() -> None:
             for idx, q in enumerate(questions, 1):
                 pd = prev_diag.get(q.id) or {}
                 prev_rec = pd.get("retrieval_source_recall")
-                need_live, reason = _needs_live_rerun(q.question, prev_rec, bool(pd.get("response") and not pd.get("error")))
+                need_live, reason = _needs_live_rerun(
+                    q.question,
+                    prev_rec,
+                    bool(pd.get("response") and not pd.get("error")),
+                    allow_cache_replay=allow_cache_replay,
+                )
                 if need_live:
                     measured = await runtime.ask(q.question, top_k=None)
-                    dec_lat = float(route_query(q.question).get("latency_ms") or 0.0)
-                    measured["retrieval_latency_ms"] = round(float(measured.get("retrieval_latency_ms") or 0.0) + dec_lat, 2)
-                    measured["first_token_ms"] = round(float(measured.get("first_token_ms") or 0.0) + dec_lat, 2)
-                    measured["latency_ms"] = round(float(measured.get("latency_ms") or 0.0) + dec_lat, 2)
+                    measured["measurement_mode"] = "live"
+                    validate_latency_row({"question_id": q.id, **measured}, strict=True)
+                    live_executed_count += 1
                     mode_tag = f"LIVE({reason})"
                 else:
                     measured = _enrich_cached_measurement_with_pre_retrieve(
@@ -274,7 +352,8 @@ async def run_retrievalci_with_pre_retrieve() -> None:
                         bench_run.project_id,
                         bench_run.organization_id,
                     )
-                    mode_tag = "CACHED+KEV4B"
+                    cached_reused_count += 1
+                    mode_tag = "CACHED_REPLAY"
 
                 result = measured["response"] or {}
                 retrieved = tuple(Citation(source_path=runtime.documents[s["document_id"]], span=s["content"][:180]) for s in result.get("sections", []))
@@ -300,6 +379,13 @@ async def run_retrievalci_with_pre_retrieve() -> None:
                 )
                 row = compute_row("sag_engine", q, answer)
                 rows.append(row)
+                evidence_and_answer = (result.get("summary") or "") + "\n" + "\n".join(s.get("content") or "" for s in result.get("sections", []))
+                mand_eval = compute_mandatory_coverage(evidence_and_answer, q.must_include_terms)
+                cit_eval = evaluate_must_not_cite(
+                    list(dict.fromkeys(c.source_path for c in cited)),
+                    (),
+                    answer_status=result.get("answer_status"),
+                )
                 diagnostics[q.id] = {
                     "question_id": q.id,
                     "tier": q.tier,
@@ -313,16 +399,29 @@ async def run_retrievalci_with_pre_retrieve() -> None:
                     "retrieval_source_precision": row.retrieval_source_precision,
                     "answer_citation_recall": row.answer_citation_recall,
                     "answer_citation_precision": row.answer_citation_precision,
+                    "has_valid_citation": cit_eval["has_valid_citation"],
                     "abstention_correctness": row.abstention_correctness,
+                    "mandatory_points_coverage": mand_eval["coverage"],
+                    "mandatory_coverage_mode": mand_eval["mode"],
+                    "must_not_cite_violations": cit_eval["violation_count"],
                     "tokens_used": q_tokens_used,
                     "cost_usd": q_cost_usd,
                     "token_usage": q_token_usage,
                     **measured,
                 }
                 print(f"  [retrievalci_v0 {idx}/{len(questions)}] {q.id} [{mode_tag}] R={row.retrieval_source_recall} P={row.retrieval_source_precision} tok={q_tokens_used}", flush=True)
-            extended = await extended_evaluation(runtime, [{"id": q.id, "question": q.question, "reference": q.ground_truth_answer or ""} for q in questions], diagnostics)
+            extended = await extended_evaluation(
+                runtime,
+                [{"id": q.id, "question": q.question, "reference": q.ground_truth_answer or ""} for q in questions],
+                diagnostics,
+                enable_judge=enable_llm_judge,
+            )
+            extended["acl_security_evaluation"] = await _run_live_acl_deny_suite(runtime, deny_acl_cases)
             (bench_run.output_dir / "quality_latency.json").write_text(json.dumps(extended, ensure_ascii=False, indent=2), encoding="utf-8")
             bench_run.manifest["quality_latency"] = extended
+            bench_run.manifest["live_executed_count"] = live_executed_count
+            bench_run.manifest["cached_reused_count"] = cached_reused_count
+            bench_run.manifest["measurement_mode"] = "cached_replay" if cached_reused_count > 0 else "live"
             token_report = await runtime.token_usage_report()
             (bench_run.output_dir / "token_usage_report.json").write_text(json.dumps(token_report, ensure_ascii=False, indent=2), encoding="utf-8")
             bench_run.manifest["token_usage"] = {
@@ -337,6 +436,25 @@ async def run_retrievalci_with_pre_retrieve() -> None:
             import RetrievalCI_Bench_v0_2026.scripts.run_bench_v0_sag as r_mod
             r_mod.BENCH_RUN = bench_run
             report = merge_and_save_reports(questions, rows, diagnostics)
+            sag_m = report.by_system_metric.get("sag_engine", {})
+            bench_run.manifest["four_axis_scorecard"] = build_four_axis_scorecard(
+                retrieval_metrics={
+                    "recall_at_5": sag_m.get("retrieval_source_recall"),
+                    "precision_at_5": sag_m.get("retrieval_source_precision"),
+                },
+                answer_quality=extended,
+                citation_metrics={
+                    "answer_citation_precision": sag_m.get("answer_citation_precision"),
+                    "answer_citation_recall": sag_m.get("answer_citation_recall"),
+                    "abstention_correctness": sag_m.get("abstention_correctness"),
+                    "mandatory_points_coverage": statistics.fmean(
+                        d["mandatory_points_coverage"] for d in diagnostics.values() if d["mandatory_points_coverage"] is not None
+                    ) if any(d["mandatory_points_coverage"] is not None for d in diagnostics.values()) else None,
+                    "must_not_cite_violations": sum(d["must_not_cite_violations"] for d in diagnostics.values()),
+                },
+                acl_evaluation=extended["acl_security_evaluation"],
+                measurement_mode=bench_run.manifest["measurement_mode"],
+            )
             await bench_run.complete(report.model_dump(mode="json"), diagnostics)
     except BaseException as err:
         await bench_run.fail(err)
@@ -345,14 +463,21 @@ async def run_retrievalci_with_pre_retrieve() -> None:
         await bench_run.close()
 
 
-async def run_vn_mteb_with_pre_retrieve() -> None:
-    prev_run = await _load_latest_completed_run("vn_mteb")
+async def run_vn_mteb_with_pre_retrieve(
+    *,
+    allow_cache_replay: bool = False,
+    enable_llm_judge: bool | None = None,
+) -> None:
+    os.environ["SAG_BENCHMARK_DECISION_PROVIDER"] = "siliconflow"
+    prev_run = await _load_latest_completed_run("vn_mteb") if allow_cache_replay else {}
     prev_manifest = prev_run.get("manifest_json") or {}
     prev_results = prev_run.get("results_json") or {}
     prev_by_qid = {r["question_id"]: r for r in (prev_results.get("questions") or []) if "question_id" in r}
     files = sorted((VN_MTEB_ROOT / "corpus").glob("*.md"))
     question_path = VN_MTEB_ROOT / "data/questions.jsonl"
     questions = [json.loads(line) for line in question_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    deny_acl_cases = load_acl_deny_cases("vn_mteb")
+    provenance = validate_dataset_splits_and_provenance(questions, allow_unreviewed=True)
     skip_index = await _configure_skip_or_ingest("vn_mteb", len(files))
     if not skip_index:
         os.environ["SAG_BENCHMARK_SCHEMA"] = "sag"
@@ -362,24 +487,57 @@ async def run_vn_mteb_with_pre_retrieve() -> None:
     runtime = SAGBenchmark(bench_run, SAG_ROOT, require_dense_graph=True)
     runtime.inter_query_delay_s = 0.4
     rows = []
+    live_executed_count = 0
+    cached_reused_count = 0
     try:
-        await bench_run.start(files, question_path, {"mode": "real_sag_application", "dense_graph": True, "e2_enrichment": False, "pre_retrieve": "full_kev4b_qsp_v2"}, preserve_project_ids=[bench_run.project_id])
+        await bench_run.start(
+            files,
+            question_path,
+            {
+                "mode": "real_sag_application",
+                "dense_graph": True,
+                "e2_enrichment": False,
+                "pre_retrieve": "full_kev4b_qsp_v2",
+                "allow_cache_replay": allow_cache_replay,
+                "acl_deny_cases_count": len(deny_acl_cases),
+            },
+            preserve_project_ids=[bench_run.project_id],
+        )
+        bench_run.manifest["acl_deny_cases_count"] = len(deny_acl_cases)
+        bench_run.manifest["allow_cache_replay"] = allow_cache_replay
+        bench_run.manifest["dataset_provenance"] = provenance
         async with runtime.serve():
+            if skip_index:
+                await runtime.reuse_documents(files)
+            else:
+                await runtime.ingest(files)
+            ready_state = await runtime.wait_ready()
+            print(f"[vn_mteb] READY DenseGraph={ready_state['dense_graph']} Units={ready_state['units']}", flush=True)
             for idx, q in enumerate(questions, 1):
                 qid = q["question_id"]
                 pr = prev_by_qid.get(qid) or {}
-                measured = _enrich_cached_measurement_with_pre_retrieve(
-                    {k: pr[k] for k in ("response", "retrieval_latency_ms", "latency_ms", "first_token_ms", "error", "http_client_pid") if k in pr},
-                    q["question"],
-                    bench_run.project_id,
-                    bench_run.organization_id,
-                )
-                mode_tag = "CACHED+KEV4B"
+                if allow_cache_replay and pr.get("response") and not pr.get("error"):
+                    measured = _enrich_cached_measurement_with_pre_retrieve(
+                        {k: pr[k] for k in ("response", "retrieval_latency_ms", "latency_ms", "first_token_ms", "error", "http_client_pid") if k in pr},
+                        q["question"],
+                        bench_run.project_id,
+                        bench_run.organization_id,
+                    )
+                    ranked = list(pr.get("retrieved_docs") or [])
+                    cached_reused_count += 1
+                    mode_tag = "CACHED_REPLAY"
+                else:
+                    measured = await runtime.ask(q["question"], top_k=None)
+                    measured["measurement_mode"] = "live"
+                    validate_latency_row({"question_id": qid, **measured}, strict=True)
+                    result = measured["response"] or {}
+                    ranked = list(dict.fromkeys(Path(runtime.documents[s["document_id"]]).name for s in result.get("sections", []) if s.get("document_id") in runtime.documents))
+                    live_executed_count += 1
+                    mode_tag = "LIVE"
                 result = measured["response"] or {}
                 q_token_usage = ((result.get("stats") or {}).get("token_usage")) if isinstance(result, dict) else None
                 q_totals = (q_token_usage.get("totals") or {}) if isinstance(q_token_usage, dict) else {}
                 q_tokens_used = int(q_totals.get("total_tokens", 0) or 0)
-                ranked = list(pr.get("retrieved_docs") or [])
                 relevant = set(q["relevant_doc_ids"])
                 m5 = ir_metrics(ranked, relevant, 5)
                 rows.append({
@@ -390,10 +548,21 @@ async def run_vn_mteb_with_pre_retrieve() -> None:
                     "metrics": {"5": m5},
                 })
                 print(f"  [vn_mteb {idx}/{len(questions)}] {qid} [{mode_tag}] R@5={m5['recall']:.2f} docs={ranked} tok={q_tokens_used}", flush=True)
-            extended = prev_results.get("quality_latency") or prev_manifest.get("quality_latency") or {}
+            extended = await extended_evaluation(
+                runtime,
+                [{"id": q["question_id"], "question": q["question"]} for q in questions],
+                {r["question_id"]: r for r in rows},
+                enable_judge=enable_llm_judge,
+            )
+            extended["acl_security_evaluation"] = await _run_live_acl_deny_suite(runtime, deny_acl_cases)
+            (bench_run.output_dir / "quality_latency.json").write_text(json.dumps(extended, ensure_ascii=False, indent=2), encoding="utf-8")
+            bench_run.manifest["quality_latency"] = extended
+            bench_run.manifest["live_executed_count"] = live_executed_count
+            bench_run.manifest["cached_reused_count"] = cached_reused_count
+            bench_run.manifest["measurement_mode"] = "cached_replay" if cached_reused_count > 0 else "live"
             token_report = await runtime.token_usage_report()
             prev_tok = prev_manifest.get("token_usage") or prev_results.get("token_usage") or {}
-            ing_sec = prev_tok.get("ingestion_and_knowledge") or token_report.get("ingestion_and_knowledge") or {}
+            ing_sec = token_report.get("ingestion_and_knowledge") or prev_tok.get("ingestion_and_knowledge") or {}
             qry_sec = token_report.get("query_and_generation") or {}
             grd_sec = merge_token_summaries(ing_sec, qry_sec)
             token_report["ingestion_and_knowledge"] = ing_sec
@@ -406,13 +575,32 @@ async def run_vn_mteb_with_pre_retrieve() -> None:
                 "report_file": "token_usage_report.json",
             }
             subsets = sorted({r["subset"] for r in rows})
+            overall_ir = {m: statistics.fmean(r["metrics"]["5"][m] for r in rows) for m in ("recall", "precision", "mrr", "map", "ndcg")}
+            four_axis = build_four_axis_scorecard(
+                retrieval_metrics={
+                    "recall_at_5": overall_ir["recall"],
+                    "precision_at_5": overall_ir["precision"],
+                    "mrr_at_5": overall_ir["mrr"],
+                    "map_at_5": overall_ir["map"],
+                    "ndcg_at_5": overall_ir["ndcg"],
+                },
+                answer_quality=extended,
+                citation_metrics={"must_not_cite_violations": 0},
+                acl_evaluation=extended["acl_security_evaluation"],
+                measurement_mode=bench_run.manifest["measurement_mode"],
+            )
+            bench_run.manifest["four_axis_scorecard"] = four_axis
             summary = {
-                "overall": {m: statistics.fmean(r["metrics"]["5"][m] for r in rows) for m in ("recall", "precision", "mrr", "map", "ndcg")},
+                "overall": overall_ir,
                 "by_subset": {s: {m: statistics.fmean(r["metrics"]["5"][m] for r in rows if r["subset"] == s) for m in ("recall", "precision", "mrr", "map", "ndcg")} for s in subsets},
-                "answered": sum(r["response"].get("answer_status") == "answered" for r in rows),
-                "no_answer": sum(r["response"].get("answer_status") == "no_answer" for r in rows),
-                "execution_errors": 0,
-                "pipeline": prev_results.get("pipeline") or prev_manifest.get("pipeline_after_questions") or {},
+                "answered": sum((r.get("response") or {}).get("answer_status") == "answered" for r in rows),
+                "no_answer": sum((r.get("response") or {}).get("answer_status") == "no_answer" for r in rows),
+                "execution_errors": sum(bool(r.get("error")) for r in rows),
+                "live_executed_count": live_executed_count,
+                "cached_reused_count": cached_reused_count,
+                "measurement_mode": bench_run.manifest["measurement_mode"],
+                "four_axis_scorecard": four_axis,
+                "pipeline": await runtime.state(),
                 "quality_latency": extended,
                 "token_usage": bench_run.manifest["token_usage"],
                 "questions": rows,
@@ -427,13 +615,21 @@ async def run_vn_mteb_with_pre_retrieve() -> None:
         await bench_run.close()
 
 
-async def run_new_five_dataset_with_pre_retrieve(benchmark_key: str) -> None:
-    prev_run = await _load_latest_completed_run(benchmark_key)
+async def run_new_five_dataset_with_pre_retrieve(
+    benchmark_key: str,
+    *,
+    allow_cache_replay: bool = False,
+    split: str = "all",
+    enable_llm_judge: bool | None = None,
+) -> None:
+    os.environ["SAG_BENCHMARK_DECISION_PROVIDER"] = "siliconflow"
+    prev_run = await _load_latest_completed_run(benchmark_key) if allow_cache_replay else {}
     prev_diag = prev_run.get("diagnostics_json") or {}
-    prev_manifest = prev_run.get("manifest_json") or {}
-    prev_acl = ((prev_manifest.get("quality_latency") or {}).get("acl_security_evaluation"))
 
-    files, logical_ids, ineligible_lids, question_path, questions, allow_raw_cases, deny_acl_cases = materialize_dataset(benchmark_key)
+    files, logical_ids, ineligible_lids, question_path, questions, allow_raw_cases, deny_acl_cases = materialize_dataset(
+        benchmark_key, split=split
+    )
+    provenance = validate_dataset_splits_and_provenance(allow_raw_cases + deny_acl_cases, allow_unreviewed=True)
     allow_raw_by_id = {(c.get("case_id") or c.get("id")): c for c in allow_raw_cases}
     skip_index = await _configure_skip_or_ingest(benchmark_key, len(files))
     run_root = BENCH_V0_ROOT if benchmark_key == "wixqa_enterprise" else (DATASET_ROOT / ".materialized" / benchmark_key)
@@ -445,6 +641,8 @@ async def run_new_five_dataset_with_pre_retrieve(benchmark_key: str) -> None:
     corpus_hash = _compute_corpus_hash(files, logical_ids)
     rows: list[RunResult] = []
     diagnostics: dict[str, dict[str, Any]] = {}
+    live_executed_count = 0
+    cached_reused_count = 0
 
     try:
         await bench_run.start(
@@ -456,9 +654,15 @@ async def run_new_five_dataset_with_pre_retrieve(benchmark_key: str) -> None:
                 "e2_enrichment": False,
                 "pre_retrieve": "full_kev4b_qsp_v2",
                 "project_name": bench_run.project_name,
+                "split": split,
+                "allow_cache_replay": allow_cache_replay,
                 "acl_deny_cases_count": len(deny_acl_cases),
             },
         )
+        bench_run.manifest["acl_deny_cases_count"] = len(deny_acl_cases)
+        bench_run.manifest["allow_cache_replay"] = allow_cache_replay
+        bench_run.manifest["split"] = split
+        bench_run.manifest["dataset_provenance"] = provenance
         async with runtime.serve():
             if skip_index:
                 await runtime.reuse_documents(files, logical_source_ids=logical_ids)
@@ -469,13 +673,17 @@ async def run_new_five_dataset_with_pre_retrieve(benchmark_key: str) -> None:
             for idx, q in enumerate(questions, 1):
                 pd = prev_diag.get(q.id) or {}
                 prev_rec = pd.get("retrieval_source_recall")
-                need_live, reason = _needs_live_rerun(q.question, prev_rec, bool(pd.get("response") and not pd.get("error")))
+                need_live, reason = _needs_live_rerun(
+                    q.question,
+                    prev_rec,
+                    bool(pd.get("response") and not pd.get("error")),
+                    allow_cache_replay=allow_cache_replay,
+                )
                 if need_live:
                     measured = await runtime.ask(q.question, top_k=None)
-                    dec_lat = float(route_query(q.question).get("latency_ms") or 0.0)
-                    measured["retrieval_latency_ms"] = round(float(measured.get("retrieval_latency_ms") or 0.0) + dec_lat, 2)
-                    measured["first_token_ms"] = round(float(measured.get("first_token_ms") or 0.0) + dec_lat, 2)
-                    measured["latency_ms"] = round(float(measured.get("latency_ms") or 0.0) + dec_lat, 2)
+                    measured["measurement_mode"] = "live"
+                    validate_latency_row({"question_id": q.id, **measured}, strict=True)
+                    live_executed_count += 1
                     mode_tag = f"LIVE({reason})"
                 else:
                     measured = _enrich_cached_measurement_with_pre_retrieve(
@@ -484,7 +692,8 @@ async def run_new_five_dataset_with_pre_retrieve(benchmark_key: str) -> None:
                         bench_run.project_id,
                         bench_run.organization_id,
                     )
-                    mode_tag = "CACHED+KEV4B"
+                    cached_reused_count += 1
+                    mode_tag = "CACHED_REPLAY"
 
                 result = measured["response"] or {}
                 raw_sections = result.get("sections", []) or []
@@ -511,8 +720,6 @@ async def run_new_five_dataset_with_pre_retrieve(benchmark_key: str) -> None:
                     for c in result.get("citations", [])
                     if runtime.documents.get(c["document_id"], c["document_id"]) in elig_doc_lids
                 )
-                if not cited and result.get("answer_status") == "answered" and retrieved:
-                    cited = (retrieved[0],)
                 q_token_usage = ((result.get("stats") or {}).get("token_usage")) if isinstance(result, dict) else None
                 q_totals = (q_token_usage.get("totals") or {}) if isinstance(q_token_usage, dict) else {}
                 q_tokens_used = int(q_totals.get("total_tokens", 0) or 0)
@@ -543,27 +750,24 @@ async def run_new_five_dataset_with_pre_retrieve(benchmark_key: str) -> None:
                 ir_10 = ir_metrics(retrieved_unique, truth_set, 10, flexible_k=True)
 
                 raw_meta = allow_raw_by_id.get(q.id, {})
-                must_not_cite = set(raw_meta.get("must_not_cite") or [])
-                must_not_cite_base = {m.split("@")[0] for m in must_not_cite if "@" not in m}
-                forbidden_cited = [
-                    doc_id for doc_id in cited_unique
-                    if doc_id in must_not_cite or doc_id in must_not_cite_base
-                ]
-                mandatory_pts = raw_meta.get("mandatory_points") or []
+                must_not_cite = list(raw_meta.get("must_not_cite") or [])
+                cit_eval = evaluate_must_not_cite(
+                    cited_unique,
+                    must_not_cite,
+                    answer_status=result.get("answer_status"),
+                )
+                mandatory_pts = raw_meta.get("mandatory_points") or list(q.must_include_terms or ())
                 evidence_and_answer = (
                     (result.get("summary") or "")
                     + "\n"
                     + "\n".join(s.get("content") or "" for s in elig_sections)
-                ).lower()
-                mandatory_cov = (
-                    sum(1 for pt in mandatory_pts if str(pt).lower() in evidence_and_answer) / len(mandatory_pts)
-                    if mandatory_pts
-                    else None
                 )
-                must_not_viol = len(forbidden_cited)
+                mand_eval = compute_mandatory_coverage(evidence_and_answer, mandatory_pts)
 
                 diagnostics[q.id] = {
                     "question_id": q.id,
+                    "split": raw_meta.get("split", "unsplit"),
+                    "review_status": raw_meta.get("review_status", "unrecorded"),
                     "tier": q.tier,
                     "question": q.question,
                     "unanswerable": q.unanswerable,
@@ -575,9 +779,13 @@ async def run_new_five_dataset_with_pre_retrieve(benchmark_key: str) -> None:
                     "retrieval_source_precision": row.retrieval_source_precision,
                     "answer_citation_recall": row.answer_citation_recall,
                     "answer_citation_precision": row.answer_citation_precision,
+                    "has_valid_citation": cit_eval["has_valid_citation"],
                     "abstention_correctness": row.abstention_correctness,
-                    "mandatory_points_coverage": mandatory_cov,
-                    "must_not_cite_violations": must_not_viol,
+                    "mandatory_points_coverage": mand_eval["coverage"],
+                    "mandatory_coverage_mode": mand_eval["mode"],
+                    "must_not_cite": must_not_cite,
+                    "must_not_cite_violations": cit_eval["violation_count"],
+                    "must_not_cite_violating_docs": cit_eval["violations"],
                     "ir_at_5": ir_5,
                     "ir_at_10": ir_10,
                     "tokens_used": q_tokens_used,
@@ -591,18 +799,14 @@ async def run_new_five_dataset_with_pre_retrieve(benchmark_key: str) -> None:
                 runtime,
                 [{"id": q.id, "question": q.question, "reference": q.ground_truth_answer or ""} for q in questions],
                 diagnostics,
+                enable_judge=enable_llm_judge,
             )
-            if prev_acl:
-                extended["acl_security_evaluation"] = prev_acl
-            else:
-                extended["acl_security_evaluation"] = {
-                    "total_acl_cases": len(deny_acl_cases),
-                    "deny_accuracy": 1.0 if deny_acl_cases else None,
-                    "leaked_citations_count": 0,
-                    "cases": [],
-                }
+            extended["acl_security_evaluation"] = await _run_live_acl_deny_suite(runtime, deny_acl_cases)
             (bench_run.output_dir / "quality_latency.json").write_text(json.dumps(extended, ensure_ascii=False, indent=2), encoding="utf-8")
             bench_run.manifest["quality_latency"] = extended
+            bench_run.manifest["live_executed_count"] = live_executed_count
+            bench_run.manifest["cached_reused_count"] = cached_reused_count
+            bench_run.manifest["measurement_mode"] = "cached_replay" if cached_reused_count > 0 else "live"
 
             token_report = await runtime.token_usage_report()
             (bench_run.output_dir / "token_usage_report.json").write_text(json.dumps(token_report, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -625,6 +829,27 @@ async def run_new_five_dataset_with_pre_retrieve(benchmark_key: str) -> None:
                 by_system_tier_metric=by_tier,
                 pairwise=[],
             )
+            bench_run.manifest["four_axis_scorecard"] = build_four_axis_scorecard(
+                retrieval_metrics={
+                    "recall_at_5": statistics.fmean(d["ir_at_5"]["recall"] for d in diagnostics.values()) if diagnostics else 0.0,
+                    "precision_at_5": statistics.fmean(d["ir_at_5"]["precision"] for d in diagnostics.values()) if diagnostics else 0.0,
+                    "mrr_at_5": statistics.fmean(d["ir_at_5"]["mrr"] for d in diagnostics.values()) if diagnostics else 0.0,
+                    "map_at_5": statistics.fmean(d["ir_at_5"]["map"] for d in diagnostics.values()) if diagnostics else 0.0,
+                    "ndcg_at_5": statistics.fmean(d["ir_at_5"]["ndcg"] for d in diagnostics.values()) if diagnostics else 0.0,
+                },
+                answer_quality=extended,
+                citation_metrics={
+                    "answer_citation_precision": by_sys.get("sag_engine", {}).get("answer_citation_precision"),
+                    "answer_citation_recall": by_sys.get("sag_engine", {}).get("answer_citation_recall"),
+                    "abstention_correctness": by_sys.get("sag_engine", {}).get("abstention_correctness"),
+                    "mandatory_points_coverage": statistics.fmean(
+                        d["mandatory_points_coverage"] for d in diagnostics.values() if d["mandatory_points_coverage"] is not None
+                    ) if any(d["mandatory_points_coverage"] is not None for d in diagnostics.values()) else None,
+                    "must_not_cite_violations": sum(d["must_not_cite_violations"] for d in diagnostics.values()),
+                },
+                acl_evaluation=extended["acl_security_evaluation"],
+                measurement_mode=bench_run.manifest["measurement_mode"],
+            )
             (bench_run.output_dir / f"{benchmark_key}_with_sag.json").write_text(report.model_dump_json(indent=2), encoding="utf-8")
             (bench_run.output_dir / f"{benchmark_key}_diagnostics.json").write_text(json.dumps(diagnostics, ensure_ascii=False, indent=2), encoding="utf-8")
             bench_run.manifest["pipeline_after_questions"] = await runtime.state()
@@ -637,11 +862,42 @@ async def run_new_five_dataset_with_pre_retrieve(benchmark_key: str) -> None:
         await bench_run.close()
 
 
-async def main() -> None:
+def _build_arg_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        description="Run 7-project SAG pre-retrieve benchmark (live execution by default; cache replay opt-in only)."
+    )
+    parser.add_argument(
+        "targets",
+        nargs="?",
+        default="all",
+        help="Comma-separated dataset keys or 'all' / 'summary'.",
+    )
+    parser.add_argument(
+        "--split",
+        choices=("all", "dev", "test"),
+        default="all",
+        help="Evaluation split selector for enterprise datasets (default: all, reporting dev and test separately).",
+    )
+    parser.add_argument(
+        "--allow-cache-replay",
+        action="store_true",
+        default=False,
+        help="Explicit opt-in to replay cached baseline rows (tagged measurement_mode='cached_replay'). Disabled by default.",
+    )
+    parser.add_argument(
+        "--enable-llm-judge",
+        action="store_true",
+        default=False,
+        help="Enable independent LLM-as-Judge faithfulness/relevance grading.",
+    )
+    return parser
+
+
+async def main(argv: list[str] | None = None) -> None:
     import subprocess
 
-    raw_target = sys.argv[1] if len(sys.argv) > 1 else "all"
-    targets = [t.strip() for t in raw_target.split(",") if t.strip()]
+    args = _build_arg_parser().parse_args(argv)
+    targets = [t.strip() for t in args.targets.split(",") if t.strip()]
     if "all" in targets:
         ds_list = list(ALL_SEVEN_KEYS)
         do_summary = True
@@ -649,17 +905,34 @@ async def main() -> None:
         ds_list = [t for t in targets if t in ALL_SEVEN_KEYS]
         do_summary = "summary" in targets
 
+    enable_judge = True if args.enable_llm_judge else None
     if len(ds_list) > 1:
         for ds in ds_list:
-            subprocess.run([sys.executable, str(Path(__file__).resolve()), ds], check=True)
+            cmd = [sys.executable, str(Path(__file__).resolve()), ds, "--split", args.split]
+            if args.allow_cache_replay:
+                cmd.append("--allow-cache-replay")
+            if args.enable_llm_judge:
+                cmd.append("--enable-llm-judge")
+            subprocess.run(cmd, check=True)
     elif len(ds_list) == 1:
         ds = ds_list[0]
         if ds == "retrievalci_v0":
-            await run_retrievalci_with_pre_retrieve()
+            await run_retrievalci_with_pre_retrieve(
+                allow_cache_replay=args.allow_cache_replay,
+                enable_llm_judge=enable_judge,
+            )
         elif ds == "vn_mteb":
-            await run_vn_mteb_with_pre_retrieve()
+            await run_vn_mteb_with_pre_retrieve(
+                allow_cache_replay=args.allow_cache_replay,
+                enable_llm_judge=enable_judge,
+            )
         else:
-            await run_new_five_dataset_with_pre_retrieve(ds)
+            await run_new_five_dataset_with_pre_retrieve(
+                ds,
+                allow_cache_replay=args.allow_cache_replay,
+                split=args.split,
+                enable_llm_judge=enable_judge,
+            )
 
     if do_summary:
         summary = await build_seven_projects_summary()

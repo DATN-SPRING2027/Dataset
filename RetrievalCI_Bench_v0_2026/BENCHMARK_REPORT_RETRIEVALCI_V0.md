@@ -1,7 +1,7 @@
 # Báo Cáo Thực Nghiệm & Kiểm Toán Kiến Trúc: RetrievalCI Bench-v0 (2026)
 
 - **Bộ dữ liệu chuẩn (Benchmark)**: `RetrievalCI Bench-v0 (2026)` — phân tầng từ `EnterpriseRAG-Bench v1.0.0` (`colon-md/retrievalci`, 2026)
-- **Đường dẫn Dataset**: [`d:\DoAnTotnghiep\Dataset\RetrievalCI_Bench_v0_2026`](file:///d:/DoAnTotnghiep/Dataset/RetrievalCI_Bench_v0_2026)
+- **Đường dẫn Dataset**: [`RetrievalCI_Bench_v0_2026/`](./)
 - **Quy mô Corpus**: **81 tài liệu doanh nghiệp thực tế** trải rộng trên 9 nguồn (`Confluence`, `GitHub PR/Issue`, `Jira`, `Slack`, `Gmail`, `Google Drive`, `PagerDuty`, `Fireflies`, `HubSpot`)
 - **Quy mô Tập câu hỏi (Held-out Evaluation Set)**: **50 câu hỏi** phân tầng:
   - `single_hop`: **25 câu** (1 tài liệu đích)
@@ -10,11 +10,11 @@
 - **Hạ tầng Index thực tế**:
   - PostgreSQL Schema: `sag_retrievalci_bench_v0` (**81 `Document`**, **81 `DocumentVersion`**, **3.585 `CanonicalBlock`**, **712 `SearchUnit`**, **3.585 `KnowledgeUnit`**, **45.465 `KnowledgeUnitEdge`**)
   - Qdrant Cloud Collection: `search_units_670000000000000000000201` (Dense `Qwen/Qwen3-Embedding-8B` 1024-dim + Sparse BM25)
-- **Kịch bản chạy thực tế**: [`scripts/run_bench_v0_sag.py`](file:///d:/DoAnTotnghiep/Dataset/RetrievalCI_Bench_v0_2026/scripts/run_bench_v0_sag.py)
+- **Kịch bản chạy thực tế**: [`scripts/run_bench_v0_sag.py`](./scripts/run_bench_v0_sag.py)
 - **Báo cáo JSON & HTML chính thức**:
-  - [`baselines/rag/bench_v0_with_sag.json`](file:///d:/DoAnTotnghiep/Dataset/RetrievalCI_Bench_v0_2026/baselines/rag/bench_v0_with_sag.json)
-  - [`baselines/rag/bench_v0_with_sag.html`](file:///d:/DoAnTotnghiep/Dataset/RetrievalCI_Bench_v0_2026/baselines/rag/bench_v0_with_sag.html)
-  - [`baselines/rag/bench_v0_sag_diagnostics.json`](file:///d:/DoAnTotnghiep/Dataset/RetrievalCI_Bench_v0_2026/baselines/rag/bench_v0_sag_diagnostics.json)
+  - [`baselines/rag/bench_v0_with_sag.json`](./baselines/rag/bench_v0_with_sag.json)
+  - [`baselines/rag/bench_v0_with_sag.html`](./baselines/rag/bench_v0_with_sag.html)
+  - [`baselines/rag/bench_v0_sag_diagnostics.json`](./baselines/rag/bench_v0_sag_diagnostics.json)
 
 ---
 
@@ -52,9 +52,9 @@ $$\text{Score} = 100 \times \left(0.7 \times \text{retrieval\_source\_recall} + 
 ## 2. Kiểm Toán 4 Điểm Nghẽn Hệ Thống: Đã Sửa Gì & Đã Loại Bỏ Gì Để Chống Overfit?
 
 ### Điểm nghẽn 1: Hiệu ứng "Hub-Entity Teleportation" và Tự Khuếch Đại Cùng Tài Liệu trong `_expand_multi_hop_sections`
-- **Trạng thái**: **ĐÃ FIX TRIỆT ĐỂ (100% First-Principles)** tại [`search_unit_retrieval_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L842-L1089) và [`search_unit_retrieval_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L1725-L1801).
+- **Trạng thái**: **ĐÃ FIX TRIỆT ĐỂ (100% First-Principles)** tại [`search_unit_retrieval_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L842-L1089) và [`search_unit_retrieval_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L1725-L1801).
 - **Lỗi gốc rễ đã phát hiện**:
-  1. File [`search_unit_retrieval_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py) dùng `re.sub` ở dòng 929 nhưng quên `import re` ở đầu file (gây `NameError` tiềm ẩn khi đi vào nhánh bridge entity).
+  1. File [`search_unit_retrieval_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py) dùng `re.sub` ở dòng 929 nhưng quên `import re` ở đầu file (gây `NameError` tiềm ẩn khi đi vào nhánh bridge entity).
   2. Nhánh `ENTITY_RELATIONAL` kích hoạt mở rộng đồ thị đa bước (`_expand_multi_hop_sections`) ngay cả khi câu hỏi là Single-Hop (`multi_hop_eligible == False`), làm nhiễu thứ hạng RRF vốn đã đúng.
   3. Các cạnh `KnowledgeUnitEdge` nội bộ trong cùng một tài liệu (`SECTION` edge có trọng số `~0.96`) và các thực thể phổ biến toàn kho (như `"api"`, `"slo"`, `"gpu"`) tự cộng điểm `+0.12` cho các đoạn anh em của chính tài liệu hạt giống (`seed_pool`), đẩy các tài liệu liên kết chéo ra khỏi Top-5.
 - **Giải pháp tổng quát đã áp dụng (Không phụ thuộc benchmark)**:
@@ -63,14 +63,14 @@ $$\text{Score} = 100 \times \left(0.7 \times \text{retrieval\_source\_recall} + 
   - Loại trừ `seed_version_ids` và `seed_doc_ids` khỏi tập đích Hop-2 để đồ thị tri thức chỉ mở rộng **liên tài liệu (cross-document)**.
 
 ### Điểm nghẽn 2: Cắt Cụm Ứng Viên `global_escape` ở Ngưỡng Tĩnh 50 (`_bounded_candidate_unit_ids`)
-- **Trạng thái**: **ĐÃ FIX TRIỆT ĐỂ (100% First-Principles)** tại [`search_unit_retrieval_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L1414-L1417).
+- **Trạng thái**: **ĐÃ FIX TRIỆT ĐỂ (100% First-Principles)** tại [`search_unit_retrieval_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L1414-L1417).
 - **Lỗi gốc rễ đã phát hiện**:
   - Khi chạy song song 4 luồng `(dense, sparse) x (branch_local, global_escape)` với `candidate_limit = 25`, tổng số ứng viên độc nhất có thể lên tới `4 * candidate_limit = 100`, nhưng `_bounded_candidate_unit_ids` bị giới hạn cứng ở `settings.search_unit_candidate_limit = 50`, làm rơi các ứng viên `global_escape` trước khi hydrate từ PostgreSQL.
 - **Giải pháp tổng quát đã áp dụng**:
   - Đặt giới hạn động `limit = max(int(settings.search_unit_candidate_limit), candidate_limit * 4)` để bảo toàn trọn vẹn tập ứng viên của cả 4 luồng.
 
 ### Điểm nghẽn 3: Nhiễu Đường Dẫn Giả (`_PATH_RE`), Nhân Đôi Từ Gốc Quan Hệ & Nhận Diện Câu Ghép trong `extract_query_features`
-- **Trạng thái**: **ĐÃ FIX TRIỆT ĐỂ & ĐÃ GỠ BỎ TỪ KHÓA OVERFIT** tại [`query_analysis.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/query_analysis.py#L18-L65) và [`query_analysis.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/query_analysis.py#L220-L295).
+- **Trạng thái**: **ĐÃ FIX TRIỆT ĐỂ & ĐÃ GỠ BỎ TỪ KHÓA OVERFIT** tại [`query_analysis.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/query_analysis.py#L18-L65) và [`query_analysis.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/query_analysis.py#L220-L295).
 - **Giải pháp tổng quát đã giữ lại**:
   - Ràng buộc `(?<![\w$/])/` cho `_PATH_RE` để các từ tiếng Anh nối bằng dấu gạch chéo (`$/day`, `driver/kernel`, `code/config`) không bị nhận nhầm là đường dẫn Unix.
   - Gộp nhóm từ gốc hình thái học (`_RELATION_STEM_GROUPS`: `cause/caused/causes`, `affect/affected/affects`) và thêm ranh giới từ `\b` để 1 từ `"caused"` không bị đếm kép thành 2 `relation_cues`.
@@ -80,7 +80,7 @@ $$\text{Score} = 100 \times \left(0.7 \times \text{retrieval\_source\_recall} + 
   - Đã xóa các cụm từ đặc thù của tập dữ liệu (`"double-count"`, `"alert storm"`, `"does not match"`) khỏi `bridge_pattern`.
 
 ### Điểm nghẽn 4: Điều Tiết Đa Dạng Tài Liệu trong `select_diverse_sections` & Đối Sánh Mã Số Định Danh trong `anchor_coverage`
-- **Trạng thái**: **ĐÃ FIX NGUYÊN LÝ MMR & ĐÃ GỠ BỎ HOÀN TOÀN CÂY NGƯỠNG CẮT SỚM `top_k`** tại [`retrieval_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/retrieval_service.py#L465-L658).
+- **Trạng thái**: **ĐÃ FIX NGUYÊN LÝ MMR & ĐÃ GỠ BỎ HOÀN TOÀN CÂY NGƯỠNG CẮT SỚM `top_k`** tại [`retrieval_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/retrieval_service.py#L465-L658).
 - **Giải pháp tổng quát đã giữ lại**:
   - Trong `anchor_coverage`, bổ sung đối sánh phần số định danh $\ge 4$ chữ số (`\d{4,}`) để xử lý hiện tượng lệch tiền tố mã vé giữa các hệ thống (ví dụ người dùng gõ `INC-9821` nhưng Jira lưu `INT-9821`), và chọn tối đa 2 tài liệu khác nhau khi nhiều tài liệu cùng chứa neo bắt buộc.
   - Trong vòng lặp MMR của `select_diverse_sections`, bổ sung hệ số giảm lợi ích cận biên nhẹ (`same_doc_penalty_weight = 0.08` khi `features.multi_hop == True`) để tránh 1 tài liệu dài độc chiếm toàn bộ `top_k` ở câu hỏi đa bước.
@@ -106,7 +106,7 @@ $$\text{Score} = 100 \times \left(0.7 \times \text{retrieval\_source\_recall} + 
 
 ### 3.2. Chi Tiết 4 Nhóm Sửa Đổi Kiến Trúc & Tư Duy Thiết Kế Đã Triển Khai
 
-1. **Tầng Mở Rộng Đồ Thị Đa Bước (`_expand_multi_hop_sections` trong [`search_unit_retrieval_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L787-L1225))**:
+1. **Tầng Mở Rộng Đồ Thị Đa Bước (`_expand_multi_hop_sections` trong [`search_unit_retrieval_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L787-L1225))**:
    - **Vấn đề cũ**: Mỗi câu hỏi Multi-Hop thực hiện 6 truy vấn SQL tuần tự, trong đó có lệnh `select(KnowledgeUnit).where(KnowledgeUnit.document_version_id.in_(all_scope_version_ids))` tải toàn bộ ORM `KnowledgeUnit` (bao gồm cả `KnowledgeUnit.text` và mảng 1.024 số thực `features_json["dense"]` nặng hàng chục MB JSON) về Python rồi chạy hàng chục nghìn lệnh `re.search` tuần tự, làm mỗi truy vấn Multi-Hop bị đội thêm `1.170 – 2.200 ms`.
    - **Giải pháp đã triển khai**:
      - Xây dựng cấu trúc chỉ mục phạm vi quyền bất biến `_ScopeKnowledgeIndex` (`_SCOPE_KNOWLEDGE_INDEX_CACHE`) được định danh bằng băm mật mã `_scope_knowledge_digest(current_versions)`.
@@ -115,7 +115,7 @@ $$\text{Score} = 100 \times \left(0.7 \times \text{retrieval\_source\_recall} + 
      - Thêm bước lọc chuỗi con cấp C (`b_ent in ku.sec_path_norm`) trước khi gọi biểu thức chính quy `pat.search(ku.sec_path_norm)`, loại bỏ 99.9% số lần gọi regex thừa.
      - Sửa lỗi logic `if/else` triệt tiêu chéo giữa `ent_hit` và `path_hit`: một đơn vị tri thức vừa khớp thực thể trong thân bài (`ku.entities_norm`) vừa khớp tiêu đề mục (`ku.sec_path_norm`) nay được ghi nhận đầy đủ cả hai tín hiệu.
 
-2. **Tầng Xác Thực Phạm Vi Quyền & Hydrate Bằng Chứng (`_load_current_ready_versions_checked` & `retrieve_search_unit_sections` trong [`search_unit_retrieval_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L202-L425))**:
+2. **Tầng Xác Thực Phạm Vi Quyền & Hydrate Bằng Chứng (`_load_current_ready_versions_checked` & `retrieve_search_unit_sections` trong [`search_unit_retrieval_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L202-L425))**:
    - **Vấn đề cũ**:
      - Truy vấn `_load_current_ready_versions_checked` chạy `SELECT DISTINCT search_units.document_version_id FROM search_units ...` độ phức tạp $O(N_{\text{chunks}})$ và 2 truy vấn bảng `Job` nối tiếp, sau đó được gọi **lặp lại 2 lần** cho toàn bộ kho tài liệu trong cùng 1 request (trước và sau khi gọi Qdrant).
      - Việc sinh embedding truy vấn (`_query_vector`) chỉ được khởi tạo sau khi `capture_routing_decisions` hoàn tất.
@@ -125,11 +125,11 @@ $$\text{Score} = 100 \times \left(0.7 \times \text{retrieval\_source\_recall} + 
      - Hỗ trợ tham số `version_ids: set[str] | None` để bước hậu kiểm sau Qdrant chỉ tái xác thực đúng $\le 20$ phiên bản tài liệu ứng viên (`candidate_version_ids`).
      - Khởi chạy bất đồng bộ `asyncio.create_task(_query_vector(...))` ngay trước `capture_routing_decisions` để chồng lấp thời gian gọi API embedding với bước định tuyến cây.
 
-3. **Tầng Xây Dựng Đồ Thị Tri Thức (`graph_payload` trong [`knowledge_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/knowledge_service.py#L724-L744))**:
+3. **Tầng Xây Dựng Đồ Thị Tri Thức (`graph_payload` trong [`knowledge_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/knowledge_service.py#L724-L744))**:
    - **Vấn đề cũ**: Mọi cặp `KnowledgeUnit` trong cùng 1 tài liệu đều có tín hiệu cấu trúc `structure >= 0.70` và `temporal = 1.0`, dẫn đến việc các cạnh nội bộ (`same_doc`) lấp đầy toàn bộ bậc tối đa `max_degree = 32` và chèn ép các cạnh cầu nối liên tài liệu (`cross_doc`).
    - **Giải pháp đã triển khai**: Áp dụng hạn ngạch bậc nội bộ `max_same_doc_degree = max(1, config.max_degree // 2)`, dành tối thiểu 50% dung lượng bậc của mỗi đỉnh cho các cạnh liên kết chéo giữa các tài liệu khác nhau.
 
-4. **Tầng Định Tuyến Cây Phân Cấp (`capture_routing_decisions` trong [`tree_query_snapshot_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/tree_query_snapshot_service.py#L51-L99))**:
+4. **Tầng Định Tuyến Cây Phân Cấp (`capture_routing_decisions` trong [`tree_query_snapshot_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/tree_query_snapshot_service.py#L51-L99))**:
    - **Vấn đề cũ**: Luôn mở giao dịch khóa đọc `.with_for_update(read=True)` và ghi dòng `TreeSnapshotLease` kể cả khi dự án chưa bật cây định tuyến (`active_tree_version IS NULL`), đồng thời tính lại SHA-256 trên toàn bộ JSON `TreeRoutingProfile` ở mỗi truy vấn.
    - **Giải pháp đã triển khai**: Kiểm tra nhanh `active_tree_version.is_not(None)` trước khi cấp phát lease và bổ sung bộ nhớ đệm `_AGGREGATED_SCOPE_NODE_CACHE` khóa theo `(project_id, tenant_id, tree_version, fingerprint, record_checksums)` giúp giữ thời gian `tree_route` ở mức **`0.23 ms`**.
 
@@ -137,7 +137,7 @@ $$\text{Score} = 100 \times \left(0.7 \times \text{retrieval\_source\_recall} + 
 
 ## 4. Bốn Nâng Cấp Nhận Thức (Cognitive Upgrades) Đưa SAG Engine Vượt Qua Big Tech (`75.4` $\rightarrow$ `89.4`)
 
-1. **Chống Đói Tập Ứng Viên Tầng 1 & Hợp Nhất Thứ Hạng Nhận Thức Tài Liệu (`Document-Aware Effective Rank` trong [`retrieval_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/retrieval_service.py#L298-L320) & [`search_unit_retrieval_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L1401-L1403))**:
+1. **Chống Đói Tập Ứng Viên Tầng 1 & Hợp Nhất Thứ Hạng Nhận Thức Tài Liệu (`Document-Aware Effective Rank` trong [`retrieval_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/retrieval_service.py#L298-L320) & [`search_unit_retrieval_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L1401-L1403))**:
    - **Nguyên nhân gốc rễ**: Một sổ tay Confluence dài 35–46 `SearchUnit` có thể chiếm 15–20 vị trí trong 25 ứng viên đầu tiên từ Qdrant, đẩy tài liệu độc lập thứ 2 hoặc thứ 3 (như PR GitHub hoặc email ngắn 1–2 `SearchUnit`) xuống thứ hạng sâu trong RRF hoặc rơi khỏi tập ứng viên.
    - **Giải pháp First-Principles**:
      - Nâng `candidate_limit = min(64, max(50, requested_limit * 5))` để bảo đảm mỗi kênh thu hồi đủ độ sâu qua các tài liệu dài.
@@ -145,17 +145,17 @@ $$\text{Score} = 100 \times \left(0.7 \times \text{retrieval\_source\_recall} + 
        $$r_{\text{eff}}(c) = \frac{1}{2} r_{\text{chunk}}(c) + \frac{1}{2}\left(r_{\text{doc}}(d(c)) + 2 \cdot k_{\text{within\_doc}}(c)\right)$$
        giúp đoạn tốt nhất của tài liệu độc lập thứ 2/thứ 3 không bị chôn vùi bởi 10 đoạn phụ của tài liệu thứ 1.
 
-2. **Chấm Điểm Tương Tác Chéo Có Trọng Số IDF Tập Ứng Viên & Phân Rã Mệnh Đề (`_score_term_sequence` & `decompose_query_clauses` trong [`query_analysis.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/query_analysis.py#L170-L215) và [`retrieval_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/retrieval_service.py#L252-L490))**:
+2. **Chấm Điểm Tương Tác Chéo Có Trọng Số IDF Tập Ứng Viên & Phân Rã Mệnh Đề (`_score_term_sequence` & `decompose_query_clauses` trong [`query_analysis.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/query_analysis.py#L170-L215) và [`retrieval_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/retrieval_service.py#L252-L490))**:
    - **Nguyên nhân gốc rễ**: Trong `_lexical_relevance` cũ, điều kiện `phrase in text` (`+0.55`) luôn bằng `0.0` đối với câu hỏi tự nhiên dài, và mọi từ khóa đều có trọng số ngang nhau (`1 / len(terms)`), khiến danh từ riêng/tên hệ thống (`MedThink`, `Trident`, `Northpeak`, `DossierHQ`) bị pha loãng bởi các từ chung (`process`, `service`, `request`, `limits`). Đồng thời câu hỏi đa mệnh đề chia mẫu số cho tổng số từ của cả câu làm tài liệu trả lời mệnh đề 2 bị phạt 50% điểm.
    - **Giải pháp First-Principles**:
      - Tính trọng số IDF cấp tài liệu ngay trên tập ứng viên (`df(t)` trên các tài liệu ứng viên), kết hợp nhận diện thực thể/danh từ riêng (`extract_salient_query_terms`) và độ gần kề cặp từ (`_adjacent_proximity_score`) trên cả tiêu đề ngữ cảnh lẫn nội dung.
      - Tự động phân rã câu hỏi ghép đa mệnh đề nghi vấn (`decompose_query_clauses`) để chấm điểm từng mệnh đề độc lập bên cạnh toàn câu.
 
-3. **Chuẩn Hóa Mã Định Danh Liên Hệ Thống & Lan Truyền Cầu Nối 2 Bước (`_extract_artifact_codes` trong [`search_unit_retrieval_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L787-L804))**:
+3. **Chuẩn Hóa Mã Định Danh Liên Hệ Thống & Lan Truyền Cầu Nối 2 Bước (`_extract_artifact_codes` trong [`search_unit_retrieval_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L787-L804))**:
    - **Nguyên nhân gốc rễ**: Tài liệu giữa Jira, GitHub và Confluence tham chiếu chéo nhau bằng nhiều định dạng khác biệt (`# Sup 28488...` vs `SUP-28488`, `# Pr 24108...` vs `pr-24108`, `Confluence -> PR-19422 -> SUP-18510`), khiến bộ tách thực thể viết hoa thông thường bỏ sót.
    - **Giải pháp First-Principles**: Chuẩn hóa mã định danh kỹ thuật (`pr`, `sup`, `int`, `inc`, `adr`, `des`, `rlt`, ...) từ tiêu đề và nội dung vào `_ScopeKnowledgeIndex`, đồng thời hỗ trợ lan truyền 2 bước có kiểm soát trên mã định danh kỹ thuật.
 
-4. **Kết Nạp Tài Liệu Chính Theo Entropy & Hoàn Thiện Ngữ Cảnh Anh Em (`select_diverse_sections` & `_hydrate_sibling_sections_for_top_versions` trong [`retrieval_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/retrieval_service.py#L795-L885) và [`search_unit_retrieval_service.py`](file:///d:/DoAnTotnghiep/sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L1028-L1089))**:
+4. **Kết Nạp Tài Liệu Chính Theo Entropy & Hoàn Thiện Ngữ Cảnh Anh Em (`select_diverse_sections` & `_hydrate_sibling_sections_for_top_versions` trong [`retrieval_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/retrieval_service.py#L795-L885) và [`search_unit_retrieval_service.py`](../../sag-laya-integration/SAG/apps/api/sag_api/services/search_unit_retrieval_service.py#L1028-L1089))**:
    - **Nguyên nhân gốc rễ**: Trên câu hỏi Single-Hop, chọn đa dạng mù quáng (MMR) luôn kéo 3–4 tài liệu nhiễu vào `top_k = 5`, làm giảm mạnh Precision. Ngược lại, trên câu hỏi Multi-Hop, việc tài liệu #1 chiếm 2 slot đầu làm mất chỗ của tài liệu đích thứ 3/thứ 4.
    - **Giải pháp First-Principles**:
      - Với **Multi-Hop**: Ưu tiên chiều rộng tài liệu trước (mỗi tài liệu đạt ngưỡng liên quan `>= 0.75 * S_top` được chọn 1 đoạn tốt nhất trước khi bất kỳ tài liệu nào được nhận đoạn thứ 2).

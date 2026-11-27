@@ -109,6 +109,8 @@ async def measure_search(client, authorization, source_id, policy, query, *, top
                     break
                 if event in ('result', 'summary.delta'):
                     deadline = asyncio.get_running_loop().time() + policy['stream_idle_seconds']
+    except httpx.HTTPStatusError as exc:
+        error = {'code': type(exc).__name__, 'http_status': exc.response.status_code}
     except (TimeoutError, httpx.HTTPError) as exc:
         error = {'code': type(exc).__name__}
     if response_body is None and error is None:
