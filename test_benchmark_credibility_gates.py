@@ -168,6 +168,8 @@ def test_manifest_gate_blocks_cache_replay_and_zero_acl_cases() -> None:
     }
     assert validate_live_benchmark_manifest(good_manifest) == []
     cases = good_manifest["quality_latency"]["acl_security_evaluation"]["cases"]
+    cases[0] = {"actual_decision": "DENY", "decision_correct": True, "positive_control_verified": False}
+    assert "positive control" in validate_live_benchmark_manifest(good_manifest)[0]
     cases[0] = {"actual_decision": "NOT_EVALUATED", "decision_correct": False}
     assert "unmeasured" in validate_live_benchmark_manifest(good_manifest)[0]
     cases.pop()

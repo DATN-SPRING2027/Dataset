@@ -751,15 +751,49 @@ class SAGBenchmark:
         foreign_organization_id: str | None = None,
         principal_id: str | None = None,
         must_not_cite: list[str] | None = None,
+        verify_positive_control: bool = True,
+        positive_control_ok: bool | None = None,
     ) -> dict:
         """Execute a live negative ACL probe against `/api/v1/search/stream` using an
         unauthorized foreign-project / foreign-organization SAG session JWT.
 
-        A check passes only after a session is issued, and the search returns HTTP 403 or zero
-        sections and zero citations referencing any protected document (`leaked_citations == []`).
+        A check passes only after a positive control confirms the target scope is
+        retrievable by an authorized member, a foreign session is issued, and the
+        foreign search returns HTTP 403 or zero sections and zero citations referencing
+        any protected document (`leaked_citations == []`).
         """
         from sag_api.core.config import settings
         from benchmark_http_client import measure_search
+
+        if verify_positive_control and positive_control_ok is None:
+            pos_measured = await measure_search(
+                self.client,
+                authorization=self.auth_header,
+                source_id=self.run.source_id,
+                policy=self.policy,
+                query=query,
+                retrieval_only=True,
+            )
+            pos_resp = pos_measured.get('response') or {}
+            pos_sections = pos_resp.get('sections') or []
+            pos_citations = pos_resp.get('citations') or []
+            positive_control_ok = (
+                not pos_measured.get('error')
+                and (len(pos_sections) > 0 or len(pos_citations) > 0)
+            )
+        if verify_positive_control and positive_control_ok is False:
+            return {
+                'expected_decision': 'DENY',
+                'actual_decision': 'NOT_EVALUATED',
+                'decision_correct': False,
+                'positive_control_verified': False,
+                'stage': 'positive_control',
+                'leaked_citations': [],
+                'leaked_sections_count': 0,
+                'must_not_cite': list(must_not_cite or []),
+                'must_not_cite_violations': 0,
+                'enforcement_mode': 'live_sag_http_acl',
+            }
 
         denied_project = foreign_project_id or ('f' * 24)
         if denied_project == self.run.project_id:
@@ -783,6 +817,7 @@ class SAGBenchmark:
                 'expected_decision': 'DENY',
                 'actual_decision': 'NOT_EVALUATED',
                 'decision_correct': False,
+                'positive_control_verified': bool(positive_control_ok) if verify_positive_control else True,
                 'stage': 'session_setup',
                 'http_status': login_resp.status_code,
                 'leaked_citations': [],
@@ -825,6 +860,7 @@ class SAGBenchmark:
             'expected_decision': 'DENY',
             'actual_decision': decision,
             'decision_correct': decision == 'DENY',
+            'positive_control_verified': bool(positive_control_ok) if verify_positive_control else True,
             'error': err,
             'leaked_citations': leaked_docs,
             'leaked_sections_count': len(sections),

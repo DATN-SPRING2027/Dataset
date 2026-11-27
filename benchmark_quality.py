@@ -425,10 +425,11 @@ def validate_live_benchmark_manifest(
         elif any(
             case.get("actual_decision") != "DENY"
             or case.get("decision_correct") is not True
+            or case.get("positive_control_verified") is False
             or bool(case.get("leaked_citations"))
             for case in cases
         ):
-            errors.append("ACL cases contain leaks, errors, or unmeasured decisions")
+            errors.append("ACL cases contain leaks, errors, failed positive controls, or unmeasured decisions")
 
     if not manifest.get("git_commit"):
         errors.append("missing git_commit provenance hash")
