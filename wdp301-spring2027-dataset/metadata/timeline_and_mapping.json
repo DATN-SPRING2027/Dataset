@@ -1,0 +1,912 @@
+{
+  "schemaVersion": "1.0.0",
+  "datasetId": "wdp301-spring2027-full360-v1",
+  "datasetKind": "synthetic_wdp301_timeline_and_reference_metadata",
+  "synthetic": true,
+  "review_status": "unreviewed",
+  "targetOrganization": {
+    "organizationId": "6ad76c7d938f3bf53df7335e",
+    "slug": "datn-spring2027",
+    "name": "WDP301-SPRING-2027"
+  },
+  "schedulePolicy": {
+    "timezone": "Asia/Ho_Chi_Minh",
+    "utcOffset": "+07:00",
+    "businessHours": "Mon-Fri 08:00-12:00, 13:00-17:00",
+    "lunchBreak": "12:00-13:00",
+    "justifiedOvertimePolicy": "Evening OT (17:30-22:00) and midnight boundary messages are explicitly tagged with reason and participants.",
+    "fixtureIdPrefix": "6f301",
+    "preserveExistingRecordsPolicy": "100% additive insert-only ($setOnInsert). Never mutates or deletes pre-existing WDP301 tasks (474), documents (143), old reports (165), archived project PRTRESDAD131, existing DMs (9) or legacy messages (\"helo\", \"Danh\")."
+  },
+  "counts": {
+    "actors": 11,
+    "activeProjectsLinked": 8,
+    "realTasksReferenced": 47,
+    "realApprovedDocsReferenced": 25,
+    "directConversations": 7,
+    "roomConversations": 4,
+    "chatMessages": 213,
+    "taskComments": 56,
+    "taskWorklogs": 32,
+    "workNotes": 24,
+    "workReports": 18,
+    "handovers": 2,
+    "evalCasesTotal": 48,
+    "evalDevCases": 28,
+    "evalTestCases": 20,
+    "evalAclAndPolicyCases": 7,
+    "liveE2eScenarios": 3
+  },
+  "actors": [
+    {
+      "key": "actor_pm_admin",
+      "syntheticLabel": "PM / Tech Lead (Admin)",
+      "orgRole": "ADMIN",
+      "projectRoles": {
+        "BE": "TEAM_LEADER",
+        "DB": "TEAM_LEADER",
+        "DESIGN": "TEAM_LEADER",
+        "DOC": "TEAM_LEADER",
+        "FE": "TEAM_LEADER",
+        "GENERAL": "TEAM_LEADER",
+        "RESEARCH": "TEAM_LEADER",
+        "SAG": "TEAM_LEADER"
+      },
+      "responsibilities": "Điều phối tổng thể WDP301-SPRING-2027, duyệt báo cáo tuần Leader, rà soát bảo mật & buổi Bảo vệ WDP."
+    },
+    {
+      "key": "actor_be_lead",
+      "syntheticLabel": "Danh — Backend Lead",
+      "sameNameGroup": "Danh",
+      "orgRole": "ADMIN",
+      "projectRoles": {
+        "BE": "TEAM_LEADER",
+        "FE": "MEMBER",
+        "GENERAL": "MEMBER"
+      },
+      "responsibilities": "Phụ trách NestJS Backend (Auth Session Rotation, Task Core, Human Chat Realtime, Worker @continuumAI)."
+    },
+    {
+      "key": "actor_db_sag_lead",
+      "syntheticLabel": "DB & SAG Architecture Lead",
+      "orgRole": "MEMBER",
+      "projectRoles": {
+        "BE": "TEAM_LEADER",
+        "DB": "TEAM_LEADER",
+        "DESIGN": "TEAM_LEADER",
+        "DOC": "TEAM_LEADER",
+        "FE": "TEAM_LEADER",
+        "GENERAL": "TEAM_LEADER",
+        "RESEARCH": "TEAM_LEADER",
+        "SAG": "TEAM_LEADER"
+      },
+      "responsibilities": "Phụ trách MongoDB Database-per-Service, Migration Planner, SAG FastAPI + PostgreSQL 16 + Qdrant Hybrid Fusion."
+    },
+    {
+      "key": "actor_fe_lead",
+      "syntheticLabel": "Frontend & Chat Integration Lead",
+      "orgRole": "MEMBER",
+      "projectRoles": {
+        "BE": "TEAM_LEADER",
+        "FE": "TEAM_LEADER"
+      },
+      "responsibilities": "Phụ trách Next.js 16 App Router BFF, Human Chat Socket.IO client, đồng bộ contract FE–BE, chuẩn bị bàn giao cụm BE."
+    },
+    {
+      "key": "actor_fe_dev",
+      "syntheticLabel": "Frontend UI Engineer",
+      "orgRole": "MEMBER",
+      "projectRoles": {
+        "FE": "MEMBER"
+      },
+      "responsibilities": "Phụ trách giao diện Workspace, Project Visibility, Team UI, responsive 375px–1440px và tiếp nhận bàn giao FE."
+    },
+    {
+      "key": "actor_fe_offboarding",
+      "syntheticLabel": "Frontend Offboarding Member",
+      "orgRole": "MEMBER",
+      "projectRoles": {
+        "FE": "MEMBER"
+      },
+      "responsibilities": "Đảm nhiệm mảng Team/Workspace UI giai đoạn đầu, nghỉ ốm giữa kỳ và chuyển giao toàn bộ task/tri thức FE."
+    },
+    {
+      "key": "actor_doc_lead",
+      "syntheticLabel": "SRS & Technical Documentation Lead",
+      "orgRole": "ADMIN",
+      "projectRoles": {
+        "DOC": "MEMBER"
+      },
+      "responsibilities": "Phụ trách Report 1/2/3 (SRS), chuẩn tài liệu bảo vệ WDP301, đối chiếu contract API với đặc tả."
+    },
+    {
+      "key": "actor_same_name_general",
+      "syntheticLabel": "Danh — General & Ops Coordinator",
+      "sameNameGroup": "Danh",
+      "orgRole": "MEMBER",
+      "projectRoles": {
+        "GENERAL": "MEMBER"
+      },
+      "responsibilities": "Hỗ trợ hậu cần buổi Bảo vệ WDP, Docker Compose lean deploy & kiểm thử chung (cùng tên \"Danh\" với BE Lead để kiểm thử disambiguation)."
+    },
+    {
+      "key": "actor_admin_non_member",
+      "syntheticLabel": "Org Admin (Non-Member ACL Control)",
+      "orgRole": "ADMIN",
+      "projectRoles": {},
+      "responsibilities": "Tài khoản Organization ADMIN không thuộc bất kỳ dự án private hay phòng chat nào — dùng để kiểm chứng tường lửa ACL (Org Admin không tự động đọc được private DM/Room/Project)."
+    },
+    {
+      "key": "actor_general_offboarding",
+      "syntheticLabel": "FE/General Handover Departing Member",
+      "orgRole": "MEMBER",
+      "projectRoles": {
+        "FE": "MEMBER",
+        "GENERAL": "MEMBER"
+      },
+      "responsibilities": "Thành viên đã hoàn tất bàn giao cụm FE Workspace/Human Chat cho Frontend UI Engineer và đang chuyển giao Epic B/C/D."
+    },
+    {
+      "key": "actor_general_successor",
+      "syntheticLabel": "General Successor (Non-Member of BE/FE/DB/SAG)",
+      "orgRole": "MEMBER",
+      "projectRoles": {
+        "GENERAL": "MEMBER"
+      },
+      "responsibilities": "Thành viên mới chỉ thuộc dự án GENERAL — dùng để kiểm chứng chặn rò rỉ dữ liệu từ BE/FE/DB/SAG và phòng riêng."
+    }
+  ],
+  "projects": {
+    "BE": {
+      "id": "6ad7758334bd88b3f2cc844d",
+      "code": "BE",
+      "name": "Backend (BE)",
+      "visibility": "PRIVATE",
+      "status": "ACTIVE"
+    },
+    "FE": {
+      "id": "6ad8834abef68a3326035eeb",
+      "code": "FE",
+      "name": "Frontend (FE)",
+      "visibility": "PRIVATE",
+      "status": "ACTIVE"
+    },
+    "DB": {
+      "id": "6addb493601e4bc926ed440c",
+      "code": "DB",
+      "name": "Database (DB)",
+      "visibility": "PRIVATE",
+      "status": "ACTIVE"
+    },
+    "SAG": {
+      "id": "6addb47a601e4bc926ed43a0",
+      "code": "SAG",
+      "name": "SAG AI Engine",
+      "visibility": "PRIVATE",
+      "status": "ACTIVE"
+    },
+    "DESIGN": {
+      "id": "6addb4bf601e4bc926ed4516",
+      "code": "DESIGN",
+      "name": "UI/UX Design",
+      "visibility": "PRIVATE",
+      "status": "ACTIVE"
+    },
+    "DOC": {
+      "id": "6addb4cc601e4bc926ed457c",
+      "code": "DOC",
+      "name": "Documentation & Reports",
+      "visibility": "PRIVATE",
+      "status": "ACTIVE"
+    },
+    "RESEARCH": {
+      "id": "6addb4af601e4bc926ed44a2",
+      "code": "RESEARCH",
+      "name": "Architecture & Domain Research",
+      "visibility": "PRIVATE",
+      "status": "ACTIVE"
+    },
+    "GENERAL": {
+      "id": "6addb4e1601e4bc926ed4602",
+      "code": "GENERAL",
+      "name": "General & Capstone Coordination",
+      "visibility": "PRIVATE",
+      "status": "ACTIVE"
+    }
+  },
+  "referencedRealTasks": {
+    "BE-1": {
+      "id": "6ada96169e81dbad08c5e660",
+      "project": "BE",
+      "title": "[Backend] Thiết kế kiến trúc & phân rã module cốt lõi",
+      "status": "IN_PROGRESS",
+      "version": 2,
+      "assigneeActorKey": "actor_be_lead"
+    },
+    "BE-2": {
+      "id": "6ada96169e81dbad08c5e661",
+      "project": "BE",
+      "title": "[Backend] Triển khai API & tích hợp giao diện Workspace",
+      "status": "DONE",
+      "version": 4,
+      "assigneeActorKey": "actor_be_lead"
+    },
+    "BE-3": {
+      "id": "6addbb70601e4bc926ed6140",
+      "project": "BE",
+      "title": "[DATN-77] A-02 Auth Session Refresh & Rotation BE",
+      "status": "DONE",
+      "version": 4,
+      "assigneeActorKey": "actor_be_lead"
+    },
+    "BE-4": {
+      "id": "6addbb72601e4bc926ed6151",
+      "project": "BE",
+      "title": "[DATN-79] A-04 Platform Operator Authorization",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "BE-5": {
+      "id": "6addbb73601e4bc926ed6163",
+      "project": "BE",
+      "title": "[DATN-97] D-05 Task Core BE",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "BE-6": {
+      "id": "6addbb75601e4bc926ed6174",
+      "project": "BE",
+      "title": "[DATN-87] C-02 Organization Membership Administration BE",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "BE-111": {
+      "id": "6af9e3f21c1036b3d85f99cb",
+      "project": "BE",
+      "title": "Kiểm tra và khóa phân quyền API cập nhật WorkNote theo vai trò dự án",
+      "status": "IN_PROGRESS",
+      "version": 4,
+      "assigneeActorKey": "actor_be_lead"
+    },
+    "BE-112": {
+      "id": "6af9ea321c1036b3d86034ef",
+      "project": "BE",
+      "title": "Retry tạm thời cho hàng đợi thanh toán",
+      "status": "IN_PROGRESS",
+      "version": 5,
+      "assigneeActorKey": "actor_be_lead"
+    },
+    "BE-114": {
+      "id": "6afa631ca046eabfe39502b6",
+      "project": "BE",
+      "title": "Bổ sung retry có giới hạn cho dịch vụ thanh toán",
+      "status": "IN_PROGRESS",
+      "version": 4,
+      "assigneeActorKey": "actor_pm_admin"
+    },
+    "FE-1": {
+      "id": "6ada96169e81dbad08c5e662",
+      "project": "FE",
+      "title": "[Frontend] Thiết kế kiến trúc & phân rã module cốt lõi",
+      "status": "IN_PROGRESS",
+      "version": 10,
+      "assigneeActorKey": "actor_fe_dev"
+    },
+    "FE-3": {
+      "id": "6adad53609387b51f3a750a9",
+      "project": "FE",
+      "title": "Fronend Giao diện work task",
+      "status": "IN_REVIEW",
+      "version": 4,
+      "assigneeActorKey": "actor_pm_admin"
+    },
+    "FE-43": {
+      "id": "6addba43601e4bc926ed57c8",
+      "project": "FE",
+      "title": "[DATN-219] B-04.1 Show current Project visibility",
+      "status": "IN_REVIEW",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "FE-44": {
+      "id": "6addba45601e4bc926ed57da",
+      "project": "FE",
+      "title": "[DATN-220] B-04.2 Implement PRIVATE to PUBLIC action",
+      "status": "IN_REVIEW",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "FE-45": {
+      "id": "6addba46601e4bc926ed57eb",
+      "project": "FE",
+      "title": "[DATN-221] B-04.3 Guard visibility action by permission",
+      "status": "IN_REVIEW",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "FE-54": {
+      "id": "6addba55601e4bc926ed5884",
+      "project": "FE",
+      "title": "[DATN-260] C-06.1 Build Team list",
+      "status": "IN_PROGRESS",
+      "version": 2,
+      "assigneeActorKey": null
+    },
+    "FE-56": {
+      "id": "6addba58601e4bc926ed589d",
+      "project": "FE",
+      "title": "[DATN-262] C-06.3 Build Team detail view",
+      "status": "IN_PROGRESS",
+      "version": 2,
+      "assigneeActorKey": null
+    },
+    "FE-58": {
+      "id": "6addba5a601e4bc926ed58b5",
+      "project": "FE",
+      "title": "[DATN-264] C-06.5 Add Team loading and error states",
+      "status": "IN_PROGRESS",
+      "version": 2,
+      "assigneeActorKey": null
+    },
+    "DB-1": {
+      "id": "6addba92601e4bc926ed5a1b",
+      "project": "DB",
+      "title": "[DATN-2] NỀN TẢNG: Thiết lập MongoDB Atlas an toàn cho môi trường phát triển",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "DB-2": {
+      "id": "6addba93601e4bc926ed5a2c",
+      "project": "DB",
+      "title": "[DATN-117] D-03.2 Define approved schema and validation",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "DB-3": {
+      "id": "6addba95601e4bc926ed5a3e",
+      "project": "DB",
+      "title": "[DATN-118] D-03.3 Define indexes and uniqueness",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "DB-7": {
+      "id": "6addba9b601e4bc926ed5a84",
+      "project": "DB",
+      "title": "[DATN-280] [COMPLETED] Database-per-Service Migration Package",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "DB-8": {
+      "id": "6addba9d601e4bc926ed5a95",
+      "project": "DB",
+      "title": "[DATN-281] [COMPLETED] Database Migration Planner & MongoDB 7 Integration Validation",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "DB-15": {
+      "id": "6addbaa8601e4bc926ed5b14",
+      "project": "DB",
+      "title": "[DATN-380] E-02 Implement project-scoped Work Note persistence and API",
+      "status": "TODO",
+      "version": 1,
+      "assigneeActorKey": null
+    },
+    "DB-18": {
+      "id": "6addbaa9601e4bc926ed5b28",
+      "project": "DB",
+      "title": "[DATN-428] H-02 Implement Project-scoped Knowledge API and lifecycle persistence",
+      "status": "TODO",
+      "version": 1,
+      "assigneeActorKey": null
+    },
+    "SAG-1": {
+      "id": "6addb864601e4bc926ed4f10",
+      "project": "SAG",
+      "title": "[DATN-64] [SAG][Phase 10] Evidence-based research loop and bounded ingestion",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "SAG-2": {
+      "id": "6addb865601e4bc926ed4f22",
+      "project": "SAG",
+      "title": "[DATN-67] [SAG][Phase 4] Deterministic hybrid fusion and retrieval regression gate",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "SAG-6": {
+      "id": "6addb86c601e4bc926ed4f68",
+      "project": "SAG",
+      "title": "[DATN-35] [SAG][Checkpoint B] ROUTING_READY — ACL-safe tree & escape retrieval",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "SAG-7": {
+      "id": "6addb86d601e4bc926ed4f7d",
+      "project": "SAG",
+      "title": "[DATN-33] [SAG][Checkpoint A] SEARCH_READY gate, retry & enrichment independence",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "SAG-26": {
+      "id": "6addb891601e4bc926ed511f",
+      "project": "SAG",
+      "title": "[DATN-364] Epic I — Permission-Aware SAG Retrieval & Cited Assistant",
+      "status": "TODO",
+      "version": 1,
+      "assigneeActorKey": null
+    },
+    "SAG-28": {
+      "id": "6addb892601e4bc926ed512f",
+      "project": "SAG",
+      "title": "[DATN-397] G-03 Orchestrate ingestion jobs and integrate the existing SAG pipeline",
+      "status": "TODO",
+      "version": 1,
+      "assigneeActorKey": null
+    },
+    "DESIGN-1": {
+      "id": "6addbafc601e4bc926ed5e7b",
+      "project": "DESIGN",
+      "title": "[DATN-302] [Figma] B2B SaaS Screen Research & Design",
+      "status": "TODO",
+      "version": 5,
+      "assigneeActorKey": null
+    },
+    "DESIGN-2": {
+      "id": "6addbafc601e4bc926ed5e81",
+      "project": "DESIGN",
+      "title": "Figma AUTH-01: Research and design email/password sign-in",
+      "status": "TODO",
+      "version": 5,
+      "assigneeActorKey": null
+    },
+    "DESIGN-7": {
+      "id": "6addbaff601e4bc926ed5ea2",
+      "project": "DESIGN",
+      "title": "Figma SHELL-01: Research and design expanded desktop app shell",
+      "status": "TODO",
+      "version": 5,
+      "assigneeActorKey": null
+    },
+    "DESIGN-8": {
+      "id": "6addbaff601e4bc926ed5ea8",
+      "project": "DESIGN",
+      "title": "Figma SHELL-02: Research and design collapsed desktop app shell",
+      "status": "TODO",
+      "version": 5,
+      "assigneeActorKey": null
+    },
+    "DOC-1": {
+      "id": "6addbc1b601e4bc926ed67d5",
+      "project": "DOC",
+      "title": "[DATN-76] A-01 Auth Session Contract",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "DOC-4": {
+      "id": "6addbc1f601e4bc926ed6813",
+      "project": "DOC",
+      "title": "[DATN-93] D-01 Task Management V1 Product Contract",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "DOC-35": {
+      "id": "6addbc54601e4bc926ed6a37",
+      "project": "DOC",
+      "title": "[DATN-377] E-01 Define and approve the Work Note contract and evidence boundary",
+      "status": "TODO",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "DOC-36": {
+      "id": "6addbc54601e4bc926ed6a3d",
+      "project": "DOC",
+      "title": "[DATN-390] G-01 Approve source upload and ingestion contract",
+      "status": "TODO",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "RESEARCH-1": {
+      "id": "6addbad0601e4bc926ed5c22",
+      "project": "RESEARCH",
+      "title": "[DATN-15] [RESEARCH] Governance - Organization Context",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "RESEARCH-5": {
+      "id": "6addbad6601e4bc926ed5c81",
+      "project": "RESEARCH",
+      "title": "[DATN-20] [RESEARCH] Workspace - Team Membership & Workspace FE Contract",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "RESEARCH-7": {
+      "id": "6addbad9601e4bc926ed5cba",
+      "project": "RESEARCH",
+      "title": "[DATN-13] [RESEARCH] Identity - Authentication & Token Contract",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": null
+    },
+    "GENERAL-2": {
+      "id": "6addbc84601e4bc926ed6b71",
+      "project": "GENERAL",
+      "title": "[DATN-289] [AUTH] Google OAuth đăng nhập và tự động tạo tài khoản",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": "actor_db_sag_lead"
+    },
+    "GENERAL-3": {
+      "id": "6addbc85601e4bc926ed6b83",
+      "project": "GENERAL",
+      "title": "[DATN-3] NỀN TẢNG: Chốt OpenAPI v1, chuẩn lỗi",
+      "status": "DONE",
+      "version": 3,
+      "assigneeActorKey": "actor_db_sag_lead"
+    },
+    "GENERAL-4": {
+      "id": "6addbc87601e4bc926ed6b94",
+      "project": "GENERAL",
+      "title": "[DATN-39] [SPRINT 1][P0] Thin vertical slice Auth → Workspace → Continuum Task",
+      "status": "IN_PROGRESS",
+      "version": 3,
+      "assigneeActorKey": "actor_db_sag_lead"
+    },
+    "GENERAL-6": {
+      "id": "6addbc88601e4bc926ed6ba2",
+      "project": "GENERAL",
+      "title": "[DATN-73] Epic B — Project & Access",
+      "status": "IN_PROGRESS",
+      "version": 3,
+      "assigneeActorKey": "actor_general_offboarding"
+    },
+    "GENERAL-7": {
+      "id": "6addbc89601e4bc926ed6ba8",
+      "project": "GENERAL",
+      "title": "[DATN-74] Epic C — Organization & Team",
+      "status": "IN_PROGRESS",
+      "version": 3,
+      "assigneeActorKey": "actor_general_offboarding"
+    },
+    "GENERAL-8": {
+      "id": "6addbc89601e4bc926ed6baf",
+      "project": "GENERAL",
+      "title": "[DATN-75] Epic D — Task Management",
+      "status": "IN_REVIEW",
+      "version": 4,
+      "assigneeActorKey": "actor_general_offboarding"
+    }
+  },
+  "referencedRealApprovedDocuments": {
+    "BE_TOPOLOGY": {
+      "id": "6addfeffb32ba5e0f2290487",
+      "project": "BE",
+      "title": "Continuum AI — Topo Hệ Thống & Phân Tầng Mạng (01_SYSTEM_TOPOLOGY.md)"
+    },
+    "BE_SERVICES": {
+      "id": "6addf928c3c3f86813c57377",
+      "project": "BE",
+      "title": "03 — Kiến trúc chuyên sâu các dịch vụ Backend (Services Deep Dive)"
+    },
+    "BE_RELIABILITY": {
+      "id": "6addff01b32ba5e0f22904a2",
+      "project": "BE",
+      "title": "Continuum AI — Độ Tin Cậy, Định Mức Tải & Vận Hành (07_RELIABILITY_CAPACITY_OBSERVABILITY.md)"
+    },
+    "BE_CHAT_RUNTIME": {
+      "id": "6addff03b32ba5e0f22904bd",
+      "project": "BE",
+      "title": "Chat người dùng — Kiến trúc realtime và khả năng mở rộng (10_HUMAN_CHAT_RUNTIME_ARCHITECTURE.md)"
+    },
+    "BE_CHAT_REDIS": {
+      "id": "6addff04b32ba5e0f22904c6",
+      "project": "BE",
+      "title": "Chat người dùng — API và phạm vi Redis (11_HUMAN_CHAT_REDIS_API_COVERAGE.md)"
+    },
+    "FE_NEXTJS": {
+      "id": "6addf91bc3c3f86813c572d3",
+      "project": "FE",
+      "title": "02 — Kiến trúc Frontend Next.js (App Router & BFF)"
+    },
+    "FE_CHAT_FEATURES": {
+      "id": "6addff02b32ba5e0f22904ab",
+      "project": "FE",
+      "title": "Chat người dùng — Tính năng đã nối FE–BE (08_HUMAN_CHAT_FE_BE_FEATURES.md)"
+    },
+    "FE_TEAM_CONTRACT": {
+      "id": "6addff13b32ba5e0f229058c",
+      "project": "FE",
+      "title": "[RESEARCH] Workspace - Team Membership & Workspace FE Contract"
+    },
+    "DB_OVERVIEW": {
+      "id": "6addf900c3c3f86813c5717b",
+      "project": "DB",
+      "title": "Database Design — Tổng quan kiến trúc cơ sở dữ liệu đa dịch vụ"
+    },
+    "DB_CHAT_SCHEMA": {
+      "id": "6addff08b32ba5e0f22904fc",
+      "project": "DB",
+      "title": "Continuum AI — Schema Dịch Vụ Hỏi Đáp Tri Thức Có Dẫn Chứng (05_SVC_CHAT_SCHEMA.md)"
+    },
+    "DB_HANDOVER_SCHEMA": {
+      "id": "6addff09b32ba5e0f2290505",
+      "project": "DB",
+      "title": "Continuum AI — Schema Dịch Vụ Chuyển Giao & Kế Thừa Tri Thức (06_SVC_HANDOVER_SCHEMA.md)"
+    },
+    "DB_TASK_SCHEMA": {
+      "id": "6addff0cb32ba5e0f2290532",
+      "project": "DB",
+      "title": "Continuum AI — Thiết kế lưu trữ Task nội bộ (12_TASK_MANAGEMENT_SCHEMA.md)"
+    },
+    "SAG_STORAGE": {
+      "id": "6addf90ec3c3f86813c5722c",
+      "project": "SAG",
+      "title": "11 — Thiết kế lưu trữ SAG (PostgreSQL + Qdrant Vector Schema)"
+    },
+    "SAG_INFRA": {
+      "id": "6addfeffb32ba5e0f2290490",
+      "project": "SAG",
+      "title": "Continuum AI — Hạ Tầng Dữ Liệu, Hàng Đợi & AI (04_STORAGE_MESSAGING_AI.md)"
+    },
+    "SAG_GAP_CONTRACT": {
+      "id": "6addff14b32ba5e0f2290595",
+      "project": "SAG",
+      "title": "DATN-413 — Human Knowledge Gap and Follow-up Contract"
+    },
+    "DESIGN_USECASE": {
+      "id": "6addf8f3c3c3f86813c570d1",
+      "project": "DESIGN",
+      "title": "02 — Sơ đồ Use Case tổng thể (Overall Use Case Diagram)"
+    },
+    "DESIGN_CHAT_UI": {
+      "id": "6addff03b32ba5e0f22904b4",
+      "project": "DESIGN",
+      "title": "Chat người dùng — Tính năng UI/UX tại FE (09_HUMAN_CHAT_FE_UI_UX.md)"
+    },
+    "DOC_SRS": {
+      "id": "6addf8e4c3c3f86813c5702d",
+      "project": "DOC",
+      "title": "Continuum AI — Report 3: Software Requirement Specification (SRS)"
+    },
+    "DOC_REPORT_RULES": {
+      "id": "6addfef8b32ba5e0f2290451",
+      "project": "DOC",
+      "title": "QUY ĐỊNH VÀ HƯỚNG DẪN VIẾT TÀI LIỆU KHI NHẬN TASK"
+    },
+    "DOC_REPORT2": {
+      "id": "6addfefcb32ba5e0f2290475",
+      "project": "DOC",
+      "title": "Continuum AI — Report 2: Project Management Plan"
+    },
+    "RESEARCH_SECURITY": {
+      "id": "6addff1db32ba5e0f2290601",
+      "project": "RESEARCH",
+      "title": "Continuum AI — Bảo Mật, Phân Quyền & Độ Tin Cậy (05_SECURITY_AND_GOVERNANCE.md)"
+    },
+    "RESEARCH_MVP": {
+      "id": "6addf936c3c3f86813c5741a",
+      "project": "RESEARCH",
+      "title": "01 — Phạm vi MVP sản phẩm Continuum AI (MVP Scope)"
+    },
+    "GENERAL_MEMBER": {
+      "id": "6addfef1b32ba5e0f22903f7",
+      "project": "GENERAL",
+      "title": "Danh sách thành viên nhóm Đồ án Continuum AI (Member.md)"
+    },
+    "GENERAL_COMPOSE": {
+      "id": "6addff0db32ba5e0f229053b",
+      "project": "GENERAL",
+      "title": "deploy/docker-compose.4gb-ultra-lean.yml"
+    },
+    "GENERAL_WORKFLOW": {
+      "id": "6af9b46ad6c0cbf69d76a13c",
+      "project": "GENERAL",
+      "title": "03_DAILY_WORKFLOW_AND_JIRA_SYNC"
+    }
+  },
+  "timelineEvents": [
+    {
+      "eventId": "EVT-WDP-01",
+      "dayOffset": -28,
+      "windowLocal": "09:00-11:30",
+      "category": "architecture_kickoff",
+      "summary": "Chốt topo Database-per-Service, Auth Session Rotation (BE-3) và chuẩn OpenAPI v1 (GENERAL-3).",
+      "actors": [
+        "actor_pm_admin",
+        "actor_be_lead",
+        "actor_db_sag_lead"
+      ],
+      "linkedTasks": [
+        "BE-1",
+        "BE-3",
+        "DB-7",
+        "GENERAL-3"
+      ]
+    },
+    {
+      "eventId": "EVT-WDP-02",
+      "dayOffset": -21,
+      "windowLocal": "09:30-16:30",
+      "category": "contract_and_schema",
+      "summary": "Hoàn thiện schema MongoDB $jsonSchema cho Task & Chat (DB-2, DB-3), kết nối Next.js BFF cho FE-1 và FE-3.",
+      "actors": [
+        "actor_be_lead",
+        "actor_fe_lead",
+        "actor_fe_dev",
+        "actor_db_sag_lead"
+      ],
+      "linkedTasks": [
+        "BE-5",
+        "FE-1",
+        "FE-3",
+        "DB-2",
+        "DB-3"
+      ]
+    },
+    {
+      "eventId": "EVT-WDP-03",
+      "dayOffset": -14,
+      "windowLocal": "08:45-17:00",
+      "category": "sprint_checkpoint_offpage",
+      "summary": "Đóng mốc SAG Checkpoint A/B (SAG-6, SAG-7), chốt cơ chế bảo mật ACL cho tài liệu private và phân quyền WorkNote (BE-111).",
+      "actors": [
+        "actor_pm_admin",
+        "actor_be_lead",
+        "actor_db_sag_lead",
+        "actor_doc_lead"
+      ],
+      "linkedTasks": [
+        "SAG-6",
+        "SAG-7",
+        "BE-111",
+        "DOC-4"
+      ]
+    },
+    {
+      "eventId": "EVT-WDP-04",
+      "dayOffset": -11,
+      "windowLocal": "09:00-16:00",
+      "category": "sick_leave_and_handover_start",
+      "summary": "Frontend Offboarding Member báo nghỉ ốm 3 ngày vì sốt xuất huyết và khởi động chuyển giao cụm Team UI (FE-54..58) cùng bàn giao FE Workspace.",
+      "actors": [
+        "actor_pm_admin",
+        "actor_be_lead",
+        "actor_fe_offboarding",
+        "actor_fe_dev",
+        "actor_general_offboarding"
+      ],
+      "linkedTasks": [
+        "FE-43",
+        "FE-54",
+        "FE-56",
+        "FE-58"
+      ]
+    },
+    {
+      "eventId": "EVT-WDP-05",
+      "dayOffset": -7,
+      "windowLocal": "09:00-16:45",
+      "category": "last_week_decisions",
+      "summary": "Tuần trước (luôn thuộc tuần ISO trước bất kể ngày chạy): chốt tiêu chí duyệt Project Visibility (FE-43..45), chính sách retry thanh toán (BE-112/BE-114) và lộ trình tập duyệt Bảo vệ WDP301.",
+      "actors": [
+        "actor_pm_admin",
+        "actor_be_lead",
+        "actor_fe_lead",
+        "actor_fe_dev",
+        "actor_doc_lead"
+      ],
+      "linkedTasks": [
+        "BE-112",
+        "BE-114",
+        "FE-43",
+        "FE-44",
+        "FE-45",
+        "GENERAL-4"
+      ]
+    },
+    {
+      "eventId": "EVT-WDP-06",
+      "dayOffset": -4,
+      "windowLocal": "19:15-21:45",
+      "category": "evening_ot_incident",
+      "justifiedOvertime": true,
+      "reason": "Sự cố staging: payload tiếng Việt UTF-8 gửi sang SAG bị 413 và mất kết nối Redis pub/sub khi load-test buổi tối trước mốc nghiệm thu.",
+      "summary": "Trực OT xử lý sự cố byte-budget 64 KiB trên endpoint DM Assistant và tuning reconnect Redis Adapter.",
+      "actors": [
+        "actor_pm_admin",
+        "actor_be_lead",
+        "actor_db_sag_lead"
+      ],
+      "linkedTasks": [
+        "BE-1",
+        "SAG-2",
+        "SAG-26"
+      ]
+    },
+    {
+      "eventId": "EVT-WDP-07",
+      "dayOffset": -2,
+      "windowLocal": "10:00-16:30",
+      "category": "srs_divergence_and_handover_complete",
+      "summary": "Phát hiện sai lệch giữa Report 3 SRS (ghi giới hạn upload 25 MB) với runtime BE (20 MB); hoàn tất gói Handover FE và mở gói Handover BE Auth/Chat.",
+      "actors": [
+        "actor_pm_admin",
+        "actor_be_lead",
+        "actor_fe_lead",
+        "actor_fe_dev",
+        "actor_doc_lead",
+        "actor_general_offboarding"
+      ],
+      "linkedTasks": [
+        "DOC-35",
+        "DOC-36",
+        "FE-1",
+        "BE-111"
+      ]
+    },
+    {
+      "eventId": "EVT-WDP-08",
+      "dayOffset": -1,
+      "windowLocal": "08:30-23:52",
+      "category": "yesterday_pre_defense_freeze",
+      "justifiedOvertime": true,
+      "reason": "Rà soát cuối cùng kịch bản demo Bảo vệ WDP301 và kiểm tra đồng bộ ranh giới 00:00 (+07:00).",
+      "summary": "Chốt toàn bộ cấu hình demo WDP301, đính chính TTL Access Token & owner kiểm thử, kiểm tra ranh giới nửa đêm 23:48 / 00:12 (+07:00), ghi nhận canary riêng tư.",
+      "actors": [
+        "actor_pm_admin",
+        "actor_be_lead",
+        "actor_db_sag_lead",
+        "actor_fe_lead",
+        "actor_fe_dev",
+        "actor_doc_lead",
+        "actor_same_name_general"
+      ],
+      "linkedTasks": [
+        "BE-3",
+        "BE-111",
+        "BE-114",
+        "FE-3",
+        "DB-15",
+        "SAG-26",
+        "GENERAL-4",
+        "GENERAL-8"
+      ]
+    },
+    {
+      "eventId": "EVT-WDP-09",
+      "dayOffset": 0,
+      "windowLocal": "00:12-11:30",
+      "category": "today_defense_rehearsal",
+      "summary": "Sáng hôm nay: xác nhận checklist tập duyệt Bảo vệ WDP301, còn xung đột chưa chốt về chế độ hiển thị bằng chứng trích dẫn và thứ tự demo.",
+      "actors": [
+        "actor_pm_admin",
+        "actor_be_lead",
+        "actor_fe_lead",
+        "actor_fe_dev",
+        "actor_doc_lead",
+        "actor_same_name_general"
+      ],
+      "linkedTasks": [
+        "GENERAL-4",
+        "FE-3",
+        "BE-111",
+        "DOC-35"
+      ]
+    }
+  ]
+}
