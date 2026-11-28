@@ -65,17 +65,17 @@ jobs:
           print('TOML & JSONL check OK')
           "
 
-      - name: Lint DM dataset tests with ruff
+      - name: Lint DM & WDP301 dataset tests with ruff
         run: |
-          ruff check tests/test_continuum_dm_dataset.py
+          ruff check tests/test_continuum_dm_dataset.py tests/test_wdp301_dataset.py
 
       - name: Run standalone unit & credibility tests
         run: |
-          pytest test_benchmark_quality.py test_benchmark_support.py test_benchmark_credibility_gates.py tests/test_workflows_v13.py tests/test_four_organizations.py tests/test_continuum_dm_dataset.py -q
+          pytest test_benchmark_quality.py test_benchmark_support.py test_benchmark_credibility_gates.py tests/test_workflows_v13.py tests/test_four_organizations.py tests/test_continuum_dm_dataset.py tests/test_wdp301_dataset.py -q
 
-      - name: Run DM seeder unit tests (Node.js)
+      - name: Run DM & WDP301 seeder unit tests (Node.js)
         run: |
-          node --test continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.test.mjs
+          node --test continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.test.mjs wdp301-spring2027-dataset/scripts/seed_wdp301_dev.test.mjs
 
       - name: Run dependency vulnerability audit (pip-audit)
         continue-on-error: true

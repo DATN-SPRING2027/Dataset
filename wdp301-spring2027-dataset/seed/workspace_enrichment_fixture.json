@@ -1,0 +1,2482 @@
+{
+  "schemaVersion": "1.0.0",
+  "datasetId": "wdp301-spring2027-full360-v1",
+  "datasetKind": "synthetic_wdp301_workspace_enrichment_seed",
+  "synthetic": true,
+  "containsGoldAnswers": false,
+  "organizationSlug": "datn-spring2027",
+  "organizationName": "WDP301-SPRING-2027",
+  "defaultTimezone": "Asia/Ho_Chi_Minh",
+  "defaultUtcOffset": "+07:00",
+  "provenanceNotice": "100% synthetic task comments, worklogs, work notes, work reports, and handovers cross-linked to verified real WDP301-SPRING-2027 projects, tasks, and APPROVED documents. Zero real credentials or gold answers.",
+  "taskComments": [
+    {
+      "id": "6f3010300000000000000001",
+      "taskKey": "BE-1",
+      "taskId": "6ada96169e81dbad08c5e660",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_pm_admin",
+      "dayOffset": -27,
+      "timeLocal": "09:30:00",
+      "body": "Đã duyệt sơ đồ phân rã 5 cơ sở dữ liệu Database-per-Service khớp 01_SYSTEM_TOPOLOGY.md. Lưu ý giữ ranh giới tuyệt đối giữa continuum_iam và continuum_chat."
+    },
+    {
+      "id": "6f3010300000000000000002",
+      "taskKey": "BE-1",
+      "taskId": "6ada96169e81dbad08c5e660",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -26,
+      "timeLocal": "14:15:00",
+      "body": "Danh (BE Lead) đã tách xong module repository và cập nhật env contract cho từng service. Đang đối chiếu lại dependency graph để không có circular import."
+    },
+    {
+      "id": "6f3010300000000000000003",
+      "taskKey": "BE-1",
+      "taskId": "6ada96169e81dbad08c5e660",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -14,
+      "timeLocal": "10:20:00",
+      "body": "Xác nhận chuỗi kết nối tách DB độc lập chạy mượt trên MongoDB Atlas dev, không ảnh hưởng dữ liệu các org benchmark khác."
+    },
+    {
+      "id": "6f3010300000000000000004",
+      "taskKey": "BE-2",
+      "taskId": "6ada96169e81dbad08c5e661",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -20,
+      "timeLocal": "15:30:00",
+      "body": "Đã tối ưu query danh sách task theo compound index organizationId_1_projectId_1_status_1_updatedAt_-1, p95 giảm từ 410ms xuống 38ms."
+    },
+    {
+      "id": "6f3010300000000000000005",
+      "taskKey": "BE-3",
+      "taskId": "6addbb70601e4bc926ed6140",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -1,
+      "timeLocal": "09:20:00",
+      "body": "Đính chính cấu hình cuối cùng BE-3: Access Token TTL = 10 phút (giảm từ 15 phút), Refresh Token 7 ngày kèm token-family rotation. Danh (BE Lead) phụ trách load test + QA staging hạn 11:30 thứ Sáu."
+    },
+    {
+      "id": "6f3010300000000000000006",
+      "taskKey": "BE-3",
+      "taskId": "6addbb70601e4bc926ed6140",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_pm_admin",
+      "dayOffset": -1,
+      "timeLocal": "09:35:00",
+      "body": "Đã xác nhận bản đính chính BE-3 và đồng bộ sang checklist bảo mật Report 3 SRS."
+    },
+    {
+      "id": "6f3010300000000000000007",
+      "taskKey": "BE-4",
+      "taskId": "6addbb72601e4bc926ed6151",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_pm_admin",
+      "dayOffset": -16,
+      "timeLocal": "11:05:00",
+      "body": "Kiểm tra chéo BE-4: Organization ADMIN không thuộc dự án PRIVATE (ví dụ tài khoản kiểm chứng non-member) bắt buộc nhận 403 khi đọc task/tài liệu của dự án."
+    },
+    {
+      "id": "6f3010300000000000000008",
+      "taskKey": "BE-5",
+      "taskId": "6addbb73601e4bc926ed6163",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -18,
+      "timeLocal": "16:10:00",
+      "body": "Hoàn tất unit test chuyển trạng thái Task Core (6 trạng thái) và đảm bảo completedAt đồng bộ đúng khi chuyển DONE <-> IN_PROGRESS."
+    },
+    {
+      "id": "6f3010300000000000000009",
+      "taskKey": "BE-6",
+      "taskId": "6addbb75601e4bc926ed6174",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -15,
+      "timeLocal": "14:40:00",
+      "body": "Đã gắn audit_logs_iam cho mọi thay đổi vai trò và thu hồi thành viên trong Organization Membership Administration."
+    },
+    {
+      "id": "6f3010300000000000000010",
+      "taskKey": "BE-111",
+      "taskId": "6af9e3f21c1036b3d85f99cb",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -1,
+      "timeLocal": "10:15:00",
+      "body": "Đã bật guard kiểm tra authorUserId trên PATCH WorkNote: MEMBER sửa note người khác trả 403, vượt 5 lần/60s tự động ghi cảnh báo mức HIGH vào audit_logs. Hạn xong E2E là 16:30 thứ Năm."
+    },
+    {
+      "id": "6f3010300000000000000011",
+      "taskKey": "BE-112",
+      "taskId": "6af9ea321c1036b3d86034ef",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -7,
+      "timeLocal": "09:35:00",
+      "body": "Chốt cấu hình exponential backoff 3 lần (1s -> 4s -> 16s) và đẩy sang Dead Letter Queue nếu vẫn lỗi."
+    },
+    {
+      "id": "6f3010300000000000000012",
+      "taskKey": "BE-114",
+      "taskId": "6afa631ca046eabfe39502b6",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -1,
+      "timeLocal": "09:50:00",
+      "body": "Đặc tả cuối BE-114: timeout 12s/request, tổng cửa sổ retry 45s (2s -> 6s -> 18s ±15% jitter), bật PAYMENT_BOUNDED_RETRY_ENABLED=true, sổ cái append-only tuyệt đối không xóa mà chỉ ghi bút toán bù trừ."
+    },
+    {
+      "id": "6f3010300000000000000013",
+      "taskKey": "FE-1",
+      "taskId": "6ada96169e81dbad08c5e662",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -18,
+      "timeLocal": "10:00:00",
+      "body": "Đã dựng xong cấu trúc App Router + BFF proxy /api/backend cho Continuum FE, mọi cuộc gọi từ browser đều đi qua HttpOnly cookie."
+    },
+    {
+      "id": "6f3010300000000000000014",
+      "taskKey": "FE-1",
+      "taskId": "6ada96169e81dbad08c5e662",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_lead",
+      "dayOffset": -5,
+      "timeLocal": "16:00:00",
+      "body": "Hoàn thành kiểm thử tiếp nhận bàn giao cụm Workspace từ thành viên bàn giao FE, toàn bộ route pass build 89/89."
+    },
+    {
+      "id": "6f3010300000000000000015",
+      "taskKey": "FE-3",
+      "taskId": "6adad53609387b51f3a750a9",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_lead",
+      "dayOffset": -1,
+      "timeLocal": "10:10:00",
+      "body": "Đã kiểm tra bảng Task Workspace với 6 trạng thái badge và bật tabular-nums cho cột tiến độ/worklog; đạt 94/94 WCAG AA ở Light & Dark mode."
+    },
+    {
+      "id": "6f3010300000000000000016",
+      "taskKey": "FE-3",
+      "taskId": "6adad53609387b51f3a750a9",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_pm_admin",
+      "dayOffset": -1,
+      "timeLocal": "10:45:00",
+      "body": "UI gọn gàng, chỉ cần freeze giao diện trước 17:00 thứ Năm để giữ ổn định kịch bản tập duyệt Bảo vệ WDP301."
+    },
+    {
+      "id": "6f3010300000000000000017",
+      "taskKey": "FE-43",
+      "taskId": "6addba43601e4bc926ed57c8",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -14,
+      "timeLocal": "14:30:00",
+      "body": "Hiển thị badge PRIVATE / PUBLIC ngay trên thanh tiêu đề dự án kèm giải thích phạm vi truy cập."
+    },
+    {
+      "id": "6f3010300000000000000018",
+      "taskKey": "FE-44",
+      "taskId": "6addba45601e4bc926ed57da",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -13,
+      "timeLocal": "15:10:00",
+      "body": "Đã nối modal xác nhận 2 bước khi chuyển dự án từ PRIVATE sang PUBLIC, hiển thị cảnh báo rõ tài liệu sẽ mở cho toàn tổ chức."
+    },
+    {
+      "id": "6f3010300000000000000019",
+      "taskKey": "FE-45",
+      "taskId": "6addba46601e4bc926ed57eb",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -12,
+      "timeLocal": "11:20:00",
+      "body": "Đã disable nút đổi visibility kèm tooltip rõ vai trò đối với MEMBER thường; server-side Guard vẫn chặn 403."
+    },
+    {
+      "id": "6f3010300000000000000020",
+      "taskKey": "FE-54",
+      "taskId": "6addba55601e4bc926ed5884",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_offboarding",
+      "dayOffset": -11,
+      "timeLocal": "09:12:00",
+      "body": "Bàn giao FE-54 (đạt 90%): đã đẩy nhánh wip/fe-team-ui, còn thiếu bộ lọc ACTIVE/ARCHIVED do em nghỉ ốm đột xuất."
+    },
+    {
+      "id": "6f3010300000000000000021",
+      "taskKey": "FE-54",
+      "taskId": "6addba55601e4bc926ed5884",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -9,
+      "timeLocal": "16:05:00",
+      "body": "Đã tiếp nhận FE-54 từ bạn FE Offboarding và bổ sung xong bộ lọc trạng thái ACTIVE/ARCHIVED kèm tìm kiếm debounce 300ms."
+    },
+    {
+      "id": "6f3010300000000000000022",
+      "taskKey": "FE-56",
+      "taskId": "6addba58601e4bc926ed589d",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -8,
+      "timeLocal": "15:25:00",
+      "body": "Hoàn thiện màn hình Team Detail và hộp thoại xác nhận gỡ thành viên khỏi Team theo chuẩn TailAdmin."
+    },
+    {
+      "id": "6f3010300000000000000023",
+      "taskKey": "FE-58",
+      "taskId": "6addba5a601e4bc926ed58b5",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -1,
+      "timeLocal": "10:22:00",
+      "body": "Pass đủ 8 trạng thái UI (loading, empty, success, 422, 500, 403, modal open/close, long text 120 ký tự) và bắt lỗi 409 Conflict khi trùng tên Team."
+    },
+    {
+      "id": "6f3010300000000000000024",
+      "taskKey": "FE-58",
+      "taskId": "6addba5a601e4bc926ed58b5",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_lead",
+      "dayOffset": -1,
+      "timeLocal": "11:05:00",
+      "body": "Đã kiểm tra responsive 375px/768px/1280px/1440px, 0px tràn ngang, sẵn sàng merge."
+    },
+    {
+      "id": "6f3010300000000000000025",
+      "taskKey": "DB-1",
+      "taskId": "6addba92601e4bc926ed5a1b",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -28,
+      "timeLocal": "10:30:00",
+      "body": "MongoDB Atlas môi trường phát triển đã bật TLS bắt buộc và xác thực SCRAM-SHA-256, tách quyền rõ cho từng database dịch vụ."
+    },
+    {
+      "id": "6f3010300000000000000026",
+      "taskKey": "DB-2",
+      "taskId": "6addba93601e4bc926ed5a2c",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -21,
+      "timeLocal": "11:10:00",
+      "body": "Áp dụng strict $jsonSchema cho tasks, task_comments, task_worklogs, task_events và handover v2."
+    },
+    {
+      "id": "6f3010300000000000000027",
+      "taskKey": "DB-3",
+      "taskId": "6addba95601e4bc926ed5a3e",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -21,
+      "timeLocal": "14:45:00",
+      "body": "Đã xác minh toàn bộ partial unique index (project_key_unique, handover_v2_open_unique, directKey_1, creationKey_1)."
+    },
+    {
+      "id": "6f3010300000000000000028",
+      "taskKey": "DB-7",
+      "taskId": "6addba9b601e4bc926ed5a84",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -18,
+      "timeLocal": "15:00:00",
+      "body": "Gói Database-per-Service Migration chạy idempotent 100%, không sửa migration đã merge."
+    },
+    {
+      "id": "6f3010300000000000000029",
+      "taskKey": "DB-8",
+      "taskId": "6addba9d601e4bc926ed5a95",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -16,
+      "timeLocal": "16:20:00",
+      "body": "Database Migration Planner đã tích hợp kiểm thử MongoDB 7 trong CI, xác nhận migration 20261128-chat-dm-assistant-schema chạy an toàn trên dữ liệu cũ."
+    },
+    {
+      "id": "6f3010300000000000000030",
+      "taskKey": "DB-15",
+      "taskId": "6addbaa8601e4bc926ed5b14",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -7,
+      "timeLocal": "15:30:00",
+      "body": "Đã rà soát schema work_notes (v1 và v2 contentMarkdown) + work_note_versions unique (workNoteId, versionNumber)."
+    },
+    {
+      "id": "6f3010300000000000000031",
+      "taskKey": "DB-18",
+      "taskId": "6addbaa9601e4bc926ed5b28",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "authorActorKey": "actor_pm_admin",
+      "dayOffset": -3,
+      "timeLocal": "11:15:00",
+      "body": "Ghi chú DB-18 cho giai đoạn sau bảo vệ: đồng bộ outbox capture -> SAG ingestion worker cần có dead-letter retry giống BE-114."
+    },
+    {
+      "id": "6f3010300000000000000032",
+      "taskKey": "SAG-1",
+      "taskId": "6addb864601e4bc926ed4f10",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -14,
+      "timeLocal": "11:00:00",
+      "body": "Bounded ingestion đảm bảo parse tài liệu SRS 45KB về trạng thái SEARCH_READY trong ~3.8s mà không block event loop FastAPI."
+    },
+    {
+      "id": "6f3010300000000000000033",
+      "taskKey": "SAG-2",
+      "taskId": "6addb865601e4bc926ed4f22",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -14,
+      "timeLocal": "15:20:00",
+      "body": "Deterministic Hybrid Fusion (Dense + BM25 Sparse trên Qdrant) đạt ổn định thứ hạng qua nhiều lần chạy lặp lại."
+    },
+    {
+      "id": "6f3010300000000000000034",
+      "taskKey": "SAG-6",
+      "taskId": "6addb86c601e4bc926ed4f68",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -13,
+      "timeLocal": "10:45:00",
+      "body": "ACL-safe Routing Tree luôn pre-filter theo allowed_project_ids từ IAM; kiểm chứng 28/28 ca ACL DENY chặn thành công 100%."
+    },
+    {
+      "id": "6f3010300000000000000035",
+      "taskKey": "SAG-7",
+      "taskId": "6addb86d601e4bc926ed4f7d",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -12,
+      "timeLocal": "14:10:00",
+      "body": "Tách pha SEARCH_READY độc lập với enrichment giúp người dùng hỏi đáp tài liệu ngay sau khi upload."
+    },
+    {
+      "id": "6f3010300000000000000036",
+      "taskKey": "SAG-26",
+      "taskId": "6addb891601e4bc926ed511f",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -4,
+      "timeLocal": "20:40:00",
+      "body": "[OT Tối] Đã đặt xác thực X-SAG-Service-Token trước bước đọc body và chốt trần 64 KiB JSON cho endpoint DM Assistant (BE giới hạn 56 KiB UTF-8)."
+    },
+    {
+      "id": "6f3010300000000000000037",
+      "taskKey": "SAG-26",
+      "taskId": "6addb891601e4bc926ed511f",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -4,
+      "timeLocal": "20:55:00",
+      "body": "Đã xác nhận đối chiếu inline citation [M#] khớp tuyệt đối với danh sách citedRefIds trả về, hết lỗi 413 trên tiếng Việt dài."
+    },
+    {
+      "id": "6f3010300000000000000038",
+      "taskKey": "SAG-28",
+      "taskId": "6addb892601e4bc926ed512f",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_pm_admin",
+      "dayOffset": -2,
+      "timeLocal": "10:30:00",
+      "body": "Giữ SAG-28 làm hạng mục mở rộng kế tiếp trong slide Roadmap của buổi Bảo vệ WDP301."
+    },
+    {
+      "id": "6f3010300000000000000039",
+      "taskKey": "DESIGN-1",
+      "taskId": "6addbafc601e4bc926ed5e7b",
+      "projectCode": "DESIGN",
+      "projectId": "6addb4bf601e4bc926ed4516",
+      "authorActorKey": "actor_pm_admin",
+      "dayOffset": -18,
+      "timeLocal": "10:15:00",
+      "body": "Chốt chuẩn thiết kế B2B SaaS dùng bảng token TailAdmin, mật độ Comfortable/Compact và CSS logical properties."
+    },
+    {
+      "id": "6f3010300000000000000040",
+      "taskKey": "DESIGN-2",
+      "taskId": "6addbafc601e4bc926ed5e81",
+      "projectCode": "DESIGN",
+      "projectId": "6addb4bf601e4bc926ed4516",
+      "authorActorKey": "actor_doc_lead",
+      "dayOffset": -15,
+      "timeLocal": "14:25:00",
+      "body": "Đã đồng bộ flow AUTH-01 với sơ đồ 03_usecase_authentication.drawio và tài liệu 01-auth-baseline-research.md."
+    },
+    {
+      "id": "6f3010300000000000000041",
+      "taskKey": "DESIGN-7",
+      "taskId": "6addbaff601e4bc926ed5ea2",
+      "projectCode": "DESIGN",
+      "projectId": "6addb4bf601e4bc926ed4516",
+      "authorActorKey": "actor_fe_lead",
+      "dayOffset": -12,
+      "timeLocal": "11:10:00",
+      "body": "SHELL-01 (expanded sidebar) đã kiểm chứng thực tế trên desktop 1440px và laptop 1280px, không cắt chữ menu tiếng Việt."
+    },
+    {
+      "id": "6f3010300000000000000042",
+      "taskKey": "DESIGN-8",
+      "taskId": "6addbaff601e4bc926ed5ea8",
+      "projectCode": "DESIGN",
+      "projectId": "6addb4bf601e4bc926ed4516",
+      "authorActorKey": "actor_fe_lead",
+      "dayOffset": -12,
+      "timeLocal": "11:25:00",
+      "body": "SHELL-02 (collapsed sidebar) hiển thị tooltip tên mục khi di chuột và tự chuyển thành drawer trên 768px/375px."
+    },
+    {
+      "id": "6f3010300000000000000043",
+      "taskKey": "DOC-1",
+      "taskId": "6addbc1b601e4bc926ed67d5",
+      "projectCode": "DOC",
+      "projectId": "6addb4cc601e4bc926ed457c",
+      "authorActorKey": "actor_doc_lead",
+      "dayOffset": -20,
+      "timeLocal": "10:00:00",
+      "body": "Contract Auth Session A-01 đã cập nhật khớp với BE-3 (Access Token 10 phút, Refresh Token 7 ngày có rotation)."
+    },
+    {
+      "id": "6f3010300000000000000044",
+      "taskKey": "DOC-4",
+      "taskId": "6addbc1f601e4bc926ed6813",
+      "projectCode": "DOC",
+      "projectId": "6addb4cc601e4bc926ed457c",
+      "authorActorKey": "actor_doc_lead",
+      "dayOffset": -15,
+      "timeLocal": "15:00:00",
+      "body": "Hoàn tất rà soát Task Management V1 Product Contract khớp với 6 trạng thái và bộ quyền trên DATN_BE."
+    },
+    {
+      "id": "6f3010300000000000000045",
+      "taskKey": "DOC-35",
+      "taskId": "6addbc54601e4bc926ed6a37",
+      "projectCode": "DOC",
+      "projectId": "6addb4cc601e4bc926ed457c",
+      "authorActorKey": "actor_doc_lead",
+      "dayOffset": -1,
+      "timeLocal": "14:20:00",
+      "body": "Đang hoàn thiện chương Evidence Boundary cho Work Note (phân biệt rõ ghi chú nội bộ và tài liệu đã APPROVED)."
+    },
+    {
+      "id": "6f3010300000000000000046",
+      "taskKey": "DOC-36",
+      "taskId": "6addbc54601e4bc926ed6a3d",
+      "projectCode": "DOC",
+      "projectId": "6addb4cc601e4bc926ed457c",
+      "authorActorKey": "actor_doc_lead",
+      "dayOffset": -7,
+      "timeLocal": "13:50:00",
+      "body": "Đã sửa sai lệch giữa Report 3 SRS (trước đây ghi 25 MB) về đúng 20 MB khớp runtime BE và Cloudflare R2 presigned upload."
+    },
+    {
+      "id": "6f3010300000000000000047",
+      "taskKey": "DOC-36",
+      "taskId": "6addbc54601e4bc926ed6a3d",
+      "projectCode": "DOC",
+      "projectId": "6addb4cc601e4bc926ed457c",
+      "authorActorKey": "actor_pm_admin",
+      "dayOffset": -2,
+      "timeLocal": "16:25:00",
+      "body": "Đã chốt lịch nộp 05 bộ bản in màu Report 1/2/3 SRS tại phòng đào tạo trước 16:00 thứ Sáu."
+    },
+    {
+      "id": "6f3010300000000000000048",
+      "taskKey": "RESEARCH-1",
+      "taskId": "6addbad0601e4bc926ed5c22",
+      "projectCode": "RESEARCH",
+      "projectId": "6addb4af601e4bc926ed44a2",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -24,
+      "timeLocal": "10:20:00",
+      "body": "Chốt quy tắc Organization Context: mọi API nghiệp vụ đều suy ra organizationId từ phiên đã xác thực, không nhận từ query tùy ý."
+    },
+    {
+      "id": "6f3010300000000000000049",
+      "taskKey": "RESEARCH-5",
+      "taskId": "6addbad6601e4bc926ed5c81",
+      "projectCode": "RESEARCH",
+      "projectId": "6addb4af601e4bc926ed44a2",
+      "authorActorKey": "actor_fe_lead",
+      "dayOffset": -17,
+      "timeLocal": "14:15:00",
+      "body": "Hợp đồng FE cho Team Membership đã được áp dụng trực tiếp vào FE-54, FE-56, FE-58."
+    },
+    {
+      "id": "6f3010300000000000000050",
+      "taskKey": "RESEARCH-7",
+      "taskId": "6addbad9601e4bc926ed5cba",
+      "projectCode": "RESEARCH",
+      "projectId": "6addb4af601e4bc926ed44a2",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -22,
+      "timeLocal": "11:30:00",
+      "body": "Baseline Auth & Token Contract là căn cứ trực tiếp cho BE-3 và BFF cookie protection."
+    },
+    {
+      "id": "6f3010300000000000000051",
+      "taskKey": "GENERAL-2",
+      "taskId": "6addbc84601e4bc926ed6b71",
+      "projectCode": "GENERAL",
+      "projectId": "6addb4e1601e4bc926ed4602",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -20,
+      "timeLocal": "09:45:00",
+      "body": "Google OAuth tự động tạo tài khoản an toàn và chuyển hướng vào trang chọn Organization sau khi đăng nhập."
+    },
+    {
+      "id": "6f3010300000000000000052",
+      "taskKey": "GENERAL-3",
+      "taskId": "6addbc85601e4bc926ed6b83",
+      "projectCode": "GENERAL",
+      "projectId": "6addb4e1601e4bc926ed4602",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -25,
+      "timeLocal": "15:10:00",
+      "body": "Đã đóng băng chuẩn OpenAPI v1 và mã lỗi thống nhất, áp dụng chung cho BE, FE và SAG."
+    },
+    {
+      "id": "6f3010300000000000000053",
+      "taskKey": "GENERAL-4",
+      "taskId": "6addbc87601e4bc926ed6b94",
+      "projectCode": "GENERAL",
+      "projectId": "6addb4e1601e4bc926ed4602",
+      "authorActorKey": "actor_pm_admin",
+      "dayOffset": 0,
+      "timeLocal": "09:20:00",
+      "body": "Thứ tự trình bày demo GENERAL-4 trước hội đồng (Handover trước hay @continuumAI trước) đang mở, chờ họp toàn đội 14:00 hôm nay tại Lab SE-402 để chốt."
+    },
+    {
+      "id": "6f3010300000000000000054",
+      "taskKey": "GENERAL-6",
+      "taskId": "6addbc88601e4bc926ed6ba2",
+      "projectCode": "GENERAL",
+      "projectId": "6addb4e1601e4bc926ed4602",
+      "authorActorKey": "actor_general_offboarding",
+      "dayOffset": -6,
+      "timeLocal": "10:30:00",
+      "body": "Epic B (Project & Access) đã qua đủ bài test PRIVATE/PUBLIC, đang bàn giao tài liệu vận hành chung sang thành viên kế nhiệm GENERAL."
+    },
+    {
+      "id": "6f3010300000000000000055",
+      "taskKey": "GENERAL-7",
+      "taskId": "6addbc89601e4bc926ed6ba8",
+      "projectCode": "GENERAL",
+      "projectId": "6addb4e1601e4bc926ed4602",
+      "authorActorKey": "actor_same_name_general",
+      "dayOffset": -5,
+      "timeLocal": "14:15:00",
+      "body": "Danh (General) đã kiểm tra docker-compose.4gb-ultra-lean.yml (42 giây khởi động healthy) và đặt xong phòng hội đồng Alpha-305 cho ngày bảo vệ."
+    },
+    {
+      "id": "6f3010300000000000000056",
+      "taskKey": "GENERAL-8",
+      "taskId": "6addbc89601e4bc926ed6baf",
+      "projectCode": "GENERAL",
+      "projectId": "6addb4e1601e4bc926ed4602",
+      "authorActorKey": "actor_general_offboarding",
+      "dayOffset": -2,
+      "timeLocal": "11:10:00",
+      "body": "Epic D (Task Management) đạt 100% các luồng cốt lõi (CRUD, comments, worklogs, task notes), đang ở trạng thái IN_REVIEW chờ đóng Epic."
+    }
+  ],
+  "taskWorklogs": [
+    {
+      "id": "6f3010400000000000000001",
+      "taskKey": "BE-1",
+      "taskId": "6ada96169e81dbad08c5e660",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -26,
+      "timeLocal": "16:30:00",
+      "minutes": 180,
+      "note": "Thiết kế cấu trúc tách 5 database-per-service và cập nhật module wiring NestJS."
+    },
+    {
+      "id": "6f3010400000000000000002",
+      "taskKey": "BE-2",
+      "taskId": "6ada96169e81dbad08c5e661",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -20,
+      "timeLocal": "16:00:00",
+      "minutes": 150,
+      "note": "Tối ưu compound index & cursor pagination cho Task Workspace API (p95: 410ms -> 38ms)."
+    },
+    {
+      "id": "6f3010400000000000000003",
+      "taskKey": "BE-3",
+      "taskId": "6addbb70601e4bc926ed6140",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -1,
+      "timeLocal": "11:00:00",
+      "minutes": 120,
+      "note": "Đính chính Access Token TTL = 10 phút, viết thêm kịch bản load test refresh rotation."
+    },
+    {
+      "id": "6f3010400000000000000004",
+      "taskKey": "BE-4",
+      "taskId": "6addbb72601e4bc926ed6151",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_pm_admin",
+      "dayOffset": -16,
+      "timeLocal": "15:30:00",
+      "minutes": 90,
+      "note": "Rà soát chính sách Platform Operator và kiểm thử chặn 403 Org Admin non-member."
+    },
+    {
+      "id": "6f3010400000000000000005",
+      "taskKey": "BE-5",
+      "taskId": "6addbb73601e4bc926ed6163",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -18,
+      "timeLocal": "16:45:00",
+      "minutes": 165,
+      "note": "Hoàn thiện Task Core transitions & unit test strict MongoDB validator."
+    },
+    {
+      "id": "6f3010400000000000000006",
+      "taskKey": "BE-6",
+      "taskId": "6addbb75601e4bc926ed6174",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -15,
+      "timeLocal": "16:15:00",
+      "minutes": 120,
+      "note": "Tích hợp audit_logs_iam cho thao tác gán/thu hồi Organization Membership."
+    },
+    {
+      "id": "6f3010400000000000000007",
+      "taskKey": "BE-111",
+      "taskId": "6af9e3f21c1036b3d85f99cb",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -1,
+      "timeLocal": "15:30:00",
+      "minutes": 150,
+      "note": "Triển khai guard phân quyền PATCH WorkNote + cảnh báo 5 lần 403/60s."
+    },
+    {
+      "id": "6f3010400000000000000008",
+      "taskKey": "BE-112",
+      "taskId": "6af9ea321c1036b3d86034ef",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -7,
+      "timeLocal": "11:30:00",
+      "minutes": 135,
+      "note": "Cài đặt backoff 3 lần (1s/4s/16s) và kết nối Dead Letter Queue cho hàng đợi thanh toán."
+    },
+    {
+      "id": "6f3010400000000000000009",
+      "taskKey": "BE-114",
+      "taskId": "6afa631ca046eabfe39502b6",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_pm_admin",
+      "dayOffset": -1,
+      "timeLocal": "11:45:00",
+      "minutes": 105,
+      "note": "Rà soát đặc tả retry 12s/45s, cờ PAYMENT_BOUNDED_RETRY_ENABLED và sổ cái append-only."
+    },
+    {
+      "id": "6f3010400000000000000010",
+      "taskKey": "BE-1",
+      "taskId": "6ada96169e81dbad08c5e660",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -4,
+      "timeLocal": "21:15:00",
+      "minutes": 120,
+      "note": "[OT Tối 19:15–21:15] Xử lý sự cố 413 UTF-8 byte budget (trần 56 KiB) trên DM Assistant & tuning Redis Adapter."
+    },
+    {
+      "id": "6f3010400000000000000011",
+      "taskKey": "FE-1",
+      "taskId": "6ada96169e81dbad08c5e662",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -18,
+      "timeLocal": "16:30:00",
+      "minutes": 180,
+      "note": "Xây dựng cấu trúc Next.js 16 App Router và BFF proxy /api/backend."
+    },
+    {
+      "id": "6f3010400000000000000012",
+      "taskKey": "FE-3",
+      "taskId": "6adad53609387b51f3a750a9",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_lead",
+      "dayOffset": -1,
+      "timeLocal": "11:30:00",
+      "minutes": 150,
+      "note": "Hoàn thiện UI Task Workspace, nâng cấp thẻ AI Chat (3 chấm uốn lượn + Sources thu gọn) và kiểm thử 94/94 WCAG AA."
+    },
+    {
+      "id": "6f3010400000000000000013",
+      "taskKey": "FE-43",
+      "taskId": "6addba43601e4bc926ed57c8",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -14,
+      "timeLocal": "16:00:00",
+      "minutes": 90,
+      "note": "Hiển thị trạng thái Project Visibility và badge phân biệt PRIVATE/PUBLIC."
+    },
+    {
+      "id": "6f3010400000000000000014",
+      "taskKey": "FE-44",
+      "taskId": "6addba45601e4bc926ed57da",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -13,
+      "timeLocal": "16:30:00",
+      "minutes": 120,
+      "note": "Triển khai modal xác nhận 2 bước chuyển đổi PRIVATE -> PUBLIC."
+    },
+    {
+      "id": "6f3010400000000000000015",
+      "taskKey": "FE-45",
+      "taskId": "6addba46601e4bc926ed57eb",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -12,
+      "timeLocal": "15:45:00",
+      "minutes": 90,
+      "note": "Bổ sung guard UI disable + tooltip phân quyền cho vai trò MEMBER."
+    },
+    {
+      "id": "6f3010400000000000000016",
+      "taskKey": "FE-54",
+      "taskId": "6addba55601e4bc926ed5884",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_offboarding",
+      "dayOffset": -12,
+      "timeLocal": "16:40:00",
+      "minutes": 165,
+      "note": "Xây dựng bảng Team List và phân trang cursor trên nhánh wip/fe-team-ui trước khi nghỉ ốm."
+    },
+    {
+      "id": "6f3010400000000000000017",
+      "taskKey": "FE-54",
+      "taskId": "6addba55601e4bc926ed5884",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -9,
+      "timeLocal": "16:45:00",
+      "minutes": 120,
+      "note": "Tiếp nhận bàn giao FE-54 và hoàn thiện filter ACTIVE/ARCHIVED + debounce search."
+    },
+    {
+      "id": "6f3010400000000000000018",
+      "taskKey": "FE-56",
+      "taskId": "6addba58601e4bc926ed589d",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -8,
+      "timeLocal": "16:30:00",
+      "minutes": 135,
+      "note": "Hoàn thiện Team Detail view và dialog xác nhận gỡ thành viên."
+    },
+    {
+      "id": "6f3010400000000000000019",
+      "taskKey": "FE-58",
+      "taskId": "6addba5a601e4bc926ed58b5",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -1,
+      "timeLocal": "14:45:00",
+      "minutes": 120,
+      "note": "Kiểm thử đủ 8 trạng thái UI & bắt lỗi 409 Conflict khi trùng tên Team."
+    },
+    {
+      "id": "6f3010400000000000000020",
+      "taskKey": "DB-1",
+      "taskId": "6addba92601e4bc926ed5a1b",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -28,
+      "timeLocal": "15:00:00",
+      "minutes": 120,
+      "note": "Cấu hình cluster MongoDB Atlas dev, bật TLS và phân quyền tối thiểu theo từng DB."
+    },
+    {
+      "id": "6f3010400000000000000021",
+      "taskKey": "DB-2",
+      "taskId": "6addba93601e4bc926ed5a2c",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -21,
+      "timeLocal": "15:30:00",
+      "minutes": 150,
+      "note": "Định nghĩa strict $jsonSchema validator cho các collection Task và Handover v2."
+    },
+    {
+      "id": "6f3010400000000000000022",
+      "taskKey": "DB-8",
+      "taskId": "6addba9d601e4bc926ed5a95",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -16,
+      "timeLocal": "16:50:00",
+      "minutes": 135,
+      "note": "Viết kịch bản xác minh Database Migration Planner với MongoDB 7 trong CI."
+    },
+    {
+      "id": "6f3010400000000000000023",
+      "taskKey": "DB-15",
+      "taskId": "6addbaa8601e4bc926ed5b14",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -7,
+      "timeLocal": "16:15:00",
+      "minutes": 90,
+      "note": "Đối chiếu schema Work Note v1/v2 và index unique workNoteId_1_versionNumber_1."
+    },
+    {
+      "id": "6f3010400000000000000024",
+      "taskKey": "SAG-1",
+      "taskId": "6addb864601e4bc926ed4f10",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -14,
+      "timeLocal": "16:00:00",
+      "minutes": 180,
+      "note": "Tối ưu luồng bounded ingestion cho file Markdown/DOCX/PDF không chặn event loop."
+    },
+    {
+      "id": "6f3010400000000000000025",
+      "taskKey": "SAG-2",
+      "taskId": "6addb865601e4bc926ed4f22",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -13,
+      "timeLocal": "16:30:00",
+      "minutes": 150,
+      "note": "Kiểm thử hồi quy Deterministic Hybrid Fusion (Dense + BM25 Sparse)."
+    },
+    {
+      "id": "6f3010400000000000000026",
+      "taskKey": "SAG-6",
+      "taskId": "6addb86c601e4bc926ed4f68",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -12,
+      "timeLocal": "16:00:00",
+      "minutes": 165,
+      "note": "Xác minh pre-filter ACL-safe Routing Tree, pass 28/28 ca ACL DENY."
+    },
+    {
+      "id": "6f3010400000000000000027",
+      "taskKey": "SAG-26",
+      "taskId": "6addb891601e4bc926ed511f",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -4,
+      "timeLocal": "21:10:00",
+      "minutes": 105,
+      "note": "[OT Tối 19:25–21:10] Dời verify_service_token trước đọc body và chốt giới hạn 64 KiB JSON cho DM Assistant."
+    },
+    {
+      "id": "6f3010400000000000000028",
+      "taskKey": "DESIGN-7",
+      "taskId": "6addbaff601e4bc926ed5ea2",
+      "projectCode": "DESIGN",
+      "projectId": "6addb4bf601e4bc926ed4516",
+      "authorActorKey": "actor_fe_lead",
+      "dayOffset": -12,
+      "timeLocal": "14:30:00",
+      "minutes": 90,
+      "note": "Đối chiếu Figma SHELL-01/02 với TailAdmin desktop/tablet/mobile shell."
+    },
+    {
+      "id": "6f3010400000000000000029",
+      "taskKey": "DOC-4",
+      "taskId": "6addbc1f601e4bc926ed6813",
+      "projectCode": "DOC",
+      "projectId": "6addb4cc601e4bc926ed457c",
+      "authorActorKey": "actor_doc_lead",
+      "dayOffset": -15,
+      "timeLocal": "16:20:00",
+      "minutes": 120,
+      "note": "Cập nhật đặc tả Task Management V1 và đối chiếu với OpenAPI v1."
+    },
+    {
+      "id": "6f3010400000000000000030",
+      "taskKey": "DOC-36",
+      "taskId": "6addbc54601e4bc926ed6a3d",
+      "projectCode": "DOC",
+      "projectId": "6addb4cc601e4bc926ed457c",
+      "authorActorKey": "actor_doc_lead",
+      "dayOffset": -7,
+      "timeLocal": "15:00:00",
+      "minutes": 90,
+      "note": "Điều chỉnh giới hạn upload trong Report 3 SRS từ 25 MB về 20 MB khớp BE runtime."
+    },
+    {
+      "id": "6f3010400000000000000031",
+      "taskKey": "RESEARCH-5",
+      "taskId": "6addbad6601e4bc926ed5c81",
+      "projectCode": "RESEARCH",
+      "projectId": "6addb4af601e4bc926ed44a2",
+      "authorActorKey": "actor_fe_lead",
+      "dayOffset": -17,
+      "timeLocal": "16:00:00",
+      "minutes": 75,
+      "note": "Tổng hợp contract Team Membership FE từ tài liệu nghiên cứu sang checklist implementation."
+    },
+    {
+      "id": "6f3010400000000000000032",
+      "taskKey": "GENERAL-7",
+      "taskId": "6addbc89601e4bc926ed6ba8",
+      "projectCode": "GENERAL",
+      "projectId": "6addb4e1601e4bc926ed4602",
+      "authorActorKey": "actor_same_name_general",
+      "dayOffset": -7,
+      "timeLocal": "15:30:00",
+      "minutes": 120,
+      "note": "Kiểm thử docker-compose.4gb-ultra-lean.yml (42s healthy), đặt phòng hội đồng Alpha-305 và chuẩn bị Wi-Fi 5G dự phòng."
+    }
+  ],
+  "workNotes": [
+    {
+      "id": "6f3010500000000000000001",
+      "versionId": "6f3010580000000000000001",
+      "taskKey": "BE-1",
+      "taskId": "6ada96169e81dbad08c5e660",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -20,
+      "timeLocal": "16:30:00",
+      "schemaVersion": 1,
+      "title": "Quyết định tách 5 database-per-service và cô lập quyền truy cập",
+      "category": "Architecture",
+      "tags": [
+        "architecture",
+        "database-per-service",
+        "be-1"
+      ],
+      "whatDone": "Hoàn tất tách 5 cơ sở dữ liệu độc lập (continuum_iam, continuum_task, continuum_capture, continuum_handover, continuum_chat) theo đúng 01_SYSTEM_TOPOLOGY.md.",
+      "howSolved": "Mỗi domain service chỉ giữ Mongoose connection riêng tới DB của mình; đồng bộ sự kiện dùng outbox_events và API nội bộ thay vì join chéo DB.",
+      "whyThisWay": "Ngăn rò rỉ schema giữa các dịch vụ, cho phép bật $jsonSchema độc lập và dễ mở rộng sang microservices sau giai đoạn WDP301.",
+      "nextStep": "Đồng bộ Runbook backup và kiểm thử migration 20261128 trên Atlas dev.",
+      "timeSpentMinutes": 180,
+      "pinned": true,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000002",
+      "versionId": "6f3010580000000000000002",
+      "taskKey": "BE-3",
+      "taskId": "6addbb70601e4bc926ed6140",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -1,
+      "timeLocal": "11:20:00",
+      "schemaVersion": 1,
+      "title": "Đính chính cấu hình BE-3: Access Token 10 phút & Refresh Token Family Rotation",
+      "category": "Security",
+      "tags": [
+        "auth",
+        "security",
+        "be-3"
+      ],
+      "whatDone": "Giảm Access Token TTL từ 15 phút xuống 10 phút, giữ Refresh Token 7 ngày kèm phát hiện reuse token family và thu hồi phiên tức thì.",
+      "howSolved": "Lưu familyId và phiên bản hash refresh token trong continuum_iam; khi phát hiện token cũ bị gọi lại thì revoke toàn bộ family và ghi audit_logs_iam.",
+      "whyThisWay": "Thu hẹp cửa sổ tấn công khi lộ access token nhưng vẫn giữ trải nghiệm đăng nhập liền mạch qua Next.js BFF.",
+      "nextStep": "Danh (BE Lead) hoàn tất load test và QA staging trước 11:30 thứ Sáu.",
+      "timeSpentMinutes": 120,
+      "pinned": true,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000003",
+      "versionId": "6f3010580000000000000003",
+      "taskKey": "BE-111",
+      "taskId": "6af9e3f21c1036b3d85f99cb",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -1,
+      "timeLocal": "15:45:00",
+      "schemaVersion": 1,
+      "title": "Khóa phân quyền PATCH WorkNote theo vai trò dự án & cảnh báo truy cập trái phép",
+      "category": "Security",
+      "tags": [
+        "acl",
+        "work-note",
+        "be-111"
+      ],
+      "whatDone": "Triển khai guard chặn MEMBER chỉnh sửa WorkNote của đồng đội hoặc đổi projectId; tự động ghi cảnh báo mức HIGH khi có 5 lần 403 trong 60 giây.",
+      "howSolved": "Bổ sung kiểm tra authorUserId + project membership ngay ở tầng application service và đẩy bộ đếm cửa sổ trượt 60s vào Redis.",
+      "whyThisWay": "Bảo vệ tính toàn vẹn bằng chứng tri thức (evidence boundary) phục vụ truy xuất SAG và gói Handover.",
+      "nextStep": "Chốt bộ test E2E trước 16:30 thứ Năm.",
+      "timeSpentMinutes": 150,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000004",
+      "versionId": "6f3010580000000000000004",
+      "taskKey": "BE-112",
+      "taskId": "6af9ea321c1036b3d86034ef",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_be_lead",
+      "dayOffset": -7,
+      "timeLocal": "15:00:00",
+      "schemaVersion": 1,
+      "title": "Thiết kế backoff 3 lần & Dead Letter Queue cho hàng đợi thanh toán",
+      "category": "Reliability",
+      "tags": [
+        "retry",
+        "dlq",
+        "be-112"
+      ],
+      "whatDone": "Cấu hình thử lại có giới hạn (1s -> 4s -> 16s) với idempotencyKey duy nhất và tự động chuyển bản ghi thất bại sang DLQ.",
+      "howSolved": "Gắn unique index idempotencyKey và tách worker xử lý DLQ kèm thông báo Notification Service cho Admin/Team Leader.",
+      "whyThisWay": "Tránh vòng lặp retry vô hạn gây sập worker và đảm bảo không bao giờ trừ tiền trùng.",
+      "timeSpentMinutes": 135,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000005",
+      "versionId": "6f3010580000000000000005",
+      "taskKey": "BE-114",
+      "taskId": "6afa631ca046eabfe39502b6",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "authorActorKey": "actor_pm_admin",
+      "dayOffset": -1,
+      "timeLocal": "16:15:00",
+      "schemaVersion": 2,
+      "title": "Ghi chú kỹ thuật v2 — Đặc tả cuối BE-114 & Quy trình Rollback Sổ cái Append-Only",
+      "category": "Decision",
+      "tags": [
+        "be-114",
+        "rollback",
+        "v2-markdown"
+      ],
+      "contentMarkdown": "### Quyết định kỹ thuật đã chốt (BE-114)\n\n- **Timeout mỗi request:** `12 giây` cố định; **tổng cửa sổ retry:** `45 giây` (`2s -> 6s -> 18s`, jitter `±15%`).\n- **Feature flag bắt buộc:** `PAYMENT_BOUNDED_RETRY_ENABLED=true`.\n- **Bất biến sổ cái (Ledger Invariant):** tuyệt đối **không xóa** bản ghi sổ cái gốc; mọi thao tác rollback bắt buộc ghi thêm bút toán bù trừ (`compensating reversal entry`) kèm `idempotencyKey` và `auditRef`.\n- **Phân quyền đối soát thủ công:** chỉ `ADMIN` hoặc `TEAM_LEADER` dự án `BE`; vai trò `MEMBER` trả `403 FORBIDDEN`.\n",
+      "timeSpentMinutes": 105,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000006",
+      "versionId": "6f3010580000000000000006",
+      "taskKey": "FE-1",
+      "taskId": "6ada96169e81dbad08c5e662",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -17,
+      "timeLocal": "16:20:00",
+      "schemaVersion": 1,
+      "title": "Chuẩn hóa kiến trúc Next.js 16 App Router & BFF Proxy /api/backend",
+      "category": "Architecture",
+      "tags": [
+        "nextjs",
+        "bff",
+        "fe-1"
+      ],
+      "whatDone": "Định tuyến 100% lời gọi API từ client qua Route Handler /api/backend kèm HttpOnly cookie và CSRF header.",
+      "howSolved": "Tạo tầng fetch wrapper tập trung tại src/lib/api và hooks TanStack Query theo từng domain.",
+      "whyThisWay": "Ngăn XSS đọc trực tiếp JWT trong localStorage và tách biệt cấu trúc URL nội bộ của backend.",
+      "timeSpentMinutes": 180,
+      "pinned": true,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000007",
+      "versionId": "6f3010580000000000000007",
+      "taskKey": "FE-3",
+      "taskId": "6adad53609387b51f3a750a9",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_lead",
+      "dayOffset": -1,
+      "timeLocal": "11:45:00",
+      "schemaVersion": 2,
+      "title": "Ghi chú kiểm chứng UI/UX Pro Max — Workspace & Thẻ trả lời @continuumAI",
+      "category": "Quality",
+      "tags": [
+        "ui-ux",
+        "wcag",
+        "fe-3",
+        "v2-markdown"
+      ],
+      "contentMarkdown": "### Kết quả kiểm chứng giao diện trước Bảo vệ WDP301\n\n- **Trạng thái AI suy nghĩ:** nâng cấp thành 3 dấu chấm uốn lượn (`cu-ai-wave-dot`) gọn nhẹ, tôn trọng `prefers-reduced-motion`.\n- **Thẻ trả lời AI:** thiết kế biên tập nền trắng nổi có `border-s-3`, nút bằng chứng `Sources (N)` mặc định **thu gọn** và chỉ mở dropdown khi người dùng bấm.\n- **Kiểm định chất lượng:** `94/94` điểm WCAG AA (`>= 4.5:1`), `197/197` Vitest (`1.459` test pass), `89/89` route `next build` xanh ở đủ 4 viewport `375/768/1280/1440px`.\n",
+      "timeSpentMinutes": 150,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000008",
+      "versionId": "6f3010580000000000000008",
+      "taskKey": "FE-44",
+      "taskId": "6addba45601e4bc926ed57da",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -13,
+      "timeLocal": "16:40:00",
+      "schemaVersion": 1,
+      "title": "Thiết kế luồng xác nhận 2 bước đổi Project Visibility PRIVATE -> PUBLIC",
+      "category": "UX",
+      "tags": [
+        "visibility",
+        "security",
+        "fe-44"
+      ],
+      "whatDone": "Hoàn thiện modal xác nhận đổi chế độ dự án, chặn thao tác cho MEMBER và hiển thị rõ tác động chia sẻ tri thức.",
+      "howSolved": "Kết hợp flag permissions.canManageVisibility từ BE với tooltip giải thích và xử lý lỗi 403/409 rõ ràng.",
+      "whyThisWay": "Giảm rủi ro bấm nhầm mở công khai tài liệu nội bộ của dự án PRIVATE.",
+      "timeSpentMinutes": 120,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000009",
+      "versionId": "6f3010580000000000000009",
+      "taskKey": "FE-54",
+      "taskId": "6addba55601e4bc926ed5884",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -9,
+      "timeLocal": "16:50:00",
+      "schemaVersion": 1,
+      "title": "Tiếp nhận bàn giao Team List & hoàn thiện bộ lọc trạng thái từ FE Offboarding",
+      "category": "Handover",
+      "tags": [
+        "handover",
+        "team-ui",
+        "fe-54"
+      ],
+      "whatDone": "Tiếp quản nhánh wip/fe-team-ui khi bạn FE Offboarding nghỉ ốm, bổ sung xong filter ACTIVE/ARCHIVED và phân trang cursor.",
+      "howSolved": "Tái sử dụng bảng chuẩn mật độ Compact + tabular-nums cho cột số thành viên và debounce 300ms cho ô tìm kiếm.",
+      "whyThisWay": "Đảm bảo không đứt gãy tiến độ giao diện Team trước mốc freeze UI.",
+      "timeSpentMinutes": 120,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000010",
+      "versionId": "6f3010580000000000000010",
+      "taskKey": "FE-58",
+      "taskId": "6addba5a601e4bc926ed58b5",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "authorActorKey": "actor_fe_dev",
+      "dayOffset": -1,
+      "timeLocal": "15:10:00",
+      "schemaVersion": 1,
+      "title": "Hoàn tất bộ 8 trạng thái UI & đồng bộ giới hạn tệp 20 MB trên màn hình FE",
+      "category": "Quality",
+      "tags": [
+        "states",
+        "upload-limit",
+        "fe-58"
+      ],
+      "whatDone": "Bao phủ đủ 8 trạng thái (loading, empty, success, 422, 500, 403, modal, long text 120 ký tự) và bắt lỗi 409 trùng tên Team.",
+      "howSolved": "Viết thêm unit test render state và đồng bộ nhãn giới hạn upload 20 MB với BE/SRS.",
+      "whyThisWay": "Đáp ứng tiêu chuẩn QA giao diện B2B và tránh người dùng chờ upload file >20 MB rồi mới bị BE từ chối.",
+      "timeSpentMinutes": 120,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000011",
+      "versionId": "6f3010580000000000000011",
+      "taskKey": "DB-2",
+      "taskId": "6addba93601e4bc926ed5a2c",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -21,
+      "timeLocal": "16:10:00",
+      "schemaVersion": 1,
+      "title": "Bật strict $jsonSchema trên MongoDB Atlas cho Task & Handover v2",
+      "category": "Database",
+      "tags": [
+        "mongodb",
+        "validator",
+        "db-2"
+      ],
+      "whatDone": "Áp dụng validator strict trên tasks, task_comments, task_worklogs, task_events và handover v2.",
+      "howSolved": "Đồng bộ định nghĩa BSON type (ObjectId vs string hex 24 ký tự) giữa Mongoose schema và migration script.",
+      "whyThisWay": "Chặn dữ liệu sai kiểu ngay ở tầng DB dù bị gọi qua script bên ngoài.",
+      "timeSpentMinutes": 150,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000012",
+      "versionId": "6f3010580000000000000012",
+      "taskKey": "DB-8",
+      "taskId": "6addba9d601e4bc926ed5a95",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -16,
+      "timeLocal": "16:55:00",
+      "schemaVersion": 1,
+      "title": "Xác minh Migration Planner & tính idempotent của migration Chat DM AI",
+      "category": "Database",
+      "tags": [
+        "migration",
+        "chat-ai",
+        "db-8"
+      ],
+      "whatDone": "Kiểm chứng chạy lặp lại migration 20261128-chat-dm-assistant-schema tạo 6 index và validator moderate an toàn trên Atlas.",
+      "howSolved": "Chạy 2 lần liên tiếp và kiểm tra 0 lỗi xung đột với 9 hội thoại DM và tin nhắn người-với-người đã tồn tại.",
+      "whyThisWay": "Đảm bảo triển khai lên môi trường staging/demo không bao giờ làm hỏng dữ liệu sẵn có.",
+      "timeSpentMinutes": 135,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000013",
+      "versionId": "6f3010580000000000000013",
+      "taskKey": "DB-15",
+      "taskId": "6addbaa8601e4bc926ed5b14",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -7,
+      "timeLocal": "16:30:00",
+      "schemaVersion": 1,
+      "title": "Kiểm định tính tương thích Work Note v1 và v2 (contentSchemaVersion: 2)",
+      "category": "Database",
+      "tags": [
+        "work-note",
+        "schema",
+        "db-15"
+      ],
+      "whatDone": "Xác nhận work_notes hỗ trợ song song định dạng 3 trường cấu trúc (v1) và Markdown mở rộng (v2) kèm lịch sử work_note_versions.",
+      "howSolved": "Ràng buộc chỉ mục unique (workNoteId, versionNumber) và validator có điều kiện trên trường contentSchemaVersion.",
+      "whyThisWay": "Cho phép nâng cấp trình soạn thảo Markdown mà không phải migrate phá vỡ các Task Note cũ.",
+      "timeSpentMinutes": 90,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000014",
+      "versionId": "6f3010580000000000000014",
+      "taskKey": "SAG-2",
+      "taskId": "6addb865601e4bc926ed4f22",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -13,
+      "timeLocal": "16:45:00",
+      "schemaVersion": 1,
+      "title": "Kết quả kiểm thử hồi quy Deterministic Hybrid Fusion (Dense + BM25 Sparse)",
+      "category": "AI",
+      "tags": [
+        "sag",
+        "hybrid-fusion",
+        "sag-2"
+      ],
+      "whatDone": "Cố định thứ tự xếp hạng khi dung hợp điểm Dense và BM25 Sparse trên Qdrant, loại bỏ sai lệch không tất định khi đồng điểm.",
+      "howSolved": "Bổ sung tie-breaker theo document_id + chunk_index và khóa seed kiểm thử hồi quy.",
+      "whyThisWay": "Giúp báo cáo benchmark 4 trục tái lập chính xác tuyệt đối trước hội đồng.",
+      "timeSpentMinutes": 150,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000015",
+      "versionId": "6f3010580000000000000015",
+      "taskKey": "SAG-6",
+      "taskId": "6addb86c601e4bc926ed4f68",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -12,
+      "timeLocal": "16:30:00",
+      "schemaVersion": 1,
+      "title": "Kiến trúc ACL-Safe Routing Tree & Kiểm chứng 100% ca ACL DENY",
+      "category": "Security",
+      "tags": [
+        "sag",
+        "acl",
+        "routing-tree",
+        "sag-6"
+      ],
+      "whatDone": "Ép pre-filter theo allowed_project_ids ngay trước bước truy vấn Qdrant và điều hướng cây tri thức.",
+      "howSolved": "Từ chối escape retrieval ra ngoài phạm vi project được IAM xác nhận; trả INSUFFICIENT_EVIDENCE khi tập ứng viên hợp lệ rỗng.",
+      "whyThisWay": "Đảm bảo tuyệt đối không rò rỉ tài liệu dự án PRIVATE sang thành viên ngoài hoặc Org Admin không thuộc dự án.",
+      "timeSpentMinutes": 165,
+      "pinned": true,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000016",
+      "versionId": "6f3010580000000000000016",
+      "taskKey": "SAG-26",
+      "taskId": "6addb891601e4bc926ed511f",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -4,
+      "timeLocal": "21:20:00",
+      "schemaVersion": 2,
+      "title": "Báo cáo sự cố OT (RCA) — Giới hạn 64 KiB JSON & Bảo mật Endpoint DM Assistant",
+      "category": "Incident",
+      "tags": [
+        "ot-incident",
+        "utf8",
+        "sag-26",
+        "v2-markdown"
+      ],
+      "contentMarkdown": "### Root Cause Analysis (Sự cố 413 trên tiếng Việt có dấu)\n\n- **Nguyên nhân:** BE giới hạn ngữ cảnh theo `24.000` ký tự, nhưng văn bản tiếng Việt UTF-8 (~2,6 byte/ký tự) + metadata JSON vượt quá trần `64 KiB` của SAG.\n- **Khắc phục:** BE tính ngân sách theo `Buffer.byteLength(..., \"utf8\") <= 56 KiB`; SAG dời bước kiểm tra `X-SAG-Service-Token` lên **trước** `request.body()` và tách riêng 422 envelope cho endpoint DM.\n- **Kiểm chứng:** Đối chiếu inline citation `[M#]` khớp 100% `citedRefIds`; không còn lỗi 413 trên toàn bộ tin nhắn tiếng Việt dài.\n",
+      "timeSpentMinutes": 105,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000017",
+      "versionId": "6f3010580000000000000017",
+      "taskKey": "SAG-7",
+      "taskId": "6addb86d601e4bc926ed4f7d",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -10,
+      "timeLocal": "15:20:00",
+      "schemaVersion": 1,
+      "title": "Tách độc lập cổng SEARCH_READY khỏi bước Enrichment",
+      "category": "Performance",
+      "tags": [
+        "ingestion",
+        "search-ready",
+        "sag-7"
+      ],
+      "whatDone": "Tài liệu SRS 45 KB đạt SEARCH_READY trong ~3,8 giây và sẵn sàng cho hỏi đáp trước khi enrichment chạy nền hoàn tất.",
+      "howSolved": "Đưa enrichment sang job bất đồng bộ tách biệt với cơ chế retry riêng.",
+      "whyThisWay": "Giảm thời gian chờ của người dùng khi vừa tải lên tài liệu mới trong buổi demo.",
+      "timeSpentMinutes": 90,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000018",
+      "versionId": "6f3010580000000000000018",
+      "taskKey": "DESIGN-1",
+      "taskId": "6addbafc601e4bc926ed5e7b",
+      "projectCode": "DESIGN",
+      "projectId": "6addb4bf601e4bc926ed4516",
+      "authorActorKey": "actor_pm_admin",
+      "dayOffset": -18,
+      "timeLocal": "11:00:00",
+      "schemaVersion": 1,
+      "title": "Thống nhất hệ thống thiết kế TailAdmin & CSS Logical Properties cho WDP301",
+      "category": "Design",
+      "tags": [
+        "tailadmin",
+        "design-system",
+        "design-1"
+      ],
+      "whatDone": "Chốt bảng màu semantic (xanh đạt chuẩn, vàng cảnh báo, đỏ quá hạn), font số tabular-nums và bộ icon tập trung tại @/icons.",
+      "howSolved": "Ghi chuẩn hóa vào DATN_FE/AGENTS.md và kiểm tra tự động qua quy trình visual-ui-audit.",
+      "whyThisWay": "Giữ giao diện B2B nhất quán giữa các phân hệ Task, Work Note, Report, Handover và Human Chat.",
+      "timeSpentMinutes": 75,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000019",
+      "versionId": "6f3010580000000000000019",
+      "taskKey": "DESIGN-7",
+      "taskId": "6addbaff601e4bc926ed5ea2",
+      "projectCode": "DESIGN",
+      "projectId": "6addb4bf601e4bc926ed4516",
+      "authorActorKey": "actor_fe_lead",
+      "dayOffset": -12,
+      "timeLocal": "15:00:00",
+      "schemaVersion": 1,
+      "title": "Đối chiếu App Shell (SHELL-01/02) với Screen Flows 07–09",
+      "category": "Design",
+      "tags": [
+        "app-shell",
+        "figma",
+        "design-7"
+      ],
+      "whatDone": "Khớp đầy đủ mục điều hướng theo vai trò Admin, Team Leader và Member giữa bản thiết kế Figma và giao diện chạy thật.",
+      "howSolved": "Rà soát từng đường dẫn menu, trạng thái active/hover và chế độ thu gọn thanh bên.",
+      "whyThisWay": "Đảm bảo tài liệu SRS và giao diện demo khớp tuyệt đối khi hội đồng đối chiếu.",
+      "timeSpentMinutes": 90,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000020",
+      "versionId": "6f3010580000000000000020",
+      "taskKey": "DOC-36",
+      "taskId": "6addbc54601e4bc926ed6a3d",
+      "projectCode": "DOC",
+      "projectId": "6addb4cc601e4bc926ed457c",
+      "authorActorKey": "actor_doc_lead",
+      "dayOffset": -7,
+      "timeLocal": "15:30:00",
+      "schemaVersion": 1,
+      "title": "Đồng bộ giới hạn dung lượng tệp đính kèm SRS (25 MB -> 20 MB) khớp BE runtime",
+      "category": "Documentation",
+      "tags": [
+        "srs",
+        "upload",
+        "doc-36"
+      ],
+      "whatDone": "Cập nhật mục 3.4 Report 3 SRS và phụ lục DOC-36 từ 25 MB về đúng 20 MB kèm danh sách 21 MIME types hợp lệ.",
+      "howSolved": "Đối chiếu trực tiếp với schema work_reports trong DATN_BE và cảnh báo hiển thị trên DATN_FE.",
+      "whyThisWay": "Loại bỏ hoàn toàn mâu thuẫn giữa tài liệu đặc tả và hành vi hệ thống thực tế.",
+      "timeSpentMinutes": 90,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000021",
+      "versionId": "6f3010580000000000000021",
+      "taskKey": "DOC-35",
+      "taskId": "6addbc54601e4bc926ed6a37",
+      "projectCode": "DOC",
+      "projectId": "6addb4cc601e4bc926ed457c",
+      "authorActorKey": "actor_doc_lead",
+      "dayOffset": -1,
+      "timeLocal": "15:00:00",
+      "schemaVersion": 2,
+      "title": "Ghi chú ranh giới bằng chứng tri thức (Evidence Boundary) cho Report 3 SRS v3.5",
+      "category": "Documentation",
+      "tags": [
+        "srs",
+        "evidence-boundary",
+        "doc-35",
+        "v2-markdown"
+      ],
+      "contentMarkdown": "### Ranh giới bằng chứng tri thức trong Continuum AI\n\n1. **Tài liệu chính thức (`PROJECT_DOCUMENT` trạng thái `APPROVED`):** nguồn tri thức chuẩn cho SAG Project AI Chat.\n2. **Ghi chú công việc (`TASK_NOTE` trạng thái `CONFIRMED`):** bằng chứng vận hành theo task, phục vụ gói chuyển giao (`Handover`).\n3. **Chat 1–1 (`DIRECT`):** nguồn dẫn chứng riêng cho `@continuumAI` theo từng cuộc hội thoại, cô lập hoàn toàn khỏi các phòng khác và gắn trạng thái nguồn (`ACTIVE`/`EDITED`/`DELETED`).\n",
+      "timeSpentMinutes": 90,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000022",
+      "versionId": "6f3010580000000000000022",
+      "taskKey": "RESEARCH-1",
+      "taskId": "6addbad0601e4bc926ed5c22",
+      "projectCode": "RESEARCH",
+      "projectId": "6addb4af601e4bc926ed44a2",
+      "authorActorKey": "actor_db_sag_lead",
+      "dayOffset": -24,
+      "timeLocal": "11:15:00",
+      "schemaVersion": 1,
+      "title": "Nguyên tắc cô lập ngữ cảnh đa tổ chức (Multi-tenant Organization Context)",
+      "category": "Governance",
+      "tags": [
+        "multi-tenant",
+        "governance",
+        "research-1"
+      ],
+      "whatDone": "Chốt hợp đồng tách biệt dữ liệu theo organizationId từ phiên BFF và áp dụng kiểm tra membership trên mọi truy vấn.",
+      "howSolved": "Bắt buộc truy vấn kèm organizationId và chỉ mục đầu khóa theo organizationId trên tất cả các bảng chính.",
+      "whyThisWay": "Đảm bảo dữ liệu giữa WDP301-SPRING-2027 và các tổ chức khác không bao giờ giao thoa.",
+      "timeSpentMinutes": 75,
+      "pinned": false,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000023",
+      "versionId": "6f3010580000000000000023",
+      "taskKey": "GENERAL-4",
+      "taskId": "6addbc87601e4bc926ed6b94",
+      "projectCode": "GENERAL",
+      "projectId": "6addb4e1601e4bc926ed4602",
+      "authorActorKey": "actor_pm_admin",
+      "dayOffset": -1,
+      "timeLocal": "16:30:00",
+      "schemaVersion": 1,
+      "title": "Checklist sẵn sàng Vertical Slice cho buổi tập duyệt Bảo vệ WDP301",
+      "category": "Release",
+      "tags": [
+        "defense",
+        "vertical-slice",
+        "general-4"
+      ],
+      "whatDone": "Kiểm tra thông suốt chuỗi Auth -> Organization -> Task/Note/Report -> Handover -> Human Chat + @continuumAI trên stack local.",
+      "howSolved": "Chuẩn bị kịch bản live demo, dataset synthetic Full 360° không chứa dữ liệu nhạy cảm và kiểm chứng trước bằng smoke test.",
+      "whyThisWay": "Giảm thiểu rủi ro kỹ thuật trong 15 phút demo trực tiếp trước hội đồng.",
+      "nextStep": "Họp chốt thứ tự trình bày demo lúc 14:00 hôm nay tại Lab SE-402.",
+      "timeSpentMinutes": 120,
+      "pinned": true,
+      "status": "CONFIRMED"
+    },
+    {
+      "id": "6f3010500000000000000024",
+      "versionId": "6f3010580000000000000024",
+      "taskKey": "GENERAL-7",
+      "taskId": "6addbc89601e4bc926ed6ba8",
+      "projectCode": "GENERAL",
+      "projectId": "6addb4e1601e4bc926ed4602",
+      "authorActorKey": "actor_same_name_general",
+      "dayOffset": -7,
+      "timeLocal": "16:00:00",
+      "schemaVersion": 1,
+      "title": "Chuẩn bị hạ tầng phòng Bảo vệ Alpha-305 & Docker Compose 4GB Ultra-Lean",
+      "category": "Operations",
+      "tags": [
+        "docker",
+        "defense-logistics",
+        "general-7"
+      ],
+      "whatDone": "Đo thời gian khởi động cụm docker-compose.4gb-ultra-lean.yml đạt 42 giây, đặt phòng Alpha-305 và chuẩn bị 2 bộ phát Wi-Fi 5G + USB backup.",
+      "howSolved": "Tách hồ sơ giới hạn RAM cho PostgreSQL, Qdrant và Redis để chạy mượt trên laptop 8–16GB RAM.",
+      "whyThisWay": "Chủ động phương án dự phòng nếu mạng hội trường không ổn định.",
+      "timeSpentMinutes": 120,
+      "pinned": false,
+      "status": "CONFIRMED"
+    }
+  ],
+  "workReports": [
+    {
+      "id": "6f3010600000000000000001",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "memberActorKey": "actor_be_lead",
+      "reportScope": "LEADER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -21,
+      "periodEndOffset": -14,
+      "dueOffset": -14,
+      "status": "APPROVED",
+      "submittedOffset": -14,
+      "reviewedOffset": -13,
+      "reviewerActorKey": "actor_pm_admin",
+      "reviewerRole": "MANAGER",
+      "reviewComment": "Tiến độ BE-1, BE-2, BE-3, BE-5 rất tốt; p95 Workspace API cải thiện rõ rệt.",
+      "accomplishments": "Hoàn thành BE-2, BE-3, BE-5, BE-6; tối ưu truy vấn Workspace API từ 410ms xuống 38ms; chuẩn hóa kiến trúc Chat Realtime với Redis Adapter.",
+      "approach": "Tách Database-per-Service theo 01_SYSTEM_TOPOLOGY.md, bật compound index và viết test tích hợp cho Auth Token Family Rotation.",
+      "reason": "Đảm bảo nền tảng bảo mật và hiệu năng ổn định trước khi nối tính năng @continuumAI.",
+      "blockers": "Chưa có blocker nghiêm trọng; cần đồng bộ thêm hạn mức rate-limit chat AI với SAG.",
+      "nextSteps": "Hoàn thiện BE-111 (WorkNote ACL) và BE-112/BE-114 (retry thanh toán có giới hạn).",
+      "documentIds": [
+        "6addfeffb32ba5e0f2290487",
+        "6addf928c3c3f86813c57377",
+        "6addff03b32ba5e0f22904bd"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000002",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "memberActorKey": "actor_db_sag_lead",
+      "reportScope": "LEADER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -21,
+      "periodEndOffset": -14,
+      "dueOffset": -14,
+      "status": "APPROVED",
+      "submittedOffset": -14,
+      "reviewedOffset": -13,
+      "reviewerActorKey": "actor_pm_admin",
+      "reviewerRole": "MANAGER",
+      "reviewComment": "Schema và migration planner đạt chuẩn an toàn, sẵn sàng cho giai đoạn tích hợp.",
+      "accomplishments": "Đóng DB-1, DB-2, DB-3, DB-7, DB-8; xác minh toàn bộ strict $jsonSchema và partial unique index trên Atlas dev.",
+      "approach": "Áp dụng additive migration, kiểm thử MongoDB 7 trong CI và khóa quyền tối thiểu theo từng DB.",
+      "reason": "Ngăn dữ liệu lệch kiểu và đảm bảo chạy lặp lại migration không gây lỗi.",
+      "blockers": "Không có.",
+      "nextSteps": "Kiểm chứng migration 20261128-chat-dm-assistant-schema và chuẩn bị DB-15.",
+      "documentIds": [
+        "6addf900c3c3f86813c5717b",
+        "6addff08b32ba5e0f22904fc",
+        "6addff0cb32ba5e0f2290532"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000003",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "memberActorKey": "actor_db_sag_lead",
+      "reportScope": "LEADER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -14,
+      "periodEndOffset": -7,
+      "dueOffset": -7,
+      "status": "APPROVED",
+      "submittedOffset": -7,
+      "reviewedOffset": -6,
+      "reviewerActorKey": "actor_pm_admin",
+      "reviewerRole": "MANAGER",
+      "reviewComment": "Tỷ lệ chặn ACL 100% và thời gian SEARCH_READY ~3.8s là điểm nhấn mạnh cho buổi bảo vệ.",
+      "accomplishments": "Hoàn tất SAG-1, SAG-2, SAG-6, SAG-7; kiểm chứng Deterministic Hybrid Fusion và 28/28 ca ACL DENY chặn thành công.",
+      "approach": "Ép pre-filter allowed_project_ids trước Qdrant/Routing Tree và tách enrichment khỏi pha SEARCH_READY.",
+      "reason": "Bảo đảm tri thức dự án PRIVATE tuyệt đối không rò rỉ và tăng tốc trải nghiệm hỏi đáp.",
+      "blockers": "Cần phối hợp BE đo ngân sách byte UTF-8 cho endpoint DM Assistant.",
+      "nextSteps": "Triển khai endpoint /v1/dm-assistant/answer và kiểm thử chịu tải tiếng Việt dài.",
+      "documentIds": [
+        "6addf90ec3c3f86813c5722c",
+        "6addfeffb32ba5e0f2290490"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000004",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "memberActorKey": "actor_fe_lead",
+      "reportScope": "LEADER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -14,
+      "periodEndOffset": -7,
+      "dueOffset": -7,
+      "status": "APPROVED",
+      "submittedOffset": -7,
+      "reviewedOffset": -6,
+      "reviewerActorKey": "actor_pm_admin",
+      "reviewerRole": "MANAGER",
+      "reviewComment": "Xử lý kịp thời chuyển giao FE-54..58 khi thành viên nghỉ ốm, giữ vững mốc tiến độ.",
+      "accomplishments": "Đưa FE-3 và FE-43..45 sang IN_REVIEW; xử lý xong monotonic merge sự kiện assistant.status trên Socket.IO; điều phối bàn giao FE-54..58.",
+      "approach": "Chuẩn hóa icon @/icons, CSS logical properties và cơ chế retry clientMessageId mới khi thử lại.",
+      "reason": "Đảm bảo trải nghiệm realtime không bị quay ngược trạng thái và bảo toàn tiến độ nhóm.",
+      "blockers": "Đang đối chiếu giới hạn upload 20 MB với tài liệu SRS (hiện ghi 25 MB).",
+      "nextSteps": "Nâng cấp UI bong bóng @continuumAI và chạy visual QA 4 viewport.",
+      "documentIds": [
+        "6addf91bc3c3f86813c572d3",
+        "6addff02b32ba5e0f22904ab",
+        "6addff13b32ba5e0f229058c"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000005",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "memberActorKey": "actor_fe_dev",
+      "reportScope": "MEMBER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -14,
+      "periodEndOffset": -7,
+      "dueOffset": -7,
+      "status": "APPROVED",
+      "submittedOffset": -7,
+      "reviewedOffset": -6,
+      "reviewerActorKey": "actor_fe_lead",
+      "reviewerRole": "LEADER",
+      "reviewComment": "Tiếp nhận bàn giao Team UI rất nhanh và phát hiện sai lệch 25MB/20MB rất giá trị.",
+      "accomplishments": "Hoàn thiện FE-43..45 (Visibility PRIVATE -> PUBLIC), tiếp quản FE-54/FE-56 từ bạn FE Offboarding và phát hiện sai lệch giới hạn upload 25 MB vs 20 MB.",
+      "approach": "Bổ sung filter ACTIVE/ARCHIVED, hộp thoại xác nhận 2 bước và tooltip phân quyền MEMBER.",
+      "reason": "Không để gián đoạn luồng giao diện Team & Project trước buổi tập duyệt.",
+      "blockers": "Cần Design/FE Lead chốt sau về UX citation ở Project AI Chat (sidebar cố định hay drawer).",
+      "nextSteps": "Hoàn thiện đủ 8 trạng thái cho FE-58 và tiếp nhận gói Handover FE.",
+      "documentIds": [
+        "6addf91bc3c3f86813c572d3",
+        "6addff13b32ba5e0f229058c"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000006",
+      "projectCode": "DOC",
+      "projectId": "6addb4cc601e4bc926ed457c",
+      "memberActorKey": "actor_doc_lead",
+      "reportScope": "MEMBER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -14,
+      "periodEndOffset": -7,
+      "dueOffset": -7,
+      "status": "APPROVED",
+      "submittedOffset": -7,
+      "reviewedOffset": -6,
+      "reviewerActorKey": "actor_pm_admin",
+      "reviewerRole": "LEADER",
+      "reviewComment": "Đã đồng bộ kịp thời SRS về 20 MB, rất chỉn chu.",
+      "accomplishments": "Đồng bộ sơ đồ Use Case 02–06, Screen Flows 07–09, ERD 10 vào Report 3 SRS; sửa mục 3.4 upload limit từ 25 MB về đúng 20 MB khớp BE.",
+      "approach": "Đối chiếu trực tiếp schema Mongoose trên DATN_BE và quy chuẩn viết báo cáo của nhóm.",
+      "reason": "Tránh bị hội đồng bắt lỗi mâu thuẫn giữa tài liệu SRS và mã nguồn demo.",
+      "blockers": "Chờ chụp ảnh màn hình thẻ AI Chat mới để chèn vào bản SRS v3.5.",
+      "nextSteps": "Hoàn thiện DOC-35 (Evidence Boundary) và chuẩn bị in 05 bộ màu trước 16:00 thứ Sáu.",
+      "documentIds": [
+        "6addf8e4c3c3f86813c5702d",
+        "6addfef8b32ba5e0f2290451",
+        "6addfefcb32ba5e0f2290475"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000007",
+      "projectCode": "DESIGN",
+      "projectId": "6addb4bf601e4bc926ed4516",
+      "memberActorKey": "actor_pm_admin",
+      "reportScope": "LEADER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -14,
+      "periodEndOffset": -7,
+      "dueOffset": -7,
+      "status": "APPROVED",
+      "submittedOffset": -7,
+      "reviewedOffset": -6,
+      "reviewerActorKey": "actor_doc_lead",
+      "reviewerRole": "MANAGER",
+      "reviewComment": "Hệ thống thiết kế và sơ đồ luồng màn hình thống nhất tốt.",
+      "accomplishments": "Chốt tài liệu 09_HUMAN_CHAT_FE_UI_UX.md và đối chiếu đầy đủ DESIGN-1..DESIGN-8 với bộ sơ đồ Use Case/Screen Flows.",
+      "approach": "Dùng chuẩn TailAdmin, đảm bảo tương phản >= 4.5:1 ở cả Light và Dark mode.",
+      "reason": "Tạo ngôn ngữ thiết kế thống nhất cho toàn bộ ứng dụng Continuum AI.",
+      "blockers": "Chưa chốt phương án sidebar hay drawer cho trích dẫn ở Project AI Chat.",
+      "nextSteps": "Cập nhật lại mockup thẻ @continuumAI sau đợt tối ưu UI/UX Pro Max.",
+      "documentIds": [
+        "6addf8f3c3c3f86813c570d1",
+        "6addff03b32ba5e0f22904b4"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000008",
+      "projectCode": "RESEARCH",
+      "projectId": "6addb4af601e4bc926ed44a2",
+      "memberActorKey": "actor_db_sag_lead",
+      "reportScope": "LEADER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -21,
+      "periodEndOffset": -14,
+      "dueOffset": -14,
+      "status": "APPROVED",
+      "submittedOffset": -14,
+      "reviewedOffset": -13,
+      "reviewerActorKey": "actor_pm_admin",
+      "reviewerRole": "MANAGER",
+      "reviewComment": "70 tài liệu research đã được tổ chức rõ ràng và kiểm duyệt đầy đủ.",
+      "accomplishments": "Hoàn tất 10/10 task RESEARCH (RESEARCH-1..RESEARCH-10) và kiểm duyệt 70 tài liệu nền tảng về Auth, Governance, Workspace, Security.",
+      "approach": "Viết baseline research trước khi code để mọi PR BE/FE bám đúng một nguồn sự thật.",
+      "reason": "Giảm thiểu sửa đi sửa lại hợp đồng API và phân quyền.",
+      "blockers": "Không có.",
+      "nextSteps": "Duy trì đồng bộ khi có điều chỉnh bảo mật nhỏ.",
+      "documentIds": [
+        "6addf936c3c3f86813c5741a",
+        "6addff1db32ba5e0f2290601"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000009",
+      "projectCode": "GENERAL",
+      "projectId": "6addb4e1601e4bc926ed4602",
+      "memberActorKey": "actor_same_name_general",
+      "reportScope": "MEMBER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -14,
+      "periodEndOffset": -7,
+      "dueOffset": -7,
+      "status": "APPROVED",
+      "submittedOffset": -7,
+      "reviewedOffset": -6,
+      "reviewerActorKey": "actor_pm_admin",
+      "reviewerRole": "LEADER",
+      "reviewComment": "Hậu cần phòng bảo vệ và Docker Compose 4GB ultra-lean chuẩn bị rất chủ động.",
+      "accomplishments": "Đặt thành công phòng hội đồng Alpha-305 (mở cửa 07:30), đo kiểm docker-compose.4gb-ultra-lean.yml khởi động healthy trong 42 giây, chuẩn bị 2 sim 5G + USB 64GB dự phòng.",
+      "approach": "Đóng gói sẵn cấu hình giới hạn 4GB RAM cho stack container và rà soát danh sách thành viên trong Member.md.",
+      "reason": "Đảm bảo buổi Bảo vệ WDP301 diễn ra trơn tru kể cả khi mạng trường gặp sự cố.",
+      "blockers": "Không có.",
+      "nextSteps": "Hỗ trợ kết nối thiết bị cho buổi tập duyệt lúc 14:00 tại Lab SE-402.",
+      "documentIds": [
+        "6addfef1b32ba5e0f22903f7",
+        "6addff0db32ba5e0f229053b"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000010",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "memberActorKey": "actor_be_lead",
+      "reportScope": "LEADER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -7,
+      "periodEndOffset": 0,
+      "dueOffset": 0,
+      "status": "APPROVED",
+      "submittedOffset": -1,
+      "reviewedOffset": 0,
+      "reviewerActorKey": "actor_pm_admin",
+      "reviewerRole": "MANAGER",
+      "reviewComment": "Đóng sạch P0/P1 sau 2 vòng review Codex và xử lý dứt điểm sự cố OT 413 UTF-8.",
+      "accomplishments": "Xử lý sự cố OT 413 bằng ngân sách UTF-8 <= 56 KiB; áp chung bộ lọc IAM fan-out; khóa giao dịch block/unblock; chốt đặc tả BE-3 (TTL 10 phút) và BE-114 (timeout 12s, retry 45s, ledger append-only).",
+      "approach": "Phối hợp chặt giữa BE và SAG, bổ sung bộ test hồi quy race-condition và kiểm chứng aroundMessageId không trả dữ liệu cache đã xóa.",
+      "reason": "Khóa kín các lỗ hổng bảo mật và đảm bảo độ tin cậy cao nhất cho buổi Bảo vệ.",
+      "blockers": "Đang chờ cuộc họp 14:00 chốt thứ tự demo GENERAL-4.",
+      "nextSteps": "Hoàn tất tiếp nhận gói Handover BE và chạy smoke-test cuối.",
+      "documentIds": [
+        "6addff01b32ba5e0f22904a2",
+        "6addff03b32ba5e0f22904bd",
+        "6addff04b32ba5e0f22904c6"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000011",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "memberActorKey": "actor_fe_dev",
+      "reportScope": "MEMBER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -7,
+      "periodEndOffset": 0,
+      "dueOffset": 0,
+      "status": "PENDING_REVIEW",
+      "submittedOffset": 0,
+      "reviewedOffset": null,
+      "reviewerActorKey": null,
+      "reviewerRole": null,
+      "reviewComment": "",
+      "accomplishments": "Hoàn tất kiểm thử 8 trạng thái cho FE-58, bật tabular-nums toàn bộ bảng số liệu, tiếp nhận thành công gói Handover FE (COMPLETED) và đồng bộ nhãn 20 MB upload.",
+      "approach": "Kiểm thử thực tế trên 4 viewport (375/768/1280/1440px), giữ 0px tràn ngang và chạy full suite unit test.",
+      "reason": "Đảm bảo chất lượng UI/UX sẵn sàng đóng băng trước buổi tổng duyệt.",
+      "blockers": "Chờ thống nhất phương án sidebar hay drawer cho trích dẫn ở Project AI Chat.",
+      "nextSteps": "Hỗ trợ ghép màn hình demo cho buổi tập duyệt chiều nay.",
+      "documentIds": [
+        "6addf91bc3c3f86813c572d3",
+        "6addff02b32ba5e0f22904ab"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000012",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "memberActorKey": "actor_fe_lead",
+      "reportScope": "LEADER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -7,
+      "periodEndOffset": 0,
+      "dueOffset": 0,
+      "status": "PENDING_REVIEW",
+      "submittedOffset": 0,
+      "reviewedOffset": null,
+      "reviewerActorKey": null,
+      "reviewerRole": null,
+      "reviewComment": "",
+      "accomplishments": "Nâng cấp UI/UX Pro Max cho @continuumAI (3 chấm uốn lượn + nút Sources thu gọn), pass 94/94 WCAG AA, 197/197 Vitest (1.459 pass), 89/89 next build; mở gói Handover BE sang cho Danh (BE Lead).",
+      "approach": "Kiểm định trực tiếp trên trình duyệt thật ở cả Light Mode và Dark Mode, không dùng dữ liệu giả lập BE.",
+      "reason": "Tối ưu thẩm mỹ và độ dễ đọc của câu trả lời AI khi trình chiếu lên màn hình 4K hội đồng.",
+      "blockers": "Không có.",
+      "nextSteps": "Tham gia buổi tổng duyệt 14:00 tại Lab SE-402.",
+      "documentIds": [
+        "6addff02b32ba5e0f22904ab",
+        "6addff03b32ba5e0f22904b4"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000013",
+      "projectCode": "SAG",
+      "projectId": "6addb47a601e4bc926ed43a0",
+      "memberActorKey": "actor_db_sag_lead",
+      "reportScope": "LEADER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -7,
+      "periodEndOffset": 0,
+      "dueOffset": 0,
+      "status": "APPROVED",
+      "submittedOffset": -1,
+      "reviewedOffset": 0,
+      "reviewerActorKey": "actor_pm_admin",
+      "reviewerRole": "MANAGER",
+      "reviewComment": "Chuẩn hóa tốt bảo mật service token trước đọc body và trung thực nhãn synthetic unreviewed.",
+      "accomplishments": "Hoàn thiện endpoint DM Assistant (auth trước body, trần 64 KiB, cô lập 422 envelope, khớp inline [M#] với citedRefIds); xuất bảng benchmark 4 trục có công bố synthetic=true & review_status=unreviewed.",
+      "approach": "Chạy live server SAG :8000 kèm PostgreSQL 16 + Qdrant để đối chiếu thực tế với Chat BE.",
+      "reason": "Tuân thủ tuyệt đối chuẩn đánh giá khoa học và cổng an toàn của dự án.",
+      "blockers": "Không có.",
+      "nextSteps": "Trình bày phần Routing Tree & Hybrid Fusion trong buổi tập duyệt chiều nay.",
+      "documentIds": [
+        "6addf90ec3c3f86813c5722c",
+        "6addff14b32ba5e0f2290595"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000014",
+      "projectCode": "DOC",
+      "projectId": "6addb4cc601e4bc926ed457c",
+      "memberActorKey": "actor_doc_lead",
+      "reportScope": "MEMBER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -7,
+      "periodEndOffset": 0,
+      "dueOffset": 0,
+      "status": "CHANGES_REQUESTED",
+      "submittedOffset": -1,
+      "reviewedOffset": -1,
+      "reviewerActorKey": "actor_pm_admin",
+      "reviewerRole": "LEADER",
+      "reviewComment": "Bản v3.4 rất tốt nhưng cần cập nhật thêm ảnh chụp thẻ @continuumAI mới (Sources thu gọn) và bảng đóng góp 5 thành viên vào bản v3.5 trước khi duyệt in.",
+      "accomplishments": "Hoàn thiện bản thảo PDF Report 3 SRS v3.4 (118 trang), bổ sung mục kiểm thử chống Prompt Injection OWASP LLM01 và chốt lịch nộp 05 bộ bản in 16:00 thứ Sáu.",
+      "approach": "Tự động hóa xuất mục lục và đối chiếu toàn bộ phụ lục OpenAPI.",
+      "reason": "Chuẩn bị hồ sơ nộp hội đồng đúng hạn.",
+      "blockers": "Đang chờ chèn ảnh chụp UI thẻ AI mới nhất từ FE Lead.",
+      "nextSteps": "Nộp lại bản v3.5 ngay sau khi cập nhật ảnh chụp và bảng đóng góp.",
+      "documentIds": [
+        "6addf8e4c3c3f86813c5702d",
+        "6addfef8b32ba5e0f2290451"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000015",
+      "projectCode": "GENERAL",
+      "projectId": "6addb4e1601e4bc926ed4602",
+      "memberActorKey": "actor_general_offboarding",
+      "reportScope": "MEMBER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -7,
+      "periodEndOffset": 0,
+      "dueOffset": 0,
+      "status": "DRAFT",
+      "submittedOffset": null,
+      "reviewedOffset": null,
+      "reviewerActorKey": null,
+      "reviewerRole": null,
+      "reviewComment": "",
+      "accomplishments": "Hoàn tất bàn giao gói Handover FE (COMPLETED) cho FE UI Engineer và tổng hợp danh sách 3 Epic B/C/D (GENERAL-6, GENERAL-7, GENERAL-8) cho gói bàn giao GENERAL.",
+      "approach": "Rà soát toàn bộ task chưa đóng và đính kèm tài liệu 03_DAILY_WORKFLOW_AND_JIRA_SYNC.",
+      "reason": "Đảm bảo người kế nhiệm dự án GENERAL nắm trọn trạng thái các Epic.",
+      "blockers": "Chờ đóng review cuối cho GENERAL-8.",
+      "nextSteps": "Hoàn thiện phần tóm tắt bàn giao và bấm Submit trước cuối tuần.",
+      "documentIds": [
+        "6af9b46ad6c0cbf69d76a13c",
+        "6addfef1b32ba5e0f22903f7"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000016",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "memberActorKey": "actor_fe_offboarding",
+      "reportScope": "MEMBER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -14,
+      "periodEndOffset": -7,
+      "dueOffset": -7,
+      "status": "OVERDUE",
+      "submittedOffset": null,
+      "reviewedOffset": null,
+      "reviewerActorKey": null,
+      "reviewerRole": null,
+      "reviewComment": "",
+      "accomplishments": "Đã đẩy nhánh wip/fe-team-ui (90% FE-54, khung FE-56) và ghi chú bàn giao qua DM trước khi nghỉ ốm sốt xuất huyết.",
+      "approach": "Ghi nhanh checklist bàn giao để đội FE không bị gián đoạn.",
+      "reason": "Nghỉ ốm đột xuất 3 ngày nên nộp trễ hạn báo cáo tuần (đã báo trước cho BE Lead và PM).",
+      "blockers": "Đang dưỡng bệnh, sẽ chuyển giao toàn bộ quyền truy cập FE theo quy trình offboarding.",
+      "nextSteps": "Xác nhận hoàn tất gói bàn giao \"Đổi người\" trên dự án FE.",
+      "documentIds": [
+        "6addff13b32ba5e0f229058c"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000017",
+      "projectCode": "DB",
+      "projectId": "6addb493601e4bc926ed440c",
+      "memberActorKey": "actor_pm_admin",
+      "reportScope": "LEADER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -7,
+      "periodEndOffset": 0,
+      "dueOffset": 0,
+      "status": "APPROVED",
+      "submittedOffset": -1,
+      "reviewedOffset": 0,
+      "reviewerActorKey": "actor_doc_lead",
+      "reviewerRole": "MANAGER",
+      "reviewComment": "Đã đối chiếu đủ 6 index mới và cơ chế không chạm dữ liệu cũ của WDP301.",
+      "accomplishments": "Nghiệm thu migration 20261128-chat-dm-assistant-schema trên Atlas dev và kiểm tra bộ seeder Full 360° không ghi đè dữ liệu hiện hữu.",
+      "approach": "Chạy dry-run, apply insert-only và verify hai vòng liên tiếp.",
+      "reason": "Bảo vệ an toàn tuyệt đối cho cơ sở dữ liệu phát triển dùng chung.",
+      "blockers": "Không có.",
+      "nextSteps": "Lưu bằng chứng kiểm thử vào phụ lục triển khai.",
+      "documentIds": [
+        "6addf900c3c3f86813c5717b",
+        "6addff09b32ba5e0f2290505"
+      ]
+    },
+    {
+      "id": "6f3010600000000000000018",
+      "projectCode": "GENERAL",
+      "projectId": "6addb4e1601e4bc926ed4602",
+      "memberActorKey": "actor_pm_admin",
+      "reportScope": "LEADER",
+      "frequency": "WEEKLY",
+      "periodStartOffset": -7,
+      "periodEndOffset": 0,
+      "dueOffset": 0,
+      "status": "DRAFT",
+      "submittedOffset": null,
+      "reviewedOffset": null,
+      "reviewerActorKey": null,
+      "reviewerRole": null,
+      "reviewComment": "",
+      "accomplishments": "Tổng hợp trạng thái 8 dự án hoạt động (474 task, 143 tài liệu APPROVED), kiểm duyệt 5 PR tính năng @continuumAI và xây dựng bộ dataset Full 360° cho buổi Bảo vệ WDP301.",
+      "approach": "Chạy thử toàn bộ hệ thống trực tiếp trên stack local (FE :3000, BE :3001, SAG :8000, Atlas + Redis + PG16).",
+      "reason": "Hoàn tất công tác chuẩn bị cho buổi tập duyệt và bảo vệ chính thức.",
+      "blockers": "Chờ họp nhóm lúc 14:00 để chốt thứ tự demo GENERAL-4.",
+      "nextSteps": "Chốt slide cuối và nộp 05 bộ bản in báo cáo trước 16:00 thứ Sáu.",
+      "documentIds": [
+        "6addfef1b32ba5e0f22903f7",
+        "6af9b46ad6c0cbf69d76a13c"
+      ]
+    }
+  ],
+  "handovers": [
+    {
+      "id": "6f3010700000000000000001",
+      "key": "handover_wdp_be_auth_chat",
+      "projectCode": "BE",
+      "projectId": "6ad7758334bd88b3f2cc844d",
+      "departingActorKey": "actor_fe_lead",
+      "assignedLeaderActorKey": "actor_pm_admin",
+      "successorActorKey": "actor_be_lead",
+      "createdByActorKey": "actor_pm_admin",
+      "title": "Bàn giao cụm Auth Session, Chat Realtime & API Gateway — Dự án Backend (BE)",
+      "status": "OPEN",
+      "createdDayOffset": -3,
+      "publishedDayOffset": -2,
+      "targetCompletionDayOffset": 2,
+      "version": 2,
+      "draftVersion": 1,
+      "assignmentVersion": 1,
+      "publishedRevisionId": "6f3010730000000000000001",
+      "selectedSources": [
+        {
+          "kind": "PROJECT_DOCUMENT",
+          "id": "6addf928c3c3f86813c57377",
+          "version": "1"
+        },
+        {
+          "kind": "PROJECT_DOCUMENT",
+          "id": "6addff01b32ba5e0f22904a2",
+          "version": "1"
+        },
+        {
+          "kind": "PROJECT_DOCUMENT",
+          "id": "6addff03b32ba5e0f22904bd",
+          "version": "1"
+        },
+        {
+          "kind": "PROJECT_DOCUMENT",
+          "id": "6addff04b32ba5e0f22904c6",
+          "version": "1"
+        },
+        {
+          "kind": "TASK_NOTE",
+          "id": "6f3010500000000000000001",
+          "version": "1"
+        },
+        {
+          "kind": "TASK_NOTE",
+          "id": "6f3010500000000000000002",
+          "version": "1"
+        },
+        {
+          "kind": "TASK_NOTE",
+          "id": "6f3010500000000000000003",
+          "version": "1"
+        }
+      ],
+      "selectedTasks": [
+        {
+          "taskId": "6ada96169e81dbad08c5e660",
+          "expectedVersion": 2,
+          "expectedAssigneeActorKey": "actor_be_lead"
+        },
+        {
+          "taskId": "6af9e3f21c1036b3d85f99cb",
+          "expectedVersion": 4,
+          "expectedAssigneeActorKey": "actor_be_lead"
+        },
+        {
+          "taskId": "6af9ea321c1036b3d86034ef",
+          "expectedVersion": 5,
+          "expectedAssigneeActorKey": "actor_be_lead"
+        }
+      ],
+      "item": {
+        "id": "6f3010710000000000000001",
+        "itemId": "6f3010720000000000000001",
+        "contentVersion": 1,
+        "dependencyFingerprint": "5438ced7108dbad9a3d21978c2ec545b80b4e3a872413349ce3dd3ddff439e37",
+        "title": "Tổng hợp tri thức & rủi ro vận hành — Auth Session, Chat Realtime & API Gateway (BE)",
+        "body": "### Gói bàn giao kỹ thuật Backend: Auth Session, Chat Realtime & API Gateway (WDP301)\n\nGói bàn giao chuyển toàn bộ phần việc hỗ trợ Backend từ Frontend & Chat Integration Lead sang **Danh (BE Lead)** để tập trung hoàn thiện UI trước buổi Bảo vệ WDP301.\n\n#### 1. Công việc đang mở cần tiếp tục theo dõi (3)\n- **BE-1:** Kiến trúc tách 5 database-per-service và giám sát Redis Adapter.\n- **BE-111:** Khóa phân quyền PATCH WorkNote (cảnh báo 5 lần 403/60s, hạn E2E 16:30 thứ Năm).\n- **BE-112:** Backoff 3 lần (1s -> 4s -> 16s) và kết nối Dead Letter Queue cho hàng đợi thanh toán.\n\n#### 2. Lưu ý vận hành bắt buộc\n- Access Token TTL đã đính chính xuống **10 phút** (Refresh Token 7 ngày kèm family rotation).\n- Ngân sách gửi ngữ cảnh sang SAG khống chế theo byte UTF-8 **<= 56 KiB** để không chạm trần 64 KiB.\n- Luôn dùng `http://localhost:3000` (không dùng `127.0.0.1:3000`) khi test WebSocket và không chạy `next build` song song với `next dev`.\n",
+        "requirement": "Người tiếp nối (Danh — BE Lead) xác nhận nắm đầy đủ 3 task BE-1/BE-111/BE-112, cấu hình TTL 10 phút, ngân sách 56 KiB UTF-8 và 4 tài liệu kiến trúc BE.",
+        "isRequired": true,
+        "evidenceRequired": false,
+        "sources": [
+          {
+            "kind": "PROJECT_DOCUMENT",
+            "id": "6addf928c3c3f86813c57377",
+            "version": "1"
+          },
+          {
+            "kind": "PROJECT_DOCUMENT",
+            "id": "6addff01b32ba5e0f22904a2",
+            "version": "1"
+          },
+          {
+            "kind": "PROJECT_DOCUMENT",
+            "id": "6addff03b32ba5e0f22904bd",
+            "version": "1"
+          },
+          {
+            "kind": "PROJECT_DOCUMENT",
+            "id": "6addff04b32ba5e0f22904c6",
+            "version": "1"
+          },
+          {
+            "kind": "TASK_NOTE",
+            "id": "6f3010500000000000000001",
+            "version": "1"
+          },
+          {
+            "kind": "TASK_NOTE",
+            "id": "6f3010500000000000000002",
+            "version": "1"
+          },
+          {
+            "kind": "TASK_NOTE",
+            "id": "6f3010500000000000000003",
+            "version": "1"
+          }
+        ],
+        "citations": [
+          {
+            "source": {
+              "kind": "PROJECT_DOCUMENT",
+              "id": "6addf928c3c3f86813c57377",
+              "version": "1"
+            },
+            "locator": {
+              "kind": "SECTION",
+              "value": "doc-body-1"
+            }
+          },
+          {
+            "source": {
+              "kind": "PROJECT_DOCUMENT",
+              "id": "6addff01b32ba5e0f22904a2",
+              "version": "1"
+            },
+            "locator": {
+              "kind": "SECTION",
+              "value": "doc-body-1"
+            }
+          },
+          {
+            "source": {
+              "kind": "PROJECT_DOCUMENT",
+              "id": "6addff03b32ba5e0f22904bd",
+              "version": "1"
+            },
+            "locator": {
+              "kind": "SECTION",
+              "value": "doc-body-1"
+            }
+          },
+          {
+            "source": {
+              "kind": "PROJECT_DOCUMENT",
+              "id": "6addff04b32ba5e0f22904c6",
+              "version": "1"
+            },
+            "locator": {
+              "kind": "SECTION",
+              "value": "doc-body-1"
+            }
+          },
+          {
+            "source": {
+              "kind": "TASK_NOTE",
+              "id": "6f3010500000000000000001",
+              "version": "1"
+            },
+            "locator": {
+              "kind": "SECTION",
+              "value": "note-summary"
+            }
+          },
+          {
+            "source": {
+              "kind": "TASK_NOTE",
+              "id": "6f3010500000000000000002",
+              "version": "1"
+            },
+            "locator": {
+              "kind": "SECTION",
+              "value": "note-summary"
+            }
+          },
+          {
+            "source": {
+              "kind": "TASK_NOTE",
+              "id": "6f3010500000000000000003",
+              "version": "1"
+            },
+            "locator": {
+              "kind": "SECTION",
+              "value": "note-summary"
+            }
+          }
+        ],
+        "updatedByActorKey": "actor_pm_admin"
+      },
+      "revision": {
+        "id": "6f3010730000000000000001",
+        "number": 1,
+        "draftVersion": 1,
+        "assignmentVersion": 1,
+        "publishedByActorKey": "actor_pm_admin",
+        "sourceFingerprint": "2e202f14a5c143bd472650802c0d6e167305ead6b7367e20ed1cdd320cb37064",
+        "reviewNote": "Đã rà soát đầy đủ tài liệu kiến trúc BE, 3 Task Note xác nhận và 3 task đang mở trước mốc tập duyệt WDP301.",
+        "reviewReason": "Nội dung bàn giao khớp với phiên bản mã nguồn hiện hành sau vòng kiểm toán bảo mật."
+      }
+    },
+    {
+      "id": "6f3010700000000000000002",
+      "key": "handover_wdp_fe_workspace_chat",
+      "projectCode": "FE",
+      "projectId": "6ad8834abef68a3326035eeb",
+      "departingActorKey": "actor_general_offboarding",
+      "assignedLeaderActorKey": "actor_pm_admin",
+      "successorActorKey": "actor_fe_dev",
+      "createdByActorKey": "actor_pm_admin",
+      "title": "Bàn giao giao diện Workspace, Visibility & Human Chat — Dự án Frontend (FE)",
+      "status": "COMPLETED",
+      "createdDayOffset": -10,
+      "publishedDayOffset": -8,
+      "completedDayOffset": -5,
+      "completedByActorKey": "actor_pm_admin",
+      "completionReviewNote": "Frontend UI Engineer đã xác nhận tiếp nhận toàn bộ tài liệu FE, vượt qua kiểm thử 8 trạng thái UI và 94/94 WCAG AA. Đóng gói bàn giao thành công.",
+      "targetCompletionDayOffset": -4,
+      "version": 3,
+      "draftVersion": 1,
+      "assignmentVersion": 1,
+      "publishedRevisionId": "6f3010730000000000000002",
+      "selectedSources": [
+        {
+          "kind": "PROJECT_DOCUMENT",
+          "id": "6addf91bc3c3f86813c572d3",
+          "version": "1"
+        },
+        {
+          "kind": "PROJECT_DOCUMENT",
+          "id": "6addff02b32ba5e0f22904ab",
+          "version": "1"
+        },
+        {
+          "kind": "PROJECT_DOCUMENT",
+          "id": "6addff13b32ba5e0f229058c",
+          "version": "1"
+        },
+        {
+          "kind": "TASK_NOTE",
+          "id": "6f3010500000000000000006",
+          "version": "1"
+        },
+        {
+          "kind": "TASK_NOTE",
+          "id": "6f3010500000000000000007",
+          "version": "1"
+        },
+        {
+          "kind": "TASK_NOTE",
+          "id": "6f3010500000000000000010",
+          "version": "1"
+        }
+      ],
+      "selectedTasks": [],
+      "item": {
+        "id": "6f3010710000000000000002",
+        "itemId": "6f3010720000000000000002",
+        "contentVersion": 1,
+        "dependencyFingerprint": "6ea763bdd8372b577ff8a6ce4e52e96a849203fc861bba3cc787e9fd5211dae2",
+        "title": "Tổng hợp bàn giao Frontend Workspace, Visibility & Human Chat (FE)",
+        "body": "### Gói bàn giao Frontend đã hoàn tất: Workspace, Visibility & Human Chat (WDP301)\n\nChuyển giao toàn bộ mảng giao diện Workspace, kiểm soát hiển thị dự án (`PRIVATE`/`PUBLIC`) và giao diện Human Chat sang **Frontend UI Engineer**.\n\n#### 1. Hạng mục đã đối chiếu & tiếp nhận\n- **FE-1 / FE-3:** Cấu trúc Next.js 16 App Router + BFF proxy `/api/backend`, badge 6 trạng thái Task và `tabular-nums`.\n- **FE-43..45:** Quy trình xác nhận 2 bước đổi chế độ hiển thị và chặn thao tác cho `MEMBER`.\n- **FE-54 / FE-56 / FE-58:** Hoàn thiện toàn bộ Team UI và 8 trạng thái chuẩn UI/UX.\n\n#### 2. Tiêu chí nghiệm thu đã đạt\n- `94/94` điểm tương phản WCAG AA trên cả 4 viewport (`375px`, `768px`, `1280px`, `1440px`), `0px` tràn ngang.\n- Đồng bộ giới hạn tệp đính kèm `20 MB` với BE và Report 3 SRS.\n",
+        "requirement": "Người tiếp nối (Frontend UI Engineer) xác nhận hoàn tất tiếp nhận BFF contract, UI Visibility và chuẩn TailAdmin.",
+        "isRequired": true,
+        "evidenceRequired": false,
+        "sources": [
+          {
+            "kind": "PROJECT_DOCUMENT",
+            "id": "6addf91bc3c3f86813c572d3",
+            "version": "1"
+          },
+          {
+            "kind": "PROJECT_DOCUMENT",
+            "id": "6addff02b32ba5e0f22904ab",
+            "version": "1"
+          },
+          {
+            "kind": "PROJECT_DOCUMENT",
+            "id": "6addff13b32ba5e0f229058c",
+            "version": "1"
+          },
+          {
+            "kind": "TASK_NOTE",
+            "id": "6f3010500000000000000006",
+            "version": "1"
+          },
+          {
+            "kind": "TASK_NOTE",
+            "id": "6f3010500000000000000007",
+            "version": "1"
+          },
+          {
+            "kind": "TASK_NOTE",
+            "id": "6f3010500000000000000010",
+            "version": "1"
+          }
+        ],
+        "citations": [
+          {
+            "source": {
+              "kind": "PROJECT_DOCUMENT",
+              "id": "6addf91bc3c3f86813c572d3",
+              "version": "1"
+            },
+            "locator": {
+              "kind": "SECTION",
+              "value": "doc-body-1"
+            }
+          },
+          {
+            "source": {
+              "kind": "PROJECT_DOCUMENT",
+              "id": "6addff02b32ba5e0f22904ab",
+              "version": "1"
+            },
+            "locator": {
+              "kind": "SECTION",
+              "value": "doc-body-1"
+            }
+          },
+          {
+            "source": {
+              "kind": "PROJECT_DOCUMENT",
+              "id": "6addff13b32ba5e0f229058c",
+              "version": "1"
+            },
+            "locator": {
+              "kind": "SECTION",
+              "value": "doc-body-1"
+            }
+          },
+          {
+            "source": {
+              "kind": "TASK_NOTE",
+              "id": "6f3010500000000000000006",
+              "version": "1"
+            },
+            "locator": {
+              "kind": "SECTION",
+              "value": "note-summary"
+            }
+          },
+          {
+            "source": {
+              "kind": "TASK_NOTE",
+              "id": "6f3010500000000000000007",
+              "version": "1"
+            },
+            "locator": {
+              "kind": "SECTION",
+              "value": "note-summary"
+            }
+          },
+          {
+            "source": {
+              "kind": "TASK_NOTE",
+              "id": "6f3010500000000000000010",
+              "version": "1"
+            },
+            "locator": {
+              "kind": "SECTION",
+              "value": "note-summary"
+            }
+          }
+        ],
+        "updatedByActorKey": "actor_pm_admin"
+      },
+      "revision": {
+        "id": "6f3010730000000000000002",
+        "number": 1,
+        "draftVersion": 1,
+        "assignmentVersion": 1,
+        "publishedByActorKey": "actor_pm_admin",
+        "sourceFingerprint": "22583839e9aaf4327c7a4731544669970418fce1e058c6e2cfec3473d94d6f18",
+        "reviewNote": "Xuất bản gói bàn giao Frontend kèm 3 tài liệu thiết kế/contract FE và 3 Task Note xác nhận.",
+        "reviewReason": "Đầy đủ bằng chứng nguồn và tiêu chí nghiệm thu responsive 4 viewport."
+      }
+    }
+  ]
+}
