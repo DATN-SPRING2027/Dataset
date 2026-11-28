@@ -1,15 +1,19 @@
 #!/usr/bin/env node
 /**
- * Idempotent dev seeder for the synthetic Vietnamese 1-1 DM dataset (`continuum-dm-ai-dataset`).
+ * Safe dev seeder for the synthetic Vietnamese 1-1 DM dataset (`continuum-dm-ai-dataset`).
  *
  * Safety invariants:
  * - Defaults to `--dry-run` (zero DB writes unless `--apply` is explicitly passed).
- * - Requires isolated development environment (`NODE_ENV=development` AND `DATN_DB_ENV=development`)
- *   plus validated MongoDB URI for `--apply`.
+ * - Requires isolated development environment (`NODE_ENV=development` AND `DATN_DB_ENV=development`),
+ *   exact service-owned databases (`continuum_iam` & `continuum_chat`), explicit approved dev target
+ *   allowlist (loopback OR explicitly allowlisted non-prod cluster host), and approved dev
+ *   organizations (`continuum-ai-labs` & `datn-dev`) before `--apply`.
  * - Never prints credentials, MongoDB URIs, password hashes, or tokens.
- * - Upserts conversations by `(organizationId, directKey)` (reusing existing DM `_id` if present),
- *   members by `(conversationId, userId)`, and messages by deterministic `_id` so re-running never
- *   duplicates messages or destroys live user/AI messages.
+ * - Default `--apply` is strictly insert-only (`$setOnInsert`) for conversations, members, and
+ *   messages with fail-closed cross-conversation/org `_id` collision detection so live E2E edits,
+ *   deletions, and revoked members are never overwritten.
+ * - Explicit `--apply --reset-fixture` restores ONLY fixture-owned member & message records back to
+ *   their clean baseline while preserving non-fixture live/AI messages.
  * - Strictly seeds human-to-human messages only (zero pre-seeded AI bot replies, zero gold eval answers).
  */
 
@@ -32,6 +36,13 @@ export const DEFAULT_FIXTURE_PATH = path.join(
 );
 export const DEFAULT_TIMEZONE = 'Asia/Ho_Chi_Minh';
 export const DEFAULT_UTC_OFFSET = '+07:00';
+export const APPROVED_CHAT_DB_NAME = 'continuum_chat';
+export const APPROVED_IAM_DB_NAME = 'continuum_iam';
+export const LOOPBACK_HOSTS = new Set(['127.0.0.1', 'localhost', '::1']);
+export const APPROVED_DEV_ORG_SLUGS = Object.freeze({
+  org1: Object.freeze(['continuum-ai-labs']),
+  org2: Object.freeze(['datn-dev']),
+});
 const DEVELOPMENT_ENVIRONMENT = 'development';
 const ALLOWED_MONGODB_SCHEMES = new Set(['mongodb:', 'mongodb+srv:']);
 const OBJECT_ID_RE = /^[a-f0-9]{24}$/i;
@@ -39,7 +50,11 @@ const UUID_V4_RE =
   /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const ISO_DATE_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
 const LOCAL_TIME_RE = /^(\d{2}):(\d{2}):(\d{2})$/;
-const PRODUCTION_HOST_RE = /(^|[.-])(prod|production)([.-]|$)/i;
+const FORBIDDEN_REMOTE_HOST_RE =
+  /(^|[.-])(prod|production|prd|live|staging|stage|stg|uat|preprod)([.-]|$)/i;
+const APPROVED_DEV_REMOTE_HOST_RE =
+  /(^|[.-])(dev|development|sandbox|local|test)([.-]|$)/i;
+const SAFE_HOSTNAME_RE = /^[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?$/i;
 
 const FORBIDDEN_SEED_KEYS = new Set([
   'expectedAnswer',
@@ -174,7 +189,34 @@ export function extractChatLinks(content) {
   return [...new Set(links)].slice(0, 50);
 }
 
-export function validateDevelopmentTarget(env, mongoUri) {
+export function parseApprovedClusterHosts(rawAllowlist) {
+  const entries = Array.isArray(rawAllowlist)
+    ? rawAllowlist
+    : String(rawAllowlist ?? '')
+        .split(',')
+        .map((item) => item.trim());
+  const hosts = new Set();
+  for (const raw of entries) {
+    const entry = String(raw ?? '').trim().toLowerCase().replace(/\.$/, '');
+    if (!entry) continue;
+    if (
+      entry.includes('*') ||
+      entry.includes('://') ||
+      entry.includes('/') ||
+      entry.includes('@') ||
+      /\s/.test(entry) ||
+      !SAFE_HOSTNAME_RE.test(entry)
+    ) {
+      throw new Error(
+        `Safety guard: invalid --approved-cluster-host / DATN_SEED_APPROVED_CLUSTER_HOST entry "${entry}". Expected exact DNS hostname(s) with no wildcards or credentials.`,
+      );
+    }
+    hosts.add(entry);
+  }
+  return hosts;
+}
+
+export function assertApprovedDevTarget(env, mongoUri, options = {}) {
   if (
     env?.DATN_DB_ENV !== DEVELOPMENT_ENVIRONMENT ||
     env?.NODE_ENV !== DEVELOPMENT_ENVIRONMENT
@@ -183,6 +225,24 @@ export function validateDevelopmentTarget(env, mongoUri) {
       'Safety guard: DATN_DB_ENV and NODE_ENV must both be exactly "development" for --apply.',
     );
   }
+
+  const chatDb = String(
+    options.chatDbName ?? env?.CHAT_DB_NAME ?? APPROVED_CHAT_DB_NAME,
+  ).trim();
+  const iamDb = String(
+    options.iamDbName ?? env?.IAM_DB_NAME ?? APPROVED_IAM_DB_NAME,
+  ).trim();
+  if (chatDb !== APPROVED_CHAT_DB_NAME) {
+    throw new Error(
+      `Safety guard: CHAT_DB_NAME must be exactly "${APPROVED_CHAT_DB_NAME}" for --apply (got "${chatDb}").`,
+    );
+  }
+  if (iamDb !== APPROVED_IAM_DB_NAME) {
+    throw new Error(
+      `Safety guard: IAM_DB_NAME must be exactly "${APPROVED_IAM_DB_NAME}" for --apply (got "${iamDb}").`,
+    );
+  }
+
   if (!mongoUri || typeof mongoUri !== 'string') {
     throw new Error('Safety guard: MONGODB_URI (or CHAT_MONGODB_URI) is required.');
   }
@@ -207,15 +267,12 @@ export function validateDevelopmentTarget(env, mongoUri) {
     throw new Error('Safety guard: MONGODB_URI must identify exactly one development host.');
   }
 
-  const hostname = parsed.hostname.replace(/^\[|\]$/g, '').toLowerCase();
+  const hostname = parsed.hostname
+    .replace(/^\[|\]$/g, '')
+    .toLowerCase()
+    .replace(/\.$/, '');
   if (hostname === '0.0.0.0' || hostname === '::') {
     throw new Error('Safety guard: MONGODB_URI must not use an unspecified host address.');
-  }
-
-  if (PRODUCTION_HOST_RE.test(hostname)) {
-    throw new Error(
-      `Safety guard: refusing to write to production-like MongoDB hostname "${hostname}".`,
-    );
   }
 
   if (!['', '/'].includes(parsed.pathname)) {
@@ -224,26 +281,55 @@ export function validateDevelopmentTarget(env, mongoUri) {
     );
   }
 
-  if (parsed.protocol === 'mongodb+srv:') {
-    const labels = hostname.replace(/\.$/, '').split('.');
-    if (
-      parsed.port ||
-      labels.length < 3 ||
-      labels.some((label) => label.length === 0) ||
-      !parsed.username ||
-      !parsed.password
-    ) {
+  const isLoopback = LOOPBACK_HOSTS.has(hostname) && parsed.protocol === 'mongodb:';
+  if (!isLoopback) {
+    if (FORBIDDEN_REMOTE_HOST_RE.test(hostname)) {
       throw new Error(
-        'Safety guard: Atlas development MONGODB_URI must use one DNS hostname and include database-user credentials.',
+        `Safety guard: refusing non-dev / production-like MongoDB hostname "${hostname}".`,
       );
     }
+
+    if (!APPROVED_DEV_REMOTE_HOST_RE.test(hostname)) {
+      throw new Error(
+        `Safety guard: remote MongoDB hostname "${hostname}" does not match an approved dev/sandbox host naming pattern.`,
+      );
+    }
+
+    const rawAllowlist =
+      options.approvedClusterHost ?? env?.DATN_SEED_APPROVED_CLUSTER_HOST ?? '';
+    const approvedHosts = parseApprovedClusterHosts(rawAllowlist);
+    if (!approvedHosts.has(hostname)) {
+      throw new Error(
+        `Safety guard: remote MongoDB host "${hostname}" is not in the approved dev cluster allowlist. ` +
+          `Explicitly pass --approved-cluster-host=${hostname} or set DATN_SEED_APPROVED_CLUSTER_HOST ` +
+          '(passing --allow-shared-database never bypasses the approved cluster allowlist).',
+      );
+    }
+
     const disablesTls = [...parsed.searchParams.entries()].some(
       ([name, value]) =>
         ['tls', 'ssl'].includes(name.toLowerCase()) &&
         ['false', '0', 'no'].includes(value.toLowerCase()),
     );
     if (disablesTls) {
-      throw new Error('Safety guard: Atlas development MONGODB_URI must not disable TLS.');
+      throw new Error(
+        'Safety guard: remote development MONGODB_URI must not disable TLS.',
+      );
+    }
+
+    if (parsed.protocol === 'mongodb+srv:') {
+      const labels = hostname.split('.');
+      if (
+        parsed.port ||
+        labels.length < 3 ||
+        labels.some((label) => label.length === 0) ||
+        !parsed.username ||
+        !parsed.password
+      ) {
+        throw new Error(
+          'Safety guard: Atlas development MONGODB_URI must use one DNS hostname and include database-user credentials.',
+        );
+      }
     }
   }
 
@@ -251,6 +337,111 @@ export function validateDevelopmentTarget(env, mongoUri) {
   return {
     protocol: parsed.protocol,
     hostname,
+    targetClass: isLoopback ? 'loopback' : 'approved-remote-dev',
+    iamDb,
+    chatDb,
+  };
+}
+
+export const validateDevelopmentTarget = assertApprovedDevTarget;
+
+export function assertApprovedDevOrganizations(identities, fixture, options = {}) {
+  const {
+    targetClass = 'loopback',
+    allowFallbackIam = false,
+    approvedOrg1Id = null,
+    approvedOrg2Id = null,
+  } = options;
+
+  const org1 = identities?.orgsByKey?.org1;
+  const org2 = identities?.orgsByKey?.org2;
+  if (!org1 || !org2) {
+    throw new Error('Safety guard: resolved identities must contain both org1 and org2.');
+  }
+  if (!OBJECT_ID_RE.test(String(org1.id ?? '')) || !OBJECT_ID_RE.test(String(org2.id ?? ''))) {
+    throw new Error('Safety guard: resolved organization IDs must be valid 24-hex ObjectIds.');
+  }
+  if (org1.id.toLowerCase() === org2.id.toLowerCase()) {
+    throw new Error('Safety guard: Org 1 and Org 2 must resolve to distinct organizationIds.');
+  }
+
+  const org1Spec = fixture?.organizations?.find((o) => o.key === 'org1');
+  const org2Spec = fixture?.organizations?.find((o) => o.key === 'org2');
+  const org1Slug = String(org1.slug ?? '').toLowerCase();
+  const org2Slug = String(org2.slug ?? '').toLowerCase();
+  const isRemote = targetClass !== 'loopback';
+
+  if (org1.source === 'continuum_iam') {
+    if (!APPROVED_DEV_ORG_SLUGS.org1.includes(org1Slug)) {
+      throw new Error(
+        `Safety guard: resolved Org 1 slug "${org1Slug}" in continuum_iam is not in the approved dev org allowlist [${APPROVED_DEV_ORG_SLUGS.org1.join(', ')}].`,
+      );
+    }
+  } else {
+    if (isRemote || !allowFallbackIam) {
+      throw new Error(
+        'Safety guard: Org 1 must resolve to an approved dev organization ("continuum-ai-labs") in continuum_iam.',
+      );
+    }
+    if (
+      org1Slug !== String(org1Spec?.slug ?? '').toLowerCase() ||
+      org1.id.toLowerCase() !== String(org1Spec?.fallbackId ?? '').toLowerCase()
+    ) {
+      throw new Error(
+        `Safety guard: Org 1 fallback identity (${org1Slug}/${org1.id}) does not match fixture baseline.`,
+      );
+    }
+  }
+
+  if (org2.source === 'continuum_iam') {
+    if (!APPROVED_DEV_ORG_SLUGS.org2.includes(org2Slug)) {
+      throw new Error(
+        `Safety guard: resolved Org 2 slug "${org2Slug}" in continuum_iam is not in the approved dev org allowlist [${APPROVED_DEV_ORG_SLUGS.org2.join(', ')}].`,
+      );
+    }
+  } else {
+    if (isRemote) {
+      throw new Error(
+        `Safety guard: remote target requires Org 2 to resolve to an approved dev organization [${APPROVED_DEV_ORG_SLUGS.org2.join(', ')}] in continuum_iam (fallback identities are blocked on remote clusters).`,
+      );
+    }
+    if (
+      org2Slug !== String(org2Spec?.slug ?? '').toLowerCase() ||
+      org2.id.toLowerCase() !== String(org2Spec?.fallbackId ?? '').toLowerCase()
+    ) {
+      throw new Error(
+        `Safety guard: Org 2 fallback identity (${org2Slug}/${org2.id}) does not match fixture baseline.`,
+      );
+    }
+  }
+
+  if (approvedOrg1Id) {
+    const pinned1 = String(approvedOrg1Id).trim().toLowerCase();
+    if (!OBJECT_ID_RE.test(pinned1)) {
+      throw new Error(`Safety guard: invalid --approved-org1-id "${approvedOrg1Id}".`);
+    }
+    if (org1.id.toLowerCase() !== pinned1) {
+      throw new Error(
+        `Safety guard: resolved Org 1 ID "${org1.id}" does not match pinned --approved-org1-id "${pinned1}".`,
+      );
+    }
+  }
+
+  if (approvedOrg2Id) {
+    const pinned2 = String(approvedOrg2Id).trim().toLowerCase();
+    if (!OBJECT_ID_RE.test(pinned2)) {
+      throw new Error(`Safety guard: invalid --approved-org2-id "${approvedOrg2Id}".`);
+    }
+    if (org2.id.toLowerCase() !== pinned2) {
+      throw new Error(
+        `Safety guard: resolved Org 2 ID "${org2.id}" does not match pinned --approved-org2-id "${pinned2}".`,
+      );
+    }
+  }
+
+  return {
+    org1: { id: org1.id, slug: org1Slug, source: org1.source },
+    org2: { id: org2.id, slug: org2Slug, source: org2.source },
   };
 }
 
@@ -411,8 +602,7 @@ export async function resolveIdentitiesFromIam(iamDb, fixture, { allowFallbackIa
         )
         .toArray();
       resolvedOrg1Doc =
-        orgDocs.find((o) => o.slug === org1Spec.slug) ??
-        orgDocs[0] ??
+        orgDocs.find((o) => String(o.slug ?? '').toLowerCase() === org1Spec.slug.toLowerCase()) ??
         null;
     }
   }
@@ -603,6 +793,10 @@ export function buildSeedPlan(fixture, identities, anchorDate) {
       email: identities.actorsByKey[key].email,
     }));
 
+    const liveE2eCandidateIds = Object.values(conv.liveE2eCandidates ?? {})
+      .map((cand) => String(cand?.messageId ?? '').toLowerCase())
+      .filter((id) => OBJECT_ID_RE.test(id));
+
     return {
       key: conv.key,
       fallbackConversationId: conv.id.toLowerCase(),
@@ -622,6 +816,7 @@ export function buildSeedPlan(fixture, identities, anchorDate) {
       },
       members,
       verifiedNonMembers,
+      liveE2eCandidateIds,
       messages,
       offPageCount: Math.max(
         0,
@@ -652,7 +847,12 @@ export function buildSeedPlan(fixture, identities, anchorDate) {
   };
 }
 
-export async function applySeedPlan(chatDb, plan, toObjectId) {
+export async function applySeedPlan(
+  chatDb,
+  plan,
+  toObjectId,
+  { resetFixture = false } = {},
+) {
   const convCol = chatDb.collection('chat_conversations');
   const membersCol = chatDb.collection('chat_members');
   const msgsCol = chatDb.collection('chat_conversation_messages');
@@ -670,6 +870,21 @@ export async function applySeedPlan(chatDb, plan, toObjectId) {
     );
     let conversationAction = 'REUSED_EXISTING_DIRECT_KEY';
     if (!existingConv) {
+      const collidingConv = await convCol.findOne(
+        { _id: fallbackConvOid },
+        { projection: { _id: 1, organizationId: 1, directKey: 1 } },
+      );
+      if (
+        collidingConv &&
+        (String(collidingConv.organizationId ?? '').toLowerCase() !== conv.organizationId ||
+          collidingConv.directKey !== conv.directKey)
+      ) {
+        throw new Error(
+          `Conversation ID collision: fixture conversation _id ${conv.fallbackConversationId} already belongs to ` +
+            `(organizationId=${collidingConv.organizationId}, directKey=${collidingConv.directKey}).`,
+        );
+      }
+
       await convCol.updateOne(
         { organizationId: orgOid, directKey: conv.directKey },
         {
@@ -699,115 +914,227 @@ export async function applySeedPlan(chatDb, plan, toObjectId) {
       conversationAction = 'UPSERTED';
     }
     const resolvedConvOid = existingConv._id;
+    const resolvedConvIdHex = String(resolvedConvOid).toLowerCase();
 
-    // 2) Upsert the 2 conversation members by (conversationId, userId).
+    // 2) Insert-only default for conversation members ($setOnInsert); explicit --reset-fixture restores fixture-owned members.
     let membersUpserted = 0;
     let membersMatched = 0;
+    let membersReset = 0;
     for (const member of conv.members) {
-      const res = await membersCol.updateOne(
+      const memberOid = toObjectId(member.id);
+      const existingById = await membersCol.findOne(
+        { _id: memberOid },
+        { projection: { _id: 1, organizationId: 1, conversationId: 1, userId: 1 } },
+      );
+      if (
+        existingById &&
+        (String(existingById.organizationId ?? '').toLowerCase() !== conv.organizationId ||
+          String(existingById.conversationId ?? '').toLowerCase() !== resolvedConvIdHex ||
+          String(existingById.userId ?? '').toLowerCase() !== member.userId.toLowerCase())
+      ) {
+        throw new Error(
+          `Member ID collision: fixture member _id ${member.id} already belongs to another scope ` +
+            `(existing org=${existingById.organizationId}, conv=${existingById.conversationId}, user=${existingById.userId}; ` +
+            `expected org=${conv.organizationId}, conv=${resolvedConvIdHex}, user=${member.userId}).`,
+        );
+      }
+
+      const existingByPair = await membersCol.findOne(
         { conversationId: resolvedConvOid, userId: member.userId },
-        {
-          $set: {
-            organizationId: orgOid,
-            displayName: member.displayName,
-            searchLabel: member.searchLabel,
-            avatarUrl: member.avatarUrl,
-            status: 'ACTIVE',
-            updatedAt: conv.lastMessage.createdAt,
-          },
-          $setOnInsert: {
-            _id: toObjectId(member.id),
+        { projection: { _id: 1, organizationId: 1, status: 1 } },
+      );
+      if (
+        existingByPair &&
+        existingByPair.organizationId !== undefined &&
+        existingByPair.organizationId !== null &&
+        String(existingByPair.organizationId).toLowerCase() !== conv.organizationId
+      ) {
+        throw new Error(
+          `Member scope collision: existing member (${resolvedConvIdHex}, ${member.userId}) belongs to ` +
+            `organizationId=${existingByPair.organizationId}, expected ${conv.organizationId}.`,
+        );
+      }
+
+      const memberInsertDoc = {
+        _id: memberOid,
+        organizationId: orgOid,
+        conversationId: resolvedConvOid,
+        userId: member.userId,
+        displayName: member.displayName,
+        searchLabel: member.searchLabel,
+        avatarUrl: member.avatarUrl,
+        role: member.role,
+        status: 'ACTIVE',
+        lastReadMessageId: null,
+        lastReadAt: null,
+        readRecordedAt: null,
+        lastDeliveredMessageId: null,
+        lastDeliveredAt: null,
+        deliveredRecordedAt: null,
+        notificationMode: 'ALL',
+        isPinned: false,
+        isArchived: false,
+        markedUnread: false,
+        draft: '',
+        draftMentionUserIds: [],
+        draftUpdatedAt: null,
+        joinedAt: member.joinedAt,
+        createdAt: member.joinedAt,
+        updatedAt: conv.lastMessage.createdAt,
+      };
+
+      if (resetFixture && existingByPair) {
+        await membersCol.updateOne(
+          {
+            _id: existingByPair._id,
             conversationId: resolvedConvOid,
             userId: member.userId,
-            role: member.role,
-            lastReadMessageId: null,
-            lastReadAt: null,
-            readRecordedAt: null,
-            lastDeliveredMessageId: null,
-            lastDeliveredAt: null,
-            deliveredRecordedAt: null,
-            notificationMode: 'ALL',
-            isPinned: false,
-            isArchived: false,
-            markedUnread: false,
-            draft: '',
-            draftMentionUserIds: [],
-            draftUpdatedAt: null,
-            joinedAt: member.joinedAt,
-            createdAt: member.joinedAt,
           },
-        },
-        { upsert: true },
-      );
-      if (res.upsertedCount > 0) membersUpserted += 1;
-      else membersMatched += 1;
+          {
+            $set: {
+              organizationId: orgOid,
+              displayName: member.displayName,
+              searchLabel: member.searchLabel,
+              avatarUrl: member.avatarUrl,
+              role: member.role,
+              status: 'ACTIVE',
+              updatedAt: conv.lastMessage.createdAt,
+            },
+          },
+          { upsert: false },
+        );
+        membersReset += 1;
+      } else {
+        const res = await membersCol.updateOne(
+          { conversationId: resolvedConvOid, userId: member.userId },
+          { $setOnInsert: memberInsertDoc },
+          { upsert: true },
+        );
+        if (res.upsertedCount > 0) membersUpserted += 1;
+        else membersMatched += 1;
+      }
     }
 
-    // 3) Verify required non-members (e.g. C and Manager in dm_org1_ab) are NOT active members!
-    const nonMemberUserIds = conv.verifiedNonMembers.map((nm) => nm.userId);
-    if (nonMemberUserIds.length > 0) {
-      const unexpectedMembers = await membersCol
-        .find(
-          {
-            conversationId: resolvedConvOid,
-            userId: { $in: nonMemberUserIds },
-            status: 'ACTIVE',
-          },
-          { projection: { userId: 1 } },
-        )
-        .toArray();
-      if (unexpectedMembers.length > 0) {
-        const offending = unexpectedMembers.map((m) => m.userId).join(', ');
+    // 3) Verify NO unexpected active members (including C, Manager, Org 2, or any extra 3rd member) exist in this DM!
+    const expectedMemberIds = new Set(conv.members.map((m) => m.userId.toLowerCase()));
+    const activeMembers = await membersCol
+      .find(
+        { conversationId: resolvedConvOid, status: 'ACTIVE' },
+        { projection: { userId: 1 } },
+      )
+      .toArray();
+    const unexpectedMembers = activeMembers.filter(
+      (m) => !expectedMemberIds.has(String(m.userId).toLowerCase()),
+    );
+    if (unexpectedMembers.length > 0) {
+      const offending = unexpectedMembers.map((m) => m.userId).join(', ');
+      throw new Error(
+        `ACL invariant violated: unexpected active member(s) [${offending}] found in ${conv.key} (${resolvedConvOid}).`,
+      );
+    }
+
+    // 4) Pre-write collision check across ALL fixture message _ids in this conversation!
+    const convMsgOids = conv.messages.map((m) => toObjectId(m.id));
+    const existingMsgs = await msgsCol
+      .find(
+        { _id: { $in: convMsgOids } },
+        { projection: { _id: 1, organizationId: 1, conversationId: 1 } },
+      )
+      .toArray();
+    const existingMsgById = new Map(
+      existingMsgs.map((doc) => [String(doc._id).toLowerCase(), doc]),
+    );
+    for (const msg of conv.messages) {
+      const existing = existingMsgById.get(msg.id);
+      if (!existing) continue;
+      const existingOrg = String(existing.organizationId ?? '').toLowerCase();
+      const existingConvId = String(existing.conversationId ?? '').toLowerCase();
+      if (existingOrg !== conv.organizationId || existingConvId !== resolvedConvIdHex) {
         throw new Error(
-          `ACL invariant violated: unexpected non-member user(s) [${offending}] found active in ${conv.key} (${resolvedConvOid}).`,
+          `Message ID collision: fixture _id ${msg.id} already belongs to another conversation/organization ` +
+            `(existing org=${existingOrg || 'missing'}, conv=${existingConvId || 'missing'}; ` +
+            `expected org=${conv.organizationId}, conv=${resolvedConvIdHex}).`,
         );
       }
     }
 
-    // 4) Idempotently upsert every human message by deterministic _id (never touches live/non-seed messages!).
+    // 5) Strictly insert-only ($setOnInsert) by default; --reset-fixture restores ONLY verified fixture-owned _ids.
     let messagesUpserted = 0;
     let messagesMatched = 0;
+    let messagesReset = 0;
     for (const msg of conv.messages) {
       const msgOid = toObjectId(msg.id);
       const replyOid = msg.replyToMessageId ? toObjectId(msg.replyToMessageId) : null;
-      const res = await msgsCol.updateOne(
-        { _id: msgOid },
-        {
-          $set: {
+      const baselineFields = {
+        organizationId: orgOid,
+        conversationId: resolvedConvOid,
+        senderId: msg.senderId,
+        senderName: msg.senderName,
+        senderAvatarUrl: msg.senderAvatarUrl,
+        clientMessageId: msg.clientMessageId,
+        content: msg.content,
+        mentionUserIds: msg.mentionUserIds,
+        links: msg.links,
+        isPinned: msg.isPinned,
+        editedAt: msg.editedAt,
+        deletedAt: msg.deletedAt,
+        reactions: msg.reactions,
+        replyToMessageId: replyOid,
+        attachments: msg.attachments,
+        createdAt: msg.createdAt,
+        updatedAt: msg.updatedAt,
+      };
+
+      if (resetFixture && existingMsgById.has(msg.id)) {
+        await msgsCol.updateOne(
+          {
+            _id: msgOid,
             organizationId: orgOid,
             conversationId: resolvedConvOid,
-            senderId: msg.senderId,
-            senderName: msg.senderName,
-            senderAvatarUrl: msg.senderAvatarUrl,
-            clientMessageId: msg.clientMessageId,
-            content: msg.content,
-            mentionUserIds: msg.mentionUserIds,
-            links: msg.links,
-            isPinned: msg.isPinned,
-            editedAt: msg.editedAt,
-            deletedAt: msg.deletedAt,
-            reactions: msg.reactions,
-            replyToMessageId: replyOid,
-            attachments: msg.attachments,
-            createdAt: msg.createdAt,
-            updatedAt: msg.updatedAt,
           },
-        },
-        { upsert: true },
-      );
-      if (res.upsertedCount > 0) messagesUpserted += 1;
-      else messagesMatched += 1;
+          {
+            $set: baselineFields,
+            $unset: {
+              contentVersion: '',
+              authorType: '',
+              assistantMention: '',
+              triggerMessageId: '',
+              assistantStatus: '',
+              assistantMeta: '',
+              sourceReferences: '',
+            },
+          },
+          { upsert: false },
+        );
+        messagesReset += 1;
+      } else {
+        const res = await msgsCol.updateOne(
+          { _id: msgOid },
+          {
+            $setOnInsert: {
+              _id: msgOid,
+              ...baselineFields,
+            },
+          },
+          { upsert: true },
+        );
+        if (res.upsertedCount > 0) messagesUpserted += 1;
+        else messagesMatched += 1;
+      }
     }
 
-    // 5) Advance lastMessage* only if conversation has no newer live messages!
+    // 6) Advance lastMessage* only if conversation has no newer live messages (and never clobber same-ts in default mode)!
     const lastMsgOid = toObjectId(conv.lastMessage.id);
+    const lastMessageComparator = resetFixture
+      ? { $lte: conv.lastMessage.createdAt }
+      : { $lt: conv.lastMessage.createdAt };
     await convCol.updateOne(
       {
         _id: resolvedConvOid,
         organizationId: orgOid,
         $or: [
           { lastMessageAt: null },
-          { lastMessageAt: { $lte: conv.lastMessage.createdAt } },
+          { lastMessageAt: lastMessageComparator },
         ],
       },
       {
@@ -831,8 +1158,10 @@ export async function applySeedPlan(chatDb, plan, toObjectId) {
       action: conversationAction,
       membersUpserted,
       membersMatched,
+      membersReset,
       messagesUpserted,
       messagesMatched,
+      messagesReset,
       totalSeedMessages: conv.messages.length,
       offPageMessages: conv.offPageCount,
       verifiedNonMembersAbsent: conv.verifiedNonMembers.map((nm) => nm.actorKey),
@@ -840,7 +1169,8 @@ export async function applySeedPlan(chatDb, plan, toObjectId) {
   }
 
   return {
-    mode: 'apply',
+    mode: resetFixture ? 'apply-reset-fixture' : 'apply',
+    resetFixture: Boolean(resetFixture),
     datasetId: plan.datasetId,
     anchorDate: plan.anchorDate,
     timezone: plan.timezone,
@@ -849,12 +1179,19 @@ export async function applySeedPlan(chatDb, plan, toObjectId) {
   };
 }
 
-export async function verifySeededData(chatDb, plan, toObjectId) {
+export async function verifySeededData(
+  chatDb,
+  plan,
+  toObjectId,
+  { allowE2eMutations = false, throwOnFailure = true } = {},
+) {
   const convCol = chatDb.collection('chat_conversations');
   const membersCol = chatDb.collection('chat_members');
   const msgsCol = chatDb.collection('chat_conversation_messages');
 
   const checks = [];
+  const failures = [];
+
   for (const conv of plan.conversations) {
     const orgOid = toObjectId(conv.organizationId);
     const convDoc = await convCol.findOne(
@@ -862,58 +1199,236 @@ export async function verifySeededData(chatDb, plan, toObjectId) {
       { projection: { _id: 1, type: 1, status: 1 } },
     );
     if (!convDoc) {
-      throw new Error(`Verify failed: missing conversation ${conv.key} (${conv.directKey}).`);
+      failures.push(`Verify failed: missing conversation ${conv.key} (${conv.directKey}).`);
+      checks.push({
+        key: conv.key,
+        conversationFound: false,
+        exactMemberSetMatch: false,
+        mutatedFixtureMessages: [],
+        allowedE2eMutations: [],
+      });
+      continue;
     }
 
+    const resolvedConvIdHex = String(convDoc._id).toLowerCase();
+
+    // 1) Exact ACTIVE member set equality (no missing members, no forbidden non-members, no extra 3rd member!)
     const activeMembers = await membersCol
       .find(
         { conversationId: convDoc._id, status: 'ACTIVE' },
-        { projection: { userId: 1 } },
+        { projection: { userId: 1, organizationId: 1 } },
       )
       .toArray();
-    const activeIds = new Set(activeMembers.map((m) => String(m.userId).toLowerCase()));
-    for (const expectedMember of conv.members) {
-      if (!activeIds.has(expectedMember.userId.toLowerCase())) {
-        throw new Error(
-          `Verify failed: missing active member ${expectedMember.userId} in ${conv.key}.`,
+    const actualActiveMemberIds = activeMembers
+      .map((m) => String(m.userId).toLowerCase())
+      .sort();
+    const expectedActiveMemberIds = conv.members
+      .map((m) => m.userId.toLowerCase())
+      .sort();
+    const actualActiveSet = new Set(actualActiveMemberIds);
+    const expectedActiveSet = new Set(expectedActiveMemberIds);
+
+    const missingActiveMemberIds = expectedActiveMemberIds.filter(
+      (id) => !actualActiveSet.has(id),
+    );
+    const unexpectedActiveMemberIds = [...actualActiveSet]
+      .filter((id) => !expectedActiveSet.has(id))
+      .sort();
+
+    for (const missingId of missingActiveMemberIds) {
+      failures.push(`Verify failed: missing active member ${missingId} in ${conv.key}.`);
+    }
+    for (const nonMember of conv.verifiedNonMembers) {
+      if (actualActiveSet.has(nonMember.userId.toLowerCase())) {
+        failures.push(
+          `Verify failed: forbidden non-member ${nonMember.actorKey} (${nonMember.userId}) is active in ${conv.key}.`,
         );
       }
     }
-    for (const nonMember of conv.verifiedNonMembers) {
-      if (activeIds.has(nonMember.userId.toLowerCase())) {
-        throw new Error(
-          `Verify failed: forbidden non-member ${nonMember.actorKey} is active in ${conv.key}.`,
+    if (unexpectedActiveMemberIds.length > 0) {
+      failures.push(
+        `Verify failed: exact active member set mismatch in ${conv.key}; unexpected active member(s): [${unexpectedActiveMemberIds.join(', ')}].`,
+      );
+    }
+    if (activeMembers.length !== actualActiveSet.size) {
+      failures.push(
+        `Verify failed: duplicate ACTIVE member rows detected in ${conv.key}.`,
+      );
+    }
+    const wrongOrgMembers = activeMembers.filter(
+      (m) =>
+        m.organizationId !== undefined &&
+        m.organizationId !== null &&
+        String(m.organizationId).toLowerCase() !== conv.organizationId,
+    );
+    if (wrongOrgMembers.length > 0) {
+      failures.push(
+        `Verify failed: active member organizationId mismatch in ${conv.key}.`,
+      );
+    }
+
+    const exactMemberSetMatch =
+      missingActiveMemberIds.length === 0 &&
+      unexpectedActiveMemberIds.length === 0 &&
+      activeMembers.length === expectedActiveMemberIds.length &&
+      wrongOrgMembers.length === 0 &&
+      actualActiveMemberIds.every((id, idx) => id === expectedActiveMemberIds[idx]);
+
+    // 2) Full per-message integrity audit for every fixture message ID
+    const expectedMsgIds = conv.messages.map((m) => toObjectId(m.id));
+    const actualDocs = await msgsCol
+      .find(
+        { _id: { $in: expectedMsgIds } },
+        {
+          projection: {
+            _id: 1,
+            organizationId: 1,
+            conversationId: 1,
+            senderId: 1,
+            authorType: 1,
+            content: 1,
+            editedAt: 1,
+            deletedAt: 1,
+          },
+        },
+      )
+      .toArray();
+    const actualById = new Map(
+      actualDocs.map((doc) => [String(doc._id).toLowerCase(), doc]),
+    );
+
+    const allowedCandidateSet = new Set(conv.liveE2eCandidateIds ?? []);
+    const mutatedFixtureMessages = [];
+    const allowedE2eMutations = [];
+    let exactMatchedMessages = 0;
+
+    for (const expectedMsg of conv.messages) {
+      const actual = actualById.get(expectedMsg.id);
+      if (!actual) {
+        mutatedFixtureMessages.push({
+          messageId: expectedMsg.id,
+          reasons: ['missing'],
+        });
+        continue;
+      }
+
+      const hardViolations = [];
+      if (String(actual.organizationId ?? '').toLowerCase() !== conv.organizationId) {
+        hardViolations.push(
+          `organizationId_mismatch(actual=${actual.organizationId},expected=${conv.organizationId})`,
         );
+      }
+      if (String(actual.conversationId ?? '').toLowerCase() !== resolvedConvIdHex) {
+        hardViolations.push(
+          `conversationId_mismatch(actual=${actual.conversationId},expected=${resolvedConvIdHex})`,
+        );
+      }
+      if (String(actual.senderId ?? '').toLowerCase() !== expectedMsg.senderId.toLowerCase()) {
+        hardViolations.push(
+          `senderId_mismatch(actual=${actual.senderId},expected=${expectedMsg.senderId})`,
+        );
+      }
+      if (
+        actual.authorType === 'ASSISTANT' ||
+        String(actual.senderId ?? '').toLowerCase() === 'assistant:continuum_ai' ||
+        (actual.authorType !== undefined &&
+          actual.authorType !== null &&
+          actual.authorType !== 'USER')
+      ) {
+        hardViolations.push(
+          `forbidden_authorType(actual=${actual.authorType ?? actual.senderId})`,
+        );
+      }
+
+      const contentViolations = [];
+      if (actual.content !== expectedMsg.content) {
+        contentViolations.push('content_mismatch');
+      }
+      const actualEdited = actual.editedAt !== null && actual.editedAt !== undefined;
+      const expectedEdited = expectedMsg.editedAt !== null && expectedMsg.editedAt !== undefined;
+      if (actualEdited !== expectedEdited) {
+        contentViolations.push(
+          `editedAt_state_mismatch(actual=${actualEdited},expected=${expectedEdited})`,
+        );
+      }
+      const actualDeleted = actual.deletedAt !== null && actual.deletedAt !== undefined;
+      const expectedDeleted = expectedMsg.deletedAt !== null && expectedMsg.deletedAt !== undefined;
+      if (actualDeleted !== expectedDeleted) {
+        contentViolations.push(
+          `deletedAt_state_mismatch(actual=${actualDeleted},expected=${expectedDeleted})`,
+        );
+      }
+      if (actualDeleted && actual.content !== '') {
+        contentViolations.push('deleted_message_non_empty_content');
+      }
+
+      if (hardViolations.length > 0) {
+        mutatedFixtureMessages.push({
+          messageId: expectedMsg.id,
+          reasons: [...hardViolations, ...contentViolations],
+        });
+      } else if (contentViolations.length > 0) {
+        if (allowE2eMutations && allowedCandidateSet.has(expectedMsg.id)) {
+          allowedE2eMutations.push({
+            messageId: expectedMsg.id,
+            reasons: contentViolations,
+          });
+        } else {
+          mutatedFixtureMessages.push({
+            messageId: expectedMsg.id,
+            reasons: contentViolations,
+          });
+        }
+      } else {
+        exactMatchedMessages += 1;
       }
     }
 
-    const expectedMsgIds = conv.messages.map((m) => toObjectId(m.id));
-    const foundCount = await msgsCol.countDocuments({
-      _id: { $in: expectedMsgIds },
-      conversationId: convDoc._id,
-      organizationId: orgOid,
-    });
-    if (foundCount !== conv.messages.length) {
-      throw new Error(
-        `Verify failed: ${conv.key} expected ${conv.messages.length} seeded messages, found ${foundCount}.`,
+    if (mutatedFixtureMessages.length > 0) {
+      const detail = mutatedFixtureMessages
+        .slice(0, 10)
+        .map((m) => `${m.messageId}[${m.reasons.join(',')}]`)
+        .join('; ');
+      failures.push(
+        `Verify failed: ${conv.key} has ${mutatedFixtureMessages.length} corrupted/mutated fixture message(s): ${detail}.`,
       );
     }
 
     checks.push({
       key: conv.key,
       conversationId: String(convDoc._id),
+      exactMemberSetMatch,
       activeMembersCount: activeMembers.length,
-      seededMessagesVerified: foundCount,
-      nonMembersVerifiedAbsent: conv.verifiedNonMembers.map((nm) => nm.actorKey),
+      actualActiveMemberIds,
+      expectedActiveMemberIds,
+      missingActiveMemberIds,
+      unexpectedActiveMemberIds,
+      seededMessagesVerified: exactMatchedMessages + allowedE2eMutations.length,
+      exactMatchedMessages,
+      mutatedFixtureMessages,
+      allowedE2eMutations,
+      nonMembersVerifiedAbsent: conv.verifiedNonMembers
+        .filter((nm) => !actualActiveSet.has(nm.userId.toLowerCase()))
+        .map((nm) => nm.actorKey),
     });
   }
 
-  return {
+  const report = {
     mode: 'verify',
-    verified: true,
+    verified: failures.length === 0,
+    allowE2eMutations: Boolean(allowE2eMutations),
     anchorDate: plan.anchorDate,
+    failures,
     checks,
   };
+
+  if (!report.verified && throwOnFailure) {
+    const err = new Error(failures.join(' | '));
+    err.report = report;
+    throw err;
+  }
+
+  return report;
 }
 
 export function parseCliArgs(argv) {
@@ -924,22 +1439,77 @@ export function parseCliArgs(argv) {
     org1Slug: null,
     org2Slug: null,
     allowFallbackIam: false,
+    allowSharedDatabase: false,
+    approvedClusterHost: null,
+    approvedOrg1Id: null,
+    approvedOrg2Id: null,
+    resetFixture: false,
+    allowE2eMutations: false,
     envFile: null,
   };
 
+  function readFlagValue(flag, inlineValue, idx) {
+    const val = inlineValue !== undefined ? inlineValue : argv[idx + 1];
+    if (val === undefined || val === '' || (inlineValue === undefined && val.startsWith('--'))) {
+      throw new Error(`Missing value for argument: ${flag}`);
+    }
+    return { val, advance: inlineValue === undefined ? 1 : 0 };
+  }
+
   for (let i = 0; i < argv.length; i += 1) {
-    const arg = argv[i];
-    if (arg === '--apply') options.mode = 'apply';
-    else if (arg === '--dry-run') options.mode = 'dry-run';
-    else if (arg === '--verify') options.mode = 'verify';
-    else if (arg === '--allow-fallback-iam') options.allowFallbackIam = true;
-    else if (arg === '--anchor-date') options.anchorDate = argv[++i];
-    else if (arg === '--fixture') options.fixturePath = path.resolve(argv[++i]);
-    else if (arg === '--org1-slug') options.org1Slug = argv[++i];
-    else if (arg === '--org2-slug') options.org2Slug = argv[++i];
-    else if (arg === '--env-file') options.envFile = path.resolve(argv[++i]);
-    else if (arg === '--help' || arg === '-h') options.help = true;
-    else throw new Error(`Unknown argument: ${arg}`);
+    const rawArg = argv[i];
+    const eqIndex = rawArg.indexOf('=');
+    const flag = eqIndex > 0 && rawArg.startsWith('--') ? rawArg.slice(0, eqIndex) : rawArg;
+    const inlineValue = eqIndex > 0 && rawArg.startsWith('--') ? rawArg.slice(eqIndex + 1) : undefined;
+
+    if (flag === '--apply') options.mode = 'apply';
+    else if (flag === '--dry-run') options.mode = 'dry-run';
+    else if (flag === '--verify') options.mode = 'verify';
+    else if (flag === '--allow-fallback-iam') options.allowFallbackIam = true;
+    else if (flag === '--allow-shared-database') options.allowSharedDatabase = true;
+    else if (flag === '--reset-fixture') options.resetFixture = true;
+    else if (flag === '--allow-e2e-mutations') options.allowE2eMutations = true;
+    else if (flag === '--approved-cluster-host') {
+      const { val, advance } = readFlagValue(flag, inlineValue, i);
+      options.approvedClusterHost = val;
+      i += advance;
+    } else if (flag === '--approved-org1-id') {
+      const { val, advance } = readFlagValue(flag, inlineValue, i);
+      options.approvedOrg1Id = val;
+      i += advance;
+    } else if (flag === '--approved-org2-id') {
+      const { val, advance } = readFlagValue(flag, inlineValue, i);
+      options.approvedOrg2Id = val;
+      i += advance;
+    } else if (flag === '--anchor-date') {
+      const { val, advance } = readFlagValue(flag, inlineValue, i);
+      options.anchorDate = val;
+      i += advance;
+    } else if (flag === '--fixture') {
+      const { val, advance } = readFlagValue(flag, inlineValue, i);
+      options.fixturePath = path.resolve(val);
+      i += advance;
+    } else if (flag === '--org1-slug') {
+      const { val, advance } = readFlagValue(flag, inlineValue, i);
+      options.org1Slug = val;
+      i += advance;
+    } else if (flag === '--org2-slug') {
+      const { val, advance } = readFlagValue(flag, inlineValue, i);
+      options.org2Slug = val;
+      i += advance;
+    } else if (flag === '--env-file') {
+      const { val, advance } = readFlagValue(flag, inlineValue, i);
+      options.envFile = path.resolve(val);
+      i += advance;
+    } else if (flag === '--help' || flag === '-h') options.help = true;
+    else throw new Error(`Unknown argument: ${rawArg}`);
+  }
+
+  if (options.resetFixture && options.mode !== 'apply') {
+    throw new Error('Safety guard: --reset-fixture requires --apply.');
+  }
+  if (options.allowE2eMutations && options.mode !== 'verify') {
+    throw new Error('Safety guard: --allow-e2e-mutations is only valid with --verify.');
   }
   return options;
 }
@@ -971,12 +1541,17 @@ async function main() {
       [
         'Usage: node seed_dm_chat_dev.mjs [--dry-run | --apply | --verify] [options]',
         'Options:',
-        '  --anchor-date YYYY-MM-DD   Anchor date in Asia/Ho_Chi_Minh (default: today)',
-        '  --fixture <path>           Path to dm_seed_fixture.json',
-        '  --org1-slug <slug>         Override Org 1 slug lookup in continuum_iam',
-        '  --org2-slug <slug>         Override Org 2 slug lookup in continuum_iam',
-        '  --allow-fallback-iam       Allow fallback deterministic IDs if IAM users are absent',
-        '  --env-file <path>          Optional .env file to load MONGODB_URI from (never logged)',
+        '  --anchor-date YYYY-MM-DD         Anchor date in Asia/Ho_Chi_Minh (default: today)',
+        '  --fixture <path>                 Path to dm_seed_fixture.json',
+        '  --approved-cluster-host <host>   Explicitly allowlisted non-prod remote cluster host (or DATN_SEED_APPROVED_CLUSTER_HOST)',
+        '  --approved-org1-id <24-hex>      Optional pinned ObjectId for Org 1 (continuum-ai-labs)',
+        '  --approved-org2-id <24-hex>      Optional pinned ObjectId for Org 2 (datn-dev)',
+        '  --reset-fixture                  Explicitly restore fixture-owned members & messages (requires --apply)',
+        '  --allow-e2e-mutations            Allow live E2E mutations ONLY on candidates #59/#60/#61 during --verify',
+        '  --org1-slug <slug>               Override Org 1 slug lookup in continuum_iam (still checked against dev allowlist)',
+        '  --org2-slug <slug>               Override Org 2 slug lookup in continuum_iam (still checked against dev allowlist)',
+        '  --allow-fallback-iam             Allow fallback deterministic IDs on loopback sandbox when IAM users are absent',
+        '  --env-file <path>                Optional .env file to load MONGODB_URI from (never logged)',
       ].join('\n'),
     );
     return;
@@ -1030,14 +1605,21 @@ async function main() {
 
   let redactedTarget = null;
   if (options.mode === 'apply') {
-    redactedTarget = validateDevelopmentTarget(mergedEnv, mongoUri);
+    redactedTarget = assertApprovedDevTarget(mergedEnv, mongoUri, {
+      approvedClusterHost: options.approvedClusterHost,
+      allowSharedDatabase: options.allowSharedDatabase,
+    });
   } else if (mongoUri) {
     // Still parse safely to emit only redacted host metadata.
     const parsed = new URL(mongoUri);
     redactedTarget = {
       protocol: parsed.protocol,
-      hostname: parsed.hostname.replace(/^\[|\]$/g, '').toLowerCase(),
+      hostname: parsed.hostname.replace(/^\[|\]$/g, '').toLowerCase().replace(/\.$/, ''),
+      iamDb: mergedEnv.IAM_DB_NAME || APPROVED_IAM_DB_NAME,
+      chatDb: mergedEnv.CHAT_DB_NAME || APPROVED_CHAT_DB_NAME,
     };
+  } else {
+    throw new Error('Safety guard: MONGODB_URI (or CHAT_MONGODB_URI) is required for --verify.');
   }
 
   const { MongoClient, ObjectId } = loadMongoDriver();
@@ -1046,14 +1628,26 @@ async function main() {
   await client.connect();
 
   try {
-    const iamDb = client.db(mergedEnv.IAM_DB_NAME || 'continuum_iam');
-    const chatDb = client.db(mergedEnv.CHAT_DB_NAME || 'continuum_chat');
+    const iamDb = client.db(redactedTarget.iamDb || APPROVED_IAM_DB_NAME);
+    const chatDb = client.db(redactedTarget.chatDb || APPROVED_CHAT_DB_NAME);
 
     const identities = await resolveIdentitiesFromIam(iamDb, fixture, {
       allowFallbackIam: options.allowFallbackIam || options.mode === 'dry-run',
       org1Slug: options.org1Slug,
       org2Slug: options.org2Slug,
     });
+
+    if (options.mode === 'apply') {
+      assertApprovedDevOrganizations(identities, fixture, {
+        targetClass: redactedTarget.targetClass,
+        allowFallbackIam: options.allowFallbackIam,
+        approvedOrg1Id:
+          options.approvedOrg1Id ?? mergedEnv.DATN_SEED_APPROVED_ORG1_ID ?? null,
+        approvedOrg2Id:
+          options.approvedOrg2Id ?? mergedEnv.DATN_SEED_APPROVED_ORG2_ID ?? null,
+      });
+    }
+
     const plan = buildSeedPlan(fixture, identities, anchorDate);
 
     if (options.mode === 'dry-run') {
@@ -1089,7 +1683,10 @@ async function main() {
     }
 
     if (options.mode === 'verify') {
-      const report = await verifySeededData(chatDb, plan, toObjectId);
+      const report = await verifySeededData(chatDb, plan, toObjectId, {
+        allowE2eMutations: options.allowE2eMutations,
+        throwOnFailure: false,
+      });
       console.log(
         JSON.stringify(
           {
@@ -1104,10 +1701,15 @@ async function main() {
           2,
         ),
       );
+      if (!report.verified) {
+        process.exitCode = 1;
+      }
       return;
     }
 
-    const report = await applySeedPlan(chatDb, plan, toObjectId);
+    const report = await applySeedPlan(chatDb, plan, toObjectId, {
+      resetFixture: options.resetFixture,
+    });
     console.log(
       JSON.stringify(
         {

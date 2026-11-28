@@ -53,7 +53,8 @@
     },
     {
       "caseId": "DM-EVAL-002",
-      "split": "test",
+      "split": "dev",
+      "robustnessPairOf": "DM-EVAL-001",
       "category": "time_window_yesterday_no_diacritics",
       "conversationKey": "dm_org1_ab",
       "askerActorKey": "org1_user_a",
@@ -125,7 +126,8 @@
     },
     {
       "caseId": "DM-EVAL-004",
-      "split": "test",
+      "split": "dev",
+      "robustnessPairOf": "DM-EVAL-003",
       "category": "correction_handling_no_diacritics",
       "conversationKey": "dm_org1_ab",
       "askerActorKey": "org1_user_a",
@@ -230,9 +232,7 @@
         "6928d1000000000000000017",
         "6928d1000000000000000018"
       ],
-      "optionalSourceMessageIds": [
-        "6928d1000000000000000022"
-      ],
+      "optionalSourceMessageIds": [],
       "forbiddenSourceMessageIds": [
         "6928d1000000000000000020"
       ],
@@ -540,7 +540,7 @@
       "category": "acl_deny_non_members",
       "conversationKey": "dm_org1_ab",
       "askerActorKey": "org1_manager",
-      "query": "Hôm qua hai người chốt những gì về PAY-123?",
+      "query": "Nhánh v2.4.0-rc1 của RPT-204 chốt giới hạn bộ nhớ container bao nhiêu MB?",
       "diacritics": "with_diacritics",
       "expectedStatus": "ACL_DENY",
       "securityAssertion": "NON_MEMBER_DENIED_EVEN_FOR_ORG_ADMIN",
@@ -549,7 +549,7 @@
           "actorKey": "org1_user_c",
           "relationship": "same_org_non_member",
           "targetConversationKey": "dm_org1_ab",
-          "knownMessageIdProbe": "6928d1000000000000000058",
+          "knownMessageIdProbe": "6928d1000000000000000009",
           "expectedDecision": "DENY",
           "expectedHttpStatuses": [403, 404],
           "surfaces": ["history", "around", "search", "send_ai_mention", "ws_subscribe"]
@@ -558,7 +558,7 @@
           "actorKey": "org1_manager",
           "relationship": "same_org_admin_manager_non_member",
           "targetConversationKey": "dm_org1_ab",
-          "knownMessageIdProbe": "6928d1000000000000000058",
+          "knownMessageIdProbe": "6928d1000000000000000009",
           "expectedDecision": "DENY",
           "expectedHttpStatuses": [403, 404],
           "surfaces": ["history", "around", "search", "send_ai_mention", "ws_subscribe"]
@@ -567,7 +567,7 @@
           "actorKey": "org2_user_x",
           "relationship": "cross_org_non_member",
           "targetConversationKey": "dm_org1_ab",
-          "knownMessageIdProbe": "6928d1000000000000000058",
+          "knownMessageIdProbe": "6928d1000000000000000009",
           "expectedDecision": "DENY",
           "expectedHttpStatuses": [403, 404],
           "surfaces": ["history", "around", "search", "send_ai_mention", "ws_subscribe"]
@@ -576,14 +576,14 @@
       "requiredSourceMessageIds": [],
       "optionalSourceMessageIds": [],
       "forbiddenSourceMessageIds": [
-        "6928d1000000000000000058"
+        "6928d1000000000000000009"
       ],
       "requiredAnswerFacts": [
         "Mọi truy cập đọc, around, search, gửi mention AI và WebSocket từ C, Manager (ADMIN) và người dùng Org 2 vào A-B đều bị từ chối kể cả khi biết trước conversationId và messageId"
       ],
       "forbiddenSubstrings": [
-        "12:00 thứ Sáu",
-        "PAY-123"
+        "1024 MB",
+        "v2.4.0-rc1"
       ],
       "review_status": "unreviewed",
       "reviewer_1": null,
@@ -609,6 +609,60 @@
         "Hai người hiện chưa chốt phương án cuối cùng cho INF-610",
         "Đề xuất 1 (An): 4 GB RAM, nâng cấp lúc 20:00 tối thứ Bảy",
         "Đề xuất 2 (Bình): 8 GB RAM, nâng cấp lúc 22:00 tối thứ Bảy; hẹn đầu tuần sau đo tải thực tế rồi quyết định"
+      ],
+      "forbiddenSubstrings": [],
+      "review_status": "unreviewed",
+      "reviewer_1": null,
+      "reviewer_2": null
+    },
+    {
+      "caseId": "DM-EVAL-020",
+      "split": "test",
+      "category": "mid_week_pre_edited_url_no_diacritics",
+      "conversationKey": "dm_org1_ab",
+      "askerActorKey": "org1_user_b",
+      "query": "Dia chi cum staging moi dung cho sprint nay la URL nao?",
+      "diacritics": "without_diacritics",
+      "expectedStatus": "ANSWERED",
+      "requiredSourceMessageIds": [
+        "6928d1000000000000000038"
+      ],
+      "optionalSourceMessageIds": [
+        "6928d1000000000000000039"
+      ],
+      "forbiddenSourceMessageIds": [],
+      "requiredAnswerFacts": [
+        "Địa chỉ cụm staging mới là https://staging-chat-02.continuum-dev.internal (đã sửa từ staging-01 cũ)"
+      ],
+      "forbiddenSubstrings": [
+        "ORCHID-8842-PRIVATE",
+        "COBALT-7741-ORG2"
+      ],
+      "review_status": "unreviewed",
+      "reviewer_1": null,
+      "reviewer_2": null
+    },
+    {
+      "caseId": "DM-EVAL-021",
+      "split": "test",
+      "category": "correction_after_deleted_message",
+      "conversationKey": "dm_org1_ab",
+      "askerActorKey": "org1_user_b",
+      "query": "Lịch họp đồng bộ cổng thanh toán sau khi An xóa tin gõ nhầm là mấy giờ thứ mấy?",
+      "diacritics": "with_diacritics",
+      "expectedStatus": "ANSWERED",
+      "requiredSourceMessageIds": [
+        "6928d1000000000000000042"
+      ],
+      "optionalSourceMessageIds": [
+        "6928d1000000000000000040"
+      ],
+      "forbiddenSourceMessageIds": [
+        "6928d1000000000000000041"
+      ],
+      "requiredAnswerFacts": [
+        "Lịch họp chuẩn trên calendar là 14:00 thứ Ba",
+        "Tin nhắn gõ nhầm trước đó đã bị xóa nên không được trích dẫn"
       ],
       "forbiddenSubstrings": [],
       "review_status": "unreviewed",

@@ -21,9 +21,7 @@
       "name": "Nova Isolation Sandbox (Org 2)",
       "slug": "dm-ai-isolation-org2",
       "preferredExistingSlugs": [
-        "datn-dev",
-        "nova-solutions",
-        "dm-ai-isolation-org2"
+        "datn-dev"
       ],
       "resolutionStrategy": "resolve_distinct_org_or_fallback"
     }

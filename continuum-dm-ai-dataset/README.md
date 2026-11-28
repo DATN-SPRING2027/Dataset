@@ -4,7 +4,7 @@
 
 - **Không chứa dữ liệu thật, không chứa mật khẩu/credentials.**
 - **Không pre-seed câu trả lời AI:** toàn bộ `82` tin nhắn trong fixture là tin nhắn giữa người với người theo đúng schema `chat_conversation_messages` hiện hành của `DATN_BE` (để trống `authorType`/`contentVersion` như tin cũ để kiểm chứng tương thích ngược theo `contract.md`). Mọi câu trả lời bot (đặc biệt ở kịch bản sửa/xóa nguồn trước và sau khi AI đăng) phải do runtime thật (`DATN_BE` + `SAG`) sinh ra.
-- **Tách biệt tuyệt đối dữ liệu seed và tập đánh giá:** `seed/dm_seed_fixture.json` (`containsGoldAnswers: false`) hoàn toàn không chứa đáp án mẫu, nhãn kết luận hay câu hỏi benchmark; toàn bộ câu hỏi và tiêu chí chấm nằm riêng tại `eval/dm_eval_cases.json` (`19` ca đánh giá + `3` kịch bản live E2E, `review_status = "unreviewed"` cho đến khi được người thẩm định độc lập rà soát).
+- **Tách biệt tuyệt đối dữ liệu seed và tập đánh giá:** `seed/dm_seed_fixture.json` (`containsGoldAnswers: false`) hoàn toàn không chứa đáp án mẫu, nhãn kết luận hay câu hỏi benchmark; toàn bộ câu hỏi và tiêu chí chấm nằm riêng tại `eval/dm_eval_cases.json` (`21` ca đánh giá với tập `dev`/`test` rời nhau hoàn toàn cả về `caseId` lẫn tin nhắn nguồn bằng chứng, cộng `3` kịch bản live E2E, `review_status = "unreviewed"` cho đến khi được người thẩm định độc lập rà soát).
 
 ---
 
@@ -16,7 +16,7 @@ continuum-dm-ai-dataset/
 ├── seed/
 │   └── dm_seed_fixture.json         # Dữ liệu seed 100% tin người-với-người (82 tin / 3 hội thoại DIRECT)
 ├── eval/
-│   └── dm_eval_cases.json           # 19 ca đánh giá (dev/test rời nhau) + 3 kịch bản live E2E edit/delete
+│   └── dm_eval_cases.json           # 21 ca đánh giá (dev/test rời nhau hoàn toàn về nguồn) + 3 kịch bản live E2E edit/delete
 └── scripts/
     ├── seed_dm_chat_dev.mjs         # Script seed MongoDB idempotent với các cổng an toàn môi trường dev
     └── seed_dm_chat_dev.test.mjs    # Unit test cho guard an toàn, mốc thời gian, directKey & idempotency
@@ -88,25 +88,52 @@ node continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.mjs --dry-run --anchor-dat
 node continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.mjs --dry-run --env-file ..\DATN_BE\.env
 ```
 
-### 5.2 Apply vào môi trường dev cô lập (idempotent, chạy lặp không tạo trùng)
-Script **chặn ghi** trừ khi cả `NODE_ENV=development` và `DATN_DB_ENV=development` đều được đặt, URI MongoDB hợp lệ (không chọn DB ở path, không tắt TLS trên Atlas, không chứa nhãn hostname production) và không log bất kỳ secret nào.
+### 5.2 Apply vào môi trường dev cô lập (insert-only mặc định, allowlist nghiêm ngặt)
+Script **chặn ghi (fail closed)** trừ khi thỏa mãn đồng thời mọi điều kiện:
+1. Cả `NODE_ENV=development` và `DATN_DB_ENV=development` đều được đặt.
+2. Tên DB chính xác tuyệt đối: `IAM_DB_NAME=continuum_iam` và `CHAT_DB_NAME=continuum_chat` (URI không chọn DB trong path).
+3. **Host allowlist nghiêm ngặt (`assertApprovedDevTarget`):**
+   - Máy cục bộ loopback (`127.0.0.1`, `localhost`, `::1`) với `mongodb://` được phép trong chế độ dev.
+   - Mọi cụm remote / Atlas (`mongodb+srv://` hoặc host khác loopback) **bắt buộc** khớp chính xác `--approved-cluster-host=<exact-host>` (hoặc biến môi trường `DATN_SEED_APPROVED_CLUSTER_HOST`), đồng thời tên host phải mang nhãn dev/sandbox hợp lệ (cấm mọi nhãn `prod`/`production`/`staging`/`uat`/`live`), bật TLS và có thông tin xác thực. Lưu ý: cờ `--allow-shared-database` **không bao giờ** vượt qua allowlist host.
+4. **Org allowlist nghiêm ngặt (`assertApprovedDevOrganizations`):** các tổ chức phân giải từ `continuum_iam` bắt buộc thuộc danh sách dev đã phê duyệt (`continuum-ai-labs` và `datn-dev`, có thể ghim thêm ID qua `--approved-org1-id` / `--approved-org2-id`). Trên cụm remote, chế độ fallback IAM bị chặn.
+5. **Nguyên tắc đặc quyền tối thiểu (least-privilege):** luôn sử dụng tài khoản DB sandbox riêng cho môi trường dev chỉ có quyền đọc `continuum_iam` và đọc/ghi `continuum_chat`; không dùng user quản trị cụm hoặc production, không in/commit chuỗi kết nối.
 
 ```powershell
+# 1) Apply vào MongoDB loopback cục bộ (mặc định insert-only, không ghi đè dữ liệu hiện có)
 $env:NODE_ENV = "development"
 $env:DATN_DB_ENV = "development"
 node continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.mjs --apply --env-file ..\DATN_BE\.env
 
-# Xác minh chỉ đọc sau khi seed
+# 2) Apply vào cụm remote dev đã được phê duyệt (bắt buộc truyền đúng --approved-cluster-host)
+$env:NODE_ENV = "development"
+$env:DATN_DB_ENV = "development"
+node continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.mjs --apply `
+  --approved-cluster-host=<approved-dev-cluster-host> `
+  --env-file ..\DATN_BE\.env
+
+# 3) Reset tường minh dữ liệu fixture về trạng thái sạch sau các bài test E2E sửa/xóa
+#    (chỉ khôi phục các member/message thuộc fixture _id đã khớp org/conv; giữ nguyên tin live/AI)
+node continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.mjs --apply --reset-fixture `
+  --approved-cluster-host=<approved-dev-cluster-host> `
+  --env-file ..\DATN_BE\.env
+
+# 4) Xác minh chỉ đọc sau khi seed (mặc định kiểm tra chính xác tuyệt đối tập thành viên ACTIVE và từng tin fixture)
 node continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.mjs --verify --env-file ..\DATN_BE\.env
+
+# 5) Xác minh sau khi chạy live E2E sửa/xóa (chỉ cho phép đột biến nội dung/editedAt/deletedAt trên 3 tin ứng viên #59/#60/#61)
+node continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.mjs --verify --allow-e2e-mutations --env-file ..\DATN_BE\.env
 ```
 
-> **Tính an toàn khi chạy lặp:** Script upsert tin nhắn theo `_id` tất định và chỉ cập nhật `lastMessageAt`/`lastMessagePreview` nếu hội thoại chưa có tin mới hơn. Các tin nhắn live hoặc phản hồi `@continuumAI` đã sinh trong quá trình kiểm thử sẽ được **giữ nguyên hoàn toàn**.
+> **Tính an toàn khi chạy lặp (`--apply` mặc định vs `--reset-fixture`):**
+> - Mặc định `--apply` dùng **strict insert-only (`$setOnInsert`)** cho cả `chat_members` và `chat_conversation_messages`, kèm kiểm tra xung đột `_id` liên hội thoại/liên tổ chức trước khi ghi. Nhờ đó các tin `#59`/`#60`/`#61` đã sửa/xóa trong live E2E hoặc thành viên đã thu hồi quyền (`status != ACTIVE`) **không bao giờ** bị ghi đè hay kích hoạt lại ngoài ý muốn.
+> - Chỉ khi truyền tường minh `--apply --reset-fixture`, script mới khôi phục đúng các bản ghi thuộc fixture về trạng thái gốc; các tin nhắn live và phản hồi `@continuumAI` ngoài fixture vẫn được **giữ nguyên hoàn toàn**.
 
 ### 5.3 Chạy bộ kiểm thử tự động
 ```powershell
-# Kiểm thử unit & idempotency của script seed (Node built-in test runner)
+# Kiểm thử unit, allowlist, collision, insert-only, reset & verify của script seed (Node built-in test runner)
 node --test continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.test.mjs
 
-# Kiểm thử tính toàn vẹn fixture, tách biệt seed/eval, canary & timeline (Python pytest)
+# Kiểm thử tính toàn vẹn fixture, tách biệt seed/eval, dev/test disjoint, canary & timeline (Python pytest & ruff)
+ruff check tests/test_continuum_dm_dataset.py
 pytest tests/test_continuum_dm_dataset.py -q
 ```

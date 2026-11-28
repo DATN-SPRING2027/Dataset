@@ -210,11 +210,57 @@ def test_eval_cases_cover_all_required_categories_and_reference_valid_seed_ids()
     cases = eval_data["cases"]
     assert len(cases) >= 15
 
-    dev_ids = {c["caseId"] for c in cases if c["split"] == "dev"}
-    test_ids = {c["caseId"] for c in cases if c["split"] == "test"}
+    cases_by_id = {c["caseId"]: c for c in cases}
+    assert len(cases_by_id) == len(cases), "Duplicate caseId found in dm_eval_cases.json"
+
+    dev_cases = [c for c in cases if c["split"] == "dev"]
+    test_cases = [c for c in cases if c["split"] == "test"]
+    dev_ids = {c["caseId"] for c in dev_cases}
+    test_ids = {c["caseId"] for c in test_cases}
     assert dev_ids and test_ids
     assert dev_ids.isdisjoint(test_ids)
     assert len(dev_ids) + len(test_ids) == len(cases)
+
+    # Strict dev/test evidence disjointness (zero required or optional source-message overlap across splits!)
+    dev_required_source_ids = {mid for c in dev_cases for mid in c["requiredSourceMessageIds"]}
+    test_required_source_ids = {mid for c in test_cases for mid in c["requiredSourceMessageIds"]}
+    assert dev_required_source_ids and test_required_source_ids
+    assert dev_required_source_ids.isdisjoint(test_required_source_ids), (
+        f"dev/test requiredSourceMessageIds overlap: {sorted(dev_required_source_ids & test_required_source_ids)}"
+    )
+
+    dev_evidence_source_ids = {
+        mid
+        for c in dev_cases
+        for mid in (c["requiredSourceMessageIds"] + c["optionalSourceMessageIds"])
+    }
+    test_evidence_source_ids = {
+        mid
+        for c in test_cases
+        for mid in (c["requiredSourceMessageIds"] + c["optionalSourceMessageIds"])
+    }
+    assert dev_evidence_source_ids.isdisjoint(test_evidence_source_ids), (
+        f"dev/test evidence source overlap: {sorted(dev_evidence_source_ids & test_evidence_source_ids)}"
+    )
+
+    # Robustness pairs (diacritics vs no-diacritics) must stay strictly within the same split (never dev <-> test)
+    for case in cases:
+        pair_id = case.get("robustnessPairOf")
+        if pair_id is not None:
+            assert pair_id in cases_by_id, f"Unknown robustnessPairOf {pair_id} on {case['caseId']}"
+            paired = cases_by_id[pair_id]
+            assert paired["split"] == case["split"], (
+                f"Robustness pair {case['caseId']} ({case['split']}) leaks across split from {pair_id} ({paired['split']})"
+            )
+            assert paired["diacritics"] != case["diacritics"], (
+                f"Robustness pair {case['caseId']} must contrast diacritics mode with {pair_id}"
+            )
+
+    # Both dev and test must cover diacritics + unaccented queries and strictly off-page required citations
+    assert {c["diacritics"] for c in dev_cases} == {"with_diacritics", "without_diacritics"}
+    assert {c["diacritics"] for c in test_cases} == {"with_diacritics", "without_diacritics"}
+    assert dev_required_source_ids & off_page_ids, "dev split must require at least one off-page message ID"
+    assert test_required_source_ids & off_page_ids, "test split must require at least one off-page message ID"
 
     categories: set[str] = set()
     has_diacritics = False

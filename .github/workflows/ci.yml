@@ -22,6 +22,11 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -60,9 +65,17 @@ jobs:
           print('TOML & JSONL check OK')
           "
 
+      - name: Lint DM dataset tests with ruff
+        run: |
+          ruff check tests/test_continuum_dm_dataset.py
+
       - name: Run standalone unit & credibility tests
         run: |
-          pytest test_benchmark_quality.py test_benchmark_support.py test_benchmark_credibility_gates.py tests/test_workflows_v13.py tests/test_four_organizations.py -q
+          pytest test_benchmark_quality.py test_benchmark_support.py test_benchmark_credibility_gates.py tests/test_workflows_v13.py tests/test_four_organizations.py tests/test_continuum_dm_dataset.py -q
+
+      - name: Run DM seeder unit tests (Node.js)
+        run: |
+          node --test continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.test.mjs
 
       - name: Run dependency vulnerability audit (pip-audit)
         continue-on-error: true
