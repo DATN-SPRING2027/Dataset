@@ -31,12 +31,29 @@ class FakeObjectId {
   constructor(hex) {
     this.hex = String(hex).toLowerCase();
   }
+  equals(other) {
+    return Boolean(other) && String(other).toLowerCase() === this.hex;
+  }
   toString() {
     return this.hex;
   }
   toJSON() {
     return this.hex;
   }
+}
+
+function applyProjection(doc, projection) {
+  if (!doc || !projection) return doc;
+  const includeKeys = Object.entries(projection)
+    .filter(([, flag]) => Boolean(flag))
+    .map(([k]) => k);
+  if (includeKeys.length === 0) return doc;
+  const projected = {};
+  if (projection._id !== 0 && '_id' in doc) projected._id = doc._id;
+  for (const key of includeKeys) {
+    if (key in doc) projected[key] = doc[key];
+  }
+  return projected;
 }
 
 function normalizeVal(v) {
@@ -85,12 +102,15 @@ class FakeCollection {
     this.docs = [];
   }
 
-  async findOne(filter) {
-    return this.docs.find((doc) => matchesFilter(doc, filter)) ?? null;
+  async findOne(filter, options = {}) {
+    const found = this.docs.find((doc) => matchesFilter(doc, filter)) ?? null;
+    return applyProjection(found, options?.projection);
   }
 
-  find(filter) {
-    const matched = this.docs.filter((doc) => matchesFilter(doc, filter));
+  find(filter, options = {}) {
+    const matched = this.docs
+      .filter((doc) => matchesFilter(doc, filter))
+      .map((doc) => applyProjection(doc, options?.projection));
     return {
       async toArray() {
         return matched;
@@ -335,6 +355,171 @@ test('assertApprovedDevTarget enforces strict loopback + remote allowlist, DB al
         return true;
       },
     );
+  }
+});
+
+test('assertApprovedDevTarget enforces BOTH TLS and authentication on all remote allowlisted targets while keeping loopback ergonomic', () => {
+  const devEnv = { NODE_ENV: 'development', DATN_DB_ENV: 'development' };
+  const allowSandbox = { approvedClusterHost: 'dev-sandbox.example.net' };
+
+  // 1) Remote mongodb:// WITHOUT tls=true / ssl=true is REJECTED (with or without credentials)
+  assert.throws(
+    () =>
+      assertApprovedDevTarget(
+        devEnv,
+        'mongodb://dev-sandbox.example.net:27017/',
+        allowSandbox,
+      ),
+    /must explicitly enable TLS/,
+  );
+  assert.throws(
+    () =>
+      assertApprovedDevTarget(
+        devEnv,
+        'mongodb://user:pass@dev-sandbox.example.net:27017/',
+        allowSandbox,
+      ),
+    /must explicitly enable TLS/,
+  );
+
+  // 2) Remote mongodb:// WITH tls=true WITHOUT credentials/auth is REJECTED
+  assert.throws(
+    () =>
+      assertApprovedDevTarget(
+        devEnv,
+        'mongodb://dev-sandbox.example.net:27017/?tls=true',
+        allowSandbox,
+      ),
+    /requires authentication/,
+  );
+  assert.throws(
+    () =>
+      assertApprovedDevTarget(
+        devEnv,
+        'mongodb://user@dev-sandbox.example.net:27017/?tls=true',
+        allowSandbox,
+      ),
+    /requires authentication/,
+  );
+  assert.throws(
+    () =>
+      assertApprovedDevTarget(
+        devEnv,
+        'mongodb://:pass@dev-sandbox.example.net:27017/?tls=true',
+        allowSandbox,
+      ),
+    /requires authentication/,
+  );
+
+  // 3) Remote mongodb+srv:// WITHOUT credentials/auth is REJECTED
+  assert.throws(
+    () =>
+      assertApprovedDevTarget(
+        devEnv,
+        'mongodb+srv://dev-sandbox.example.net/',
+        allowSandbox,
+      ),
+    /requires authentication/,
+  );
+  assert.throws(
+    () =>
+      assertApprovedDevTarget(
+        devEnv,
+        'mongodb+srv://user@dev-sandbox.example.net/',
+        allowSandbox,
+      ),
+    /requires authentication/,
+  );
+
+  // 4) Weakening or disabling TLS is REJECTED on both mongodb:// and mongodb+srv://
+  for (const badTlsUri of [
+    'mongodb://user:pass@dev-sandbox.example.net:27017/?tls=false',
+    'mongodb://user:pass@dev-sandbox.example.net:27017/?ssl=false',
+    'mongodb://user:pass@dev-sandbox.example.net:27017/?tls=true&ssl=false',
+    'mongodb+srv://user:pass@dev-sandbox.example.net/?tls=false',
+    'mongodb+srv://user:pass@dev-sandbox.example.net/?ssl=false',
+  ]) {
+    assert.throws(
+      () => assertApprovedDevTarget(devEnv, badTlsUri, allowSandbox),
+      /disable TLS/,
+    );
+  }
+  for (const weakenedTlsUri of [
+    'mongodb://user:pass@dev-sandbox.example.net:27017/?tls=true&tlsInsecure=true',
+    'mongodb://user:pass@dev-sandbox.example.net:27017/?tls=true&tlsAllowInvalidCertificates=true',
+    'mongodb://user:pass@dev-sandbox.example.net:27017/?tls=true&tlsAllowInvalidHostnames=true',
+    'mongodb://user:pass@dev-sandbox.example.net:27017/?tls=true&sslValidate=false',
+    'mongodb+srv://user:pass@dev-sandbox.example.net/?tlsInsecure=true',
+    'mongodb+srv://user:pass@dev-sandbox.example.net/?tlsAllowInvalidCertificates=true',
+  ]) {
+    assert.throws(
+      () => assertApprovedDevTarget(devEnv, weakenedTlsUri, allowSandbox),
+      /weaken TLS verification/,
+    );
+  }
+
+  // 5) Password authMechanism (SCRAM / PLAIN / DEFAULT) STILL requires username+password; unknown authMechanism is REJECTED
+  for (const mech of ['SCRAM-SHA-256', 'SCRAM-SHA-1', 'PLAIN', 'DEFAULT']) {
+    assert.throws(
+      () =>
+        assertApprovedDevTarget(
+          devEnv,
+          `mongodb://dev-sandbox.example.net:27017/?tls=true&authMechanism=${mech}`,
+          allowSandbox,
+        ),
+      /requires non-empty username and password/,
+    );
+  }
+  assert.throws(
+    () =>
+      assertApprovedDevTarget(
+        devEnv,
+        'mongodb://dev-sandbox.example.net:27017/?tls=true&authMechanism=NONE',
+        allowSandbox,
+      ),
+    /unsupported authMechanism/,
+  );
+
+  // 6) Remote mongodb:// WITH credentials AND tls=true (or ssl=true) + matching allowlist PASSES
+  const remotePass = assertApprovedDevTarget(
+    devEnv,
+    'mongodb://user:example-pass@dev-sandbox.example.net:27017/?tls=true',
+    allowSandbox,
+  );
+  assert.deepEqual(remotePass, {
+    protocol: 'mongodb:',
+    hostname: 'dev-sandbox.example.net',
+    targetClass: 'approved-remote-dev',
+    iamDb: 'continuum_iam',
+    chatDb: 'continuum_chat',
+  });
+  assert.equal(JSON.stringify(remotePass).includes('example-pass'), false);
+
+  const remoteSslPass = assertApprovedDevTarget(
+    devEnv,
+    'mongodb://user:example-pass@dev-sandbox.example.net:27017/?ssl=true&authMechanism=SCRAM-SHA-256',
+    allowSandbox,
+  );
+  assert.equal(remoteSslPass.targetClass, 'approved-remote-dev');
+
+  // 7) Remote URIs with explicit non-password authMechanism (MONGODB-AWS / MONGODB-X509 / GSSAPI / MONGODB-OIDC) + TLS PASS
+  for (const externalAuthUri of [
+    'mongodb://dev-sandbox.example.net:27017/?tls=true&authMechanism=MONGODB-AWS',
+    'mongodb://dev-sandbox.example.net:27017/?tls=true&authMechanism=MONGODB-X509',
+    'mongodb+srv://dev-sandbox.example.net/?authMechanism=MONGODB-AWS',
+    'mongodb+srv://dev-sandbox.example.net/?authMechanism=MONGODB-OIDC',
+  ]) {
+    const ok = assertApprovedDevTarget(devEnv, externalAuthUri, allowSandbox);
+    assert.equal(ok.targetClass, 'approved-remote-dev');
+  }
+
+  // 8) Loopback stays ergonomic without TLS or credentials
+  for (const loopbackUri of [
+    'mongodb://127.0.0.1:27017',
+    'mongodb://localhost:27017',
+    'mongodb://[::1]:27017',
+  ]) {
+    assert.equal(assertApprovedDevTarget(devEnv, loopbackUri).targetClass, 'loopback');
   }
 });
 
@@ -656,10 +841,109 @@ test('default --apply is insert-only (preserves live E2E edits/deletions & revok
   // Strict verify passes cleanly after reset
   const verifyReport = await verifySeededData(fakeChatDb, plan, toOid);
   assert.equal(verifyReport.verified, true);
+  assert.deepEqual(verifyReport.timestampMismatches, []);
   assert.equal(verifyReport.checks.length, 3);
   for (const check of verifyReport.checks) {
     assert.equal(check.exactMemberSetMatch, true);
     assert.deepEqual(check.mutatedFixtureMessages, []);
+    assert.deepEqual(check.timestampMismatches, []);
+  }
+});
+
+test('applySeedPlan --reset-fixture verifies member ownership by _id and skips pre-existing non-fixture members untouched', async () => {
+  const fixture = JSON.parse(await fs.readFile(DEFAULT_FIXTURE_PATH, 'utf8'));
+  const identities = buildFallbackIdentities(fixture);
+  const plan = buildSeedPlan(fixture, identities, '2026-11-28');
+  const toOid = (hex) => new FakeObjectId(hex);
+
+  const fakeChatDb = new FakeDb();
+  const acPlan = plan.conversations.find((c) => c.key === 'dm_org1_ac');
+  const preexistingAcId = toOid('6adb1ee0ed7cd148fcd0fa37');
+  const preexistingNonFixtureMemberId = toOid('6adb1ee0ed7cd148fcd0ffff');
+  const memberCSpec = acPlan.members.find(
+    (m) => m.userId === identities.actorsByKey.org1_user_c.id,
+  );
+  assert.notEqual(String(preexistingNonFixtureMemberId), memberCSpec.id);
+
+  // Pre-seed a reused dm_org1_ac conversation and a pre-existing NON-ACTIVE non-fixture member for user C
+  await fakeChatDb.collection('chat_conversations').updateOne(
+    { organizationId: toOid(acPlan.organizationId), directKey: acPlan.directKey },
+    {
+      $setOnInsert: {
+        _id: preexistingAcId,
+        organizationId: toOid(acPlan.organizationId),
+        type: 'DIRECT',
+        directKey: acPlan.directKey,
+        lastMessageAt: null,
+      },
+    },
+    { upsert: true },
+  );
+  const originalUpdatedAt = new Date('2026-10-01T00:00:00.000Z');
+  await fakeChatDb.collection('chat_members').updateOne(
+    { conversationId: preexistingAcId, userId: memberCSpec.userId },
+    {
+      $setOnInsert: {
+        _id: preexistingNonFixtureMemberId,
+        organizationId: toOid(acPlan.organizationId),
+        conversationId: preexistingAcId,
+        userId: memberCSpec.userId,
+        displayName: 'Pre-existing Custom C',
+        searchLabel: 'Custom Peer Label',
+        role: 'MEMBER',
+        status: 'REMOVED',
+        customFlag: 'preserve-non-fixture',
+        updatedAt: originalUpdatedAt,
+      },
+    },
+    { upsert: true },
+  );
+
+  // Initial insert-only apply: inserts fixture-owned member A on dm_org1_ac, leaves pre-existing C untouched
+  const initialRun = await applySeedPlan(fakeChatDb, plan, toOid);
+  const acInitial = initialRun.conversations.find((c) => c.key === 'dm_org1_ac');
+  assert.equal(acInitial.membersUpserted, 1);
+  assert.equal(acInitial.membersMatched, 1);
+  assert.equal(acInitial.membersReset, 0);
+  assert.equal(acInitial.membersSkippedNonFixture, 0);
+
+  // Revoke the fixture-owned member A on dm_org1_ac to verify --reset-fixture resets A while skipping non-fixture C
+  await fakeChatDb.collection('chat_members').updateOne(
+    { conversationId: preexistingAcId, userId: identities.actorsByKey.org1_user_a.id },
+    { $set: { status: 'REMOVED' } },
+  );
+
+  const resetRun = await applySeedPlan(fakeChatDb, plan, toOid, { resetFixture: true });
+  const acReset = resetRun.conversations.find((c) => c.key === 'dm_org1_ac');
+  assert.equal(acReset.membersReset, 1);
+  assert.equal(acReset.membersSkippedNonFixture, 1);
+  assert.equal(acReset.membersUpserted, 0);
+  assert.equal(acReset.membersMatched, 0);
+
+  // Fixture-owned member A was restored to ACTIVE
+  const memberAAfterReset = await fakeChatDb.collection('chat_members').findOne({
+    conversationId: preexistingAcId,
+    userId: identities.actorsByKey.org1_user_a.id,
+  });
+  assert.equal(memberAAfterReset.status, 'ACTIVE');
+
+  // Pre-existing non-fixture member C MUST remain completely untouched and NOT reactivated!
+  const memberCAfterReset = await fakeChatDb.collection('chat_members').findOne({
+    conversationId: preexistingAcId,
+    userId: memberCSpec.userId,
+  });
+  assert.equal(String(memberCAfterReset._id), String(preexistingNonFixtureMemberId));
+  assert.equal(memberCAfterReset.status, 'REMOVED');
+  assert.equal(memberCAfterReset.displayName, 'Pre-existing Custom C');
+  assert.equal(memberCAfterReset.searchLabel, 'Custom Peer Label');
+  assert.equal(memberCAfterReset.customFlag, 'preserve-non-fixture');
+  assert.equal(memberCAfterReset.updatedAt.valueOf(), originalUpdatedAt.valueOf());
+
+  // Conversations with exclusively fixture-owned members report membersSkippedNonFixture === 0
+  for (const key of ['dm_org1_ab', 'dm_org2_xy']) {
+    const summary = resetRun.conversations.find((c) => c.key === key);
+    assert.equal(summary.membersReset, 2);
+    assert.equal(summary.membersSkippedNonFixture, 0);
   }
 });
 
@@ -864,6 +1148,82 @@ test('verifySeededData rejects extra 3rd ACTIVE member, corrupted message fields
     () => verifySeededData(fakeChatDb, plan, toOid, { allowE2eMutations: true }),
     /corrupted\/mutated fixture message/,
   );
+});
+
+test('verifySeededData fails when fixture message createdAt timestamps drift from --anchor-date (even with allowE2eMutations)', async () => {
+  const fixture = JSON.parse(await fs.readFile(DEFAULT_FIXTURE_PATH, 'utf8'));
+  const identities = buildFallbackIdentities(fixture);
+  const yesterdayPlan = buildSeedPlan(fixture, identities, '2026-11-27');
+  const todayPlan = buildSeedPlan(fixture, identities, '2026-11-28');
+  const toOid = (hex) => new FakeObjectId(hex);
+
+  // 1) Seed DB against yesterday's anchor date (2026-11-27), then verify against today's anchor date (2026-11-28)
+  const staleDb = new FakeDb();
+  await applySeedPlan(staleDb, yesterdayPlan, toOid);
+
+  const matchingVerify = await verifySeededData(staleDb, yesterdayPlan, toOid, {
+    throwOnFailure: false,
+  });
+  assert.equal(matchingVerify.verified, true);
+  assert.deepEqual(matchingVerify.timestampMismatches, []);
+
+  const staleVerify = await verifySeededData(staleDb, todayPlan, toOid, {
+    throwOnFailure: false,
+  });
+  assert.equal(staleVerify.verified, false);
+  assert.equal(staleVerify.timestampMismatches.length, 82);
+  assert.ok(staleVerify.failures.some((msg) => msg.includes('createdAt timestamp mismatch')));
+  for (const check of staleVerify.checks) {
+    assert.ok(check.timestampMismatches.length > 0);
+  }
+  await assert.rejects(
+    () => verifySeededData(staleDb, todayPlan, toOid),
+    /createdAt timestamp mismatch/,
+  );
+
+  // 2) A single 1-day-shifted createdAt on E2E candidate #59 STILL fails even with allowE2eMutations: true!
+  const freshDb = new FakeDb();
+  await applySeedPlan(freshDb, todayPlan, toOid);
+  const msg59Id = toOid('6928d1000000000000000059');
+  const msg59Doc = await freshDb
+    .collection('chat_conversation_messages')
+    .findOne({ _id: msg59Id });
+  const shiftedCreatedAt = new Date(msg59Doc.createdAt.getTime() - 24 * 60 * 60 * 1000);
+  await freshDb
+    .collection('chat_conversation_messages')
+    .updateOne({ _id: msg59Id }, { $set: { createdAt: shiftedCreatedAt } });
+
+  const shiftedReport = await verifySeededData(freshDb, todayPlan, toOid, {
+    allowE2eMutations: true,
+    throwOnFailure: false,
+  });
+  assert.equal(shiftedReport.verified, false);
+  assert.equal(shiftedReport.timestampMismatches.length, 1);
+  assert.equal(shiftedReport.timestampMismatches[0].messageId, '6928d1000000000000000059');
+  assert.equal(
+    shiftedReport.timestampMismatches[0].actualCreatedAt,
+    shiftedCreatedAt.toISOString(),
+  );
+  assert.equal(
+    shiftedReport.timestampMismatches[0].expectedCreatedAt,
+    msg59Doc.createdAt.toISOString(),
+  );
+  const abCheck = shiftedReport.checks.find((c) => c.key === 'dm_org1_ab');
+  assert.equal(abCheck.timestampMismatches.length, 1);
+  assert.ok(
+    abCheck.mutatedFixtureMessages[0].reasons.some((r) => r.startsWith('createdAt_mismatch')),
+  );
+
+  // 3) Missing/null createdAt also fails closed in timestampMismatches
+  await freshDb
+    .collection('chat_conversation_messages')
+    .updateOne({ _id: msg59Id }, { $set: { createdAt: null } });
+  const missingTsReport = await verifySeededData(freshDb, todayPlan, toOid, {
+    throwOnFailure: false,
+  });
+  assert.equal(missingTsReport.verified, false);
+  assert.equal(missingTsReport.timestampMismatches.length, 1);
+  assert.equal(missingTsReport.timestampMismatches[0].actualCreatedAt, 'missing');
 });
 
 test('CLI offline --dry-run runs cleanly and prints accurate deterministic counts', async () => {

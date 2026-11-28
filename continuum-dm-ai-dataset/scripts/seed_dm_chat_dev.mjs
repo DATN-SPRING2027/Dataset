@@ -6,14 +6,15 @@
  * - Defaults to `--dry-run` (zero DB writes unless `--apply` is explicitly passed).
  * - Requires isolated development environment (`NODE_ENV=development` AND `DATN_DB_ENV=development`),
  *   exact service-owned databases (`continuum_iam` & `continuum_chat`), explicit approved dev target
- *   allowlist (loopback OR explicitly allowlisted non-prod cluster host), and approved dev
- *   organizations (`continuum-ai-labs` & `datn-dev`) before `--apply`.
+ *   allowlist (loopback OR explicitly allowlisted non-prod cluster host with TLS AND auth enforced),
+ *   and approved dev organizations (`continuum-ai-labs` & `datn-dev`) before `--apply`.
  * - Never prints credentials, MongoDB URIs, password hashes, or tokens.
  * - Default `--apply` is strictly insert-only (`$setOnInsert`) for conversations, members, and
  *   messages with fail-closed cross-conversation/org `_id` collision detection so live E2E edits,
  *   deletions, and revoked members are never overwritten.
- * - Explicit `--apply --reset-fixture` restores ONLY fixture-owned member & message records back to
- *   their clean baseline while preserving non-fixture live/AI messages.
+ * - Explicit `--apply --reset-fixture` restores ONLY fixture-owned member (verified by deterministic
+ *   `_id`) & message records back to their clean baseline while preserving pre-existing non-fixture
+ *   members and non-fixture live/AI messages.
  * - Strictly seeds human-to-human messages only (zero pre-seeded AI bot replies, zero gold eval answers).
  */
 
@@ -55,6 +56,20 @@ const FORBIDDEN_REMOTE_HOST_RE =
 const APPROVED_DEV_REMOTE_HOST_RE =
   /(^|[.-])(dev|development|sandbox|local|test)([.-]|$)/i;
 const SAFE_HOSTNAME_RE = /^[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?$/i;
+const TLS_TRUTHY_VALUES = new Set(['true', '1', 'yes']);
+const TLS_FALSY_VALUES = new Set(['false', '0', 'no']);
+const PASSWORD_AUTH_MECHANISMS = new Set([
+  'SCRAM-SHA-256',
+  'SCRAM-SHA-1',
+  'PLAIN',
+  'DEFAULT',
+]);
+const EXTERNAL_AUTH_MECHANISMS = new Set([
+  'MONGODB-AWS',
+  'MONGODB-X509',
+  'GSSAPI',
+  'MONGODB-OIDC',
+]);
 
 const FORBIDDEN_SEED_KEYS = new Set([
   'expectedAnswer',
@@ -79,6 +94,26 @@ export function loadMongoDriver(beRoot = process.env.DATN_BE_ROOT || path.join(W
     const requireLocal = createRequire(import.meta.url);
     return requireLocal('mongodb');
   }
+}
+
+function decodeUriComponentSafe(value) {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
+function objectIdsEqual(a, b) {
+  if (a === null || a === undefined || b === null || b === undefined) return false;
+  if (typeof a.equals === 'function') {
+    try {
+      return Boolean(a.equals(b));
+    } catch {
+      // Fallback to canonical hex string comparison below.
+    }
+  }
+  return String(a).toLowerCase() === String(b).toLowerCase();
 }
 
 export function stableObjectIdHex(...parts) {
@@ -306,14 +341,46 @@ export function assertApprovedDevTarget(env, mongoUri, options = {}) {
       );
     }
 
-    const disablesTls = [...parsed.searchParams.entries()].some(
-      ([name, value]) =>
-        ['tls', 'ssl'].includes(name.toLowerCase()) &&
-        ['false', '0', 'no'].includes(value.toLowerCase()),
-    );
-    if (disablesTls) {
+    let hasExplicitTlsTrue = false;
+    const authMechanisms = [];
+    for (const [rawName, rawValue] of parsed.searchParams.entries()) {
+      const name = rawName.toLowerCase();
+      const value = rawValue.trim().toLowerCase();
+
+      if (name === 'tls' || name === 'ssl') {
+        if (TLS_FALSY_VALUES.has(value)) {
+          throw new Error(
+            'Safety guard: remote development MONGODB_URI must not disable TLS.',
+          );
+        }
+        if (value === 'true') {
+          hasExplicitTlsTrue = true;
+        } else {
+          throw new Error(
+            `Safety guard: remote development MONGODB_URI has invalid TLS setting "${rawName}=${rawValue}". Expected "true".`,
+          );
+        }
+      } else if (
+        (name === 'tlsinsecure' ||
+          name === 'tlsallowinvalidcertificates' ||
+          name === 'tlsallowinvalidhostnames') &&
+        TLS_TRUTHY_VALUES.has(value)
+      ) {
+        throw new Error(
+          `Safety guard: remote development MONGODB_URI must not weaken TLS verification (${rawName}=${rawValue}).`,
+        );
+      } else if (name === 'sslvalidate' && TLS_FALSY_VALUES.has(value)) {
+        throw new Error(
+          `Safety guard: remote development MONGODB_URI must not weaken TLS verification (${rawName}=${rawValue}).`,
+        );
+      } else if (name === 'authmechanism') {
+        authMechanisms.push(rawValue.trim().toUpperCase());
+      }
+    }
+
+    if (parsed.protocol === 'mongodb:' && !hasExplicitTlsTrue) {
       throw new Error(
-        'Safety guard: remote development MONGODB_URI must not disable TLS.',
+        'Safety guard: remote development mongodb:// URI must explicitly enable TLS (tls=true or ssl=true).',
       );
     }
 
@@ -322,14 +389,41 @@ export function assertApprovedDevTarget(env, mongoUri, options = {}) {
       if (
         parsed.port ||
         labels.length < 3 ||
-        labels.some((label) => label.length === 0) ||
-        !parsed.username ||
-        !parsed.password
+        labels.some((label) => label.length === 0)
       ) {
         throw new Error(
-          'Safety guard: Atlas development MONGODB_URI must use one DNS hostname and include database-user credentials.',
+          'Safety guard: Atlas development mongodb+srv:// URI must use one multi-label DNS hostname without a port.',
         );
       }
+    }
+
+    if (authMechanisms.length > 1) {
+      throw new Error(
+        'Safety guard: remote development MONGODB_URI must not specify multiple authMechanism values.',
+      );
+    }
+
+    const hasUserAndPass =
+      decodeUriComponentSafe(parsed.username).trim().length > 0 &&
+      decodeUriComponentSafe(parsed.password).trim().length > 0;
+    const authMechanism = authMechanisms[0] ?? null;
+
+    if (authMechanism !== null) {
+      if (PASSWORD_AUTH_MECHANISMS.has(authMechanism)) {
+        if (!hasUserAndPass) {
+          throw new Error(
+            `Safety guard: remote development MONGODB_URI with authMechanism=${authMechanism} requires non-empty username and password.`,
+          );
+        }
+      } else if (!EXTERNAL_AUTH_MECHANISMS.has(authMechanism)) {
+        throw new Error(
+          `Safety guard: remote development MONGODB_URI has unsupported authMechanism "${authMechanism}".`,
+        );
+      }
+    } else if (!hasUserAndPass) {
+      throw new Error(
+        'Safety guard: remote development MONGODB_URI requires authentication (non-empty username+password or an approved non-password authMechanism such as MONGODB-AWS, MONGODB-X509, GSSAPI, or MONGODB-OIDC).',
+      );
     }
   }
 
@@ -916,10 +1010,11 @@ export async function applySeedPlan(
     const resolvedConvOid = existingConv._id;
     const resolvedConvIdHex = String(resolvedConvOid).toLowerCase();
 
-    // 2) Insert-only default for conversation members ($setOnInsert); explicit --reset-fixture restores fixture-owned members.
+    // 2) Insert-only default for conversation members ($setOnInsert); explicit --reset-fixture restores ONLY fixture-owned members (verified by _id).
     let membersUpserted = 0;
     let membersMatched = 0;
     let membersReset = 0;
+    let membersSkippedNonFixture = 0;
     for (const member of conv.members) {
       const memberOid = toObjectId(member.id);
       const existingById = await membersCol.findOne(
@@ -984,26 +1079,30 @@ export async function applySeedPlan(
       };
 
       if (resetFixture && existingByPair) {
-        await membersCol.updateOne(
-          {
-            _id: existingByPair._id,
-            conversationId: resolvedConvOid,
-            userId: member.userId,
-          },
-          {
-            $set: {
-              organizationId: orgOid,
-              displayName: member.displayName,
-              searchLabel: member.searchLabel,
-              avatarUrl: member.avatarUrl,
-              role: member.role,
-              status: 'ACTIVE',
-              updatedAt: conv.lastMessage.createdAt,
+        if (objectIdsEqual(existingByPair._id, memberOid)) {
+          await membersCol.updateOne(
+            {
+              _id: memberOid,
+              conversationId: resolvedConvOid,
+              userId: member.userId,
             },
-          },
-          { upsert: false },
-        );
-        membersReset += 1;
+            {
+              $set: {
+                organizationId: orgOid,
+                displayName: member.displayName,
+                searchLabel: member.searchLabel,
+                avatarUrl: member.avatarUrl,
+                role: member.role,
+                status: 'ACTIVE',
+                updatedAt: conv.lastMessage.createdAt,
+              },
+            },
+            { upsert: false },
+          );
+          membersReset += 1;
+        } else {
+          membersSkippedNonFixture += 1;
+        }
       } else {
         const res = await membersCol.updateOne(
           { conversationId: resolvedConvOid, userId: member.userId },
@@ -1159,6 +1258,7 @@ export async function applySeedPlan(
       membersUpserted,
       membersMatched,
       membersReset,
+      membersSkippedNonFixture,
       messagesUpserted,
       messagesMatched,
       messagesReset,
@@ -1206,6 +1306,7 @@ export async function verifySeededData(
         exactMemberSetMatch: false,
         mutatedFixtureMessages: [],
         allowedE2eMutations: [],
+        timestampMismatches: [],
       });
       continue;
     }
@@ -1274,7 +1375,7 @@ export async function verifySeededData(
       wrongOrgMembers.length === 0 &&
       actualActiveMemberIds.every((id, idx) => id === expectedActiveMemberIds[idx]);
 
-    // 2) Full per-message integrity audit for every fixture message ID
+    // 2) Full per-message integrity audit (including strict anchor-date createdAt verification) for every fixture message ID
     const expectedMsgIds = conv.messages.map((m) => toObjectId(m.id));
     const actualDocs = await msgsCol
       .find(
@@ -1287,6 +1388,7 @@ export async function verifySeededData(
             senderId: 1,
             authorType: 1,
             content: 1,
+            createdAt: 1,
             editedAt: 1,
             deletedAt: 1,
           },
@@ -1300,6 +1402,7 @@ export async function verifySeededData(
     const allowedCandidateSet = new Set(conv.liveE2eCandidateIds ?? []);
     const mutatedFixtureMessages = [];
     const allowedE2eMutations = [];
+    const timestampMismatches = [];
     let exactMatchedMessages = 0;
 
     for (const expectedMsg of conv.messages) {
@@ -1337,6 +1440,30 @@ export async function verifySeededData(
       ) {
         hardViolations.push(
           `forbidden_authorType(actual=${actual.authorType ?? actual.senderId})`,
+        );
+      }
+
+      const expectedCreatedAtMs = expectedMsg.createdAt.getTime();
+      const actualCreatedAtDate =
+        actual.createdAt === null || actual.createdAt === undefined
+          ? null
+          : new Date(actual.createdAt);
+      const actualCreatedAtMs =
+        actualCreatedAtDate !== null && Number.isFinite(actualCreatedAtDate.getTime())
+          ? actualCreatedAtDate.getTime()
+          : Number.NaN;
+      if (actualCreatedAtMs !== expectedCreatedAtMs) {
+        const actualIso = Number.isFinite(actualCreatedAtMs)
+          ? actualCreatedAtDate.toISOString()
+          : String(actual.createdAt ?? 'missing');
+        const expectedIso = expectedMsg.createdAt.toISOString();
+        timestampMismatches.push({
+          messageId: expectedMsg.id,
+          actualCreatedAt: actualIso,
+          expectedCreatedAt: expectedIso,
+        });
+        hardViolations.push(
+          `createdAt_mismatch(actual=${actualIso},expected=${expectedIso})`,
         );
       }
 
@@ -1384,6 +1511,18 @@ export async function verifySeededData(
       }
     }
 
+    if (timestampMismatches.length > 0) {
+      const tsDetail = timestampMismatches
+        .slice(0, 10)
+        .map(
+          (m) =>
+            `${m.messageId}(actual=${m.actualCreatedAt},expected=${m.expectedCreatedAt})`,
+        )
+        .join('; ');
+      failures.push(
+        `Verify failed: ${conv.key} has ${timestampMismatches.length} createdAt timestamp mismatch(es) for anchorDate=${plan.anchorDate}: ${tsDetail}.`,
+      );
+    }
     if (mutatedFixtureMessages.length > 0) {
       const detail = mutatedFixtureMessages
         .slice(0, 10)
@@ -1407,17 +1546,26 @@ export async function verifySeededData(
       exactMatchedMessages,
       mutatedFixtureMessages,
       allowedE2eMutations,
+      timestampMismatches,
       nonMembersVerifiedAbsent: conv.verifiedNonMembers
         .filter((nm) => !actualActiveSet.has(nm.userId.toLowerCase()))
         .map((nm) => nm.actorKey),
     });
   }
 
+  const timestampMismatches = checks.flatMap((check) =>
+    (check.timestampMismatches ?? []).map((item) => ({
+      conversationKey: check.key,
+      ...item,
+    })),
+  );
+
   const report = {
     mode: 'verify',
     verified: failures.length === 0,
     allowE2eMutations: Boolean(allowE2eMutations),
     anchorDate: plan.anchorDate,
+    timestampMismatches,
     failures,
     checks,
   };

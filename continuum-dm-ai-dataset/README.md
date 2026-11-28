@@ -92,9 +92,12 @@ node continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.mjs --dry-run --env-file .
 Script **chặn ghi (fail closed)** trừ khi thỏa mãn đồng thời mọi điều kiện:
 1. Cả `NODE_ENV=development` và `DATN_DB_ENV=development` đều được đặt.
 2. Tên DB chính xác tuyệt đối: `IAM_DB_NAME=continuum_iam` và `CHAT_DB_NAME=continuum_chat` (URI không chọn DB trong path).
-3. **Host allowlist nghiêm ngặt (`assertApprovedDevTarget`):**
-   - Máy cục bộ loopback (`127.0.0.1`, `localhost`, `::1`) với `mongodb://` được phép trong chế độ dev.
-   - Mọi cụm remote / Atlas (`mongodb+srv://` hoặc host khác loopback) **bắt buộc** khớp chính xác `--approved-cluster-host=<exact-host>` (hoặc biến môi trường `DATN_SEED_APPROVED_CLUSTER_HOST`), đồng thời tên host phải mang nhãn dev/sandbox hợp lệ (cấm mọi nhãn `prod`/`production`/`staging`/`uat`/`live`), bật TLS và có thông tin xác thực. Lưu ý: cờ `--allow-shared-database` **không bao giờ** vượt qua allowlist host.
+3. **Host allowlist, TLS & xác thực nghiêm ngặt (`assertApprovedDevTarget`):**
+   - Máy cục bộ loopback (`127.0.0.1`, `localhost`, `::1`) với `mongodb://` được phép trong chế độ dev mà không yêu cầu TLS/xác thực để giữ tiện lợi khi phát triển cục bộ.
+   - Mọi cụm remote (`mongodb://` hoặc `mongodb+srv://` khác loopback) **bắt buộc**:
+     - Khớp chính xác `--approved-cluster-host=<exact-host>` (hoặc biến môi trường `DATN_SEED_APPROVED_CLUSTER_HOST`) và tên host phải mang nhãn dev/sandbox hợp lệ (cấm mọi nhãn `prod`/`production`/`staging`/`uat`/`live`). Cờ `--allow-shared-database` **không bao giờ** vượt qua allowlist host.
+     - **Bắt buộc TLS:** `mongodb+srv://` bật TLS mặc định và bị từ chối nếu đặt `tls=false`/`ssl=false`/`tlsInsecure=true`/`tlsAllowInvalidCertificates=true`/`tlsAllowInvalidHostnames=true`/`sslValidate=false`; `mongodb://` remote **bắt buộc** khai báo tường minh `tls=true` hoặc `ssl=true` (và không được tắt/làm yếu xác thực TLS).
+     - **Bắt buộc xác thực (Authentication):** phải có `username:password` khác rỗng trong URI (bắt buộc ngay cả khi dùng `authMechanism=SCRAM-SHA-256`/`SCRAM-SHA-1`/`PLAIN`/`DEFAULT`) hoặc một `authMechanism` không dùng mật khẩu hợp lệ (`MONGODB-AWS`, `MONGODB-X509`, `GSSAPI`, `MONGODB-OIDC`).
 4. **Org allowlist nghiêm ngặt (`assertApprovedDevOrganizations`):** các tổ chức phân giải từ `continuum_iam` bắt buộc thuộc danh sách dev đã phê duyệt (`continuum-ai-labs` và `datn-dev`, có thể ghim thêm ID qua `--approved-org1-id` / `--approved-org2-id`). Trên cụm remote, chế độ fallback IAM bị chặn.
 5. **Nguyên tắc đặc quyền tối thiểu (least-privilege):** luôn sử dụng tài khoản DB sandbox riêng cho môi trường dev chỉ có quyền đọc `continuum_iam` và đọc/ghi `continuum_chat`; không dùng user quản trị cụm hoặc production, không in/commit chuỗi kết nối.
 
@@ -112,21 +115,22 @@ node continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.mjs --apply `
   --env-file ..\DATN_BE\.env
 
 # 3) Reset tường minh dữ liệu fixture về trạng thái sạch sau các bài test E2E sửa/xóa
-#    (chỉ khôi phục các member/message thuộc fixture _id đã khớp org/conv; giữ nguyên tin live/AI)
+#    (chỉ khôi phục các member/message có `_id` thuộc sở hữu fixture và khớp org/conv; giữ nguyên member pre-existing khác `_id` & tin live/AI)
 node continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.mjs --apply --reset-fixture `
   --approved-cluster-host=<approved-dev-cluster-host> `
   --env-file ..\DATN_BE\.env
 
-# 4) Xác minh chỉ đọc sau khi seed (mặc định kiểm tra chính xác tuyệt đối tập thành viên ACTIVE và từng tin fixture)
+# 4) Xác minh chỉ đọc sau khi seed (mặc định kiểm tra chính xác tuyệt đối tập thành viên ACTIVE, từng tin fixture và mốc `createdAt` theo `--anchor-date`)
 node continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.mjs --verify --env-file ..\DATN_BE\.env
 
-# 5) Xác minh sau khi chạy live E2E sửa/xóa (chỉ cho phép đột biến nội dung/editedAt/deletedAt trên 3 tin ứng viên #59/#60/#61)
+# 5) Xác minh sau khi chạy live E2E sửa/xóa (chỉ cho phép đột biến nội dung/editedAt/deletedAt trên 3 tin ứng viên #59/#60/#61; `createdAt` vẫn luôn kiểm tra nghiêm ngặt)
 node continuum-dm-ai-dataset/scripts/seed_dm_chat_dev.mjs --verify --allow-e2e-mutations --env-file ..\DATN_BE\.env
 ```
 
-> **Tính an toàn khi chạy lặp (`--apply` mặc định vs `--reset-fixture`):**
+> **Tính an toàn khi chạy lặp (`--apply` mặc định vs `--reset-fixture`) & kiểm tra mốc thời gian (`--verify`):**
 > - Mặc định `--apply` dùng **strict insert-only (`$setOnInsert`)** cho cả `chat_members` và `chat_conversation_messages`, kèm kiểm tra xung đột `_id` liên hội thoại/liên tổ chức trước khi ghi. Nhờ đó các tin `#59`/`#60`/`#61` đã sửa/xóa trong live E2E hoặc thành viên đã thu hồi quyền (`status != ACTIVE`) **không bao giờ** bị ghi đè hay kích hoạt lại ngoài ý muốn.
-> - Chỉ khi truyền tường minh `--apply --reset-fixture`, script mới khôi phục đúng các bản ghi thuộc fixture về trạng thái gốc; các tin nhắn live và phản hồi `@continuumAI` ngoài fixture vẫn được **giữ nguyên hoàn toàn**.
+> - Chỉ khi truyền tường minh `--apply --reset-fixture`, script mới khôi phục đúng các bản ghi thuộc fixture (xác minh quyền sở hữu bằng `_id` tất định) về trạng thái gốc; các bản ghi `chat_members` pre-existing có `_id` khác fixture trên hội thoại tái sử dụng được giữ nguyên (ghi nhận vào `membersSkippedNonFixture`) và các tin nhắn live/phản hồi `@continuumAI` ngoài fixture vẫn được **giữ nguyên hoàn toàn**.
+> - Ở chế độ `--verify`, script đối chiếu cả `createdAt` của toàn bộ 82 tin nhắn fixture với mốc `--anchor-date` (theo múi giờ `Asia/Ho_Chi_Minh`); bất kỳ tin nhắn nào bị lệch ngày/giờ (kể cả khi bật `--allow-e2e-mutations`) đều được ghi vào `timestampMismatches` và làm `--verify` trả về `verified: false` (exit code `1`).
 
 ### 5.3 Chạy bộ kiểm thử tự động
 ```powershell
